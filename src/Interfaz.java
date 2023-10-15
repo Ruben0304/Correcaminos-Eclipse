@@ -26,9 +26,7 @@ public class Interfaz extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
+	//crear
 	public Interfaz() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);

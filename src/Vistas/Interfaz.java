@@ -50,11 +50,11 @@ public class Interfaz extends JFrame {
 		
 		JLabel btnNewButton = new JLabel();
 		btnNewButton.setText("jjjjj");
-		setBackground(Colores.TRANSPARENTE);
+		
 		
 		JPanel panel_1 = new JPanel();
 		panel.add(panel_1);
-		panel.setBackground(Colores.TRANSPARENTE);
+		
 		panel.add(btnNewButton);
 		
 		JLabel lblNewLabel = new JLabel("New label");

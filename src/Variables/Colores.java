@@ -15,6 +15,6 @@ public final class Colores {
 	public static final Color BLANCO = new Color(0xFFFFFF);
 	public static final Color NEGRO = new Color(0x000000);
 	public static final Color ROJO = new Color(0xAE070F);
-	public static final Color TRANSPARENTE = new Color(0x00FFFFFF);
+	
 
 }

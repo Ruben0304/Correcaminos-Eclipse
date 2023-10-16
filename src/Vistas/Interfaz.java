@@ -3,9 +3,14 @@ import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import java.awt.Color;
+
+import Variables.Colores;
+
+import javax.swing.JButton;
+
 
 
 public class Interfaz extends JFrame {
@@ -30,13 +35,29 @@ public class Interfaz extends JFrame {
 
 	//crear
 	public Interfaz() {
-		setBackground(new Color(42, 100, 56));
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JPanel panel = new JPanel();
+		panel.setBackground(Colores.VERDE_CLARO);
+		panel.setBounds(5, 5, 359, 243);
+		contentPane.add(panel);
+		
+		JLabel btnNewButton = new JLabel();
+		btnNewButton.setText("jjjjj");
+		setBackground(Colores.TRANSPARENTE);
+		
+		JPanel panel_1 = new JPanel();
+		panel.add(panel_1);
+		panel.setBackground(Colores.TRANSPARENTE);
+		panel.add(btnNewButton);
+		
+		JLabel lblNewLabel = new JLabel("New label");
+		panel.add(lblNewLabel);
 	}
-
 }

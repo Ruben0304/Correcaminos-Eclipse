@@ -1,3 +1,4 @@
+package Modelos;
 
 public abstract class Usuario {
 protected String carnet;

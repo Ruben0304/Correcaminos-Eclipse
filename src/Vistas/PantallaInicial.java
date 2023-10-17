@@ -75,7 +75,7 @@ public class PantallaInicial extends JFrame {
 		lblNewLabel.setBackground(new Color(204, 255, 204));
 		lblNewLabel.setFont(new Font("Brush Script MT", Font.PLAIN, 44));
 	    lblNewLabel.setBounds(0, 0, 494, 525);
-		ImageIcon ico = new ImageIcon(getClass().getResource("/img/img.jpg")); 
+		ImageIcon ico = new ImageIcon(getClass().getResource("/img/licencia.jpg")); 
 		ImageIcon img = new ImageIcon(ico.getImage().getScaledInstance(lblNewLabel.getWidth(), lblNewLabel.getHeight(), Image.SCALE_SMOOTH));
 		lblNewLabel.setIcon(img);
 		contentPane.add(lblNewLabel);

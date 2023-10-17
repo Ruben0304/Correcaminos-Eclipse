@@ -90,7 +90,7 @@ public class PantallaInicial extends JFrame {
 		JButton btnNewButton = new JButton("Iniciar sesi\u00F3n");
 		btnNewButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnNewButton.setForeground(new Color(0, 0, 0));
-		btnNewButton.setBorder(new MatteBorder(57, 13, 40, 40, (Color) new Color(0, 0, 0)));
+		btnNewButton.setBorder(null);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				String usuario = txtUsuario.getText();

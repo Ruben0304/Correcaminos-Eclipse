@@ -15,6 +15,12 @@ import javax.swing.JMenuItem;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+<<<<<<< Updated upstream
+=======
+import javax.swing.ImageIcon;
+import java.awt.Color;
+import java.awt.Component;
+>>>>>>> Stashed changes
 
 
 public class Inicio extends JFrame {
@@ -47,6 +53,8 @@ public class Inicio extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		JMenuBar menuBar = new JMenuBar();
+		menuBar.setBorder(null);
+		menuBar.setBackground(Color.WHITE);
 		setJMenuBar(menuBar);
 		
 		JMenu mnNewMenu = new JMenu("Opciones");
@@ -116,10 +124,15 @@ public class Inicio extends JFrame {
 				
 			}
 		};
+		contentPane.setAlignmentY(Component.BOTTOM_ALIGNMENT);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
+<<<<<<< Updated upstream
 		setBounds(100, 100, 663, 438);
+=======
+		contentPane.setLayout(null);
+		setBounds(100, 100, 920, 580);
+>>>>>>> Stashed changes
 		setLocationRelativeTo(null);
 	}
 

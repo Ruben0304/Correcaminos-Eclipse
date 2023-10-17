@@ -159,7 +159,7 @@ public class PantallaInicial extends JFrame {
 		contentPane.add(lblNewLabel_2);
 		
 		JLabel lblNewLabel_3 = new JLabel("");
-		lblNewLabel_3.setBounds(599, 93, 134, 123);
+		lblNewLabel_3.setBounds(615, 113, 94, 86);
 		ImageIcon icon = new ImageIcon(getClass().getResource("/img/correcamino.png")); 
 		ImageIcon imgan = new ImageIcon(icon.getImage().getScaledInstance(lblNewLabel_3.getWidth(), lblNewLabel_3.getHeight(), Image.SCALE_SMOOTH));
 		lblNewLabel_3.setIcon((imgan));

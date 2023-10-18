@@ -285,6 +285,9 @@ public class Estudiante extends JFrame {
 				if(nombre==null|| nombre.isEmpty() ||apellidos==null || apellidos.isEmpty()||id==null ||id.isEmpty()|| curso.isEmpty()||curso==null ||grupo.isEmpty()||grupo==null || motivo.isEmpty()||motivo==null)
 					errorMessage.setVisible(true);
 				else{
+					Baja b=new Baja();
+					b.setVisible(true);
+					dispose();
 					
 				}
 					

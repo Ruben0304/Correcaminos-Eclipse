@@ -57,7 +57,7 @@ public class PantallaInicial extends JFrame {
 		setType(Type.POPUP);
 		setResizable(false);
 		setFont(new Font("Arial Narrow", Font.BOLD, 12));
-		setIconImage(Toolkit.getDefaultToolkit().getImage(PantallaInicial.class.getResource("/img/img.jpg")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(PantallaInicial.class.getResource("/img/correcamino.png")));
 		setTitle("CorrecaminosCujae");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 864, 576);

@@ -1,3 +1,5 @@
+package Vistas;
+
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.Graphics;
@@ -15,6 +17,7 @@ import javax.swing.JMenuItem;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.ImageIcon;
 
 
 public class Inicio extends JFrame {
@@ -42,7 +45,7 @@ public class Inicio extends JFrame {
 	 */
 	public Inicio() {
 		setResizable(false);
-		setIconImage(Toolkit.getDefaultToolkit().getImage(Inicio.class.getResource("/imagenes/correcamino.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Inicio.class.getResource("/img/correcamino.png")));
 		setTitle("Inicio");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
@@ -50,6 +53,8 @@ public class Inicio extends JFrame {
 		setJMenuBar(menuBar);
 		
 		JMenu mnNewMenu = new JMenu("Opciones");
+		mnNewMenu.setIcon(new ImageIcon(Inicio.class.getResource("/img/correcamino20.png")));
+		mnNewMenu.setSelectedIcon(new ImageIcon(Inicio.class.getResource("/img/correcamino.png")));
 		menuBar.add(mnNewMenu);
 		
 		JMenuItem mntmCerrarSesin = new JMenuItem("Cerrar sesi\u00F3n");
@@ -111,7 +116,7 @@ public class Inicio extends JFrame {
 		mnNewMenu_3.add(mntmAcercaDeLa);
 		contentPane = new JPanel(){
 			public void paintComponent(Graphics g){
-				Image img = Toolkit.getDefaultToolkit().getImage(Inicio.class.getResource("/imagenes/img.jpg"));
+				Image img = Toolkit.getDefaultToolkit().getImage(Inicio.class.getResource("/img/img.jpg"));
 				g.drawImage(img, 0, 0, this.getWidth(), this.getHeight(),this);
 				
 			}
@@ -119,7 +124,7 @@ public class Inicio extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
-		setBounds(100, 100, 663, 438);
+		setBounds(100, 100, 920, 580);
 		setLocationRelativeTo(null);
 	}
 

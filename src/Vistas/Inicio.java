@@ -124,7 +124,7 @@ public class Inicio extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
-		setBounds(100, 100, 920, 580);
+		setBounds(100, 100, 672, 457);
 		setLocationRelativeTo(null);
 	}
 

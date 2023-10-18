@@ -60,7 +60,7 @@ public class PantallaInicial extends JFrame {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(PantallaInicial.class.getResource("/img/img.jpg")));
 		setTitle("CorrecaminosCujae");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 864, 576);
+		setBounds(100, 100, 717, 479);
 		setLocationRelativeTo(null);
 		
 		contentPane = new JPanel();
@@ -74,7 +74,7 @@ public class PantallaInicial extends JFrame {
 		lblNewLabel.setBorder(null);
 		lblNewLabel.setBackground(new Color(204, 255, 204));
 		lblNewLabel.setFont(new Font("Brush Script MT", Font.PLAIN, 44));
-	    lblNewLabel.setBounds(0, 0, 506, 541);
+	    lblNewLabel.setBounds(0, 0, 372, 428);
 		ImageIcon ico = new ImageIcon(getClass().getResource("/img/licencia.jpg")); 
 		ImageIcon img = new ImageIcon(ico.getImage().getScaledInstance(lblNewLabel.getWidth(), lblNewLabel.getHeight(), Image.SCALE_SMOOTH));
 		lblNewLabel.setIcon(img);
@@ -83,7 +83,7 @@ public class PantallaInicial extends JFrame {
 		txtUsuario = new JTextField();
 		txtUsuario.setBackground(Color.WHITE);
 		txtUsuario.setBorder(new MatteBorder(0, 0, 2, 0, (Color) new Color(0, 0, 0)));
-		txtUsuario.setBounds(603, 246, 179, 25);
+		txtUsuario.setBounds(458, 200, 179, 25);
 		contentPane.add(txtUsuario);
 		txtUsuario.setColumns(10);
 		
@@ -100,7 +100,7 @@ public class PantallaInicial extends JFrame {
 			}
 		});
 		btnNewButton.setFont(new Font("Arial Narrow", Font.PLAIN, 16));
-		btnNewButton.setBounds(603, 395, 159, 43);
+		btnNewButton.setBounds(438, 321, 159, 43);
 		contentPane.add(btnNewButton);
 		
 		
@@ -122,19 +122,19 @@ public class PantallaInicial extends JFrame {
 		JLabel lblNewLabel_1 = new JLabel("Usuario");
 		lblNewLabel_1.setForeground(new Color(0, 0, 0));
 		lblNewLabel_1.setFont(new Font("Arial Narrow", Font.BOLD, 18));
-		lblNewLabel_1.setBounds(640, 216, 60, 43);
+		lblNewLabel_1.setBounds(495, 170, 60, 43);
 		contentPane.add(lblNewLabel_1);
 		
 		JLabel lblContrasea = new JLabel("Contrase\u00F1a");
 		lblContrasea.setForeground(new Color(0, 0, 0));
 		lblContrasea.setFont(new Font("Arial Narrow", Font.BOLD, 18));
-		lblContrasea.setBounds(625, 275, 124, 35);
+		lblContrasea.setBounds(480, 229, 124, 35);
 		contentPane.add(lblContrasea);
 		
 		passwordField = new JPasswordField();
 		passwordField.setBackground(Color.WHITE);
 		passwordField.setBorder(new MatteBorder(0, 0, 2, 0, (Color) new Color(0, 0, 0)));
-		passwordField.setBounds(603, 302, 179, 25);
+		passwordField.setBounds(458, 256, 179, 25);
 		passwordField.setColumns(10);
 		contentPane.add(passwordField);
 		
@@ -142,7 +142,7 @@ public class PantallaInicial extends JFrame {
 		lblInicioSesin.setForeground(new Color(0, 0, 0));
 		lblInicioSesin.setBackground(new Color(255, 255, 255));
 		lblInicioSesin.setFont(new Font("Arial Narrow", Font.BOLD, 24));
-		lblInicioSesin.setBounds(603, 57, 130, 43);
+		lblInicioSesin.setBounds(458, 11, 130, 43);
 		contentPane.add(lblInicioSesin);
 		
 		JLabel lblEsNuevoa = new JLabel("\u00BFEs nuevo(a)?");
@@ -155,14 +155,14 @@ public class PantallaInicial extends JFrame {
 		
 		JLabel lblNewLabel_2 = new JLabel("");
 		lblNewLabel_2.setBorder(null);
-		lblNewLabel_2.setBounds(540, 228, 48, 43);
+		lblNewLabel_2.setBounds(395, 182, 48, 43);
 		ImageIcon icono = new ImageIcon(PantallaInicial.class.getResource("/img/usuario.png")); 
 		ImageIcon imga = new ImageIcon(icono.getImage().getScaledInstance(lblNewLabel_2.getWidth(), lblNewLabel_2.getHeight(), Image.SCALE_SMOOTH));
 		lblNewLabel_2.setIcon(imga);
 		contentPane.add(lblNewLabel_2);
 		
 		JLabel lblNewLabel_3 = new JLabel("");
-		lblNewLabel_3.setBounds(615, 113, 94, 86);
+		lblNewLabel_3.setBounds(470, 67, 94, 86);
 		ImageIcon icon = new ImageIcon(getClass().getResource("/img/correcamino.png")); 
 		ImageIcon imgan = new ImageIcon(icon.getImage().getScaledInstance(lblNewLabel_3.getWidth(), lblNewLabel_3.getHeight(), Image.SCALE_SMOOTH));
 		lblNewLabel_3.setIcon((imgan));
@@ -171,14 +171,14 @@ public class PantallaInicial extends JFrame {
 		JLabel ErrorMessages = new JLabel("Datos err\u00F3neos, intente nuevamente");
 		ErrorMessages.setForeground(new Color(204, 51, 0));
 		ErrorMessages.setFont(new Font("Arial Narrow", Font.BOLD, 14));
-		ErrorMessages.setBounds(573, 331, 204, 25);
+		ErrorMessages.setBounds(428, 285, 204, 25);
 		contentPane.add(ErrorMessages);
 		
 		JLabel lblNewLabel_4 = new JLabel("");
 		lblNewLabel_4.setHorizontalTextPosition(SwingConstants.CENTER);
 		lblNewLabel_4.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_4.setBorder(null);
-		lblNewLabel_4.setBounds(540, 282, 48, 43);
+		lblNewLabel_4.setBounds(395, 236, 48, 43);
 		ImageIcon iconito = new ImageIcon(getClass().getResource("/img/contrasena.png")); 
 		ImageIcon imgen = new ImageIcon(iconito.getImage().getScaledInstance(lblNewLabel_4.getWidth(), lblNewLabel_4.getHeight(), Image.SCALE_SMOOTH));
 		lblNewLabel_4.setIcon(imgen);

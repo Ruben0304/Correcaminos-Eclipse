@@ -67,7 +67,7 @@ public class CrearCuenta extends JFrame {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(CrearCuenta.class.getResource("/img/correcamino.png")));
 		setTitle("Crear cuenta");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 661, 427);
+		setBounds(100, 100, 672, 457);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(255, 255, 255));
 		contentPane.setBorder(new LineBorder(new Color(0, 0, 0), 3, true));

@@ -230,6 +230,9 @@ public class Estudiante extends JFrame {
 		textField_5.setColumns(10);
 		
 		JMenuBar menuBar = new JMenuBar();
+		menuBar.setBorderPainted(false);
+		menuBar.setBorder(null);
+		menuBar.setBackground(Color.WHITE);
 		setJMenuBar(menuBar);
 		
 		JMenu mnNewMenu = new JMenu("Opciones");

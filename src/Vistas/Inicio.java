@@ -18,6 +18,8 @@ import javax.swing.JMenuItem;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
+import java.awt.Color;
+import java.awt.Dimension;
 
 
 public class Inicio extends JFrame {
@@ -44,17 +46,20 @@ public class Inicio extends JFrame {
 	 * Create the frame.
 	 */
 	public Inicio() {
+		setSize(new Dimension(2000, 4000));
 		setResizable(false);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Inicio.class.getResource("/img/correcamino.png")));
 		setTitle("Inicio");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		JMenuBar menuBar = new JMenuBar();
+		menuBar.setBorderPainted(false);
+		menuBar.setBackground(Color.WHITE);
+		menuBar.setBorder(null);
 		setJMenuBar(menuBar);
 		
 		JMenu mnNewMenu = new JMenu("Opciones");
-		mnNewMenu.setIcon(new ImageIcon(Inicio.class.getResource("/img/correcamino20.png")));
-		mnNewMenu.setSelectedIcon(new ImageIcon(Inicio.class.getResource("/img/correcamino.png")));
+		
 		menuBar.add(mnNewMenu);
 		
 		JMenuItem mntmCerrarSesin = new JMenuItem("Cambiar usuario");
@@ -129,7 +134,7 @@ public class Inicio extends JFrame {
 		mnNewMenu_3.add(mntmAcercaDeLa);
 		contentPane = new JPanel(){
 			public void paintComponent(Graphics g){
-				Image img = Toolkit.getDefaultToolkit().getImage(Inicio.class.getResource("/img/img.jpg"));
+				Image img = Toolkit.getDefaultToolkit().getImage(Inicio.class.getResource("/img/contract.jpg"));
 				g.drawImage(img, 0, 0, this.getWidth(), this.getHeight(),this);
 				
 			}

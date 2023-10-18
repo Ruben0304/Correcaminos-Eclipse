@@ -21,10 +21,13 @@ import javax.swing.JButton;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+
 import javax.swing.border.MatteBorder;
 import javax.swing.SwingConstants;
 import javax.swing.JPasswordField;
+
 import Variables.Colores;
+
 import java.awt.Cursor;
 
 
@@ -96,7 +99,9 @@ public class PantallaInicial extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				String usuario = txtUsuario.getText();
 				String contraseña = passwordField.getText();
-				
+					Inicio p= new Inicio();
+					p.setVisible(true);
+					dispose();
 			}
 		});
 		btnNewButton.setFont(new Font("Arial Narrow", Font.PLAIN, 16));
@@ -114,6 +119,9 @@ public class PantallaInicial extends JFrame {
 		btnNewButton_1.setFont(new Font("Arial Narrow", Font.PLAIN, 16));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				CrearCuenta p= new CrearCuenta();
+				p.setVisible(true);
+				dispose();
 			}
 		});
 		btnNewButton_1.setBounds(639, 487, 94, 25);

@@ -142,7 +142,7 @@ public class PantallaInicial extends JFrame {
 		lblInicioSesin.setForeground(new Color(0, 0, 0));
 		lblInicioSesin.setBackground(new Color(255, 255, 255));
 		lblInicioSesin.setFont(new Font("Arial Narrow", Font.BOLD, 24));
-		lblInicioSesin.setBounds(603, 57, 130, 43);
+		lblInicioSesin.setBounds(603, 44, 130, 43);
 		contentPane.add(lblInicioSesin);
 		
 		JLabel lblEsNuevoa = new JLabel("\u00BFEs nuevo(a)?");
@@ -162,7 +162,7 @@ public class PantallaInicial extends JFrame {
 		contentPane.add(lblNewLabel_2);
 		
 		JLabel lblNewLabel_3 = new JLabel("");
-		lblNewLabel_3.setBounds(615, 113, 94, 86);
+		lblNewLabel_3.setBounds(627, 100, 94, 86);
 		ImageIcon icon = new ImageIcon(getClass().getResource("/img/correcamino.png")); 
 		ImageIcon imgan = new ImageIcon(icon.getImage().getScaledInstance(lblNewLabel_3.getWidth(), lblNewLabel_3.getHeight(), Image.SCALE_SMOOTH));
 		lblNewLabel_3.setIcon((imgan));

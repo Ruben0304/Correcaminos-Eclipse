@@ -97,50 +97,50 @@ public class VentanaSolicitudBajaEmpleado extends JFrame {
 		panel_datos.setLayout(null);
 		
 		nombre_empleado = new JLabel("Nombre:");
-		nombre_empleado.setFont(new Font("Tahoma", Font.BOLD, 14));
-		nombre_empleado.setBounds(21, 30, 86, 14);
+		nombre_empleado.setFont(new Font("Arial Narrow", Font.BOLD, 13));
+		nombre_empleado.setBounds(21, 29, 116, 14);
 		panel_datos.add(nombre_empleado);
 		
 		textField_NombreEmpleado = new JTextField();
-		textField_NombreEmpleado.setBounds(101, 29, 202, 20);
+		textField_NombreEmpleado.setBounds(101, 29, 227, 20);
 		textField_NombreEmpleado.setBorder(new LineBorder(new Color(0,0,0), 1));
 		panel_datos.add(textField_NombreEmpleado);
 		textField_NombreEmpleado.setColumns(10);
 		
 		labelPrimer_apellido = new JLabel("Primer Apellido:");
-		labelPrimer_apellido.setFont(new Font("Tahoma", Font.BOLD, 14));
-		labelPrimer_apellido.setBounds(21, 66, 116, 19);
+		labelPrimer_apellido.setFont(new Font("Arial Narrow", Font.BOLD, 13));
+		labelPrimer_apellido.setBounds(21, 65, 161, 19);
 		panel_datos.add(labelPrimer_apellido);
 		
 		textField_PrimerApellido = new JTextField();
-		textField_PrimerApellido.setBounds(142, 65, 161, 20);
+		textField_PrimerApellido.setBounds(142, 64, 186, 20);
 		textField_PrimerApellido.setBorder(new LineBorder(new Color(0,0,0), 1));
 		panel_datos.add(textField_PrimerApellido);
 		textField_PrimerApellido.setColumns(10);
 		
 		labelSegundoApellido = new JLabel("Segundo Apellido:");
-		labelSegundoApellido.setFont(new Font("Tahoma", Font.BOLD, 14));
-		labelSegundoApellido.setBounds(21, 102, 127, 19);
+		labelSegundoApellido.setFont(new Font("Arial Narrow", Font.BOLD, 13));
+		labelSegundoApellido.setBounds(21, 101, 177, 19);
 		panel_datos.add(labelSegundoApellido);
 		
 		textField_SegundoApellido = new JTextField();
-		textField_SegundoApellido.setBounds(152, 101, 151, 20);
+		textField_SegundoApellido.setBounds(152, 101, 176, 20);
 		textField_SegundoApellido.setBorder(new LineBorder(new Color(0,0,0), 1));
 		panel_datos.add(textField_SegundoApellido);
 		textField_SegundoApellido.setColumns(10);
 		
 		JLabel labelFacultad = new JLabel("Facultad:");
-		labelFacultad.setFont(new Font("Tahoma", Font.BOLD, 14));
+		labelFacultad.setFont(new Font("Arial Narrow", Font.BOLD, 13));
 		labelFacultad.setBounds(21, 169, 71, 14);
 		panel_datos.add(labelFacultad);
 		
 		labelCarnetID = new JLabel("Carnet de Identidad:");
-		labelCarnetID.setFont(new Font("Tahoma", Font.BOLD, 14));
-		labelCarnetID.setBounds(21, 138, 145, 14);
+		labelCarnetID.setFont(new Font("Arial Narrow", Font.BOLD, 13));
+		labelCarnetID.setBounds(21, 137, 177, 14);
 		panel_datos.add(labelCarnetID);
 		
 		textField_Carnet = new JTextField();
-		textField_Carnet.setBounds(176, 137, 127, 20);
+		textField_Carnet.setBounds(176, 137, 152, 20);
 		textField_Carnet.setBorder(new LineBorder(new Color(0,0,0), 1));
 		panel_datos.add(textField_Carnet);
 		textField_Carnet.setColumns(10);
@@ -148,35 +148,35 @@ public class VentanaSolicitudBajaEmpleado extends JFrame {
 		comboBox_Facultades = new JComboBox();
 		comboBox_Facultades.setBackground(Color.WHITE);
 		comboBox_Facultades.setModel(new DefaultComboBoxModel(new String[] {"<Facultad>","Informática", "Automática", "Mecánica", "Telecomunicaciones","Química","Civil","Arquitectura","Industrial","Eléctrica"}));
-		comboBox_Facultades.setBounds(101, 168, 202, 20);
+		comboBox_Facultades.setBounds(101, 168, 227, 20);
 		panel_datos.add(comboBox_Facultades);
 		
 		spinner_NoTrabajador = new JSpinner();
 		spinner_NoTrabajador.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		spinner_NoTrabajador.setBorder(new LineBorder(new Color(0,0,0), 1));
 		spinner_NoTrabajador.setModel(new SpinnerNumberModel(1, 1, 100000, 1));
-		spinner_NoTrabajador.setBounds(142, 198, 161, 20);
+		spinner_NoTrabajador.setBounds(142, 198, 186, 20);
 		panel_datos.add(spinner_NoTrabajador);
 		
 		JLabel labelNoTrabajador = new JLabel("No. Trabajador:");
-		labelNoTrabajador.setFont(new Font("Tahoma", Font.BOLD, 14));
+		labelNoTrabajador.setFont(new Font("Arial Narrow", Font.BOLD, 13));
 		labelNoTrabajador.setBounds(21, 200, 117, 17);
 		panel_datos.add(labelNoTrabajador);
 		
 		JLabel labelProfesion = new JLabel("Profesi\u00F3n u oficio:");
-		labelProfesion.setFont(new Font("Tahoma", Font.BOLD, 14));
+		labelProfesion.setFont(new Font("Arial Narrow", Font.BOLD, 13));
 		labelProfesion.setBounds(21, 233, 142, 14);
 		panel_datos.add(labelProfesion);
 		
 		comboBox_Profesiones = new JComboBox();
 		comboBox_Profesiones.setBackground(Color.WHITE);
 		comboBox_Profesiones.setModel(new DefaultComboBoxModel(new String[] {"<Profesiones>","Docente", "Investigador", "Técnico", "Dirigente","Obrero","Servicio","Administrador"}));
-		comboBox_Profesiones.setBounds(152, 232, 151, 20);
+		comboBox_Profesiones.setBounds(152, 232, 176, 20);
 		panel_datos.add(comboBox_Profesiones);
 		
 		btnEnviarSolicitud = new JButton("Enviar solicitud");
 		btnEnviarSolicitud.setBackground(Color.WHITE);
-		btnEnviarSolicitud.setBounds(21, 310, 127, 25);
+		btnEnviarSolicitud.setBounds(21, 329, 127, 25);
 		btnEnviarSolicitud.setBorder(new LineBorder(new Color(0,0,0), 1));
 		panel_datos.add(btnEnviarSolicitud);
 		btnEnviarSolicitud.setFont(new Font("Tahoma", Font.BOLD, 14));
@@ -191,18 +191,18 @@ public class VentanaSolicitudBajaEmpleado extends JFrame {
 		});
 		btnCancelar.setBackground(Color.WHITE);
 		btnCancelar.setBorder(new LineBorder(new Color(0,0,0), 1));
-		btnCancelar.setBounds(174, 310, 129, 25);
+		btnCancelar.setBounds(199, 329, 129, 25);
 		panel_datos.add(btnCancelar);
 		btnCancelar.setFont(new Font("Tahoma", Font.BOLD, 14));
 		
 		labelMotivo = new JLabel("Motivo:");
-		labelMotivo.setFont(new Font("Tahoma", Font.BOLD, 14));
+		labelMotivo.setFont(new Font("Arial Narrow", Font.BOLD, 13));
 		labelMotivo.setIgnoreRepaint(true);
 		labelMotivo.setBounds(21, 267, 86, 14);
 		panel_datos.add(labelMotivo);
 		
 		textField_Motivo = new JTextField();
-		textField_Motivo.setBounds(84, 265, 219, 20);
+		textField_Motivo.setBounds(84, 265, 244, 20);
 		textField_Motivo.setBorder(new LineBorder(new Color(0,0,0), 1));
 		panel_datos.add(textField_Motivo);
 		textField_Motivo.setColumns(10);

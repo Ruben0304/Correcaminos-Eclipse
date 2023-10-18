@@ -60,7 +60,7 @@ public class PantallaInicial extends JFrame {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(PantallaInicial.class.getResource("/img/img.jpg")));
 		setTitle("CorrecaminosCujae");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 854, 560);
+		setBounds(100, 100, 864, 576);
 		setLocationRelativeTo(null);
 		
 		contentPane = new JPanel();
@@ -74,7 +74,7 @@ public class PantallaInicial extends JFrame {
 		lblNewLabel.setBorder(null);
 		lblNewLabel.setBackground(new Color(204, 255, 204));
 		lblNewLabel.setFont(new Font("Brush Script MT", Font.PLAIN, 44));
-	    lblNewLabel.setBounds(0, 0, 494, 525);
+	    lblNewLabel.setBounds(0, 0, 506, 541);
 		ImageIcon ico = new ImageIcon(getClass().getResource("/img/licencia.jpg")); 
 		ImageIcon img = new ImageIcon(ico.getImage().getScaledInstance(lblNewLabel.getWidth(), lblNewLabel.getHeight(), Image.SCALE_SMOOTH));
 		lblNewLabel.setIcon(img);
@@ -88,8 +88,9 @@ public class PantallaInicial extends JFrame {
 		txtUsuario.setColumns(10);
 		
 		JButton btnNewButton = new JButton("Iniciar sesi\u00F3n");
+		btnNewButton.setBackground(new Color(51, 102, 255));
 		btnNewButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnNewButton.setForeground(new Color(0, 0, 0));
+		btnNewButton.setForeground(new Color(255, 255, 255));
 		btnNewButton.setBorder(null);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -99,22 +100,23 @@ public class PantallaInicial extends JFrame {
 			}
 		});
 		btnNewButton.setFont(new Font("Arial Narrow", Font.PLAIN, 16));
-		btnNewButton.setBounds(615, 358, 118, 25);
+		btnNewButton.setBounds(615, 369, 134, 35);
 		contentPane.add(btnNewButton);
 		
 		
 		
 		JButton btnNewButton_1 = new JButton("Crear cuenta");
+		btnNewButton_1.setBackground(new Color(51, 102, 255));
 		btnNewButton_1.setBorderPainted(false);
 		btnNewButton_1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnNewButton_1.setForeground(new Color(0, 0, 0));
+		btnNewButton_1.setForeground(new Color(255, 255, 255));
 		btnNewButton_1.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		btnNewButton_1.setFont(new Font("Arial Narrow", Font.PLAIN, 16));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 			}
 		});
-		btnNewButton_1.setBounds(615, 440, 118, 25);
+		btnNewButton_1.setBounds(615, 454, 134, 35);
 		contentPane.add(btnNewButton_1);
 		
 		JLabel lblNewLabel_1 = new JLabel("Usuario");
@@ -144,9 +146,10 @@ public class PantallaInicial extends JFrame {
 		contentPane.add(lblInicioSesin);
 		
 		JLabel lblEsNuevoa = new JLabel("\u00BFEs nuevo(a)?");
+		lblEsNuevoa.setHorizontalAlignment(SwingConstants.CENTER);
 		lblEsNuevoa.setForeground(new Color(0, 0, 0));
 		lblEsNuevoa.setFont(new Font("Arial Narrow", Font.BOLD, 18));
-		lblEsNuevoa.setBounds(625, 405, 107, 25);
+		lblEsNuevoa.setBounds(615, 417, 134, 25);
 		contentPane.add(lblEsNuevoa);
 		
 		

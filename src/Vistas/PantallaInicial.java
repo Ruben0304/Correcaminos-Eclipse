@@ -57,7 +57,11 @@ public class PantallaInicial extends JFrame {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(PantallaInicial.class.getResource("/img/correcamino.png")));
 		setTitle("CorrecaminosCujae");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+<<<<<<< Updated upstream
 		setBounds(100, 100, 654, 433);
+=======
+		setBounds(100, 100, 865, 589);
+>>>>>>> Stashed changes
 		setLocationRelativeTo(null);
 		
 		contentPane = new JPanel();
@@ -71,8 +75,13 @@ public class PantallaInicial extends JFrame {
 		lblNewLabel.setBorder(null);
 		lblNewLabel.setBackground(new Color(204, 255, 204));
 		lblNewLabel.setFont(new Font("Brush Script MT", Font.PLAIN, 44));
+<<<<<<< Updated upstream
 	    lblNewLabel.setBounds(0, 0, 373, 409);
 		ImageIcon ico = new ImageIcon(getClass().getResource("img/img.jpg")); 
+=======
+	    lblNewLabel.setBounds(0, 0, 503, 554);
+		ImageIcon ico = new ImageIcon(getClass().getResource("/img/licencia.jpg")); 
+>>>>>>> Stashed changes
 		ImageIcon img = new ImageIcon(ico.getImage().getScaledInstance(lblNewLabel.getWidth(), lblNewLabel.getHeight(), Image.SCALE_SMOOTH));
 		lblNewLabel.setIcon((img));
 		contentPane.add(lblNewLabel);
@@ -92,8 +101,15 @@ public class PantallaInicial extends JFrame {
 		txtContrasea.setColumns(10);
 		
 		JButton btnNewButton = new JButton("Iniciar sesi\u00F3n");
+<<<<<<< Updated upstream
 		btnNewButton.setForeground(new Color(0, 0, 0));
 		btnNewButton.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
+=======
+		btnNewButton.setBackground(new Color(46, 139, 87));
+		btnNewButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnNewButton.setForeground(Color.WHITE);
+		btnNewButton.setBorder(null);
+>>>>>>> Stashed changes
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				String usuario = txtUsuario.getText();
@@ -102,20 +118,35 @@ public class PantallaInicial extends JFrame {
 			}
 		});
 		btnNewButton.setFont(new Font("Arial Narrow", Font.PLAIN, 16));
+<<<<<<< Updated upstream
 		btnNewButton.setBounds(458, 301, 118, 25);
+=======
+		btnNewButton.setBounds(603, 381, 130, 35);
+>>>>>>> Stashed changes
 		contentPane.add(btnNewButton);
 		
 		
 		
 		JButton btnNewButton_1 = new JButton("Crear cuenta");
+<<<<<<< Updated upstream
 		btnNewButton_1.setForeground(new Color(0, 0, 0));
+=======
+		btnNewButton_1.setBackground(new Color(46, 139, 87));
+		btnNewButton_1.setBorderPainted(false);
+		btnNewButton_1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnNewButton_1.setForeground(Color.WHITE);
+>>>>>>> Stashed changes
 		btnNewButton_1.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		btnNewButton_1.setFont(new Font("Arial Narrow", Font.PLAIN, 16));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 			}
 		});
+<<<<<<< Updated upstream
 		btnNewButton_1.setBounds(458, 373, 118, 25);
+=======
+		btnNewButton_1.setBounds(603, 457, 130, 35);
+>>>>>>> Stashed changes
 		contentPane.add(btnNewButton_1);
 		
 		JLabel lblNewLabel_1 = new JLabel("Usuario");
@@ -140,7 +171,11 @@ public class PantallaInicial extends JFrame {
 		JLabel lblEsNuevoa = new JLabel("\u00BFEs nuevo(a)?");
 		lblEsNuevoa.setForeground(new Color(0, 0, 0));
 		lblEsNuevoa.setFont(new Font("Arial Narrow", Font.BOLD, 18));
+<<<<<<< Updated upstream
 		lblEsNuevoa.setBounds(468, 348, 107, 25);
+=======
+		lblEsNuevoa.setBounds(625, 419, 107, 25);
+>>>>>>> Stashed changes
 		contentPane.add(lblEsNuevoa);
 		
 		

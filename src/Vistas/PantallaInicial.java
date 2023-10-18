@@ -88,7 +88,7 @@ public class PantallaInicial extends JFrame {
 		txtUsuario.setColumns(10);
 		
 		JButton btnNewButton = new JButton("Iniciar sesi\u00F3n");
-		btnNewButton.setBackground(new Color(51, 102, 255));
+		btnNewButton.setBackground(new Color(51, 153, 102));
 		btnNewButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnNewButton.setForeground(new Color(255, 255, 255));
 		btnNewButton.setBorder(null);
@@ -100,23 +100,23 @@ public class PantallaInicial extends JFrame {
 			}
 		});
 		btnNewButton.setFont(new Font("Arial Narrow", Font.PLAIN, 16));
-		btnNewButton.setBounds(615, 369, 134, 35);
+		btnNewButton.setBounds(603, 395, 159, 43);
 		contentPane.add(btnNewButton);
 		
 		
 		
 		JButton btnNewButton_1 = new JButton("Crear cuenta");
-		btnNewButton_1.setBackground(new Color(51, 102, 255));
+		btnNewButton_1.setBackground(Color.WHITE);
 		btnNewButton_1.setBorderPainted(false);
 		btnNewButton_1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnNewButton_1.setForeground(new Color(255, 255, 255));
+		btnNewButton_1.setForeground(new Color(51, 102, 204));
 		btnNewButton_1.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		btnNewButton_1.setFont(new Font("Arial Narrow", Font.PLAIN, 16));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 			}
 		});
-		btnNewButton_1.setBounds(615, 454, 134, 35);
+		btnNewButton_1.setBounds(639, 487, 94, 25);
 		contentPane.add(btnNewButton_1);
 		
 		JLabel lblNewLabel_1 = new JLabel("Usuario");
@@ -149,7 +149,7 @@ public class PantallaInicial extends JFrame {
 		lblEsNuevoa.setHorizontalAlignment(SwingConstants.CENTER);
 		lblEsNuevoa.setForeground(new Color(0, 0, 0));
 		lblEsNuevoa.setFont(new Font("Arial Narrow", Font.BOLD, 18));
-		lblEsNuevoa.setBounds(615, 417, 134, 25);
+		lblEsNuevoa.setBounds(603, 455, 159, 25);
 		contentPane.add(lblEsNuevoa);
 		
 		

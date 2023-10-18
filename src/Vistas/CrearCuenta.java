@@ -64,6 +64,7 @@ public class CrearCuenta extends JFrame {
 	 * Create the frame.
 	 */
 	public CrearCuenta() {
+		setResizable(false);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(CrearCuenta.class.getResource("/img/correcamino.png")));
 		setTitle("Crear cuenta");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

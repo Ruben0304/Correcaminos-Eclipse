@@ -26,6 +26,10 @@ import javax.swing.SpinnerNumberModel;
 
 import com.toedter.calendar.JDateChooser;
 
+import java.awt.Toolkit;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
 public class VentanaSolicitudLicenciaEmpleado extends JFrame {
 
 	/**
@@ -33,7 +37,6 @@ public class VentanaSolicitudLicenciaEmpleado extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JPanel panelBase;
 	private JPanel panel_datos;
 	private JLabel nombre_empleado;
 	private JTextField textField_NombreEmpleado;
@@ -75,22 +78,31 @@ public class VentanaSolicitudLicenciaEmpleado extends JFrame {
 	 * Create the frame.
 	 */
 	public VentanaSolicitudLicenciaEmpleado() {
+		setResizable(false);
+		setIconImage(Toolkit.getDefaultToolkit().getImage(VentanaSolicitudLicenciaEmpleado.class.getResource("/img/correcamino.png")));
 		setTitle("Llenar solicitud de licencia");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 684, 457);
+		setBounds(100, 100, 672, 457);
 		contentPane = new JPanel();
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		panelBase = new JPanel();
-		panelBase.setBackground(Color.WHITE);
-		panelBase.setBounds(0, 0, 684, 418);
-		contentPane.add(panelBase);
-		panelBase.setLayout(null);
+		JLabel fondo;
+		fondo = new JLabel("");
+		fondo.setBorder(null);
+		fondo.setBackground(new Color(204, 255, 204));
+		fondo.setFont(new Font("Brush Script MT", Font.PLAIN, 44));
+		fondo.setBounds(10, 0, 275, 397);
+		ImageIcon ico = new ImageIcon(getClass().getResource("/img/r.jpg")); 
+		ImageIcon img = new ImageIcon(ico.getImage().getScaledInstance(fondo.getWidth(), fondo.getHeight(), Image.SCALE_SMOOTH));
+		fondo.setIcon((img));
+		contentPane.add(fondo);
+		Calendar calendar = Calendar.getInstance();
+		calendar.add(Calendar.DAY_OF_YEAR,1);
 		
 		panel_datos = new JPanel();
-		panel_datos.setBounds(299, 0, 357, 407);
-		panelBase.add(panel_datos);
+		panel_datos.setBounds(297, 0, 357, 407);
+		contentPane.add(panel_datos);
 		panel_datos.setBackground(new Color (204, 255, 204));
 		panel_datos.setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0), 2), "Datos del empleado", TitledBorder.LEADING, TitledBorder.TOP, new Font("Roboto Medium", Font.PLAIN, 18), new Color(0, 0, 0)));
 		panel_datos.setLayout(null);
@@ -139,7 +151,7 @@ public class VentanaSolicitudLicenciaEmpleado extends JFrame {
 		
 		textField_Carnet = new JTextField();
 		textField_Carnet.setBounds(176, 133, 127, 20);
-	    textField_Carnet.setBorder(new LineBorder(new Color(0,0,0), 1));
+		textField_Carnet.setBorder(new LineBorder(new Color(0,0,0), 1));
 		panel_datos.add(textField_Carnet);
 		
 		comboBox_Facultades = new JComboBox();
@@ -165,6 +177,8 @@ public class VentanaSolicitudLicenciaEmpleado extends JFrame {
 		labelProfesion.setBounds(21, 229, 142, 14);
 		panel_datos.add(labelProfesion);
 		
+		setLocationRelativeTo(null);
+		
 		comboBox_Profesiones = new JComboBox();
 		comboBox_Profesiones.setBackground(Color.WHITE);
 		comboBox_Profesiones.setModel(new DefaultComboBoxModel(new String[] {"<Profesiones>","Docente", "Investigador", "Técnico", "Dirigente","Obrero","Servicio","Administrador"}));
@@ -179,6 +193,13 @@ public class VentanaSolicitudLicenciaEmpleado extends JFrame {
 		btnEnviarSolicitud.setFont(new Font("Tahoma", Font.BOLD, 14));
 		
 		btnCancelar = new JButton("Cancelar");
+		btnCancelar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Inicio i= new Inicio();
+				i.setVisible(true);
+				dispose();
+			}
+		});
 		btnCancelar.setBackground(Color.WHITE);
 		btnCancelar.setBorder(new LineBorder(new Color(0,0,0), 1));
 		btnCancelar.setBounds(174, 365, 129, 25);
@@ -206,18 +227,6 @@ public class VentanaSolicitudLicenciaEmpleado extends JFrame {
 		lblNewLabel_1.setBounds(21, 331, 116, 17);
 		panel_datos.add(lblNewLabel_1);
 		
-		panel_foto = new JPanel();
-		panel_foto.setBounds(0, 0, 299, 418);
-		panelBase.add(panel_foto);
-		panel_foto.setLayout(null);
-		
-		labelFoto = new JLabel("");
-		ImageIcon image = new ImageIcon("C:/Users/Marcel/Correcaminos-Eclipse/img/IMG-20231017-WA0040.jpg");
-		ImageIcon ico = new ImageIcon(image.getImage().getScaledInstance(299, 418, Image.SCALE_AREA_AVERAGING));
-		labelFoto.setBounds(0, 0, 299, 418);
-		labelFoto.setIcon(ico);
-		panel_foto.add(labelFoto);
-		
 		fechaSalida = new JDateChooser();
 		fechaSalida.setDateFormatString("dd/MM/yyyy");
 		fechaSalida.setMinSelectableDate(new Date());
@@ -227,8 +236,6 @@ public class VentanaSolicitudLicenciaEmpleado extends JFrame {
 		fechaRegreso = new JDateChooser();
 		fechaRegreso.setDateFormatString("dd/MM/yyyy");
 		fechaRegreso.setBounds(137, 331, 166, 20);
-		Calendar calendar = Calendar.getInstance();
-		calendar.add(Calendar.DAY_OF_YEAR,1);
 		fechaRegreso.setMinSelectableDate(calendar.getTime());
 		panel_datos.add(fechaRegreso);
 	}

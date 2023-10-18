@@ -90,6 +90,13 @@ public class PantallaInicial extends JFrame {
 		contentPane.add(txtUsuario);
 		txtUsuario.setColumns(10);
 		
+		final JLabel ErrorMessages = new JLabel("Datos err\u00F3neos, intente nuevamente");
+		ErrorMessages.setVisible(false);
+		ErrorMessages.setForeground(new Color(204, 51, 0));
+		ErrorMessages.setFont(new Font("Arial Narrow", Font.BOLD, 14));
+		ErrorMessages.setBounds(573, 331, 204, 25);
+		contentPane.add(ErrorMessages);
+		
 		JButton btnNewButton = new JButton("Iniciar sesi\u00F3n");
 		btnNewButton.setBackground(new Color(51, 153, 102));
 		btnNewButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -99,9 +106,13 @@ public class PantallaInicial extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				String usuario = txtUsuario.getText();
 				String contraseña = passwordField.getText();
+				
+				if(usuario.isEmpty()||usuario==null||contraseña.isEmpty()||contraseña==null){
+					ErrorMessages.setVisible(true);
+				}else{
 					Inicio p= new Inicio();
 					p.setVisible(true);
-					dispose();
+					dispose();}
 			}
 		});
 		btnNewButton.setFont(new Font("Arial Narrow", Font.PLAIN, 16));
@@ -176,11 +187,7 @@ public class PantallaInicial extends JFrame {
 		lblNewLabel_3.setIcon((imgan));
 		contentPane.add(lblNewLabel_3);
 		
-		JLabel ErrorMessages = new JLabel("Datos err\u00F3neos, intente nuevamente");
-		ErrorMessages.setForeground(new Color(204, 51, 0));
-		ErrorMessages.setFont(new Font("Arial Narrow", Font.BOLD, 14));
-		ErrorMessages.setBounds(573, 331, 204, 25);
-		contentPane.add(ErrorMessages);
+		
 		
 		JLabel lblNewLabel_4 = new JLabel("");
 		lblNewLabel_4.setHorizontalTextPosition(SwingConstants.CENTER);

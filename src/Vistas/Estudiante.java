@@ -68,6 +68,7 @@ public class Estudiante extends JFrame {
 	 * Create the frame.
 	 */
 	public Estudiante() {
+		setResizable(false);
 		setTitle("Datos Estudiante");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Estudiante.class.getResource("/img/correcamino.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

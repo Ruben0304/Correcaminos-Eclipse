@@ -101,9 +101,23 @@ public class Inicio extends JFrame {
 		mnNewMenu_1.add(mnEmpleado);
 		
 		JMenuItem mntmSolicitarBaja = new JMenuItem("Solicitar baja");
+		mntmSolicitarBaja.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				VentanaSolicitudBajaEmpleado a = new VentanaSolicitudBajaEmpleado ();
+				a.setVisible(true);
+				dispose();
+			}
+		});
 		mnEmpleado.add(mntmSolicitarBaja);
 		
 		JMenuItem mntmSolicitarLicencia = new JMenuItem("Solicitar licencia");
+		mntmSolicitarLicencia.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				VentanaSolicitudLicenciaEmpleado v= new VentanaSolicitudLicenciaEmpleado();
+				v.setVisible(true);
+				dispose();
+			}
+		});
 		mnEmpleado.add(mntmSolicitarLicencia);
 		
 		JMenuItem mntmResultadosSolicitud = new JMenuItem("Resultados Solicitud");

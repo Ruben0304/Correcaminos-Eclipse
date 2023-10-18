@@ -52,6 +52,7 @@ public class Baja extends JFrame {
 	 * Create the frame.
 	 */
 	public Baja() {
+		setResizable(false);
 		setTitle("Requisitos para obtener baja");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Baja.class.getResource("/img/correcamino.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

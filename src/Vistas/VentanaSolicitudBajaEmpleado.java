@@ -24,6 +24,8 @@ import javax.swing.JButton;
 import javax.swing.SpinnerNumberModel;
 
 import java.awt.Toolkit;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class VentanaSolicitudBajaEmpleado extends JFrame {
 
@@ -33,7 +35,6 @@ public class VentanaSolicitudBajaEmpleado extends JFrame {
 	private JTextField textField_PrimerApellido;
 	private JTextField textField_SegundoApellido;
 	private JTextField textField_Carnet;
-	private JPanel panelBase;
 	private JButton btnEnviarSolicitud;
 	private JButton btnCancelar;
 	private JComboBox comboBox_Profesiones;
@@ -68,23 +69,29 @@ public class VentanaSolicitudBajaEmpleado extends JFrame {
 	 * Create the frame.
 	 */
 	public VentanaSolicitudBajaEmpleado() {
+		setResizable(false);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(VentanaSolicitudBajaEmpleado.class.getResource("/img/correcamino.png")));
 		setTitle("Llenar solicitud de baja");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 675, 443);
+		setBounds(100, 100, 672, 457);
 		contentPane = new JPanel();
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		panelBase = new JPanel();
-		panelBase.setBackground(Color.WHITE);
-		panelBase.setBounds(0, 0, 656, 418);
-		contentPane.add(panelBase);
-		panelBase.setLayout(null);
+		JLabel fondo;
+		fondo = new JLabel("");
+		fondo.setBorder(null);
+		fondo.setBackground(new Color(204, 255, 204));
+		fondo.setFont(new Font("Brush Script MT", Font.PLAIN, 44));
+		fondo.setBounds(10, 13, 278, 370);
+		ImageIcon ico = new ImageIcon(getClass().getResource("/img/r.jpg")); 
+		ImageIcon img = new ImageIcon(ico.getImage().getScaledInstance(fondo.getWidth(), fondo.getHeight(), Image.SCALE_SMOOTH));
+		fondo.setIcon((img));
+		contentPane.add(fondo);
 		
 		panel_datos = new JPanel();
-		panel_datos.setBounds(299, 0, 357, 405);
-		panelBase.add(panel_datos);
+		panel_datos.setBounds(300, 13, 357, 405);
+		contentPane.add(panel_datos);
 		panel_datos.setBackground(new Color (204, 255, 204));
 		panel_datos.setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0), 2), "Datos del empleado", TitledBorder.LEADING, TitledBorder.TOP, new Font("Roboto Medium", Font.PLAIN, 18), new Color(0, 0, 0)));
 		panel_datos.setLayout(null);
@@ -175,6 +182,13 @@ public class VentanaSolicitudBajaEmpleado extends JFrame {
 		btnEnviarSolicitud.setFont(new Font("Tahoma", Font.BOLD, 14));
 		
 		btnCancelar = new JButton("Cancelar");
+		btnCancelar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Inicio i= new Inicio();
+				i.setVisible(true);
+				dispose();
+			}
+		});
 		btnCancelar.setBackground(Color.WHITE);
 		btnCancelar.setBorder(new LineBorder(new Color(0,0,0), 1));
 		btnCancelar.setBounds(174, 310, 129, 25);
@@ -193,21 +207,9 @@ public class VentanaSolicitudBajaEmpleado extends JFrame {
 		panel_datos.add(textField_Motivo);
 		textField_Motivo.setColumns(10);
 		
-		panel_foto = new JPanel();
-		panel_foto.setBounds(0, 0, 299, 418);
-		panelBase.add(panel_foto);
-		panel_foto.setLayout(null);
 		
-		labelFoto = new JLabel("");
-		contentPane = new JPanel(){
-			public void paintComponent(Graphics g){
-				Image img = Toolkit.getDefaultToolkit().getImage(Inicio.class.getResource("/imagenes/img.jpg"));
-				g.drawImage(img, 0, 0, this.getWidth(), this.getHeight(),this);
-				
-			}
-		};
+		setLocationRelativeTo(null);
 		
-		
-		panel_foto.add(labelFoto);
+
 	}
 }

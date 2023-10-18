@@ -1,3 +1,5 @@
+package Vistas;
+
 import java.awt.Choice;
 import java.awt.Color;
 import java.awt.Component;
@@ -62,7 +64,7 @@ public class CrearCuenta extends JFrame {
 	 * Create the frame.
 	 */
 	public CrearCuenta() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(CrearCuenta.class.getResource("/imagenes/correcamino.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(CrearCuenta.class.getResource("/img/correcamino.png")));
 		setTitle("Crear cuenta");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 661, 427);
@@ -127,7 +129,7 @@ public class CrearCuenta extends JFrame {
 		fondo.setBackground(new Color(204, 255, 204));
 		fondo.setFont(new Font("Brush Script MT", Font.PLAIN, 44));
 		fondo.setBounds(10, 48, 319, 323);
-		ImageIcon ico = new ImageIcon(getClass().getResource("imagenes/r.jpg")); 
+		ImageIcon ico = new ImageIcon(getClass().getResource("/img/r.jpg")); 
 		ImageIcon img = new ImageIcon(ico.getImage().getScaledInstance(fondo.getWidth(), fondo.getHeight(), Image.SCALE_SMOOTH));
 		fondo.setIcon((img));
 		contentPane.add(fondo);

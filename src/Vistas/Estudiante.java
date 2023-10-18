@@ -1,3 +1,5 @@
+package Vistas;
+
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.Graphics;
@@ -67,7 +69,7 @@ public class Estudiante extends JFrame {
 	 */
 	public Estudiante() {
 		setTitle("Datos Estudiante");
-		setIconImage(Toolkit.getDefaultToolkit().getImage(Estudiante.class.getResource("/imagenes/correcamino.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Estudiante.class.getResource("/img/correcamino.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 672, 457);
 		contentPane = new JPanel();
@@ -89,7 +91,7 @@ public class Estudiante extends JFrame {
 		foto.setBackground(new Color(204, 255, 204));
 		foto.setFont(new Font("Brush Script MT", Font.PLAIN, 44));
 		foto.setBounds(10, 11, 279, 367);
-		ImageIcon ico = new ImageIcon(getClass().getResource("imagenes/est.jpg")); 
+		ImageIcon ico = new ImageIcon(getClass().getResource("/img/est.jpg")); 
 		ImageIcon img = new ImageIcon(ico.getImage().getScaledInstance(foto.getWidth(), foto.getHeight(), Image.SCALE_SMOOTH));
 		foto.setIcon((img));
 		contentPane.add(foto);

@@ -1,7 +1,7 @@
 package Modelos;
 
 public class Economia {
-	private double deudas;
+	private float deudas;
 	
 	 public boolean seCumplenRequisitos() {
 	        // Verificar si no hay deudas pendientes

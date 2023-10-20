@@ -1,9 +1,9 @@
 package Modelos;
+import Variables.Modalidad;
 
-import Variables.Facultad;
 
 public class Estudiante extends Usuario {
-	private Facultad facultad;
-	private int curso;
-	boolean isBecado;
+	protected int curso;
+    protected Modalidad modalidad;
+	protected String grupo;
 }

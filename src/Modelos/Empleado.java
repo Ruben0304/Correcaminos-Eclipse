@@ -1,5 +1,6 @@
 package Modelos;
 
-public class Empleado {
+public abstract class Empleado extends Usuario {
+
     
 }

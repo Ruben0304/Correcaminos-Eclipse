@@ -41,14 +41,8 @@ public class VentanaSolicitudLicenciaEmpleado extends JFrame {
 	private JLabel nombre_empleado;
 	private JTextField textField_NombreEmpleado;
 	private JLabel labelPrimer_apellido;
-	private JTextField textField_PrimerApellido;
 	private JLabel labelSegundoApellido;
-	private JTextField textField_SegundoApellido;
 	private JLabel labelCarnetID;
-	private JTextField textField_Carnet;
-	private JComboBox comboBox_Facultades;
-	private JSpinner spinner_NoTrabajador;
-	private JComboBox comboBox_Profesiones;
 	private JButton btnEnviarSolicitud;
 	private JButton btnCancelar;
 	private JLabel labelMotivo;
@@ -107,7 +101,7 @@ public class VentanaSolicitudLicenciaEmpleado extends JFrame {
 		panel_datos.setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0), 2), "Datos del empleado", TitledBorder.LEADING, TitledBorder.TOP, new Font("Roboto Medium", Font.PLAIN, 18), new Color(0, 0, 0)));
 		panel_datos.setLayout(null);
 		
-		nombre_empleado = new JLabel("Nombre:");
+		nombre_empleado = new JLabel("CI:");
 		nombre_empleado.setFont(new Font("Arial Narrow", Font.BOLD, 13));
 		nombre_empleado.setBounds(21, 29, 86, 14);
 		panel_datos.add(nombre_empleado);
@@ -118,54 +112,25 @@ public class VentanaSolicitudLicenciaEmpleado extends JFrame {
 		panel_datos.add(textField_NombreEmpleado);
 		textField_NombreEmpleado.setColumns(10);
 		
-		labelPrimer_apellido = new JLabel("Primer Apellido:");
+		labelPrimer_apellido = new JLabel("Nombre:");
 		labelPrimer_apellido.setFont(new Font("Arial Narrow", Font.BOLD, 13));
 		labelPrimer_apellido.setBounds(21, 59, 116, 19);
 		panel_datos.add(labelPrimer_apellido);
 		
-		textField_PrimerApellido = new JTextField();
-		textField_PrimerApellido.setBounds(142, 61, 192, 20);
-		textField_PrimerApellido.setBorder(new LineBorder(new Color(0,0,0), 1));
-		panel_datos.add(textField_PrimerApellido);
-		
-		labelSegundoApellido = new JLabel("Segundo Apellido:");
+		labelSegundoApellido = new JLabel("Primer Apellido:");
 		labelSegundoApellido.setFont(new Font("Arial Narrow", Font.BOLD, 13));
 		labelSegundoApellido.setBounds(21, 97, 127, 19);
 		panel_datos.add(labelSegundoApellido);
-		
-		textField_SegundoApellido = new JTextField();
-		textField_SegundoApellido.setBounds(152, 94, 182, 20);
-		textField_SegundoApellido.setBorder(new LineBorder(new Color(0,0,0), 1));
-		panel_datos.add(textField_SegundoApellido);
-		textField_SegundoApellido.setColumns(10);
 		
 		JLabel labelFacultad = new JLabel("Facultad:");
 		labelFacultad.setFont(new Font("Arial Narrow", Font.BOLD, 13));
 		labelFacultad.setBounds(21, 165, 71, 14);
 		panel_datos.add(labelFacultad);
 		
-		labelCarnetID = new JLabel("Carnet de Identidad:");
+		labelCarnetID = new JLabel("Segundo Apellido");
 		labelCarnetID.setFont(new Font("Arial Narrow", Font.BOLD, 13));
 		labelCarnetID.setBounds(21, 133, 145, 14);
 		panel_datos.add(labelCarnetID);
-		
-		textField_Carnet = new JTextField();
-		textField_Carnet.setBounds(176, 133, 158, 20);
-		textField_Carnet.setBorder(new LineBorder(new Color(0,0,0), 1));
-		panel_datos.add(textField_Carnet);
-		
-		comboBox_Facultades = new JComboBox();
-		comboBox_Facultades.setBackground(Color.WHITE);
-		comboBox_Facultades.setModel(new DefaultComboBoxModel(new String[] {"<Facultad>","Informática", "Automática", "Mecánica", "Telecomunicaciones","Química","Civil","Arquitectura","Industrial","Eléctrica"}));
-		comboBox_Facultades.setBounds(101, 164, 233, 20);
-		panel_datos.add(comboBox_Facultades);
-		
-		spinner_NoTrabajador = new JSpinner();
-		spinner_NoTrabajador.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		spinner_NoTrabajador.setBorder(new LineBorder(new Color(0,0,0), 1));
-		spinner_NoTrabajador.setModel(new SpinnerNumberModel(1, 1, 100000, 1));
-		spinner_NoTrabajador.setBounds(142, 194, 192, 20);
-		panel_datos.add(spinner_NoTrabajador);
 		
 		JLabel labelNoTrabajador = new JLabel("No. Trabajador:");
 		labelNoTrabajador.setFont(new Font("Arial Narrow", Font.BOLD, 13));
@@ -178,12 +143,6 @@ public class VentanaSolicitudLicenciaEmpleado extends JFrame {
 		panel_datos.add(labelProfesion);
 		
 		setLocationRelativeTo(null);
-		
-		comboBox_Profesiones = new JComboBox();
-		comboBox_Profesiones.setBackground(Color.WHITE);
-		comboBox_Profesiones.setModel(new DefaultComboBoxModel(new String[] {"<Profesiones>","Docente", "Investigador", "Técnico", "Dirigente","Obrero","Servicio","Administrador"}));
-		comboBox_Profesiones.setBounds(152, 226, 182, 20);
-		panel_datos.add(comboBox_Profesiones);
 		
 		btnEnviarSolicitud = new JButton("Enviar solicitud");
 		btnEnviarSolicitud.setBackground(Color.WHITE);

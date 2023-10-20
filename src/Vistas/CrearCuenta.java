@@ -38,10 +38,8 @@ public class CrearCuenta extends JFrame {
 	 * @wbp.nonvisual location=-32,229
 	 */
 	private final Choice choice = new Choice();
-	private JTextField textField;
 	private JTextField textField_1;
 	private JPasswordField passwordField_1;
-	private JTextField textField_2;
 	private JLabel lblNewLabel_1;
 
 	/**
@@ -91,37 +89,25 @@ public class CrearCuenta extends JFrame {
 		
 		JLabel lblNewLabel = new JLabel("Nombre de Usuario");
 		lblNewLabel.setFont(new Font("Arial Narrow", Font.BOLD, 15));
-		lblNewLabel.setBounds(10, 98, 120, 14);
+		lblNewLabel.setBounds(10, 40, 120, 14);
 		panel.add(lblNewLabel);
 		
 		JLabel lblApellidos = new JLabel("Contrase\u00F1a");
 		lblApellidos.setFont(new Font("Arial Narrow", Font.BOLD, 15));
-		lblApellidos.setBounds(10, 132, 107, 14);
+		lblApellidos.setBounds(10, 91, 107, 14);
 		panel.add(lblApellidos);
 		
 		passwordField = new JPasswordField();
 		passwordField.setBackground(new Color(204, 255, 204));
 		passwordField.setBorder(new MatteBorder(0, 0, 2, 0, (Color) new Color(0, 0, 0)));
-		passwordField.setBounds(85, 122, 194, 24);
+		passwordField.setBounds(85, 81, 194, 24);
 		panel.add(passwordField);
-		
-		JLabel lblNombre = new JLabel("Nombre");
-		lblNombre.setFont(new Font("Arial Narrow", Font.BOLD, 15));
-		lblNombre.setBounds(10, 30, 107, 14);
-		panel.add(lblNombre);
-		
-		textField = new JTextField();
-		textField.setBackground(new Color(204, 255, 204));
-		textField.setBorder(new MatteBorder(0, 0, 2, 0, (Color) new Color(0, 0, 0)));
-		textField.setBounds(69, 29, 210, 15);
-		panel.add(textField);
-		textField.setColumns(10);
 		
 		textField_1 = new JTextField();
 		textField_1.setBackground(new Color(204, 255, 204));
 		textField_1.setBorder(new MatteBorder(0, 0, 2, 0, (Color) new Color(0, 0, 0)));
 		textField_1.setColumns(10);
-		textField_1.setBounds(129, 92, 150, 20);
+		textField_1.setBounds(129, 34, 150, 20);
 		panel.add(textField_1);
 		
 		JLabel fondo;
@@ -148,13 +134,13 @@ public class CrearCuenta extends JFrame {
 		btnNewButton.setBorder(new LineBorder(new Color(0, 0, 0)));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				String nombre=textField.getText();
+				
 				String email=textField_1.getText();
-				String usuario=textField_2.getText();
+				
 				String contraseña=passwordField.getText();
 				String verificar=passwordField.getText();
 				
-				if(nombre==null|| nombre.isEmpty() ||email==null || email.isEmpty()||usuario==null || usuario.isEmpty()||contraseña.isEmpty()||contraseña==null ||verificar.isEmpty()||verificar==null)
+				if(email==null || email.isEmpty() || contraseña.isEmpty()||contraseña==null ||verificar.isEmpty()||verificar==null)
 					errorMessage.setVisible(true);
 				else{
 					Inicio inicio = new Inicio();
@@ -170,30 +156,18 @@ public class CrearCuenta extends JFrame {
 		
 		JLabel lblConfirmarContrasea = new JLabel("Confirmar contrase\u00F1a");
 		lblConfirmarContrasea.setFont(new Font("Arial Narrow", Font.BOLD, 15));
-		lblConfirmarContrasea.setBounds(10, 171, 137, 14);
+		lblConfirmarContrasea.setBounds(10, 145, 137, 14);
 		panel.add(lblConfirmarContrasea);
 		
 		passwordField_1 = new JPasswordField();
 		passwordField_1.setBorder(new MatteBorder(0, 0, 2, 0, (Color) new Color(0, 0, 0)));
 		passwordField_1.setBackground(new Color(204, 255, 204));
-		passwordField_1.setBounds(146, 161, 133, 24);
+		passwordField_1.setBounds(146, 135, 133, 24);
 		panel.add(passwordField_1);
-		
-		JLabel lblEmail = new JLabel("E-mail");
-		lblEmail.setFont(new Font("Arial Narrow", Font.BOLD, 15));
-		lblEmail.setBounds(10, 67, 107, 14);
-		panel.add(lblEmail);
-		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		textField_2.setBorder(new MatteBorder(0, 0, 2, 0, (Color) new Color(0, 0, 0)));
-		textField_2.setBackground(new Color(204, 255, 204));
-		textField_2.setBounds(69, 66, 210, 15);
-		panel.add(textField_2);
 		
 		JLabel lblSeleccioneTipoDe = new JLabel("Seleccione tipo de usuario");
 		lblSeleccioneTipoDe.setFont(new Font("Arial Narrow", Font.BOLD, 15));
-		lblSeleccioneTipoDe.setBounds(10, 209, 172, 24);
+		lblSeleccioneTipoDe.setBounds(10, 191, 172, 24);
 		panel.add(lblSeleccioneTipoDe);
 		
 		JComboBox comboBox = new JComboBox();
@@ -201,7 +175,7 @@ public class CrearCuenta extends JFrame {
 		comboBox.setBackground(new Color(204, 255, 204));
 		comboBox.setFont(new Font("Arial Narrow", Font.BOLD, 13));
 		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Estudiante", "Empleado", "Administrador"}));
-		comboBox.setBounds(183, 212, 96, 20);
+		comboBox.setBounds(183, 194, 96, 20);
 		panel.add(comboBox);
 		
 		

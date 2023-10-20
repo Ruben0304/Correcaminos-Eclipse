@@ -1,3 +1,5 @@
+package Vistas;
+
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.Graphics;
@@ -15,6 +17,9 @@ import javax.swing.JMenuItem;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.ImageIcon;
+import java.awt.Color;
+import java.awt.Dimension;
 
 
 public class Inicio extends JFrame {
@@ -41,18 +46,23 @@ public class Inicio extends JFrame {
 	 * Create the frame.
 	 */
 	public Inicio() {
+		setBounds(100, 100, 672, 457);
 		setResizable(false);
-		setIconImage(Toolkit.getDefaultToolkit().getImage(Inicio.class.getResource("/imagenes/correcamino.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Inicio.class.getResource("/img/correcamino.png")));
 		setTitle("Inicio");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		JMenuBar menuBar = new JMenuBar();
+		menuBar.setBorderPainted(false);
+		menuBar.setBackground(Color.WHITE);
+		menuBar.setBorder(null);
 		setJMenuBar(menuBar);
 		
 		JMenu mnNewMenu = new JMenu("Opciones");
+		
 		menuBar.add(mnNewMenu);
 		
-		JMenuItem mntmCerrarSesin = new JMenuItem("Cerrar sesi\u00F3n");
+		JMenuItem mntmCerrarSesin = new JMenuItem("Cambiar usuario");
 		mntmCerrarSesin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				PantallaInicial login = new PantallaInicial();
@@ -74,14 +84,41 @@ public class Inicio extends JFrame {
 		JMenu mnNewMenu_1 = new JMenu("Gesti\u00F3n");
 		menuBar.add(mnNewMenu_1);
 		
-		JMenu mnSolicitar = new JMenu("Solicitar");
-		mnNewMenu_1.add(mnSolicitar);
+		JMenu mnEstudiante = new JMenu("Estudiante");
+		mnNewMenu_1.add(mnEstudiante);
 		
-		JMenuItem mntmLicencia = new JMenuItem("Licencia");
-		mnSolicitar.add(mntmLicencia);
+		JMenuItem mntmSolicitarBajaO = new JMenuItem("Solicitar baja o licencia");
+		mntmSolicitarBajaO.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Estudiante e=new Estudiante ();
+				e.setVisible(true);
+				dispose();
+			}
+		});
+		mnEstudiante.add(mntmSolicitarBajaO);
 		
-		JMenuItem mntmBaja = new JMenuItem("Baja");
-		mnSolicitar.add(mntmBaja);
+		JMenu mnEmpleado = new JMenu("Empleado");
+		mnNewMenu_1.add(mnEmpleado);
+		
+		JMenuItem mntmSolicitarBaja = new JMenuItem("Solicitar baja");
+		mntmSolicitarBaja.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				VentanaSolicitudBajaEmpleado a = new VentanaSolicitudBajaEmpleado ();
+				a.setVisible(true);
+				dispose();
+			}
+		});
+		mnEmpleado.add(mntmSolicitarBaja);
+		
+		JMenuItem mntmSolicitarLicencia = new JMenuItem("Solicitar licencia");
+		mntmSolicitarLicencia.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				VentanaSolicitudLicenciaEmpleado v= new VentanaSolicitudLicenciaEmpleado();
+				v.setVisible(true);
+				dispose();
+			}
+		});
+		mnEmpleado.add(mntmSolicitarLicencia);
 		
 		JMenuItem mntmResultadosSolicitud = new JMenuItem("Resultados Solicitud");
 		mnNewMenu_1.add(mntmResultadosSolicitud);
@@ -111,7 +148,7 @@ public class Inicio extends JFrame {
 		mnNewMenu_3.add(mntmAcercaDeLa);
 		contentPane = new JPanel(){
 			public void paintComponent(Graphics g){
-				Image img = Toolkit.getDefaultToolkit().getImage(Inicio.class.getResource("/imagenes/img.jpg"));
+				Image img = Toolkit.getDefaultToolkit().getImage(Inicio.class.getResource("/img/contract.jpg"));
 				g.drawImage(img, 0, 0, this.getWidth(), this.getHeight(),this);
 				
 			}
@@ -119,7 +156,7 @@ public class Inicio extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
-		setBounds(100, 100, 663, 438);
+		setBounds(100, 100, 672, 457);
 		setLocationRelativeTo(null);
 	}
 

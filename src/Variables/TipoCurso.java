@@ -1,5 +1,5 @@
 package Variables;
 
-public enum Modalidad {
+public enum TipoCurso {
     DIURNO,ENCUENTRO,
 }

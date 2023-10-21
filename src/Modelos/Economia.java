@@ -1,10 +1,24 @@
 package Modelos;
 
+import java.util.ArrayList;
+
 public class Economia {
-	private float deudas;
-	
-	 public boolean seCumplenRequisitos() {
-	        // Verificar si no hay deudas pendientes
-	        return this.deudas == 0.0;
-	    }
+	private ArrayList<String> idEstudiantesConDeuda;
+	private ArrayList<String> idEstudiantesConEstipendio;
+
+	public boolean tieneDeuda(String id) {
+		boolean encontrado = false;
+		for (int i = 0; i < idEstudiantesConDeuda.size() && !encontrado; i++) {
+			encontrado = idEstudiantesConDeuda.get(i) == id;
+		}
+		return encontrado;
+	}
+
+	public boolean controlEstipendio(String id) {
+		boolean encontrado = false;
+		for (int i = 0; i < idEstudiantesConEstipendio.size() && !encontrado; i++) {
+			encontrado = idEstudiantesConEstipendio.get(i) == id;
+		}
+		return encontrado;
+	}
 }

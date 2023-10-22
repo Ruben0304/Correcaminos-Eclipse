@@ -24,5 +24,8 @@ public class Secretaria {
 
     }
 
+    private void aprobarSolicitudLicencia() {
+        
+    }
 
 }

@@ -82,6 +82,7 @@ public class Login extends JFrame {
 
 		final JLabel ErrorMessages = new JLabel("Credenciales incorrectas");
 		ErrorMessages.setVisible(false);
+		ErrorMessages.setHorizontalAlignment(SwingConstants.CENTER);
 		ErrorMessages.setForeground(new Color(204, 51, 0));
 		ErrorMessages.setFont(new Font("Arial Narrow", Font.BOLD, 14));
 		ErrorMessages.setBounds(573, 331, 204, 25);

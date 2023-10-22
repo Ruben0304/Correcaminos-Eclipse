@@ -9,11 +9,6 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import Vistas.Auth.PantallaInicial;
-import Vistas.Usuarios.Estudiante;
-import Vistas.Usuarios.VentanaSolicitudBajaEmpleado;
-import Vistas.Usuarios.VentanaSolicitudLicenciaEmpleado;
-
 import java.awt.Toolkit;
 
 import javax.swing.JMenuBar;
@@ -22,7 +17,14 @@ import javax.swing.JMenuItem;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+
 import javax.swing.ImageIcon;
+
+import vistas.Auth.PantallaInicial;
+import vistas.Usuarios.Estudiante;
+import vistas.Usuarios.VentanaSolicitudBajaEmpleado;
+import vistas.Usuarios.VentanaSolicitudLicenciaEmpleado;
+
 import java.awt.Color;
 import java.awt.Dimension;
 
@@ -31,22 +33,7 @@ public class Inicio extends JFrame {
 
 	private JPanel contentPane;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Inicio frame = new Inicio();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
+	
 	/**
 	 * Create the frame.
 	 */

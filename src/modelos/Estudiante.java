@@ -1,7 +1,7 @@
-package Modelos;
+package modelos;
 
-import Variables.Facultad;
-import Variables.TipoCurso;
+import variables.Facultad;
+import variables.TipoCurso;
 
 public class Estudiante extends Usuario {
 	protected int curso;
@@ -14,9 +14,9 @@ public class Estudiante extends Usuario {
 	protected boolean tieneLibrosDeBiblioteca;
 	protected boolean tieneLibrosDocentes;
 
-	public Estudiante(String ci, String nombreUsuario, String contraseÃ±a, String nombre, String apellidos,
+	public Estudiante(String ci, String nombreUsuario, String contraseña, String nombre, String apellidos,
 			Facultad facultad, String especialidad, int curso, TipoCurso tipoCurso, int grupo) {
-		super(ci, nombreUsuario, contraseÃ±a, nombre, apellidos, facultad);
+		super(ci, nombreUsuario, contraseña, nombre, apellidos, facultad);
 		this.curso = curso;
 		this.tipoCurso = tipoCurso;
 		this.grupo = grupo;

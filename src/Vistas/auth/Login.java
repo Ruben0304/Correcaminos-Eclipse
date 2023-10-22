@@ -1,4 +1,4 @@
-package Vistas.Auth;
+package Vistas.auth;
 
 
 import java.awt.EventQueue;
@@ -37,22 +37,7 @@ public class Login extends JFrame {
 	private JTextField txtUsuario;
 	private JPasswordField passwordField;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					PantallaInicial frame = new PantallaInicial();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
+	
 	/**
 	 * Create the frame.
 	 */

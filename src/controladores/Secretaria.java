@@ -1,13 +1,13 @@
-package Controladores;
+package controladores;
 
 import java.util.ArrayList;
 
-import Modelos.Becado;
-import Modelos.Estudiante;
-import Modelos.SolicitudLicenciaEstudiante;
+import modelos.Becado;
+import modelos.Estudiante;
+import modelos.SolicitudLicenciaEstudiante;
 
 
-public class Secretaria {
+public static class Secretaria {
     ArrayList<SolicitudLicenciaEstudiante> solicitudesLicencia;
 
     private boolean verificarRequisitos(Estudiante e) {
@@ -26,6 +26,11 @@ public class Secretaria {
 
     private void aprobarSolicitudLicencia() {
         
+    }
+    
+    public static ArrayList<SolicitudLicenciaEstudiante> getSolicitudesLicencia(){
+    	
+    	return solicitudesLicencia;
     }
 
 }

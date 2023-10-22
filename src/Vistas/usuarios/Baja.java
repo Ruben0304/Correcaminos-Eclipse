@@ -1,4 +1,4 @@
-package Vistas.Usuarios;
+package Vistas.usuarios;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -17,13 +17,13 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 
-import Vistas.Inicio;
-
 import java.awt.Toolkit;
 import java.awt.Color;
 
 import javax.swing.JCheckBox;
 import javax.swing.JButton;
+
+import vistas.Inicio;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -34,22 +34,7 @@ public class Baja extends JFrame {
 
 	private JPanel contentPane;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Baja frame = new Baja();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
+	
 	/**
 	 * Create the frame.
 	 */

@@ -1,4 +1,4 @@
-package Vistas.Usuarios;
+package Vistas.usuarios;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -12,9 +12,6 @@ import javax.swing.border.EmptyBorder;
 import java.awt.Toolkit;
 
 import javax.swing.border.TitledBorder;
-
-import Vistas.Inicio;
-
 import javax.swing.border.LineBorder;
 
 import java.awt.Color;
@@ -36,6 +33,8 @@ import java.awt.SystemColor;
 
 import javax.swing.border.MatteBorder;
 
+import vistas.Inicio;
+
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -47,21 +46,7 @@ public class Estudiante extends JFrame {
 	private JTextField textField;
 	private JTextField textField_5;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Estudiante frame = new Estudiante();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	
 
 	/**
 	 * Create the frame.

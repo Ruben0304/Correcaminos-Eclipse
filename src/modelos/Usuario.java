@@ -1,22 +1,22 @@
-package Modelos;
+package modelos;
 
-import Variables.Facultad;
+import variables.Facultad;
 
 public abstract class Usuario {
 	protected String ci;
 	protected String nombreUsuario;
-	protected String contraseÃ±a;
+	protected String contraseña;
 	protected String nombre;
 	protected String apellidos;
 	protected Facultad facultad;
 	protected boolean licencia;
 	protected boolean baja;
 
-	public Usuario(String ci, String nombreUsuario, String contraseÃ±a, String nombre, String apellidos,
+	public Usuario(String ci, String nombreUsuario, String contraseña, String nombre, String apellidos,
 			Facultad facultad) {
 		this.ci = ci;
 		this.nombreUsuario = nombreUsuario;
-		this.contraseÃ±a = contraseÃ±a;
+		this.contraseña = contraseña;
 		this.nombre = nombre;
 		this.apellidos = apellidos;
 		this.facultad = facultad;
@@ -26,8 +26,8 @@ public abstract class Usuario {
 	public void setNombreUsuario(String nombreUsuario) {
 		this.nombreUsuario = nombreUsuario;
 	}
-	public void setContraseÃ±a(String contraseÃ±a) {
-		this.contraseÃ±a = contraseÃ±a;
+	public void setContraseña(String contraseña) {
+		this.contraseña = contraseña;
 	}
 
     

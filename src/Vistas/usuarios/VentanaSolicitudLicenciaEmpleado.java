@@ -1,4 +1,4 @@
-package Vistas.Usuarios;
+package Vistas.usuarios;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -24,9 +24,9 @@ import javax.swing.border.TitledBorder;
 import javax.swing.JButton;
 import javax.swing.SpinnerNumberModel;
 
-import com.toedter.calendar.JDateChooser;
+import vistas.Inicio;
 
-import Vistas.Inicio;
+import com.toedter.calendar.JDateChooser;
 
 import java.awt.Toolkit;
 import java.awt.event.ActionListener;
@@ -54,21 +54,7 @@ public class VentanaSolicitudLicenciaEmpleado extends JFrame {
 	private JDateChooser fechaSalida;
 	private JDateChooser fechaRegreso;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					VentanaSolicitudLicenciaEmpleado frame = new VentanaSolicitudLicenciaEmpleado();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	
 
 	/**
 	 * Create the frame.

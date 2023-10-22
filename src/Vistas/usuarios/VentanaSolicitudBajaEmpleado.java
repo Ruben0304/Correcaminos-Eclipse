@@ -1,4 +1,4 @@
-package Vistas.Usuarios;
+package Vistas.usuarios;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -20,11 +20,10 @@ import javax.swing.JSpinner;
 import java.awt.Font;
 
 import javax.swing.border.TitledBorder;
-
-import Vistas.Inicio;
-
 import javax.swing.JButton;
 import javax.swing.SpinnerNumberModel;
+
+import vistas.Inicio;
 
 import java.awt.Toolkit;
 import java.awt.event.ActionListener;
@@ -46,22 +45,7 @@ public class VentanaSolicitudBajaEmpleado extends JFrame {
 	private JLabel labelMotivo;
 	private JTextField textField_Motivo;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					VentanaSolicitudBajaEmpleado frame = new VentanaSolicitudBajaEmpleado();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
+	
 	/**
 	 * Create the frame.
 	 */

@@ -26,7 +26,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.border.MatteBorder;
 
 import controlador.ControladorLogin;
-import modelos.auth.GestorUsuarios;
+
 import modelos.entidades.Usuario;
 
 import javax.swing.SwingConstants;

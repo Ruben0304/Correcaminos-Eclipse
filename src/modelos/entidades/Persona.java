@@ -2,7 +2,7 @@ package modelos.entidades;
 
 import utiles.Facultad;
 
-public class Persona extends Usuario {
+public abstract class Persona extends Usuario {
     protected String ci;
     protected String nombre;
 	protected String apellidos;

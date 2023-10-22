@@ -22,7 +22,12 @@ import javax.swing.JMenuItem;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+
 import vistas.usuarios.Estudiante;
+
+
+
+
 
 public class Inicio extends JFrame {
 
@@ -49,7 +54,16 @@ public class Inicio extends JFrame {
 
 		menuBar.add(mnNewMenu);
 
-		
+		JMenuItem mntmCerrarSesin = new JMenuItem("Cerrar Sesion");
+		mntmCerrarSesin.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				// Login login = new Login();
+				// login.setVisible(true);
+				// dispose();
+
+			}
+		});
+		mnNewMenu.add(mntmCerrarSesin);
 
 		JMenuItem mntmSalir = new JMenuItem("Salir");
 		mntmSalir.addActionListener(new ActionListener() {
@@ -72,7 +86,7 @@ public class Inicio extends JFrame {
 				}
 			});
 			mnNewMenu_1.add(mntmGestionarBaja);
-
+			
 			JMenuItem mntmGestionarLicencia = new JMenuItem("Gestionar licencias");
 			mntmGestionarLicencia.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
@@ -104,7 +118,11 @@ public class Inicio extends JFrame {
 			});
 			mnNewMenu_1.add(mntmSolicitarLicencia);
 
+
 		}
+
+		
+		
 
 		JMenuItem mntmResultadosSolicitud = new JMenuItem("Resultados Solicitud");
 		mnNewMenu_1.add(mntmResultadosSolicitud);
@@ -132,20 +150,9 @@ public class Inicio extends JFrame {
 
 		JMenuItem mntmAcercaDeLa = new JMenuItem("Acerca de la app");
 		mnNewMenu_3.add(mntmAcercaDeLa);
-
+		
 		JMenuItem mntmUser = new JMenuItem(usuario.getNombreUsuario());
 		menuBar.add(mntmUser);
-
-		JMenuItem mntmCerrarSesin = new JMenuItem("Cerrar Sesion");
-		mntmCerrarSesin.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				// Login login = new Login();
-				// login.setVisible(true);
-				// dispose();
-
-			}
-		});
-		mntmUser.add(mntmCerrarSesin);
 		
 		contentPane = new JPanel() {
 			public void paintComponent(Graphics g) {

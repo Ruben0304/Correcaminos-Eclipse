@@ -9,6 +9,8 @@ public abstract class Usuario {
 	protected String nombre;
 	protected String apellidos;
 	protected Facultad facultad;
+	protected boolean licencia;
+	protected boolean baja;
 
 	public Usuario(String ci, String nombreUsuario, String contraseña, String nombre, String apellidos,
 			Facultad facultad) {
@@ -28,8 +30,23 @@ public abstract class Usuario {
 		this.contraseña = contraseña;
 	}
 
-	public abstract void solicitarBaja();
+    
+    public void setLicencia(boolean licencia) {
+        this.licencia = licencia;
+    }
 
-	public abstract void solicitarLicencia();
+    public void setBaja(boolean baja) {
+        this.baja = baja;
+    }
 
+
+
+	
+
+	
+	
+
+	
+
+	
 }

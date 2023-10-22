@@ -9,6 +9,11 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import Vistas.Auth.PantallaInicial;
+import Vistas.Usuarios.Estudiante;
+import Vistas.Usuarios.VentanaSolicitudBajaEmpleado;
+import Vistas.Usuarios.VentanaSolicitudLicenciaEmpleado;
+
 import java.awt.Toolkit;
 
 import javax.swing.JMenuBar;

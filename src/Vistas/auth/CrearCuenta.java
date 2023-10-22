@@ -169,7 +169,7 @@ public class CrearCuenta extends JFrame {
 		JButton btnLogin = new JButton("Volver al Login");
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				PantallaInicial p= new PantallaInicial();
+				login p= new login();
 				p.setVisible(true);
 				dispose();
 			}

@@ -20,10 +20,10 @@ import java.awt.event.ActionEvent;
 
 import javax.swing.ImageIcon;
 
-import vistas.Auth.PantallaInicial;
-import vistas.Usuarios.Estudiante;
-import vistas.Usuarios.VentanaSolicitudBajaEmpleado;
-import vistas.Usuarios.VentanaSolicitudLicenciaEmpleado;
+import vistas.auth.Login;
+import vistas.usuarios.Estudiante;
+import vistas.usuarios.VentanaSolicitudBajaEmpleado;
+import vistas.usuarios.VentanaSolicitudLicenciaEmpleado;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -57,7 +57,7 @@ public class Inicio extends JFrame {
 		JMenuItem mntmCerrarSesin = new JMenuItem("Cambiar usuario");
 		mntmCerrarSesin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				PantallaInicial login = new PantallaInicial();
+				Login login = new Login();
 				login.setVisible(true);
 				dispose();
 				

@@ -20,9 +20,14 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 
 import javax.swing.border.MatteBorder;
+
+import controlador.ControladorLogin;
+import modelos.entidades.Usuario;
+
 import javax.swing.SwingConstants;
 import javax.swing.JPasswordField;
 
@@ -41,11 +46,11 @@ public class Login extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Login() {
+	public Login(ArrayList<Usuario> usuariosdePrueba) {
 		setType(Type.POPUP);
 		setResizable(false);
 		setFont(new Font("Arial Narrow", Font.BOLD, 12));
-		setIconImage(Toolkit.getDefaultToolkit().getImage(PantallaInicial.class.getResource("/img/correcamino.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Login.class.getResource("/img/correcamino.png")));
 		setTitle("CorrecaminosCujae");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 864, 576);
@@ -82,27 +87,19 @@ public class Login extends JFrame {
 		ErrorMessages.setBounds(573, 331, 204, 25);
 		contentPane.add(ErrorMessages);
 		
-		JButton btnNewButton = new JButton("Iniciar sesi\u00F3n");
-		btnNewButton.setBackground(new Color(51, 153, 102));
-		btnNewButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnNewButton.setForeground(new Color(255, 255, 255));
-		btnNewButton.setBorder(null);
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton btnLogin = new JButton("Iniciar sesi\u00F3n");
+		btnLogin.setBackground(new Color(51, 153, 102));
+		btnLogin.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnLogin.setForeground(new Color(255, 255, 255));
+		btnLogin.setBorder(null);
+		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				String usuario = txtUsuario.getText();
-				String contrasena = passwordField.getText();
-				
-				if(usuario.isEmpty()||usuario==null||contrasena.isEmpty()||contrasena==null){
-					ErrorMessages.setVisible(true);
-				}else{
-					Inicio p= new Inicio();
-					p.setVisible(true);
-					dispose();}
+				ControladorLogin.autenticar(, , )
 			}
 		});
-		btnNewButton.setFont(new Font("Arial Narrow", Font.PLAIN, 16));
-		btnNewButton.setBounds(603, 395, 159, 43);
-		contentPane.add(btnNewButton);
+		btnLogin.setFont(new Font("Arial Narrow", Font.PLAIN, 16));
+		btnLogin.setBounds(603, 395, 159, 43);
+		contentPane.add(btnLogin);
 		
 		
 		
@@ -160,7 +157,7 @@ public class Login extends JFrame {
 		JLabel lblNewLabel_2 = new JLabel("");
 		lblNewLabel_2.setBorder(null);
 		lblNewLabel_2.setBounds(540, 228, 48, 43);
-		ImageIcon icono = new ImageIcon(PantallaInicial.class.getResource("/img/usuario.png")); 
+		ImageIcon icono = new ImageIcon(Login.class.getResource("/img/usuario.png")); 
 		ImageIcon imga = new ImageIcon(icono.getImage().getScaledInstance(lblNewLabel_2.getWidth(), lblNewLabel_2.getHeight(), Image.SCALE_SMOOTH));
 		lblNewLabel_2.setIcon(imga);
 		contentPane.add(lblNewLabel_2);

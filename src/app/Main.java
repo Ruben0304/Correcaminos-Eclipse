@@ -1,4 +1,5 @@
 package app;
+import controlador.ControladorLogin;
 import vistas.auth.Login;
 public class Main {
 

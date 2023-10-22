@@ -23,6 +23,7 @@ public abstract class Usuario {
 
 	}
 
+	
 	public void setNombreUsuario(String nombreUsuario) {
 		this.nombreUsuario = nombreUsuario;
 	}
@@ -38,6 +39,46 @@ public abstract class Usuario {
     public void setBaja(boolean baja) {
         this.baja = baja;
     }
+
+
+	public String getCi() {
+		return ci;
+	}
+
+
+	public String getNombreUsuario() {
+		return nombreUsuario;
+	}
+
+
+	public String getContrasena() {
+		return contrasena;
+	}
+
+
+	public String getNombre() {
+		return nombre;
+	}
+
+
+	public String getApellidos() {
+		return apellidos;
+	}
+
+
+	public Facultad getFacultad() {
+		return facultad;
+	}
+
+
+	public boolean isLicencia() {
+		return licencia;
+	}
+
+
+	public boolean isBaja() {
+		return baja;
+	}
 
 
 

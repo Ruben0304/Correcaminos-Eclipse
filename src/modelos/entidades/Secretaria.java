@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 
 public class Secretaria {
+    ArrayList<Estudiante> estudiantes;
     ArrayList<SolicitudLicenciaEstudiante> solicitudesLicencia;
 
     private boolean verificarRequisitos(Estudiante e) {

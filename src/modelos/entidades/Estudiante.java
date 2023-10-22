@@ -84,7 +84,14 @@ public class Estudiante extends Persona {
 		this.tieneLibrosDocentes = tieneLibrosDocentes;
 	}
 
-
+    public void solicitarLicencia() {
+		
+		
+	}
+	public void solicitarBaja() {
+		
+		
+	}
 
     
 

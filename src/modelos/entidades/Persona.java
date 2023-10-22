@@ -21,5 +21,6 @@ public abstract class Persona extends Usuario {
         this.baja = baja;
     }
 
-    
+    public abstract void solicitarLicencia();
+    public abstract void solicitarBaja();
 }

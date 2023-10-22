@@ -11,5 +11,12 @@ public abstract class Empleado extends Persona{
         this.numerotrabajador = numerotrabajador;
     }
 
-    
+    public void solicitarLicencia() {
+		// TODO Auto-generated method stub
+		
+	}
+	public void solicitarBaja() {
+		// TODO Auto-generated method stub
+		
+	}
 }

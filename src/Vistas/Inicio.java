@@ -33,11 +33,11 @@ public class Inicio extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Inicio(final Usuario usuario, final ArrayList<Usuario> usuariosdePrueba) {
+	public Inicio(final Usuario usuarioAutenticado, final ArrayList<Usuario> usuarios) {
 		setBounds(100, 100, 672, 457);
 		setResizable(false);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Inicio.class.getResource("/img/correcamino.png")));
-		setTitle("Inicio - " + usuario.getNombreUsuario() + " (" + usuario.getClass().getSimpleName() + ")");
+		setTitle("Inicio - " + usuarioAutenticado.getNombreUsuario() + " (" + usuarioAutenticado.getClass().getSimpleName() + ")");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
 
@@ -54,7 +54,7 @@ public class Inicio extends JFrame {
 		JMenuItem mntmCerrarSesin = new JMenuItem("Cerrar Sesion");
 		mntmCerrarSesin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				ControladorLogin.cerrarSesion(usuariosdePrueba);
+				ControladorLogin.cerrarSesion(usuarios);
 				dispose();
 			}
 		});
@@ -71,7 +71,7 @@ public class Inicio extends JFrame {
 		JMenu mnNewMenu_1 = new JMenu("Gesti\u00F3n");
 		menuBar.add(mnNewMenu_1);
 
-		if (usuario instanceof Admin) {
+		if (usuarioAutenticado instanceof Admin) {
 			JMenuItem mntmGestionarBaja = new JMenuItem("Gestionar bajas");
 			mntmGestionarBaja.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {

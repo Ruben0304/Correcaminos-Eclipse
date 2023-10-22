@@ -1,5 +1,6 @@
 package app;
 
+import controlador.ControladorLogin;
 import modelos.auth.GestorUsuarios;
 
 import modelos.entidades.RecursosHumanos;
@@ -16,8 +17,7 @@ public class Main {
 
 		GestorUsuarios gestorUsuarios = new GestorUsuarios(secretaria, recursosHumanos, true);
 
-		Login loginView = new Login(gestorUsuarios.getUsuarios());
-		loginView.setVisible(true);
+		ControladorLogin.mostrarLogin(gestorUsuarios.getUsuarios());
 
 	}
 

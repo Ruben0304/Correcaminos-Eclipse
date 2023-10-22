@@ -146,6 +146,7 @@ public class Inicio extends JFrame {
 			}
 		});
 		mntmUser.add(mntmCerrarSesin);
+		
 		contentPane = new JPanel() {
 			public void paintComponent(Graphics g) {
 				Image img = Toolkit.getDefaultToolkit().getImage(Inicio.class.getResource("/img/contract.jpg"));

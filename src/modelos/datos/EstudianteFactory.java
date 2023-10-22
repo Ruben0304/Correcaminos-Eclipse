@@ -1,9 +1,8 @@
 package modelos.datos;
 import java.util.ArrayList;
-import java.util.Random;
 
-import controlador.*;
-import modelos.*;
+
+
 import modelos.entidades.Becado;
 import modelos.entidades.Estudiante;
 import utiles.Facultad;

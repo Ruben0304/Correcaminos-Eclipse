@@ -18,7 +18,7 @@ public class Main {
 		ArrayList<Usuario> usuarios = new ArrayList<>();
 		usuarios.addAll(secretaria.getEstudiantes());
 		usuarios.addAll(admins);
-		
+
 		Login loginView = new Login(usuarios);
 	    loginView.setVisible(true);
 

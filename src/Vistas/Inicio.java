@@ -40,7 +40,7 @@ public class Inicio extends JFrame {
 		setBounds(100, 100, 672, 457);
 		setResizable(false);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Inicio.class.getResource("/img/correcamino.png")));
-		setTitle("Inicio");
+		setTitle("Inicio - " + usuario.getNombreUsuario());
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
 
@@ -151,8 +151,7 @@ public class Inicio extends JFrame {
 		JMenuItem mntmAcercaDeLa = new JMenuItem("Acerca de la app");
 		mnNewMenu_3.add(mntmAcercaDeLa);
 		
-		JMenuItem mntmUser = new JMenuItem(usuario.getNombreUsuario());
-		menuBar.add(mntmUser);
+		
 		
 		contentPane = new JPanel() {
 			public void paintComponent(Graphics g) {

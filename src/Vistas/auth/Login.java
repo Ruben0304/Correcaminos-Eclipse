@@ -26,7 +26,7 @@ import javax.swing.border.MatteBorder;
 import javax.swing.SwingConstants;
 import javax.swing.JPasswordField;
 
-import Variables.Colores;
+import utiles.Colores;
 
 import java.awt.Cursor;
 
@@ -90,9 +90,9 @@ public class Login extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				String usuario = txtUsuario.getText();
-				String contrase�a = passwordField.getText();
+				String contrasena = passwordField.getText();
 				
-				if(usuario.isEmpty()||usuario==null||contrase�a.isEmpty()||contrase�a==null){
+				if(usuario.isEmpty()||usuario==null||contrasena.isEmpty()||contrasena==null){
 					ErrorMessages.setVisible(true);
 				}else{
 					Inicio p= new Inicio();

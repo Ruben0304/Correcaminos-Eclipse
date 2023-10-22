@@ -1,7 +1,7 @@
-package modelos;
+package modelos.entidades;
 
-import variables.Facultad;
-import variables.TipoCurso;
+import utiles.Facultad;
+import utiles.TipoCurso;
 
 public class Becado extends Estudiante {
    private String idBecado;
@@ -9,9 +9,9 @@ public class Becado extends Estudiante {
    private boolean tieneCarnet;
    private boolean tienePertenencias;
 
-   public Becado(String ci, String nombreUsuario, String contraseña, String nombre, String apellidos, Facultad facultad,
+   public Becado(String ci, String nombreUsuario, String contrasena, String nombre, String apellidos, Facultad facultad,
          String especialidad, int curso, TipoCurso tipoCurso, int grupo, String idBecado, int noCuarto) {
-      super(ci, nombreUsuario, contraseña, nombre, apellidos, facultad, especialidad, curso, tipoCurso, grupo);
+      super(ci, nombreUsuario, contrasena, nombre, apellidos, facultad, especialidad, curso, tipoCurso, grupo);
       this.idBecado = idBecado;
       this.noCuarto = noCuarto;
    }

@@ -1,4 +1,4 @@
-package vistas.entidades;
+package vistas.admin;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -7,11 +7,12 @@ import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import modelos.entidades.Secretaria;
+import modelos.entidades.SolicitudLicenciaEstudiante;
+
 import javax.swing.JList;
 import javax.swing.JScrollPane;
-
-import controladores.Secretaria;
-import modelos.SolicitudLicenciaEstudiante;
 
 
 public class Biblioteca extends JFrame {

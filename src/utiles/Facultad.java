@@ -1,4 +1,4 @@
-package variables;
+package utiles;
 
 public enum Facultad{
 		Arquitectura,

@@ -123,10 +123,10 @@ public class CrearCuenta extends JFrame {
 				
 				String email=textField_1.getText();
 				
-				String contrase�a=passwordField.getText();
+				String contrasena=passwordField.getText();
 				String verificar=passwordField.getText();
 				
-				if(email==null || email.isEmpty() || contrase�a.isEmpty()||contrase�a==null ||verificar.isEmpty()||verificar==null)
+				if(email==null || email.isEmpty() || contrasena.isEmpty()||contrasena==null ||verificar.isEmpty()||verificar==null)
 					errorMessage.setVisible(true);
 				else{
 					Inicio inicio = new Inicio();

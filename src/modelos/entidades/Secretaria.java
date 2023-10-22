@@ -1,10 +1,6 @@
-package controladores;
+package modelos.entidades;
 
 import java.util.ArrayList;
-
-import modelos.Becado;
-import modelos.Estudiante;
-import modelos.SolicitudLicenciaEstudiante;
 
 
 public class Secretaria {
@@ -28,7 +24,7 @@ public class Secretaria {
         
     }
     
-    public static ArrayList<SolicitudLicenciaEstudiante> getSolicitudesLicencia(){
+    public  ArrayList<SolicitudLicenciaEstudiante> getSolicitudesLicencia(){
     	
     	return solicitudesLicencia;
     }

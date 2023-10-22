@@ -3,6 +3,7 @@ package controlador;
 import java.util.ArrayList;
 
 import modelos.entidades.*;
+import vistas.auth.Login;
 
 public class ControladorLogin {
 
@@ -21,5 +22,12 @@ public class ControladorLogin {
         }
 
     return autenticado;
+    }
+
+    public static void cerrarSesion(ArrayList<Usuario> usuariosDePrueba) {
+        
+        Login login = new Login(usuariosDePrueba);
+        login.setVisible(true);
+        
     }
 }

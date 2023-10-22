@@ -9,6 +9,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import controlador.ControladorLogin;
 import modelos.entidades.Admin;
 import modelos.entidades.Usuario;
 import utiles.Colores;
@@ -20,14 +21,10 @@ import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 
-
 import vistas.usuarios.Estudiante;
-
-
-
-
 
 public class Inicio extends JFrame {
 
@@ -36,11 +33,11 @@ public class Inicio extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Inicio(final Usuario usuario) {
+	public Inicio(final Usuario usuario, final ArrayList<Usuario> usuariosdePrueba) {
 		setBounds(100, 100, 672, 457);
 		setResizable(false);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Inicio.class.getResource("/img/correcamino.png")));
-		setTitle("Inicio - " + usuario.getNombreUsuario() + " ("+ usuario.getClass().getSimpleName() +")");
+		setTitle("Inicio - " + usuario.getNombreUsuario() + " (" + usuario.getClass().getSimpleName() + ")");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
 
@@ -57,10 +54,8 @@ public class Inicio extends JFrame {
 		JMenuItem mntmCerrarSesin = new JMenuItem("Cerrar Sesion");
 		mntmCerrarSesin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				// Login login = new Login();
-				// login.setVisible(true);
-				// dispose();
-
+				ControladorLogin.cerrarSesion(usuariosdePrueba);
+				dispose();
 			}
 		});
 		mnNewMenu.add(mntmCerrarSesin);
@@ -86,7 +81,7 @@ public class Inicio extends JFrame {
 				}
 			});
 			mnNewMenu_1.add(mntmGestionarBaja);
-			
+
 			JMenuItem mntmGestionarLicencia = new JMenuItem("Gestionar licencias");
 			mntmGestionarLicencia.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
@@ -118,11 +113,7 @@ public class Inicio extends JFrame {
 			});
 			mnNewMenu_1.add(mntmSolicitarLicencia);
 
-
 		}
-
-		
-		
 
 		JMenuItem mntmResultadosSolicitud = new JMenuItem("Resultados Solicitud");
 		mnNewMenu_1.add(mntmResultadosSolicitud);
@@ -150,9 +141,7 @@ public class Inicio extends JFrame {
 
 		JMenuItem mntmAcercaDeLa = new JMenuItem("Acerca de la app");
 		mnNewMenu_3.add(mntmAcercaDeLa);
-		
-		
-		
+
 		contentPane = new JPanel() {
 			public void paintComponent(Graphics g) {
 				Image img = Toolkit.getDefaultToolkit().getImage(Inicio.class.getResource("/img/contract.jpg"));

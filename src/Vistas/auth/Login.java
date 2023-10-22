@@ -45,7 +45,7 @@ public class Login extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Login(final GestorUsuarios gestorUsuarios) {
+	public Login(final ArrayList<Usuario> usuarios) {
 
 		setType(Type.POPUP);
 		setResizable(false);
@@ -98,7 +98,7 @@ public class Login extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				char[] passwordChars = passwordField.getPassword();
 				String contrasena = new String(passwordChars);
-				if (ControladorLogin.autenticar(txtUsuario.getText(), contrasena, gestorUsuarios)) {
+				if (ControladorLogin.autenticar(txtUsuario.getText(), contrasena, usuarios)) {
 					dispose();
 				} else {
 					ErrorMessages.setVisible(true);

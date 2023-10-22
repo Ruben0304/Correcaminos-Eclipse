@@ -10,9 +10,13 @@ public class Secretaria {
     ArrayList<SolicitudLicenciaEstudiante> solicitudesLicencia;
 
     public Secretaria() {
-        this.estudiantes = EstudianteFactory.inicializarEstudiantes();
+        this.estudiantes = new ArrayList<>();
     }
 
+    public ArrayList<Estudiante> registrarEstudianteFictisios() {
+        estudiantes.addAll(EstudianteFactory.inicializarEstudiantes());
+        return estudiantes;
+    }
 
     private boolean verificarRequisitos(Estudiante e) {
 

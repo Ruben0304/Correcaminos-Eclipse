@@ -2,19 +2,16 @@ package controlador;
 
 import java.util.ArrayList;
 
-import modelos.auth.GestorUsuarios;
 import modelos.entidades.*;
 import vistas.Inicio;
-import vistas.auth.Login;
 
 public class ControladorPrincipal {
 
-    public static void mostrarInicio(GestorUsuarios gestorUsuarios) {
-        
-        Inicio inicio = new Inicio(gestorUsuarios);
+    public static void mostrarInicio(Usuario usuarioAutenticado, ArrayList<Usuario> usuarios) {
+
+        Inicio inicio = new Inicio(usuarioAutenticado, usuarios);
         inicio.setVisible(true);
-        
+
     }
 
-    
 }

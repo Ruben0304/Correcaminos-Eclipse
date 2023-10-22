@@ -66,7 +66,7 @@ public class EstudianteTramites extends JFrame {
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(204, 255, 204));
-		panel.setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0)), "Registre sus datos", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		panel.setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0)), "Datos Personales", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		panel.setBounds(299, 11, 428, 432);
 		contentPane.add(panel);
 		panel.setLayout(null);

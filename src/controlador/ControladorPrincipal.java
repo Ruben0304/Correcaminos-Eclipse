@@ -9,6 +9,6 @@ public class ControladorPrincipal {
         
         Inicio inicio = new Inicio(usuario);
         inicio.setVisible(true);
-        inicio.dispose();
+        
     }
 }

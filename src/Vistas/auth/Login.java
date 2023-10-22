@@ -10,6 +10,7 @@ import javax.swing.border.LineBorder;
 import java.awt.Color;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
 
 import java.awt.Font;
@@ -79,7 +80,7 @@ public class Login extends JFrame {
 		contentPane.add(txtUsuario);
 		txtUsuario.setColumns(10);
 
-		final JLabel ErrorMessages = new JLabel("Datos err\u00F3neos, intente nuevamente");
+		final JLabel ErrorMessages = new JLabel("Usuario o contraseña incorrectos");
 		ErrorMessages.setVisible(false);
 		ErrorMessages.setForeground(new Color(204, 51, 0));
 		ErrorMessages.setFont(new Font("Arial Narrow", Font.BOLD, 14));
@@ -95,7 +96,12 @@ public class Login extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				char[] passwordChars = passwordField.getPassword();
 				String contrasena = new String(passwordChars);
-				ControladorLogin.autenticar(txtUsuario.getText(), contrasena, usuariosdePrueba);
+				if (ControladorLogin.autenticar(txtUsuario.getText(), contrasena, usuariosdePrueba)) {
+					dispose();
+				} else {
+					ErrorMessages.setVisible(true);
+				}
+
 			}
 		});
 		btnLogin.setFont(new Font("Arial Narrow", Font.PLAIN, 16));

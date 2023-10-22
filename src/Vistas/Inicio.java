@@ -10,6 +10,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import controlador.ControladorLogin;
+import controlador.ControladorPrincipal;
 import modelos.entidades.Admin;
 import modelos.entidades.Usuario;
 import utiles.Colores;
@@ -75,9 +76,7 @@ public class Inicio extends JFrame {
 			JMenuItem mntmGestionarBaja = new JMenuItem("Gestionar bajas");
 			mntmGestionarBaja.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
-					EstudianteTramites e = new EstudianteTramites();
-					e.setVisible(true);
-					dispose();
+					
 				}
 			});
 			mnNewMenu_1.add(mntmGestionarBaja);
@@ -85,9 +84,7 @@ public class Inicio extends JFrame {
 			JMenuItem mntmGestionarLicencia = new JMenuItem("Gestionar licencias");
 			mntmGestionarLicencia.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
-					EstudianteTramites e = new EstudianteTramites();
-					e.setVisible(true);
-					dispose();
+					
 				}
 			});
 			mnNewMenu_1.add(mntmGestionarLicencia);
@@ -96,9 +93,7 @@ public class Inicio extends JFrame {
 			JMenuItem mntmSolicitarBaja = new JMenuItem("Solicitar baja");
 			mntmSolicitarBaja.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
-					EstudianteTramites e = new EstudianteTramites();
-					e.setVisible(true);
-					dispose();
+					ControladorPrincipal.mostrarTramites(usuarioAutenticado, usuarios);
 				}
 			});
 			mnNewMenu_1.add(mntmSolicitarBaja);
@@ -106,9 +101,7 @@ public class Inicio extends JFrame {
 			JMenuItem mntmSolicitarLicencia = new JMenuItem("Solicitar Licencia");
 			mntmSolicitarLicencia.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
-					EstudianteTramites e = new EstudianteTramites();
-					e.setVisible(true);
-					dispose();
+					
 				}
 			});
 			mnNewMenu_1.add(mntmSolicitarLicencia);

@@ -31,7 +31,7 @@ import Variables.Colores;
 import java.awt.Cursor;
 
 
-public class PantallaInicial extends JFrame {
+public class Login extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField txtUsuario;
@@ -56,7 +56,7 @@ public class PantallaInicial extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public PantallaInicial() {
+	public Login() {
 		setType(Type.POPUP);
 		setResizable(false);
 		setFont(new Font("Arial Narrow", Font.BOLD, 12));

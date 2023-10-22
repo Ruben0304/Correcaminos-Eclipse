@@ -153,7 +153,7 @@ public class Estudiante extends JFrame {
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.setBorderPainted(false);
 		menuBar.setBorder(null);
-		menuBar.setBackground(Color.WHITE);
+		menuBar.setBackground(Colores.BLANCO);
 		setJMenuBar(menuBar);
 		
 		JMenu mnNewMenu = new JMenu("Opciones");

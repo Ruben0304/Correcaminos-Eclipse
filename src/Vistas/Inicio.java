@@ -44,7 +44,7 @@ public class Inicio extends JFrame {
 
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.setBorderPainted(false);
-		menuBar.setBackground(Color.WHITE);
+		menuBar.setBackground(Colores.BLANCO);
 		menuBar.setBorder(null);
 		setJMenuBar(menuBar);
 

@@ -84,7 +84,7 @@ public class VentanaSolicitudBajaEmpleado extends JFrame {
 		
 		textField_NombreEmpleado = new JTextField();
 		textField_NombreEmpleado.setBounds(151, 29, 177, 19);
-		textField_NombreEmpleado.setBorder(new LineBorder(new Color(0,0,0), 1));
+		textField_NombreEmpleado.setBorder(new LineBorder(Colores.NEGRO, 1));
 		panel_datos.add(textField_NombreEmpleado);
 		textField_NombreEmpleado.setColumns(10);
 		
@@ -119,9 +119,9 @@ public class VentanaSolicitudBajaEmpleado extends JFrame {
 		panel_datos.add(labelProfesion);
 		
 		btnEnviarSolicitud = new JButton("Enviar solicitud");
-		btnEnviarSolicitud.setBackground(Color.WHITE);
+		btnEnviarSolicitud.setBackground(Colores.BLANCO);
 		btnEnviarSolicitud.setBounds(21, 329, 127, 25);
-		btnEnviarSolicitud.setBorder(new LineBorder(new Color(0,0,0), 1));
+		btnEnviarSolicitud.setBorder(new LineBorder(Colores.NEGRO, 1));
 		panel_datos.add(btnEnviarSolicitud);
 		btnEnviarSolicitud.setFont(new Font("Tahoma", Font.BOLD, 14));
 		
@@ -133,8 +133,8 @@ public class VentanaSolicitudBajaEmpleado extends JFrame {
 				dispose();
 			}
 		});
-		btnCancelar.setBackground(Color.WHITE);
-		btnCancelar.setBorder(new LineBorder(new Color(0,0,0), 1));
+		btnCancelar.setBackground(Colores.BLANCO);
+		btnCancelar.setBorder(new LineBorder(Colores.NEGRO, 1));
 		btnCancelar.setBounds(199, 329, 129, 25);
 		panel_datos.add(btnCancelar);
 		btnCancelar.setFont(new Font("Tahoma", Font.BOLD, 14));
@@ -147,7 +147,7 @@ public class VentanaSolicitudBajaEmpleado extends JFrame {
 		
 		textField_Motivo = new JTextField();
 		textField_Motivo.setBounds(84, 265, 244, 20);
-		textField_Motivo.setBorder(new LineBorder(new Color(0,0,0), 1));
+		textField_Motivo.setBorder(new LineBorder(Colores.NEGRO, 1));
 		panel_datos.add(textField_Motivo);
 		textField_Motivo.setColumns(10);
 		

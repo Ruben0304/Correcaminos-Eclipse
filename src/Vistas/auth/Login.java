@@ -110,7 +110,7 @@ public class Login extends JFrame {
 		contentPane.add(btnLogin);
 
 		JButton btnNewButton_1 = new JButton("Crear cuenta");
-		btnNewButton_1.setBackground(Color.WHITE);
+		btnNewButton_1.setBackground(Colores.BLANCO);
 		btnNewButton_1.setBorderPainted(false);
 		btnNewButton_1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnNewButton_1.setForeground(new Color(51, 102, 204));
@@ -139,7 +139,7 @@ public class Login extends JFrame {
 		contentPane.add(lblContrasea);
 
 		passwordField = new JPasswordField();
-		passwordField.setBackground(Color.WHITE);
+		passwordField.setBackground(Colores.BLANCO);
 		passwordField.setBorder(new MatteBorder(0, 0, 2, 0, (Color) Colores.NEGRO));
 		passwordField.setBounds(603, 302, 179, 25);
 		passwordField.setColumns(10);

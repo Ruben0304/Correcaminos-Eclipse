@@ -8,8 +8,11 @@ public class ControladorLogin {
 
     public static void autenticar(String nombreUsuario, String contrasena, ArrayList<Usuario> usuarios) {
         boolean encontrado = false;
-        boolean autenticado = false;
         
+        if (encontrado) {
+            
+        }
+
         for (int i = 0; i < usuarios.size() && !encontrado; i++) {
             encontrado = nombreUsuario.equals(usuarios.get(i).getNombreUsuario());
 

@@ -6,17 +6,19 @@ import vistas.Inicio;
 public class ControladorPrincipal {
 
     public static void mostrarInicio(Usuario usuario) {
-        Inicio inicio = new Inicio();
+
+        if (usuario instanceof Estudiante) {
+            if (usuario instanceof Becado) {
+                Inicio inicio = new Inicio("Becado");
+            } else {
+                Inicio inicio = new Inicio("Estudiante");
+            }
+
+        }
+        else{
+            Inicio inicio = new Inicio("Empleado");
+        }
         inicio.setVisible(true);
-        // inicio.dispose();
-        // if (usuario instanceof Estudiante) {
-        // if (usuario instanceof Becado) {
-
-        // } else {
-        // inicio.setVisible(true);
-        // inicio.dispose();
-        // }
-
-        // }
+                inicio.dispose();
     }
 }

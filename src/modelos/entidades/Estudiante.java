@@ -3,7 +3,7 @@ package modelos.entidades;
 import utiles.Facultad;
 import utiles.TipoCurso;
 
-public class Estudiante extends Usuario {
+public class Estudiante extends Persona {
 	protected int curso;
 	protected TipoCurso tipoCurso;
 	protected String especialidad;
@@ -14,18 +14,27 @@ public class Estudiante extends Usuario {
 	protected boolean tieneLibrosDeBiblioteca;
 	protected boolean tieneLibrosDocentes;
 
-	public Estudiante(String ci, String nombreUsuario, String contrasena, String nombre, String apellidos,
-			Facultad facultad, String especialidad, int curso, TipoCurso tipoCurso, int grupo) {
-		super(ci, nombreUsuario, contrasena, nombre, apellidos, facultad);
-		this.curso = curso;
-		this.tipoCurso = tipoCurso;
-		this.grupo = grupo;
-		this.especialidad = especialidad;
-	}
+	
 
    
 
-    public boolean tieneDeuda() {
+    public Estudiante(String nombreUsuario, String contrasena, String ci, String nombre, String apellidos,
+			Facultad facultad, boolean licencia, boolean baja, int curso, TipoCurso tipoCurso, String especialidad,
+			int grupo, boolean tieneDeuda, boolean tieneEstipendio, boolean tieneCuentaCerrada,
+			boolean tieneLibrosDeBiblioteca, boolean tieneLibrosDocentes) {
+		super(nombreUsuario, contrasena, ci, nombre, apellidos, facultad, licencia, baja);
+		this.curso = curso;
+		this.tipoCurso = tipoCurso;
+		this.especialidad = especialidad;
+		this.grupo = grupo;
+		this.tieneDeuda = tieneDeuda;
+		this.tieneEstipendio = tieneEstipendio;
+		this.tieneCuentaCerrada = tieneCuentaCerrada;
+		this.tieneLibrosDeBiblioteca = tieneLibrosDeBiblioteca;
+		this.tieneLibrosDocentes = tieneLibrosDocentes;
+	}
+
+	public boolean tieneDeuda() {
         return tieneDeuda;
     }
 

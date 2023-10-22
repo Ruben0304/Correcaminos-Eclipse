@@ -9,6 +9,9 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import modelos.entidades.Admin;
+import modelos.entidades.Usuario;
+
 import java.awt.Toolkit;
 
 import javax.swing.JMenuBar;
@@ -18,53 +21,48 @@ import javax.swing.JMenuItem;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-import javax.swing.ImageIcon;
 
-import vistas.auth.Login;
 import vistas.usuarios.Estudiante;
-import vistas.usuarios.VentanaSolicitudBajaEmpleado;
-import vistas.usuarios.VentanaSolicitudLicenciaEmpleado;
+
 
 import java.awt.Color;
-import java.awt.Dimension;
 
 
 public class Inicio extends JFrame {
 
 	private JPanel contentPane;
 
-	
 	/**
 	 * Create the frame.
 	 */
-	public Inicio(final String tipoUsuario) {
+	public Inicio(final Usuario usuario) {
 		setBounds(100, 100, 672, 457);
 		setResizable(false);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Inicio.class.getResource("/img/correcamino.png")));
 		setTitle("Inicio");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
+
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.setBorderPainted(false);
 		menuBar.setBackground(Color.WHITE);
 		menuBar.setBorder(null);
 		setJMenuBar(menuBar);
-		
+
 		JMenu mnNewMenu = new JMenu("Opciones");
-		
+
 		menuBar.add(mnNewMenu);
-		
-		JMenuItem mntmCerrarSesin = new JMenuItem("Cambiar usuario");
+
+		JMenuItem mntmCerrarSesin = new JMenuItem("Cerrar Sesion");
 		mntmCerrarSesin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				Login login = new Login();
-				login.setVisible(true);
-				dispose();
-				
+				// Login login = new Login();
+				// login.setVisible(true);
+				// dispose();
+
 			}
 		});
 		mnNewMenu.add(mntmCerrarSesin);
-		
+
 		JMenuItem mntmSalir = new JMenuItem("Salir");
 		mntmSalir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -72,77 +70,89 @@ public class Inicio extends JFrame {
 			}
 		});
 		mnNewMenu.add(mntmSalir);
-		
+
 		JMenu mnNewMenu_1 = new JMenu("Gesti\u00F3n");
 		menuBar.add(mnNewMenu_1);
+
+		if (usuario instanceof Admin) {
+			JMenuItem mntmGestionarBaja = new JMenuItem("Gestionar bajas");
+			mntmGestionarBaja.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					Estudiante e = new Estudiante();
+					e.setVisible(true);
+					dispose();
+				}
+			});
+			mnNewMenu_1.add(mntmGestionarBaja);
+			
+			JMenuItem mntmGestionarLicencia = new JMenuItem("Gestionar licencias");
+			mntmGestionarLicencia.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					Estudiante e = new Estudiante();
+					e.setVisible(true);
+					dispose();
+				}
+			});
+			mnNewMenu_1.add(mntmGestionarLicencia);
+		} else {
+
+			JMenuItem mntmSolicitarBaja = new JMenuItem("Solicitar baja");
+			mntmSolicitarBaja.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					Estudiante e = new Estudiante();
+					e.setVisible(true);
+					dispose();
+				}
+			});
+			mnNewMenu_1.add(mntmSolicitarBaja);
+
+			JMenuItem mntmSolicitarLicencia = new JMenuItem("Solicitar Licencia");
+			mntmSolicitarLicencia.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					Estudiante e = new Estudiante();
+					e.setVisible(true);
+					dispose();
+				}
+			});
+			mnNewMenu_1.add(mntmSolicitarLicencia);
+
+
+		}
+
 		
-		JMenu mnEstudiante = new JMenu("Estudiante");
-		mnNewMenu_1.add(mnEstudiante);
 		
-		JMenuItem mntmSolicitarBajaO = new JMenuItem("Solicitar baja o licencia");
-		mntmSolicitarBajaO.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				Estudiante e=new Estudiante ();
-				e.setVisible(true);
-				dispose();
-			}
-		});
-		mnEstudiante.add(mntmSolicitarBajaO);
-		
-		JMenu mnEmpleado = new JMenu("Empleado");
-		mnNewMenu_1.add(mnEmpleado);
-		
-		JMenuItem mntmSolicitarBaja = new JMenuItem("Solicitar baja");
-		mntmSolicitarBaja.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				VentanaSolicitudBajaEmpleado a = new VentanaSolicitudBajaEmpleado ();
-				a.setVisible(true);
-				dispose();
-			}
-		});
-		mnEmpleado.add(mntmSolicitarBaja);
-		
-		JMenuItem mntmSolicitarLicencia = new JMenuItem("Solicitar licencia");
-		mntmSolicitarLicencia.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				VentanaSolicitudLicenciaEmpleado v= new VentanaSolicitudLicenciaEmpleado();
-				v.setVisible(true);
-				dispose();
-			}
-		});
-		mnEmpleado.add(mntmSolicitarLicencia);
-		
+
 		JMenuItem mntmResultadosSolicitud = new JMenuItem("Resultados Solicitud");
 		mnNewMenu_1.add(mntmResultadosSolicitud);
-		
+
 		JMenu mnNewMenu_2 = new JMenu("Reportes");
 		menuBar.add(mnNewMenu_2);
-		
+
 		JMenuItem mntmSolicitudesPendientes = new JMenuItem("Solicitudes pendientes");
 		mnNewMenu_2.add(mntmSolicitudesPendientes);
-		
+
 		JMenuItem mntmFacultadesConMs = new JMenuItem("Facultades con m\u00E1s bajas estudiantiles");
 		mnNewMenu_2.add(mntmFacultadesConMs);
-		
+
 		JMenuItem mntmFacultadesConMs_1 = new JMenuItem("Facultades con m\u00E1s bajas de empleados");
 		mnNewMenu_2.add(mntmFacultadesConMs_1);
-		
+
 		JMenuItem mntmSolicitudesAprobadasEn = new JMenuItem("Solicitudes aprobadas en el mes");
 		mnNewMenu_2.add(mntmSolicitudesAprobadasEn);
-		
+
 		JMenuItem mntmSolicitudesDenegadasEn = new JMenuItem("Solicitudes denegadas en el mes");
 		mnNewMenu_2.add(mntmSolicitudesDenegadasEn);
-		
+
 		JMenu mnNewMenu_3 = new JMenu("Ayuda");
 		menuBar.add(mnNewMenu_3);
-		
+
 		JMenuItem mntmAcercaDeLa = new JMenuItem("Acerca de la app");
 		mnNewMenu_3.add(mntmAcercaDeLa);
-		contentPane = new JPanel(){
-			public void paintComponent(Graphics g){
+		contentPane = new JPanel() {
+			public void paintComponent(Graphics g) {
 				Image img = Toolkit.getDefaultToolkit().getImage(Inicio.class.getResource("/img/contract.jpg"));
-				g.drawImage(img, 0, 0, this.getWidth(), this.getHeight(),this);
-				
+				g.drawImage(img, 0, 0, this.getWidth(), this.getHeight(), this);
+
 			}
 		};
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));

@@ -82,45 +82,45 @@ public class EstudianteTramites extends JFrame {
 		foto.setIcon((img));
 		contentPane.add(foto);
 		
-		JLabel lblNewLabel = new JLabel("Ci");
-		lblNewLabel.setFont(new Font("Arial Narrow", Font.BOLD, 13));
-		lblNewLabel.setBounds(24, 17, 46, 14);
-		panel.add(lblNewLabel);
+		JLabel lblci = new JLabel("Ci");
+		lblci.setFont(new Font("Arial Narrow", Font.BOLD, 13));
+		lblci.setBounds(24, 17, 46, 14);
+		panel.add(lblci);
 		
-		JLabel lblNewLabel_1 = new JLabel("Nombre");
-		lblNewLabel_1.setFont(new Font("Arial Narrow", Font.BOLD, 13));
-		lblNewLabel_1.setBounds(24, 39, 55, 14);
-		panel.add(lblNewLabel_1);
+		JLabel lblNombre = new JLabel("Nombre");
+		lblNombre.setFont(new Font("Arial Narrow", Font.BOLD, 13));
+		lblNombre.setBounds(24, 39, 55, 14);
+		panel.add(lblNombre);
 		
-		JLabel lblNewLabel_3 = new JLabel("\u00C1rea o Facultad");
-		lblNewLabel_3.setFont(new Font("Arial Narrow", Font.BOLD, 13));
-		lblNewLabel_3.setBounds(24, 66, 86, 14);
-		panel.add(lblNewLabel_3);
+		JLabel lblFacultad = new JLabel("Facultad");
+		lblFacultad.setFont(new Font("Arial Narrow", Font.BOLD, 13));
+		lblFacultad.setBounds(24, 66, 86, 14);
+		panel.add(lblFacultad);
 		
-		JLabel lblNewLabel_4 = new JLabel("Carrera");
-		lblNewLabel_4.setFont(new Font("Arial Narrow", Font.BOLD, 13));
-		lblNewLabel_4.setBounds(24, 94, 46, 14);
-		panel.add(lblNewLabel_4);
+		JLabel lblCarrera = new JLabel("Carrera");
+		lblCarrera.setFont(new Font("Arial Narrow", Font.BOLD, 13));
+		lblCarrera.setBounds(24, 94, 46, 14);
+		panel.add(lblCarrera);
 		
-		JLabel lblNewLabel_5 = new JLabel("Tipo de curso");
-		lblNewLabel_5.setFont(new Font("Arial Narrow", Font.BOLD, 13));
-		lblNewLabel_5.setBounds(24, 119, 86, 14);
-		panel.add(lblNewLabel_5);
+		JLabel lblTipoCurso = new JLabel("Tipo de curso");
+		lblTipoCurso.setFont(new Font("Arial Narrow", Font.BOLD, 13));
+		lblTipoCurso.setBounds(24, 119, 86, 14);
+		panel.add(lblTipoCurso);
 		
-		JLabel lblNewLabel_6 = new JLabel("Curso");
-		lblNewLabel_6.setFont(new Font("Arial Narrow", Font.BOLD, 13));
-		lblNewLabel_6.setBounds(24, 148, 46, 14);
-		panel.add(lblNewLabel_6);
+		JLabel lblCurso = new JLabel("Curso");
+		lblCurso.setFont(new Font("Arial Narrow", Font.BOLD, 13));
+		lblCurso.setBounds(24, 148, 46, 14);
+		panel.add(lblCurso);
 		
-		JLabel lblNewLabel_8 = new JLabel("Grupo");
-		lblNewLabel_8.setFont(new Font("Arial Narrow", Font.BOLD, 13));
-		lblNewLabel_8.setBounds(24, 175, 46, 14);
-		panel.add(lblNewLabel_8);
+		JLabel lblGrupo = new JLabel("Grupo");
+		lblGrupo.setFont(new Font("Arial Narrow", Font.BOLD, 13));
+		lblGrupo.setBounds(24, 175, 46, 14);
+		panel.add(lblGrupo);
 		
-		JLabel lblNewLabel_9 = new JLabel("Tipo de estudiante");
-		lblNewLabel_9.setFont(new Font("Arial Narrow", Font.BOLD, 13));
-		lblNewLabel_9.setBounds(25, 202, 98, 14);
-		panel.add(lblNewLabel_9);
+		JLabel lblTipoEstudiante = new JLabel("Tipo de estudiante");
+		lblTipoEstudiante.setFont(new Font("Arial Narrow", Font.BOLD, 13));
+		lblTipoEstudiante.setBounds(25, 202, 98, 14);
+		panel.add(lblTipoEstudiante);
 		
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.setBorderPainted(false);

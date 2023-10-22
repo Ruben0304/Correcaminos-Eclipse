@@ -38,13 +38,14 @@ import vistas.Inicio;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import com.toedter.calendar.JDateChooser;
+import javax.swing.SwingConstants;
 
 
 public class Estudiante extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
-	private JTextField textField_5;
 
 	
 
@@ -56,7 +57,7 @@ public class Estudiante extends JFrame {
 		setTitle("Datos Estudiante");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Estudiante.class.getResource("/img/correcamino.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 672, 457);
+		setBounds(100, 100, 757, 515);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(255, 255, 255));
 		contentPane.setBorder(new LineBorder(new Color(0, 0, 0)));
@@ -66,7 +67,7 @@ public class Estudiante extends JFrame {
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(204, 255, 204));
 		panel.setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0)), "Registre sus datos", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-		panel.setBounds(299, 11, 347, 375);
+		panel.setBounds(299, 11, 428, 432);
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
@@ -75,7 +76,7 @@ public class Estudiante extends JFrame {
 		foto.setBorder(null);
 		foto.setBackground(new Color(204, 255, 204));
 		foto.setFont(new Font("Brush Script MT", Font.PLAIN, 44));
-		foto.setBounds(10, 11, 279, 367);
+		foto.setBounds(10, 11, 279, 432);
 		ImageIcon ico = new ImageIcon(getClass().getResource("/img/est.jpg")); 
 		ImageIcon img = new ImageIcon(ico.getImage().getScaledInstance(foto.getWidth(), foto.getHeight(), Image.SCALE_SMOOTH));
 		foto.setIcon((img));
@@ -91,64 +92,35 @@ public class Estudiante extends JFrame {
 		lblNewLabel_1.setBounds(24, 39, 55, 14);
 		panel.add(lblNewLabel_1);
 		
-		JLabel lblNewLabel_2 = new JLabel("Apellidos");
-		lblNewLabel_2.setFont(new Font("Arial Narrow", Font.BOLD, 13));
-		lblNewLabel_2.setBounds(24, 64, 114, 14);
-		panel.add(lblNewLabel_2);
-		
 		JLabel lblNewLabel_3 = new JLabel("\u00C1rea o Facultad");
 		lblNewLabel_3.setFont(new Font("Arial Narrow", Font.BOLD, 13));
-		lblNewLabel_3.setBounds(24, 89, 86, 14);
+		lblNewLabel_3.setBounds(24, 66, 86, 14);
 		panel.add(lblNewLabel_3);
 		
 		JLabel lblNewLabel_4 = new JLabel("Carrera");
 		lblNewLabel_4.setFont(new Font("Arial Narrow", Font.BOLD, 13));
-		lblNewLabel_4.setBounds(24, 117, 46, 14);
+		lblNewLabel_4.setBounds(24, 94, 46, 14);
 		panel.add(lblNewLabel_4);
 		
 		JLabel lblNewLabel_5 = new JLabel("Tipo de curso");
 		lblNewLabel_5.setFont(new Font("Arial Narrow", Font.BOLD, 13));
-		lblNewLabel_5.setBounds(24, 142, 86, 14);
+		lblNewLabel_5.setBounds(24, 119, 86, 14);
 		panel.add(lblNewLabel_5);
-		
-		textField = new JTextField();
-		textField.setBackground(new Color(204, 255, 204));
-		textField.setBorder(new MatteBorder(0, 0, 2, 0, (Color) new Color(0, 0, 0)));
-		textField.setBounds(80, 17, 239, 14);
-		panel.add(textField);
-		textField.setColumns(10);
 		
 		JLabel lblNewLabel_6 = new JLabel("Curso");
 		lblNewLabel_6.setFont(new Font("Arial Narrow", Font.BOLD, 13));
-		lblNewLabel_6.setBounds(24, 171, 46, 14);
+		lblNewLabel_6.setBounds(24, 148, 46, 14);
 		panel.add(lblNewLabel_6);
-		
-		JLabel lblNewLabel_7 = new JLabel("A\u00F1o");
-		lblNewLabel_7.setFont(new Font("Arial Narrow", Font.BOLD, 13));
-		lblNewLabel_7.setBounds(24, 196, 46, 14);
-		panel.add(lblNewLabel_7);
 		
 		JLabel lblNewLabel_8 = new JLabel("Grupo");
 		lblNewLabel_8.setFont(new Font("Arial Narrow", Font.BOLD, 13));
-		lblNewLabel_8.setBounds(24, 221, 46, 14);
+		lblNewLabel_8.setBounds(24, 175, 46, 14);
 		panel.add(lblNewLabel_8);
 		
 		JLabel lblNewLabel_9 = new JLabel("Tipo de estudiante");
 		lblNewLabel_9.setFont(new Font("Arial Narrow", Font.BOLD, 13));
-		lblNewLabel_9.setBounds(24, 258, 98, 14);
+		lblNewLabel_9.setBounds(25, 202, 98, 14);
 		panel.add(lblNewLabel_9);
-		
-		JLabel lblCausaDeLa = new JLabel("Motivo de solicitud");
-		lblCausaDeLa.setFont(new Font("Arial Narrow", Font.BOLD, 13));
-		lblCausaDeLa.setBounds(24, 286, 114, 14);
-		panel.add(lblCausaDeLa);
-		
-		textField_5 = new JTextField();
-		textField_5.setBackground(new Color(204, 255, 204));
-		textField_5.setBorder(new MatteBorder(0, 0, 2, 0, (Color) new Color(0, 0, 0)));
-		textField_5.setBounds(142, 283, 177, 20);
-		panel.add(textField_5);
-		textField_5.setColumns(10);
 		
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.setBorderPainted(false);
@@ -193,7 +165,7 @@ public class Estudiante extends JFrame {
 		final JLabel errorMessage = new JLabel("Existen campos vac\u00EDos");
 		errorMessage.setVisible(false);
 		errorMessage.setForeground(new Color(204, 0, 0));
-		errorMessage.setBounds(125, 350, 168, 14);
+		errorMessage.setBounds(158, 405, 168, 14);
 		panel.add(errorMessage);
 		
 		JButton btnEnviarSolicitud = new JButton("Solicitar Baja");
@@ -216,7 +188,7 @@ public class Estudiante extends JFrame {
 		});
 		btnEnviarSolicitud.setBorder(new LineBorder(new Color(0, 0, 0)));
 		btnEnviarSolicitud.setBackground(SystemColor.inactiveCaptionBorder);
-		btnEnviarSolicitud.setBounds(35, 318, 121, 31);
+		btnEnviarSolicitud.setBounds(88, 373, 121, 31);
 		panel.add(btnEnviarSolicitud);
 		
 		JButton btnCancelar = new JButton("Solicitar licencia");
@@ -236,8 +208,39 @@ public class Estudiante extends JFrame {
 		});
 		btnCancelar.setBorder(new LineBorder(new Color(0, 0, 0)));
 		btnCancelar.setBackground(SystemColor.inactiveCaptionBorder);
-		btnCancelar.setBounds(191, 318, 121, 31);
+		btnCancelar.setBounds(244, 373, 121, 31);
 		panel.add(btnCancelar);
+		
+		JLabel label = new JLabel("Motivo:");
+		label.setIgnoreRepaint(true);
+		label.setFont(new Font("Arial Narrow", Font.BOLD, 13));
+		label.setBounds(24, 244, 86, 14);
+		panel.add(label);
+		
+		textField = new JTextField();
+		textField.setBorder(new LineBorder(__WBP_NO_TYPE_BINDING.NEGRO, 1));
+		textField.setBounds(87, 242, 309, 20);
+		panel.add(textField);
+		
+		JLabel lblFechaSalidalicencia = new JLabel("Fecha Salida (licencia) :");
+		lblFechaSalidalicencia.setFont(new Font("Arial Narrow", Font.BOLD, 13));
+		lblFechaSalidalicencia.setBounds(24, 291, 173, 14);
+		panel.add(lblFechaSalidalicencia);
+		
+		JDateChooser dateChooser = new JDateChooser();
+		dateChooser.setDateFormatString("dd/MM/yyyy");
+		dateChooser.setBounds(209, 285, 187, 20);
+		panel.add(dateChooser);
+		
+		JLabel lblFechaRegresolicencia = new JLabel("Fecha Regreso (licencia) :");
+		lblFechaRegresolicencia.setFont(new Font("Arial Narrow", Font.BOLD, 13));
+		lblFechaRegresolicencia.setBounds(24, 325, 187, 17);
+		panel.add(lblFechaRegresolicencia);
+		
+		JDateChooser dateChooser_1 = new JDateChooser();
+		dateChooser_1.setDateFormatString("dd/MM/yyyy");
+		dateChooser_1.setBounds(209, 322, 187, 20);
+		panel.add(dateChooser_1);
 		
 		setLocationRelativeTo(null);
 		

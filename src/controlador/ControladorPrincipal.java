@@ -17,7 +17,7 @@ public class ControladorPrincipal {
 
     public static void mostrarTramites(Usuario usuarioAutenticado, ArrayList<Usuario> usuarios) {
         if (usuarioAutenticado instanceof Estudiante) {
-            EstudianteTramites estudianteTramites = new EstudianteTramites(usuarioAutenticado, usuarios);
+            EstudianteTramites estudianteTramites = new EstudianteTramites((Estudiante)usuarioAutenticado, usuarios);
             estudianteTramites.setVisible(true);
         } else if (usuarioAutenticado instanceof Empleado) {
 

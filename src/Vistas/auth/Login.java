@@ -80,7 +80,7 @@ public class Login extends JFrame {
 		contentPane.add(txtUsuario);
 		txtUsuario.setColumns(10);
 
-		final JLabel ErrorMessages = new JLabel("Usuario o contraseña incorrectos");
+		final JLabel ErrorMessages = new JLabel("Credenciales incorrectas");
 		ErrorMessages.setVisible(false);
 		ErrorMessages.setForeground(new Color(204, 51, 0));
 		ErrorMessages.setFont(new Font("Arial Narrow", Font.BOLD, 14));

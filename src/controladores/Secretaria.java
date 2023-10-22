@@ -7,7 +7,7 @@ import modelos.Estudiante;
 import modelos.SolicitudLicenciaEstudiante;
 
 
-public static class Secretaria {
+public class Secretaria {
     ArrayList<SolicitudLicenciaEstudiante> solicitudesLicencia;
 
     private boolean verificarRequisitos(Estudiante e) {

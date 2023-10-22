@@ -1,4 +1,4 @@
-package Vistas.usuarios;
+package vistas.usuarios;
 
 import java.awt.BorderLayout;
 import java.awt.Color;

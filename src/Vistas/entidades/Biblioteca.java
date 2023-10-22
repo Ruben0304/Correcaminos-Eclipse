@@ -1,4 +1,4 @@
-package Vistas.entidades;
+package vistas.entidades;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;

@@ -1,4 +1,4 @@
-package Vistas.auth;
+package vistas.auth;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;

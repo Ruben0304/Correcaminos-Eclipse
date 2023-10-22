@@ -150,6 +150,10 @@ public class Inicio extends JFrame {
 
 		JMenuItem mntmAcercaDeLa = new JMenuItem("Acerca de la app");
 		mnNewMenu_3.add(mntmAcercaDeLa);
+		
+		JMenuItem mntmUser = new JMenuItem(usuario.getNombreUsuario());
+		mnNewMenu_3.add(mntmUser);
+		
 		contentPane = new JPanel() {
 			public void paintComponent(Graphics g) {
 				Image img = Toolkit.getDefaultToolkit().getImage(Inicio.class.getResource("/img/contract.jpg"));
@@ -157,6 +161,7 @@ public class Inicio extends JFrame {
 
 			}
 		};
+
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);

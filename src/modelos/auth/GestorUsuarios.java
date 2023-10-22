@@ -15,5 +15,12 @@ public class GestorUsuarios {
         return usuarios;
     }
 
-    
+    public static Usuario buscarUsuarioPorId(String nombreUsuario, String contrasena, ArrayList<Usuario> usuarios) {
+        for (Usuario usuario : usuarios) {
+            if (usuario.getNombreUsuario().equals(nombreUsuario) && usuario.getContrasena().equals(contrasena)) {
+                return usuario;
+            }
+        }
+        return null;
+    }
 }

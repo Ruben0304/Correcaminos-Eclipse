@@ -1,6 +1,7 @@
 package app;
 import java.util.ArrayList;
 
+import modelos.auth.GestorUsuarios;
 import modelos.datos.AdminFactory;
 import modelos.entidades.Admin;
 import modelos.entidades.Secretaria;
@@ -10,6 +11,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		
+		
 		Secretaria secretaria = new Secretaria();
 
 		ArrayList<Admin> admins = new ArrayList<>();
@@ -18,8 +20,9 @@ public class Main {
 		ArrayList<Usuario> usuarios = new ArrayList<>();
 		usuarios.addAll(secretaria.getEstudiantes());
 		usuarios.addAll(admins);
+		GestorUsuarios gestorUsuarios = new GestorUsuarios(usuarios);
 
-		Login loginView = new Login(usuarios);
+		Login loginView = new Login(gestorUsuarios);
 	    loginView.setVisible(true);
 
 	}

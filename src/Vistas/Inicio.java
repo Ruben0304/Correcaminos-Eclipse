@@ -40,7 +40,7 @@ public class Inicio extends JFrame {
 		setBounds(100, 100, 672, 457);
 		setResizable(false);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Inicio.class.getResource("/img/correcamino.png")));
-		setTitle("Inicio - " + usuario.getNombreUsuario());
+		setTitle("Inicio - " + usuario.getNombreUsuario() + " ("+ usuario.getClass().getSimpleName() +")");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
 

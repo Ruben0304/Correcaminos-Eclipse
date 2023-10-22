@@ -11,6 +11,7 @@ import javax.swing.border.EmptyBorder;
 
 import modelos.entidades.Admin;
 import modelos.entidades.Usuario;
+import utiles.Colores;
 
 import java.awt.Toolkit;
 
@@ -25,7 +26,7 @@ import java.awt.event.ActionEvent;
 import vistas.usuarios.Estudiante;
 
 
-import java.awt.Color;
+
 
 
 public class Inicio extends JFrame {

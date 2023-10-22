@@ -38,7 +38,15 @@ import vistas.Inicio;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+
 import com.toedter.calendar.JDateChooser;
+
+import modelos.entidades.Estudiante;
+import modelos.entidades.Persona;
+import modelos.entidades.Usuario;
+import utiles.Colores;
+
 import javax.swing.SwingConstants;
 
 
@@ -52,7 +60,7 @@ public class EstudianteTramites extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public EstudianteTramites() {
+	public EstudianteTramites(final Estudiante usuarioAutenticado, final ArrayList<Usuario> usuarios) {
 		setResizable(false);
 		setTitle("Datos Estudiante");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(EstudianteTramites.class.getResource("/img/correcamino.png")));
@@ -87,37 +95,37 @@ public class EstudianteTramites extends JFrame {
 		lblci.setBounds(24, 17, 46, 14);
 		panel.add(lblci);
 		
-		JLabel lblNombre = new JLabel("Nombre");
+		JLabel lblNombre = new JLabel("Nombre: " + usuarioAutenticado.getNombre());
 		lblNombre.setFont(new Font("Arial Narrow", Font.BOLD, 13));
 		lblNombre.setBounds(24, 39, 55, 14);
 		panel.add(lblNombre);
 		
-		JLabel lblFacultad = new JLabel("Facultad");
+		JLabel lblFacultad = new JLabel("Facultad: " + usuarioAutenticado.getFacultad());
 		lblFacultad.setFont(new Font("Arial Narrow", Font.BOLD, 13));
 		lblFacultad.setBounds(24, 66, 86, 14);
 		panel.add(lblFacultad);
 		
-		JLabel lblCarrera = new JLabel("Carrera");
+		JLabel lblCarrera = new JLabel("Carrera: " + usuarioAutenticado.getCarrera());
 		lblCarrera.setFont(new Font("Arial Narrow", Font.BOLD, 13));
 		lblCarrera.setBounds(24, 94, 46, 14);
 		panel.add(lblCarrera);
 		
-		JLabel lblTipoCurso = new JLabel("Tipo de curso");
+		JLabel lblTipoCurso = new JLabel("Tipo de curso: " + usuarioAutenticado.getTipoCurso());
 		lblTipoCurso.setFont(new Font("Arial Narrow", Font.BOLD, 13));
 		lblTipoCurso.setBounds(24, 119, 86, 14);
 		panel.add(lblTipoCurso);
 		
-		JLabel lblCurso = new JLabel("Curso");
+		JLabel lblCurso = new JLabel("Curso: " + usuarioAutenticado.getCurso());
 		lblCurso.setFont(new Font("Arial Narrow", Font.BOLD, 13));
 		lblCurso.setBounds(24, 148, 46, 14);
 		panel.add(lblCurso);
 		
-		JLabel lblGrupo = new JLabel("Grupo");
+		JLabel lblGrupo = new JLabel("Grupo: " + usuarioAutenticado.getGrupo());
 		lblGrupo.setFont(new Font("Arial Narrow", Font.BOLD, 13));
 		lblGrupo.setBounds(24, 175, 46, 14);
 		panel.add(lblGrupo);
 		
-		JLabel lblTipoEstudiante = new JLabel("Tipo de estudiante");
+		JLabel lblTipoEstudiante = new JLabel("Tipo de estudiante: " + usuarioAutenticado.getClass().getSimpleName());
 		lblTipoEstudiante.setFont(new Font("Arial Narrow", Font.BOLD, 13));
 		lblTipoEstudiante.setBounds(25, 202, 98, 14);
 		panel.add(lblTipoEstudiante);
@@ -141,9 +149,7 @@ public class EstudianteTramites extends JFrame {
 		JMenuItem mntmInicio = new JMenuItem("Cancelar y volver a Inicio");
 		mntmInicio.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				Inicio inicio = new Inicio();
-				inicio.setVisible(true);
-				dispose();
+				
 			}
 		});
 		mnNewMenu.add(mntmInicio);

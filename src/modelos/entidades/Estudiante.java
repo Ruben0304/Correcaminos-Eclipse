@@ -6,7 +6,7 @@ import utiles.TipoCurso;
 public class Estudiante extends Persona {
 	protected int curso;
 	protected TipoCurso tipoCurso;
-	protected String especialidad;
+	protected String carrera;
 	protected int grupo;
 	protected boolean tieneDeuda;
 	protected boolean tieneEstipendio;
@@ -19,13 +19,13 @@ public class Estudiante extends Persona {
    
 
     public Estudiante(String nombreUsuario, String contrasena, String ci, String nombre, String apellidos,
-			Facultad facultad, boolean licencia, boolean baja, int curso, TipoCurso tipoCurso, String especialidad,
+			Facultad facultad, boolean licencia, boolean baja, int curso, TipoCurso tipoCurso, String carrera,
 			int grupo, boolean tieneDeuda, boolean tieneEstipendio, boolean tieneCuentaCerrada,
 			boolean tieneLibrosDeBiblioteca, boolean tieneLibrosDocentes) {
 		super(nombreUsuario, contrasena, ci, nombre, apellidos, facultad, licencia, baja);
 		this.curso = curso;
 		this.tipoCurso = tipoCurso;
-		this.especialidad = especialidad;
+		this.carrera = carrera;
 		this.grupo = grupo;
 		this.tieneDeuda = tieneDeuda;
 		this.tieneEstipendio = tieneEstipendio;
@@ -91,6 +91,42 @@ public class Estudiante extends Persona {
 	public void solicitarBaja() {
 		
 		
+	}
+
+	public int getCurso() {
+		return curso;
+	}
+
+	public TipoCurso getTipoCurso() {
+		return tipoCurso;
+	}
+
+	public String getCarrera() {
+		return carrera;
+	}
+
+	public int getGrupo() {
+		return grupo;
+	}
+
+	public boolean isTieneDeuda() {
+		return tieneDeuda;
+	}
+
+	public boolean isTieneEstipendio() {
+		return tieneEstipendio;
+	}
+
+	public boolean isTieneCuentaCerrada() {
+		return tieneCuentaCerrada;
+	}
+
+	public boolean isTieneLibrosDeBiblioteca() {
+		return tieneLibrosDeBiblioteca;
+	}
+
+	public boolean isTieneLibrosDocentes() {
+		return tieneLibrosDocentes;
 	}
 
     

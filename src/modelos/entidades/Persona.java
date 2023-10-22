@@ -20,7 +20,38 @@ public abstract class Persona extends Usuario {
         this.licencia = licencia;
         this.baja = baja;
     }
+    
 
     public abstract void solicitarLicencia();
     public abstract void solicitarBaja();
+
+
+    public String getCi() {
+        return ci;
+    }
+
+
+    public String getNombre() {
+        return nombre;
+    }
+
+
+    public String getApellidos() {
+        return apellidos;
+    }
+
+
+    public Facultad getFacultad() {
+        return facultad;
+    }
+
+
+    public boolean isLicencia() {
+        return licencia;
+    }
+
+
+    public boolean isBaja() {
+        return baja;
+    }
 }

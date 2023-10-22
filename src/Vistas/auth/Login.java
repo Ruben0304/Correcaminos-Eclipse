@@ -58,7 +58,7 @@ public class Login extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBorder(null);
 		contentPane.setBackground(Colores.BLANCO);
-		contentPane.setForeground(new Color(0, 0, 0));
+		contentPane.setForeground(Colores.NEGRO);
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
@@ -75,7 +75,7 @@ public class Login extends JFrame {
 
 		txtUsuario = new JTextField();
 		txtUsuario.setBackground(Colores.BLANCO);
-		txtUsuario.setBorder(new MatteBorder(0, 0, 2, 0, (Color) new Color(0, 0, 0)));
+		txtUsuario.setBorder(new MatteBorder(0, 0, 2, 0, (Color) Colores.NEGRO));
 		txtUsuario.setBounds(603, 246, 179, 25);
 		contentPane.add(txtUsuario);
 		txtUsuario.setColumns(10);
@@ -91,7 +91,7 @@ public class Login extends JFrame {
 		JButton btnLogin = new JButton("Iniciar sesi\u00F3n");
 		btnLogin.setBackground(Colores.VERDE_OSCURO);
 		btnLogin.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnLogin.setForeground(new Color(255, 255, 255));
+		btnLogin.setForeground(Colores.BLANCO);
 		btnLogin.setBorder(null);
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -114,7 +114,7 @@ public class Login extends JFrame {
 		btnNewButton_1.setBorderPainted(false);
 		btnNewButton_1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnNewButton_1.setForeground(new Color(51, 102, 204));
-		btnNewButton_1.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
+		btnNewButton_1.setBorder(new LineBorder(Colores.NEGRO, 1, true));
 		btnNewButton_1.setFont(new Font("Arial Narrow", Font.PLAIN, 16));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -127,34 +127,34 @@ public class Login extends JFrame {
 		contentPane.add(btnNewButton_1);
 
 		JLabel lblNewLabel_1 = new JLabel("Usuario");
-		lblNewLabel_1.setForeground(new Color(0, 0, 0));
+		lblNewLabel_1.setForeground(Colores.NEGRO);
 		lblNewLabel_1.setFont(new Font("Arial Narrow", Font.BOLD, 18));
 		lblNewLabel_1.setBounds(640, 216, 60, 43);
 		contentPane.add(lblNewLabel_1);
 
 		JLabel lblContrasea = new JLabel("Contrase\u00F1a");
-		lblContrasea.setForeground(new Color(0, 0, 0));
+		lblContrasea.setForeground(Colores.NEGRO);
 		lblContrasea.setFont(new Font("Arial Narrow", Font.BOLD, 18));
 		lblContrasea.setBounds(625, 275, 124, 35);
 		contentPane.add(lblContrasea);
 
 		passwordField = new JPasswordField();
 		passwordField.setBackground(Color.WHITE);
-		passwordField.setBorder(new MatteBorder(0, 0, 2, 0, (Color) new Color(0, 0, 0)));
+		passwordField.setBorder(new MatteBorder(0, 0, 2, 0, (Color) Colores.NEGRO));
 		passwordField.setBounds(603, 302, 179, 25);
 		passwordField.setColumns(10);
 		contentPane.add(passwordField);
 
 		JLabel lblInicioSesin = new JLabel("Inicio  Sesi\u00F3n");
-		lblInicioSesin.setForeground(new Color(0, 0, 0));
-		lblInicioSesin.setBackground(new Color(255, 255, 255));
+		lblInicioSesin.setForeground(Colores.NEGRO);
+		lblInicioSesin.setBackground(Colores.BLANCO);
 		lblInicioSesin.setFont(new Font("Arial Narrow", Font.BOLD, 24));
 		lblInicioSesin.setBounds(603, 44, 130, 43);
 		contentPane.add(lblInicioSesin);
 
 		JLabel lblEsNuevoa = new JLabel("\u00BFEs nuevo(a)?");
 		lblEsNuevoa.setHorizontalAlignment(SwingConstants.CENTER);
-		lblEsNuevoa.setForeground(new Color(0, 0, 0));
+		lblEsNuevoa.setForeground(Colores.NEGRO);
 		lblEsNuevoa.setFont(new Font("Arial Narrow", Font.BOLD, 18));
 		lblEsNuevoa.setBounds(603, 455, 159, 25);
 		contentPane.add(lblEsNuevoa);

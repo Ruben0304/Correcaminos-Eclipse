@@ -1,5 +1,14 @@
 package modelos.entidades;
 
+import java.util.ArrayList;
+
+
+
 public class RecursosHumanos {
-    // lo mismo para empleados
+    // ArrayList<Estudiante> estudiantes;
+    // ArrayList<SolicitudLicenciaEstudiante> solicitudesLicencia;
+
+    // public Secretaria() {
+    //     this.estudiantes = EstudianteFactory.inicializarEstudiantes();
+    // }
 }

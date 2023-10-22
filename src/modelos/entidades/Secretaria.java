@@ -2,10 +2,17 @@ package modelos.entidades;
 
 import java.util.ArrayList;
 
+import modelos.datos.EstudianteFactory;
+
 
 public class Secretaria {
     ArrayList<Estudiante> estudiantes;
     ArrayList<SolicitudLicenciaEstudiante> solicitudesLicencia;
+
+    public Secretaria() {
+        this.estudiantes = EstudianteFactory.inicializarEstudiantes();
+    }
+
 
     private boolean verificarRequisitos(Estudiante e) {
 
@@ -25,9 +32,14 @@ public class Secretaria {
         
     }
     
-    public  ArrayList<SolicitudLicenciaEstudiante> getSolicitudesLicencia(){
+    public ArrayList<SolicitudLicenciaEstudiante> getSolicitudesLicencia(){
     	
     	return solicitudesLicencia;
+    }
+    
+    public  ArrayList<Estudiante> getEstudiantes(){
+    	
+    	return estudiantes;
     }
 
 }

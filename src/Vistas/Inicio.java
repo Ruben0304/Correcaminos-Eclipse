@@ -42,6 +42,7 @@ public class Inicio extends JFrame {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Inicio.class.getResource("/img/correcamino.png")));
 		setTitle("Inicio");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setLocationRelativeTo(null);
 
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.setBorderPainted(false);

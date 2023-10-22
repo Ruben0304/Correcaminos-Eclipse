@@ -74,7 +74,7 @@ public class Login extends JFrame {
 		contentPane.add(lblNewLabel);
 
 		txtUsuario = new JTextField();
-		txtUsuario.setBackground(Color.WHITE);
+		txtUsuario.setBackground(Colores.BLANCO);
 		txtUsuario.setBorder(new MatteBorder(0, 0, 2, 0, (Color) new Color(0, 0, 0)));
 		txtUsuario.setBounds(603, 246, 179, 25);
 		contentPane.add(txtUsuario);
@@ -89,7 +89,7 @@ public class Login extends JFrame {
 		contentPane.add(ErrorMessages);
 
 		JButton btnLogin = new JButton("Iniciar sesi\u00F3n");
-		btnLogin.setBackground(new Color(51, 153, 102));
+		btnLogin.setBackground(Colores.VERDE_OSCURO);
 		btnLogin.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnLogin.setForeground(new Color(255, 255, 255));
 		btnLogin.setBorder(null);

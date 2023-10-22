@@ -24,7 +24,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 
-import vistas.usuarios.Estudiante;
+import vistas.usuarios.EstudianteTramites;
 
 public class Inicio extends JFrame {
 
@@ -75,7 +75,7 @@ public class Inicio extends JFrame {
 			JMenuItem mntmGestionarBaja = new JMenuItem("Gestionar bajas");
 			mntmGestionarBaja.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
-					Estudiante e = new Estudiante();
+					EstudianteTramites e = new EstudianteTramites();
 					e.setVisible(true);
 					dispose();
 				}
@@ -85,7 +85,7 @@ public class Inicio extends JFrame {
 			JMenuItem mntmGestionarLicencia = new JMenuItem("Gestionar licencias");
 			mntmGestionarLicencia.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
-					Estudiante e = new Estudiante();
+					EstudianteTramites e = new EstudianteTramites();
 					e.setVisible(true);
 					dispose();
 				}
@@ -96,7 +96,7 @@ public class Inicio extends JFrame {
 			JMenuItem mntmSolicitarBaja = new JMenuItem("Solicitar baja");
 			mntmSolicitarBaja.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
-					Estudiante e = new Estudiante();
+					EstudianteTramites e = new EstudianteTramites();
 					e.setVisible(true);
 					dispose();
 				}
@@ -106,7 +106,7 @@ public class Inicio extends JFrame {
 			JMenuItem mntmSolicitarLicencia = new JMenuItem("Solicitar Licencia");
 			mntmSolicitarLicencia.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
-					Estudiante e = new Estudiante();
+					EstudianteTramites e = new EstudianteTramites();
 					e.setVisible(true);
 					dispose();
 				}

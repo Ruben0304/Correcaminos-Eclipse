@@ -42,7 +42,7 @@ import com.toedter.calendar.JDateChooser;
 import javax.swing.SwingConstants;
 
 
-public class Estudiante extends JFrame {
+public class EstudianteTramites extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
@@ -52,10 +52,10 @@ public class Estudiante extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Estudiante() {
+	public EstudianteTramites() {
 		setResizable(false);
 		setTitle("Datos Estudiante");
-		setIconImage(Toolkit.getDefaultToolkit().getImage(Estudiante.class.getResource("/img/correcamino.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(EstudianteTramites.class.getResource("/img/correcamino.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 757, 515);
 		contentPane = new JPanel();

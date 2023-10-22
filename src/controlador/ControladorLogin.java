@@ -15,7 +15,7 @@ public class ControladorLogin {
             encontrado = nombreUsuario.equals(usuarios.get(i).getNombreUsuario());
 
             if (encontrado && contrasena.equals(usuarios.get(i).getContrasena())) {
-               ControladorPrincipal.mostrarInicio(usuarios.get(i));
+               ControladorPrincipal.mostrarInicio(usuarios.get(i),usuarios);
                autenticado = true;
             }
             

@@ -8,7 +8,7 @@ import vistas.auth.Login;
 
 public class ControladorPrincipal {
 
-    public static void mostrarInicio(Usuario usuario) {
+    public static void mostrarInicio(Usuario usuario,) {
         
         Inicio inicio = new Inicio(usuario);
         inicio.setVisible(true);

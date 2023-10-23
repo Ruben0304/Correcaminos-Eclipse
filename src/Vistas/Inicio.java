@@ -80,7 +80,7 @@ public class Inicio extends JFrame {
 			JMenuItem mntmGestionarBaja = new JMenuItem("Gestionar bajas");
 			mntmGestionarBaja.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
-
+                
 				}
 			});
 			mnNewMenu_1.add(mntmGestionarBaja);

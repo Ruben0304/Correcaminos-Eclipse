@@ -181,14 +181,14 @@ public class EstudianteTramites extends JFrame {
 				
 //				String motivo = textField_5.getText();
 				
-				if(nombre==null|| nombre.isEmpty() || motivo.isEmpty()||motivo==null)
-					errorMessage.setVisible(true);
-				else{
-					Baja b=new Baja();
-					b.setVisible(true);
-					dispose();
+				// if(nombre==null|| nombre.isEmpty() || motivo.isEmpty()||motivo==null)
+				// 	errorMessage.setVisible(true);
+				// else{
+				// 	Baja b=new Baja();
+				// 	b.setVisible(true);
+				// 	dispose();
 					
-				}
+				// }
 					
 			}
 		});
@@ -204,11 +204,11 @@ public class EstudianteTramites extends JFrame {
 				
 //				String motivo = textField_5.getText();
 				
-				if(nombre==null|| nombre.isEmpty()  || motivo.isEmpty()||motivo==null)
-					errorMessage.setVisible(true);
-				else{
+				// if(nombre==null|| nombre.isEmpty()  || motivo.isEmpty()||motivo==null)
+				// 	errorMessage.setVisible(true);
+				// else{
 					
-				}
+				// }
 				
 			}
 		});

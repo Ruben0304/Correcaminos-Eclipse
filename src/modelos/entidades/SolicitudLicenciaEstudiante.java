@@ -1,12 +1,15 @@
 package modelos.entidades;
 
+import utiles.Estado;
+
 public class SolicitudLicenciaEstudiante extends SolicitudBajaEstudiante{
     private String fechaSalida;
     private String fechaRegreso;
     
-    public SolicitudLicenciaEstudiante(String idEstudiante, String motivo, String fechaSalida,
-            String fechaRegreso) {
-        super(idEstudiante, motivo);
+   
+    public SolicitudLicenciaEstudiante(Estudiante estudiante, String motivo, String fecha,
+            String fechaSalida, String fechaRegreso) {
+        super(estudiante, motivo, fecha);
         this.fechaSalida = fechaSalida;
         this.fechaRegreso = fechaRegreso;
     }

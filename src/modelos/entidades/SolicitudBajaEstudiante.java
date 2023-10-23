@@ -1,27 +1,25 @@
 package modelos.entidades;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 import utiles.Estado;
 
 public class SolicitudBajaEstudiante {
-    protected String idEstudiante;
+    protected Estudiante estudiante;
     protected Estado estado;
     protected String motivo;
     protected String fecha;
 
-    public SolicitudBajaEstudiante(String idEstudiante, String motivo) {
-        this.idEstudiante = idEstudiante;
+    
+
+    public SolicitudBajaEstudiante(Estudiante estudiante, String motivo, String fecha) {
+        this.estudiante = estudiante;
         this.estado = Estado.PENDIENTE;
         this.motivo = motivo;
-        LocalDate fechaActual = LocalDate.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd"); 
-        this.fecha = fechaActual.format(formatter);
+        this.fecha = fecha;
     }
 
-    public String getIdEstudiante() {
-        return idEstudiante;
+    public Estudiante getEstudiante() {
+        return estudiante;
     }
 
     public Estado getEstado() {

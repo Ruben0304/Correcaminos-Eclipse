@@ -26,7 +26,9 @@ import java.awt.event.ActionEvent;
 import javax.swing.border.MatteBorder;
 
 import controlador.ControladorLogin;
-
+import controlador.ControladorPrincipal;
+import modelos.entidades.RecursosHumanos;
+import modelos.entidades.Secretaria;
 import modelos.entidades.Usuario;
 
 import javax.swing.SwingConstants;
@@ -45,7 +47,7 @@ public class Login extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Login(final ArrayList<Usuario> usuarios) {
+	public Login(final ArrayList<Usuario> usuarios, Secretaria secretaria, RecursosHumanos recursosHumanos) {
 
 		setType(Type.POPUP);
 		setResizable(false);
@@ -98,7 +100,10 @@ public class Login extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				char[] passwordChars = passwordField.getPassword();
 				String contrasena = new String(passwordChars);
-				if (ControladorLogin.autenticar(txtUsuario.getText(), contrasena, usuarios)) {
+				String user = txtUsuario.getText();
+				Usuario usuarioAutenticado = ControladorLogin.autenticar(user, contrasena, usuarios);
+				if (usuarioAutenticado != null) {
+					ControladorPrincipal.mostrarInicio(usuarioAutenticado,usuarios,secretaria,recursosHumanos);
 					dispose();
 				} else {
 					ErrorMessages.setVisible(true);

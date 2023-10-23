@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import modelos.datos.AdminFactory;
 import modelos.entidades.Admin;
-
+import modelos.entidades.Persona;
 import modelos.entidades.RecursosHumanos;
 import modelos.entidades.Secretaria;
 import modelos.entidades.Usuario;
@@ -35,12 +35,15 @@ public class GestorUsuarios {
         return usuarios;
     }
 
-    public static Usuario buscarUsuarioPorId(String nombreUsuario, String contrasena, ArrayList<Usuario> usuarios) {
-        for (Usuario usuario : usuarios) {
-            if (usuario.getNombreUsuario().equals(nombreUsuario) && usuario.getContrasena().equals(contrasena)) {
-                return usuario;
+    public static Usuario buscarUsuarioPorCi(String id, ArrayList<Persona> usuarios) {
+        boolean encontrado = false;
+        Usuario usuarioEncontrado = null;
+        for (int i = 0; i < usuarios.size() && !encontrado; i++) {
+            encontrado = id.equals(usuarios.get(i).getCi());
+            if (encontrado) {
+                usuarioEncontrado = usuarios.get(i);
             }
         }
-        return null;
+        return usuarioEncontrado;
     }
 }

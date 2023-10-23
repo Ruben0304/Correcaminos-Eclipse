@@ -2,6 +2,7 @@ package modelos.entidades;
 
 import java.util.ArrayList;
 
+import modelos.auth.GestorUsuarios;
 import modelos.datos.EstudianteFactory;
 
 
@@ -20,6 +21,7 @@ public class Secretaria {
 
     public void agregarSolicitudDeLicencia(SolicitudLicenciaEstudiante solicitud){
         solicitudesLicencia.add(solicitud);
+        
     }
 
     private boolean verificarRequisitos(Estudiante e) {

@@ -85,7 +85,7 @@ public class Estudiante extends Persona {
 	}
 
     public void solicitarLicencia(Secretaria secretaria,String motivo, String fechaInicio, String fechaFin) {
-		SolicitudLicenciaEstudiante solicitud = new SolicitudLicenciaEstudiante(ci, motivo, fechaInicio, fechaFin);
+		SolicitudLicenciaEstudiante solicitud = new SolicitudLicenciaEstudiante(this, motivo, fechaInicio, fechaFin);
 		secretaria.agregarSolicitudDeLicencia(solicitud);
 	}
 	public void solicitarBaja() {

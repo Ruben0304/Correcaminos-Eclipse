@@ -44,6 +44,8 @@ import com.toedter.calendar.JDateChooser;
 
 import modelos.entidades.Estudiante;
 import modelos.entidades.Persona;
+import modelos.entidades.RecursosHumanos;
+import modelos.entidades.Secretaria;
 import modelos.entidades.Usuario;
 import utiles.Colores;
 
@@ -53,14 +55,16 @@ import javax.swing.SwingConstants;
 public class EstudianteTramites extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
+	private JTextField textMotivo;
+	private JDateChooser fechaSalida;
+	private JDateChooser fechaRegreso;
 
 	
 
 	/**
 	 * Create the frame.
 	 */
-	public EstudianteTramites(final Estudiante usuarioAutenticado, final ArrayList<Usuario> usuarios) {
+	public EstudianteTramites(final Estudiante usuarioAutenticado, final ArrayList<Usuario> usuarios, final Secretaria secretaria, final RecursosHumanos recursosHumanos) {
 		setResizable(false);
 		setTitle("Datos Estudiante");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(EstudianteTramites.class.getResource("/img/correcamino.png")));
@@ -177,9 +181,9 @@ public class EstudianteTramites extends JFrame {
 		JButton btnEnviarSolicitud = new JButton("Solicitar Baja");
 		btnEnviarSolicitud.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				String nombre = textField.getText();
+				String nombre = textMotivo.getText();
 				
-				String motivo = textField_5.getText();
+				String motivo = textMotivo.getText();
 				
 				if(nombre==null|| nombre.isEmpty() || motivo.isEmpty()||motivo==null)
 					errorMessage.setVisible(true);
@@ -198,17 +202,21 @@ public class EstudianteTramites extends JFrame {
 		panel.add(btnEnviarSolicitud);
 		
 		JButton btnCancelar = new JButton("Solicitar licencia");
+		// Declare fechaSalida as a field of the class
+		
+		
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				String nombre = textField.getText();
 				
-//				String motivo = textField_5.getText();
+				String motivo = textMotivo.getText();
+				String fechaInicio = fechaSalida.getDate().toString();
+				String fechaFin = fechaRegreso.getDate().toString();
 				
-				// if(nombre==null|| nombre.isEmpty()  || motivo.isEmpty()||motivo==null)
-				// 	errorMessage.setVisible(true);
-				// else{
-					
-				// }
+				if(motivo.isEmpty() || fechaInicio.isEmpty()  || fechaFin.isEmpty())
+					errorMessage.setVisible(true);
+				else{
+					usuarioAutenticado.solicitarLicencia(secretaria, motivo, fechaInicio, fechaFin);
+				}
 				
 			}
 		});
@@ -223,30 +231,30 @@ public class EstudianteTramites extends JFrame {
 		label.setBounds(24, 244, 86, 14);
 		panel.add(label);
 		
-		textField = new JTextField();
+		textMotivo = new JTextField();
 //		textField.setBorder(new LineBorder(__WBP_NO_TYPE_BINDING.NEGRO, 1));
-		textField.setBounds(87, 242, 309, 20);
-		panel.add(textField);
+		textMotivo.setBounds(87, 242, 309, 20);
+		panel.add(textMotivo);
 		
 		JLabel lblFechaSalidalicencia = new JLabel("Fecha Salida (licencia) :");
 		lblFechaSalidalicencia.setFont(new Font("Arial Narrow", Font.BOLD, 13));
 		lblFechaSalidalicencia.setBounds(24, 291, 173, 14);
 		panel.add(lblFechaSalidalicencia);
 		
-		JDateChooser dateChooser = new JDateChooser();
-		dateChooser.setDateFormatString("dd/MM/yyyy");
-		dateChooser.setBounds(209, 285, 187, 20);
-		panel.add(dateChooser);
+		JDateChooser fechaSalida = new JDateChooser();
+		fechaSalida.setDateFormatString("dd/MM/yyyy");
+		fechaSalida.setBounds(209, 285, 187, 20);
+		panel.add(fechaSalida);
 		
 		JLabel lblFechaRegresolicencia = new JLabel("Fecha Regreso (licencia) :");
 		lblFechaRegresolicencia.setFont(new Font("Arial Narrow", Font.BOLD, 13));
 		lblFechaRegresolicencia.setBounds(24, 325, 187, 17);
 		panel.add(lblFechaRegresolicencia);
 		
-		JDateChooser dateChooser_1 = new JDateChooser();
-		dateChooser_1.setDateFormatString("dd/MM/yyyy");
-		dateChooser_1.setBounds(209, 322, 187, 20);
-		panel.add(dateChooser_1);
+		JDateChooser fechaRegreso = new JDateChooser();
+		fechaRegreso.setDateFormatString("dd/MM/yyyy");
+		fechaRegreso.setBounds(209, 322, 187, 20);
+		panel.add(fechaRegreso);
 		
 		setLocationRelativeTo(null);
 		

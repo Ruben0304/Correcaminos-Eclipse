@@ -6,7 +6,7 @@ import modelos.auth.GestorUsuarios;
 import modelos.entidades.RecursosHumanos;
 import modelos.entidades.Secretaria;
 
-import vistas.auth.Login;
+
 
 public class Main {
 
@@ -17,7 +17,7 @@ public class Main {
 
 		GestorUsuarios gestorUsuarios = new GestorUsuarios(secretaria, recursosHumanos, true);
 
-		ControladorLogin.mostrarLogin(gestorUsuarios.getUsuarios());
+		ControladorLogin.mostrarLogin(gestorUsuarios.getUsuarios(),secretaria,recursosHumanos);
 
 	}
 

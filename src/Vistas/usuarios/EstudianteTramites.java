@@ -210,10 +210,10 @@ public class EstudianteTramites extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 
 				String motivo = textMotivo.getText();
-				// String fechaInicio = fechaSalida.getDate().toString();
-				String fechaInicio = "23/2/2024";
-				// String fechaFin = fechaRegreso.getDate().toString();
-				String fechaFin = "30/2/2024";
+				String fechaInicio = fechaSalida.getDate().toString();
+				
+				String fechaFin = fechaRegreso.getDate().toString();
+				
 
 				if (motivo.isEmpty() || fechaInicio.isEmpty() || fechaFin.isEmpty())
 					errorMessage.setVisible(true);

@@ -3,7 +3,7 @@ package modelos.auth;
 import java.util.ArrayList;
 
 import modelos.datos.AdminFactory;
-import modelos.entidades.Admin;
+import modelos.entidades.Departamento;
 import modelos.entidades.Persona;
 import modelos.entidades.RecursosHumanos;
 import modelos.entidades.Secretaria;
@@ -11,7 +11,7 @@ import modelos.entidades.Usuario;
 
 public class GestorUsuarios {
     private ArrayList<Usuario> usuarios;
-    private ArrayList<Admin> admins;
+    private ArrayList<Departamento> admins;
 
     public GestorUsuarios(ArrayList<Usuario> usuarios) {
         this.usuarios = usuarios;

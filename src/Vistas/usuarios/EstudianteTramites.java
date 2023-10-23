@@ -218,13 +218,11 @@ public class EstudianteTramites extends JFrame {
 				if(motivo.isEmpty() || fechaInicio.isEmpty()  || fechaFin.isEmpty())
 					errorMessage.setVisible(true);
 				else{
-					try {
-						usuarioAutenticado.solicitarLicencia(secretaria, motivo, fechaInicio, fechaFin);
+					
+						((Estudiante)usuarioAutenticado).solicitarLicencia(secretaria, motivo, fechaInicio, fechaFin);
 					ControladorPrincipal.mostrarRequisitosBajaEstudiantes(usuarioAutenticado, usuarios, secretaria, recursosHumanos);
 					dispose();
-					} catch (Exception e) {
-					throw new IllegalArgumentException(e.getMessage());
-					}
+					
 					
 				}
 				

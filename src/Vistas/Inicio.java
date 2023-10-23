@@ -11,7 +11,7 @@ import javax.swing.border.EmptyBorder;
 
 import controlador.ControladorLogin;
 import controlador.ControladorPrincipal;
-import modelos.entidades.Admin;
+import modelos.entidades.Departamento;
 import modelos.entidades.RecursosHumanos;
 import modelos.entidades.Secretaria;
 import modelos.entidades.Usuario;
@@ -76,7 +76,7 @@ public class Inicio extends JFrame {
 		JMenu mnNewMenu_1 = new JMenu("Gesti\u00F3n");
 		menuBar.add(mnNewMenu_1);
 
-		if (usuarioAutenticado instanceof Admin) {
+		if (usuarioAutenticado instanceof Departamento) {
 			JMenuItem mntmGestionarBaja = new JMenuItem("Gestionar bajas");
 			mntmGestionarBaja.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {

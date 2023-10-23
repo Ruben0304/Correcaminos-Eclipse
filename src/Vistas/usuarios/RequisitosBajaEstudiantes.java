@@ -17,6 +17,11 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 
+import modelos.entidades.RecursosHumanos;
+import modelos.entidades.Secretaria;
+import modelos.entidades.Usuario;
+import utiles.Colores;
+
 import java.awt.Toolkit;
 import java.awt.Color;
 
@@ -26,11 +31,12 @@ import javax.swing.JButton;
 import vistas.Inicio;
 
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import java.awt.SystemColor;
 
 
-public class Baja extends JFrame {
+public class RequisitosBajaEstudiantes extends JFrame {
 
 	private JPanel contentPane;
 
@@ -38,10 +44,10 @@ public class Baja extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Baja() {
+	public RequisitosBajaEstudiantes(Usuario usuarioAutenticado, ArrayList<Usuario> usuarios, Secretaria secretaria, RecursosHumanos recursosHumanos) {
 		setResizable(false);
 		setTitle("Requisitos para obtener baja");
-		setIconImage(Toolkit.getDefaultToolkit().getImage(Baja.class.getResource("/img/correcamino.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(RequisitosBajaEstudiantes.class.getResource("/img/correcamino.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 672, 457);
 		contentPane = new JPanel();
@@ -86,6 +92,7 @@ public class Baja extends JFrame {
 		JCheckBox chckbxNewCheckBox = new JCheckBox("Entregar libros prestados");
 		chckbxNewCheckBox.setFont(new Font("Arial Narrow", Font.BOLD, 13));
 		chckbxNewCheckBox.setBounds(139, 29, 184, 23);
+		chckbxNewCheckBox.setSelected(usuarioAutenticado.tieneLibrosDeBiblioteca());
 		panel.add(chckbxNewCheckBox);
 		
 		JCheckBox chckbxNewCheckBox_1 = new JCheckBox("Entregar materiales de apoyo");
@@ -177,9 +184,9 @@ public class Baja extends JFrame {
 		JMenuItem mntmInicio = new JMenuItem("Cancelar y volver a Inicio");
 		mntmInicio.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				Inicio inicio = new Inicio();
-				inicio.setVisible(true);
-				dispose();
+				// Inicio inicio = new Inicio();
+				// inicio.setVisible(true);
+				// dispose();
 			}
 		});
 		mnNewMenu.add(mntmInicio);

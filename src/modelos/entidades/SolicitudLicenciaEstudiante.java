@@ -7,9 +7,9 @@ public class SolicitudLicenciaEstudiante extends SolicitudBajaEstudiante{
     private String fechaRegreso;
     
    
-    public SolicitudLicenciaEstudiante(Estudiante estudiante, String motivo, String fecha,
+    public SolicitudLicenciaEstudiante(Estudiante estudiante, String motivo,
             String fechaSalida, String fechaRegreso) {
-        super(estudiante, motivo, fecha);
+        super(estudiante, motivo);
         this.fechaSalida = fechaSalida;
         this.fechaRegreso = fechaRegreso;
     }

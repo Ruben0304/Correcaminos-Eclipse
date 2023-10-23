@@ -42,6 +42,7 @@ import java.util.ArrayList;
 
 import com.toedter.calendar.JDateChooser;
 
+import controlador.ControladorPrincipal;
 import modelos.entidades.Estudiante;
 import modelos.entidades.Persona;
 import modelos.entidades.RecursosHumanos;
@@ -188,7 +189,7 @@ public class EstudianteTramites extends JFrame {
 				if(nombre==null|| nombre.isEmpty() || motivo.isEmpty()||motivo==null)
 					errorMessage.setVisible(true);
 				else{
-					Baja b=new Baja();
+					RequisitosBajaEstudiantes b=new RequisitosBajaEstudiantes();
 					b.setVisible(true);
 					dispose();
 					
@@ -216,6 +217,8 @@ public class EstudianteTramites extends JFrame {
 					errorMessage.setVisible(true);
 				else{
 					usuarioAutenticado.solicitarLicencia(secretaria, motivo, fechaInicio, fechaFin);
+					ControladorPrincipal.mostrarRequisitosBajaEstudiantes(usuarioAutenticado, usuarios, secretaria, recursosHumanos);
+					dispose();
 				}
 				
 			}

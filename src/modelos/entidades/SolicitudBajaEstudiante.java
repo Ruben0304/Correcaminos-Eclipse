@@ -1,6 +1,6 @@
 package modelos.entidades;
 
-
+import java.time.LocalDate;
 import utiles.Estado;
 
 public class SolicitudBajaEstudiante {
@@ -11,11 +11,12 @@ public class SolicitudBajaEstudiante {
 
     
 
-    public SolicitudBajaEstudiante(Estudiante estudiante, String motivo, String fecha) {
+    public SolicitudBajaEstudiante(Estudiante estudiante, String motivo) {
         this.estudiante = estudiante;
         this.estado = Estado.PENDIENTE;
         this.motivo = motivo;
-        this.fecha = fecha;
+        LocalDate fechaActual = LocalDate.now();
+        this.fecha = fechaActual.toString();
     }
 
     public Estudiante getEstudiante() {

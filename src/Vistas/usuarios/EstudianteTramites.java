@@ -92,42 +92,42 @@ public class EstudianteTramites extends JFrame {
 		
 		JLabel lblci = new JLabel("Ci");
 		lblci.setFont(new Font("Arial Narrow", Font.BOLD, 13));
-		lblci.setBounds(24, 17, 46, 14);
+		lblci.setBounds(24, 17, 372, 14);
 		panel.add(lblci);
 		
 		JLabel lblNombre = new JLabel("Nombre: " + usuarioAutenticado.getNombre());
 		lblNombre.setFont(new Font("Arial Narrow", Font.BOLD, 13));
-		lblNombre.setBounds(24, 39, 55, 14);
+		lblNombre.setBounds(24, 39, 372, 14);
 		panel.add(lblNombre);
 		
 		JLabel lblFacultad = new JLabel("Facultad: " + usuarioAutenticado.getFacultad());
 		lblFacultad.setFont(new Font("Arial Narrow", Font.BOLD, 13));
-		lblFacultad.setBounds(24, 66, 86, 14);
+		lblFacultad.setBounds(24, 66, 372, 14);
 		panel.add(lblFacultad);
 		
 		JLabel lblCarrera = new JLabel("Carrera: " + usuarioAutenticado.getCarrera());
 		lblCarrera.setFont(new Font("Arial Narrow", Font.BOLD, 13));
-		lblCarrera.setBounds(24, 94, 46, 14);
+		lblCarrera.setBounds(24, 94, 372, 14);
 		panel.add(lblCarrera);
 		
 		JLabel lblTipoCurso = new JLabel("Tipo de curso: " + usuarioAutenticado.getTipoCurso());
 		lblTipoCurso.setFont(new Font("Arial Narrow", Font.BOLD, 13));
-		lblTipoCurso.setBounds(24, 119, 86, 14);
+		lblTipoCurso.setBounds(24, 119, 372, 14);
 		panel.add(lblTipoCurso);
 		
 		JLabel lblCurso = new JLabel("Curso: " + usuarioAutenticado.getCurso());
 		lblCurso.setFont(new Font("Arial Narrow", Font.BOLD, 13));
-		lblCurso.setBounds(24, 148, 46, 14);
+		lblCurso.setBounds(24, 148, 372, 14);
 		panel.add(lblCurso);
 		
 		JLabel lblGrupo = new JLabel("Grupo: " + usuarioAutenticado.getGrupo());
 		lblGrupo.setFont(new Font("Arial Narrow", Font.BOLD, 13));
-		lblGrupo.setBounds(24, 175, 46, 14);
+		lblGrupo.setBounds(24, 175, 372, 14);
 		panel.add(lblGrupo);
 		
 		JLabel lblTipoEstudiante = new JLabel("Tipo de estudiante: " + usuarioAutenticado.getClass().getSimpleName());
 		lblTipoEstudiante.setFont(new Font("Arial Narrow", Font.BOLD, 13));
-		lblTipoEstudiante.setBounds(25, 202, 98, 14);
+		lblTipoEstudiante.setBounds(25, 202, 371, 14);
 		panel.add(lblTipoEstudiante);
 		
 		JMenuBar menuBar = new JMenuBar();
@@ -179,7 +179,7 @@ public class EstudianteTramites extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				String nombre = textField.getText();
 				
-				String motivo = textField_5.getText();
+//				String motivo = textField_5.getText();
 				
 				if(nombre==null|| nombre.isEmpty() || motivo.isEmpty()||motivo==null)
 					errorMessage.setVisible(true);
@@ -202,7 +202,7 @@ public class EstudianteTramites extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				String nombre = textField.getText();
 				
-				String motivo = textField_5.getText();
+//				String motivo = textField_5.getText();
 				
 				if(nombre==null|| nombre.isEmpty()  || motivo.isEmpty()||motivo==null)
 					errorMessage.setVisible(true);
@@ -224,7 +224,7 @@ public class EstudianteTramites extends JFrame {
 		panel.add(label);
 		
 		textField = new JTextField();
-		textField.setBorder(new LineBorder(__WBP_NO_TYPE_BINDING.NEGRO, 1));
+//		textField.setBorder(new LineBorder(__WBP_NO_TYPE_BINDING.NEGRO, 1));
 		textField.setBounds(87, 242, 309, 20);
 		panel.add(textField);
 		

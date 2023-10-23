@@ -182,18 +182,18 @@ public class EstudianteTramites extends JFrame {
 		JButton btnEnviarSolicitud = new JButton("Solicitar Baja");
 		btnEnviarSolicitud.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				String nombre = textMotivo.getText();
+				// String nombre = textMotivo.getText();
 				
-				String motivo = textMotivo.getText();
+				// String motivo = textMotivo.getText();
 				
-				if(nombre==null|| nombre.isEmpty() || motivo.isEmpty()||motivo==null)
-					errorMessage.setVisible(true);
-				else{
-					RequisitosBajaEstudiantes b=new RequisitosBajaEstudiantes();
-					b.setVisible(true);
-					dispose();
+				// if(nombre==null|| nombre.isEmpty() || motivo.isEmpty()||motivo==null)
+				// 	errorMessage.setVisible(true);
+				// else{
+				// 	RequisitosBajaEstudiantes b=new RequisitosBajaEstudiantes();
+				// 	b.setVisible(true);
+				// 	dispose();
 					
-				}
+				// }
 					
 			}
 		});

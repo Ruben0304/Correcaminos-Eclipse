@@ -47,7 +47,7 @@ public class Login extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Login(final ArrayList<Usuario> usuarios, Secretaria secretaria, RecursosHumanos recursosHumanos) {
+	public Login(final ArrayList<Usuario> usuarios, final Secretaria secretaria, final RecursosHumanos recursosHumanos) {
 
 		setType(Type.POPUP);
 		setResizable(false);

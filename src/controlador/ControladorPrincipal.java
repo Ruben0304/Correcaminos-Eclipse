@@ -33,6 +33,7 @@ public class ControladorPrincipal {
             Secretaria secretaria, RecursosHumanos recursosHumanos) {
         RequisitosBajaEstudiantes requisitosBajaEstudiantes = new RequisitosBajaEstudiantes((Estudiante)usuarioAutenticado,
                 usuarios, secretaria, recursosHumanos);
+                requisitosBajaEstudiantes.setVisible(true);
 
     }
 

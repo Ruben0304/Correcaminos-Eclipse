@@ -14,11 +14,7 @@ public class Estudiante extends Persona {
 	protected boolean tieneLibrosDeBiblioteca;
 	protected boolean tieneLibrosDocentes;
 
-	
-
-   
-
-    public Estudiante(String nombreUsuario, String contrasena, String ci, String nombre, String apellidos,
+	public Estudiante(String nombreUsuario, String contrasena, String ci, String nombre, String apellidos,
 			Facultad facultad, boolean licencia, boolean baja, int curso, TipoCurso tipoCurso, String carrera,
 			int grupo, boolean tieneDeuda, boolean tieneEstipendio, boolean tieneCuentaCerrada,
 			boolean tieneLibrosDeBiblioteca, boolean tieneLibrosDocentes) {
@@ -35,63 +31,55 @@ public class Estudiante extends Persona {
 	}
 
 	public boolean tieneDeuda() {
-        return tieneDeuda;
-    }
+		return tieneDeuda;
+	}
 
-    public boolean tieneEstipendio() {
-        return tieneEstipendio;
-    }
+	public boolean tieneEstipendio() {
+		return tieneEstipendio;
+	}
 
-    public boolean tieneCuentaCerrada() {
-        return tieneCuentaCerrada;
-    }
+	public boolean tieneCuentaCerrada() {
+		return tieneCuentaCerrada;
+	}
 
-    public boolean tieneLibrosDeBiblioteca() {
-        return tieneLibrosDeBiblioteca;
-    }
+	public boolean tieneLibrosDeBiblioteca() {
+		return tieneLibrosDeBiblioteca;
+	}
 
-    public boolean tieneLibrosDocentes() {
-        return tieneLibrosDocentes;
-    }
-
-
+	public boolean tieneLibrosDocentes() {
+		return tieneLibrosDocentes;
+	}
 
 	public void setDeuda(boolean tieneDeuda) {
 		this.tieneDeuda = tieneDeuda;
 	}
 
-
-
 	public void setEstipendio(boolean tieneEstipendio) {
 		this.tieneEstipendio = tieneEstipendio;
 	}
-
-
 
 	public void setCuentaCerrada(boolean tieneCuentaCerrada) {
 		this.tieneCuentaCerrada = tieneCuentaCerrada;
 	}
 
-
-
 	public void setLibrosDeBiblioteca(boolean tieneLibrosDeBiblioteca) {
 		this.tieneLibrosDeBiblioteca = tieneLibrosDeBiblioteca;
 	}
 
-
-
 	public void setLibrosDocentes(boolean tieneLibrosDocentes) {
 		this.tieneLibrosDocentes = tieneLibrosDocentes;
 	}
-@Override
-    public void solicitarLicencia(Secretaria secretaria,String motivo, String fechaInicio, String fechaFin) {
+
+	@Override
+	public void solicitarLicencia(Secretaria secretaria, String motivo, String fechaInicio, String fechaFin) {
 		SolicitudLicenciaEstudiante solicitud = new SolicitudLicenciaEstudiante(this, motivo, fechaInicio, fechaFin);
 		secretaria.agregarSolicitudDeLicencia(solicitud);
+
 	}
-@Override
+
+	@Override
 	public void solicitarBaja() {
-		
-		
+
 	}
 
 	public int getCurso() {
@@ -129,10 +117,5 @@ public class Estudiante extends Persona {
 	public boolean isTieneLibrosDocentes() {
 		return tieneLibrosDocentes;
 	}
-
-    
-
-	
-	
 
 }

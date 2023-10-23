@@ -210,15 +210,22 @@ public class EstudianteTramites extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				
 				String motivo = textMotivo.getText();
-				String fechaInicio = fechaSalida.getDate().toString();
-				String fechaFin = fechaRegreso.getDate().toString();
+//				String fechaInicio = fechaSalida.getDate().toString();
+				String fechaInicio = "23/2/2024";
+//				String fechaFin = fechaRegreso.getDate().toString();
+				String fechaFin = "30/2/2024";
 				
 				if(motivo.isEmpty() || fechaInicio.isEmpty()  || fechaFin.isEmpty())
 					errorMessage.setVisible(true);
 				else{
-					usuarioAutenticado.solicitarLicencia(secretaria, motivo, fechaInicio, fechaFin);
+					try {
+						usuarioAutenticado.solicitarLicencia(secretaria, motivo, fechaInicio, fechaFin);
 					ControladorPrincipal.mostrarRequisitosBajaEstudiantes(usuarioAutenticado, usuarios, secretaria, recursosHumanos);
 					dispose();
+					} catch (Exception e) {
+					throw new IllegalArgumentException(e.getMessage());
+					}
+					
 				}
 				
 			}

@@ -18,14 +18,14 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Biblioteca extends JFrame {
+public class CasosPendientes extends JFrame {
 
 	private DefaultListModel<String> listModel;
     private JList<String> userList;
 	/**
 	 * Create the frame.
 	 */
-	public Biblioteca(final Usuario usuarioAutenticado, final ArrayList<Usuario> usuarios,
+	public CasosPendientes(final Usuario usuarioAutenticado, final ArrayList<Usuario> usuarios,
 			final Secretaria secretaria, final RecursosHumanos recursosHumanos,
 			final ArrayList<Persona> usuariosPendientes) {
 

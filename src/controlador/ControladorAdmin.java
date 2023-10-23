@@ -8,7 +8,7 @@ import modelos.entidades.RecursosHumanos;
 import modelos.entidades.Secretaria;
 import modelos.entidades.SolicitudLicenciaEstudiante;
 import modelos.entidades.Usuario;
-import vistas.admin.Biblioteca;
+import vistas.admin.CasosPendientes;
 
 public class ControladorAdmin {
     public static void mostrarGestionLicencias(Usuario usuarioAutenticado, ArrayList<Usuario> usuarios,
@@ -22,7 +22,7 @@ public class ControladorAdmin {
                 }
                 
             }
-                Biblioteca biblioteca = new Biblioteca(usuarioAutenticado,usuarios,secretaria,recursosHumanos);
+                CasosPendientes biblioteca = new CasosPendientes(usuarioAutenticado,usuarios,secretaria,recursosHumanos,usuariosPendientes);
                 biblioteca.setVisible(true);
                 break;
 

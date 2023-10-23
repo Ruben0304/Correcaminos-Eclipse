@@ -9,6 +9,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import controlador.ControladorAdmin;
 import controlador.ControladorLogin;
 import controlador.ControladorPrincipal;
 import modelos.entidades.Departamento;
@@ -26,8 +27,6 @@ import javax.swing.JMenuItem;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
-
-
 
 public class Inicio extends JFrame {
 
@@ -80,7 +79,7 @@ public class Inicio extends JFrame {
 			JMenuItem mntmGestionarBaja = new JMenuItem("Gestionar bajas");
 			mntmGestionarBaja.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
-                
+
 				}
 			});
 			mnNewMenu_1.add(mntmGestionarBaja);
@@ -88,7 +87,8 @@ public class Inicio extends JFrame {
 			JMenuItem mntmGestionarLicencia = new JMenuItem("Gestionar licencias");
 			mntmGestionarLicencia.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
-
+					ControladorAdmin.mostrarGestionLicencias(usuarioAutenticado, usuarios, secretaria, recursosHumanos);
+					dispose();
 				}
 			});
 			mnNewMenu_1.add(mntmGestionarLicencia);

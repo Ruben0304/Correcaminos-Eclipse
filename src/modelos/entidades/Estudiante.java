@@ -83,11 +83,12 @@ public class Estudiante extends Persona {
 	public void setLibrosDocentes(boolean tieneLibrosDocentes) {
 		this.tieneLibrosDocentes = tieneLibrosDocentes;
 	}
-
+@Override
     public void solicitarLicencia(Secretaria secretaria,String motivo, String fechaInicio, String fechaFin) {
 		SolicitudLicenciaEstudiante solicitud = new SolicitudLicenciaEstudiante(this, motivo, fechaInicio, fechaFin);
 		secretaria.agregarSolicitudDeLicencia(solicitud);
 	}
+@Override
 	public void solicitarBaja() {
 		
 		

@@ -21,7 +21,7 @@ import java.awt.event.ActionListener;
 public class CasosPendientes extends JFrame {
 
 	private DefaultListModel<String> listModel;
-    private JList<String> userList;
+    
 	/**
 	 * Create the frame.
 	 */
@@ -32,38 +32,47 @@ public class CasosPendientes extends JFrame {
 		setResizable(false);
 		setTitle("Casos Pendientes");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setSize(400, 300);
+		setSize(786, 645);
 		setLocationRelativeTo(null);
 		getContentPane().setLayout(null);
 
-		listModel = new DefaultListModel<>();
-        userList = new JList<>(listModel);
+		
 
-        JScrollPane scrollPane = new JScrollPane(userList);
+        JScrollPane scrollPane = new JScrollPane();
+        scrollPane.setBounds(0, 458, 640, -458);
         getContentPane().add(scrollPane, BorderLayout.CENTER);
 
+        
+        DefaultListModel<String> listModel = new DefaultListModel<>();
+
         for (Persona p : usuariosPendientes) {
-		listModel.addElement(p.getCi() + " - " + p.getNombre() + " " + p.getApellidos());
+            listModel.addElement(p.getCi() + " - " + p.getNombre() + " " + p.getApellidos());
         }
 
-       
-        JButton confirmButton = new JButton("Confirmar Entrega");
-        confirmButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-               
-                int selectedIndex = userList.getSelectedIndex();
-                if (selectedIndex >= 0) {
-                    
-                    String selectedUser = listModel.get(selectedIndex);
-                    System.out.println("Confirmar entrega para: " + selectedUser);
-                }
-            }
-        });
+        JList<String> userList = new JList<>(listModel);
+        userList.setBounds(60, 170, 500, 72);
+        getContentPane().add(userList);
 
         JPanel buttonPanel = new JPanel();
-        buttonPanel.add(confirmButton);
+        buttonPanel.setLayout(null);
         getContentPane().add(buttonPanel, BorderLayout.SOUTH);
+        
+               
+                JButton confirmButton = new JButton("Confirmar Entrega");
+                confirmButton.setBounds(546, 132, 137, 25);
+                getContentPane().add(confirmButton);
+                confirmButton.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                       
+//                        int selectedIndex = userList.getSelectedIndex();
+                        if (selectedIndex >= 0) {
+                            
+//                            String selectedUser = listModel.get(selectedIndex);
+                            
+                        }
+                    }
+                });
     
 		
 

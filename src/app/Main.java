@@ -17,9 +17,7 @@ public class Main {
 					Secretaria secretaria = new Secretaria();
 					RecursosHumanos recursosHumanos = new RecursosHumanos();
 					GestorUsuarios gestorUsuarios = new GestorUsuarios(secretaria, recursosHumanos, true);
-					Login login = new Login(gestorUsuarios.getUsuarios(), secretaria, recursosHumanos);
-					login.setVisible(true);
-					// ControladorLogin.mostrarLogin(gestorUsuarios.getUsuarios(), secretaria, recursosHumanos);
+					ControladorLogin.mostrarLogin(gestorUsuarios.getUsuarios(), secretaria, recursosHumanos);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

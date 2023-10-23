@@ -6,6 +6,8 @@ import java.util.ArrayList;
 
 public class RecursosHumanos {
     ArrayList<Empleado> empleados;
+    ArrayList<SolicitudBajaEmpleados> solicitudesBajaEmpleados;
+    ArrayList<SolicitudLicenciaEmpleado> solicitudesLicenciaEmpleados;
 
     public RecursosHumanos() {
         this.empleados = new ArrayList<>();

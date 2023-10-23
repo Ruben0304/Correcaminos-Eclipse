@@ -1,6 +1,6 @@
 package utiles;
 
-public enum Administradores {
+public enum TipoDepartamento {
     Biblioteca, 
     Economia, 
     SeguridadInformatica, 

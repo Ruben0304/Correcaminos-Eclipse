@@ -9,10 +9,12 @@ import modelos.datos.EstudianteFactory;
 public class Secretaria {
     ArrayList<Estudiante> estudiantes;
     ArrayList<SolicitudLicenciaEstudiante> solicitudesLicencia;
+    ArrayList<SolicitudBajaEstudiante> solicitudesBaja;
 
     public Secretaria() {
-        this.estudiantes = new ArrayList<>();
-        this.solicitudesLicencia = new ArrayList<>();
+        estudiantes = new ArrayList<>();
+        solicitudesLicencia = new ArrayList<>();
+        solicitudesBaja=new ArrayList<>();
     }
 
     public ArrayList<Estudiante> registrarEstudianteFictisios() {
@@ -34,7 +36,7 @@ public class Secretaria {
     private boolean verificarRequisitos(Becado b) {
 
         return !(b.tieneDeuda() || b.tieneEstipendio() || b.tieneCuentaCerrada() || b.tieneLibrosDeBiblioteca()
-                || b.tieneLibrosDocentes() || b.tieneCarnet() || b.tienePertenencias());
+                || b.tieneLibrosDocentes() || b.entregoCarnet() || b.entregoPertenencias());
 
     }
 

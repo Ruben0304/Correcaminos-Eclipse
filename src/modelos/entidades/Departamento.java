@@ -1,16 +1,18 @@
 package modelos.entidades;
 
-public class Departamento extends Usuario{
-    private String categoria;
+import utiles.TipoDepartamento;
 
-    public Departamento(String nombreUsuario, String contrasena, String categoria) {
+public class Departamento extends Usuario{
+    private TipoDepartamento tipoDepartamento;
+
+    public Departamento(String nombreUsuario, String contrasena, TipoDepartamento tipoDepartamento) {
         super(nombreUsuario, contrasena);
-        this.categoria = categoria;
+        this.tipoDepartamento = tipoDepartamento;
     }
 
-    public String getCategoria() {
-        return categoria;
-    } 
+    public TipoDepartamento getTipoDepartamento() {
+        return tipoDepartamento;
+    }
 
 
     

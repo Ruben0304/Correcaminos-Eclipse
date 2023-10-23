@@ -6,35 +6,38 @@ import utiles.TipoCurso;
 public class Becado extends Estudiante {
    private String idBecado;
    private int noCuarto;
-   private boolean tieneCarnet;
-   private boolean tienePertenencias;
+   private boolean entregoCarnetBecado;
+   private boolean entregoPertenencias;
 
    public Becado(String nombreUsuario, String contrasena, String ci, String nombre, String apellidos, Facultad facultad,
-         boolean licencia, boolean baja, int curso, TipoCurso tipoCurso, String especialidad, int grupo,
-         boolean tieneDeuda, boolean tieneEstipendio, boolean tieneCuentaCerrada, boolean tieneLibrosDeBiblioteca,
-         boolean tieneLibrosDocentes, String idBecado, int noCuarto, boolean tieneCarnet, boolean tienePertenencias) {
-      super(nombreUsuario, contrasena, ci, nombre, apellidos, facultad, licencia, baja, curso, tipoCurso, especialidad,
-            grupo, tieneDeuda, tieneEstipendio, tieneCuentaCerrada, tieneLibrosDeBiblioteca, tieneLibrosDocentes);
+         boolean licencia, boolean baja, int curso, TipoCurso tipoCurso, String carrera, int grupo,
+         boolean entregoCarnet, boolean tieneDeuda, boolean tieneEstipendio, boolean tieneCuentaCerrada,
+         boolean tieneLibrosDeBiblioteca, boolean tieneLibrosDocentes, String idBecado, int noCuarto,
+         boolean entregoCarnetBecado, boolean entregoPertenencias) {
+      super(nombreUsuario, contrasena, ci, nombre, apellidos, facultad, licencia, baja, curso, tipoCurso, carrera,
+            grupo,
+            entregoCarnet, tieneDeuda, tieneEstipendio, tieneCuentaCerrada, tieneLibrosDeBiblioteca,
+            tieneLibrosDocentes);
       this.idBecado = idBecado;
       this.noCuarto = noCuarto;
-      this.tieneCarnet = tieneCarnet;
-      this.tienePertenencias = tienePertenencias;
+      this.entregoCarnetBecado = entregoCarnetBecado;
+      this.entregoPertenencias = entregoPertenencias;
    }
 
-   public boolean tieneCarnet() {
-      return tieneCarnet;
+   public String getIdBecado() {
+      return idBecado;
    }
 
-   public boolean tienePertenencias() {
-      return tienePertenencias;
+   public int getNoCuarto() {
+      return noCuarto;
    }
 
-   public void setTieneCarnet(boolean tieneCarnet) {
-      this.tieneCarnet = tieneCarnet;
+   public boolean entregoCarnetBecado() {
+      return entregoCarnetBecado;
    }
 
-   public void setTienePertenencias(boolean tienePertenencias) {
-      this.tienePertenencias = tienePertenencias;
+   public boolean entregoPertenencias() {
+      return entregoPertenencias;
    }
 
 }

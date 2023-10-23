@@ -20,12 +20,8 @@ import java.awt.event.ActionListener;
 
 public class Biblioteca extends JFrame {
 
-	private JPanel contentPane;
-	private JList<String> list;
-	private DefaultTableModel tableModel;
-	private JTable table;
-	private JButton button;
-
+	private DefaultListModel<String> listModel;
+    private JList<String> userList;
 	/**
 	 * Create the frame.
 	 */
@@ -34,34 +30,44 @@ public class Biblioteca extends JFrame {
 			final ArrayList<Persona> usuariosPendientes) {
 
 		setResizable(false);
-		setTitle("Biblioteca");
+		setTitle("Casos Pendientes");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(400, 300);
 		setLocationRelativeTo(null);
+		getContentPane().setLayout(null);
 
-		Object[][] data = new Object[usuariosPendientes.size()][2];
+		listModel = new DefaultListModel<>();
+        userList = new JList<>(listModel);
 
-		for (int i = 0; i < usuariosPendientes.size(); i++) {
-			data[i][0] = usuariosPendientes.get(i).getCi();
-			data[i][1] = usuariosPendientes.get(i).getNombre();
-		}
+        JScrollPane scrollPane = new JScrollPane(userList);
+        getContentPane().add(scrollPane, BorderLayout.CENTER);
 
-		// Nombres de las columnas
-		String[] columnNames = { "CI", "Nombre", };
+        for (Persona p : usuariosPendientes) {
+		listModel.addElement(p.getCi() + " - " + p.getNombre() + " " + p.getApellidos());
+        }
 
-		// Crea el modelo de la tabla
-		tableModel = new DefaultTableModel(data, columnNames);
+       
+        JButton confirmButton = new JButton("Confirmar Entrega");
+        confirmButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+               
+                int selectedIndex = userList.getSelectedIndex();
+                if (selectedIndex >= 0) {
+                    
+                    String selectedUser = listModel.get(selectedIndex);
+                    System.out.println("Confirmar entrega para: " + selectedUser);
+                }
+            }
+        });
 
-		// Crea la tabla con el modelo
-		table = new JTable(tableModel);
-
-		// Agrega una columna adicional para los botones
-		tableModel.addColumn("Confirmar Entrega");
-
+        JPanel buttonPanel = new JPanel();
+        buttonPanel.add(confirmButton);
+        getContentPane().add(buttonPanel, BorderLayout.SOUTH);
+    
 		
-		
 
-		
+	
 
-			}
+	}
 }

@@ -94,6 +94,7 @@ public class Inicio extends JFrame {
 			mntmSolicitarBaja.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
 					ControladorPrincipal.mostrarTramites(usuarioAutenticado, usuarios);
+					dispose();
 				}
 			});
 			mnNewMenu_1.add(mntmSolicitarBaja);

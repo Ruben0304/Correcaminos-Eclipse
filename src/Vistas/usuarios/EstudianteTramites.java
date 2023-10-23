@@ -90,7 +90,7 @@ public class EstudianteTramites extends JFrame {
 		foto.setIcon((img));
 		contentPane.add(foto);
 		
-		JLabel lblci = new JLabel("Ci");
+		JLabel lblci = new JLabel("Ci: " + usuarioAutenticado.getCi());
 		lblci.setFont(new Font("Arial Narrow", Font.BOLD, 13));
 		lblci.setBounds(24, 17, 372, 14);
 		panel.add(lblci);

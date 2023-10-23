@@ -12,6 +12,7 @@ public class Secretaria {
 
     public Secretaria() {
         this.estudiantes = new ArrayList<>();
+        this.solicitudesLicencia = new ArrayList<>();
     }
 
     public ArrayList<Estudiante> registrarEstudianteFictisios() {

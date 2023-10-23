@@ -23,8 +23,7 @@ public abstract class Persona extends Usuario {
         this.baja = baja;
     }
 
-    public abstract void solicitarLicencia(Usuario usuarioAutenticado, ArrayList<Usuario> usuarios,
-            Secretaria secretaria, RecursosHumanos RecursosHumanos);
+    public abstract void solicitarLicencia(Secretaria secretaria,String motivo, String fechaInicio, String fechaFin);
 
     public abstract void solicitarBaja();
 

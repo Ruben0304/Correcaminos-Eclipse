@@ -18,6 +18,10 @@ public class Secretaria {
         return estudiantes;
     }
 
+    public void agregarSolicitudDeLicencia(SolicitudLicenciaEstudiante solicitud){
+        solicitudesLicencia.add(solicitud);
+    }
+
     private boolean verificarRequisitos(Estudiante e) {
 
         return !(e.tieneDeuda() || e.tieneEstipendio() || e.tieneCuentaCerrada() || e.tieneLibrosDeBiblioteca()

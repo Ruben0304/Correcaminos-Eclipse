@@ -179,16 +179,16 @@ public class EstudianteTramites extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				String nombre = textField.getText();
 				
-//				String motivo = textField_5.getText();
+				String motivo = textField_5.getText();
 				
-				// if(nombre==null|| nombre.isEmpty() || motivo.isEmpty()||motivo==null)
-				// 	errorMessage.setVisible(true);
-				// else{
-				// 	Baja b=new Baja();
-				// 	b.setVisible(true);
-				// 	dispose();
+				if(nombre==null|| nombre.isEmpty() || motivo.isEmpty()||motivo==null)
+					errorMessage.setVisible(true);
+				else{
+					Baja b=new Baja();
+					b.setVisible(true);
+					dispose();
 					
-				// }
+				}
 					
 			}
 		});

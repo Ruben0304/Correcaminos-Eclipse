@@ -7,6 +7,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellRenderer;
 
 import controlador.ControladorAdmin;
+import controlador.ControladorLogin;
 import modelos.auth.GestorUsuarios;
 import modelos.entidades.Estudiante;
 import modelos.entidades.Persona;
@@ -73,6 +74,15 @@ public class CasosPendientes extends JFrame {
                 }));
         table_2.setBounds(112, 33, 587, 476);
         getContentPane().add(table_2);
+        
+        JButton btnNewButton = new JButton("Ir a login");
+        btnNewButton.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent arg0) {
+                ControladorLogin.mostrarLogin(usuarios, secretaria, recursosHumanos);
+        	}
+        });
+        btnNewButton.setBounds(457, 517, 97, 25);
+        getContentPane().add(btnNewButton);
 
         confirmButton.addActionListener(new ActionListener() {
             @Override
@@ -84,9 +94,7 @@ public class CasosPendientes extends JFrame {
                     
                   ((Estudiante)GestorUsuarios.buscarUsuarioPorCi(carnet, usuariosPendientes)).setLibrosDeBiblioteca(false);
                    ControladorAdmin.mostrarGestionLicencias(usuarioAutenticado, usuarios, secretaria, recursosHumanos);
-                } else {
-                    // No se ha seleccionado ninguna fila
-                }
+                } 
 
             }
         });

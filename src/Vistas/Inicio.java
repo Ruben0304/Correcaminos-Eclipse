@@ -13,6 +13,7 @@ import controlador.ControladorAdmin;
 import controlador.ControladorLogin;
 import controlador.ControladorPrincipal;
 import modelos.entidades.Departamento;
+import modelos.entidades.Estudiante;
 import modelos.entidades.RecursosHumanos;
 import modelos.entidades.Secretaria;
 import modelos.entidades.Usuario;
@@ -93,25 +94,36 @@ public class Inicio extends JFrame {
 			});
 			mnNewMenu_1.add(mntmGestionarLicencia);
 		} else {
+			if (secretaria.verificarEstudianteSolicitaLicencia((Estudiante) usuarioAutenticado)) {
+				JMenuItem mntmSolicitarBaja = new JMenuItem("Verificar Estado Solicitud");
+				mntmSolicitarBaja.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent arg0) {
+						ControladorPrincipal.mostrarRequisitosBajaEstudiantes(usuarioAutenticado, usuarios, secretaria,
+								recursosHumanos);
+						dispose();
+					}
+				});
+				mnNewMenu_1.add(mntmSolicitarBaja);
+			} else {
+				JMenuItem mntmSolicitarBaja = new JMenuItem("Solicitar baja");
+				mntmSolicitarBaja.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent arg0) {
+						ControladorPrincipal.mostrarTramites(usuarioAutenticado, usuarios, secretaria, recursosHumanos);
+						dispose();
+					}
+				});
+				mnNewMenu_1.add(mntmSolicitarBaja);
 
-			JMenuItem mntmSolicitarBaja = new JMenuItem("Solicitar baja");
-			mntmSolicitarBaja.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent arg0) {
-					ControladorPrincipal.mostrarTramites(usuarioAutenticado, usuarios, secretaria, recursosHumanos);
-					dispose();
-				}
-			});
-			mnNewMenu_1.add(mntmSolicitarBaja);
+				JMenuItem mntmSolicitarLicencia = new JMenuItem("Solicitar Licencia");
+				mntmSolicitarLicencia.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent arg0) {
+						ControladorPrincipal.mostrarTramites(usuarioAutenticado, usuarios, secretaria, recursosHumanos);
+						dispose();
+					}
+				});
+				mnNewMenu_1.add(mntmSolicitarLicencia);
 
-			JMenuItem mntmSolicitarLicencia = new JMenuItem("Solicitar Licencia");
-			mntmSolicitarLicencia.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent arg0) {
-					ControladorPrincipal.mostrarTramites(usuarioAutenticado, usuarios, secretaria, recursosHumanos);
-					dispose();
-				}
-			});
-			mnNewMenu_1.add(mntmSolicitarLicencia);
-
+			}
 		}
 
 		JMenuItem mntmResultadosSolicitud = new JMenuItem("Resultados Solicitud");

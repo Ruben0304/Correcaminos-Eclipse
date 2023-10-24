@@ -56,7 +56,7 @@ public class CasosPendientes extends JFrame {
         JButton confirmButton = new JButton("Confirmar Entrega");
         confirmButton.setBounds(589, 517, 137, 25);
         getContentPane().add(confirmButton);
-        
+
         Object[][] data = new Object[usuariosPendientes.size()][3];
         int i = 0;
         for (Persona p : usuariosPendientes) {
@@ -74,12 +74,13 @@ public class CasosPendientes extends JFrame {
                 }));
         table_2.setBounds(112, 33, 587, 476);
         getContentPane().add(table_2);
-        
+
         JButton btnNewButton = new JButton("Ir a login");
         btnNewButton.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent arg0) {
+            public void actionPerformed(ActionEvent arg0) {
                 ControladorLogin.mostrarLogin(usuarios, secretaria, recursosHumanos);
-        	}
+                dispose();
+            }
         });
         btnNewButton.setBounds(457, 517, 97, 25);
         getContentPane().add(btnNewButton);
@@ -91,10 +92,12 @@ public class CasosPendientes extends JFrame {
                 int selectedRow = table_2.getSelectedRow();
                 if (selectedRow != -1) {
                     String carnet = table_2.getValueAt(selectedRow, 0).toString();
-                    
-                  ((Estudiante)GestorUsuarios.buscarUsuarioPorCi(carnet, usuariosPendientes)).setLibrosDeBiblioteca(false);
-                   ControladorAdmin.mostrarGestionLicencias(usuarioAutenticado, usuarios, secretaria, recursosHumanos);
-                } 
+
+                    ((Estudiante) GestorUsuarios.buscarUsuarioPorCi(carnet, usuariosPendientes))
+                            .setLibrosDeBiblioteca(false);
+                    ControladorAdmin.mostrarGestionLicencias(usuarioAutenticado, usuarios, secretaria, recursosHumanos);
+                    dispose();
+                }
 
             }
         });

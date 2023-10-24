@@ -2,10 +2,8 @@ package modelos.entidades;
 
 import java.util.ArrayList;
 
-
 import modelos.datos.EstudianteFactory;
 import modelos.datos.SolicitudFactory;
-
 
 public class Secretaria {
     ArrayList<Estudiante> estudiantes;
@@ -15,7 +13,7 @@ public class Secretaria {
     public Secretaria() {
         estudiantes = new ArrayList<>();
         solicitudesLicencia = new ArrayList<>();
-        solicitudesBaja=new ArrayList<>();
+        solicitudesBaja = new ArrayList<>();
     }
 
     public ArrayList<Estudiante> registrarEstudianteFictisios() {
@@ -28,7 +26,7 @@ public class Secretaria {
         return solicitudesLicencia;
     }
 
-    public void agregarSolicitudDeLicencia(SolicitudLicenciaEstudiante solicitud){
+    public void agregarSolicitudDeLicencia(SolicitudLicenciaEstudiante solicitud) {
         solicitudesLicencia.add(solicitud);
     }
 
@@ -46,18 +44,22 @@ public class Secretaria {
 
     }
 
-    private void aprobarSolicitudLicencia() {
-        
+    public boolean verificarEstudianteSolicitaLicencia(Estudiante e) {
+        boolean encontrado = false;
+        for (int i = 0; i < this.solicitudesLicencia.size() && !encontrado; i++) {
+          encontrado = e.equals(this.solicitudesLicencia.get(i).getEstudiante());
+        }
+        return verificarRequisitos(e);
     }
-    
-    public ArrayList<SolicitudLicenciaEstudiante> getSolicitudesLicencia(){
-    	
-    	return solicitudesLicencia;
+
+    public ArrayList<SolicitudLicenciaEstudiante> getSolicitudesLicencia() {
+
+        return solicitudesLicencia;
     }
-    
-    public  ArrayList<Estudiante> getEstudiantes(){
-    	
-    	return estudiantes;
+
+    public ArrayList<Estudiante> getEstudiantes() {
+
+        return estudiantes;
     }
 
 }

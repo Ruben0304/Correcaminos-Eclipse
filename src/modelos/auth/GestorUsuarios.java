@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import modelos.datos.AdminFactory;
 import modelos.entidades.Departamento;
+import modelos.entidades.Estudiante;
 import modelos.entidades.Persona;
 import modelos.entidades.RecursosHumanos;
 import modelos.entidades.Secretaria;
@@ -47,4 +48,6 @@ public class GestorUsuarios {
         }
         return usuarioEncontrado;
     }
+
+    
 }

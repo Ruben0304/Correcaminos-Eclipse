@@ -22,6 +22,7 @@ public class CasosPendientes extends JFrame {
 
 	private DefaultListModel<String> listModel;
 	private JTable table;
+	private JTable table_2;
     
 	/**
 	 * Create the frame.
@@ -36,15 +37,11 @@ public class CasosPendientes extends JFrame {
 		setSize(786, 645);
 		setLocationRelativeTo(null);
 		getContentPane().setLayout(null);
-
+        
+                        
 		
 
-        JScrollPane scrollPane = new JScrollPane();
-        scrollPane.setBounds(0, 458, 640, -458);
-        getContentPane().add(scrollPane, BorderLayout.CENTER);
-
         
-        DefaultListModel<String> listModel = new DefaultListModel<>();
         
         
 
@@ -60,43 +57,41 @@ public class CasosPendientes extends JFrame {
 //        userList.setBounds(60, 170, 500, 72);
 //        getContentPane().add(userList);
 
-        JPanel buttonPanel = new JPanel();
-        buttonPanel.setLayout(null);
-        getContentPane().add(buttonPanel, BorderLayout.SOUTH);
+        
         
                
                 JButton confirmButton = new JButton("Confirmar Entrega");
-                confirmButton.setBounds(546, 132, 137, 25);
+                confirmButton.setBounds(589, 517, 137, 25);
                 getContentPane().add(confirmButton);
+                
+                Object[][] data = new Object[usuariosPendientes.size()][3];
+                int i = 0;
+                for(Persona p : usuariosPendientes){
+                    data[i][0] = p.getCi();
+                    data[i][1] = p.getNombre();
+                    data[i][2] = p.getApellidos();
+                    i++;
+                }
+                
+                table_2 = new JTable();
+                table_2.setModel(new DefaultTableModel(
+                    data,
+                    new String[] {
+                        "Carnet", "Nombre", "Apellidos"
+                    }
+                ));
+                table_2.setBounds(112, 262, 330, 247);
+                getContentPane().add(table_2);
                 
                
                 
-                table = new JTable();
-                table.setBounds(355, 281, 1, 1);
-                getContentPane().add(table);
                 
-                JTextArea textArea = new JTextArea();
-                textArea.setBounds(270, 277, 302, 259);
-                for (Persona p : usuariosPendientes) {
-                	
-               	
-               	textArea.setText(textArea.getText() + p.getCi() + " - " + p.getNombre() + " " + p.getApellidos() + "     ");
-                   
-               }
-                
-                
-                
-                getContentPane().add(textArea);
                 confirmButton.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
                        
 //                        int selectedIndex = userList.getSelectedIndex();
-                        if (selectedIndex >= 0) {
-                            
-//                            String selectedUser = listModel.get(selectedIndex);
-                            
-                        }
+                       
                     }
                 });
     

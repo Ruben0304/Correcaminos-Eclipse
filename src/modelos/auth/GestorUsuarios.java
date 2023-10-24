@@ -25,6 +25,7 @@ public class GestorUsuarios {
             this.usuarios.addAll(secretaria.registrarEstudianteFictisios());
             this.usuarios.addAll(recursosHumanos.getEmpleados());
             this.usuarios.addAll(admins);
+            secretaria.registrarLicenciasEstudiantesFictisios();
         } else {
             throw new IllegalArgumentException("Solo modo prueba");
         }

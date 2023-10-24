@@ -16,6 +16,8 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 
+import controlador.ControladorLogin;
+import controlador.ControladorPrincipal;
 import modelos.entidades.Becado;
 import modelos.entidades.Estudiante;
 import modelos.entidades.RecursosHumanos;
@@ -43,8 +45,8 @@ public class RequisitosBajaEstudiantes extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public RequisitosBajaEstudiantes(Estudiante usuarioAutenticado, ArrayList<Usuario> usuarios, Secretaria secretaria,
-			RecursosHumanos recursosHumanos) {
+	public RequisitosBajaEstudiantes(final Estudiante usuarioAutenticado,final ArrayList<Usuario> usuarios,final Secretaria secretaria,
+		final RecursosHumanos recursosHumanos) {
 		setResizable(false);
 		setTitle("Requisitos para obtener baja");
 		setIconImage(Toolkit.getDefaultToolkit()
@@ -185,9 +187,15 @@ public class RequisitosBajaEstudiantes extends JFrame {
 		JMenuItem mntmInicio = new JMenuItem("Cancelar y volver a Inicio");
 		mntmInicio.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				// Inicio inicio = new Inicio();
-				// inicio.setVisible(true);
-				// dispose();
+				ControladorPrincipal.mostrarInicio(usuarioAutenticado, usuarios, secretaria, recursosHumanos);
+				dispose();
+			}
+		});
+		JMenuItem mntmLgin = new JMenuItem("Cerrar sesion");
+		mntmLgin.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				ControladorLogin.cerrarSesion(usuarios, secretaria, recursosHumanos);
+				dispose();
 			}
 		});
 		mnNewMenu.add(mntmInicio);

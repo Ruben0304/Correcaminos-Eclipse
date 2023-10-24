@@ -78,7 +78,7 @@ public class CasosPendientes extends JFrame {
         JButton btnNewButton = new JButton("Ir a login");
         btnNewButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
-                ControladorLogin.mostrarLogin(usuarios, secretaria, recursosHumanos);
+                ControladorLogin.cerrarSesion(usuarios, secretaria, recursosHumanos);
                 dispose();
             }
         });

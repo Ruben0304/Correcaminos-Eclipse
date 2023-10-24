@@ -10,4 +10,15 @@ public class NoDocente extends Empleado{
         super(nombreUsuario, contrasena, ci, nombre, apellidos, facultad, licencia, baja, numerotrabajador);
         this.seccion = seccion;
     }
+
+    @Override
+    public void solicitarLicencia(Secretaria secretaria, String fechaInicio, String fechaFin, String motivo) {
+        secretaria.registrarLicencia(this, fechaInicio, fechaFin, motivo);
+    }
+}
+
+class Secretaria {
+    public void registrarLicencia(NoDocente noDocente, String fechaInicio, String fechaFin, String motivo) {
+        // implementation of registrarLicencia method
+    }
 }

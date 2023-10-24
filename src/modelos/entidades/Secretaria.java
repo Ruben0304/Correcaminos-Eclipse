@@ -49,7 +49,7 @@ public class Secretaria {
         for (int i = 0; i < this.solicitudesLicencia.size() && !encontrado; i++) {
           encontrado = e.equals(this.solicitudesLicencia.get(i).getEstudiante());
         }
-        return verificarRequisitos(e);
+        return encontrado;
     }
 
     public ArrayList<SolicitudLicenciaEstudiante> getSolicitudesLicencia() {

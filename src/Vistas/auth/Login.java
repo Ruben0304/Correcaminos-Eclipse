@@ -88,7 +88,7 @@ public class Login extends JFrame {
 		ErrorMessages.setHorizontalAlignment(SwingConstants.CENTER);
 		ErrorMessages.setForeground(new Color(204, 51, 0));
 		ErrorMessages.setFont(new Font("Arial Narrow", Font.BOLD, 14));
-		ErrorMessages.setBounds(573, 331, 204, 25);
+		ErrorMessages.setBounds(573, 340, 204, 25);
 		contentPane.add(ErrorMessages);
 
 		JButton btnLogin = new JButton("Iniciar sesi\u00F3n");
@@ -135,19 +135,19 @@ public class Login extends JFrame {
 		JLabel lblNewLabel_1 = new JLabel("Usuario");
 		lblNewLabel_1.setForeground(Colores.NEGRO);
 		lblNewLabel_1.setFont(new Font("Arial Narrow", Font.BOLD, 18));
-		lblNewLabel_1.setBounds(640, 216, 60, 43);
+		lblNewLabel_1.setBounds(649, 212, 60, 43);
 		contentPane.add(lblNewLabel_1);
 
 		JLabel lblContrasea = new JLabel("Contrase\u00F1a");
 		lblContrasea.setForeground(Colores.NEGRO);
 		lblContrasea.setFont(new Font("Arial Narrow", Font.BOLD, 18));
-		lblContrasea.setBounds(625, 275, 124, 35);
+		lblContrasea.setBounds(638, 284, 124, 35);
 		contentPane.add(lblContrasea);
 
 		passwordField = new JPasswordField();
 		passwordField.setBackground(Colores.BLANCO);
 		passwordField.setBorder(new MatteBorder(0, 0, 2, 0, (Color) Colores.NEGRO));
-		passwordField.setBounds(603, 302, 179, 25);
+		passwordField.setBounds(603, 311, 179, 25);
 		passwordField.setColumns(10);
 		contentPane.add(passwordField);
 
@@ -186,7 +186,7 @@ public class Login extends JFrame {
 		lblNewLabel_4.setHorizontalTextPosition(SwingConstants.CENTER);
 		lblNewLabel_4.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_4.setBorder(null);
-		lblNewLabel_4.setBounds(540, 282, 48, 43);
+		lblNewLabel_4.setBounds(540, 291, 48, 43);
 		ImageIcon iconito = new ImageIcon(getClass().getResource("/img/contrasena.png"));
 		ImageIcon imgen = new ImageIcon(iconito.getImage().getScaledInstance(lblNewLabel_4.getWidth(),
 				lblNewLabel_4.getHeight(), Image.SCALE_SMOOTH));

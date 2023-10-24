@@ -106,7 +106,8 @@ public class Inicio extends JFrame {
 			JMenuItem mntmSolicitarLicencia = new JMenuItem("Solicitar Licencia");
 			mntmSolicitarLicencia.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
-
+					ControladorPrincipal.mostrarTramites(usuarioAutenticado, usuarios, secretaria, recursosHumanos);
+					dispose();
 				}
 			});
 			mnNewMenu_1.add(mntmSolicitarLicencia);

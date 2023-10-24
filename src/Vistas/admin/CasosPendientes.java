@@ -21,6 +21,7 @@ import java.awt.event.ActionListener;
 public class CasosPendientes extends JFrame {
 
 	private DefaultListModel<String> listModel;
+	private JTable table;
     
 	/**
 	 * Create the frame.
@@ -44,14 +45,20 @@ public class CasosPendientes extends JFrame {
 
         
         DefaultListModel<String> listModel = new DefaultListModel<>();
+        
+        
 
-        for (Persona p : usuariosPendientes) {
-            listModel.addElement(p.getCi() + " - " + p.getNombre() + " " + p.getApellidos());
-        }
-
-        JList<String> userList = new JList<>(listModel);
-        userList.setBounds(60, 170, 500, 72);
-        getContentPane().add(userList);
+//        JList<String> userList = new JList<>(new AbstractListModel() {
+//        	String[] values = new String[] {"ddd", "trt", "u"};
+//        	public int getSize() {
+//        		return values.length;
+//        	}
+//        	public Object getElementAt(int index) {
+//        		return values[index];
+//        	}
+//        });
+//        userList.setBounds(60, 170, 500, 72);
+//        getContentPane().add(userList);
 
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(null);
@@ -61,6 +68,25 @@ public class CasosPendientes extends JFrame {
                 JButton confirmButton = new JButton("Confirmar Entrega");
                 confirmButton.setBounds(546, 132, 137, 25);
                 getContentPane().add(confirmButton);
+                
+               
+                
+                table = new JTable();
+                table.setBounds(355, 281, 1, 1);
+                getContentPane().add(table);
+                
+                JTextArea textArea = new JTextArea();
+                textArea.setBounds(270, 277, 302, 259);
+                for (Persona p : usuariosPendientes) {
+                	
+               	
+               	textArea.setText(textArea.getText() + p.getCi() + " - " + p.getNombre() + " " + p.getApellidos() + "     ");
+                   
+               }
+                
+                
+                
+                getContentPane().add(textArea);
                 confirmButton.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {

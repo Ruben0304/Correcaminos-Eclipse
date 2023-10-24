@@ -210,9 +210,9 @@ public class EstudianteTramites extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 
 				String motivo = textMotivo.getText();
-				String fechaInicio = fechaSalida.getDate().toString();
+				String fechaInicio = "trtrt";
 				
-				String fechaFin = fechaRegreso.getDate().toString();
+				String fechaFin = "ggtg";
 				
 
 				if (motivo.isEmpty() || fechaInicio.isEmpty() || fechaFin.isEmpty())

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 
 import modelos.datos.EstudianteFactory;
+import modelos.datos.SolicitudFactory;
 
 
 public class Secretaria {
@@ -20,6 +21,11 @@ public class Secretaria {
     public ArrayList<Estudiante> registrarEstudianteFictisios() {
         estudiantes.addAll(EstudianteFactory.inicializarEstudiantes());
         return estudiantes;
+    }
+
+    public ArrayList<SolicitudLicenciaEstudiante> registrarLicenciasEstudiantesFictisios() {
+        solicitudesLicencia.addAll(SolicitudFactory.inicializarLicenciasEstudiantesFictisios(estudiantes));
+        return solicitudesLicencia;
     }
 
     public void agregarSolicitudDeLicencia(SolicitudLicenciaEstudiante solicitud){

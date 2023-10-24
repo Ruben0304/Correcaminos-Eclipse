@@ -14,6 +14,7 @@ public class Main {
 		SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
 				try {
+					
 					Secretaria secretaria = new Secretaria();
 					RecursosHumanos recursosHumanos = new RecursosHumanos();
 					GestorUsuarios gestorUsuarios = new GestorUsuarios(secretaria, recursosHumanos, true);

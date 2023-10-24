@@ -17,7 +17,7 @@ public class NoDocente extends Empleado{
     }
 }
 
-class Secretaria {
+public class Secretaria {
     public void registrarLicencia(NoDocente noDocente, String fechaInicio, String fechaFin, String motivo) {
         // implementation of registrarLicencia method
     }

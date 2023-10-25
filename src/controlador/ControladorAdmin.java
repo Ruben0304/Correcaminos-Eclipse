@@ -6,7 +6,6 @@ import modelos.entidades.Departamento;
 import modelos.entidades.Persona;
 import modelos.entidades.RecursosHumanos;
 import modelos.entidades.Secretaria;
-import modelos.entidades.SolicitudLicenciaEstudiante;
 import modelos.entidades.Usuario;
 import utiles.TipoDepartamento;
 import vistas.admin.CasosPendientes;

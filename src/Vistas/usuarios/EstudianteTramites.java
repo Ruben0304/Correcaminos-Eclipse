@@ -62,7 +62,7 @@ public class EstudianteTramites extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	
+
 	public EstudianteTramites(final Estudiante usuarioAutenticado, final ArrayList<Usuario> usuarios,
 			final Secretaria secretaria, final RecursosHumanos recursosHumanos) {
 		setResizable(false);

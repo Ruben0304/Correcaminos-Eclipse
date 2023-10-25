@@ -52,6 +52,8 @@ public class Secretaria {
         return encontrado;
     }
 
+    
+
     public ArrayList<SolicitudLicenciaEstudiante> getSolicitudesLicencia() {
 
         return solicitudesLicencia;

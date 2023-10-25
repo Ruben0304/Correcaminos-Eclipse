@@ -8,6 +8,7 @@ import modelos.entidades.RecursosHumanos;
 import modelos.entidades.Secretaria;
 import modelos.entidades.SolicitudLicenciaEstudiante;
 import modelos.entidades.Usuario;
+import utiles.TipoDepartamento;
 import vistas.admin.CasosPendientes;
 
 public class ControladorAdmin {
@@ -16,12 +17,7 @@ public class ControladorAdmin {
         ArrayList<Persona> usuariosPendientes = new ArrayList<>();
         switch (((Departamento) usuarioAutenticado).getTipoDepartamento()) {
             case Biblioteca:
-                for (SolicitudLicenciaEstudiante s : secretaria.getSolicitudesLicencia()) {
-                    if (s.getEstudiante().tieneLibrosDeBiblioteca()) {
-                        usuariosPendientes.add(s.getEstudiante());
-                    }
-
-                }
+                usuariosPendientes.addAll(secretaria.getSolicitudesLicenciaPendientes(TipoDepartamento.Biblioteca, "DEUDA"));
                 CasosPendientes biblioteca = new CasosPendientes(usuarioAutenticado, usuarios, secretaria,
                         recursosHumanos, usuariosPendientes);
                 biblioteca.setVisible(true);

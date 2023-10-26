@@ -85,13 +85,13 @@ public class Secretaria {
         return solicitudLicenciaEstudiantes;
     }
 
-    public ArrayList<SolicitudLicenciaEstudiante> getSolicitudesLicenciaPendientes(TipoDepartamento d) {
-        ArrayList<SolicitudLicenciaEstudiante> solicitudLicenciaEstudiantesRequisitos = new ArrayList<>();
+    public ArrayList<Estudiante> getSolicitudesLicenciaPendientes(TipoDepartamento d) {
+        ArrayList<Estudiante> solicitudLicenciaEstudiantesRequisitos = new ArrayList<>();
         switch (d) {
             case Biblioteca:
                 for (SolicitudLicenciaEstudiante s : getSolicitudesLicenciaPendientes()) {
                     if (s.getEstudiante().tieneLibrosDeBiblioteca()) {
-                        solicitudLicenciaEstudiantesRequisitos.add(s);
+                        solicitudLicenciaEstudiantesRequisitos.add(s.getEstudiante());
                     }
                 }
                 break;
@@ -103,21 +103,21 @@ public class Secretaria {
         return solicitudLicenciaEstudiantesRequisitos;
     }
 
-    public ArrayList<SolicitudLicenciaEstudiante> getSolicitudesLicenciaPendientes(TipoDepartamento d,
+    public ArrayList<Estudiante> getSolicitudesLicenciaPendientes(TipoDepartamento d,
             String requisito) {
-        ArrayList<SolicitudLicenciaEstudiante> solicitudLicenciaEstudiantesRequisitos = new ArrayList<>();
+        ArrayList<Estudiante> solicitudLicenciaEstudiantesRequisitos = new ArrayList<>();
         switch (d) {
             case Economia:
                 if (requisito.equals("ESTIPENDIO")) {
                     for (SolicitudLicenciaEstudiante s : getSolicitudesLicenciaPendientes()) {
                         if (s.getEstudiante().tieneEstipendio()) {
-                            solicitudLicenciaEstudiantesRequisitos.add(s);
+                            solicitudLicenciaEstudiantesRequisitos.add(s.getEstudiante());
                         }
                     }
                 } else if (requisito.equals("DEUDA")) {
                     for (SolicitudLicenciaEstudiante s : getSolicitudesLicenciaPendientes()) {
                         if (s.getEstudiante().tieneDeuda()) {
-                            solicitudLicenciaEstudiantesRequisitos.add(s);
+                            solicitudLicenciaEstudiantesRequisitos.add(s.getEstudiante());
                         }
                     }
                 }
@@ -127,7 +127,7 @@ public class Secretaria {
                     for (SolicitudLicenciaEstudiante s : getSolicitudesLicenciaPendientes()) {
                         if (s.getEstudiante() instanceof Becado) {
                             if (!((Becado) s.getEstudiante()).entregoCarnetBecado()) {
-                                solicitudLicenciaEstudiantesRequisitos.add(s);
+                                solicitudLicenciaEstudiantesRequisitos.add(s.getEstudiante());
                             }
                         }
 
@@ -136,7 +136,7 @@ public class Secretaria {
                     for (SolicitudLicenciaEstudiante s : getSolicitudesLicenciaPendientes()) {
                         if (s.getEstudiante() instanceof Becado) {
                             if (!((Becado) s.getEstudiante()).entregoPertenencias()) {
-                                solicitudLicenciaEstudiantesRequisitos.add(s);
+                                solicitudLicenciaEstudiantesRequisitos.add(s.getEstudiante());
                             }
                         }
                     }
@@ -149,6 +149,8 @@ public class Secretaria {
 
         return solicitudLicenciaEstudiantesRequisitos;
     }
+
+    
 
     public ArrayList<Estudiante> getEstudiantes() {
 

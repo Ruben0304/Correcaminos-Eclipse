@@ -16,7 +16,7 @@ public class ControladorAdmin {
         ArrayList<Persona> usuariosPendientes = new ArrayList<>();
         switch (((Departamento) usuarioAutenticado).getTipoDepartamento()) {
             case Biblioteca:
-                usuariosPendientes.addAll(secretaria.getSolicitudesLicenciaPendientes(TipoDepartamento.Biblioteca, "DEUDA"));
+                usuariosPendientes.addAll(secretaria.getSolicitudesLicenciaPendientes(TipoDepartamento.Biblioteca));
                 CasosPendientes biblioteca = new CasosPendientes(usuarioAutenticado, usuarios, secretaria,
                         recursosHumanos, usuariosPendientes);
                 biblioteca.setVisible(true);

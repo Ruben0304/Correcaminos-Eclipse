@@ -35,15 +35,17 @@ public class Secretaria {
 
     // private boolean verificarRequisitos(Estudiante e) {
 
-    //     return !(e.tieneDeuda() || e.tieneEstipendio() || e.tieneCuentaCerrada() || e.tieneLibrosDeBiblioteca()
-    //             || e.tieneLibrosDocentes());
+    // return !(e.tieneDeuda() || e.tieneEstipendio() || e.tieneCuentaCerrada() ||
+    // e.tieneLibrosDeBiblioteca()
+    // || e.tieneLibrosDocentes());
 
     // }
 
     // private boolean verificarRequisitos(Becado b) {
 
-    //     return !(b.tieneDeuda() || b.tieneEstipendio() || b.tieneCuentaCerrada() || b.tieneLibrosDeBiblioteca()
-    //             || b.tieneLibrosDocentes() || b.entregoCarnet() || b.entregoPertenencias());
+    // return !(b.tieneDeuda() || b.tieneEstipendio() || b.tieneCuentaCerrada() ||
+    // b.tieneLibrosDeBiblioteca()
+    // || b.tieneLibrosDocentes() || b.entregoCarnet() || b.entregoPertenencias());
 
     // }
 
@@ -86,62 +88,65 @@ public class Secretaria {
     public ArrayList<SolicitudLicenciaEstudiante> getSolicitudesLicenciaPendientes(TipoDepartamento d) {
         ArrayList<SolicitudLicenciaEstudiante> solicitudLicenciaEstudiantesRequisitos = new ArrayList<>();
         switch (d) {
-                case Biblioteca:
-                  for (SolicitudLicenciaEstudiante s : getSolicitudesLicenciaPendientes()) {
+            case Biblioteca:
+                for (SolicitudLicenciaEstudiante s : getSolicitudesLicenciaPendientes()) {
                     if (s.getEstudiante().tieneLibrosDeBiblioteca()) {
                         solicitudLicenciaEstudiantesRequisitos.add(s);
                     }
                 }
                 break;
-        
+
             default:
                 break;
         }
-       
+
         return solicitudLicenciaEstudiantesRequisitos;
     }
 
-    public ArrayList<SolicitudLicenciaEstudiante> getSolicitudesLicenciaPendientes(TipoDepartamento d, String requisito) {
+    public ArrayList<SolicitudLicenciaEstudiante> getSolicitudesLicenciaPendientes(TipoDepartamento d,
+            String requisito) {
         ArrayList<SolicitudLicenciaEstudiante> solicitudLicenciaEstudiantesRequisitos = new ArrayList<>();
         switch (d) {
             case Economia:
-            if (requisito.equals("ESTIPENDIO")) {
-                for (SolicitudLicenciaEstudiante s : getSolicitudesLicenciaPendientes()) {
-                    if (s.getEstudiante().tieneEstipendio()) {
-                        solicitudLicenciaEstudiantesRequisitos.add(s);
+                if (requisito.equals("ESTIPENDIO")) {
+                    for (SolicitudLicenciaEstudiante s : getSolicitudesLicenciaPendientes()) {
+                        if (s.getEstudiante().tieneEstipendio()) {
+                            solicitudLicenciaEstudiantesRequisitos.add(s);
+                        }
+                    }
+                } else if (requisito.equals("DEUDA")) {
+                    for (SolicitudLicenciaEstudiante s : getSolicitudesLicenciaPendientes()) {
+                        if (s.getEstudiante().tieneDeuda()) {
+                            solicitudLicenciaEstudiantesRequisitos.add(s);
+                        }
                     }
                 }
-            } else if (requisito.equals("DEUDA")){
-                for (SolicitudLicenciaEstudiante s : getSolicitudesLicenciaPendientes()) {
-                    if (s.getEstudiante().tieneDeuda()) {
-                        solicitudLicenciaEstudiantesRequisitos.add(s);
-                    }
-                }
-            }
                 break;
-                case DireccionBecas:
+            case DireccionBecas:
                 if (requisito.equals("CARNET_BECADO")) {
-                for (SolicitudLicenciaEstudiante s : getSolicitudesLicenciaPendientes()) {
-                    if (condition) {
-                        
-                    
-                    if (s.getEstudiante().tieneEstipendio()) {
-                        solicitudLicenciaEstudiantesRequisitos.add(s);
+                    for (SolicitudLicenciaEstudiante s : getSolicitudesLicenciaPendientes()) {
+                        if (s.getEstudiante() instanceof Becado) {
+                            if (!((Becado) s.getEstudiante()).entregoCarnetBecado()) {
+                                solicitudLicenciaEstudiantesRequisitos.add(s);
+                            }
+                        }
+
+                    }
+                } else if (requisito.equals("PERTENENCIAS")) {
+                    for (SolicitudLicenciaEstudiante s : getSolicitudesLicenciaPendientes()) {
+                        if (s.getEstudiante() instanceof Becado) {
+                            if (!((Becado) s.getEstudiante()).entregoPertenencias()) {
+                                solicitudLicenciaEstudiantesRequisitos.add(s);
+                            }
+                        }
                     }
                 }
-            } else if (requisito.equals("PERTENENCIAS")){
-                for (SolicitudLicenciaEstudiante s : getSolicitudesLicenciaPendientes()) {
-                    if (s.getEstudiante().tieneDeuda()) {
-                        solicitudLicenciaEstudiantesRequisitos.add(s);
-                    }
-                }
-            }
                 break;
-        
+
             default:
                 break;
         }
-       
+
         return solicitudLicenciaEstudiantesRequisitos;
     }
 

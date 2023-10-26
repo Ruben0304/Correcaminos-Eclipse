@@ -11,7 +11,7 @@ public class SolicitudFactory {
      ArrayList<SolicitudLicenciaEstudiante> solicitudes = new ArrayList<>();
      SolicitudLicenciaEstudiante nuevasolicitud = null;
         for (Estudiante estudiante : estudiantes) {
-            i += 2;
+            i++;
             if (i%2 == 0) {
                 nuevasolicitud = new SolicitudLicenciaEstudiante(estudiante,"fdfdfd","hoy","mes que viene");
                 solicitudes.add(nuevasolicitud);

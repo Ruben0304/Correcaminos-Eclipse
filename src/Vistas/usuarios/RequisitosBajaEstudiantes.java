@@ -198,7 +198,7 @@ public class RequisitosBajaEstudiantes extends JFrame {
 				dispose();
 			}
 		});
-		mntmLgin.add(mntmInicio);
+		mnNewMenu.add(mntmLgin);
 		mnNewMenu.add(mntmInicio);
 		mnNewMenu.add(mntmSalir);
 

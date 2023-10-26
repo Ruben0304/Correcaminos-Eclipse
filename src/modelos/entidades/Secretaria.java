@@ -7,7 +7,6 @@ import modelos.datos.SolicitudFactory;
 import utiles.Estado;
 import utiles.TipoDepartamento;
 
-
 public class Secretaria {
     ArrayList<Estudiante> estudiantes;
     ArrayList<SolicitudLicenciaEstudiante> solicitudesLicencia;
@@ -149,8 +148,6 @@ public class Secretaria {
 
         return solicitudLicenciaEstudiantesRequisitos;
     }
-
-    
 
     public ArrayList<Estudiante> getEstudiantes() {
 

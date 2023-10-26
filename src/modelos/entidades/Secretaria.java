@@ -6,6 +6,7 @@ import modelos.datos.EstudianteFactory;
 import modelos.datos.SolicitudFactory;
 import utiles.Estado;
 import utiles.TipoDepartamento;
+import vistas.admin.Biblioteca;
 
 public class Secretaria {
     ArrayList<Estudiante> estudiantes;
@@ -32,19 +33,19 @@ public class Secretaria {
         solicitudesLicencia.add(solicitud);
     }
 
-    private boolean verificarRequisitos(Estudiante e) {
+    // private boolean verificarRequisitos(Estudiante e) {
 
-        return !(e.tieneDeuda() || e.tieneEstipendio() || e.tieneCuentaCerrada() || e.tieneLibrosDeBiblioteca()
-                || e.tieneLibrosDocentes());
+    //     return !(e.tieneDeuda() || e.tieneEstipendio() || e.tieneCuentaCerrada() || e.tieneLibrosDeBiblioteca()
+    //             || e.tieneLibrosDocentes());
 
-    }
+    // }
 
-    private boolean verificarRequisitos(Becado b) {
+    // private boolean verificarRequisitos(Becado b) {
 
-        return !(b.tieneDeuda() || b.tieneEstipendio() || b.tieneCuentaCerrada() || b.tieneLibrosDeBiblioteca()
-                || b.tieneLibrosDocentes() || b.entregoCarnet() || b.entregoPertenencias());
+    //     return !(b.tieneDeuda() || b.tieneEstipendio() || b.tieneCuentaCerrada() || b.tieneLibrosDeBiblioteca()
+    //             || b.tieneLibrosDocentes() || b.entregoCarnet() || b.entregoPertenencias());
 
-    }
+    // }
 
     public boolean verificarEstudianteSolicitaLicencia(Estudiante e) {
         boolean encontrado = false;
@@ -82,21 +83,56 @@ public class Secretaria {
         return solicitudLicenciaEstudiantes;
     }
 
-    public ArrayList<Estudiante> getSolicitudesLicenciaPendientes(TipoDepartamento d, String requisito) {
-        ArrayList<SolicitudLicenciaEstudiante> solicitudLicenciaEstudiantes = getSolicitudesLicenciaPendientes();
-        ArrayList<Estudiante> solicitudLicenciaEstudiantesRequisitos = new ArrayList<Estudiante>();
+    public ArrayList<SolicitudLicenciaEstudiante> getSolicitudesLicenciaPendientes(TipoDepartamento d) {
+        ArrayList<SolicitudLicenciaEstudiante> solicitudLicenciaEstudiantesRequisitos = new ArrayList<>();
         switch (d) {
-            case Biblioteca:
+                case Biblioteca:
+                  for (SolicitudLicenciaEstudiante s : getSolicitudesLicenciaPendientes()) {
+                    if (s.getEstudiante().tieneLibrosDeBiblioteca()) {
+                        solicitudLicenciaEstudiantesRequisitos.add(s);
+                    }
+                }
+                break;
+        
+            default:
+                break;
+        }
+       
+        return solicitudLicenciaEstudiantesRequisitos;
+    }
+
+    public ArrayList<SolicitudLicenciaEstudiante> getSolicitudesLicenciaPendientes(TipoDepartamento d, String requisito) {
+        ArrayList<SolicitudLicenciaEstudiante> solicitudLicenciaEstudiantesRequisitos = new ArrayList<>();
+        switch (d) {
+            case Economia:
             if (requisito.equals("ESTIPENDIO")) {
-                for (SolicitudLicenciaEstudiante s : solicitudLicenciaEstudiantes) {
+                for (SolicitudLicenciaEstudiante s : getSolicitudesLicenciaPendientes()) {
                     if (s.getEstudiante().tieneEstipendio()) {
-                        solicitudLicenciaEstudiantesRequisitos.add(s.getEstudiante());
+                        solicitudLicenciaEstudiantesRequisitos.add(s);
                     }
                 }
             } else if (requisito.equals("DEUDA")){
-                for (SolicitudLicenciaEstudiante s : solicitudLicenciaEstudiantes) {
+                for (SolicitudLicenciaEstudiante s : getSolicitudesLicenciaPendientes()) {
                     if (s.getEstudiante().tieneDeuda()) {
-                        solicitudLicenciaEstudiantesRequisitos.add(s.getEstudiante());
+                        solicitudLicenciaEstudiantesRequisitos.add(s);
+                    }
+                }
+            }
+                break;
+                case DireccionBecas:
+                if (requisito.equals("CARNET_BECADO")) {
+                for (SolicitudLicenciaEstudiante s : getSolicitudesLicenciaPendientes()) {
+                    if (condition) {
+                        
+                    
+                    if (s.getEstudiante().tieneEstipendio()) {
+                        solicitudLicenciaEstudiantesRequisitos.add(s);
+                    }
+                }
+            } else if (requisito.equals("PERTENENCIAS")){
+                for (SolicitudLicenciaEstudiante s : getSolicitudesLicenciaPendientes()) {
+                    if (s.getEstudiante().tieneDeuda()) {
+                        solicitudLicenciaEstudiantesRequisitos.add(s);
                     }
                 }
             }
@@ -105,12 +141,7 @@ public class Secretaria {
             default:
                 break;
         }
-        for (SolicitudLicenciaEstudiante s : this.solicitudesLicencia) {
-            if (s.getEstado() == Estado.PENDIENTE) {
-                solicitudLicenciaEstudiantes.add(s);
-            }
-
-        }
+       
         return solicitudLicenciaEstudiantesRequisitos;
     }
 

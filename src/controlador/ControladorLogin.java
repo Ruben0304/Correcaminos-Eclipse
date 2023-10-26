@@ -33,8 +33,9 @@ public class ControladorLogin {
         return usuarioAutenticado;
     }
 
-    public static void cerrarSesion(ArrayList<Usuario> usuarios, Secretaria secretaria, RecursosHumanos recursosHumanos) {
+    public static void cerrarSesion(ArrayList<Usuario> usuarios, Secretaria secretaria,
+            RecursosHumanos recursosHumanos) {
 
-        mostrarLogin(usuarios,secretaria,recursosHumanos);
+        mostrarLogin(usuarios, secretaria, recursosHumanos);
     }
 }

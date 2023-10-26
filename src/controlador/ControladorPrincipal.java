@@ -31,9 +31,10 @@ public class ControladorPrincipal {
 
     public static void mostrarRequisitosBajaEstudiantes(Usuario usuarioAutenticado, ArrayList<Usuario> usuarios,
             Secretaria secretaria, RecursosHumanos recursosHumanos) {
-        RequisitosBajaEstudiantes requisitosBajaEstudiantes = new RequisitosBajaEstudiantes((Estudiante)usuarioAutenticado,
+        RequisitosBajaEstudiantes requisitosBajaEstudiantes = new RequisitosBajaEstudiantes(
+                (Estudiante) usuarioAutenticado,
                 usuarios, secretaria, recursosHumanos);
-                requisitosBajaEstudiantes.setVisible(true);
+        requisitosBajaEstudiantes.setVisible(true);
 
     }
 

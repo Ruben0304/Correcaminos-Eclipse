@@ -22,6 +22,7 @@ public class GestorPrincipal {
     }
 
     public ArrayList<Usuario> getUsuarios() {
+        ArrayList<Usuario> usuarios = this.usuarios;
         return usuarios;
     }
 

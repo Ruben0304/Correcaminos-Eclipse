@@ -15,26 +15,17 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
-
 import controlador.ControladorLogin;
 import controlador.ControladorPrincipal;
 import modelos.entidades.Becado;
 import modelos.entidades.Estudiante;
-import modelos.entidades.RecursosHumanos;
-import modelos.entidades.Secretaria;
-import modelos.entidades.Usuario;
 import utiles.Colores;
-
 import java.awt.Toolkit;
 import java.awt.Color;
-
 import javax.swing.JCheckBox;
 import javax.swing.JButton;
-
 import vistas.Inicio;
-
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import java.awt.SystemColor;
 
@@ -45,8 +36,7 @@ public class RequisitosBajaEstudiantes extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public RequisitosBajaEstudiantes(final Estudiante usuarioAutenticado,final ArrayList<Usuario> usuarios,final Secretaria secretaria,
-		final RecursosHumanos recursosHumanos) {
+	public RequisitosBajaEstudiantes(final Estudiante usuarioAutenticado) {
 		setResizable(false);
 		setTitle("Requisitos para obtener baja");
 		setIconImage(Toolkit.getDefaultToolkit()
@@ -187,14 +177,14 @@ public class RequisitosBajaEstudiantes extends JFrame {
 		JMenuItem mntmInicio = new JMenuItem("Cancelar y volver a Inicio");
 		mntmInicio.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				ControladorPrincipal.mostrarInicio(usuarioAutenticado, usuarios, secretaria, recursosHumanos);
+				ControladorPrincipal.mostrarInicio();
 				dispose();
 			}
 		});
 		JMenuItem mntmLgin = new JMenuItem("Cerrar sesion");
 		mntmLgin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				ControladorLogin.cerrarSesion(usuarios, secretaria, recursosHumanos);
+				ControladorLogin.cerrarSesion();
 				dispose();
 			}
 		});

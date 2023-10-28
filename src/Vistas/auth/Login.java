@@ -25,8 +25,8 @@ import java.awt.event.ActionEvent;
 import javax.swing.border.MatteBorder;
 
 import controlador.ControladorLogin;
+import controlador.ControladorPrincipal;
 
-import modelos.entidades.Usuario;
 
 import javax.swing.SwingConstants;
 import javax.swing.JPasswordField;
@@ -100,7 +100,7 @@ public class Login extends JFrame {
 				String user = txtUsuario.getText();
 				
 				if (ControladorLogin.autenticar(user, contrasena)) {
-					ControladorLogin.mo
+					ControladorPrincipal.mostrarInicio();
 					dispose();
 				} 
 				else {	

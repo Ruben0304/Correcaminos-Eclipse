@@ -2,22 +2,19 @@ package vistas.admin;
 
 import java.util.ArrayList;
 
-import javax.swing.border.EmptyBorder;
+
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableCellRenderer;
+
 
 import controlador.ControladorAdmin;
 import controlador.ControladorLogin;
 import modelos.entidades.Estudiante;
 import modelos.entidades.GestorPrincipal;
 import modelos.entidades.Persona;
-import modelos.entidades.RecursosHumanos;
-import modelos.entidades.Secretaria;
-import modelos.entidades.SolicitudLicenciaEstudiante;
 import modelos.entidades.Usuario;
 import javax.swing.*;
 
-import java.awt.*;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -30,8 +27,7 @@ public class CasosPendientes extends JFrame {
     /**
      * Create the frame.
      */
-    public CasosPendientes(final Usuario usuarioAutenticado, final ArrayList<Usuario> usuarios,
-            final Secretaria secretaria, final RecursosHumanos recursosHumanos,
+    public CasosPendientes(final Usuario usuarioAutenticado,
             final ArrayList<Persona> usuariosPendientes) {
 
         setResizable(false);
@@ -78,7 +74,7 @@ public class CasosPendientes extends JFrame {
         JButton btnNewButton = new JButton("Ir a login");
         btnNewButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
-                ControladorLogin.cerrarSesion(usuarios, secretaria, recursosHumanos);
+                ControladorLogin.cerrarSesion();
                 dispose();
             }
         });
@@ -95,7 +91,7 @@ public class CasosPendientes extends JFrame {
 
                     ((Estudiante) GestorPrincipal.buscarUsuarioPorCi(carnet, usuariosPendientes))
                             .setLibrosDeBiblioteca(false);
-                    ControladorAdmin.mostrarGestionLicencias(usuarioAutenticado, usuarios, secretaria, recursosHumanos);
+                    ControladorAdmin.mostrarGestionLicencias();
                     dispose();
                 }
 

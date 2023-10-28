@@ -1,13 +1,12 @@
 package vistas.usuarios;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
+
 import java.awt.Graphics;
 import java.awt.Image;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
+
 
 import java.awt.Toolkit;
 
@@ -22,35 +21,31 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JTextField;
-import javax.swing.JComboBox;
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.JSpinner;
-import javax.swing.SpinnerNumberModel;
+
 import javax.swing.JButton;
 
 import java.awt.Font;
 import java.awt.SystemColor;
 
-import javax.swing.border.MatteBorder;
 
 import vistas.Inicio;
 
-import java.awt.Component;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
+
 
 import com.toedter.calendar.JDateChooser;
 
 import controlador.ControladorPrincipal;
 import modelos.entidades.Estudiante;
-import modelos.entidades.Persona;
-import modelos.entidades.RecursosHumanos;
+
+
 import modelos.entidades.Secretaria;
-import modelos.entidades.Usuario;
+
 import utiles.Colores;
 
-import javax.swing.SwingConstants;
+
 
 public class EstudianteTramites extends JFrame {
 
@@ -265,8 +260,5 @@ public class EstudianteTramites extends JFrame {
 
 	}
 
-	private void getColorFondo() {
-		// TODO Auto-generated method stub
-
-	}
+	
 }

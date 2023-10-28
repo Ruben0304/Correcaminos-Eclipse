@@ -2,10 +2,10 @@ package modelos.entidades;
 
 import utiles.TipoDepartamento;
 
-public class Departamento extends Usuario{
+public class Admin extends Usuario{
     private TipoDepartamento tipoDepartamento;
 
-    public Departamento(String nombreUsuario, String contrasena, TipoDepartamento tipoDepartamento) {
+    public Admin(String nombreUsuario, String contrasena, TipoDepartamento tipoDepartamento) {
         super(nombreUsuario, contrasena);
         this.tipoDepartamento = tipoDepartamento;
     }

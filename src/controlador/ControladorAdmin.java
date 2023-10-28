@@ -2,23 +2,24 @@ package controlador;
 
 import java.util.ArrayList;
 
-import modelos.entidades.Departamento;
+import modelos.auth.UsuarioAutenticado;
+import modelos.entidades.Admin;
+import modelos.entidades.GestorPrincipal;
 import modelos.entidades.Persona;
-import modelos.entidades.RecursosHumanos;
 import modelos.entidades.Secretaria;
 import modelos.entidades.Usuario;
 import utiles.TipoDepartamento;
 import vistas.admin.CasosPendientes;
 
 public class ControladorAdmin {
-    public static void mostrarGestionLicencias(Usuario usuarioAutenticado, ArrayList<Usuario> usuarios,
-            Secretaria secretaria, RecursosHumanos recursosHumanos) {
+    public static void mostrarGestionLicencias() {
         ArrayList<Persona> usuariosPendientes = new ArrayList<>();
-        switch (((Departamento) usuarioAutenticado).getTipoDepartamento()) {
+        Usuario usuarioAutenticado = UsuarioAutenticado.obtenerInstancia().getUsuario();
+        Secretaria secretaria = GestorPrincipal.getGestorPrincipal().getSecretaria();
+        switch (((Admin) usuarioAutenticado).getTipoDepartamento()) {
             case Biblioteca:
                 usuariosPendientes.addAll(secretaria.getSolicitudesLicenciaPendientes(TipoDepartamento.Biblioteca));
-                CasosPendientes biblioteca = new CasosPendientes(usuarioAutenticado, usuarios, secretaria,
-                        recursosHumanos, usuariosPendientes);
+                CasosPendientes biblioteca = new CasosPendientes(usuarioAutenticado,usuariosPendientes);
                 biblioteca.setVisible(true);
                 break;
 

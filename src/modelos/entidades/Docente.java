@@ -13,4 +13,14 @@ public class Docente extends Empleado{
         this.departamento = departamento;
         this.categoriaDocente = categoriaDocente;
     }
+
+    public String getDepartamento() {
+        return departamento;
+    }
+
+    public String getCategoriaDocente() {
+        return categoriaDocente;
+    }
+
+    
 }

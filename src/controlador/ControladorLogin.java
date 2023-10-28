@@ -2,6 +2,7 @@ package controlador;
 
 import java.util.ArrayList;
 
+import modelos.auth.UsuarioAutenticado;
 import modelos.entidades.*;
 import vistas.auth.Login;
 
@@ -17,14 +18,14 @@ public class ControladorLogin {
     public static boolean autenticar(String nombreUsuario, String contrasena) {
         boolean encontrado = false;
         boolean autenticado = false;
-        ArrayList<Usuario> usuarios = GestorPrincipal.getGestorPrincipal().getUsuarios();
+        ArrayList<Usuario> usuarios = GestorPrincipal.getGestorPrincipal().getGestorUsuarios().getUsuarios();
 
         for (int i = 0; i < usuarios.size() && !encontrado; i++) {
             encontrado = nombreUsuario.equals(usuarios.get(i).getNombreUsuario());
 
             if (encontrado && contrasena.equals(usuarios.get(i).getContrasena())) {
                 autenticado = true;
-                GestorPrincipal.getGestorPrincipal().setUsuarioAutenticado(usuarios.get(i));
+                UsuarioAutenticado.obtenerInstancia().iniciarSesion(usuarios.get(i));
                 
             }
 
@@ -36,7 +37,7 @@ public class ControladorLogin {
     
 
     public static void cerrarSesion() {
-        GestorPrincipal.getGestorPrincipal().setUsuarioAutenticado(null);
+        UsuarioAutenticado.obtenerInstancia().cerrarSesion();
         mostrarLogin();
     }
 }

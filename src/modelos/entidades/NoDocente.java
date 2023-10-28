@@ -11,6 +11,10 @@ public class NoDocente extends Empleado{
         this.seccion = seccion;
     }
 
+    public String getSeccion() {
+        return seccion;
+    }
+
    
 }
 

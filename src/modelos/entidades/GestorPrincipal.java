@@ -6,8 +6,7 @@ import modelos.datos.AdminFactory;
 
 public class GestorPrincipal {
     private static GestorPrincipal gestorPrincipal;
-    private ArrayList<Usuario> usuarios;
-    private Usuario usuarioAutenticado;
+    private GestorUsuarios gestorUsuarios;
     private Secretaria secretaria;
     private RecursosHumanos recursosHumanos;
 
@@ -22,36 +21,28 @@ public class GestorPrincipal {
         GestorPrincipal.gestorPrincipal = gestor;
     }
 
-    public ArrayList<Usuario> getUsuarios() {
-        ArrayList<Usuario> usuarios = this.usuarios;
-        return usuarios;
-    }
-
     private GestorPrincipal(boolean datosFictisios) {
         secretaria = new Secretaria();
         recursosHumanos = new RecursosHumanos();
-        usuarioAutenticado = null;
-       if (datosFictisios) {
-        usuarios = new ArrayList<>();
-        usuarios.addAll(AdminFactory.inicializarAdmins());
-        usuarios.addAll(secretaria.registrarEstudianteFictisios());
-        usuarios.addAll(recursosHumanos.getEmpleados());
-        secretaria.registrarLicenciasEstudiantesFictisios();
+        gestorUsuarios = new GestorUsuarios();
+        if (datosFictisios) {
+            ArrayList<Admin> admins = AdminFactory.inicializarAdmins();
+            ArrayList<Usuario> usuarios = new ArrayList<>();
+            usuarios.addAll(secretaria.registrarEstudianteFictisios());
+            usuarios.addAll(recursosHumanos.getEmpleados());
+            usuarios.addAll(admins);
+            gestorUsuarios.registrar(usuarios);
+            secretaria.registrarLicenciasEstudiantesFictisios();
+        }
 
-       }
-        
-    }
-
-    public void setUsuarioAutenticado(Usuario usuarioAutenticado) {
-        this.usuarioAutenticado = usuarioAutenticado;
-    }
-
-    public Usuario getUsuarioAutenticado() {
-        return usuarioAutenticado;
     }
 
     public Secretaria getSecretaria() {
         return secretaria;
+    }
+
+    public GestorUsuarios getGestorUsuarios() {
+        return gestorUsuarios;
     }
 
     public static Usuario buscarUsuarioPorCi(String id, ArrayList<Persona> usuarios) {

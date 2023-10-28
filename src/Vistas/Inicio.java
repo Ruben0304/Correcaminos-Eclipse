@@ -1,7 +1,7 @@
 package vistas;
 
 import java.awt.BorderLayout;
-import java.awt.EventQueue;
+
 import java.awt.Graphics;
 import java.awt.Image;
 
@@ -12,9 +12,9 @@ import javax.swing.border.EmptyBorder;
 import controlador.ControladorAdmin;
 import controlador.ControladorLogin;
 import controlador.ControladorPrincipal;
-import modelos.entidades.Departamento;
+import modelos.entidades.Admin;
 import modelos.entidades.Estudiante;
-import modelos.entidades.RecursosHumanos;
+
 import modelos.entidades.Secretaria;
 import modelos.entidades.Usuario;
 import utiles.Colores;
@@ -26,7 +26,7 @@ import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
+
 import java.awt.event.ActionEvent;
 
 public class Inicio extends JFrame {
@@ -75,7 +75,7 @@ public class Inicio extends JFrame {
 		JMenu mnNewMenu_1 = new JMenu("Gesti\u00F3n");
 		menuBar.add(mnNewMenu_1);
 
-		if (usuarioAutenticado instanceof Departamento) {
+		if (usuarioAutenticado instanceof Admin) {
 			JMenuItem mntmGestionarBaja = new JMenuItem("Gestionar bajas");
 			mntmGestionarBaja.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {

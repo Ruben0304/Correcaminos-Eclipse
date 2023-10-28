@@ -33,6 +33,7 @@ public class GestorPrincipal {
             usuarios.addAll(admins);
             gestorUsuarios.registrar(usuarios);
             secretaria.registrarLicenciasEstudiantesFictisios();
+
         
 
     }

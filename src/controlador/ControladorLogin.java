@@ -13,9 +13,9 @@ public class ControladorLogin {
         Login login = new Login();
         login.setVisible(true);
         System.out.println(
-                GestorPrincipal.getGestorPrincipal().getGestorUsuarios().getUsuarios().get(1).getNombreUsuario());
-        System.out.println(
-                GestorPrincipal.getGestorPrincipal().getGestorUsuarios().getUsuarios().get(1).getContrasena());
+                GestorPrincipal.getGestorPrincipal().getGestorUsuarios().getUsuarios());
+        // System.out.println(
+        //         GestorPrincipal.getGestorPrincipal().getGestorUsuarios().getUsuarios().get(1).getContrasena());
     }
 
     public static boolean autenticar(String nombreUsuario, String contrasena) {

@@ -7,17 +7,16 @@ import vistas.auth.Login;
 
 public class ControladorLogin {
 
-    public static void mostrarLogin(ArrayList<Usuario> usuarios, Secretaria secretaria,
-            RecursosHumanos recursosHumanos) {
+    public static void mostrarLogin() {
 
-        Login login = new Login(usuarios, secretaria, recursosHumanos);
+        Login login = new Login();
         login.setVisible(true);
 
     }
 
-    public static Usuario autenticar(String nombreUsuario, String contrasena, ArrayList<Usuario> usuarios) {
+    public static Usuario autenticar(String nombreUsuario, String contrasena) {
         boolean encontrado = false;
-
+        ArrayList<Usuario> usuarios = GestorPrincipal.getGestorPrincipal().getUsuarios();
         Usuario usuarioAutenticado = null;
 
         for (int i = 0; i < usuarios.size() && !encontrado; i++) {
@@ -36,6 +35,6 @@ public class ControladorLogin {
     public static void cerrarSesion(ArrayList<Usuario> usuarios, Secretaria secretaria,
             RecursosHumanos recursosHumanos) {
 
-        mostrarLogin(usuarios, secretaria, recursosHumanos);
+        mostrarLogin();
     }
 }

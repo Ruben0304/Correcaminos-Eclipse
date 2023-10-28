@@ -1,6 +1,5 @@
 package vistas.auth;
 
-import java.awt.EventQueue;
 import java.awt.Image;
 
 import javax.swing.JFrame;
@@ -10,7 +9,7 @@ import javax.swing.border.LineBorder;
 import java.awt.Color;
 
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
+
 import javax.swing.ImageIcon;
 
 import java.awt.Font;
@@ -20,15 +19,13 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
+
 import java.awt.event.ActionEvent;
 
 import javax.swing.border.MatteBorder;
 
 import controlador.ControladorLogin;
-import controlador.ControladorPrincipal;
-import modelos.entidades.RecursosHumanos;
-import modelos.entidades.Secretaria;
+
 import modelos.entidades.Usuario;
 
 import javax.swing.SwingConstants;
@@ -47,7 +44,7 @@ public class Login extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Login(final ArrayList<Usuario> usuarios, final Secretaria secretaria, final RecursosHumanos recursosHumanos) {
+	public Login() {
 
 		setType(Type.POPUP);
 		setResizable(false);
@@ -101,9 +98,9 @@ public class Login extends JFrame {
 				char[] passwordChars = passwordField.getPassword();
 				String contrasena = new String(passwordChars);
 				String user = txtUsuario.getText();
-				Usuario usuarioAutenticado = ControladorLogin.autenticar(user, contrasena, usuarios);
+				Usuario usuarioAutenticado = ControladorLogin.autenticar(user, contrasena);
 				if (usuarioAutenticado != null) {
-					ControladorPrincipal.mostrarInicio(usuarioAutenticado,usuarios,secretaria,recursosHumanos);
+					// ControladorPrincipal.mostrarInicio();
 					dispose();
 				} else {
 					ErrorMessages.setVisible(true);

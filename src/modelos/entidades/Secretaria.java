@@ -68,6 +68,8 @@ public class Secretaria {
         return estudianteEncontrado;
     }
 
+    
+
     public ArrayList<SolicitudLicenciaEstudiante> getSolicitudesLicencia() {
 
         return solicitudesLicencia;
@@ -88,8 +90,8 @@ public class Secretaria {
         ArrayList<Estudiante> solicitudLicenciaEstudiantesRequisitos = new ArrayList<>();
         switch (d) {
             case Biblioteca:
-                for (SolicitudLicenciaEstudiante s : getSolicitudesLicenciaPendientes()) {
-                    if (s.getEstudiante().tieneLibrosDeBiblioteca()) {
+                for (SolicitudLicenciaEstudiante s : this.solicitudesLicencia) {
+                    if (s.getEstudiante().tieneLibrosDeBiblioteca() && s.getEstado().equals(Estado.PENDIENTE)) {
                         solicitudLicenciaEstudiantesRequisitos.add(s.getEstudiante());
                     }
                 }
@@ -108,14 +110,14 @@ public class Secretaria {
         switch (d) {
             case Economia:
                 if (requisito.equals("ESTIPENDIO")) {
-                    for (SolicitudLicenciaEstudiante s : getSolicitudesLicenciaPendientes()) {
-                        if (s.getEstudiante().tieneEstipendio()) {
+                    for (SolicitudLicenciaEstudiante s : this.solicitudesLicencia) {
+                        if (s.getEstudiante().tieneEstipendio() && s.getEstado().equals(Estado.PENDIENTE)) {
                             solicitudLicenciaEstudiantesRequisitos.add(s.getEstudiante());
                         }
                     }
                 } else if (requisito.equals("DEUDA")) {
-                    for (SolicitudLicenciaEstudiante s : getSolicitudesLicenciaPendientes()) {
-                        if (s.getEstudiante().tieneDeuda()) {
+                    for (SolicitudLicenciaEstudiante s : this.solicitudesLicencia) {
+                        if (s.getEstudiante().tieneDeuda() && s.getEstado().equals(Estado.PENDIENTE)) {
                             solicitudLicenciaEstudiantesRequisitos.add(s.getEstudiante());
                         }
                     }
@@ -123,18 +125,18 @@ public class Secretaria {
                 break;
             case DireccionBecas:
                 if (requisito.equals("CARNET_BECADO")) {
-                    for (SolicitudLicenciaEstudiante s : getSolicitudesLicenciaPendientes()) {
+                    for (SolicitudLicenciaEstudiante s : this.solicitudesLicencia) {
                         if (s.getEstudiante() instanceof Becado) {
-                            if (!((Becado) s.getEstudiante()).entregoCarnetBecado()) {
+                            if (!((Becado) s.getEstudiante()).entregoCarnetBecado() && s.getEstado().equals(Estado.PENDIENTE)) {
                                 solicitudLicenciaEstudiantesRequisitos.add(s.getEstudiante());
                             }
                         }
 
                     }
                 } else if (requisito.equals("PERTENENCIAS")) {
-                    for (SolicitudLicenciaEstudiante s : getSolicitudesLicenciaPendientes()) {
+                    for (SolicitudLicenciaEstudiante s : this.solicitudesLicencia) {
                         if (s.getEstudiante() instanceof Becado) {
-                            if (!((Becado) s.getEstudiante()).entregoPertenencias()) {
+                            if (!((Becado) s.getEstudiante()).entregoPertenencias() && s.getEstado().equals(Estado.PENDIENTE)) {
                                 solicitudLicenciaEstudiantesRequisitos.add(s.getEstudiante());
                             }
                         }

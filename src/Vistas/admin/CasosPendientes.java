@@ -8,8 +8,8 @@ import javax.swing.table.TableCellRenderer;
 
 import controlador.ControladorAdmin;
 import controlador.ControladorLogin;
-import modelos.auth.GestorUsuarios;
 import modelos.entidades.Estudiante;
+import modelos.entidades.GestorPrincipal;
 import modelos.entidades.Persona;
 import modelos.entidades.RecursosHumanos;
 import modelos.entidades.Secretaria;
@@ -93,7 +93,7 @@ public class CasosPendientes extends JFrame {
                 if (selectedRow != -1) {
                     String carnet = table_2.getValueAt(selectedRow, 0).toString();
 
-                    ((Estudiante) GestorUsuarios.buscarUsuarioPorCi(carnet, usuariosPendientes))
+                    ((Estudiante) GestorPrincipal.buscarUsuarioPorCi(carnet, usuariosPendientes))
                             .setLibrosDeBiblioteca(false);
                     ControladorAdmin.mostrarGestionLicencias(usuarioAutenticado, usuarios, secretaria, recursosHumanos);
                     dispose();

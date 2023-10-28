@@ -2,9 +2,7 @@ package vistas.admin;
 
 import java.util.ArrayList;
 
-
 import javax.swing.table.DefaultTableModel;
-
 
 import controlador.ControladorAdmin;
 import controlador.ControladorLogin;
@@ -13,7 +11,6 @@ import modelos.entidades.GestorPrincipal;
 import modelos.entidades.Persona;
 import modelos.entidades.Usuario;
 import javax.swing.*;
-
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -91,8 +88,12 @@ public class CasosPendientes extends JFrame {
 
                     ((Estudiante) GestorPrincipal.buscarUsuarioPorCi(carnet, usuariosPendientes))
                             .setLibrosDeBiblioteca(false);
-                    ControladorAdmin.mostrarGestionLicencias();
-                    dispose();
+                    // ControladorAdmin.mostrarGestionLicencias();
+                    // dispose();
+                    DefaultTableModel modelo = (DefaultTableModel) table_2.getModel();
+
+                    modelo.fireTableDataChanged();
+
                 }
 
             }

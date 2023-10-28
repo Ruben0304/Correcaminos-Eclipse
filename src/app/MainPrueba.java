@@ -5,8 +5,8 @@ import javax.swing.SwingUtilities;
 import controlador.ControladorPrincipal;
 import modelos.entidades.GestorPrincipal;
 
-public class Main {
-    public static void main(String[] args) {
+public class MainPrueba {
+	public static void main(String[] args) {
 		GestorPrincipal gestor = GestorPrincipal.getGestorPrincipal();
 		SwingUtilities.invokeLater(new Runnable() {
 			public void run() {

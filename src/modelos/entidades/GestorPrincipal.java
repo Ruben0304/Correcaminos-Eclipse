@@ -12,7 +12,7 @@ public class GestorPrincipal {
 
     public static GestorPrincipal getGestorPrincipal() {
         if (gestorPrincipal == null) {
-            gestorPrincipal = new GestorPrincipal(true);
+            gestorPrincipal = new GestorPrincipal();
         }
         return gestorPrincipal;
     }
@@ -21,11 +21,11 @@ public class GestorPrincipal {
         GestorPrincipal.gestorPrincipal = gestor;
     }
 
-    private GestorPrincipal(boolean datosFictisios) {
+    private GestorPrincipal() {
         secretaria = new Secretaria();
         recursosHumanos = new RecursosHumanos();
         gestorUsuarios = new GestorUsuarios();
-        if (datosFictisios) {
+       
             ArrayList<Admin> admins = AdminFactory.inicializarAdmins();
             ArrayList<Usuario> usuarios = new ArrayList<>();
             usuarios.addAll(secretaria.registrarEstudianteFictisios());
@@ -33,7 +33,7 @@ public class GestorPrincipal {
             usuarios.addAll(admins);
             gestorUsuarios.registrar(usuarios);
             secretaria.registrarLicenciasEstudiantesFictisios();
-        }
+        
 
     }
 

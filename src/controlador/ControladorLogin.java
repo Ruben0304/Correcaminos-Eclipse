@@ -12,7 +12,10 @@ public class ControladorLogin {
 
         Login login = new Login();
         login.setVisible(true);
-
+        System.out.println(
+                GestorPrincipal.getGestorPrincipal().getGestorUsuarios().getUsuarios().get(1).getNombreUsuario());
+        System.out.println(
+                GestorPrincipal.getGestorPrincipal().getGestorUsuarios().getUsuarios().get(1).getContrasena());
     }
 
     public static boolean autenticar(String nombreUsuario, String contrasena) {
@@ -26,15 +29,13 @@ public class ControladorLogin {
             if (encontrado && contrasena.equals(usuarios.get(i).getContrasena())) {
                 autenticado = true;
                 UsuarioAutenticado.obtenerInstancia().iniciarSesion(usuarios.get(i));
-                
+
             }
 
         }
 
         return autenticado;
     }
-
-    
 
     public static void cerrarSesion() {
         UsuarioAutenticado.obtenerInstancia().cerrarSesion();

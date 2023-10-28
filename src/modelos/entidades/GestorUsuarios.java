@@ -12,16 +12,15 @@ public class GestorUsuarios {
     }
 
     public ArrayList<Usuario> getUsuarios() {
-        ArrayList<Usuario> usuarios = this.usuarios;
         return usuarios;
     }
 
     public void registrar(Usuario usuario) {
-        usuarios.add(usuario);
+        this.usuarios.add(usuario);
     }
 
     public void registrar(ArrayList<Usuario> usuarios) {
-        usuarios.addAll(usuarios);
+       this.usuarios.addAll(usuarios);
     }
 
 }

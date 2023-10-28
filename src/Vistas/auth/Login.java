@@ -98,14 +98,14 @@ public class Login extends JFrame {
 				char[] passwordChars = passwordField.getPassword();
 				String contrasena = new String(passwordChars);
 				String user = txtUsuario.getText();
-				Usuario usuarioAutenticado = ControladorLogin.autenticar(user, contrasena);
-				if (usuarioAutenticado != null) {
-					// ControladorPrincipal.mostrarInicio();
+				
+				if (ControladorLogin.autenticar(user, contrasena)) {
+					ControladorLogin.mo
 					dispose();
-				} else {
+				} 
+				else {	
 					ErrorMessages.setVisible(true);
 				}
-
 			}
 		});
 		btnLogin.setFont(new Font("Arial Narrow", Font.PLAIN, 16));

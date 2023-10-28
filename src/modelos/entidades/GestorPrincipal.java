@@ -7,6 +7,7 @@ import modelos.datos.AdminFactory;
 public class GestorPrincipal {
     private static GestorPrincipal gestorPrincipal;
     private ArrayList<Usuario> usuarios;
+    private Usuario usuarioAutenticado;
     private Secretaria secretaria;
     private RecursosHumanos recursosHumanos;
 
@@ -26,10 +27,11 @@ public class GestorPrincipal {
         return usuarios;
     }
 
-    private GestorPrincipal(boolean isPrueba) {
+    private GestorPrincipal(boolean datosFictisios) {
         secretaria = new Secretaria();
         recursosHumanos = new RecursosHumanos();
-       if (isPrueba) {
+        usuarioAutenticado = null;
+       if (datosFictisios) {
         usuarios = new ArrayList<>();
         usuarios.addAll(AdminFactory.inicializarAdmins());
         usuarios.addAll(secretaria.registrarEstudianteFictisios());
@@ -38,6 +40,18 @@ public class GestorPrincipal {
 
        }
         
+    }
+
+    public void setUsuarioAutenticado(Usuario usuarioAutenticado) {
+        this.usuarioAutenticado = usuarioAutenticado;
+    }
+
+    public Usuario getUsuarioAutenticado() {
+        return usuarioAutenticado;
+    }
+
+    public Secretaria getSecretaria() {
+        return secretaria;
     }
 
     public static Usuario buscarUsuarioPorCi(String id, ArrayList<Persona> usuarios) {

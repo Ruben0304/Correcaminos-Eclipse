@@ -1,6 +1,6 @@
 package modelos.entidades;
 
-import utiles.Estado;
+
 
 public class SolicitudLicenciaEstudiante extends SolicitudBajaEstudiante{
     private String fechaSalida;

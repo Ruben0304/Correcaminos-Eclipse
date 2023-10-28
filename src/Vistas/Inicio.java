@@ -36,8 +36,7 @@ public class Inicio extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Inicio(final Usuario usuarioAutenticado, final ArrayList<Usuario> usuarios, final Secretaria secretaria,
-			final RecursosHumanos recursosHumanos) {
+	public Inicio(Usuario usuarioAutenticado,Secretaria secretaria) {
 		setBounds(100, 100, 672, 457);
 		setResizable(false);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Inicio.class.getResource("/img/correcamino.png")));
@@ -59,7 +58,7 @@ public class Inicio extends JFrame {
 		JMenuItem mntmCerrarSesin = new JMenuItem("Cerrar Sesion");
 		mntmCerrarSesin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				ControladorLogin.cerrarSesion(usuarios, secretaria, recursosHumanos);
+				ControladorLogin.cerrarSesion();
 				dispose();
 			}
 		});
@@ -88,7 +87,7 @@ public class Inicio extends JFrame {
 			JMenuItem mntmGestionarLicencia = new JMenuItem("Gestionar licencias");
 			mntmGestionarLicencia.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
-					ControladorAdmin.mostrarGestionLicencias(usuarioAutenticado, usuarios, secretaria, recursosHumanos);
+					ControladorAdmin.mostrarGestionLicencias();
 					dispose();
 				}
 			});
@@ -98,8 +97,7 @@ public class Inicio extends JFrame {
 				JMenuItem mntmSolicitarBaja = new JMenuItem("Verificar Estado Solicitud");
 				mntmSolicitarBaja.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent arg0) {
-						ControladorPrincipal.mostrarRequisitosBajaEstudiantes(usuarioAutenticado, usuarios, secretaria,
-								recursosHumanos);
+						ControladorPrincipal.mostrarRequisitosBajaEstudiantes();
 						dispose();
 					}
 				});
@@ -108,7 +106,7 @@ public class Inicio extends JFrame {
 				JMenuItem mntmSolicitarBaja = new JMenuItem("Solicitar baja");
 				mntmSolicitarBaja.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent arg0) {
-						ControladorPrincipal.mostrarTramites(usuarioAutenticado, usuarios, secretaria, recursosHumanos);
+						ControladorPrincipal.mostrarTramites();
 						dispose();
 					}
 				});
@@ -117,7 +115,7 @@ public class Inicio extends JFrame {
 				JMenuItem mntmSolicitarLicencia = new JMenuItem("Solicitar Licencia");
 				mntmSolicitarLicencia.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent arg0) {
-						ControladorPrincipal.mostrarTramites(usuarioAutenticado, usuarios, secretaria, recursosHumanos);
+						ControladorPrincipal.mostrarTramites();
 						dispose();
 					}
 				});

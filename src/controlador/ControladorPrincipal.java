@@ -9,19 +9,20 @@ import vistas.usuarios.RequisitosBajaEstudiantes;
 
 public class ControladorPrincipal {
 
-    public static void mostrarInicio(Usuario usuarioAutenticado, ArrayList<Usuario> usuarios, Secretaria secretaria,
-            RecursosHumanos recursosHumanos) {
-
-        Inicio inicio = new Inicio(usuarioAutenticado, usuarios, secretaria, recursosHumanos);
-        inicio.setVisible(true);
+    public static void mostrarInicio() {
+        Usuario usuarioAutenticado = GestorPrincipal.getGestorPrincipal().getUsuarioAutenticado();
+        if (usuarioAutenticado != null) {
+            Inicio inicio = new Inicio(usuarioAutenticado,GestorPrincipal.getGestorPrincipal().getSecretaria());
+            inicio.setVisible(true);
+        } else {
+            ControladorLogin.mostrarLogin();
+        }
 
     }
 
-    public static void mostrarTramites(Usuario usuarioAutenticado, ArrayList<Usuario> usuarios, Secretaria secretaria,
-            RecursosHumanos recursosHumanos) {
+    public static void mostrarTramites() {
         if (usuarioAutenticado instanceof Estudiante) {
-            EstudianteTramites estudianteTramites = new EstudianteTramites((Estudiante) usuarioAutenticado, usuarios,
-                    secretaria, recursosHumanos);
+            EstudianteTramites estudianteTramites = new EstudianteTramites((Estudiante) usuarioAutenticado,GestorPrincipal.getGestorPrincipal().getSecretaria());
             estudianteTramites.setVisible(true);
         } else if (usuarioAutenticado instanceof Empleado) {
 

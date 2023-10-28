@@ -63,8 +63,7 @@ public class EstudianteTramites extends JFrame {
 	 * Create the frame.
 	 */
 
-	public EstudianteTramites(final Estudiante usuarioAutenticado, final ArrayList<Usuario> usuarios,
-			final Secretaria secretaria, final RecursosHumanos recursosHumanos) {
+	public EstudianteTramites(final Estudiante usuarioAutenticado ,final Secretaria secretaria) {
 		setResizable(false);
 		setTitle("Datos Estudiante");
 		setIconImage(
@@ -219,12 +218,9 @@ public class EstudianteTramites extends JFrame {
 				if (motivo.isEmpty() || fechaInicio.isEmpty() || fechaFin.isEmpty())
 					errorMessage.setVisible(true);
 				else {
-
-					((Estudiante)usuarioAutenticado).solicitarLicencia(secretaria, motivo, fechaInicio, fechaFin);
-					ControladorPrincipal.mostrarRequisitosBajaEstudiantes(usuarioAutenticado, usuarios, secretaria,
-							recursosHumanos);
+					usuarioAutenticado.solicitarLicencia(secretaria, motivo, fechaInicio, fechaFin);
+					ControladorPrincipal.mostrarRequisitosBajaEstudiantes();
 					dispose();
-
 				}
 
 			}

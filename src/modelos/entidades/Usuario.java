@@ -1,6 +1,6 @@
 package modelos.entidades;
 
-import utiles.Facultad;
+
 
 public abstract class Usuario {
 

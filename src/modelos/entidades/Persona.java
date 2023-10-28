@@ -1,6 +1,6 @@
 package modelos.entidades;
 
-import java.util.ArrayList;
+
 
 import utiles.Facultad;
 

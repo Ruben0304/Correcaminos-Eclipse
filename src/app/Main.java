@@ -2,7 +2,8 @@ package app;
 
 import javax.swing.SwingUtilities;
 
-import controlador.ControladorLogin;
+
+import controlador.ControladorPrincipal;
 
 
 
@@ -11,7 +12,7 @@ public class Main {
 		SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					ControladorLogin.mostrarLogin();
+					ControladorPrincipal.mostrarInicio();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

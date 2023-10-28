@@ -15,11 +15,11 @@ public class Estudiante extends Persona {
 	protected boolean tieneLibrosDeBiblioteca;
 	protected boolean tieneLibrosDocentes;
 
-	public Estudiante(String nombreUsuario, String contrasena, String ci, String nombre, String apellidos,
-			Facultad facultad, boolean licencia, boolean baja, int curso, TipoCurso tipoCurso, String carrera,
+	public Estudiante(String nombreUsuario, String contrasena, String ci, String nombre, String primer_apellido, String segundo_apellido,
+	Facultad facultad, boolean licencia, boolean baja, int curso, TipoCurso tipoCurso, String carrera,
 			int grupo, boolean entregoCarnet,boolean tieneDeuda, boolean tieneEstipendio, boolean tieneCuentaCerrada,
 			boolean tieneLibrosDeBiblioteca, boolean tieneLibrosDocentes) {
-		super(nombreUsuario, contrasena, ci, nombre, apellidos, facultad, licencia, baja);
+		super(nombreUsuario, contrasena, ci, nombre,primer_apellido, segundo_apellido, facultad, licencia, baja);
 		this.curso = curso;
 		this.tipoCurso = tipoCurso;
 		this.carrera = carrera;

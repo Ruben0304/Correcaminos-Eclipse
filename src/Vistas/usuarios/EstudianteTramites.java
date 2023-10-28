@@ -51,8 +51,7 @@ public class EstudianteTramites extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textMotivo;
-	private JDateChooser fechaSalida;
-	private JDateChooser fechaRegreso;
+	
 
 	/**
 	 * Create the frame.

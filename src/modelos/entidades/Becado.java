@@ -9,12 +9,12 @@ public class Becado extends Estudiante {
    private boolean entregoCarnetBecado;
    private boolean entregoPertenencias;
 
-   public Becado(String nombreUsuario, String contrasena, String ci, String nombre, String apellidos, Facultad facultad,
-         boolean licencia, boolean baja, int curso, TipoCurso tipoCurso, String carrera, int grupo,
+   public Becado(String nombreUsuario, String contrasena, String ci, String nombre, String primer_apellido, String segundo_apellido,
+   Facultad facultad, boolean licencia, boolean baja, int curso, TipoCurso tipoCurso, String carrera, int grupo,
          boolean entregoCarnet, boolean tieneDeuda, boolean tieneEstipendio, boolean tieneCuentaCerrada,
          boolean tieneLibrosDeBiblioteca, boolean tieneLibrosDocentes, String idBecado, int noCuarto,
          boolean entregoCarnetBecado, boolean entregoPertenencias) {
-      super(nombreUsuario, contrasena, ci, nombre, apellidos, facultad, licencia, baja, curso, tipoCurso, carrera,
+      super(nombreUsuario, contrasena, ci, nombre, primer_apellido,segundo_apellido, facultad, licencia, baja, curso, tipoCurso, carrera,
             grupo,
             entregoCarnet, tieneDeuda, tieneEstipendio, tieneCuentaCerrada, tieneLibrosDeBiblioteca,
             tieneLibrosDocentes);

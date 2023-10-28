@@ -1,7 +1,7 @@
 package controlador;
 
 
-import modelos.auth.UsuarioAutenticado;
+import modelos.auth.Auth;
 import modelos.entidades.*;
 import vistas.Inicio;
 import vistas.usuarios.EstudianteTramites;
@@ -10,9 +10,9 @@ import vistas.usuarios.RequisitosBajaEstudiantes;
 public class ControladorPrincipal {
 
     public static void mostrarInicio() {
-        Usuario usuarioAutenticado = UsuarioAutenticado.obtenerInstancia().getUsuario();
-        if (usuarioAutenticado != null) {
-            Inicio inicio = new Inicio(usuarioAutenticado, GestorPrincipal.getGestorPrincipal().getSecretaria());
+        
+        if (Auth.hayUsuarioAutenticado()) {
+            Inicio inicio = new Inicio(Auth.usuarioAutenticado(), GestorPrincipal.secretaria());
             inicio.setVisible(true);
         } else {
             ControladorLogin.mostrarLogin();
@@ -21,10 +21,10 @@ public class ControladorPrincipal {
     }
 
     public static void mostrarTramites() {
-        Usuario usuarioAutenticado = UsuarioAutenticado.obtenerInstancia().getUsuario();
+        Usuario usuarioAutenticado = Auth.usuarioAutenticado();
         if (usuarioAutenticado instanceof Estudiante) {
             EstudianteTramites estudianteTramites = new EstudianteTramites((Estudiante) usuarioAutenticado,
-                    GestorPrincipal.getGestorPrincipal().getSecretaria());
+                    GestorPrincipal.secretaria());
             estudianteTramites.setVisible(true);
         } else if (usuarioAutenticado instanceof Empleado) {
 
@@ -34,7 +34,7 @@ public class ControladorPrincipal {
 
     public static void mostrarRequisitosBajaEstudiantes() {
         RequisitosBajaEstudiantes requisitosBajaEstudiantes = new RequisitosBajaEstudiantes(
-                (Estudiante) UsuarioAutenticado.obtenerInstancia().getUsuario());
+                (Estudiante) Auth.usuarioAutenticado());
         requisitosBajaEstudiantes.setVisible(true);
     }
 

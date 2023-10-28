@@ -4,11 +4,10 @@ import java.util.ArrayList;
 
 public class GestorUsuarios {
     private ArrayList<Usuario> usuarios;
-    
 
     public GestorUsuarios() {
         usuarios = new ArrayList<>();
-        
+
     }
 
     public ArrayList<Usuario> getUsuarios() {
@@ -20,7 +19,17 @@ public class GestorUsuarios {
     }
 
     public void registrar(ArrayList<Usuario> usuarios) {
-       this.usuarios.addAll(usuarios);
+        this.usuarios.addAll(usuarios);
+    }
+
+    public ArrayList<Admin> getAdmins() {
+        ArrayList<Admin> admins = new ArrayList<>();
+        for (Usuario usuario : usuarios) {
+            if (usuario instanceof Admin) {
+                admins.add((Admin) usuario);
+            }
+        }
+        return admins;
     }
 
 }

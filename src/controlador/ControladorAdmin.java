@@ -2,7 +2,7 @@ package controlador;
 
 import java.util.ArrayList;
 
-import modelos.auth.UsuarioAutenticado;
+import modelos.auth.Auth;
 import modelos.entidades.Admin;
 import modelos.entidades.GestorPrincipal;
 import modelos.entidades.Persona;
@@ -14,8 +14,8 @@ import vistas.admin.CasosPendientes;
 public class ControladorAdmin {
     public static void mostrarGestionLicencias() {
         ArrayList<Persona> usuariosPendientes = new ArrayList<>();
-        Usuario usuarioAutenticado = UsuarioAutenticado.obtenerInstancia().getUsuario();
-        Secretaria secretaria = GestorPrincipal.getGestorPrincipal().getSecretaria();
+        Usuario usuarioAutenticado = Auth.usuarioAutenticado();
+        Secretaria secretaria = GestorPrincipal.secretaria();
         switch (((Admin) usuarioAutenticado).getTipoDepartamento()) {
             case Biblioteca:
                 usuariosPendientes.addAll(secretaria.getSolicitudesLicenciaPendientes(TipoDepartamento.Biblioteca));

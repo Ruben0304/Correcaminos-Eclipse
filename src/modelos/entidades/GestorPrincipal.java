@@ -10,6 +10,21 @@ public class GestorPrincipal {
     private Secretaria secretaria;
     private RecursosHumanos recursosHumanos;
 
+    private GestorPrincipal() {
+        secretaria = new Secretaria();
+        recursosHumanos = new RecursosHumanos();
+        gestorUsuarios = new GestorUsuarios();
+
+        ArrayList<Admin> admins = AdminFactory.inicializarAdmins();
+        ArrayList<Usuario> usuarios = new ArrayList<>();
+        usuarios.addAll(secretaria.registrarEstudianteFictisios());
+        usuarios.addAll(recursosHumanos.getEmpleados());
+        usuarios.addAll(admins);
+        gestorUsuarios.registrar(usuarios);
+        secretaria.registrarLicenciasEstudiantesFictisios();
+
+    }
+
     public static GestorPrincipal getGestorPrincipal() {
         if (gestorPrincipal == null) {
             gestorPrincipal = new GestorPrincipal();
@@ -17,32 +32,38 @@ public class GestorPrincipal {
         return gestorPrincipal;
     }
 
-    public static void setGestorPrincipal(GestorPrincipal gestor) {
-        GestorPrincipal.gestorPrincipal = gestor;
+    public static Secretaria secretaria() {
+        if (gestorPrincipal == null) {
+            gestorPrincipal = new GestorPrincipal();
+        }
+        return gestorPrincipal.getSecretaria();
     }
 
-    private GestorPrincipal() {
-        secretaria = new Secretaria();
-        recursosHumanos = new RecursosHumanos();
-        gestorUsuarios = new GestorUsuarios();
-       
-            ArrayList<Admin> admins = AdminFactory.inicializarAdmins();
-            ArrayList<Usuario> usuarios = new ArrayList<>();
-            usuarios.addAll(secretaria.registrarEstudianteFictisios());
-            usuarios.addAll(recursosHumanos.getEmpleados());
-            usuarios.addAll(admins);
-            gestorUsuarios.registrar(usuarios);
-            secretaria.registrarLicenciasEstudiantesFictisios();
-
-        
-
+    public static GestorUsuarios gestorUsuarios() {
+        if (gestorPrincipal == null) {
+            gestorPrincipal = new GestorPrincipal();
+        }
+        return gestorPrincipal.getGestorUsuarios();
     }
 
-    public Secretaria getSecretaria() {
+    public static RecursosHumanos recursosHumanos() {
+        if (gestorPrincipal == null) {
+            gestorPrincipal = new GestorPrincipal();
+        }
+        return gestorPrincipal.getRecursosHumanos();
+    }
+
+    
+
+    private Secretaria getSecretaria() {
         return secretaria;
     }
 
-    public GestorUsuarios getGestorUsuarios() {
+    private RecursosHumanos getRecursosHumanos() {
+        return recursosHumanos;
+    }
+
+    private GestorUsuarios getGestorUsuarios() {
         return gestorUsuarios;
     }
 

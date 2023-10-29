@@ -10,27 +10,39 @@ import modelos.entidades.Estudiante;
 import modelos.entidades.GestorPrincipal;
 import modelos.entidades.Persona;
 import modelos.entidades.Usuario;
+import utiles.Colores;
+
 import javax.swing.*;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.Color;
+import javax.swing.border.LineBorder;
 
 public class SecretariaPendientes extends JFrame {
 
     private DefaultListModel<String> listModel;
     private JTable table_2;
     private JPanel panel;
+    private JLabel lblSSecretaria;
+    private JLabel label;
+    private JLabel label_1;
+    private JLabel label_2;
+    private JLabel label_3;
+    private JLabel label_4;
 
     /**
      * Create the frame.
      */
     public SecretariaPendientes(final Usuario usuarioAutenticado,
             final ArrayList<Persona> usuariosPendientes) {
+    	getContentPane().setBackground(new Color(255, 255, 255));
 
         setResizable(false);
         setTitle("Casos Pendientes");
+        setBackground(Colores.BLANCO);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(996, 645);
+        setSize(998, 672);
         setLocationRelativeTo(null);
         getContentPane().setLayout(null);
 
@@ -47,7 +59,7 @@ public class SecretariaPendientes extends JFrame {
         // getContentPane().add(userList);
 
         JButton confirmButton = new JButton("Confirmar Entrega");
-        confirmButton.setBounds(589, 517, 137, 25);
+        confirmButton.setBounds(765, 565, 137, 25);
         getContentPane().add(confirmButton);
 
         Object[][] data = new Object[usuariosPendientes.size() + 1][8];
@@ -68,12 +80,13 @@ public class SecretariaPendientes extends JFrame {
         }
 
         table_2 = new JTable();
+        table_2.setBorder(new LineBorder(new Color(0, 0, 0)));
         table_2.setModel(new DefaultTableModel(
                 data,
                 new String[] {
                         "Carnet", "Nombre", "Apellidos", "S","B","E", "AL", "SI",
                 }));
-        table_2.setBounds(63, 33, 693, 476);
+        table_2.setBounds(112, 33, 790, 453);
         getContentPane().add(table_2);
 
         JButton btnNewButton = new JButton("Ir a login");
@@ -83,9 +96,9 @@ public class SecretariaPendientes extends JFrame {
                 dispose();
             }
         });
-        btnNewButton.setBounds(457, 517, 97, 25);
+        btnNewButton.setBounds(780, 527, 97, 25);
         getContentPane().add(btnNewButton);
-        getContentPane().add(getPanel());
+        getContentPane().add(getPanel_1());
 
         confirmButton.addActionListener(new ActionListener() {
             @Override
@@ -109,12 +122,61 @@ public class SecretariaPendientes extends JFrame {
         });
 
     }
-	private JPanel getPanel() {
+	private JPanel getPanel_1() {
 		if (panel == null) {
 			panel = new JPanel();
-			panel.setBackground();
-			panel.setBounds(793, 33, 165, 307);
+			panel.setBorder(new LineBorder(new Color(0, 0, 51), 2, true));
+			panel.setBounds(122, 511, 615, 99);
+			panel.setLayout(null);
+			panel.add(getLblSSecretaria());
+			panel.add(getLabel());
+			panel.add(getLabel_1());
+			panel.add(getLabel_2());
+			panel.add(getLabel_3());
+			panel.add(getLabel_4());
 		}
 		return panel;
+	}
+	private JLabel getLblSSecretaria() {
+		if (lblSSecretaria == null) {
+			lblSSecretaria = new JLabel("S - Secretaria");
+			lblSSecretaria.setBounds(30, 34, 56, 16);
+		}
+		return lblSSecretaria;
+	}
+	private JLabel getLabel() {
+		if (label == null) {
+			label = new JLabel("S - Secretaria");
+			label.setBounds(194, 34, 56, 16);
+		}
+		return label;
+	}
+	private JLabel getLabel_1() {
+		if (label_1 == null) {
+			label_1 = new JLabel("S - Secretaria");
+			label_1.setBounds(328, 34, 56, 16);
+		}
+		return label_1;
+	}
+	private JLabel getLabel_2() {
+		if (label_2 == null) {
+			label_2 = new JLabel("S - Secretaria");
+			label_2.setBounds(451, 34, 56, 16);
+		}
+		return label_2;
+	}
+	private JLabel getLabel_3() {
+		if (label_3 == null) {
+			label_3 = new JLabel("S - Secretaria");
+			label_3.setBounds(535, 34, 56, 16);
+		}
+		return label_3;
+	}
+	private JLabel getLabel_4() {
+		if (label_4 == null) {
+			label_4 = new JLabel("S - Secretaria");
+			label_4.setBounds(271, 61, 56, 16);
+		}
+		return label_4;
 	}
 }

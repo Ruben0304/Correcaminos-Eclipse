@@ -75,11 +75,11 @@ public class Secretaria {
         return solicitudesLicencia;
     }
 
-    public ArrayList<SolicitudLicenciaEstudiante> getSolicitudesLicenciaPendientes() {
-        ArrayList<SolicitudLicenciaEstudiante> solicitudLicenciaEstudiantes = new ArrayList<SolicitudLicenciaEstudiante>();
+    public ArrayList<Estudiante> getSolicitudesLicenciaPendientes() {
+        ArrayList<Estudiante> solicitudLicenciaEstudiantes = new ArrayList<>();
         for (SolicitudLicenciaEstudiante s : this.solicitudesLicencia) {
             if (s.getEstado().equals(Estado.PENDIENTE)) {
-                solicitudLicenciaEstudiantes.add(s);
+                solicitudLicenciaEstudiantes.add(s.getEstudiante());
             }
 
         }

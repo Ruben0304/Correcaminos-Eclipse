@@ -15,21 +15,22 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class CasosPendientes extends JFrame {
+public class SecretariaPendientes extends JFrame {
 
     private DefaultListModel<String> listModel;
     private JTable table_2;
+    private JPanel panel;
 
     /**
      * Create the frame.
      */
-    public CasosPendientes(final Usuario usuarioAutenticado,
+    public SecretariaPendientes(final Usuario usuarioAutenticado,
             final ArrayList<Persona> usuariosPendientes) {
 
         setResizable(false);
         setTitle("Casos Pendientes");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(786, 645);
+        setSize(996, 645);
         setLocationRelativeTo(null);
         getContentPane().setLayout(null);
 
@@ -49,8 +50,16 @@ public class CasosPendientes extends JFrame {
         confirmButton.setBounds(589, 517, 137, 25);
         getContentPane().add(confirmButton);
 
-        Object[][] data = new Object[usuariosPendientes.size()][3];
-        int i = 0;
+        Object[][] data = new Object[usuariosPendientes.size() + 1][8];
+        int i = 1;
+         data[0][0] = "Carnet";
+         data[0][1] = "Nombre";
+         data[0][2] = "Apellidos";
+         data[0][3] = "Secretaria";
+         data[0][4] = "Biblioteca";
+         data[0][5] = "Economia";
+         data[0][6] = "A.Libros";
+         data[0][7] = "S.Informatica";
         for (Persona p : usuariosPendientes) {
             data[i][0] = p.getCi();
             data[i][1] = p.getNombre();
@@ -62,9 +71,9 @@ public class CasosPendientes extends JFrame {
         table_2.setModel(new DefaultTableModel(
                 data,
                 new String[] {
-                        "Carnet", "Nombre", "Apellidos"
+                        "Carnet", "Nombre", "Apellidos", "S","B","E", "AL", "SI",
                 }));
-        table_2.setBounds(112, 33, 587, 476);
+        table_2.setBounds(63, 33, 693, 476);
         getContentPane().add(table_2);
 
         JButton btnNewButton = new JButton("Ir a login");
@@ -76,6 +85,7 @@ public class CasosPendientes extends JFrame {
         });
         btnNewButton.setBounds(457, 517, 97, 25);
         getContentPane().add(btnNewButton);
+        getContentPane().add(getPanel());
 
         confirmButton.addActionListener(new ActionListener() {
             @Override
@@ -99,4 +109,12 @@ public class CasosPendientes extends JFrame {
         });
 
     }
+	private JPanel getPanel() {
+		if (panel == null) {
+			panel = new JPanel();
+			panel.setBackground();
+			panel.setBounds(793, 33, 165, 307);
+		}
+		return panel;
+	}
 }

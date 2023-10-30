@@ -17,13 +17,24 @@ public class Estudiante extends Persona {
 
 	public Estudiante(String nombreUsuario, String contrasena, String ci, String nombre, String primer_apellido, String segundo_apellido,
 	Facultad facultad, int curso, TipoCurso tipoCurso, String carrera,
+			int grupo,ArrayList<TiposResponsabilidad> responsabilidades) {
+		super(nombreUsuario, contrasena, ci, nombre,primer_apellido, segundo_apellido, facultad);
+		this.curso = curso;
+		this.tipoCurso = tipoCurso;
+		this.carrera = carrera;
+		this.grupo = grupo;
+		this.responsabilidades = responsabilidades;
+	}
+
+	public Estudiante(String nombreUsuario, String contrasena, String ci, String nombre, String primer_apellido, String segundo_apellido,
+	Facultad facultad, int curso, TipoCurso tipoCurso, String carrera,
 			int grupo) {
 		super(nombreUsuario, contrasena, ci, nombre,primer_apellido, segundo_apellido, facultad);
 		this.curso = curso;
 		this.tipoCurso = tipoCurso;
 		this.carrera = carrera;
 		this.grupo = grupo;
-		
+		this.responsabilidades = new ArrayList<>();
 	}
 
 	public ArrayList<TiposResponsabilidad> getResponsabilidades() {

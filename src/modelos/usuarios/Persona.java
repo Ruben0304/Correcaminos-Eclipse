@@ -11,6 +11,7 @@ public abstract class Persona extends Usuario {
     protected String primer_apellido;
     protected String segundo_apellido;
     protected Facultad facultad;
+    
    
 
     public Persona(String nombreUsuario, String contrasena, String ci, String nombre, String primer_apellido, String segundo_apellido,

@@ -17,8 +17,10 @@ import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 import controlador.ControladorLogin;
 import controlador.ControladorPrincipal;
-import modelos.entidades.Becado;
-import modelos.entidades.Estudiante;
+import modelos.departamentos.Biblioteca;
+import modelos.departamentos.Economia;
+import modelos.usuarios.Becado;
+import modelos.usuarios.Estudiante;
 import utiles.Colores;
 import java.awt.Toolkit;
 import java.awt.Color;
@@ -92,19 +94,19 @@ public class RequisitosBajaEstudiantes extends JFrame {
 		JCheckBox chckbxNewCheckBox_2 = new JCheckBox("Entregar libros prestados");
 		chckbxNewCheckBox_2.setFont(new Font("Arial Narrow", Font.BOLD, 13));
 		chckbxNewCheckBox_2.setBounds(87, 89, 236, 23);
-		chckbxNewCheckBox_2.setSelected(!usuarioAutenticado.tieneLibrosDeBiblioteca());
+		chckbxNewCheckBox_2.setSelected(!Biblioteca.tieneLibrosPrestados(usuarioAutenticado));
 		panel.add(chckbxNewCheckBox_2);
 
 		JCheckBox chckbxDevolucinDePrestamos = new JCheckBox("Sin deudas");
 		chckbxDevolucinDePrestamos.setFont(new Font("Arial Narrow", Font.BOLD, 13));
 		chckbxDevolucinDePrestamos.setBounds(150, 155, 173, 23);
-		chckbxDevolucinDePrestamos.setSelected(!usuarioAutenticado.tieneDeuda());
+		chckbxDevolucinDePrestamos.setSelected(!Economia.tieneDeuda(usuarioAutenticado));
 		panel.add(chckbxDevolucinDePrestamos);
 
 		JCheckBox chckbxControlDelEstipendio = new JCheckBox("Baja de estipendio");
 		chckbxControlDelEstipendio.setFont(new Font("Arial Narrow", Font.BOLD, 13));
 		chckbxControlDelEstipendio.setBounds(150, 135, 173, 23);
-		chckbxControlDelEstipendio.setSelected(!usuarioAutenticado.tieneEstipendio());
+		chckbxControlDelEstipendio.setSelected(!Economia.tieneEstipendio(usuarioAutenticado));
 		panel.add(chckbxControlDelEstipendio);
 
 		JCheckBox chckbxNewCheckBox_3 = new JCheckBox("Cerrar cuenta de dominio");
@@ -128,13 +130,13 @@ public class RequisitosBajaEstudiantes extends JFrame {
 			JCheckBox chckbxEntregarPertenencias = new JCheckBox("Entregar pertenencias");
 			chckbxEntregarPertenencias.setFont(new Font("Arial Narrow", Font.BOLD, 13));
 			chckbxEntregarPertenencias.setBounds(139, 286, 184, 23);
-			chckbxEntregarPertenencias.setSelected(((Becado)usuarioAutenticado).entregoPertenencias());
+			chckbxEntregarPertenencias.setSelected(((Becado)usuarioAutenticado).tienePertenencias());
 			panel.add(chckbxEntregarPertenencias);
 
 			JCheckBox chckbxEntregarCarnetDe = new JCheckBox("Entregar carnet de becario");
 			chckbxEntregarCarnetDe.setFont(new Font("Arial Narrow", Font.BOLD, 13));
 			chckbxEntregarCarnetDe.setBounds(139, 307, 184, 23);
-			chckbxEntregarCarnetDe.setSelected(((Becado)usuarioAutenticado).entregoCarnetBecado());
+			chckbxEntregarCarnetDe.setSelected(((Becado)usuarioAutenticado).tieneCarnetBecado());
 			panel.add(chckbxEntregarCarnetDe);
 		}
 

@@ -2,7 +2,11 @@ package controlador;
 
 
 import modelos.auth.Auth;
-import modelos.entidades.*;
+
+import modelos.gestion.GestorPrincipal;
+import modelos.usuarios.Empleado;
+import modelos.usuarios.Estudiante;
+import modelos.usuarios.Usuario;
 import vistas.Inicio;
 import vistas.usuarios.EstudianteTramites;
 import vistas.usuarios.RequisitosBajaEstudiantes;

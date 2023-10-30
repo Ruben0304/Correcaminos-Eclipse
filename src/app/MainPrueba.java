@@ -3,7 +3,7 @@ package app;
 import javax.swing.SwingUtilities;
 
 import controlador.ControladorPrincipal;
-import modelos.entidades.GestorPrincipal;
+import modelos.gestion.GestorPrincipal;
 
 public class MainPrueba {
 	public static void main(String[] args) {

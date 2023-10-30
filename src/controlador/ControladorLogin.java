@@ -5,7 +5,9 @@ import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 
 import modelos.auth.Auth;
-import modelos.entidades.*;
+
+import modelos.gestion.GestorPrincipal;
+import modelos.usuarios.Usuario;
 import vistas.auth.Login;
 
 public class ControladorLogin {

@@ -6,10 +6,10 @@ import javax.swing.table.DefaultTableModel;
 
 import controlador.ControladorAdmin;
 import controlador.ControladorLogin;
-import modelos.entidades.Estudiante;
-import modelos.entidades.GestorPrincipal;
-import modelos.entidades.Persona;
-import modelos.entidades.Usuario;
+import modelos.gestion.GestorPrincipal;
+import modelos.usuarios.Estudiante;
+import modelos.usuarios.Persona;
+import modelos.usuarios.Usuario;
 import utiles.Colores;
 
 import javax.swing.*;
@@ -108,8 +108,8 @@ public class SecretariaPendientes extends JFrame {
                 if (selectedRow != -1) {
                     String carnet = table_2.getValueAt(selectedRow, 0).toString();
 
-                    ((Estudiante) GestorPrincipal.buscarUsuarioPorCi(carnet, usuariosPendientes))
-                            .setLibrosDeBiblioteca(false);
+                    // ((Estudiante) GestorPrincipal.buscarUsuarioPorCi(carnet, usuariosPendientes))
+                    //         .setLibrosDeBiblioteca(false);
                     // ControladorAdmin.mostrarGestionLicencias();
                     // dispose();
                     DefaultTableModel modelo = (DefaultTableModel) table_2.getModel();

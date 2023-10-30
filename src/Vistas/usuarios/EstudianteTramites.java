@@ -38,11 +38,8 @@ import java.awt.event.ActionListener;
 import com.toedter.calendar.JDateChooser;
 
 import controlador.ControladorPrincipal;
-import modelos.entidades.Estudiante;
-
-
-import modelos.entidades.Secretaria;
-
+import modelos.departamentos.Secretaria;
+import modelos.usuarios.Estudiante;
 import utiles.Colores;
 
 

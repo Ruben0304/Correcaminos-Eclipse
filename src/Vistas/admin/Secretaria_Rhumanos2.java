@@ -9,7 +9,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
-import modelos.entidades.Persona;
+import modelos.usuarios.Persona;
 
 import javax.swing.JTable;
 import javax.swing.JButton;

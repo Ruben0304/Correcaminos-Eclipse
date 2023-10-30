@@ -1,6 +1,6 @@
 package modelos.auth;
 
-import modelos.entidades.Usuario;
+import modelos.usuarios.Usuario;
 
 public class Auth {
     private static Auth instancia;

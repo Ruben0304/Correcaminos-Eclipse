@@ -6,10 +6,12 @@ import javax.swing.table.DefaultTableModel;
 
 import controlador.ControladorAdmin;
 import controlador.ControladorLogin;
-import modelos.entidades.Estudiante;
-import modelos.entidades.GestorPrincipal;
-import modelos.entidades.Persona;
-import modelos.entidades.Usuario;
+import modelos.departamentos.Biblioteca;
+import modelos.gestion.GestorPrincipal;
+import modelos.usuarios.Estudiante;
+import modelos.usuarios.Persona;
+import modelos.usuarios.Usuario;
+
 import javax.swing.*;
 
 import java.awt.event.ActionEvent;
@@ -17,7 +19,6 @@ import java.awt.event.ActionListener;
 
 public class CasosPendientes extends JFrame {
 
-    private DefaultListModel<String> listModel;
     private JTable table_2;
 
     /**
@@ -84,14 +85,14 @@ public class CasosPendientes extends JFrame {
                 int selectedRow = table_2.getSelectedRow();
                 if (selectedRow != -1) {
                     String carnet = table_2.getValueAt(selectedRow, 0).toString();
+                    Biblioteca.quitarLibrosPrestados(
+                            ((Estudiante) GestorPrincipal.buscarPersonaEnLista(carnet, usuariosPendientes)));
 
-                    ((Estudiante) GestorPrincipal.buscarUsuarioPorCi(carnet, usuariosPendientes))
-                            .setLibrosDeBiblioteca(false);
-                    // ControladorAdmin.mostrarGestionLicencias();
-                    // dispose();
-                    DefaultTableModel modelo = (DefaultTableModel) table_2.getModel();
+                    ControladorAdmin.mostrarGestionLicencias();
+                    dispose();
+                    // DefaultTableModel modelo = (DefaultTableModel) table_2.getModel();
 
-                    modelo.fireTableDataChanged();
+                    // modelo.fireTableDataChanged();
 
                 }
 

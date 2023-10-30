@@ -12,11 +12,10 @@ import javax.swing.border.EmptyBorder;
 import controlador.ControladorAdmin;
 import controlador.ControladorLogin;
 import controlador.ControladorPrincipal;
-import modelos.entidades.Admin;
-import modelos.entidades.Estudiante;
-
-import modelos.entidades.Secretaria;
-import modelos.entidades.Usuario;
+import modelos.departamentos.Secretaria;
+import modelos.usuarios.Admin;
+import modelos.usuarios.Estudiante;
+import modelos.usuarios.Usuario;
 import utiles.Colores;
 
 import java.awt.Toolkit;

@@ -87,7 +87,7 @@ public class Estudiante extends Persona {
 
 	@Override
 	public void solicitarLicencia(Secretaria secretaria, String motivo, String fechaInicio, String fechaFin) {
-		SolicitudLicenciaEstudiante solicitud = new SolicitudLicenciaEstudiante(this, motivo, fechaInicio, fechaFin);
+		SolicitudLicenciaEstudiante solicitud = new SolicitudLicenciaEstudiante(Estudiante.this, motivo, fechaInicio, fechaFin);
 		secretaria.agregarSolicitudDeLicencia(solicitud);
 
 	}

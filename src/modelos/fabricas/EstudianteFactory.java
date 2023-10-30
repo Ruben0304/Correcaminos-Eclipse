@@ -16,6 +16,7 @@ public class EstudianteFactory {
                 tiposResponsabilidads.add(TiposResponsabilidad.ESTIPENDIO);
                 tiposResponsabilidads.add(TiposResponsabilidad.LIBROS_DOCENTES);
                 tiposResponsabilidads.add(TiposResponsabilidad.CUENTA_USUARIO);
+                tiposResponsabilidads.add(TiposResponsabilidad.LIBROS_BIBLIOTECA);
 
                 estudiantes.add(new Estudiante("estudiante1",
                                 "0b14d501a594442a01c6859541bcb3e8164d183d32937b851835442f69d5c94e", "01234567891",

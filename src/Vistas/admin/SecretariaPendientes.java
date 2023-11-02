@@ -36,7 +36,7 @@ public class SecretariaPendientes extends JFrame {
      */
     public SecretariaPendientes(final Usuario usuarioAutenticado,
             final ArrayList<Persona> usuariosPendientes) {
-    	getContentPane().setBackground(new Color(255, 255, 255));
+    	getContentPane().setBackground(Colores.BLANCO);
 
         setResizable(false);
         setTitle("Casos Pendientes");
@@ -80,7 +80,7 @@ public class SecretariaPendientes extends JFrame {
         }
 
         table_2 = new JTable();
-        table_2.setBorder(new LineBorder(new Color(0, 0, 0)));
+        table_2.setBorder(new LineBorder(Colores.NEGRO));
         table_2.setModel(new DefaultTableModel(
                 data,
                 new String[] {

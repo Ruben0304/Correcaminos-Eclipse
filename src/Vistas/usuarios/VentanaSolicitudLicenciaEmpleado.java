@@ -86,7 +86,7 @@ public class VentanaSolicitudLicenciaEmpleado extends JFrame {
 		panel_datos.setBounds(297, 0, 357, 407);
 		contentPane.add(panel_datos);
 		panel_datos.setBackground(new Color (204, 255, 204));
-		panel_datos.setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0), 2), "Datos del empleado", TitledBorder.LEADING, TitledBorder.TOP, new Font("Roboto Medium", Font.PLAIN, 18), new Color(0, 0, 0)));
+		panel_datos.setBorder(new TitledBorder(new LineBorder(Colores.NEGRO, 2), "Datos del empleado", TitledBorder.LEADING, TitledBorder.TOP, new Font("Roboto Medium", Font.PLAIN, 18), Colores.NEGRO));
 		panel_datos.setLayout(null);
 		
 		nombre_empleado = new JLabel("CI:");

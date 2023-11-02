@@ -54,8 +54,8 @@ public class CrearCuenta extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 672, 457);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(255, 255, 255));
-		contentPane.setBorder(new LineBorder(new Color(0, 0, 0), 3, true));
+		contentPane.setBackground(Colores.BLANCO);
+		contentPane.setBorder(new LineBorder(Colores.NEGRO, 3, true));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		setLocationRelativeTo(null);
@@ -68,7 +68,7 @@ public class CrearCuenta extends JFrame {
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(204, 255, 204));
-		panel.setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0)), "Reg\u00EDstrese como usuario de la app", TitledBorder.LEFT, TitledBorder.TOP, null, new Color(0, 0, 0)));
+		panel.setBorder(new TitledBorder(new LineBorder(Colores.NEGRO), "Reg\u00EDstrese como usuario de la app", TitledBorder.LEFT, TitledBorder.TOP, null, Colores.NEGRO));
 		panel.setBounds(339, 56, 296, 315);
 		contentPane.add(panel);
 		panel.setLayout(null);
@@ -85,13 +85,13 @@ public class CrearCuenta extends JFrame {
 		
 		passwordField = new JPasswordField();
 		passwordField.setBackground(new Color(204, 255, 204));
-		passwordField.setBorder(new MatteBorder(0, 0, 2, 0, (Color) new Color(0, 0, 0)));
+		passwordField.setBorder(new MatteBorder(0, 0, 2, 0, (Color) Colores.NEGRO));
 		passwordField.setBounds(85, 81, 194, 24);
 		panel.add(passwordField);
 		
 		textField_1 = new JTextField();
 		textField_1.setBackground(new Color(204, 255, 204));
-		textField_1.setBorder(new MatteBorder(0, 0, 2, 0, (Color) new Color(0, 0, 0)));
+		textField_1.setBorder(new MatteBorder(0, 0, 2, 0, (Color) Colores.NEGRO));
 		textField_1.setColumns(10);
 		textField_1.setBounds(129, 34, 150, 20);
 		panel.add(textField_1);
@@ -117,7 +117,7 @@ public class CrearCuenta extends JFrame {
 		JButton btnNewButton = new JButton("Crear cuenta");
 		btnNewButton.setBackground(SystemColor.inactiveCaptionBorder);
 		btnNewButton.setFont(new Font("Arial Narrow", Font.BOLD, 14));
-		btnNewButton.setBorder(new LineBorder(new Color(0, 0, 0)));
+		btnNewButton.setBorder(new LineBorder(Colores.NEGRO));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
@@ -146,7 +146,7 @@ public class CrearCuenta extends JFrame {
 		panel.add(lblConfirmarContrasea);
 		
 		passwordField_1 = new JPasswordField();
-		passwordField_1.setBorder(new MatteBorder(0, 0, 2, 0, (Color) new Color(0, 0, 0)));
+		passwordField_1.setBorder(new MatteBorder(0, 0, 2, 0, (Color) Colores.NEGRO));
 		passwordField_1.setBackground(new Color(204, 255, 204));
 		passwordField_1.setBounds(146, 135, 133, 24);
 		panel.add(passwordField_1);
@@ -175,7 +175,7 @@ public class CrearCuenta extends JFrame {
 			}
 		});
 		btnLogin.setBackground(new Color(204, 255, 204));
-		btnLogin.setBorder(new LineBorder(new Color(0, 0, 0)));
+		btnLogin.setBorder(new LineBorder(Colores.NEGRO));
 		btnLogin.setFont(new Font("Arial Narrow", Font.BOLD, 13));
 		btnLogin.setBounds(10, 13, 104, 32);
 		contentPane.add(btnLogin);

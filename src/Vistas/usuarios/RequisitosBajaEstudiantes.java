@@ -54,8 +54,8 @@ public class RequisitosBajaEstudiantes extends JFrame {
 
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(204, 255, 204));
-		panel.setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0)), "Requisitos para obtener la baja",
-				TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
+		panel.setBorder(new TitledBorder(new LineBorder(Colores.NEGRO), "Requisitos para obtener la baja",
+				TitledBorder.LEADING, TitledBorder.TOP, null, Colores.NEGRO));
 		panel.setBounds(299, 11, 347, 375);
 		contentPane.add(panel);
 		panel.setLayout(null);
@@ -141,7 +141,7 @@ public class RequisitosBajaEstudiantes extends JFrame {
 		}
 
 		JButton btnNewButton = new JButton("Enviar confirmaci\u00F3n de requisitos");
-		btnNewButton.setBorder(new LineBorder(new Color(0, 0, 0)));
+		btnNewButton.setBorder(new LineBorder(Colores.NEGRO));
 		btnNewButton.setBackground(SystemColor.inactiveCaptionBorder);
 		btnNewButton.setFont(new Font("Arial Narrow", Font.BOLD, 11));
 		btnNewButton.addActionListener(new ActionListener() {

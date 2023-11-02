@@ -62,14 +62,14 @@ public class EstudianteTramites extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 757, 515);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(255, 255, 255));
-		contentPane.setBorder(new LineBorder(new Color(0, 0, 0)));
+		contentPane.setBackground(Colores.BLANCO);
+		contentPane.setBorder(new LineBorder(Colores.NEGRO));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(204, 255, 204));
-		panel.setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0)), "Datos Personales", TitledBorder.LEADING,
+		panel.setBorder(new TitledBorder(new LineBorder(Colores.NEGRO), "Datos Personales", TitledBorder.LEADING,
 				TitledBorder.TOP, null, null));
 		panel.setBounds(299, 11, 428, 432);
 		contentPane.add(panel);
@@ -189,7 +189,7 @@ public class EstudianteTramites extends JFrame {
 
 			}
 		});
-		btnEnviarSolicitud.setBorder(new LineBorder(new Color(0, 0, 0)));
+		btnEnviarSolicitud.setBorder(new LineBorder(Colores.NEGRO));
 		btnEnviarSolicitud.setBackground(SystemColor.inactiveCaptionBorder);
 		btnEnviarSolicitud.setBounds(88, 373, 121, 31);
 		panel.add(btnEnviarSolicitud);
@@ -216,7 +216,7 @@ public class EstudianteTramites extends JFrame {
 
 			}
 		});
-		btnCancelar.setBorder(new LineBorder(new Color(0, 0, 0)));
+		btnCancelar.setBorder(new LineBorder(Colores.NEGRO));
 		btnCancelar.setBackground(SystemColor.inactiveCaptionBorder);
 		btnCancelar.setBounds(244, 373, 121, 31);
 		panel.add(btnCancelar);

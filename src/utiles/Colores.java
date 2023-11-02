@@ -15,6 +15,7 @@ public final class Colores {
 	public static Color BLANCO = new Color(0xFDFDFD);
 	public static Color NEGRO = new Color(0x000000);
 	public static Color ROJO = new Color(0xAE070F);
+	public static boolean modo_oscuro = false;
 
 	public static void modoOscuro() {
 		VERDE_CLARO = new Color(0x2A6438);
@@ -24,5 +25,17 @@ public final class Colores {
 		NEGRO = new Color(0xFDFDFD);
 		TEXTO_OSCURO = new Color(0xFDFDFD);
 		TEXTO_GRIS = new Color(0xFDFDFD);
+		modo_oscuro = true;
+	}
+
+	public static void modoClaro(){
+		VERDE_OSCURO = new Color(0x2A6438);
+		AZUL_CLARO = new Color(0x395CC1);
+		BLANCO = new Color(0xFDFDFD);
+		FONDO_OSCURO = new Color(0x171717);
+		NEGRO = new Color(0x000000);
+		TEXTO_OSCURO = new Color(0x252525);
+		TEXTO_GRIS = new Color(0x989898);
+		modo_oscuro = false;
 	}
 }

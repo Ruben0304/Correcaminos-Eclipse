@@ -19,7 +19,7 @@ public class Biblioteca {
      boolean encontrado = false;
         for (int i = 0; i < resp.size() && !encontrado; i++) {
             if (resp.get(i).equals(TiposResponsabilidad.LIBROS_BIBLIOTECA)) {
-                resp.remove(resp.get(i));
+                resp.remove(i);
                 encontrado = true;
             }
         }

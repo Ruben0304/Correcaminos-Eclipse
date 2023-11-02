@@ -34,13 +34,15 @@ import javax.swing.JPasswordField;
 import utiles.Colores;
 
 import java.awt.Cursor;
+import javax.swing.JToggleButton;
+import javax.swing.JCheckBox;
 
 public class Login extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField txtUsuario;
 	private JPasswordField passwordField;
-	private JButton btnTema;
+	private JCheckBox checkbox;
 
 	/**
 	 * Create the frame.
@@ -53,7 +55,7 @@ public class Login extends JFrame {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Login.class.getResource("/img/correcamino.png")));
 		setTitle("CorrecaminosCujae");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 864, 576);
+		setBounds(100, 100, 868, 602);
 		setLocationRelativeTo(null);
 
 		contentPane = new JPanel();
@@ -67,7 +69,7 @@ public class Login extends JFrame {
 		lblNewLabel.setBorder(null);
 		lblNewLabel.setBackground(new Color(204, 255, 204));
 		lblNewLabel.setFont(new Font("Brush Script MT", Font.PLAIN, 44));
-		lblNewLabel.setBounds(0, 0, 506, 541);
+		lblNewLabel.setBounds(0, 0, 505, 567);
 		ImageIcon ico = new ImageIcon(getClass().getResource("/img/licencia.jpg"));
 		ImageIcon img = new ImageIcon(
 				ico.getImage().getScaledInstance(lblNewLabel.getWidth(), lblNewLabel.getHeight(), Image.SCALE_SMOOTH));
@@ -192,21 +194,33 @@ public class Login extends JFrame {
 				lblNewLabel_4.getHeight(), Image.SCALE_SMOOTH));
 		lblNewLabel_4.setIcon(imgen);
 		contentPane.add(lblNewLabel_4);
-		contentPane.add(getBtnTema());
+		contentPane.add(getCheckbox());
 
 	}
-	private JButton getBtnTema() {
-		if (btnTema == null) {
-			btnTema = new JButton("New button");
-			btnTema.addActionListener(new ActionListener() {
+	private JCheckBox getCheckbox() {
+		if (checkbox == null) {
+			checkbox = new JCheckBox("Modo oscuro");
+			checkbox.setForeground(Colores.TEXTO_OSCURO);
+			checkbox.setBackground(Colores.BLANCO);
+			if (Colores.modo_oscuro) {
+				checkbox.setSelected(true);
+			}
+			checkbox.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					Colores.modoOscuro();
-					ControladorLogin.mostrarLogin();
-					dispose();
+					if (checkbox.isSelected()) {
+						Colores.modoOscuro();
+						ControladorLogin.mostrarLogin();
+						dispose();
+					} else {
+						Colores.modoClaro();
+						ControladorLogin.mostrarLogin();
+						dispose();
+					}
 				}
 			});
-			btnTema.setBounds(503, 470, 97, 25);
+			checkbox.setBounds(746, 534, 116, 24);
+
 		}
-		return btnTema;
+		return checkbox;
 	}
 }

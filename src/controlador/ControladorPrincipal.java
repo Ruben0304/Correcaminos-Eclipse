@@ -1,12 +1,12 @@
 package controlador;
 
-
 import modelos.auth.Auth;
 
 import modelos.gestion.GestorPrincipal;
 import modelos.usuarios.Empleado;
 import modelos.usuarios.Estudiante;
 import modelos.usuarios.Usuario;
+import utiles.Colores;
 import vistas.Inicio;
 import vistas.usuarios.EstudianteTramites;
 import vistas.usuarios.RequisitosBajaEstudiantes;
@@ -14,7 +14,7 @@ import vistas.usuarios.RequisitosBajaEstudiantes;
 public class ControladorPrincipal {
 
     public static void mostrarInicio() {
-        
+
         if (Auth.hayUsuarioAutenticado()) {
             Inicio inicio = new Inicio(Auth.usuarioAutenticado(), GestorPrincipal.secretaria());
             inicio.setVisible(true);
@@ -42,4 +42,12 @@ public class ControladorPrincipal {
         requisitosBajaEstudiantes.setVisible(true);
     }
 
+    public static void modoOscuro(boolean modoOscuro) {
+        if (modoOscuro) {
+            Colores.modoOscuro();
+        } else {
+            Colores.modoClaro();
+        }
+        mostrarInicio();
+    }
 }

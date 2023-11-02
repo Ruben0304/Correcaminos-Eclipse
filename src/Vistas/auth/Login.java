@@ -27,7 +27,6 @@ import javax.swing.border.MatteBorder;
 import controlador.ControladorLogin;
 import controlador.ControladorPrincipal;
 
-
 import javax.swing.SwingConstants;
 import javax.swing.JPasswordField;
 
@@ -102,12 +101,11 @@ public class Login extends JFrame {
 				char[] passwordChars = passwordField.getPassword();
 				String contrasena = new String(passwordChars);
 				String user = txtUsuario.getText();
-				
+
 				if (ControladorLogin.autenticar(user, contrasena)) {
 					ControladorPrincipal.mostrarInicio();
 					dispose();
-				} 
-				else {	
+				} else {
 					ErrorMessages.setVisible(true);
 				}
 			}
@@ -170,7 +168,13 @@ public class Login extends JFrame {
 		JLabel lblNewLabel_2 = new JLabel("");
 		lblNewLabel_2.setBorder(null);
 		lblNewLabel_2.setBounds(540, 228, 48, 43);
-		ImageIcon icono = new ImageIcon(Login.class.getResource("/img/usuario.png"));
+		ImageIcon icono = null;
+		if (Colores.modo_oscuro) {
+			icono = new ImageIcon(Login.class.getResource("/img/usuario_blanco.png"));
+		} else {
+			icono = new ImageIcon(Login.class.getResource("/img/usuario.png"));
+		}
+
 		ImageIcon imga = new ImageIcon(icono.getImage().getScaledInstance(lblNewLabel_2.getWidth(),
 				lblNewLabel_2.getHeight(), Image.SCALE_SMOOTH));
 		lblNewLabel_2.setIcon(imga);
@@ -178,6 +182,7 @@ public class Login extends JFrame {
 
 		JLabel lblNewLabel_3 = new JLabel("");
 		lblNewLabel_3.setBounds(627, 100, 94, 86);
+		
 		ImageIcon icon = new ImageIcon(getClass().getResource("/img/correcamino.png"));
 		ImageIcon imgan = new ImageIcon(icon.getImage().getScaledInstance(lblNewLabel_3.getWidth(),
 				lblNewLabel_3.getHeight(), Image.SCALE_SMOOTH));
@@ -189,7 +194,14 @@ public class Login extends JFrame {
 		lblNewLabel_4.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_4.setBorder(null);
 		lblNewLabel_4.setBounds(540, 291, 48, 43);
-		ImageIcon iconito = new ImageIcon(getClass().getResource("/img/contrasena.png"));
+		ImageIcon iconito = null;
+		if (Colores.modo_oscuro) {
+			iconito = new ImageIcon(Login.class.getResource("/img/contrasena_blanco.png"));
+		} else {
+			iconito = new ImageIcon(Login.class.getResource("/img/contrasena.png"));
+		}
+
+		
 		ImageIcon imgen = new ImageIcon(iconito.getImage().getScaledInstance(lblNewLabel_4.getWidth(),
 				lblNewLabel_4.getHeight(), Image.SCALE_SMOOTH));
 		lblNewLabel_4.setIcon(imgen);
@@ -197,6 +209,7 @@ public class Login extends JFrame {
 		contentPane.add(getCheckbox());
 
 	}
+
 	private JCheckBox getCheckbox() {
 		if (checkbox == null) {
 			checkbox = new JCheckBox("Modo oscuro");
@@ -208,12 +221,10 @@ public class Login extends JFrame {
 			checkbox.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					if (checkbox.isSelected()) {
-						Colores.modoOscuro();
-						ControladorLogin.mostrarLogin();
+						ControladorPrincipal.modoOscuro(true);
 						dispose();
 					} else {
-						Colores.modoClaro();
-						ControladorLogin.mostrarLogin();
+						ControladorPrincipal.modoOscuro(false);
 						dispose();
 					}
 				}

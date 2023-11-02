@@ -53,10 +53,12 @@ public class Inicio extends JFrame {
 		setJMenuBar(menuBar);
 
 		JMenu mnNewMenu = new JMenu("Opciones");
+		mnNewMenu.setForeground(Colores.TEXTO_OSCURO);
 
 		menuBar.add(mnNewMenu);
 
 		JMenuItem mntmCerrarSesin = new JMenuItem("Cerrar Sesion");
+		mntmCerrarSesin.setForeground(Colores.TEXTO_OSCURO);
 		mntmCerrarSesin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				ControladorLogin.cerrarSesion();
@@ -66,6 +68,7 @@ public class Inicio extends JFrame {
 		mnNewMenu.add(mntmCerrarSesin);
 
 		JMenuItem mntmSalir = new JMenuItem("Salir");
+		mntmSalir.setForeground(Colores.TEXTO_OSCURO);
 		mntmSalir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				dispose();
@@ -74,10 +77,12 @@ public class Inicio extends JFrame {
 		mnNewMenu.add(mntmSalir);
 
 		JMenu mnNewMenu_1 = new JMenu("Gesti\u00F3n");
+		mnNewMenu_1.setForeground(Colores.TEXTO_OSCURO);
 		menuBar.add(mnNewMenu_1);
 
 		if (usuarioAutenticado instanceof Admin) {
 			JMenuItem mntmGestionarBaja = new JMenuItem("Gestionar bajas");
+			mntmGestionarBaja.setForeground(Colores.TEXTO_OSCURO);
 			mntmGestionarBaja.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
 
@@ -86,6 +91,7 @@ public class Inicio extends JFrame {
 			mnNewMenu_1.add(mntmGestionarBaja);
 
 			JMenuItem mntmGestionarLicencia = new JMenuItem("Gestionar licencias");
+			mntmGestionarLicencia.setForeground(Colores.TEXTO_OSCURO);
 			mntmGestionarLicencia.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
 					ControladorAdmin.mostrarGestionLicencias();
@@ -96,6 +102,7 @@ public class Inicio extends JFrame {
 		} else {
 			if (secretaria.verificarEstudianteSolicitaLicencia((Estudiante) usuarioAutenticado)) {
 				JMenuItem mntmSolicitarBaja = new JMenuItem("Verificar Estado Solicitud");
+				mntmSolicitarBaja.setForeground(Colores.TEXTO_OSCURO);
 				mntmSolicitarBaja.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent arg0) {
 						ControladorPrincipal.mostrarRequisitosBajaEstudiantes();
@@ -105,6 +112,7 @@ public class Inicio extends JFrame {
 				mnNewMenu_1.add(mntmSolicitarBaja);
 			} else {
 				JMenuItem mntmSolicitarBaja = new JMenuItem("Solicitar baja");
+				mntmSolicitarBaja.setForeground(Colores.TEXTO_OSCURO);
 				mntmSolicitarBaja.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent arg0) {
 						ControladorPrincipal.mostrarTramites();
@@ -114,6 +122,7 @@ public class Inicio extends JFrame {
 				mnNewMenu_1.add(mntmSolicitarBaja);
 
 				JMenuItem mntmSolicitarLicencia = new JMenuItem("Solicitar Licencia");
+				mntmSolicitarLicencia.setForeground(Colores.TEXTO_OSCURO);
 				mntmSolicitarLicencia.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent arg0) {
 						ControladorPrincipal.mostrarTramites();
@@ -126,35 +135,45 @@ public class Inicio extends JFrame {
 		}
 
 		JMenuItem mntmResultadosSolicitud = new JMenuItem("Resultados Solicitud");
+		mntmResultadosSolicitud.setForeground(Colores.TEXTO_OSCURO);
 		mnNewMenu_1.add(mntmResultadosSolicitud);
 
 		JMenu mnNewMenu_2 = new JMenu("Reportes");
+		mnNewMenu_2.setForeground(Colores.TEXTO_OSCURO);
 		menuBar.add(mnNewMenu_2);
 
 		JMenuItem mntmSolicitudesPendientes = new JMenuItem("Solicitudes pendientes");
+		mntmSolicitudesPendientes.setForeground(Colores.TEXTO_OSCURO);
 		mnNewMenu_2.add(mntmSolicitudesPendientes);
 
 		JMenuItem mntmFacultadesConMs = new JMenuItem("Facultades con m\u00E1s bajas estudiantiles");
+		mntmFacultadesConMs.setForeground(Colores.TEXTO_OSCURO);
 		mnNewMenu_2.add(mntmFacultadesConMs);
 
 		JMenuItem mntmFacultadesConMs_1 = new JMenuItem("Facultades con m\u00E1s bajas de empleados");
+		mntmFacultadesConMs_1.setForeground(Colores.TEXTO_OSCURO);
 		mnNewMenu_2.add(mntmFacultadesConMs_1);
 
 		JMenuItem mntmSolicitudesAprobadasEn = new JMenuItem("Solicitudes aprobadas en el mes");
+		mntmSolicitudesAprobadasEn.setForeground(Colores.TEXTO_OSCURO);
 		mnNewMenu_2.add(mntmSolicitudesAprobadasEn);
 
 		JMenuItem mntmSolicitudesDenegadasEn = new JMenuItem("Solicitudes denegadas en el mes");
+		mntmSolicitudesDenegadasEn.setForeground(Colores.TEXTO_OSCURO);
 		mnNewMenu_2.add(mntmSolicitudesDenegadasEn);
 
 		JMenu mnNewMenu_3 = new JMenu("Ayuda");
+		mnNewMenu_3.setForeground(Colores.TEXTO_OSCURO);
 		menuBar.add(mnNewMenu_3);
 
 		JMenuItem mntmAcercaDeLa = new JMenuItem("Acerca de la app");
+		mntmAcercaDeLa.setForeground(Colores.TEXTO_OSCURO);
 		mnNewMenu_3.add(mntmAcercaDeLa);
 
 		contentPane = new JPanel() {
 			public void paintComponent(Graphics g) {
 				Image img = Toolkit.getDefaultToolkit().getImage(Inicio.class.getResource("/img/contract.jpg"));
+
 				g.drawImage(img, 0, 0, this.getWidth(), this.getHeight(), this);
 
 			}

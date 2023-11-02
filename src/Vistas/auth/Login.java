@@ -40,6 +40,7 @@ public class Login extends JFrame {
 	private JPanel contentPane;
 	private JTextField txtUsuario;
 	private JPasswordField passwordField;
+	private JButton btnTema;
 
 	/**
 	 * Create the frame.
@@ -189,6 +190,21 @@ public class Login extends JFrame {
 				lblNewLabel_4.getHeight(), Image.SCALE_SMOOTH));
 		lblNewLabel_4.setIcon(imgen);
 		contentPane.add(lblNewLabel_4);
+		contentPane.add(getBtnTema());
 
+	}
+	private JButton getBtnTema() {
+		if (btnTema == null) {
+			btnTema = new JButton("New button");
+			btnTema.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					Colores.modoOscuro();
+					ControladorLogin.mostrarLogin();
+					dispose();
+				}
+			});
+			btnTema.setBounds(503, 470, 97, 25);
+		}
+		return btnTema;
 	}
 }

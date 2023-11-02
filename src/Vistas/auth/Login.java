@@ -93,7 +93,7 @@ public class Login extends JFrame {
 		JButton btnLogin = new JButton("Iniciar sesi\u00F3n");
 		btnLogin.setBackground(Colores.VERDE_OSCURO);
 		btnLogin.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		btnLogin.setForeground(Colores.BLANCO);
+		btnLogin.setForeground(new Color(255, 255, 255));
 		btnLogin.setBorder(null);
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {

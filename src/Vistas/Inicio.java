@@ -27,6 +27,7 @@ import javax.swing.JMenuItem;
 import java.awt.event.ActionListener;
 
 import java.awt.event.ActionEvent;
+import java.awt.Color;
 
 public class Inicio extends JFrame {
 
@@ -47,7 +48,7 @@ public class Inicio extends JFrame {
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.setBorderPainted(false);
 		menuBar.setBackground(Colores.BLANCO);
-		menuBar.setForeground(Colores.TEXTO_OSCURO);
+		menuBar.setForeground(Colores.TEXTO_GRIS);
 		menuBar.setBorder(null);
 		setJMenuBar(menuBar);
 

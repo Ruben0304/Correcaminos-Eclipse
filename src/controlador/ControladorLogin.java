@@ -1,19 +1,36 @@
 package controlador;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.lang.reflect.Type;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
 import modelos.auth.Auth;
 
 import modelos.gestion.GestorPrincipal;
+
 import modelos.usuarios.Usuario;
 import vistas.auth.Login;
 
 public class ControladorLogin {
 
+    public static void iniciar() {
+         if (comprobarSession()) {
+            ControladorPrincipal.mostrarInicio();
+         }
+         else{
+            mostrarLogin();
+         }
+    }
+
     public static void mostrarLogin() {
-        
+
         Login login = new Login();
         login.setVisible(true);
 
@@ -38,14 +55,28 @@ public class ControladorLogin {
         return autenticado;
     }
 
-
     public static void cerrarSesion() {
         Auth.cerrarSesion();
         mostrarLogin();
     }
 
-       public static void cambiarContrasena(String contrasena) {
+    public static void cambiarContrasena(String contrasena) {
         Auth.usuarioAutenticado().setContrasena(hashContrasena(contrasena));
+    }
+
+    public static boolean comprobarSession() {
+        Gson gson = new Gson();
+        Usuario usuario = null;
+        try (BufferedReader reader = new BufferedReader(new FileReader("./datos/session.json"))) {
+            Type listType = new TypeToken<Usuario>() {
+            }.getType();
+
+            usuario = gson.fromJson(reader, listType);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return usuario != null && autenticar(usuario.getNombreUsuario(), usuario.getContrasena());
     }
 
     private static String hashContrasena(String contrasena) {

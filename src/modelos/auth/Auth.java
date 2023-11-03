@@ -54,6 +54,7 @@ public class Auth {
     }
 
     private boolean existe() {
+        
         return usuario != null;
     }
 

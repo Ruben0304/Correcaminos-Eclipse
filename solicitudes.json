@@ -1,0 +1,205 @@
+[
+    {
+        "fechaSalida": "hoy",
+        "fechaRegreso": "mes que viene",
+        "estudiante": {
+            "idBecado": "Becado234",
+            "noCuarto": 23,
+            "curso": 2,
+            "tipoCurso": "ENCUENTRO",
+            "carrera": "Ingenieria Informatica",
+            "grupo": 2,
+            "responsabilidades": [
+                "CARNET_CUJAE",
+                "ESTIPENDIO",
+                "LIBROS_DOCENTES",
+                "CUENTA_USUARIO",
+                "LIBROS_BIBLIOTECA"
+            ],
+            "ci": "12345678902",
+            "nombre": "Maria",
+            "primer_apellido": "Gonzalez",
+            "segundo_apellido": "Perez",
+            "facultad": "Ing_Informatica",
+            "nombreUsuario": "estudiante2",
+            "contrasena": "6cf615d5bcaac778352a8f1f3360d23f02f34ec182e259897fd6ce485d7870d4"
+        },
+        "estado": "PENDIENTE",
+        "motivo": "fdfdfd",
+        "fecha": "2023-11-03"
+    },
+    {
+        "fechaSalida": "hoy",
+        "fechaRegreso": "mes que viene",
+        "estudiante": {
+            "idBecado": "Becado456",
+            "noCuarto": 45,
+            "curso": 4,
+            "tipoCurso": "ENCUENTRO",
+            "carrera": "Ingenieria Informatica",
+            "grupo": 4,
+            "responsabilidades": [
+                "CARNET_CUJAE",
+                "ESTIPENDIO",
+                "LIBROS_DOCENTES",
+                "CUENTA_USUARIO",
+                "LIBROS_BIBLIOTECA"
+            ],
+            "ci": "34567890124",
+            "nombre": "Sofia",
+            "primer_apellido": "Fernandez",
+            "segundo_apellido": "Fernandez",
+            "facultad": "Ing_Informatica",
+            "nombreUsuario": "estudiante4",
+            "contrasena": "b97873a40f73abedd8d685a7cd5e5f85e4a9cfb83eac26886640a0813850122b"
+        },
+        "estado": "PENDIENTE",
+        "motivo": "fdfdfd",
+        "fecha": "2023-11-03"
+    },
+    {
+        "fechaSalida": "hoy",
+        "fechaRegreso": "mes que viene",
+        "estudiante": {
+            "idBecado": "Becado678",
+            "noCuarto": 67,
+            "curso": 6,
+            "tipoCurso": "ENCUENTRO",
+            "carrera": "Ingenieria Informatica",
+            "grupo": 6,
+            "responsabilidades": [
+                "CARNET_CUJAE",
+                "ESTIPENDIO",
+                "LIBROS_DOCENTES",
+                "CUENTA_USUARIO",
+                "LIBROS_BIBLIOTECA"
+            ],
+            "ci": "56789012346",
+            "nombre": "Carlos",
+            "primer_apellido": "Sanchez",
+            "segundo_apellido": "Fernandez",
+            "facultad": "Ing_Informatica",
+            "nombreUsuario": "estudiante6",
+            "contrasena": "598a1a400c1dfdf36974e69d7e1bc98593f2e15015eed8e9b7e47a83b31693d5"
+        },
+        "estado": "PENDIENTE",
+        "motivo": "fdfdfd",
+        "fecha": "2023-11-03"
+    },
+    {
+        "fechaSalida": "hoy",
+        "fechaRegreso": "mes que viene",
+        "estudiante": {
+            "idBecado": "Becado789",
+            "noCuarto": 78,
+            "curso": 2,
+            "tipoCurso": "ENCUENTRO",
+            "carrera": "Ingenieria Informatica",
+            "grupo": 2,
+            "responsabilidades": [
+                "CARNET_CUJAE",
+                "ESTIPENDIO",
+                "LIBROS_DOCENTES",
+                "CUENTA_USUARIO",
+                "LIBROS_BIBLIOTECA"
+            ],
+            "ci": "78901234568",
+            "nombre": "Manuel",
+            "primer_apellido": "Torres",
+            "segundo_apellido": "Fernandez",
+            "facultad": "Ing_Informatica",
+            "nombreUsuario": "estudiante8",
+            "contrasena": "57f3ebab63f156fd8f776ba645a55d96360a15eeffc8b0e4afe4c05fa88219aa"
+        },
+        "estado": "PENDIENTE",
+        "motivo": "fdfdfd",
+        "fecha": "2023-11-03"
+    },
+    {
+        "fechaSalida": "hoy",
+        "fechaRegreso": "mes que viene",
+        "estudiante": {
+            "idBecado": "Becado890",
+            "noCuarto": 89,
+            "curso": 4,
+            "tipoCurso": "ENCUENTRO",
+            "carrera": "Ingenieria Informatica",
+            "grupo": 4,
+            "responsabilidades": [
+                "CARNET_CUJAE",
+                "ESTIPENDIO",
+                "LIBROS_DOCENTES",
+                "CUENTA_USUARIO",
+                "LIBROS_BIBLIOTECA"
+            ],
+            "ci": "90123456780",
+            "nombre": "Luis",
+            "primer_apellido": "Fernandez",
+            "segundo_apellido": "Fernandez",
+            "facultad": "Ing_Informatica",
+            "nombreUsuario": "estudiante10",
+            "contrasena": "aa4a9ea03fcac15b5fc63c949ac34e7b0fd17906716ac3b8e58c599cdc5a52f0"
+        },
+        "estado": "PENDIENTE",
+        "motivo": "fdfdfd",
+        "fecha": "2023-11-03"
+    },
+    {
+        "fechaSalida": "hoy",
+        "fechaRegreso": "mes que viene",
+        "estudiante": {
+            "idBecado": "Becado098",
+            "noCuarto": 90,
+            "curso": 6,
+            "tipoCurso": "ENCUENTRO",
+            "carrera": "Ingenieria Informatica",
+            "grupo": 6,
+            "responsabilidades": [
+                "CARNET_CUJAE",
+                "ESTIPENDIO",
+                "LIBROS_DOCENTES",
+                "CUENTA_USUARIO",
+                "LIBROS_BIBLIOTECA"
+            ],
+            "ci": "98765432102",
+            "nombre": "David",
+            "primer_apellido": "Sanchez",
+            "segundo_apellido": "Fernandez",
+            "facultad": "Ing_Informatica",
+            "nombreUsuario": "estudiante12",
+            "contrasena": "b3d17ebbe4f2b75d27b6309cfaae1487b667301a73951e7d523a039cd2dfe110"
+        },
+        "estado": "PENDIENTE",
+        "motivo": "fdfdfd",
+        "fecha": "2023-11-03"
+    },
+    {
+        "fechaSalida": "hoy",
+        "fechaRegreso": "mes que viene",
+        "estudiante": {
+            "idBecado": "Becado765",
+            "noCuarto": 100,
+            "curso": 2,
+            "tipoCurso": "ENCUENTRO",
+            "carrera": "Ingenieria Informatica",
+            "grupo": 2,
+            "responsabilidades": [
+                "CARNET_CUJAE",
+                "ESTIPENDIO",
+                "LIBROS_DOCENTES",
+                "CUENTA_USUARIO",
+                "LIBROS_BIBLIOTECA"
+            ],
+            "ci": "76543210124",
+            "nombre": "Eduardo",
+            "primer_apellido": "Torres",
+            "segundo_apellido": "Fernandez",
+            "facultad": "Ing_Informatica",
+            "nombreUsuario": "estudiante14",
+            "contrasena": "c6863e1db9b396ed31a36988639513a1c73a065fab83681f4b77adb648fac3d6"
+        },
+        "estado": "PENDIENTE",
+        "motivo": "fdfdfd",
+        "fecha": "2023-11-03"
+    }
+]

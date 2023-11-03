@@ -1,6 +1,11 @@
 package modelos.fabricas;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
+
+import com.google.gson.Gson;
 
 import modelos.solicitudes.SolicitudLicenciaEstudiante;
 import modelos.usuarios.Estudiante;

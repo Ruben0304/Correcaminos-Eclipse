@@ -119,21 +119,7 @@ public class EstudianteFactory {
                                 "Maria", "Lopez", "Fernandez",
                                 Facultad.Ing_Informatica, 3, TipoCurso.DIURNO, "Ingenieria Informatica",
                                 3, tiposResponsabilidads));
-                Gson gson = new Gson();
-
-                // Convertir la lista de estudiantes a formato JSON
-                String json = gson.toJson(estudiantes);
-
-                // Definir el nombre del archivo
-                String nombreArchivo = "estudiantes.json";
-
-                try (BufferedWriter writer = new BufferedWriter(new FileWriter(nombreArchivo))) {
-                        // Escribir el JSON en el archivo
-                        writer.write(json);
-                        System.out.println("JSON guardado correctamente en " + nombreArchivo);
-                } catch (IOException e) {
-                        e.printStackTrace();
-                }
+                
                 return estudiantes;
         }
 }

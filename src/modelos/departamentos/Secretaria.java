@@ -1,13 +1,19 @@
 package modelos.departamentos;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.lang.reflect.Type;
+
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 import modelos.fabricas.EstudianteFactory;
 import modelos.fabricas.SolicitudFactory;
 import modelos.solicitudes.SolicitudBajaEstudiante;
 import modelos.solicitudes.SolicitudLicenciaEstudiante;
 import modelos.usuarios.Estudiante;
-
 
 public class Secretaria {
     ArrayList<Estudiante> estudiantes;
@@ -20,21 +26,45 @@ public class Secretaria {
         solicitudesBaja = new ArrayList<>();
     }
 
-    public ArrayList<Estudiante> registrarEstudianteFictisios() {
-        estudiantes.addAll(EstudianteFactory.inicializarEstudiantes());
+    public ArrayList<Estudiante> registrarEstudiantes() {
+        Gson gson = new Gson();
+        ArrayList<Estudiante> estudiantes = new ArrayList<>();
+
+        try (BufferedReader reader = new BufferedReader(new FileReader("./estudiantes.json"))) {
+            Type listType = new TypeToken<ArrayList<Estudiante>>() {
+            }.getType();
+            
+            estudiantes = gson.fromJson(reader, listType);
+
+            // Ahora tienes la lista de estudiantes cargada desde el archivo JSON
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        this.estudiantes.addAll(estudiantes);
         return estudiantes;
     }
 
-    public ArrayList<SolicitudLicenciaEstudiante> registrarLicenciasEstudiantesFictisios() {
-        solicitudesLicenciaPendientes.addAll(SolicitudFactory.inicializarLicenciasEstudiantesFictisios(estudiantes));
-        return solicitudesLicenciaPendientes;
+    public ArrayList<SolicitudLicenciaEstudiante> registrarLicenciasEstudiantes() {
+        Gson gson = new Gson();
+        ArrayList<SolicitudLicenciaEstudiante> solicitudes = new ArrayList<>();
+
+        try (BufferedReader reader = new BufferedReader(new FileReader("./solicitudes.json"))) {
+            Type listType = new TypeToken<ArrayList<SolicitudLicenciaEstudiante>>() {
+            }.getType();
+            solicitudes = gson.fromJson(reader, listType);
+
+            // Ahora tienes la lista de estudiantes cargada desde el archivo JSON
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        this.solicitudesLicenciaPendientes.addAll(solicitudes);
+        return solicitudes;
     }
 
     public void agregarSolicitudDeLicencia(SolicitudLicenciaEstudiante solicitud) {
         solicitudesLicenciaPendientes.add(solicitud);
     }
-
-    
 
     public boolean verificarEstudianteSolicitaLicencia(Estudiante e) {
         boolean encontrado = false;
@@ -56,8 +86,6 @@ public class Secretaria {
         return estudianteEncontrado;
     }
 
-    
-
     public ArrayList<SolicitudLicenciaEstudiante> getSolicitudesLicenciaPendientes() {
 
         return solicitudesLicenciaPendientes;
@@ -71,11 +99,6 @@ public class Secretaria {
         return es;
     }
 
-    
-
-   
-
-     
     public ArrayList<Estudiante> getEstudiantes() {
 
         return estudiantes;

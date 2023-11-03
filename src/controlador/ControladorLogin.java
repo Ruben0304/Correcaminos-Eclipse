@@ -30,7 +30,7 @@ public class ControladorLogin {
 
     }
 
-    public static boolean autenticar(String nombreUsuario, String contrasena) {
+    public static boolean autenticar(String nombreUsuario, String contrasena, boolean mantenerConectado) {
         boolean encontrado = false;
         boolean autenticado = false;
         ArrayList<Usuario> usuarios = GestorPrincipal.gestorUsuarios().getUsuarios();
@@ -41,6 +41,16 @@ public class ControladorLogin {
             if (encontrado && hashContrasena(contrasena).equals(usuarios.get(i).getContrasena())) {
                 autenticado = true;
                 Auth.iniciarSesion(usuarios.get(i));
+                if (mantenerConectado) {
+                  Session  session = new Session(Auth.usuarioAutenticado().getNombreUsuario(), Auth.usuarioAutenticado().getContrasena());
+                  Gson gson = new Gson();
+                    try (BufferedWriter writer = new BufferedWriter(new FileWriter("./session.json"))) {
+                        String json = gson.toJson(session);
+                        writer.write(json);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
 
             }
 
@@ -49,7 +59,7 @@ public class ControladorLogin {
         return autenticado;
     }
 
-    public static boolean autenticarSinHash(String nombreUsuario, String contrasena) {
+    public static boolean autenticar(String nombreUsuario, String contrasena) {
         boolean encontrado = false;
         boolean autenticado = false;
         ArrayList<Usuario> usuarios = GestorPrincipal.gestorUsuarios().getUsuarios();
@@ -70,6 +80,14 @@ public class ControladorLogin {
 
     public static void cerrarSesion() {
         Auth.cerrarSesion();
+        Session  session = new Session("null", "null");
+                  Gson gson = new Gson();
+                    try (BufferedWriter writer = new BufferedWriter(new FileWriter("./session.json"))) {
+                        String json = gson.toJson(session);
+                        writer.write(json);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
         mostrarLogin();
     }
 
@@ -98,7 +116,7 @@ public class ControladorLogin {
             }
         }
 
-        return session != null && autenticarSinHash(session.getNombreUsuario(), session.getContrasena());
+        return session != null && autenticar(session.getNombreUsuario(), session.getContrasena());
     }
 
     private static String hashContrasena(String contrasena) {

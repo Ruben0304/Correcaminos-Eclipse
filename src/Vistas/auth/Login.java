@@ -103,7 +103,7 @@ public class Login extends JFrame {
 				String contrasena = new String(passwordChars);
 				String user = txtUsuario.getText();
 
-				if (ControladorLogin.autenticar(user, contrasena)) {
+				if (ControladorLogin.autenticar(user, contrasena, getMantenerConectado().isSelected())) {
 					ControladorPrincipal.mostrarInicio();
 					dispose();
 				} else {
@@ -183,7 +183,7 @@ public class Login extends JFrame {
 
 		JLabel lblNewLabel_3 = new JLabel("");
 		lblNewLabel_3.setBounds(627, 100, 94, 86);
-		
+
 		ImageIcon icon = new ImageIcon(getClass().getResource("/img/correcamino.png"));
 		ImageIcon imgan = new ImageIcon(icon.getImage().getScaledInstance(lblNewLabel_3.getWidth(),
 				lblNewLabel_3.getHeight(), Image.SCALE_SMOOTH));
@@ -202,7 +202,6 @@ public class Login extends JFrame {
 			iconito = new ImageIcon(Login.class.getResource("/img/contrasena.png"));
 		}
 
-		
 		ImageIcon imgen = new ImageIcon(iconito.getImage().getScaledInstance(lblNewLabel_4.getWidth(),
 				lblNewLabel_4.getHeight(), Image.SCALE_SMOOTH));
 		lblNewLabel_4.setIcon(imgen);
@@ -236,13 +235,16 @@ public class Login extends JFrame {
 		}
 		return checkbox;
 	}
+
 	private JCheckBox getMantenerConectado() {
 		if (mantenerConectado == null) {
 			mantenerConectado = new JCheckBox("Mantener sesion");
 			mantenerConectado.setForeground(new Color(37, 37, 37));
 			mantenerConectado.setBackground(new Color(253, 253, 253));
 			mantenerConectado.setBounds(623, 447, 124, 24);
+
 		}
+		
 		return mantenerConectado;
 	}
 }

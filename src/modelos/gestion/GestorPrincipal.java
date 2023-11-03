@@ -2,20 +2,20 @@ package modelos.gestion;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
 import modelos.departamentos.RecursosHumanos;
 import modelos.departamentos.Secretaria;
 // import modelos.fabricas.AdminFactory;
-import modelos.solicitudes.SolicitudLicenciaEstudiante;
-import modelos.usuarios.Admin;
+
 import modelos.usuarios.Persona;
-import modelos.usuarios.Usuario;
 
 public class GestorPrincipal {
     private static GestorPrincipal gestorPrincipal;
@@ -28,12 +28,11 @@ public class GestorPrincipal {
         secretaria = new Secretaria();
         recursosHumanos = new RecursosHumanos();
         gestorUsuarios = new GestorUsuarios();
-        
-        personas.addAll(secretaria.registrarEstudiantes()); 
+
+        personas.addAll(secretaria.registrarEstudiantes());
         personas.addAll(recursosHumanos.getEmpleados());
         secretaria.registrarLicenciasEstudiantes();
         gestorUsuarios.registrarUsuarios(personas);
-        
 
     }
 
@@ -65,7 +64,6 @@ public class GestorPrincipal {
         return gestorPrincipal.getRecursosHumanos();
     }
 
-    
     private Secretaria getSecretaria() {
         return secretaria;
     }
@@ -88,6 +86,29 @@ public class GestorPrincipal {
             }
         }
         return usuarioEncontrado;
+    }
+
+    public void actualizarDatos() {
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        String jsonAdmins = gson.toJson(gestorUsuarios.getAdmins());
+        String jsonEstudiantes = gson.toJson(secretaria.getEstudiantes());
+        String jsonSolicitudes = gson.toJson(secretaria.getSolicitudesLicenciaPendientes());
+        try {
+
+            FileWriter writerA = new FileWriter("./admins.json");
+            FileWriter writerE = new FileWriter("./estudiantes.json");
+            FileWriter writerS = new FileWriter("./solicitudes.json");
+            writerA.write(jsonAdmins);
+            writerE.write(jsonEstudiantes);
+            writerS.write(jsonSolicitudes);
+            writerA.close();
+            writerE.close();
+            writerS.close();
+
+            System.out.println("Guardado todo ok.");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }

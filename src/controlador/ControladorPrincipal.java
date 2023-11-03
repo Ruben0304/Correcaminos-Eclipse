@@ -50,4 +50,11 @@ public class ControladorPrincipal {
         }
         mostrarInicio();
     }
+
+    public static void actualizarDatos() {
+
+        GestorPrincipal.getGestorPrincipal().actualizarDatos();
+        mostrarInicio();
+
+    }
 }

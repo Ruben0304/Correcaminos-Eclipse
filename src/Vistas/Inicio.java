@@ -169,6 +169,19 @@ public class Inicio extends JFrame {
 		JMenuItem mntmAcercaDeLa = new JMenuItem("Acerca de la app");
 		
 		mnNewMenu_3.add(mntmAcercaDeLa);
+		
+		JMenu mnDatos = new JMenu("Datos");
+		mnDatos.setForeground(Colores.TEXTO_OSCURO);
+		menuBar.add(mnDatos);
+		
+		JMenuItem mntmGuardar = new JMenuItem("Guardar");
+		mntmGuardar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ControladorPrincipal.actualizarDatos();
+				dispose();
+			}
+		});
+		mnDatos.add(mntmGuardar);
 
 		
 

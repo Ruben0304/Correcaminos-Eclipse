@@ -21,6 +21,8 @@ public class SolicitudBajaEstudiante {
         this.fecha = fechaActual.toString();
     }
 
+    
+
     public Estudiante getEstudiante() {
         return estudiante;
     }
@@ -40,4 +42,6 @@ public class SolicitudBajaEstudiante {
     public void setEstado(Estado estado) {
         this.estado = estado;
     }
+
+   
 }

@@ -14,6 +14,8 @@ public class SolicitudLicenciaEstudiante extends SolicitudBajaEstudiante{
         this.fechaRegreso = fechaRegreso;
     }
 
+    
+
     public String getFechaSalida() {
         return fechaSalida;
     }

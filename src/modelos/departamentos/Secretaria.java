@@ -45,21 +45,34 @@ public class Secretaria {
         return estudiantes;
     }
 
-    public ArrayList<SolicitudLicenciaEstudiante> registrarLicenciasEstudiantes() {
+    public void registrarLicenciasEstudiantes() {
         Gson gson = new Gson();
         ArrayList<SolicitudLicenciaEstudiante> solicitudes = new ArrayList<>();
 
         try (BufferedReader reader = new BufferedReader(new FileReader("./solicitudes.json"))) {
-            Type listType = new TypeToken<ArrayList<SolicitudLicenciaEstudiante>>() {
-            }.getType();
+            Type listType = new TypeToken<ArrayList<SolicitudLicenciaEstudiante>>() {}.getType();
             solicitudes = gson.fromJson(reader, listType);
 
-            // Ahora tienes la lista de estudiantes cargada desde el archivo JSON
+      
+
+            ArrayList<SolicitudLicenciaEstudiante> solicitudesRegistradas = new ArrayList<>();
+
+            for (SolicitudLicenciaEstudiante solicitud : solicitudes) {
+                String estudianteId = solicitud.getEstudiante().getCi();
+                Estudiante estudianteExistente = buscarEstudiante(estudianteId);
+
+                if (estudianteExistente != null) {
+                   
+                    SolicitudLicenciaEstudiante solicitudRegistrada = new SolicitudLicenciaEstudiante(estudianteExistente,solicitud.getMotivo(),solicitud.getFechaSalida(),solicitud.getFechaRegreso());
+                    solicitudesRegistradas.add(solicitudRegistrada);
+                } 
+            }
+
+            // Agrega las solicitudes registradas a la lista de solicitudes de la Secretaría
+            this.solicitudesLicenciaPendientes.addAll(solicitudesRegistradas);
         } catch (IOException e) {
             e.printStackTrace();
         }
-        this.solicitudesLicenciaPendientes.addAll(solicitudes);
-        return solicitudes;
     }
 
     public void agregarSolicitudDeLicencia(SolicitudLicenciaEstudiante solicitud) {
@@ -69,7 +82,7 @@ public class Secretaria {
     public boolean verificarEstudianteSolicitaLicencia(Estudiante e) {
         boolean encontrado = false;
         for (int i = 0; i < this.solicitudesLicenciaPendientes.size() && !encontrado; i++) {
-            encontrado = e.equals(this.solicitudesLicenciaPendientes.get(i).getEstudiante());
+            encontrado = e.getCi().equals(this.solicitudesLicenciaPendientes.get(i).getEstudiante().getCi());
         }
         return encontrado;
     }

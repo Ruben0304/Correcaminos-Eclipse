@@ -60,7 +60,7 @@ public class ControladorLogin {
     public static boolean comprobarSession() {
         Gson gson = new Gson();
         Usuario usuario = null;
-        try (BufferedReader reader = new BufferedReader(new FileReader("./datos/session.json"))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("./session.json"))) {
             Type listType = new TypeToken<Usuario>() {
             }.getType();
 

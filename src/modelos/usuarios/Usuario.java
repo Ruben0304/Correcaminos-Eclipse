@@ -14,6 +14,8 @@ public abstract class Usuario {
 		this.contrasena = contrasena;
 	}
 
+	
+
 	public void setNombreUsuario(String nombreUsuario) {
 		this.nombreUsuario = nombreUsuario;
 	}

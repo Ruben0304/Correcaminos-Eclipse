@@ -12,7 +12,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import modelos.auth.Auth;
-
+import modelos.auth.Session;
 import modelos.gestion.GestorPrincipal;
 
 import modelos.usuarios.Usuario;
@@ -59,16 +59,16 @@ public class ControladorLogin {
 
     public static boolean comprobarSession() {
         Gson gson = new Gson();
-        Usuario usuario = null;
+        Session session = null;
         try (BufferedReader reader = new BufferedReader(new FileReader("./session.json"))) {
-            usuario = gson.fromJson(reader, Usuario.class);
+            session = gson.fromJson(reader, Session.class);
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return usuario != null && autenticar(usuario.getNombreUsuario(), usuario.getContrasena());
+        return session != null && autenticar(session.getNombreUsuario(), session.getContrasena());
     }
 
-    
+
     private static String hashContrasena(String contrasena) {
 
         try {

@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
-import modelos.solicitudes.SolicitudLicenciaEstudiante;
+
 import modelos.usuarios.Admin;
 import modelos.usuarios.Persona;
 import modelos.usuarios.Usuario;
@@ -38,7 +38,7 @@ public class GestorUsuarios {
         Gson gson = new Gson();
         ArrayList<Admin> admins = new ArrayList<>();
 
-        try (BufferedReader reader = new BufferedReader(new FileReader("./datos/admins.json"))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("admins.json"))) {
             Type listType = new TypeToken<ArrayList<Admin>>() {
             }.getType();
             admins = gson.fromJson(reader, listType);

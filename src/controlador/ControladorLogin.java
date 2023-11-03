@@ -20,14 +20,7 @@ import vistas.auth.Login;
 
 public class ControladorLogin {
 
-    public static void iniciar() {
-         if (comprobarSession()) {
-            ControladorPrincipal.mostrarInicio();
-         }
-         else{
-            mostrarLogin();
-         }
-    }
+    
 
     public static void mostrarLogin() {
 

@@ -30,7 +30,7 @@ public class Secretaria {
         Gson gson = new Gson();
         ArrayList<Estudiante> estudiantes = new ArrayList<>();
 
-        try (BufferedReader reader = new BufferedReader(new FileReader("./datos/estudiantes.json"))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("estudiantes.json"))) {
             Type listType = new TypeToken<ArrayList<Estudiante>>() {
             }.getType();
             
@@ -49,7 +49,7 @@ public class Secretaria {
         Gson gson = new Gson();
         ArrayList<SolicitudLicenciaEstudiante> solicitudes = new ArrayList<>();
 
-        try (BufferedReader reader = new BufferedReader(new FileReader("./datos/solicitudes.json"))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("solicitudes.json"))) {
             Type listType = new TypeToken<ArrayList<SolicitudLicenciaEstudiante>>() {}.getType();
             solicitudes = gson.fromJson(reader, listType);
 

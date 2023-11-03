@@ -77,7 +77,7 @@ public class Login extends JFrame {
 
 		txtUsuario = new JTextField();
 		txtUsuario.setBackground(Colores.BLANCO);
-		txtUsuario.setForeground(Colores.TEXTO_GRIS);
+		txtUsuario.setForeground(Colores.TEXTO_OSCURO);
 		txtUsuario.setBorder(new MatteBorder(0, 0, 2, 0, (Color) Colores.NEGRO));
 		txtUsuario.setBounds(603, 246, 179, 25);
 		contentPane.add(txtUsuario);
@@ -145,7 +145,7 @@ public class Login extends JFrame {
 
 		passwordField = new JPasswordField();
 		passwordField.setBackground(Colores.BLANCO);
-		passwordField.setForeground(Colores.TEXTO_GRIS);
+		passwordField.setForeground(Colores.TEXTO_OSCURO);
 		passwordField.setBorder(new MatteBorder(0, 0, 2, 0, (Color) Colores.NEGRO));
 		passwordField.setBounds(603, 311, 179, 25);
 		passwordField.setColumns(10);

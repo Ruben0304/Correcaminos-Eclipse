@@ -61,17 +61,14 @@ public class ControladorLogin {
         Gson gson = new Gson();
         Usuario usuario = null;
         try (BufferedReader reader = new BufferedReader(new FileReader("./session.json"))) {
-            Type listType = new TypeToken<Usuario>() {
-            }.getType();
-
-            usuario = gson.fromJson(reader, listType);
-
+            usuario = gson.fromJson(reader, Usuario.class);
         } catch (IOException e) {
             e.printStackTrace();
         }
         return usuario != null && autenticar(usuario.getNombreUsuario(), usuario.getContrasena());
     }
 
+    
     private static String hashContrasena(String contrasena) {
 
         try {

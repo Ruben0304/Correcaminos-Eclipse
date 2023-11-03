@@ -68,7 +68,7 @@ public class Secretaria {
                 } 
             }
 
-            // Agrega las solicitudes registradas a la lista de solicitudes de la Secretaría
+            
             this.solicitudesLicenciaPendientes.addAll(solicitudesRegistradas);
         } catch (IOException e) {
             e.printStackTrace();

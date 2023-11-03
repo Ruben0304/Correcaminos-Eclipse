@@ -1,7 +1,10 @@
 package controlador;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.security.MessageDigest;
@@ -19,8 +22,6 @@ import modelos.usuarios.Usuario;
 import vistas.auth.Login;
 
 public class ControladorLogin {
-
-    
 
     public static void mostrarLogin() {
 
@@ -48,6 +49,25 @@ public class ControladorLogin {
         return autenticado;
     }
 
+    public static boolean autenticarSinHash(String nombreUsuario, String contrasena) {
+        boolean encontrado = false;
+        boolean autenticado = false;
+        ArrayList<Usuario> usuarios = GestorPrincipal.gestorUsuarios().getUsuarios();
+
+        for (int i = 0; i < usuarios.size() && !encontrado; i++) {
+            encontrado = nombreUsuario.equals(usuarios.get(i).getNombreUsuario());
+
+            if (encontrado && contrasena.equals(usuarios.get(i).getContrasena())) {
+                autenticado = true;
+                Auth.iniciarSesion(usuarios.get(i));
+
+            }
+
+        }
+
+        return autenticado;
+    }
+
     public static void cerrarSesion() {
         Auth.cerrarSesion();
         mostrarLogin();
@@ -60,14 +80,26 @@ public class ControladorLogin {
     public static boolean comprobarSession() {
         Gson gson = new Gson();
         Session session = null;
-        try (BufferedReader reader = new BufferedReader(new FileReader("./session.json"))) {
-            session = gson.fromJson(reader, Session.class);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return session != null && autenticar(session.getNombreUsuario(), session.getContrasena());
-    }
+        File file = new File("./session.json");
 
+        if (file.exists()) {
+            try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
+                session = gson.fromJson(reader, Session.class);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            session = new Session("null", "null");
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
+                String json = gson.toJson(session);
+                writer.write(json);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return session != null && autenticarSinHash(session.getNombreUsuario(), session.getContrasena());
+    }
 
     private static String hashContrasena(String contrasena) {
 

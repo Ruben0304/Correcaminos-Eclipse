@@ -38,7 +38,7 @@ public class GestorUsuarios {
         Gson gson = new Gson();
         ArrayList<Admin> admins = new ArrayList<>();
 
-        try (BufferedReader reader = new BufferedReader(new FileReader("./admins.json"))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("./datos/admins.json"))) {
             Type listType = new TypeToken<ArrayList<Admin>>() {
             }.getType();
             admins = gson.fromJson(reader, listType);

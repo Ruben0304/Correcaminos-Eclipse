@@ -33,7 +33,7 @@ import javax.swing.JPasswordField;
 import utiles.Colores;
 
 import java.awt.Cursor;
-import javax.swing.JToggleButton;
+
 import javax.swing.JCheckBox;
 
 public class Login extends JFrame {

@@ -1,7 +1,6 @@
 package modelos.gestion;
 
 import java.util.ArrayList;
-
 import modelos.departamentos.RecursosHumanos;
 import modelos.departamentos.Secretaria;
 import modelos.fabricas.AdminFactory;

@@ -11,7 +11,7 @@ import com.google.gson.reflect.TypeToken;
 
 import modelos.departamentos.RecursosHumanos;
 import modelos.departamentos.Secretaria;
-import modelos.fabricas.AdminFactory;
+// import modelos.fabricas.AdminFactory;
 import modelos.solicitudes.SolicitudLicenciaEstudiante;
 import modelos.usuarios.Admin;
 import modelos.usuarios.Persona;

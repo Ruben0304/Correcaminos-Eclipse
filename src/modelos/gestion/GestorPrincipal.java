@@ -96,7 +96,7 @@ public class GestorPrincipal {
 
             FileWriter writerA = new FileWriter("./admins.json");
             FileWriter writerE = new FileWriter("./estudiantes.json");
-            FileWriter writerS = new FileWriter("./fabricas.solicitudes.json");
+            FileWriter writerS = new FileWriter("./solicitudes.json");
             writerA.write(jsonAdmins);
             writerE.write(jsonEstudiantes);
             writerS.write(jsonSolicitudes);

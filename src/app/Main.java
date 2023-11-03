@@ -7,17 +7,15 @@ import controlador.ControladorPrincipal;
 import modelos.gestion.GestorPrincipal;
 
 public class Main {
-    public static void main(String[] args) {
+	public static void main(String[] args) {
 		GestorPrincipal.getGestorPrincipal();
 		SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					if (ControladorLogin.comprobarSession()) {
-						ControladorPrincipal.mostrarInicio();
-					 }
-					 else{
-						ControladorLogin.mostrarLogin();
-					 }
+					
+					ControladorLogin.comprobarSession();
+					ControladorPrincipal.mostrarInicio();
+
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

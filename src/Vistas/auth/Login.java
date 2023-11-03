@@ -42,6 +42,7 @@ public class Login extends JFrame {
 	private JTextField txtUsuario;
 	private JPasswordField passwordField;
 	private JCheckBox checkbox;
+	private JCheckBox mantenerConectado;
 
 	/**
 	 * Create the frame.
@@ -54,7 +55,7 @@ public class Login extends JFrame {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Login.class.getResource("/img/correcamino.png")));
 		setTitle("CorrecaminosCujae");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 868, 602);
+		setBounds(100, 100, 871, 629);
 		setLocationRelativeTo(null);
 
 		contentPane = new JPanel();
@@ -68,7 +69,7 @@ public class Login extends JFrame {
 		lblNewLabel.setBorder(null);
 		lblNewLabel.setBackground(new Color(204, 255, 204));
 		lblNewLabel.setFont(new Font("Brush Script MT", Font.PLAIN, 44));
-		lblNewLabel.setBounds(0, 0, 505, 567);
+		lblNewLabel.setBounds(0, 0, 517, 594);
 		ImageIcon ico = new ImageIcon(getClass().getResource("/img/licencia.jpg"));
 		ImageIcon img = new ImageIcon(
 				ico.getImage().getScaledInstance(lblNewLabel.getWidth(), lblNewLabel.getHeight(), Image.SCALE_SMOOTH));
@@ -128,7 +129,7 @@ public class Login extends JFrame {
 				dispose();
 			}
 		});
-		btnNewButton_1.setBounds(639, 487, 94, 25);
+		btnNewButton_1.setBounds(639, 512, 94, 25);
 		contentPane.add(btnNewButton_1);
 
 		JLabel lblNewLabel_1 = new JLabel("Usuario");
@@ -162,7 +163,7 @@ public class Login extends JFrame {
 		lblEsNuevoa.setHorizontalAlignment(SwingConstants.CENTER);
 		lblEsNuevoa.setForeground(Colores.NEGRO);
 		lblEsNuevoa.setFont(new Font("Arial Narrow", Font.BOLD, 18));
-		lblEsNuevoa.setBounds(603, 455, 159, 25);
+		lblEsNuevoa.setBounds(603, 480, 159, 25);
 		contentPane.add(lblEsNuevoa);
 
 		JLabel lblNewLabel_2 = new JLabel("");
@@ -207,6 +208,7 @@ public class Login extends JFrame {
 		lblNewLabel_4.setIcon(imgen);
 		contentPane.add(lblNewLabel_4);
 		contentPane.add(getCheckbox());
+		contentPane.add(getMantenerConectado());
 
 	}
 
@@ -229,9 +231,18 @@ public class Login extends JFrame {
 					}
 				}
 			});
-			checkbox.setBounds(746, 534, 116, 24);
+			checkbox.setBounds(741, 561, 116, 24);
 
 		}
 		return checkbox;
+	}
+	private JCheckBox getMantenerConectado() {
+		if (mantenerConectado == null) {
+			mantenerConectado = new JCheckBox("Mantener sesion");
+			mantenerConectado.setForeground(new Color(37, 37, 37));
+			mantenerConectado.setBackground(new Color(253, 253, 253));
+			mantenerConectado.setBounds(623, 447, 124, 24);
+		}
+		return mantenerConectado;
 	}
 }

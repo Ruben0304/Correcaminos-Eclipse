@@ -15,13 +15,16 @@ public class ControladorPrincipal {
 
     public static void mostrarInicio() {
 
-        
+        if (Auth.hayUsuarioAutenticado()) {
             Inicio inicio = new Inicio(Auth.usuarioAutenticado(), GestorPrincipal.secretaria());
             inicio.setVisible(true);
+        }else{
+            ControladorLogin.mostrarLogin();
+        }
+            
         
 
     }
-
     public static void mostrarTramites() {
         Usuario usuarioAutenticado = Auth.usuarioAutenticado();
         if (usuarioAutenticado instanceof Estudiante) {

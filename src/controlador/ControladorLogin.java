@@ -6,13 +6,13 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.lang.reflect.Type;
+
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 
 import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
+
 
 import modelos.auth.Auth;
 import modelos.auth.Session;

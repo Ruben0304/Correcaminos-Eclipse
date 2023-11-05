@@ -14,12 +14,23 @@ public class RecursosHumanos {
     ArrayList<SolicitudLicenciaEmpleado> solicitudesLicenciaEmpleados;
 
     public RecursosHumanos() {
-        this.empleados = new ArrayList<>();
+        this.empleados = new ArrayList<Empleado>();
+        this.solicitudesBajaEmpleados = new ArrayList<SolicitudBajaEmpleados>();
+        this.solicitudesLicenciaEmpleados = new ArrayList<SolicitudLicenciaEmpleado>();
     }
     
-    public RecursosHumanos(ArrayList<Empleado> empleados) {
-        this.empleados = empleados;
+    public void cargarEmpleados() {}
+    public void cargarSolicitudesDeBaja() {}
+    public void cargarSolicitudesDeLicencia() {}
+    
+    public void agregarNuevaSolicitudDeBaja(SolicitudBajaEmpleados solicitud) {
+    	solicitudesBajaEmpleados.add(solicitud);
     }
+    public void agregarNuevaSolicitudDeLicencia(SolicitudLicenciaEmpleado solicitud) {
+    	solicitudesLicenciaEmpleados.add(solicitud);
+    }
+    
+   
 
     public ArrayList<Empleado> getEmpleados() {
         return empleados;

@@ -7,12 +7,12 @@ import utiles.TiposResponsabilidad;
 
 public class Economia {
 
-    public static boolean tieneEstipendio(Estudiante e) {
-        return e.getResponsabilidades().contains(TiposResponsabilidad.ESTIPENDIO);
+    private static boolean tieneEstipendio(Estudiante e) {
+        return e.tieneEstipendio();
     }
 
-    public static boolean tieneDeuda(Estudiante e) {
-        return e.getResponsabilidades().contains(TiposResponsabilidad.DEUDA);
+    private static boolean tieneDeuda(Estudiante e) {
+        return e.tieneDeuda();
     }
 
     public static boolean tieneRequisitosCumplidos(Estudiante e) {

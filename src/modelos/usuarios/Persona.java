@@ -24,11 +24,7 @@ public abstract class Persona extends Usuario {
         this.facultad = facultad;
         
     }
-
-    public abstract void solicitarLicencia(Secretaria secretaria,String motivo, String fechaInicio, String fechaFin);
-
-    public abstract void solicitarBaja();
-
+    
     public String getCi() {
         return ci;
     }

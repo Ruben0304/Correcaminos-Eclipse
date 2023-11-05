@@ -9,9 +9,9 @@ import modelos.usuarios.Empleado;
 
 
 public class RecursosHumanos {
-    ArrayList<Empleado> empleados;
-    ArrayList<SolicitudBajaEmpleados> solicitudesBajaEmpleados;
-    ArrayList<SolicitudLicenciaEmpleado> solicitudesLicenciaEmpleados;
+    private ArrayList<Empleado> empleados;
+    private ArrayList<SolicitudBajaEmpleados> solicitudesBajaEmpleados;
+    private ArrayList<SolicitudLicenciaEmpleado> solicitudesLicenciaEmpleados;
 
     public RecursosHumanos() {
         this.empleados = new ArrayList<Empleado>();
@@ -31,14 +31,19 @@ public class RecursosHumanos {
     }
     
    
-
     public ArrayList<Empleado> getEmpleados() {
         return empleados;
     }
 
-    public void setEmpleados(ArrayList<Empleado> empleados) {
-        this.empleados = empleados;
-    }
+	public ArrayList<SolicitudBajaEmpleados> getSolicitudesBajaEmpleados() {
+		return solicitudesBajaEmpleados;
+	}
+
+	public ArrayList<SolicitudLicenciaEmpleado> getSolicitudesLicenciaEmpleados() {
+		return solicitudesLicenciaEmpleados;
+	}
+
+    
     
 
    

@@ -16,9 +16,9 @@ import modelos.solicitudes.SolicitudLicenciaEstudiante;
 import modelos.usuarios.Estudiante;
 
 public class Secretaria {
-    ArrayList<Estudiante> estudiantes;
-    ArrayList<SolicitudLicenciaEstudiante> solicitudesLicenciaPendientes;
-    ArrayList<SolicitudBajaEstudiante> solicitudesBaja;
+    private ArrayList<Estudiante> estudiantes;
+    private ArrayList<SolicitudLicenciaEstudiante> solicitudesLicenciaPendientes;
+    private ArrayList<SolicitudBajaEstudiante> solicitudesBaja;
 
     public Secretaria() {
         estudiantes = new ArrayList<>();

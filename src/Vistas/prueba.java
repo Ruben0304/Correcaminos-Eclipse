@@ -52,6 +52,8 @@ public class prueba extends JFrame {
 	private JLabel lblReportes;
 	private JLabel lblGuardar;
 	private JLabel lblCuenta;
+	private JLabel label_1;
+	private JLabel label_2;
 
 	/**
 	 * Launch the application.
@@ -84,10 +86,11 @@ public class prueba extends JFrame {
 		contentPane.add(getPanel_inicio());
 		contentPane.add(getPanel_lateral());
 	}
+
 	private JPanel getPanel_inicio() {
 		if (panel_inicio == null) {
 			panel_inicio = new JPanel();
-			panel_inicio.setBounds(0, 0, 155, 700);
+			panel_inicio.setBounds(0, 0, 71, 700);
 			panel_inicio.setAlignmentX(Component.LEFT_ALIGNMENT);
 			panel_inicio.setBackground(new Color(20, 20, 20));
 			panel_inicio.setLayout(null);
@@ -106,9 +109,12 @@ public class prueba extends JFrame {
 			panel_inicio.add(getLblReportes());
 			panel_inicio.add(getLabel_1_1());
 			panel_inicio.add(getLabel_1_2());
+			panel_inicio.add(getLabel_1());
+			panel_inicio.add(getLabel_2());
 		}
 		return panel_inicio;
 	}
+
 	private JLabel getHome() {
 		if (home == null) {
 			home = new JLabel("New label");
@@ -128,6 +134,7 @@ public class prueba extends JFrame {
 		}
 		return home;
 	}
+
 	private JLabel getGuardar() {
 		if (guardar == null) {
 			guardar = new JLabel("New label");
@@ -147,6 +154,7 @@ public class prueba extends JFrame {
 		}
 		return guardar;
 	}
+
 	private JLabel getAccount() {
 		if (account == null) {
 			account = new JLabel("New label");
@@ -166,6 +174,7 @@ public class prueba extends JFrame {
 		}
 		return account;
 	}
+
 	private JLabel getGestion() {
 		if (gestion == null) {
 			gestion = new JLabel("New label");
@@ -185,6 +194,7 @@ public class prueba extends JFrame {
 		}
 		return gestion;
 	}
+
 	private JLabel getLabel_3() {
 		if (label_3 == null) {
 			label_3 = new JLabel("");
@@ -194,6 +204,7 @@ public class prueba extends JFrame {
 		}
 		return label_3;
 	}
+
 	private JLabel getLblInicio() {
 		if (lblInicio == null) {
 			lblInicio = new JLabel("Inicio");
@@ -203,6 +214,7 @@ public class prueba extends JFrame {
 		}
 		return lblInicio;
 	}
+
 	private JLabel getReportes() {
 		if (reportes == null) {
 			reportes = new JLabel("New label");
@@ -222,6 +234,7 @@ public class prueba extends JFrame {
 		}
 		return reportes;
 	}
+
 	private JLabel getLblCorrecaminosCujae() {
 		if (lblCorrecaminosCujae == null) {
 			lblCorrecaminosCujae = new JLabel("Correcaminos");
@@ -231,6 +244,7 @@ public class prueba extends JFrame {
 		}
 		return lblCorrecaminosCujae;
 	}
+
 	private JTextArea getTxtrnecesitasSolicitarUna() {
 		if (txtrnecesitasSolicitarUna == null) {
 			txtrnecesitasSolicitarUna = new JTextArea();
@@ -239,11 +253,13 @@ public class prueba extends JFrame {
 			txtrnecesitasSolicitarUna.setLineWrap(true);
 			txtrnecesitasSolicitarUna.setForeground(new Color(255, 255, 255));
 			txtrnecesitasSolicitarUna.setBackground(new Color(31, 33, 36));
-//			new Color()
-			txtrnecesitasSolicitarUna.setText("\r\n. Correcamino: una app para gestionar bajas y licencias universitarias.\r\n\r\n.\u00BFNecesitas una baja o una licencia? Correcamino te ayuda a solicitarlas y a conocer los requisitos.\r\n\r\n.Correcamino te permite enviar tu solicitud electr\u00F3nicamente, recibir notificaciones, descargar documentos y contactar con el personal.\r\n\r\n.Correcamino es segura, r\u00E1pida y f\u00E1cil de usar. Desc\u00E1rgala y disfruta de sus ventajas.");
+			// new Color()
+			txtrnecesitasSolicitarUna.setText(
+					"\r\n. Correcamino: una app para gestionar bajas y licencias universitarias.\r\n\r\n.\u00BFNecesitas una baja o una licencia? Correcamino te ayuda a solicitarlas y a conocer los requisitos.\r\n\r\n.Correcamino te permite enviar tu solicitud electr\u00F3nicamente, recibir notificaciones, descargar documentos y contactar con el personal.\r\n\r\n.Correcamino es segura, r\u00E1pida y f\u00E1cil de usar. Desc\u00E1rgala y disfruta de sus ventajas.");
 		}
 		return txtrnecesitasSolicitarUna;
 	}
+
 	private JLabel getLblQueSomos() {
 		if (lblQueSomos == null) {
 			lblQueSomos = new JLabel("Qu\u00E9 somos ?");
@@ -253,6 +269,7 @@ public class prueba extends JFrame {
 		}
 		return lblQueSomos;
 	}
+
 	private JPanel getPanel_lateral() {
 		if (panel_lateral == null) {
 			panel_lateral = new JPanel();
@@ -270,6 +287,7 @@ public class prueba extends JFrame {
 		}
 		return panel_lateral;
 	}
+
 	private JLabel getLblEntrar() {
 		if (lblEntrar == null) {
 			lblEntrar = new JLabel("Entrar");
@@ -285,6 +303,7 @@ public class prueba extends JFrame {
 		}
 		return lblEntrar;
 	}
+
 	private JLabel getLabel_6() {
 		if (label_6 == null) {
 			label_6 = new JLabel("");
@@ -293,6 +312,7 @@ public class prueba extends JFrame {
 		}
 		return label_6;
 	}
+
 	private JLabel getHome_bg() {
 		if (home_bg == null) {
 			home_bg = new JLabel("New label");
@@ -301,6 +321,7 @@ public class prueba extends JFrame {
 		}
 		return home_bg;
 	}
+
 	private JLabel getGestion_bg() {
 		if (gestion_bg == null) {
 			gestion_bg = new JLabel("New label");
@@ -310,6 +331,7 @@ public class prueba extends JFrame {
 		}
 		return gestion_bg;
 	}
+
 	private JLabel getReportes_bg() {
 		if (reportes_bg == null) {
 			reportes_bg = new JLabel("New label");
@@ -319,6 +341,7 @@ public class prueba extends JFrame {
 		}
 		return reportes_bg;
 	}
+
 	private JLabel getGuardar_bg() {
 		if (guardar_bg == null) {
 			guardar_bg = new JLabel("New label");
@@ -328,6 +351,7 @@ public class prueba extends JFrame {
 		}
 		return guardar_bg;
 	}
+
 	private JLabel getAccount_bg() {
 		if (account_bg == null) {
 			account_bg = new JLabel("New label");
@@ -337,6 +361,7 @@ public class prueba extends JFrame {
 		}
 		return account_bg;
 	}
+
 	private JLabel getLabel() {
 		if (label == null) {
 			label = new JLabel("Inicio");
@@ -346,6 +371,7 @@ public class prueba extends JFrame {
 		}
 		return label;
 	}
+
 	private JLabel getLblGestion() {
 		if (lblGestion == null) {
 			lblGestion = new JLabel("Gestion");
@@ -355,6 +381,7 @@ public class prueba extends JFrame {
 		}
 		return lblGestion;
 	}
+
 	private JLabel getLblReportes() {
 		if (lblReportes == null) {
 			lblReportes = new JLabel("Reportes");
@@ -364,6 +391,7 @@ public class prueba extends JFrame {
 		}
 		return lblReportes;
 	}
+
 	private JLabel getLabel_1_1() {
 		if (lblGuardar == null) {
 			lblGuardar = new JLabel("Guardar");
@@ -373,6 +401,7 @@ public class prueba extends JFrame {
 		}
 		return lblGuardar;
 	}
+
 	private JLabel getLabel_1_2() {
 		if (lblCuenta == null) {
 			lblCuenta = new JLabel("Cuenta");
@@ -381,5 +410,37 @@ public class prueba extends JFrame {
 			lblCuenta.setBounds(71, 636, 89, 30);
 		}
 		return lblCuenta;
+	}
+
+	private JLabel getLabel_1() {
+		if (label_1 == null) {
+			label_1 = new JLabel("New label");
+			label_1.addMouseListener(new MouseAdapter() {
+				@Override
+				public void mouseClicked(MouseEvent e) {
+					getPanel_inicio().setBounds(0, 0, 71, 700);
+					getLabel_2().setVisible(true);
+				}
+			});
+			label_1.setIcon(new ImageIcon(prueba.class.getResource("/img/Menu.png")));
+			label_1.setBounds(122, 13, 33, 28);
+		}
+		return label_1;
+	}
+
+	private JLabel getLabel_2() {
+		if (label_2 == null) {
+			label_2 = new JLabel("New label");
+			label_2.addMouseListener(new MouseAdapter() {
+				@Override
+				public void mouseClicked(MouseEvent e) {
+					getPanel_inicio().setBounds(0, 0, 155, 700);
+					label_2.setVisible(false);
+				}
+			});
+			label_2.setIcon(new ImageIcon(prueba.class.getResource("/img/Menu.png")));
+			label_2.setBounds(47, 13, 33, 28);
+		}
+		return label_2;
 	}
 }

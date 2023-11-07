@@ -1,5 +1,7 @@
 package controlador;
 
+import java.awt.CardLayout;
+import java.awt.Container;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -11,14 +13,17 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 
-import com.google.gson.Gson;
+import javax.swing.JPanel;
 
+import com.google.gson.Gson;
 
 import modelos.auth.Auth;
 import modelos.auth.Session;
 import modelos.gestion.GestorPrincipal;
-
+import vistas.auth.Entrar;
 import modelos.usuarios.Usuario;
+import vistas.Principal;
+import vistas.prueba;
 import vistas.auth.Login;
 
 public class ControladorLogin {
@@ -28,6 +33,27 @@ public class ControladorLogin {
         Login login = new Login();
         login.setVisible(true);
 
+    }
+
+    public static void mostrarLogin2() {
+
+        
+         // Obtener la instancia de prueba
+    prueba instancia = prueba.getInstancia();
+
+    // Obtener el contenedor del JFrame
+    Container contenedor = instancia.getContentPane();
+
+    // Crear el panel de entrar con el parámetro "ppp"
+    Entrar entrar = Entrar.getVista();
+
+    // Añadir el panel de entrar al contenedor con el nombre "Entrar"
+    prueba.getInstancia().add(entrar.getPanel());
+
+
+    // Actualizar el contenedor
+     prueba.getInstancia().revalidate();
+     prueba.getInstancia().repaint();
     }
 
     public static boolean autenticar(String nombreUsuario, String contrasena, boolean mantenerConectado) {
@@ -42,8 +68,9 @@ public class ControladorLogin {
                 autenticado = true;
                 Auth.iniciarSesion(usuarios.get(i));
                 if (mantenerConectado) {
-                  Session  session = new Session(Auth.usuarioAutenticado().getNombreUsuario(), Auth.usuarioAutenticado().getContrasena());
-                  Gson gson = new Gson();
+                    Session session = new Session(Auth.usuarioAutenticado().getNombreUsuario(),
+                            Auth.usuarioAutenticado().getContrasena());
+                    Gson gson = new Gson();
                     try (BufferedWriter writer = new BufferedWriter(new FileWriter("./session.json"))) {
                         String json = gson.toJson(session);
                         writer.write(json);
@@ -80,14 +107,14 @@ public class ControladorLogin {
 
     public static void cerrarSesion() {
         Auth.cerrarSesion();
-        Session  session = new Session("null", "null");
-                  Gson gson = new Gson();
-                    try (BufferedWriter writer = new BufferedWriter(new FileWriter("./session.json"))) {
-                        String json = gson.toJson(session);
-                        writer.write(json);
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
+        Session session = new Session("null", "null");
+        Gson gson = new Gson();
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("./session.json"))) {
+            String json = gson.toJson(session);
+            writer.write(json);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         mostrarLogin();
     }
 

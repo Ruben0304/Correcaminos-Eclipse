@@ -1,6 +1,7 @@
 package vistas;
 
 import java.awt.BorderLayout;
+import java.awt.CardLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -9,19 +10,19 @@ import javax.swing.JRootPane;
 import javax.swing.border.EmptyBorder;
 
 import controlador.ControladorLogin;
+import vistas.auth.Entrar;
 
 import java.awt.Color;
 import java.awt.Component;
 import javax.swing.JButton;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+
+
 import java.awt.Toolkit;
 import java.awt.FlowLayout;
 import java.awt.Font;
-import javax.swing.JTextArea;
-import javax.swing.SwingConstants;
+
 import java.awt.Cursor;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -35,6 +36,7 @@ public class prueba extends JFrame {
 	private JLabel guardar;
 	private JLabel account;
 	private JLabel gestion;
+	private JPanel panel;
 	
 	private JLabel reportes;
 	
@@ -50,6 +52,11 @@ public class prueba extends JFrame {
 	private JLabel lblCuenta;
 	private JLabel label_1;
 	private JLabel label_2;
+	private CardLayout contenedor;
+	private static prueba instance = null;
+
+
+
 
 	/**
 	 * Launch the application.
@@ -70,6 +77,20 @@ public class prueba extends JFrame {
 	/**
 	 * Create the frame.
 	 */
+
+    
+
+    
+    
+    public static prueba getInstancia() {
+        if (instance == null) {
+            instance = new prueba();
+        }
+        return instance;
+    }
+
+    
+
 	public prueba() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(prueba.class.getResource("/img/usuario_blanco.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -80,7 +101,7 @@ public class prueba extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		contentPane.add(getPanel_inicio());
-		contentPane.add(Principal.getVista().getPanel_lateral());
+		contentPane.add(Entrar.getVista().getPanel());
 	}
 
 	private JPanel getPanel_inicio() {
@@ -140,6 +161,7 @@ public class prueba extends JFrame {
 					getAccount_bg().setVisible(false);
 					getGestion_bg().setVisible(false);
 					getGuardar_bg().setVisible(false);
+					ControladorLogin.mostrarLogin2();
 				}
 
 				@Override

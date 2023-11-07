@@ -1,7 +1,7 @@
 package vistas;
 
 import javax.swing.ImageIcon;
-import javax.swing.JFrame;
+
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
@@ -27,7 +27,7 @@ import java.awt.event.MouseEvent;
 
 
 
-public class Principal extends JFrame{
+public class Principal{
     private JLabel lblCorrecaminosCujae;
 	private JTextArea txtrnecesitasSolicitarUna;
 	private JLabel lblQueSomos;
@@ -41,6 +41,7 @@ public class Principal extends JFrame{
     
     private Principal() {}
 
+    
     
     public static Principal getVista() {
         if (instance == null) {
@@ -94,6 +95,9 @@ public class Principal extends JFrame{
 		return lblQueSomos;
 	}
 
+	/**
+	 * @wbp.parser.entryPoint
+	 */
 	public JPanel getPanel_lateral() {
 		if (panel_lateral == null) {
 			panel_lateral = new JPanel();
@@ -118,7 +122,8 @@ public class Principal extends JFrame{
 			lblEntrar.addMouseListener(new MouseAdapter() {
 				@Override
 				public void mouseClicked(MouseEvent e) {
-					ControladorLogin.mostrarLogin();
+					ControladorLogin.mostrarLogin2();
+                  
 				}
 			});
 			lblEntrar.setForeground(Color.WHITE);

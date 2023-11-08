@@ -1,6 +1,7 @@
 package vistas;
 
 import java.awt.BorderLayout;
+import java.awt.Button;
 import java.awt.CardLayout;
 import java.awt.EventQueue;
 
@@ -33,6 +34,11 @@ import java.util.ArrayList;
 import javax.swing.JTable;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.ListSelectionModel;
+import javax.swing.JScrollPane;
+import java.awt.ComponentOrientation;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class prueba extends JFrame {
 
@@ -87,7 +93,11 @@ public class prueba extends JFrame {
 	private JPanel panel_2;
 	private JLabel lblCasosPendientes;
 	private JTable table;
-	private JButton btnNewButton;
+	private JScrollPane scrollPane;
+	private JPanel panel_1;
+	private JLabel lblSolicitarBajaO;
+	private JButton buttonl;
+	private JButton btnSolicitarLicencia;
 
 	/**
 	 * Launch the application.
@@ -126,9 +136,10 @@ public class prueba extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		contentPane.add(getPanel_2());
+		contentPane.add(getPanel_1());
 		contentPane.add(getPanel_RequisitosEstud());
 		contentPane.add(getPanel_inicio());
-		contentPane.add(Entrar.getVista().getPanel());
+		// contentPane.add(Entrar.getVista().getPanel());
 	}
 
 	private JPanel getPanel_inicio() {
@@ -699,8 +710,8 @@ public class prueba extends JFrame {
 			panel_2.setBackground(new Color(31, 33, 36));
 			panel_2.setLayout(null);
 			panel_2.add(getLblCasosPendientes());
+			panel_2.add(getScrollPane());
 			panel_2.add(getTable());
-			panel_2.add(getBtnNewButton());
 		}
 		return panel_2;
 	}
@@ -718,45 +729,116 @@ public class prueba extends JFrame {
 	private JTable getTable() {
 		if (table == null) {
 			table = new JTable();
-			table.setFillsViewportHeight(true);
-			table.setForeground(Color.WHITE);
-			table.setBorder(new LineBorder(new Color(255, 255, 255), 9, true));
-			
-			ArrayList<Estudiante> usuariosPendientes = new ArrayList<Estudiante>();
-			Object[][] data = new Object[usuariosPendientes.size() + 1][3];
-			int i = 1;
-			data[0][0]="Carnet";
-			data[0][1]="Nombre";
-			data[0][2]="Apellidos";
-			for (Persona p : usuariosPendientes) {
-
-				data[i][0] = p.getCi();
-				data[i][1] = p.getNombre();
-				data[i][2] = p.getApellidos();
-				i++;
-			}
-
-			
+			table.setBorder(new LineBorder(new Color(0, 0, 0)));
+			table.setBounds(138, 553, 837, -400);
+			table.setBackground(Color.RED);
+			table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 			table.setModel(new DefaultTableModel(
 				new Object[][] {
+					{"kjkjjkjki", "klk", null},
+					{null, "jujujuijij", null},
 					{null, null, null},
 				},
 				new String[] {
-					"Carnet", "Nombre", "Apellidos"
+					"Carnet ", "Nombre", "Apellidos"
 				}
-			));
-			table.setBounds(112, 33, 587, 476);
+			) {
+				Class[] columnTypes = new Class[] {
+					String.class, String.class, String.class
+				};
+				public Class getColumnClass(int columnIndex) {
+					return columnTypes[columnIndex];
+				}
+			});
+			table.getColumnModel().getColumn(2).setPreferredWidth(91);
+			table.setFillsViewportHeight(true);
+			table.setForeground(Color.WHITE);
+			
+			// ArrayList<Estudiante> usuariosPendientes = new ArrayList<Estudiante>();
+			// Object[][] data = new Object[usuariosPendientes.size() + 1][3];
+			// int i = 1;
+			// data[0][0]="Carnet";
+			// data[0][1]="Nombre";
+			// data[0][2]="Apellidos";
+			// for (Persona p : usuariosPendientes) {
+
+			// 	data[i][0] = p.getCi();
+			// 	data[i][1] = p.getNombre();
+			// 	data[i][2] = p.getApellidos();
+			// 	i++;
+			// }
+
+			
+			// table.setModel(new DefaultTableModel(
+			// 	new Object[][] {
+			// 		{null, null, null},
+			// 	},
+			// 	new String[] {
+			// 		"Carnet", "Nombre", "Apellidos"
+			// 	}
+			// ));
+			
 			
 		}
 		return table;
 	}
-
-	private JButton getBtnNewButton() {
-		if (btnNewButton == null) {
-			btnNewButton = new JButton("New button");
-			btnNewButton.setBounds(826, 593, 97, 25);
+	private JScrollPane getScrollPane() {
+		if (scrollPane == null) {
+			scrollPane = new JScrollPane();
+			scrollPane.setBounds(108, 549, 513, -427);
 		}
-		return btnNewButton;
+		return scrollPane;
 	}
+	private JPanel getPanel_1() {
+		if (panel_1 == null) {
+			panel_1 = new JPanel();
+			panel_1.setLayout(null);
+			panel_1.setBackground(new Color(31, 33, 36));
+			panel_1.setBounds(71, 0, 1051, 700);
+			panel_1.add(getLblSolicitarBajaO());
+			panel_1.add(getButtonl());
+			panel_1.add(getBtnSolicitarLicencia());
 
+		}
+		return panel_1;
+	}
+	private JLabel getLblSolicitarBajaO() {
+		if (lblSolicitarBajaO == null) {
+			lblSolicitarBajaO = new JLabel("Elija la opcion deseada");
+			lblSolicitarBajaO.setForeground(Color.WHITE);
+			lblSolicitarBajaO.setFont(new Font("Segoe UI Semibold", Font.BOLD, 50));
+			lblSolicitarBajaO.setBounds(281, 206, 522, 54);
+		}
+		return lblSolicitarBajaO;
+	}
+	private JButton getButtonl() {
+		if (buttonl == null) {
+			buttonl = new JButton("Solicitar baja");
+			buttonl.setFocusable(false);
+			buttonl.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+				}
+			});
+			buttonl.setRequestFocusEnabled(false);
+			buttonl.setForeground(Color.WHITE);
+			buttonl.setFont(new Font("Segoe UI Semibold", Font.BOLD, 23));
+			buttonl.setBorder(null);
+			buttonl.setBackground(new Color(42, 100, 56));
+			buttonl.setBounds(246, 358, 217, 61);
+		}
+		return buttonl;
+	}
+	private JButton getBtnSolicitarLicencia() {
+		if (btnSolicitarLicencia == null) {
+			btnSolicitarLicencia = new JButton("Solicitar licencia");
+			btnSolicitarLicencia.setFocusable(false);
+			btnSolicitarLicencia.setRequestFocusEnabled(false);
+			btnSolicitarLicencia.setForeground(Color.WHITE);
+			btnSolicitarLicencia.setFont(new Font("Segoe UI Semibold", Font.BOLD, 23));
+			btnSolicitarLicencia.setBorder(null);
+			btnSolicitarLicencia.setBackground(new Color(42, 100, 56));
+			btnSolicitarLicencia.setBounds(621, 358, 217, 61);
+		}
+		return btnSolicitarLicencia;
+	}
 }

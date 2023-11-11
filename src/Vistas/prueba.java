@@ -125,10 +125,18 @@ public class prueba extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+<<<<<<< Updated upstream
 		contentPane.add(getPanel_2());
 		contentPane.add(getPanel_RequisitosEstud());
 		contentPane.add(getPanel_inicio());
 		contentPane.add(Entrar.getVista().getPanel());
+=======
+//		contentPane.add(getPanel_SolicitarBajaOLic());
+//		contentPane.add(getPanel_2());
+//		contentPane.add(getPanel_RequisitosEstud());
+		contentPane.add(getPanel_inicio());
+		  contentPane.add(Entrar.getVista().getPanel());
+>>>>>>> Stashed changes
 	}
 
 	private JPanel getPanel_inicio() {
@@ -475,7 +483,7 @@ public class prueba extends JFrame {
 			lblTitulo = new JLabel("Requisitos");
 			lblTitulo.setForeground(Color.WHITE);
 			lblTitulo.setFont(new Font("Segoe UI Semibold", Font.BOLD, 40));
-			lblTitulo.setBounds(383, 64, 225, 54);
+			lblTitulo.setBounds(295, 65, 225, 54);
 		}
 		return lblTitulo;
 	}
@@ -485,7 +493,7 @@ public class prueba extends JFrame {
 			lblBiblioteca = new JLabel("Biblioteca");
 			lblBiblioteca.setForeground(Color.WHITE);
 			lblBiblioteca.setFont(new Font("Segoe UI Semibold", Font.BOLD, 26));
-			lblBiblioteca.setBounds(140, 166, 181, 54);
+			lblBiblioteca.setBounds(52, 167, 181, 54);
 		}
 		return lblBiblioteca;
 	}
@@ -495,7 +503,7 @@ public class prueba extends JFrame {
 			lblEntregadoTodosLos = new JLabel("Entregado todos los libros prestados");
 			lblEntregadoTodosLos.setForeground(Color.WHITE);
 			lblEntregadoTodosLos.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 18));
-			lblEntregadoTodosLos.setBounds(177, 208, 322, 54);
+			lblEntregadoTodosLos.setBounds(89, 209, 322, 54);
 		}
 		return lblEntregadoTodosLos;
 	}
@@ -504,7 +512,7 @@ public class prueba extends JFrame {
 		if (lblNewLabel == null) {
 			lblNewLabel = new JLabel("");
 			lblNewLabel.setIcon(new ImageIcon(prueba.class.getResource("/img/Checkmarkkk.png")));
-			lblNewLabel.setBounds(140, 220, 42, 35);
+			lblNewLabel.setBounds(52, 221, 42, 35);
 		}
 		return lblNewLabel;
 	}
@@ -514,7 +522,7 @@ public class prueba extends JFrame {
 			lblDeudasPendientesSaldadas = new JLabel("Deudas saldadas");
 			lblDeudasPendientesSaldadas.setForeground(Color.WHITE);
 			lblDeudasPendientesSaldadas.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 18));
-			lblDeudasPendientesSaldadas.setBounds(177, 359, 144, 35);
+			lblDeudasPendientesSaldadas.setBounds(89, 360, 144, 35);
 		}
 		return lblDeudasPendientesSaldadas;
 	}
@@ -523,7 +531,7 @@ public class prueba extends JFrame {
 		if (label_4 == null) {
 			label_4 = new JLabel("");
 			label_4.setIcon(new ImageIcon(prueba.class.getResource("/img/Canceel.png")));
-			label_4.setBounds(140, 367, 20, 20);
+			label_4.setBounds(52, 368, 20, 20);
 		}
 		return label_4;
 	}
@@ -533,7 +541,7 @@ public class prueba extends JFrame {
 			lblEconomia = new JLabel("Economia");
 			lblEconomia.setForeground(Color.WHITE);
 			lblEconomia.setFont(new Font("Segoe UI Semibold", Font.BOLD, 26));
-			lblEconomia.setBounds(140, 306, 127, 54);
+			lblEconomia.setBounds(52, 307, 127, 54);
 		}
 		return lblEconomia;
 	}
@@ -543,7 +551,7 @@ public class prueba extends JFrame {
 			lblDadoDeBaja = new JLabel("Dado de baja en el estipendio");
 			lblDadoDeBaja.setForeground(Color.WHITE);
 			lblDadoDeBaja.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 18));
-			lblDadoDeBaja.setBounds(177, 384, 332, 54);
+			lblDadoDeBaja.setBounds(89, 385, 332, 54);
 		}
 		return lblDadoDeBaja;
 	}
@@ -552,7 +560,7 @@ public class prueba extends JFrame {
 		if (label_5 == null) {
 			label_5 = new JLabel("");
 			label_5.setIcon(new ImageIcon(prueba.class.getResource("/img/Canceel.png")));
-			label_5.setBounds(140, 403, 20, 20);
+			label_5.setBounds(52, 404, 20, 20);
 		}
 		return label_5;
 	}
@@ -562,7 +570,7 @@ public class prueba extends JFrame {
 			lblEntregadoDelCarnet = new JLabel("Entregado el carnet de la CUJAE");
 			lblEntregadoDelCarnet.setForeground(Color.WHITE);
 			lblEntregadoDelCarnet.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 18));
-			lblEntregadoDelCarnet.setBounds(177, 535, 322, 54);
+			lblEntregadoDelCarnet.setBounds(89, 536, 322, 54);
 		}
 		return lblEntregadoDelCarnet;
 	}
@@ -571,7 +579,7 @@ public class prueba extends JFrame {
 		if (label_6 == null) {
 			label_6 = new JLabel("");
 			label_6.setIcon(new ImageIcon(prueba.class.getResource("/img/Checkmarkkk.png")));
-			label_6.setBounds(140, 547, 31, 35);
+			label_6.setBounds(52, 548, 31, 35);
 		}
 		return label_6;
 	}
@@ -581,7 +589,7 @@ public class prueba extends JFrame {
 			lblSecretaria = new JLabel("Secretaria");
 			lblSecretaria.setForeground(Color.WHITE);
 			lblSecretaria.setFont(new Font("Segoe UI Semibold", Font.BOLD, 26));
-			lblSecretaria.setBounds(138, 484, 181, 54);
+			lblSecretaria.setBounds(50, 485, 181, 54);
 		}
 		return lblSecretaria;
 	}
@@ -591,7 +599,7 @@ public class prueba extends JFrame {
 			lblSeguridadInformatica = new JLabel("Seguridad Informatica");
 			lblSeguridadInformatica.setForeground(Color.WHITE);
 			lblSeguridadInformatica.setFont(new Font("Segoe UI Semibold", Font.BOLD, 26));
-			lblSeguridadInformatica.setBounds(566, 166, 310, 54);
+			lblSeguridadInformatica.setBounds(478, 167, 310, 54);
 		}
 		return lblSeguridadInformatica;
 	}
@@ -601,7 +609,7 @@ public class prueba extends JFrame {
 			lblCerradaCuentaUsuario = new JLabel("Cerrada cuenta de usuario de la CUJAE");
 			lblCerradaCuentaUsuario.setForeground(Color.WHITE);
 			lblCerradaCuentaUsuario.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 18));
-			lblCerradaCuentaUsuario.setBounds(603, 208, 405, 54);
+			lblCerradaCuentaUsuario.setBounds(515, 209, 405, 54);
 		}
 		return lblCerradaCuentaUsuario;
 	}
@@ -610,7 +618,7 @@ public class prueba extends JFrame {
 		if (label_8 == null) {
 			label_8 = new JLabel("");
 			label_8.setIcon(new ImageIcon(prueba.class.getResource("/img/Canceel.png")));
-			label_8.setBounds(566, 220, 31, 35);
+			label_8.setBounds(478, 221, 31, 35);
 		}
 		return label_8;
 	}
@@ -620,7 +628,7 @@ public class prueba extends JFrame {
 			lblAlmacenDeLibros = new JLabel("Almacen de libros");
 			lblAlmacenDeLibros.setForeground(Color.WHITE);
 			lblAlmacenDeLibros.setFont(new Font("Segoe UI Semibold", Font.BOLD, 26));
-			lblAlmacenDeLibros.setBounds(566, 306, 225, 54);
+			lblAlmacenDeLibros.setBounds(478, 307, 225, 54);
 		}
 		return lblAlmacenDeLibros;
 	}
@@ -629,7 +637,7 @@ public class prueba extends JFrame {
 		if (label_7 == null) {
 			label_7 = new JLabel("");
 			label_7.setIcon(new ImageIcon(prueba.class.getResource("/img/Checkmarkkk.png")));
-			label_7.setBounds(566, 360, 42, 35);
+			label_7.setBounds(478, 361, 42, 35);
 		}
 		return label_7;
 	}
@@ -639,7 +647,7 @@ public class prueba extends JFrame {
 			lblEntregadoTodosLos_1 = new JLabel("Entregado todos los libros docentes");
 			lblEntregadoTodosLos_1.setForeground(Color.WHITE);
 			lblEntregadoTodosLos_1.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 18));
-			lblEntregadoTodosLos_1.setBounds(603, 348, 322, 54);
+			lblEntregadoTodosLos_1.setBounds(515, 349, 322, 54);
 		}
 		return lblEntregadoTodosLos_1;
 	}
@@ -649,7 +657,7 @@ public class prueba extends JFrame {
 			lblGestionDeBeca = new JLabel("Gestion de beca");
 			lblGestionDeBeca.setForeground(Color.WHITE);
 			lblGestionDeBeca.setFont(new Font("Segoe UI Semibold", Font.BOLD, 26));
-			lblGestionDeBeca.setBounds(566, 484, 199, 54);
+			lblGestionDeBeca.setBounds(478, 485, 199, 54);
 		}
 		return lblGestionDeBeca;
 	}
@@ -658,7 +666,7 @@ public class prueba extends JFrame {
 		if (label_11 == null) {
 			label_11 = new JLabel("");
 			label_11.setIcon(new ImageIcon(prueba.class.getResource("/img/Canceel.png")));
-			label_11.setBounds(566, 545, 20, 20);
+			label_11.setBounds(478, 546, 20, 20);
 		}
 		return label_11;
 	}
@@ -668,7 +676,7 @@ public class prueba extends JFrame {
 			lblEntregadoCarnetDe = new JLabel("Entregado carnet de becado");
 			lblEntregadoCarnetDe.setForeground(Color.WHITE);
 			lblEntregadoCarnetDe.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 18));
-			lblEntregadoCarnetDe.setBounds(603, 537, 285, 35);
+			lblEntregadoCarnetDe.setBounds(515, 538, 285, 35);
 		}
 		return lblEntregadoCarnetDe;
 	}
@@ -678,7 +686,7 @@ public class prueba extends JFrame {
 			lblEntregadasPertenencias = new JLabel("Entregadas pertenencias");
 			lblEntregadasPertenencias.setForeground(Color.WHITE);
 			lblEntregadasPertenencias.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 18));
-			lblEntregadasPertenencias.setBounds(603, 565, 322, 54);
+			lblEntregadasPertenencias.setBounds(515, 566, 322, 54);
 		}
 		return lblEntregadasPertenencias;
 	}
@@ -687,7 +695,7 @@ public class prueba extends JFrame {
 		if (label_15 == null) {
 			label_15 = new JLabel("");
 			label_15.setIcon(new ImageIcon(prueba.class.getResource("/img/Checkmarkkk.png")));
-			label_15.setBounds(566, 577, 42, 35);
+			label_15.setBounds(478, 578, 42, 35);
 		}
 		return label_15;
 	}

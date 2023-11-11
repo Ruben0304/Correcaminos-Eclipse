@@ -7,6 +7,7 @@ public abstract class Usuario {
 	protected String nombreUsuario;
 	protected String contrasena;
 	
+	
 
 
 	public Usuario(String nombreUsuario, String contrasena) {

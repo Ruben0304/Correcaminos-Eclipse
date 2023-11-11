@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import models.fabricas.EstudianteFactory;
 import models.fabricas.SolicitudFactory;
+import models.responsabilidades.ResponsabilidadesEstudiantes;
 import models.solicitudes.SolicitudBajaEstudiante;
 import models.solicitudes.SolicitudLicenciaEstudiante;
 import models.usuarios.Estudiante;
@@ -13,6 +14,12 @@ public class Secretaria {
     ArrayList<Estudiante> estudiantes;
     ArrayList<SolicitudLicenciaEstudiante> solicitudesLicenciaPendientes;
     ArrayList<SolicitudBajaEstudiante> solicitudesBaja;
+    ArrayList<ResponsabilidadesEstudiantes> responsabilidades;
+
+
+
+
+
 
     public Secretaria() {
         estudiantes = new ArrayList<>();
@@ -84,6 +91,11 @@ public class Secretaria {
     public ArrayList<Estudiante> getEstudiantes() {
 
         return estudiantes;
+    }
+
+    public ArrayList<ResponsabilidadesEstudiantes> getResponsabilidadesEstudiantes() {
+
+        return responsabilidades;
     }
 
 }

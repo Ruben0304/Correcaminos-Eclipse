@@ -2,9 +2,9 @@ package app;
 
 import javax.swing.SwingUtilities;
 
-import controlador.ControladorLogin;
-import controlador.ControladorPrincipal;
-import modelos.gestion.GestorPrincipal;
+import controllers.ControladorLogin;
+import controllers.ControladorPrincipal;
+import models.gestion.GestorPrincipal;
 
 
 public class Main {

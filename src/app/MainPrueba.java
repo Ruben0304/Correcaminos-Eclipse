@@ -2,8 +2,8 @@ package app;
 
 import javax.swing.SwingUtilities;
 
-import controlador.ControladorPrincipal;
-import modelos.gestion.GestorPrincipal;
+import controllers.ControladorPrincipal;
+import models.gestion.GestorPrincipal;
 
 public class MainPrueba {
 	public static void main(String[] args) {

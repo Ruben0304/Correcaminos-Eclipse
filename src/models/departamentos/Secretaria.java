@@ -18,6 +18,8 @@ public class Secretaria {
         estudiantes = new ArrayList<>();
         solicitudesLicenciaPendientes = new ArrayList<>();
         solicitudesBaja = new ArrayList<>();
+        registrarEstudiantes();
+        registrarLicenciasEstudiantes();
     }
 
     public void registrarEstudiantes() {

@@ -55,17 +55,19 @@ public class ControladorLogin {
         prueba.getInstancia().repaint();
     }
 
-    public static void autenticar(String nombreUsuario, String password, boolean mantenerConectado) {
+    public static boolean intentarAutenticar(String nombreUsuario, String password, boolean mantenerConectado) {
+        boolean autenticado = false;
         VerificarCredenciales verificar = new VerificarCredenciales(nombreUsuario, password);
         if (verificar.credencialesCorrectas()) {
             Auth.iniciarSesion(verificar.usuarioAlQuePertenecen());
+            autenticado = true;
             if (mantenerConectado) {
                 new Session(Auth.usuarioAutenticado().getNombreUsuario(),
                         Auth.usuarioAutenticado().getContrasena());
 
             }
         }
-
+        return autenticado;
     }
 
     public static void cerrarSesion() {
@@ -79,7 +81,7 @@ public class ControladorLogin {
     // }
 
     public static void comprobarSession() {
-        Usuario u = Session.ValidarSession(); 
+        Usuario u = Session.ValidarSession();
         if (u != null) {
             Auth.iniciarSesion(u);
         }

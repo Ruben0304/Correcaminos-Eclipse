@@ -25,7 +25,7 @@ public class GestorPrincipal {
         recursosHumanos = new RecursosHumanos();
         gestorUsuarios = new GestorUsuarios();
 
-        personas.addAll(secretaria.registrarEstudiantes());
+        personas.addAll(secretaria.getEstudiantes());
         personas.addAll(recursosHumanos.getEmpleados());
         secretaria.registrarLicenciasEstudiantes();
         gestorUsuarios.registrarUsuarios(personas);

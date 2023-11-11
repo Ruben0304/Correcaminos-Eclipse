@@ -103,7 +103,7 @@ public class Login extends JFrame {
 				String contrasena = new String(passwordChars);
 				String user = txtUsuario.getText();
 
-				if (ControladorLogin.autenticar(user, contrasena, getMantenerConectado().isSelected())) {
+				if (ControladorLogin.intentarAutenticar(user, contrasena, getMantenerConectado().isSelected())) {
 					ControladorPrincipal.mostrarInicio();
 					dispose();
 				} else {

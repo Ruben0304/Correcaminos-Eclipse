@@ -18,24 +18,18 @@ import models.usuarios.Persona;
 
 public class GestorPrincipal {
     private static GestorPrincipal gestorPrincipal;
-    private GestorUsuarios gestorUsuarios;
+    private GestorAdmins gestorAdmins;
     private GestorEstudiantes gestorEstudiantes;
     private GestorEmpleados gestorEmpleados;
+    private GestorDepartamentos gestorDepartamentos;
 
-    private Secretaria secretaria;
-    private RecursosHumanos recursosHumanos;
+    
 
     private GestorPrincipal() {
-        ArrayList<Persona> personas = new ArrayList<>();
-        secretaria = new Secretaria();
-        recursosHumanos = new RecursosHumanos();
-        gestorUsuarios = new GestorUsuarios();
-
-        personas.addAll(secretaria.getEstudiantes());
-        personas.addAll(recursosHumanos.getEmpleados());
-        secretaria.registrarLicenciasEstudiantes();
-        gestorUsuarios.registrarUsuarios(personas);
-
+        gestorEstudiantes = new GestorEstudiantes();
+        gestorEmpleados = new GestorEmpleados();
+        gestorAdmins = new GestorAdmins();
+        gestorDepartamentos = new GestorDepartamentos();
     }
 
     public static GestorPrincipal getGestorPrincipal() {
@@ -45,42 +39,9 @@ public class GestorPrincipal {
         return gestorPrincipal;
     }
 
-    public static Secretaria secretaria() {
-        if (gestorPrincipal == null) {
-            gestorPrincipal = new GestorPrincipal();
-        }
-        return gestorPrincipal.getSecretaria();
-    }
+    
 
-    public static GestorUsuarios gestorUsuarios() {
-        if (gestorPrincipal == null) {
-            gestorPrincipal = new GestorPrincipal();
-        }
-        return gestorPrincipal.getGestorUsuarios();
-    }
-
-    public static RecursosHumanos recursosHumanos() {
-        if (gestorPrincipal == null) {
-            gestorPrincipal = new GestorPrincipal();
-        }
-        return gestorPrincipal.getRecursosHumanos();
-    }
-
-    private Secretaria getSecretaria() {
-        return secretaria;
-    }
-
-    private RecursosHumanos getRecursosHumanos() {
-        return recursosHumanos;
-    }
-
-    private GestorUsuarios getGestorUsuarios() {
-        return gestorUsuarios;
-    }
-
-
-
-    public static Persona buscarPersonaEnLista(String id, ArrayList<Persona> usuarios) {
+    public static Persona buscarPersonaporCi(String id) {
         boolean encontrado = false;
         Persona usuarioEncontrado = null;
         for (int i = 0; i < usuarios.size() && !encontrado; i++) {
@@ -92,10 +53,7 @@ public class GestorPrincipal {
         return usuarioEncontrado;
     }
 
-    public GestorResponsabilidadesEstudiantes gestorResponsabilidades() {
-        return gestorResponsabilidades;
-    }
-    
+    public obtenerPersonas(){}
 
     public void actualizarDatos() {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();

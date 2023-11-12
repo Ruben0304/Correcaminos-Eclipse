@@ -7,19 +7,19 @@ import utiles.TiposResponsabilidad;
 
 public class Economia {
 
-    public static boolean tieneEstipendio(Estudiante e) {
+    // public static boolean tieneEstipendio(Estudiante e) {
         
-    }
+    // }
 
-    public static boolean tieneDeuda(Estudiante e) {
+    // public static boolean tieneDeuda(Estudiante e) {
         
-    }
+    // }
 
-    public static boolean tieneRequisitosCumplidos(Estudiante e) {
-        return tieneDeuda(e) && tieneEstipendio(e);
-    }
+    // public static boolean tieneRequisitosCumplidos(Estudiante e) {
+    //     return tieneDeuda(e) && tieneEstipendio(e);
+    // }
 
-    public static void quitarEstipendio(Estudiante e) {
+    // public static void quitarEstipendio(Estudiante e) {
     //  ArrayList<TiposResponsabilidad> resp = e.getResponsabilidades();
     //  boolean encontrado = false;
     //     for (int i = 0; i < resp.size() && !encontrado; i++) {
@@ -29,7 +29,7 @@ public class Economia {
     //         }
     //     }
       
-    }
+    // }
 
     // public Estudiante obtenerEstudiante(Estudiante e) {
 

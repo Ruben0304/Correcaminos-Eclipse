@@ -9,10 +9,6 @@ import javax.swing.JPanel;
 import javax.swing.JRootPane;
 import javax.swing.border.EmptyBorder;
 
-import controlador.ControladorLogin;
-import modelos.usuarios.Estudiante;
-import modelos.usuarios.Persona;
-import vistas.auth.Entrar;
 
 import java.awt.Color;
 import java.awt.Component;
@@ -33,6 +29,9 @@ import java.util.ArrayList;
 import javax.swing.JTable;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
+
+import controllers.ControladorLogin;
+import views.auth.Entrar;
 
 public class prueba extends JFrame {
 
@@ -125,18 +124,11 @@ public class prueba extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-<<<<<<< Updated upstream
-		contentPane.add(getPanel_2());
-		contentPane.add(getPanel_RequisitosEstud());
-		contentPane.add(getPanel_inicio());
-		contentPane.add(Entrar.getVista().getPanel());
-=======
 //		contentPane.add(getPanel_SolicitarBajaOLic());
 //		contentPane.add(getPanel_2());
 //		contentPane.add(getPanel_RequisitosEstud());
 		contentPane.add(getPanel_inicio());
 		  contentPane.add(Entrar.getVista().getPanel());
->>>>>>> Stashed changes
 	}
 
 	private JPanel getPanel_inicio() {

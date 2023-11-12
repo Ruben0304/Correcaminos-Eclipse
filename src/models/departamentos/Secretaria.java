@@ -15,9 +15,6 @@ public class Secretaria {
     
 
     public Secretaria() {
-        estudiantes = new ArrayList<>();
-        solicitudesLicenciaPendientes = new ArrayList<>();
-        solicitudesBaja = new ArrayList<>();
         registrarEstudiantes();
         registrarLicenciasEstudiantes();
     }
@@ -26,23 +23,7 @@ public class Secretaria {
        this.estudiantes = ObtenerEstudinetes.cargarDesdeArchivo();
     }
 
-    public void registrarLicenciasEstudiantes() {
-        ArrayList<SolicitudLicenciaEstudiante> solicitudesCargadas = ObtenerSolicitudes.cargarDesdeArchivo();
-        ArrayList<SolicitudLicenciaEstudiante> solicitudesRegistradas = new ArrayList<>();
-        for (SolicitudLicenciaEstudiante solicitud : solicitudesCargadas) {
-            String estudianteId = solicitud.getEstudiante().getCi();
-            Estudiante estudianteExistente = buscarEstudiante(estudianteId);
-
-            if (estudianteExistente != null) {
-                SolicitudLicenciaEstudiante solicitudRegistrada = new SolicitudLicenciaEstudiante(
-                        estudianteExistente, solicitud.getMotivo(), solicitud.getFechaSalida(),
-                        solicitud.getFechaRegreso());
-                solicitudesRegistradas.add(solicitudRegistrada);
-            }
-        }
-
-        this.solicitudesLicenciaPendientes.addAll(solicitudesRegistradas);
-    }
+    
 
     public void agregarSolicitudDeLicencia(SolicitudLicenciaEstudiante solicitud) {
         solicitudesLicenciaPendientes.add(solicitud);

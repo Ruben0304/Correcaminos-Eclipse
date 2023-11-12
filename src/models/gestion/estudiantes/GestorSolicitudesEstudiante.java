@@ -65,6 +65,12 @@ public class GestorSolicitudesEstudiante implements Actualizador{
         return solicitudesLicenciaPendientes;
     }
 
+    public boolean verificarEstudianteSolicitaLicencia(Estudiante e) {
+        
+        return getEstudianteLicenciaPendientes().contains(e);
+
+    }
+
     public ArrayList<Estudiante> getEstudianteLicenciaPendientes() {
         ArrayList<Estudiante> es = new ArrayList<>();
         for (SolicitudLicencia s : this.solicitudesLicenciaPendientes) {

@@ -2,6 +2,7 @@ package controllers;
 
 import auth.Auth;
 import models.gestion.GestorPrincipal;
+import models.gestion.estudiantes.GestorSolicitudesEstudiante;
 import models.usuarios.Empleado;
 import models.usuarios.Estudiante;
 import models.usuarios.Usuario;
@@ -15,7 +16,8 @@ public class ControladorPrincipal {
     public static void mostrarInicio() {
 
         if (Auth.hayUsuarioAutenticado()) {
-            Inicio inicio = new Inicio(Auth.usuarioAutenticado());
+            GestorSolicitudesEstudiante gestorSolicitudesEstudiante =  GestorPrincipal.getGestorPrincipal().getGestorEstudiantes().getGestorSolicitudes();
+            Inicio inicio = new Inicio(Auth.usuarioAutenticado(), gestorSolicitudesEstudiante);
             inicio.setVisible(true);
         }else{
             ControladorLogin.mostrarLogin();

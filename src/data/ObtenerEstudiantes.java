@@ -13,7 +13,7 @@ import com.google.gson.reflect.TypeToken;
 
 import models.usuarios.Estudiante;
 
-public class ObtenerEstudinetes {
+public class ObtenerEstudiantes {
     public static ArrayList<Estudiante> cargarDesdeArchivo() {
         Gson gson = new Gson();
         ArrayList<Estudiante> estudiantes = new ArrayList<>();

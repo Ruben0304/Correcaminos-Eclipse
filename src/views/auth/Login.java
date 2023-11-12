@@ -122,13 +122,13 @@ public class Login extends JFrame {
 		btnNewButton_1.setForeground(new Color(51, 102, 204));
 		btnNewButton_1.setBorder(new LineBorder(Colores.NEGRO, 1, true));
 		btnNewButton_1.setFont(new Font("Arial Narrow", Font.PLAIN, 16));
-		btnNewButton_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				CrearCuenta p = new CrearCuenta();
-				p.setVisible(true);
-				dispose();
-			}
-		});
+		// btnNewButton_1.addActionListener(new ActionListener() {
+		// 	// public void actionPerformed(ActionEvent arg0) {
+		// 	// 	CrearCuenta p = new CrearCuenta();
+		// 	// 	p.setVisible(true);
+		// 	// 	dispose();
+		// 	// }
+		// });
 		btnNewButton_1.setBounds(639, 512, 94, 25);
 		contentPane.add(btnNewButton_1);
 

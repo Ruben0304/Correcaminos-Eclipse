@@ -14,8 +14,8 @@ public class Main {
 			public void run() {
 				try {
 
-					// ControladorLogin.comprobarSession();
-					// ControladorPrincipal.mostrarInicio();
+					 ControladorLogin.comprobarSession();
+					 ControladorPrincipal.mostrarInicio();
                      
 				} catch (Exception e) {
 					e.printStackTrace();

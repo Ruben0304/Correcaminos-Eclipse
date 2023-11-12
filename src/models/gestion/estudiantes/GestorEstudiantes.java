@@ -1,34 +1,28 @@
 package models.gestion.estudiantes;
 
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.ArrayList;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
+import data.ObtenerEstudiantes;
 
-import data.ObtenerEstudinetes;
 import models.interfaces.Actualizador;
-import models.responsabilidades.ResponsabilidadesEstudiantes;
+
 import models.usuarios.Estudiante;
 
 public class GestorEstudiantes implements Actualizador {
     private GestorSolicitudesEstudiante gestorSolicitudes;
     private GestorResponsabilidadesEstudiantes gestorResponsabilidadesEstudiantes;
     private ArrayList<Estudiante> estudiantes;
-    
 
     public GestorEstudiantes() {
         estudiantes = new ArrayList<>();
         registrarEstudiantes();
         gestorSolicitudes = new GestorSolicitudesEstudiante(estudiantes);
-        
-       
+        gestorResponsabilidadesEstudiantes = new GestorResponsabilidadesEstudiantes(estudiantes);
 
     }
 
     private void registrarEstudiantes() {
-        this.estudiantes = ObtenerEstudinetes.cargarDesdeArchivo();
+        this.estudiantes = ObtenerEstudiantes.cargarDesdeArchivo();
     }
 
     public Estudiante buscarEstudiantePorCi(String id) {
@@ -48,8 +42,19 @@ public class GestorEstudiantes implements Actualizador {
         return estudiantes;
     }
 
+    
+   
+
     @Override
     public void actualizarDatos() {
 
+    }
+
+    public GestorSolicitudesEstudiante getGestorSolicitudes() {
+        return gestorSolicitudes;
+    }
+
+    public GestorResponsabilidadesEstudiantes getGestorResponsabilidadesEstudiantes() {
+        return gestorResponsabilidadesEstudiantes;
     }
 }

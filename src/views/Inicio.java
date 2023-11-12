@@ -13,6 +13,8 @@ import controllers.ControladorAdmin;
 import controllers.ControladorLogin;
 import controllers.ControladorPrincipal;
 import models.departamentos.Secretaria;
+import models.gestion.estudiantes.GestorEstudiantes;
+import models.gestion.estudiantes.GestorSolicitudesEstudiante;
 import models.usuarios.Admin;
 import models.usuarios.Estudiante;
 import models.usuarios.Usuario;
@@ -35,7 +37,7 @@ public class Inicio extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Inicio(Usuario usuarioAutenticado,Secretaria secretaria) {
+	public Inicio(Usuario usuarioAutenticado,GestorSolicitudesEstudiante gestorSolicitudesEstudiante) {
 		setBounds(100, 100, 672, 457);
 		setResizable(false);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Inicio.class.getResource("/img/correcamino.png")));
@@ -99,7 +101,7 @@ public class Inicio extends JFrame {
 			});
 			mnNewMenu_1.add(mntmGestionarLicencia);
 		} else {
-			if (secretaria.verificarEstudianteSolicitaLicencia((Estudiante) usuarioAutenticado)) {
+			if (gestorSolicitudesEstudiante.verificarEstudianteSolicitaLicencia((Estudiante) usuarioAutenticado)) {
 				JMenuItem mntmSolicitarBaja = new JMenuItem("Verificar Estado Solicitud");
 				
 				mntmSolicitarBaja.addActionListener(new ActionListener() {

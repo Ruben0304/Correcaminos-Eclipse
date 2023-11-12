@@ -21,7 +21,7 @@ public class Estudiante extends Persona {
 	protected String carrera;
 	protected int grupo;
 	protected ArrayList<TiposResponsabilidad> responsabilidades;
-	protected ArrayList<ResponsabilidadesEstudiantes> resp;
+	
 
 	public Estudiante(String nombreUsuario, String contrasena, String ci, String nombre, String primer_apellido,
 			String segundo_apellido,
@@ -33,24 +33,10 @@ public class Estudiante extends Persona {
 		this.carrera = carrera;
 		this.grupo = grupo;
 		this.responsabilidades = responsabilidades;
-		this.resp.add(new ResponsabilidadesEstudiantes(responsabilidades, this));
+		
 
-		Gson gson = new GsonBuilder().setPrettyPrinting().create();
-		String jsonAdmins = gson.toJson(this.resp);
-		try {
-
-			FileWriter writerA = new FileWriter("./responsabilidadesEstudiantes.json");
-			writerA.write(jsonAdmins);
-			writerA.close();
-			
-
-			System.out.println("Guardado todo ok.");
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
 	}
 
-	
 
 	@Override
 	public void solicitarLicencia(String motivo, String fechaInicio, String fechaFin) {
@@ -77,5 +63,13 @@ public class Estudiante extends Persona {
 	public int getGrupo() {
 		return grupo;
 	}
+
+    public ArrayList<TiposResponsabilidad> getResponsabilidades() {
+        return responsabilidades;
+    }
+
+   
+
+	
 
 }

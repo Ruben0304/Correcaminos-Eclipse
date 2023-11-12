@@ -1,6 +1,5 @@
 package models.gestion;
 
-
 import java.io.FileWriter;
 import java.io.IOException;
 
@@ -14,16 +13,15 @@ import models.departamentos.Secretaria;
 import models.gestion.empleados.GestorEmpleados;
 import models.gestion.estudiantes.GestorEstudiantes;
 import models.gestion.estudiantes.GestorResponsabilidadesEstudiantes;
+import models.interfaces.actualizador;
 import models.usuarios.Persona;
 
-public class GestorPrincipal {
+public class GestorPrincipal implements actualizador{
     private static GestorPrincipal gestorPrincipal;
     private GestorAdmins gestorAdmins;
     private GestorEstudiantes gestorEstudiantes;
     private GestorEmpleados gestorEmpleados;
     private GestorDepartamentos gestorDepartamentos;
-
-    
 
     private GestorPrincipal() {
         gestorEstudiantes = new GestorEstudiantes();
@@ -39,43 +37,63 @@ public class GestorPrincipal {
         return gestorPrincipal;
     }
 
-    
-
-    public static Persona buscarPersonaporCi(String id) {
+    public Persona buscarPersonaporCi(String id) {
         boolean encontrado = false;
         Persona usuarioEncontrado = null;
-        for (int i = 0; i < usuarios.size() && !encontrado; i++) {
-            encontrado = id.equals(usuarios.get(i).getCi());
+        ArrayList<Persona> personas = obtenerPersonas();
+        for (int i = 0; i < personas.size() && !encontrado; i++) {
+            encontrado = id.equals(personas.get(i).getCi());
             if (encontrado) {
-                usuarioEncontrado = usuarios.get(i);
+                usuarioEncontrado = personas.get(i);
             }
         }
         return usuarioEncontrado;
     }
 
-    public obtenerPersonas(){}
+    public ArrayList<Persona> obtenerPersonas() {
+        ArrayList<Persona> personas = new ArrayList<>();
+        personas.addAll(gestorEstudiantes.getEstudiantes());
+        personas.addAll(gestorEmpleados.getEmpleados());
+        return personas;
+    }
 
     public void actualizarDatos() {
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        String jsonAdmins = gson.toJson(gestorUsuarios.getAdmins());
-        String jsonEstudiantes = gson.toJson(secretaria.getEstudiantes());
-        String jsonSolicitudes = gson.toJson(secretaria.getSolicitudesLicenciaPendientes());
-        try {
+        // Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        // String jsonAdmins = gson.toJson(gestorAdmins.getAdmins());
+        // String jsonEstudiantes = gson.toJson(gestorEstudiantes.getEstudiantes());
+        // String jsonSolicitudes = gson.toJson(gest.getSolicitudesLicenciaPendientes());
+        // try {
 
-            FileWriter writerA = new FileWriter("./admins.json");
-            FileWriter writerE = new FileWriter("./estudiantes.json");
-            FileWriter writerS = new FileWriter("./solicitudes.json");
-            writerA.write(jsonAdmins);
-            writerE.write(jsonEstudiantes);
-            writerS.write(jsonSolicitudes);
-            writerA.close();
-            writerE.close();
-            writerS.close();
+        //     FileWriter writerA = new FileWriter("./admins.json");
+        //     FileWriter writerE = new FileWriter("./estudiantes.json");
+        //     FileWriter writerS = new FileWriter("./solicitudes.json");
+        //     writerA.write(jsonAdmins);
+        //     writerE.write(jsonEstudiantes);
+        //     writerS.write(jsonSolicitudes);
+        //     writerA.close();
+        //     writerE.close();
+        //     writerS.close();
 
-            System.out.println("Guardado todo ok.");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        //     System.out.println("Guardado todo ok.");
+        // } catch (IOException e) {
+        //     e.printStackTrace();
+        // }
+    }
+
+    public GestorAdmins getGestorAdmins() {
+        return gestorAdmins;
+    }
+
+    public GestorEstudiantes getGestorEstudiantes() {
+        return gestorEstudiantes;
+    }
+
+    public GestorEmpleados getGestorEmpleados() {
+        return gestorEmpleados;
+    }
+
+    public GestorDepartamentos getGestorDepartamentos() {
+        return gestorDepartamentos;
     }
 
     

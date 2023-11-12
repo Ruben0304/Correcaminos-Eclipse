@@ -11,9 +11,9 @@ public class GestorEstudiantes {
     private ArrayList<Estudiante> estudiantes;
 
     public GestorEstudiantes() {
-        this.estudiantes = new ArrayList<>();
+        estudiantes = new ArrayList<>();
         registrarEstudiantes();
-        this.gestorSolicitudes=new GestorSolicitudesEstudiante(estudiantes);
+        gestorSolicitudes=new GestorSolicitudesEstudiante(estudiantes);
     }
     
 

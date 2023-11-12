@@ -52,7 +52,7 @@ public class GestorPrincipal implements Actualizador{
     public ArrayList<Persona> getPersonas() {
         ArrayList<Persona> personas = new ArrayList<>();
         personas.addAll(gestorEstudiantes.getEstudiantes());
-        personas.addAll(gestorEmpleados.getEmpleados());
+//        personas.addAll(gestorEmpleados.getEmpleados());
         return personas;
     }
 

@@ -1,8 +1,15 @@
 package models.usuarios;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import models.departamentos.Secretaria;
+import models.gestion.estudiantes.GestorResponsabilidadesEstudiantes;
+import models.responsabilidades.ResponsabilidadesEstudiantes;
 import models.solicitudes.SolicitudLicencia;
 import utiles.Facultad;
 import utiles.TipoCurso;
@@ -13,23 +20,40 @@ public class Estudiante extends Persona {
 	protected TipoCurso tipoCurso;
 	protected String carrera;
 	protected int grupo;
-	
+	protected ArrayList<TiposResponsabilidad> responsabilidades;
+	protected ArrayList<ResponsabilidadesEstudiantes> resp;
 
 	public Estudiante(String nombreUsuario, String contrasena, String ci, String nombre, String primer_apellido,
 			String segundo_apellido,
 			Facultad facultad, int curso, TipoCurso tipoCurso, String carrera,
-			int grupo) {
+			int grupo, ArrayList<TiposResponsabilidad> responsabilidades) {
 		super(nombreUsuario, contrasena, ci, nombre, primer_apellido, segundo_apellido, facultad);
 		this.curso = curso;
 		this.tipoCurso = tipoCurso;
 		this.carrera = carrera;
 		this.grupo = grupo;
+		this.responsabilidades = responsabilidades;
+		this.resp.add(new ResponsabilidadesEstudiantes(responsabilidades, this));
 
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		String jsonAdmins = gson.toJson(this.resp);
+		try {
+
+			FileWriter writerA = new FileWriter("./responsabilidadesEstudiantes.json");
+			writerA.write(jsonAdmins);
+			writerA.close();
+			
+
+			System.out.println("Guardado todo ok.");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
+
+	
 
 	@Override
 	public void solicitarLicencia(String motivo, String fechaInicio, String fechaFin) {
-		
 
 	}
 

@@ -13,10 +13,10 @@ public class Becado extends Estudiante {
    public Becado(String nombreUsuario, String contrasena, String ci, String nombre, String primer_apellido,
          String segundo_apellido,
          Facultad facultad, int curso, TipoCurso tipoCurso, String carrera, int grupo, String idBecado, int noCuarto,
-         ArrayList<TiposResponsabilidad> tipoResp) {
+         ArrayList<TiposResponsabilidad> responsabilidades) {
       super(nombreUsuario, contrasena, ci, nombre, primer_apellido, segundo_apellido, facultad, curso, tipoCurso,
             carrera,
-            grupo);
+            grupo,responsabilidades);
       this.idBecado = idBecado;
       this.noCuarto = noCuarto;
 

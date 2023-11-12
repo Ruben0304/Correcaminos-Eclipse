@@ -3,8 +3,8 @@ package models.departamentos;
 
 import java.util.ArrayList;
 
-import models.fabricas.EstudianteFactory;
-import models.fabricas.SolicitudFactory;
+import data.ObtenerEstudinetes;
+import data.ObtenerSolicitudes;
 import models.responsabilidades.ResponsabilidadesEstudiantes;
 import models.solicitudes.SolicitudBajaEstudiante;
 import models.solicitudes.SolicitudLicenciaEstudiante;
@@ -12,14 +12,7 @@ import models.usuarios.Estudiante;
 
 public class Secretaria {
     ArrayList<Estudiante> estudiantes;
-    ArrayList<SolicitudLicenciaEstudiante> solicitudesLicenciaPendientes;
-    ArrayList<SolicitudBajaEstudiante> solicitudesBaja;
-    ArrayList<ResponsabilidadesEstudiantes> responsabilidades;
-
-
-
-
-
+    
 
     public Secretaria() {
         estudiantes = new ArrayList<>();
@@ -30,11 +23,11 @@ public class Secretaria {
     }
 
     public void registrarEstudiantes() {
-       this.estudiantes = EstudianteFactory.cargarDesdeArchivo();
+       this.estudiantes = ObtenerEstudinetes.cargarDesdeArchivo();
     }
 
     public void registrarLicenciasEstudiantes() {
-        ArrayList<SolicitudLicenciaEstudiante> solicitudesCargadas = SolicitudFactory.cargarDesdeArchivo();
+        ArrayList<SolicitudLicenciaEstudiante> solicitudesCargadas = ObtenerSolicitudes.cargarDesdeArchivo();
         ArrayList<SolicitudLicenciaEstudiante> solicitudesRegistradas = new ArrayList<>();
         for (SolicitudLicenciaEstudiante solicitud : solicitudesCargadas) {
             String estudianteId = solicitud.getEstudiante().getCi();

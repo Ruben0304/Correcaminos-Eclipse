@@ -6,26 +6,31 @@ import models.usuarios.Estudiante;
 import utiles.TiposResponsabilidad;
 
 public class ResponsabilidadesEstudiantes {
-    private TiposResponsabilidad responsabilidad;
-    private ArrayList<Estudiante> estudiantes;
+    private Estudiante  estudiante;
+    private ArrayList<TiposResponsabilidad> responsabilidades;
    
-    public ResponsabilidadesEstudiantes(TiposResponsabilidad responsabilidad, ArrayList<Estudiante> estudiantes) {
-        this.responsabilidad = responsabilidad;
-        this.estudiantes = estudiantes;
+    public ResponsabilidadesEstudiantes(ArrayList<TiposResponsabilidad> responsabilidades, Estudiante  estudiante) {
+        this.responsabilidades = responsabilidades;
+        this.estudiante = estudiante;
     }
 
-    public TiposResponsabilidad getResponsabilidad() {
-        return responsabilidad;
+    public ResponsabilidadesEstudiantes(Estudiante  estudiante) {
+        this.responsabilidades = new ArrayList<>();
+        this.estudiante = estudiante;
     }
 
-    
+   
 
-    public ArrayList<Estudiante> getEstudiantes() {
-        return estudiantes;
+    public void agregarResponsabilidad(TiposResponsabilidad responsabilidad) {
+        this.responsabilidades.add(responsabilidad);
     }
 
-    public void agregarEstudiante(Estudiante estudiante) {
-        this.estudiantes.add(estudiante);
+    public Estudiante getEstudiante() {
+        return estudiante;
+    }
+
+    public ArrayList<TiposResponsabilidad> getResponsabilidades() {
+        return responsabilidades;
     }
 
    

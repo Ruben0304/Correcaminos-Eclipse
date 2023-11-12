@@ -3,7 +3,7 @@ package models.gestion;
 
 import java.util.ArrayList;
 
-import models.fabricas.AdminFactory;
+import data.ObtenerAdmins;
 import models.usuarios.Admin;
 import models.usuarios.Persona;
 import models.usuarios.Usuario;
@@ -31,7 +31,7 @@ public class GestorUsuarios {
 
     public void registrarUsuarios(ArrayList<Persona> personas) {
 
-        this.usuarios.addAll(AdminFactory.cargarDesdeArchivo());
+        this.usuarios.addAll(ObtenerAdmins.cargarDesdeArchivo());
         this.usuarios.addAll(personas);
 
     }

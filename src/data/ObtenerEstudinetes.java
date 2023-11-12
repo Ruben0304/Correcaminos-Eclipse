@@ -1,4 +1,4 @@
-package models.fabricas;
+package data;
 
 import java.io.BufferedReader;
 
@@ -13,7 +13,7 @@ import com.google.gson.reflect.TypeToken;
 
 import models.usuarios.Estudiante;
 
-public class EstudianteFactory {
+public class ObtenerEstudinetes {
     public static ArrayList<Estudiante> cargarDesdeArchivo() {
         Gson gson = new Gson();
         ArrayList<Estudiante> estudiantes = new ArrayList<>();

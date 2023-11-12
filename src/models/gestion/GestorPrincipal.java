@@ -16,6 +16,7 @@ import models.usuarios.Persona;
 public class GestorPrincipal {
     private static GestorPrincipal gestorPrincipal;
     private GestorUsuarios gestorUsuarios;
+    private GestorResponsabilidades gestorResponsabilidades;
     private Secretaria secretaria;
     private RecursosHumanos recursosHumanos;
 
@@ -86,6 +87,11 @@ public class GestorPrincipal {
         return usuarioEncontrado;
     }
 
+    public GestorResponsabilidades gestorResponsabilidades() {
+        return gestorResponsabilidades;
+    }
+    
+
     public void actualizarDatos() {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         String jsonAdmins = gson.toJson(gestorUsuarios.getAdmins());
@@ -108,5 +114,7 @@ public class GestorPrincipal {
             e.printStackTrace();
         }
     }
+
+    
 
 }

@@ -1,4 +1,4 @@
-package models.fabricas;
+package data;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -15,7 +15,7 @@ import models.interfaces.RegistradorSolicitudesLicencias;
 import models.solicitudes.SolicitudLicenciaEstudiante;
 import models.usuarios.Estudiante;
 
-public class SolicitudFactory {
+public class ObtenerSolicitudes {
     public static ArrayList<SolicitudLicenciaEstudiante> cargarDesdeArchivo() {
        
         Gson gson = new Gson();

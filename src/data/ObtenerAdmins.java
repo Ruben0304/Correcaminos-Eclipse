@@ -1,4 +1,4 @@
-package models.fabricas;
+package data;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -10,7 +10,7 @@ import com.google.gson.Gson;
 import models.usuarios.Admin;
 import utiles.TipoDepartamento;
 
-public class AdminFactory {
+public class ObtenerAdmins {
 
     public static ArrayList<Admin> cargarDesdeArchivo() {
         ArrayList<Admin> entidades = new ArrayList<>();

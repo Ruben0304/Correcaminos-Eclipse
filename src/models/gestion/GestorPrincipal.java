@@ -11,11 +11,11 @@ import java.util.ArrayList;
 import models.gestion.empleados.GestorEmpleados;
 import models.gestion.estudiantes.GestorEstudiantes;
 
-import models.interfaces.actualizador;
+import models.interfaces.Actualizador;
 import models.usuarios.Persona;
 import models.usuarios.Usuario;
 
-public class GestorPrincipal implements actualizador{
+public class GestorPrincipal implements Actualizador{
     private static GestorPrincipal gestorPrincipal;
     private GestorAdmins gestorAdmins;
     private GestorEstudiantes gestorEstudiantes;
@@ -39,7 +39,7 @@ public class GestorPrincipal implements actualizador{
     public Persona buscarPersonaporCi(String id) {
         boolean encontrado = false;
         Persona usuarioEncontrado = null;
-        ArrayList<Persona> personas = obtenerPersonas();
+        ArrayList<Persona> personas = getPersonas();
         for (int i = 0; i < personas.size() && !encontrado; i++) {
             encontrado = id.equals(personas.get(i).getCi());
             if (encontrado) {
@@ -49,16 +49,16 @@ public class GestorPrincipal implements actualizador{
         return usuarioEncontrado;
     }
 
-    public ArrayList<Persona> obtenerPersonas() {
+    public ArrayList<Persona> getPersonas() {
         ArrayList<Persona> personas = new ArrayList<>();
         personas.addAll(gestorEstudiantes.getEstudiantes());
         personas.addAll(gestorEmpleados.getEmpleados());
         return personas;
     }
 
-    public ArrayList<Usuario> obtenerUsuarios() {
+    public ArrayList<Usuario> getUsuarios() {
         ArrayList<Usuario> usuarios = new ArrayList<>();
-        usuarios.addAll(obtenerPersonas());
+        usuarios.addAll(getPersonas());
         usuarios.addAll(gestorAdmins.getAdmins());
         return usuarios;
     }

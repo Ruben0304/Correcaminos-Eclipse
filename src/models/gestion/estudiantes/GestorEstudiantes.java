@@ -3,10 +3,10 @@ package models.gestion.estudiantes;
 import java.util.ArrayList;
 
 import data.ObtenerEstudinetes;
-import models.interfaces.actualizador;
+import models.interfaces.Actualizador;
 import models.usuarios.Estudiante;
 
-public class GestorEstudiantes implements actualizador{
+public class GestorEstudiantes implements Actualizador{
     private GestorSolicitudesEstudiante gestorSolicitudes;
     private GestorResponsabilidadesEstudiantes gestorResponsabilidadesEstudiantes;
     private ArrayList<Estudiante> estudiantes;

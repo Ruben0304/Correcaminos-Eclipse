@@ -22,7 +22,7 @@ private Usuario usuario;
     private boolean autenticar(String nombreUsuario, String contrasena) {
         boolean encontrado = false;
         boolean autenticado = false;
-        ArrayList<Usuario> usuarios = GestorPrincipal.gestorUsuarios().getUsuarios();
+        ArrayList<Usuario> usuarios = GestorPrincipal.getGestorPrincipal().getUsuarios();
 
         for (int i = 0; i < usuarios.size() && !encontrado; i++) {
             encontrado = nombreUsuario.equals(usuarios.get(i).getNombreUsuario());

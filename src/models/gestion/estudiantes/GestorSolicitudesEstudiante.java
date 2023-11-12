@@ -3,12 +3,12 @@ package models.gestion.estudiantes;
 import java.util.ArrayList;
 
 import data.ObtenerSolicitudes;
-import models.interfaces.actualizador;
+import models.interfaces.Actualizador;
 import models.solicitudes.SolicitudBaja;
 import models.solicitudes.SolicitudLicencia;
 import models.usuarios.Estudiante;
 
-public class GestorSolicitudesEstudiante implements actualizador{
+public class GestorSolicitudesEstudiante implements Actualizador{
 
     ArrayList<SolicitudLicencia> solicitudesLicenciaHistoricas;
     ArrayList<SolicitudBaja> solicitudesBajaHistoricas;

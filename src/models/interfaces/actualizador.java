@@ -1,5 +1,5 @@
 package models.interfaces;
 
-public interface actualizador {
+public interface Actualizador {
     void actualizarDatos();
 }

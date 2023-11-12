@@ -51,7 +51,7 @@ public class Session {
 
     public static Usuario ValidarSession() {
         boolean encontrado = false;
-        ArrayList<Usuario> usuarios = GestorPrincipal.gestorUsuarios().getUsuarios();
+        ArrayList<Usuario> usuarios = GestorPrincipal.getGestorPrincipal().getUsuarios();
         Session session = obtenerSession();
         Usuario u = null;
 

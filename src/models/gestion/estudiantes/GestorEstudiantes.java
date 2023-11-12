@@ -3,9 +3,10 @@ package models.gestion.estudiantes;
 import java.util.ArrayList;
 
 import data.ObtenerEstudinetes;
+import models.interfaces.actualizador;
 import models.usuarios.Estudiante;
 
-public class GestorEstudiantes {
+public class GestorEstudiantes implements actualizador{
     private GestorSolicitudesEstudiante gestorSolicitudes;
     private GestorResponsabilidadesEstudiantes gestorResponsabilidadesEstudiantes;
     private ArrayList<Estudiante> estudiantes;
@@ -38,4 +39,8 @@ public class GestorEstudiantes {
         return estudiantes;
     }
 
+    @Override
+    public void actualizarDatos() {
+
+    }
 }

@@ -13,6 +13,7 @@ public class Estudiante extends Persona {
 	protected TipoCurso tipoCurso;
 	protected String carrera;
 	protected int grupo;
+	
 
 	public Estudiante(String nombreUsuario, String contrasena, String ci, String nombre, String primer_apellido,
 			String segundo_apellido,
@@ -27,10 +28,8 @@ public class Estudiante extends Persona {
 	}
 
 	@Override
-	public void solicitarLicencia(Secretaria secretaria, String motivo, String fechaInicio, String fechaFin) {
-		SolicitudLicencia solicitud = new SolicitudLicencia(Estudiante.this, motivo, fechaInicio,
-				fechaFin);
-		secretaria.agregarSolicitudDeLicencia(solicitud);
+	public void solicitarLicencia(String motivo, String fechaInicio, String fechaFin) {
+		
 
 	}
 

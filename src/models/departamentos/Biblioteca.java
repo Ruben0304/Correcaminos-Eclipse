@@ -2,9 +2,8 @@ package models.departamentos;
 
 import java.util.ArrayList;
 
-import models.gestion.GestorPrincipal;
+
 import models.responsabilidades.ResponsabilidadesEstudiantes;
-import models.solicitudes.SolicitudLicencia;
 import models.usuarios.Estudiante;
 import utiles.TiposResponsabilidad;
 

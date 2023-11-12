@@ -3,11 +3,12 @@ package models.gestion.estudiantes;
 import java.util.ArrayList;
 
 import data.ObtenerSolicitudes;
+import models.interfaces.actualizador;
 import models.solicitudes.SolicitudBaja;
 import models.solicitudes.SolicitudLicencia;
 import models.usuarios.Estudiante;
 
-public class GestorSolicitudesEstudiante {
+public class GestorSolicitudesEstudiante implements actualizador{
 
     ArrayList<SolicitudLicencia> solicitudesLicenciaHistoricas;
     ArrayList<SolicitudBaja> solicitudesBajaHistoricas;
@@ -56,5 +57,28 @@ public class GestorSolicitudesEstudiante {
             }
         }
         return estudianteEncontrado;
+    }
+
+    
+    public ArrayList<SolicitudLicencia> getSolicitudesLicenciaPendientes() {
+
+        return solicitudesLicenciaPendientes;
+    }
+
+    public ArrayList<Estudiante> getEstudianteLicenciaPendientes() {
+        ArrayList<Estudiante> es = new ArrayList<>();
+        for (SolicitudLicencia s : this.solicitudesLicenciaPendientes) {
+            es.add(s.getEstudiante());
+        }
+        return es;
+    }
+
+     public void agregarSolicitudDeLicencia(SolicitudLicencia solicitud) {
+        solicitudesLicenciaPendientes.add(solicitud);
+    }
+
+    @Override
+    public void actualizarDatos() {
+
     }
 }

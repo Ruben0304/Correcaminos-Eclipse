@@ -5,16 +5,15 @@ import java.io.IOException;
 
 import java.util.ArrayList;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 
-import models.departamentos.RecursosHumanos;
-import models.departamentos.Secretaria;
+
+
 import models.gestion.empleados.GestorEmpleados;
 import models.gestion.estudiantes.GestorEstudiantes;
-import models.gestion.estudiantes.GestorResponsabilidadesEstudiantes;
+
 import models.interfaces.actualizador;
 import models.usuarios.Persona;
+import models.usuarios.Usuario;
 
 public class GestorPrincipal implements actualizador{
     private static GestorPrincipal gestorPrincipal;
@@ -57,6 +56,14 @@ public class GestorPrincipal implements actualizador{
         return personas;
     }
 
+    public ArrayList<Usuario> obtenerUsuarios() {
+        ArrayList<Usuario> usuarios = new ArrayList<>();
+        usuarios.addAll(obtenerPersonas());
+        usuarios.addAll(gestorAdmins.getAdmins());
+        return usuarios;
+    }
+
+    @Override
     public void actualizarDatos() {
         // Gson gson = new GsonBuilder().setPrettyPrinting().create();
         // String jsonAdmins = gson.toJson(gestorAdmins.getAdmins());

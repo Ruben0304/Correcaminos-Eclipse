@@ -15,7 +15,7 @@ public class ControladorPrincipal {
     public static void mostrarInicio() {
 
         if (Auth.hayUsuarioAutenticado()) {
-            Inicio inicio = new Inicio(Auth.usuarioAutenticado(), GestorPrincipal.secretaria());
+            Inicio inicio = new Inicio(Auth.usuarioAutenticado());
             inicio.setVisible(true);
         }else{
             ControladorLogin.mostrarLogin();

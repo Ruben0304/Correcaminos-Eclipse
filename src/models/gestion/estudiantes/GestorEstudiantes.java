@@ -16,29 +16,14 @@ public class GestorEstudiantes implements Actualizador {
     private GestorSolicitudesEstudiante gestorSolicitudes;
     private GestorResponsabilidadesEstudiantes gestorResponsabilidadesEstudiantes;
     private ArrayList<Estudiante> estudiantes;
-    protected ArrayList<ResponsabilidadesEstudiantes> resp;
+    
 
     public GestorEstudiantes() {
         estudiantes = new ArrayList<>();
         registrarEstudiantes();
         gestorSolicitudes = new GestorSolicitudesEstudiante(estudiantes);
-        resp = new ArrayList<>();
-        for (Estudiante estudiante : estudiantes) {
-
-            this.resp.add(new ResponsabilidadesEstudiantes(estudiante.getResponsabilidades(), estudiante));
-        }
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        String jsonAdmins = gson.toJson(resp);
-        try {
-
-            FileWriter writerA = new FileWriter("./responsabilidadesEstudiantes.json");
-            writerA.write(jsonAdmins);
-            writerA.close();
-
-            System.out.println("Guardado todo ok.");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        
+       
 
     }
 

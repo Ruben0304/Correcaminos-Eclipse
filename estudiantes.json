@@ -4,13 +4,6 @@
     "tipoCurso": "DIURNO",
     "carrera": "Ingenieria Informatica",
     "grupo": 1,
-    "responsabilidades": [
-      "CARNET_CUJAE",
-      "ESTIPENDIO",
-      "LIBROS_DOCENTES",
-      "CUENTA_USUARIO",
-      "LIBROS_BIBLIOTECA"
-    ],
     "ci": "01234567891",
     "nombre": "Juan",
     "primer_apellido": "Perez",
@@ -24,12 +17,6 @@
     "tipoCurso": "ENCUENTRO",
     "carrera": "Ingenieria Informatica",
     "grupo": 2,
-    "responsabilidades": [
-      "CARNET_CUJAE",
-      "ESTIPENDIO",
-      "LIBROS_DOCENTES",
-      "CUENTA_USUARIO"
-    ],
     "ci": "12345678902",
     "nombre": "Maria",
     "primer_apellido": "Gonzalez",
@@ -43,13 +30,6 @@
     "tipoCurso": "DIURNO",
     "carrera": "Ingenieria Informatica",
     "grupo": 3,
-    "responsabilidades": [
-      "CARNET_CUJAE",
-      "ESTIPENDIO",
-      "LIBROS_DOCENTES",
-      "CUENTA_USUARIO",
-      "LIBROS_BIBLIOTECA"
-    ],
     "ci": "23456789013",
     "nombre": "Pedro",
     "primer_apellido": "Lopez",
@@ -63,13 +43,6 @@
     "tipoCurso": "ENCUENTRO",
     "carrera": "Ingenieria Informatica",
     "grupo": 4,
-    "responsabilidades": [
-      "CARNET_CUJAE",
-      "ESTIPENDIO",
-      "LIBROS_DOCENTES",
-      "CUENTA_USUARIO",
-      "LIBROS_BIBLIOTECA"
-    ],
     "ci": "34567890124",
     "nombre": "Sofia",
     "primer_apellido": "Fernandez",
@@ -83,13 +56,6 @@
     "tipoCurso": "DIURNO",
     "carrera": "Ingenieria Informatica",
     "grupo": 5,
-    "responsabilidades": [
-      "CARNET_CUJAE",
-      "ESTIPENDIO",
-      "LIBROS_DOCENTES",
-      "CUENTA_USUARIO",
-      "LIBROS_BIBLIOTECA"
-    ],
     "ci": "45678901235",
     "nombre": "Laura",
     "primer_apellido": "Martinez",
@@ -103,13 +69,6 @@
     "tipoCurso": "ENCUENTRO",
     "carrera": "Ingenieria Informatica",
     "grupo": 6,
-    "responsabilidades": [
-      "CARNET_CUJAE",
-      "ESTIPENDIO",
-      "LIBROS_DOCENTES",
-      "CUENTA_USUARIO",
-      "LIBROS_BIBLIOTECA"
-    ],
     "ci": "56789012346",
     "nombre": "Carlos",
     "primer_apellido": "Sanchez",
@@ -123,13 +82,6 @@
     "tipoCurso": "DIURNO",
     "carrera": "Ingenieria Informatica",
     "grupo": 1,
-    "responsabilidades": [
-      "CARNET_CUJAE",
-      "ESTIPENDIO",
-      "LIBROS_DOCENTES",
-      "CUENTA_USUARIO",
-      "LIBROS_BIBLIOTECA"
-    ],
     "ci": "67890123457",
     "nombre": "Isabel",
     "primer_apellido": "Gomez",
@@ -143,13 +95,6 @@
     "tipoCurso": "ENCUENTRO",
     "carrera": "Ingenieria Informatica",
     "grupo": 2,
-    "responsabilidades": [
-      "CARNET_CUJAE",
-      "ESTIPENDIO",
-      "LIBROS_DOCENTES",
-      "CUENTA_USUARIO",
-      "LIBROS_BIBLIOTECA"
-    ],
     "ci": "78901234568",
     "nombre": "Manuel",
     "primer_apellido": "Torres",
@@ -163,13 +108,6 @@
     "tipoCurso": "DIURNO",
     "carrera": "Ingenieria Informatica",
     "grupo": 3,
-    "responsabilidades": [
-      "CARNET_CUJAE",
-      "ESTIPENDIO",
-      "LIBROS_DOCENTES",
-      "CUENTA_USUARIO",
-      "LIBROS_BIBLIOTECA"
-    ],
     "ci": "89012345679",
     "nombre": "Ana",
     "primer_apellido": "Lopez",
@@ -183,13 +121,6 @@
     "tipoCurso": "ENCUENTRO",
     "carrera": "Ingenieria Informatica",
     "grupo": 4,
-    "responsabilidades": [
-      "CARNET_CUJAE",
-      "ESTIPENDIO",
-      "LIBROS_DOCENTES",
-      "CUENTA_USUARIO",
-      "LIBROS_BIBLIOTECA"
-    ],
     "ci": "90123456780",
     "nombre": "Luis",
     "primer_apellido": "Fernandez",
@@ -203,13 +134,6 @@
     "tipoCurso": "DIURNO",
     "carrera": "Ingenieria Informatica",
     "grupo": 5,
-    "responsabilidades": [
-      "CARNET_CUJAE",
-      "ESTIPENDIO",
-      "LIBROS_DOCENTES",
-      "CUENTA_USUARIO",
-      "LIBROS_BIBLIOTECA"
-    ],
     "ci": "09876543211",
     "nombre": "Marta",
     "primer_apellido": "Martinez",
@@ -223,13 +147,6 @@
     "tipoCurso": "ENCUENTRO",
     "carrera": "Ingenieria Informatica",
     "grupo": 6,
-    "responsabilidades": [
-      "CARNET_CUJAE",
-      "ESTIPENDIO",
-      "LIBROS_DOCENTES",
-      "CUENTA_USUARIO",
-      "LIBROS_BIBLIOTECA"
-    ],
     "ci": "98765432102",
     "nombre": "David",
     "primer_apellido": "Sanchez",
@@ -243,13 +160,6 @@
     "tipoCurso": "DIURNO",
     "carrera": "Ingenieria Informatica",
     "grupo": 1,
-    "responsabilidades": [
-      "CARNET_CUJAE",
-      "ESTIPENDIO",
-      "LIBROS_DOCENTES",
-      "CUENTA_USUARIO",
-      "LIBROS_BIBLIOTECA"
-    ],
     "ci": "87654321013",
     "nombre": "Clara",
     "primer_apellido": "Gomez",
@@ -263,13 +173,6 @@
     "tipoCurso": "ENCUENTRO",
     "carrera": "Ingenieria Informatica",
     "grupo": 2,
-    "responsabilidades": [
-      "CARNET_CUJAE",
-      "ESTIPENDIO",
-      "LIBROS_DOCENTES",
-      "CUENTA_USUARIO",
-      "LIBROS_BIBLIOTECA"
-    ],
     "ci": "76543210124",
     "nombre": "Eduardo",
     "primer_apellido": "Torres",
@@ -283,13 +186,6 @@
     "tipoCurso": "DIURNO",
     "carrera": "Ingenieria Informatica",
     "grupo": 3,
-    "responsabilidades": [
-      "CARNET_CUJAE",
-      "ESTIPENDIO",
-      "LIBROS_DOCENTES",
-      "CUENTA_USUARIO",
-      "LIBROS_BIBLIOTECA"
-    ],
     "ci": "65432101235",
     "nombre": "Maria",
     "primer_apellido": "Lopez",

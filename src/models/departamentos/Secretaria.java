@@ -6,12 +6,12 @@ import java.util.ArrayList;
 import data.ObtenerEstudinetes;
 import data.ObtenerSolicitudes;
 import models.responsabilidades.ResponsabilidadesEstudiantes;
-import models.solicitudes.SolicitudBajaEstudiante;
-import models.solicitudes.SolicitudLicenciaEstudiante;
+import models.solicitudes.SolicitudBaja;
+import models.solicitudes.SolicitudLicencia;
 import models.usuarios.Estudiante;
 
 public class Secretaria {
-    ArrayList<Estudiante> estudiantes;
+    
     
 
     public Secretaria() {
@@ -19,13 +19,11 @@ public class Secretaria {
         registrarLicenciasEstudiantes();
     }
 
-    public void registrarEstudiantes() {
-       this.estudiantes = ObtenerEstudinetes.cargarDesdeArchivo();
-    }
+    
 
     
 
-    public void agregarSolicitudDeLicencia(SolicitudLicenciaEstudiante solicitud) {
+    public void agregarSolicitudDeLicencia(SolicitudLicencia solicitud) {
         solicitudesLicenciaPendientes.add(solicitud);
     }
 
@@ -37,36 +35,22 @@ public class Secretaria {
         return encontrado;
     }
 
-    public Estudiante buscarEstudiante(String id) {
-        boolean encontrado = false;
-        Estudiante estudianteEncontrado = null;
-        for (int i = 0; i < this.estudiantes.size() && !encontrado; i++) {
-            encontrado = id.equals(this.estudiantes.get(i).getCi());
-            if (encontrado) {
-                estudianteEncontrado = this.estudiantes.get(i);
-            }
-        }
-        return estudianteEncontrado;
-    }
+   
 
-    public ArrayList<SolicitudLicenciaEstudiante> getSolicitudesLicenciaPendientes() {
+    public ArrayList<SolicitudLicencia> getSolicitudesLicenciaPendientes() {
 
         return solicitudesLicenciaPendientes;
     }
 
     public ArrayList<Estudiante> getEstudianteLicenciaPendientes() {
         ArrayList<Estudiante> es = new ArrayList<>();
-        for (SolicitudLicenciaEstudiante s : this.solicitudesLicenciaPendientes) {
+        for (SolicitudLicencia s : this.solicitudesLicenciaPendientes) {
             es.add(s.getEstudiante());
         }
         return es;
     }
 
-    public ArrayList<Estudiante> getEstudiantes() {
-
-        return estudiantes;
-    }
-
+    
     public ArrayList<ResponsabilidadesEstudiantes> getResponsabilidadesEstudiantes() {
 
         return responsabilidades;

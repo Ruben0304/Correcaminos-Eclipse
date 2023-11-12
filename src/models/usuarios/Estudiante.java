@@ -3,7 +3,7 @@ package models.usuarios;
 import java.util.ArrayList;
 
 import models.departamentos.Secretaria;
-import models.solicitudes.SolicitudLicenciaEstudiante;
+import models.solicitudes.SolicitudLicencia;
 import utiles.Facultad;
 import utiles.TipoCurso;
 import utiles.TiposResponsabilidad;
@@ -28,7 +28,7 @@ public class Estudiante extends Persona {
 
 	@Override
 	public void solicitarLicencia(Secretaria secretaria, String motivo, String fechaInicio, String fechaFin) {
-		SolicitudLicenciaEstudiante solicitud = new SolicitudLicenciaEstudiante(Estudiante.this, motivo, fechaInicio,
+		SolicitudLicencia solicitud = new SolicitudLicencia(Estudiante.this, motivo, fechaInicio,
 				fechaFin);
 		secretaria.agregarSolicitudDeLicencia(solicitud);
 

@@ -5,7 +5,7 @@ import java.time.LocalDate;
 import models.usuarios.Estudiante;
 import utiles.Estado;
 
-public class SolicitudBajaEstudiante {
+public class SolicitudBaja {
     protected Estudiante estudiante;
     protected Estado estado;
     protected String motivo;
@@ -13,7 +13,7 @@ public class SolicitudBajaEstudiante {
 
     
 
-    public SolicitudBajaEstudiante(Estudiante estudiante, String motivo) {
+    public SolicitudBaja(Estudiante estudiante, String motivo) {
         this.estudiante = estudiante;
         this.estado = Estado.PENDIENTE;
         this.motivo = motivo;

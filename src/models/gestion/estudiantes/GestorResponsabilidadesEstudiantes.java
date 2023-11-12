@@ -1,30 +1,26 @@
-package models.gestion;
+package models.gestion.estudiantes;
 
 import java.util.ArrayList;
 
 import models.responsabilidades.ResponsabilidadesEmpleados;
 import models.responsabilidades.ResponsabilidadesEstudiantes;
 
-public class GestorResponsabilidades {
+public class GestorResponsabilidadesEstudiantes {
     private ArrayList<ResponsabilidadesEstudiantes> responsabilidadesEstudiantesPendientes;
-    private ArrayList<ResponsabilidadesEmpleados> responsabilidadesEmpleadosPendientes;
+    
 
     private ArrayList<ResponsabilidadesEstudiantes> responsabilidadesEstudiantesCujae;
-    private ArrayList<ResponsabilidadesEmpleados> responsabilidadesEmpleadosCujae;
+   
 
     
     public ArrayList<ResponsabilidadesEstudiantes> getResponsabilidadesEstudiantesPendientes() {
         return responsabilidadesEstudiantesPendientes;
     }
-    public ArrayList<ResponsabilidadesEmpleados> getResponsabilidadesEmpleadosPendientes() {
-        return responsabilidadesEmpleadosPendientes;
-    }
+   
     public ArrayList<ResponsabilidadesEstudiantes> getResponsabilidadesEstudiantesCujae() {
         return responsabilidadesEstudiantesCujae;
     }
-    public ArrayList<ResponsabilidadesEmpleados> getResponsabilidadesEmpleadosCujae() {
-        return responsabilidadesEmpleadosCujae;
-    }
+   
 
 
     

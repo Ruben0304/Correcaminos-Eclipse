@@ -11,12 +11,17 @@ import com.google.gson.GsonBuilder;
 
 import models.departamentos.RecursosHumanos;
 import models.departamentos.Secretaria;
+import models.gestion.empleados.GestorEmpleados;
+import models.gestion.estudiantes.GestorEstudiantes;
+import models.gestion.estudiantes.GestorResponsabilidadesEstudiantes;
 import models.usuarios.Persona;
 
 public class GestorPrincipal {
     private static GestorPrincipal gestorPrincipal;
     private GestorUsuarios gestorUsuarios;
-    private GestorResponsabilidades gestorResponsabilidades;
+    private GestorEstudiantes gestorEstudiantes;
+    private GestorEmpleados gestorEmpleados;
+
     private Secretaria secretaria;
     private RecursosHumanos recursosHumanos;
 
@@ -87,7 +92,7 @@ public class GestorPrincipal {
         return usuarioEncontrado;
     }
 
-    public GestorResponsabilidades gestorResponsabilidades() {
+    public GestorResponsabilidadesEstudiantes gestorResponsabilidades() {
         return gestorResponsabilidades;
     }
     

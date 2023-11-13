@@ -8,34 +8,16 @@ import utiles.TiposResponsabilidad;
 
 public class Economia {
 
-    public static boolean tieneEstipendio(Estudiante e,
-            ArrayList<ResponsabilidadesEstudiantes> responsabilidades) {
-        boolean encontrado = false;
-
-        for (int i = 0; i < responsabilidades.size() && !encontrado; i++) {
-
-            encontrado = responsabilidades.get(i).getEstudiante().equals(e)
-                    && responsabilidades.get(i).getResponsabilidades().contains(TiposResponsabilidad.ESTIPENDIO);
-
-        }
-        return encontrado;
+    public boolean tieneEstipendio(ResponsabilidadesEstudiantes responsabilidades) {
+        return responsabilidades.getResponsabilidades().contains(TiposResponsabilidad.ESTIPENDIO);
     }
 
-    public static boolean tieneDeuda(Estudiante e,
-            ArrayList<ResponsabilidadesEstudiantes> responsabilidades) {
-        boolean encontrado = false;
-
-        for (int i = 0; i < responsabilidades.size() && !encontrado; i++) {
-
-            encontrado = responsabilidades.get(i).getEstudiante().equals(e)
-                    && responsabilidades.get(i).getResponsabilidades().contains(TiposResponsabilidad.DEUDA);
-
-        }
-        return encontrado;
+    public boolean tieneDeuda(ResponsabilidadesEstudiantes responsabilidades) {
+         return responsabilidades.getResponsabilidades().contains(TiposResponsabilidad.DEUDA);
     }
 
-    public static boolean tieneRequisitosCumplidos(Estudiante e, ArrayList<ResponsabilidadesEstudiantes> responsabilidadesEstudiantes) {
-        return tieneDeuda(e,responsabilidadesEstudiantes) && tieneEstipendio(e,responsabilidadesEstudiantes);
+    public boolean tieneRequisitosCumplidos(ResponsabilidadesEstudiantes responsabilidades) {
+        return tieneDeuda(responsabilidades) && tieneEstipendio(responsabilidades);
     }
 
     // public static void quitarEstipendio(Estudiante e) {
@@ -57,6 +39,17 @@ public class Economia {
     //     }
     //     return null;
     // }
+
+    public ArrayList<Estudiante> getEstudiantesPendientes(
+            ArrayList<ResponsabilidadesEstudiantes> responsabilidades) {
+        ArrayList<Estudiante> es = new ArrayList<>();
+        for (ResponsabilidadesEstudiantes r : responsabilidades) {
+            if (tieneRequisitosCumplidos(r)) {
+                es.add(r.getEstudiante());
+            }
+        }
+        return es;
+    }
 
 
 }

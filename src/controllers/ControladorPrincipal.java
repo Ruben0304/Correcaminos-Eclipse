@@ -44,28 +44,22 @@ public class ControladorPrincipal {
 
     public static void mostrarRequisitosBajaEstudiantes() {
 
-        
-        ArrayList<ResponsabilidadesEstudiantes> responsabilidadesEstudiantes = GestorEstudiantes.gestorEstudiantes()
-                .getGestorResponsabilidadesEstudiantes().getResponsabilidadesEstudiantesPendientes();
-
-                GestorDepartamentos gestDep = GestorDepartamentos.gestorDepartamentos();
+        GestorDepartamentos gestDep = GestorDepartamentos.gestorDepartamentos();
 
         if (Auth.usuarioAutenticado() instanceof Estudiante) {
             Estudiante usuarioAutenticado = (Estudiante) Auth.usuarioAutenticado();
+            ResponsabilidadesEstudiantes respEst = GestorEstudiantes.gestorEstudiantes().getGestorResponsabilidadesEstudiantes()
+                            .getListadoDeUnEstudiante(usuarioAutenticado);
 
-            boolean tieneLibrosPrestados = gestDep.getBiblioteca().getgetListadoDeUnEstudiante(usuarioAutenticado)
+            boolean tieneLibrosPrestados = gestDep.getBiblioteca().tieneLibrosPrestados(respEst);
 
-            boolean tieneEstipendio = Economia.tieneEstipendio(usuarioAutenticado,
-                    responsabilidadesEstudiantes);
+            boolean tieneEstipendio = gestDep.getEconomia().tieneEstipendio(respEst);
 
-            boolean tieneDeuda = Economia.tieneDeuda(usuarioAutenticado,
-                    responsabilidadesEstudiantes);
-                    
+            boolean tieneDeuda = gestDep.getEconomia().tieneDeuda(respEst);
+
             RequisitosBajaEstudiantes requisitosBajaEstudiantes = new RequisitosBajaEstudiantes(
                     usuarioAutenticado, tieneEstipendio, tieneDeuda, tieneLibrosPrestados);
             requisitosBajaEstudiantes.setVisible(true);
-
-            
 
         }
 

@@ -33,6 +33,8 @@ import javax.swing.table.DefaultTableModel;
 
 import controllers.ControladorLogin;
 import views.auth.Entrar;
+import views.jpersonalizados.JFoto;
+import java.net.URL;
 
 public class prueba extends JFrame {
 
@@ -88,6 +90,9 @@ public class prueba extends JFrame {
 	private JLabel lblCasosPendientes;
 	private JTable table;
 	private JButton btnNewButton;
+	private JFoto foto;
+	private JFoto foto_1;
+	private JFoto foto_2;
 
 	/**
 	 * Launch the application.
@@ -169,6 +174,9 @@ public class prueba extends JFrame {
 			panel_inicio.add(getLabel_1_2());
 			panel_inicio.add(getLabel_1());
 			panel_inicio.add(getLabel_2());
+			panel_inicio.add(getFoto());
+			panel_inicio.add(getFoto_1_1());
+			panel_inicio.add(getFoto_2());
 
 		}
 		return panel_inicio;

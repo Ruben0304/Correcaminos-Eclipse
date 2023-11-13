@@ -48,11 +48,12 @@ public class ControladorPrincipal {
         ArrayList<ResponsabilidadesEstudiantes> responsabilidadesEstudiantes = GestorEstudiantes.gestorEstudiantes()
                 .getGestorResponsabilidadesEstudiantes().getResponsabilidadesEstudiantesPendientes();
 
+                GestorDepartamentos gestDep = GestorDepartamentos.gestorDepartamentos();
+
         if (Auth.usuarioAutenticado() instanceof Estudiante) {
             Estudiante usuarioAutenticado = (Estudiante) Auth.usuarioAutenticado();
 
-            boolean tieneLibrosPrestados = Biblioteca.tieneLibrosPrestados(usuarioAutenticado,
-                    responsabilidadesEstudiantes);
+            boolean tieneLibrosPrestados = gestDep.getBiblioteca().getgetListadoDeUnEstudiante(usuarioAutenticado)
 
             boolean tieneEstipendio = Economia.tieneEstipendio(usuarioAutenticado,
                     responsabilidadesEstudiantes);

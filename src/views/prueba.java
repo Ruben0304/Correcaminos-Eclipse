@@ -134,9 +134,9 @@ public class prueba extends JFrame {
 		contentPane.setLayout(null);
 //		contentPane.add(getPanel_SolicitarBajaOLic());
 //		contentPane.add(getPanel_2());
-//		contentPane.add(getPanel_RequisitosEstud());
+		contentPane.add(getPanel_RequisitosEstud());
 		contentPane.add(getPanel_inicio());
-		  contentPane.add(Entrar.getVista().getPanel());
+		//   contentPane.add(Entrar.getVista().getPanel());
 	}
 
 	private JPanel getPanel_inicio() {
@@ -176,9 +176,7 @@ public class prueba extends JFrame {
 			panel_inicio.add(getLabel_1_2());
 			panel_inicio.add(getLabel_1());
 			panel_inicio.add(getLabel_2());
-			panel_inicio.add(getFoto());
-			panel_inicio.add(getFoto_1_1());
-			panel_inicio.add(getFoto_2());
+			
 
 		}
 		return panel_inicio;
@@ -198,7 +196,7 @@ public class prueba extends JFrame {
 					getAccount_bg().setVisible(false);
 					getGestion_bg().setVisible(false);
 					getGuardar_bg().setVisible(false);
-					ControladorLogin.mostrarLogin2();
+					ControladorLogin.mostrarInicio();
 				}
 
 				@Override
@@ -769,6 +767,4 @@ public class prueba extends JFrame {
 		}
 		return btnNewButton;
 	}
-
-	
 }

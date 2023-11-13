@@ -15,7 +15,7 @@ import java.util.ArrayList;
 
 import javax.swing.JPanel;
 
-import com.google.gson.Gson;
+
 
 import auth.Auth;
 import auth.Session;
@@ -36,21 +36,17 @@ public class ControladorLogin {
 
     }
 
-    public static void mostrarLogin2() {
+    public static void mostrarInicio() {
 
-        // Obtener la instancia de prueba
         prueba instancia = prueba.getInstancia();
 
-        // Obtener el contenedor del JFrame
         Container contenedor = instancia.getContentPane();
 
-        // Crear el panel de entrar con el parámetro "ppp"
         Entrar entrar = Entrar.getVista();
 
-        // Añadir el panel de entrar al contenedor con el nombre "Entrar"
-        prueba.getInstancia().add(entrar.getPanel());
+        
+        contenedor.add(entrar.getPanel());
 
-        // Actualizar el contenedor
         prueba.getInstancia().revalidate();
         prueba.getInstancia().repaint();
     }

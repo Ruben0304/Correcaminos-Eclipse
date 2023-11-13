@@ -8,16 +8,16 @@ import utiles.TiposResponsabilidad;
 
 public class Biblioteca {
 
-    public static boolean tieneLibrosPrestados(Estudiante e){
-        
+    public boolean tieneLibrosPrestados(ResponsabilidadesEstudiantes r){
+        return r.getResponsabilidades().contains(TiposResponsabilidad.LIBROS_BIBLIOTECA);
         
     }
 
-    public static boolean tieneRequisitosCumplidos(ResponsabilidadesEstudiantes responsabilidadesEstudiantes) {
-        return responsabilidadesEstudiantes.getResponsabilidades().contains(TiposResponsabilidad.LIBROS_BIBLIOTECA);
+    public boolean tieneRequisitosCumplidos(ResponsabilidadesEstudiantes responsabilidadesEstudiantes) {
+        return tieneLibrosPrestados(responsabilidadesEstudiantes);
     }
 
-    public static void quitarLibrosPrestados(Estudiante e, ArrayList<ResponsabilidadesEstudiantes> responsabilidades) {
+    public void quitarLibrosPrestados(Estudiante e, ArrayList<ResponsabilidadesEstudiantes> responsabilidades) {
         boolean encontrado = false;
         for (int i = 0; i < responsabilidades.size() && !encontrado; i++) {
 
@@ -29,11 +29,11 @@ public class Biblioteca {
         }
     }
 
-    public static ArrayList<Estudiante> getEstudiantesPendientes(
+    public ArrayList<Estudiante> getEstudiantesPendientes(
             ArrayList<ResponsabilidadesEstudiantes> responsabilidades) {
         ArrayList<Estudiante> es = new ArrayList<>();
         for (ResponsabilidadesEstudiantes r : responsabilidades) {
-            if (tieneRequisitosCumplidos(r.getEstudiante(), responsabilidades)) {
+            if (tieneRequisitosCumplidos(r)) {
                 es.add(r.getEstudiante());
             }
         }

@@ -57,6 +57,16 @@ public class GestorResponsabilidadesEstudiantes implements Actualizador {
         return estudianteEncontrado;
     }
 
+    public ResponsabilidadesEstudiantes getListadoDeUnEstudiante(Estudiante e) {
+        ResponsabilidadesEstudiantes responsabilidadesEst = null;
+        for (ResponsabilidadesEstudiantes responsabilidadesEstudiantes : responsabilidadesEstudiantesPendientes) {
+            if (e.equals(responsabilidadesEstudiantes.getEstudiante())) {
+            responsabilidadesEst = responsabilidadesEstudiantes;
+            }
+        }
+        return responsabilidadesEst;
+    }
+
     @Override
     public void actualizarDatos() {
 

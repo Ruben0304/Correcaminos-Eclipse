@@ -44,7 +44,7 @@ public class ControladorPrincipal {
 
     public static void mostrarRequisitosBajaEstudiantes() {
 
-        GestorDepartamentos gestorDepartamentos = GestorDepartamentos.gestorDepartamentos();
+        
         ArrayList<ResponsabilidadesEstudiantes> responsabilidadesEstudiantes = GestorEstudiantes.gestorEstudiantes()
                 .getGestorResponsabilidadesEstudiantes().getResponsabilidadesEstudiantesPendientes();
 

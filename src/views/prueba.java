@@ -9,8 +9,6 @@ import javax.swing.JPanel;
 import javax.swing.JRootPane;
 import javax.swing.border.EmptyBorder;
 
-
-
 import java.awt.Color;
 import java.awt.Component;
 import javax.swing.JButton;
@@ -103,7 +101,7 @@ public class prueba extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					prueba frame = new prueba();
+					prueba frame = prueba.getInstancia();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -123,7 +121,15 @@ public class prueba extends JFrame {
 		return instance;
 	}
 
+	public void setVista(JPanel panel) {
+		contentPane.removeAll();
+		contentPane.add(getPanel_inicio());
+	    contentPane.add(panel);
+		
+	}
+
 	public prueba() {
+		
 		setIconImage(Toolkit.getDefaultToolkit().getImage(prueba.class.getResource("/img/usuario_blanco.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1140, 744);
@@ -132,11 +138,7 @@ public class prueba extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-//		contentPane.add(getPanel_SolicitarBajaOLic());
-//		contentPane.add(getPanel_2());
-		contentPane.add(getPanel_RequisitosEstud());
-		contentPane.add(getPanel_inicio());
-		//   contentPane.add(Entrar.getVista().getPanel());
+		this.setVista(getPanel_RequisitosEstud());
 	}
 
 	private JPanel getPanel_inicio() {
@@ -176,7 +178,6 @@ public class prueba extends JFrame {
 			panel_inicio.add(getLabel_1_2());
 			panel_inicio.add(getLabel_1());
 			panel_inicio.add(getLabel_2());
-			
 
 		}
 		return panel_inicio;
@@ -196,6 +197,7 @@ public class prueba extends JFrame {
 					getAccount_bg().setVisible(false);
 					getGestion_bg().setVisible(false);
 					getGuardar_bg().setVisible(false);
+		
 					ControladorLogin.mostrarInicio();
 				}
 
@@ -730,13 +732,13 @@ public class prueba extends JFrame {
 			table.setFillsViewportHeight(true);
 			table.setForeground(Color.WHITE);
 			table.setBorder(new LineBorder(new Color(255, 255, 255), 9, true));
-			
+
 			ArrayList<Estudiante> usuariosPendientes = new ArrayList<Estudiante>();
 			Object[][] data = new Object[usuariosPendientes.size() + 1][3];
 			int i = 1;
-			data[0][0]="Carnet";
-			data[0][1]="Nombre";
-			data[0][2]="Apellidos";
+			data[0][0] = "Carnet";
+			data[0][1] = "Nombre";
+			data[0][2] = "Apellidos";
 			for (Persona p : usuariosPendientes) {
 
 				data[i][0] = p.getCi();
@@ -745,17 +747,15 @@ public class prueba extends JFrame {
 				i++;
 			}
 
-			
 			table.setModel(new DefaultTableModel(
-				new Object[][] {
-					{null, null, null},
-				},
-				new String[] {
-					"Carnet", "Nombre", "Apellidos"
-				}
-			));
+					new Object[][] {
+							{ null, null, null },
+					},
+					new String[] {
+							"Carnet", "Nombre", "Apellidos"
+					}));
 			table.setBounds(112, 33, 587, 476);
-			
+
 		}
 		return table;
 	}

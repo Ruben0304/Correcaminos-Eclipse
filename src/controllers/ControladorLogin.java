@@ -15,8 +15,6 @@ import java.util.ArrayList;
 
 import javax.swing.JPanel;
 
-
-
 import auth.Auth;
 import auth.Session;
 import auth.VerificarCredenciales;
@@ -39,14 +37,9 @@ public class ControladorLogin {
     public static void mostrarInicio() {
 
         prueba instancia = prueba.getInstancia();
-
-        Container contenedor = instancia.getContentPane();
-
-        Entrar entrar = Entrar.getVista();
-
-        
-        contenedor.add(entrar.getPanel());
-
+        instancia.setVista( Entrar.getVista().getPanel());
+        // contenedor.add(entrar.getPanel());
+        System.out.println("hghghg");
         prueba.getInstancia().revalidate();
         prueba.getInstancia().repaint();
     }

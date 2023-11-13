@@ -31,6 +31,7 @@ import javax.swing.JCheckBox;
 import javax.swing.JButton;
 
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import java.awt.SystemColor;
 
@@ -41,7 +42,7 @@ public class RequisitosBajaEstudiantes extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public RequisitosBajaEstudiantes(final Estudiante usuarioAutenticado) {
+	public RequisitosBajaEstudiantes(final Estudiante usuarioAutenticado, final ArrayList<Boolean> requisitos) {
 		setResizable(false);
 		setTitle("Requisitos para obtener baja");
 		setIconImage(Toolkit.getDefaultToolkit()
@@ -91,7 +92,7 @@ public class RequisitosBajaEstudiantes extends JFrame {
 		JCheckBox chckbxNewCheckBox = new JCheckBox("Entregar libros docentes");
 		chckbxNewCheckBox.setFont(new Font("Arial Narrow", Font.BOLD, 13));
 		chckbxNewCheckBox.setBounds(139, 29, 184, 23);
-		chckbxNewCheckBox.setSelected(!usuarioAutenticado.tieneLibrosDocentes());
+		chckbxNewCheckBox.setSelected();
 		panel.add(chckbxNewCheckBox);
 
 		JCheckBox chckbxNewCheckBox_2 = new JCheckBox("Entregar libros prestados");

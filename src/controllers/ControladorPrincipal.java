@@ -1,7 +1,12 @@
 package controllers;
 
+import java.util.ArrayList;
+
 import auth.Auth;
+import models.departamentos.Biblioteca;
+import models.gestion.GestorDepartamentos;
 import models.gestion.GestorPrincipal;
+import models.gestion.estudiantes.GestorResponsabilidadesEstudiantes;
 import models.gestion.estudiantes.GestorSolicitudesEstudiante;
 import models.usuarios.Empleado;
 import models.usuarios.Estudiante;
@@ -16,32 +21,43 @@ public class ControladorPrincipal {
     public static void mostrarInicio() {
 
         if (Auth.hayUsuarioAutenticado()) {
-            GestorSolicitudesEstudiante gestorSolicitudesEstudiante =  GestorPrincipal.getGestorPrincipal().getGestorEstudiantes().getGestorSolicitudes();
-            Inicio inicio = new Inicio(Auth.usuarioAutenticado(), gestorSolicitudesEstudiante);
+            boolean estudianteSolicitaLicencia = false;
+            if (Auth.usuarioAutenticado() instanceof Estudiante) {
+                estudianteSolicitaLicencia = GestorPrincipal.getGestorPrincipal().getGestorEstudiantes()
+                        .getGestorSolicitudes()
+                        .verificarEstudianteSolicitaLicencia((Estudiante) Auth.usuarioAutenticado());
+            }
+            Inicio inicio = new Inicio(Auth.usuarioAutenticado(), estudianteSolicitaLicencia);
             inicio.setVisible(true);
-        }else{
+        } else {
             ControladorLogin.mostrarLogin();
         }
-            
-        
 
     }
-    public static void mostrarTramites() {
-        Usuario usuarioAutenticado = Auth.usuarioAutenticado();
-        if (usuarioAutenticado instanceof Estudiante) {
-            EstudianteTramites estudianteTramites = new EstudianteTramites((Estudiante) usuarioAutenticado,
-                    GestorPrincipal.secretaria());
-            estudianteTramites.setVisible(true);
-        } else if (usuarioAutenticado instanceof Empleado) {
 
-        }
+    public static void mostrarTramites() {
 
     }
 
     public static void mostrarRequisitosBajaEstudiantes() {
-        RequisitosBajaEstudiantes requisitosBajaEstudiantes = new RequisitosBajaEstudiantes(
-                (Estudiante) Auth.usuarioAutenticado());
-        requisitosBajaEstudiantes.setVisible(true);
+        Usuario usuarioAutenticado = Auth.usuarioAutenticado();
+        GestorDepartamentos gestorDepartamentos = GestorPrincipal.getGestorPrincipal().getGestorDepartamentos();
+        GestorResponsabilidadesEstudiantes gestorResponsabilidadesEstudiantes = GestorPrincipal.getGestorPrincipal()
+                .getGestorEstudiantes().getGestorResponsabilidadesEstudiantes();
+
+        if (usuarioAutenticado instanceof Estudiante) {
+
+            ArrayList<Boolean> requisitos = gestorDepartamentos.verificarRequisitosEstudiantes(
+                    (Estudiante) usuarioAutenticado,
+                    gestorResponsabilidadesEstudiantes.getResponsabilidadesEstudiantesPendientes());
+            RequisitosBajaEstudiantes requisitosBajaEstudiantes = new RequisitosBajaEstudiantes(
+                    (Estudiante) Auth.usuarioAutenticado(), requisitos);
+            requisitosBajaEstudiantes.setVisible(true);
+
+        } else if (usuarioAutenticado instanceof Empleado) {
+
+        }
+
     }
 
     public static void modoOscuro(boolean modoOscuro) {

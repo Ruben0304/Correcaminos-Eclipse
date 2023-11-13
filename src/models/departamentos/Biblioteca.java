@@ -2,7 +2,6 @@ package models.departamentos;
 
 import java.util.ArrayList;
 
-
 import models.responsabilidades.ResponsabilidadesEstudiantes;
 import models.usuarios.Estudiante;
 import utiles.TiposResponsabilidad;
@@ -22,8 +21,9 @@ public class Biblioteca {
         return encontrado;
     }
 
-    public static boolean tieneRequisitosCumplidos(Estudiante e, ArrayList<ResponsabilidadesEstudiantes> responsabilidades) {
-        return tieneLibrosPrestados(e,responsabilidades);
+    public static boolean tieneRequisitosCumplidos(Estudiante e,
+            ArrayList<ResponsabilidadesEstudiantes> responsabilidades) {
+        return tieneLibrosPrestados(e, responsabilidades);
     }
 
     public static void quitarLibrosPrestados(Estudiante e, ArrayList<ResponsabilidadesEstudiantes> responsabilidades) {
@@ -31,21 +31,32 @@ public class Biblioteca {
         for (int i = 0; i < responsabilidades.size() && !encontrado; i++) {
 
             encontrado = responsabilidades.get(i).getEstudiante().equals(e);
-                   if (encontrado) {
-                    responsabilidades.get(i).getResponsabilidades().remove(TiposResponsabilidad.LIBROS_BIBLIOTECA);
-                   }
+            if (encontrado) {
+                responsabilidades.get(i).getResponsabilidades().remove(TiposResponsabilidad.LIBROS_BIBLIOTECA);
+            }
 
         }
     }
 
-    public static ArrayList<Estudiante> getEstudiantesPendientes(ArrayList<ResponsabilidadesEstudiantes> responsabilidades) {
+    public static ArrayList<Estudiante> getEstudiantesPendientes(
+            ArrayList<ResponsabilidadesEstudiantes> responsabilidades) {
         ArrayList<Estudiante> es = new ArrayList<>();
         for (ResponsabilidadesEstudiantes r : responsabilidades) {
-            if (tieneRequisitosCumplidos(r.getEstudiante(),responsabilidades)) {
+            if (tieneRequisitosCumplidos(r.getEstudiante(), responsabilidades)) {
                 es.add(r.getEstudiante());
             }
         }
         return es;
+    }
+
+    public ArrayList<Boolean> verificarRequisitosEstudiantes(Estudiante e,
+            ArrayList<ResponsabilidadesEstudiantes> responsabilidades) {
+
+        ArrayList<Boolean> requisitos = new ArrayList<>();
+        boolean tieneLibrosPrestados = tieneLibrosPrestados(e, responsabilidades);
+        requisitos.add(tieneLibrosPrestados);
+        
+        return requisitos;
     }
 
 }

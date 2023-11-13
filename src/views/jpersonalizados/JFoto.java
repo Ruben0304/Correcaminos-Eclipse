@@ -35,10 +35,5 @@ public class JFoto extends JLabel {
     //     super.paint(g);
     // }
 
-    // public void setImagen(URL rutaImagen) {
-    //     if (rutaImagen != null) {
-    //         imagen = new ImageIcon(rutaImagen).getImage();
-    //         repaint();
-    //     }
-    // }
+    
 }

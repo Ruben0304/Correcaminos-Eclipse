@@ -34,6 +34,8 @@ import javax.swing.table.DefaultTableModel;
 import controllers.ControladorLogin;
 import views.auth.Entrar;
 import views.jpersonalizados.JFoto;
+import views.jpersonalizados.JImagen;
+
 import java.net.URL;
 
 public class prueba extends JFrame {
@@ -768,4 +770,5 @@ public class prueba extends JFrame {
 		return btnNewButton;
 	}
 
+	
 }

@@ -8,22 +8,13 @@ import utiles.TiposResponsabilidad;
 
 public class Biblioteca {
 
-    public static boolean tieneLibrosPrestados(Estudiante e,
-            ArrayList<ResponsabilidadesEstudiantes> responsabilidades) {
-        boolean encontrado = false;
-
-        for (int i = 0; i < responsabilidades.size() && !encontrado; i++) {
-
-            encontrado = responsabilidades.get(i).getEstudiante().equals(e)
-                    && responsabilidades.get(i).getResponsabilidades().contains(TiposResponsabilidad.LIBROS_BIBLIOTECA);
-
-        }
-        return encontrado;
+    public static boolean tieneLibrosPrestados(Estudiante e){
+        
+        
     }
 
-    public static boolean tieneRequisitosCumplidos(Estudiante e,
-            ArrayList<ResponsabilidadesEstudiantes> responsabilidades) {
-        return tieneLibrosPrestados(e, responsabilidades);
+    public static boolean tieneRequisitosCumplidos(ResponsabilidadesEstudiantes responsabilidadesEstudiantes) {
+        return responsabilidadesEstudiantes.getResponsabilidades().contains(TiposResponsabilidad.LIBROS_BIBLIOTECA);
     }
 
     public static void quitarLibrosPrestados(Estudiante e, ArrayList<ResponsabilidadesEstudiantes> responsabilidades) {

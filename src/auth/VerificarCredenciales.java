@@ -39,24 +39,7 @@ private Usuario usuario;
         return autenticado;
     }
 
-    // private boolean autenticar(String nombreUsuario, String contrasena) {
-    //     boolean encontrado = false;
-    //     boolean autenticado = false;
-    //     ArrayList<Usuario> usuarios = GestorPrincipal.gestorUsuarios().getUsuarios();
 
-    //     for (int i = 0; i < usuarios.size() && !encontrado; i++) {
-    //         encontrado = nombreUsuario.equals(usuarios.get(i).getNombreUsuario());
-
-    //         if (encontrado && contrasena.equals(usuarios.get(i).getContrasena())) {
-    //             autenticado = true;
-    //             Auth.iniciarSesion(usuarios.get(i));
-
-    //         }
-
-    //     }
-
-    //     return autenticado;
-    // }
 
      private  String hashContrasena(String contrasena) {
 

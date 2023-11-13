@@ -64,6 +64,8 @@ public class ControladorPrincipal {
                     usuarioAutenticado, tieneEstipendio, tieneDeuda, tieneLibrosPrestados);
             requisitosBajaEstudiantes.setVisible(true);
 
+            
+
         }
 
     }

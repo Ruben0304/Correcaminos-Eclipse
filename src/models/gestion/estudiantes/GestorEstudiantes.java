@@ -8,7 +8,7 @@ import models.interfaces.Actualizador;
 
 import models.usuarios.Estudiante;
 
-public class GestorEstudiantes implements Actualizador {
+public class GestorEstudiantes  {
     private static GestorEstudiantes gestorEstudiantes;
     private GestorSolicitudesEstudiante gestorSolicitudes;
     private GestorResponsabilidadesEstudiantes gestorResponsabilidadesEstudiantes;
@@ -50,10 +50,7 @@ public class GestorEstudiantes implements Actualizador {
         return estudiantes;
     }
 
-    @Override
-    public void actualizarDatos() {
-
-    }
+    
 
     public GestorSolicitudesEstudiante getGestorSolicitudes() {
         return gestorSolicitudes;

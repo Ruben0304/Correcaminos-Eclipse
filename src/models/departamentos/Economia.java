@@ -58,15 +58,5 @@ public class Economia {
     //     return null;
     // }
 
-    public ArrayList<Boolean> verificarRequisitosEstudiantes(Estudiante e,
-            ArrayList<ResponsabilidadesEstudiantes> responsabilidades) {
 
-        ArrayList<Boolean> requisitos = new ArrayList<>();
-        boolean tieneEstipendio = tieneEstipendio(e, responsabilidades);
-        boolean tieneDeuda = tieneDeuda(e, responsabilidades);
-        requisitos.add(tieneEstipendio);
-        requisitos.add(tieneDeuda);
-
-        return requisitos;
-    }
 }

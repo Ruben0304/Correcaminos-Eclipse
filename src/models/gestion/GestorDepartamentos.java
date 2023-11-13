@@ -4,13 +4,10 @@ import models.departamentos.Biblioteca;
 import models.departamentos.Economia;
 import models.departamentos.RecursosHumanos;
 import models.departamentos.Secretaria;
-import models.gestion.estudiantes.GestorResponsabilidadesEstudiantes;
-import models.responsabilidades.ResponsabilidadesEstudiantes;
-import models.usuarios.Estudiante;
-import views.usuarios.EstudianteTramites;
-import java.util.ArrayList;
+
 
 public class GestorDepartamentos {
+    private static GestorDepartamentos gestorDepartamentos;
     private Secretaria secretaria;
     private RecursosHumanos recursosHumanos;
     private Biblioteca biblioteca;
@@ -23,15 +20,30 @@ public class GestorDepartamentos {
         economia = new Economia();
     }
 
-    public ArrayList<Boolean> verificarRequisitosEstudiantes(Estudiante e,
-            ArrayList<ResponsabilidadesEstudiantes> responsabilidades) {
-        ArrayList<Boolean> requisitos = new ArrayList<>();
-        // requisitos.addAll(secretaria.verificarRequisitosEstudiantes(e, responsabilidades));
-        // requisitos.addAll(recursosHumanos.verificarRequisitosEstudiantes(e, responsabilidades));
-        requisitos.addAll(biblioteca.verificarRequisitosEstudiantes(e, responsabilidades));
-        requisitos.addAll(economia.verificarRequisitosEstudiantes(e, responsabilidades));
-        return requisitos;
+    public static GestorDepartamentos gestorDepartamentos() {
+        if (gestorDepartamentos == null) {
+            gestorDepartamentos = new GestorDepartamentos();
+        }
+        return gestorDepartamentos;
     }
+    
+    public Secretaria getSecretaria() {
+        return secretaria;
+    }
+
+    public RecursosHumanos getRecursosHumanos() {
+        return recursosHumanos;
+    }
+
+    public Biblioteca getBiblioteca() {
+        return biblioteca;
+    }
+
+    public Economia getEconomia() {
+        return economia;
+    }
+
+  
 
     
 

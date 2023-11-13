@@ -3,12 +3,13 @@ package models.gestion.estudiantes;
 import java.util.ArrayList;
 
 import data.ObtenerEstudiantes;
-
+import models.gestion.GestorPrincipal;
 import models.interfaces.Actualizador;
 
 import models.usuarios.Estudiante;
 
 public class GestorEstudiantes implements Actualizador {
+    private static GestorEstudiantes gestorEstudiantes;
     private GestorSolicitudesEstudiante gestorSolicitudes;
     private GestorResponsabilidadesEstudiantes gestorResponsabilidadesEstudiantes;
     private ArrayList<Estudiante> estudiantes;
@@ -19,6 +20,13 @@ public class GestorEstudiantes implements Actualizador {
         gestorSolicitudes = new GestorSolicitudesEstudiante(estudiantes);
         gestorResponsabilidadesEstudiantes = new GestorResponsabilidadesEstudiantes(estudiantes);
 
+    }
+
+    public static GestorEstudiantes gestorEstudiantes() {
+        if (gestorEstudiantes == null) {
+            gestorEstudiantes = new GestorEstudiantes();
+        }
+        return gestorEstudiantes;
     }
 
     private void registrarEstudiantes() {
@@ -41,9 +49,6 @@ public class GestorEstudiantes implements Actualizador {
 
         return estudiantes;
     }
-
-    
-   
 
     @Override
     public void actualizarDatos() {

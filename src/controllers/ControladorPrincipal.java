@@ -4,10 +4,13 @@ import java.util.ArrayList;
 
 import auth.Auth;
 import models.departamentos.Biblioteca;
+import models.departamentos.Economia;
 import models.gestion.GestorDepartamentos;
 import models.gestion.GestorPrincipal;
+import models.gestion.estudiantes.GestorEstudiantes;
 import models.gestion.estudiantes.GestorResponsabilidadesEstudiantes;
 import models.gestion.estudiantes.GestorSolicitudesEstudiante;
+import models.responsabilidades.ResponsabilidadesEstudiantes;
 import models.usuarios.Empleado;
 import models.usuarios.Estudiante;
 import models.usuarios.Usuario;
@@ -40,21 +43,26 @@ public class ControladorPrincipal {
     }
 
     public static void mostrarRequisitosBajaEstudiantes() {
-        Usuario usuarioAutenticado = Auth.usuarioAutenticado();
-        GestorDepartamentos gestorDepartamentos = GestorPrincipal.getGestorPrincipal().getGestorDepartamentos();
-        GestorResponsabilidadesEstudiantes gestorResponsabilidadesEstudiantes = GestorPrincipal.getGestorPrincipal()
-                .getGestorEstudiantes().getGestorResponsabilidadesEstudiantes();
 
-        if (usuarioAutenticado instanceof Estudiante) {
+        GestorDepartamentos gestorDepartamentos = GestorDepartamentos.gestorDepartamentos();
+        ArrayList<ResponsabilidadesEstudiantes> responsabilidadesEstudiantes = GestorEstudiantes.gestorEstudiantes()
+                .getGestorResponsabilidadesEstudiantes().getResponsabilidadesEstudiantesPendientes();
 
-            ArrayList<Boolean> requisitos = gestorDepartamentos.verificarRequisitosEstudiantes(
-                    (Estudiante) usuarioAutenticado,
-                    gestorResponsabilidadesEstudiantes.getResponsabilidadesEstudiantesPendientes());
+        if (Auth.usuarioAutenticado() instanceof Estudiante) {
+            Estudiante usuarioAutenticado = (Estudiante) Auth.usuarioAutenticado();
+
+            boolean tieneLibrosPrestados = Biblioteca.tieneLibrosPrestados(usuarioAutenticado,
+                    responsabilidadesEstudiantes);
+
+            boolean tieneEstipendio = Economia.tieneEstipendio(usuarioAutenticado,
+                    responsabilidadesEstudiantes);
+
+            boolean tieneDeuda = Economia.tieneDeuda(usuarioAutenticado,
+                    responsabilidadesEstudiantes);
+                    
             RequisitosBajaEstudiantes requisitosBajaEstudiantes = new RequisitosBajaEstudiantes(
-                    (Estudiante) Auth.usuarioAutenticado(), requisitos);
+                    usuarioAutenticado, tieneEstipendio, tieneDeuda, tieneLibrosPrestados);
             requisitosBajaEstudiantes.setVisible(true);
-
-        } else if (usuarioAutenticado instanceof Empleado) {
 
         }
 

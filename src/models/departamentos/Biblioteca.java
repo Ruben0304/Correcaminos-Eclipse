@@ -49,14 +49,6 @@ public class Biblioteca {
         return es;
     }
 
-    public ArrayList<Boolean> verificarRequisitosEstudiantes(Estudiante e,
-            ArrayList<ResponsabilidadesEstudiantes> responsabilidades) {
-
-        ArrayList<Boolean> requisitos = new ArrayList<>();
-        boolean tieneLibrosPrestados = tieneLibrosPrestados(e, responsabilidades);
-        requisitos.add(tieneLibrosPrestados);
-        
-        return requisitos;
-    }
+   
 
 }

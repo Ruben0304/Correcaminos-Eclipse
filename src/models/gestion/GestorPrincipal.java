@@ -23,10 +23,10 @@ public class GestorPrincipal implements Actualizador{
     private GestorDepartamentos gestorDepartamentos;
 
     private GestorPrincipal() {
-        gestorEstudiantes = new GestorEstudiantes();
-        gestorEmpleados = new GestorEmpleados();
-        gestorAdmins = new GestorAdmins();
-        gestorDepartamentos = new GestorDepartamentos();
+        gestorEstudiantes = GestorEstudiantes.gestorEstudiantes();
+        gestorEmpleados = GestorEmpleados.gestorEmpleados();
+        gestorAdmins = GestorAdmins.gestorAdmins();
+        gestorDepartamentos = GestorDepartamentos.gestorDepartamentos();
     }
 
     public static GestorPrincipal getGestorPrincipal() {

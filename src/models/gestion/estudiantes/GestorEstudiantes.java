@@ -31,6 +31,9 @@ public class GestorEstudiantes  {
 
     private void registrarEstudiantes() {
         this.estudiantes = ObtenerEstudiantes.cargarDesdeArchivo();
+        for (Estudiante estudiante : estudiantes) {
+            System.out.println(estudiante);
+        }
     }
 
     public Estudiante buscarEstudiantePorCi(String id) {

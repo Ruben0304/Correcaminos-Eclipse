@@ -10,7 +10,7 @@ import javax.swing.border.LineBorder;
 
 import controllers.ControladorLogin;
 import models.usuarios.Usuario;
-import views.prueba;
+import views.Pricipal;
 
 import java.awt.Color;
 
@@ -60,7 +60,7 @@ public class Entrar {
 	private JLabel getLblNewLabel() {
 		if (lblNewLabel == null) {
 			lblNewLabel = new JLabel("");
-			lblNewLabel.setIcon(new ImageIcon(prueba.class.getResource("/img/User.png")));
+			lblNewLabel.setIcon(new ImageIcon(Pricipal.class.getResource("/img/User.png")));
 			lblNewLabel.setBounds(446, 59, 107, 137);
 		}
 		return lblNewLabel;

@@ -6,7 +6,7 @@ import java.net.URL;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
-import views.prueba;
+import views.Pricipal;
 
 public class JImagen extends JLabel {
     private ImageIcon imga;
@@ -14,7 +14,7 @@ public class JImagen extends JLabel {
     public JImagen() {
         super();
         String ubi = "/javax/swing/plaf/basic/icons/JavaCup16.png";
-        ImageIcon icono = new ImageIcon(prueba.class.getResource(ubi));
+        ImageIcon icono = new ImageIcon(Pricipal.class.getResource(ubi));
         ImageIcon imga = new ImageIcon(
                 icono.getImage().getScaledInstance(this.getWidth(), this.getHeight(), Image.SCALE_SMOOTH));
         setIcon(imga);
@@ -25,7 +25,7 @@ public class JImagen extends JLabel {
     }
 
     public void setImagen(String ubi) {
-        ImageIcon icono = new ImageIcon(prueba.class.getResource(ubi));
+        ImageIcon icono = new ImageIcon(Pricipal.class.getResource(ubi));
         ImageIcon imga = new ImageIcon(
                 icono.getImage().getScaledInstance(this.getWidth(), this.getHeight(), Image.SCALE_SMOOTH));
         repaint();

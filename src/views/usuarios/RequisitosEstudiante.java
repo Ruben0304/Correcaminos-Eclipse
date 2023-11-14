@@ -7,7 +7,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import views.prueba;
+import views.Pricipal;
 
 public class RequisitosEstudiante {
     
@@ -114,7 +114,7 @@ public class RequisitosEstudiante {
 	private JLabel getLblNewLabel() {
 		if (lblNewLabel == null) {
 			lblNewLabel = new JLabel("");
-			lblNewLabel.setIcon(new ImageIcon(prueba.class.getResource("/img/Checkmarkkk.png")));
+			lblNewLabel.setIcon(new ImageIcon(Pricipal.class.getResource("/img/Checkmarkkk.png")));
 			lblNewLabel.setBounds(52, 221, 42, 35);
 		}
 		return lblNewLabel;
@@ -133,7 +133,7 @@ public class RequisitosEstudiante {
 	private JLabel getLabel_4() {
 		if (label_4 == null) {
 			label_4 = new JLabel("");
-			label_4.setIcon(new ImageIcon(prueba.class.getResource("/img/Canceel.png")));
+			label_4.setIcon(new ImageIcon(Pricipal.class.getResource("/img/Canceel.png")));
 			label_4.setBounds(52, 368, 20, 20);
 		}
 		return label_4;
@@ -162,7 +162,7 @@ public class RequisitosEstudiante {
 	private JLabel getLabel_5() {
 		if (label_5 == null) {
 			label_5 = new JLabel("");
-			label_5.setIcon(new ImageIcon(prueba.class.getResource("/img/Canceel.png")));
+			label_5.setIcon(new ImageIcon(Pricipal.class.getResource("/img/Canceel.png")));
 			label_5.setBounds(52, 404, 20, 20);
 		}
 		return label_5;
@@ -181,7 +181,7 @@ public class RequisitosEstudiante {
 	private JLabel getLabel_6() {
 		if (label_6 == null) {
 			label_6 = new JLabel("");
-			label_6.setIcon(new ImageIcon(prueba.class.getResource("/img/Checkmarkkk.png")));
+			label_6.setIcon(new ImageIcon(Pricipal.class.getResource("/img/Checkmarkkk.png")));
 			label_6.setBounds(52, 548, 31, 35);
 		}
 		return label_6;
@@ -220,7 +220,7 @@ public class RequisitosEstudiante {
 	private JLabel getLabel_8() {
 		if (label_8 == null) {
 			label_8 = new JLabel("");
-			label_8.setIcon(new ImageIcon(prueba.class.getResource("/img/Canceel.png")));
+			label_8.setIcon(new ImageIcon(Pricipal.class.getResource("/img/Canceel.png")));
 			label_8.setBounds(478, 221, 31, 35);
 		}
 		return label_8;
@@ -239,7 +239,7 @@ public class RequisitosEstudiante {
 	private JLabel getLabel_7() {
 		if (label_7 == null) {
 			label_7 = new JLabel("");
-			label_7.setIcon(new ImageIcon(prueba.class.getResource("/img/Checkmarkkk.png")));
+			label_7.setIcon(new ImageIcon(Pricipal.class.getResource("/img/Checkmarkkk.png")));
 			label_7.setBounds(478, 361, 42, 35);
 		}
 		return label_7;
@@ -268,7 +268,7 @@ public class RequisitosEstudiante {
 	private JLabel getLabel_11() {
 		if (label_11 == null) {
 			label_11 = new JLabel("");
-			label_11.setIcon(new ImageIcon(prueba.class.getResource("/img/Canceel.png")));
+			label_11.setIcon(new ImageIcon(Pricipal.class.getResource("/img/Canceel.png")));
 			label_11.setBounds(478, 546, 20, 20);
 		}
 		return label_11;
@@ -297,7 +297,7 @@ public class RequisitosEstudiante {
 	private JLabel getLabel_15() {
 		if (label_15 == null) {
 			label_15 = new JLabel("");
-			label_15.setIcon(new ImageIcon(prueba.class.getResource("/img/Checkmarkkk.png")));
+			label_15.setIcon(new ImageIcon(Pricipal.class.getResource("/img/Checkmarkkk.png")));
 			label_15.setBounds(478, 578, 42, 35);
 		}
 		return label_15;

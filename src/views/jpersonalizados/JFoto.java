@@ -7,7 +7,7 @@ import java.net.URL;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
-import views.prueba;
+import views.Pricipal;
 
 public class JFoto extends JLabel {
 

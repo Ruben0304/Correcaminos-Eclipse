@@ -20,10 +20,10 @@ import auth.Session;
 import auth.VerificarCredenciales;
 import models.gestion.GestorPrincipal;
 import models.usuarios.Usuario;
-import views.Principal;
-import views.prueba;
+import views.Inicio;
+import views.Pricipal;
 import views.auth.Entrar;
-import views.auth.Login;
+import views.old.Login;
 
 public class ControladorLogin {
 
@@ -36,12 +36,7 @@ public class ControladorLogin {
 
     public static void mostrarInicio() {
 
-        prueba instancia = prueba.getInstancia();
-        instancia.setVista( Entrar.getVista().getPanel());
-        // contenedor.add(entrar.getPanel());
-        System.out.println("hghghg");
-        prueba.getInstancia().revalidate();
-        prueba.getInstancia().repaint();
+        
     }
 
     public static boolean intentarAutenticar(String nombreUsuario, String password, boolean mantenerConectado) {

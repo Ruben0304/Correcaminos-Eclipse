@@ -13,7 +13,7 @@ import models.usuarios.Admin;
 import models.usuarios.Persona;
 import models.usuarios.Usuario;
 import views.admin.CasosPendientes;
-import views.admin.SecretariaPendientes;
+import views.old.SecretariaPendientes;
 
 public class ControladorAdmin {
     public static void mostrarGestionLicencias() {

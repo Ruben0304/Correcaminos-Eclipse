@@ -14,7 +14,8 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import controllers.ControladorLogin;
-import views.prueba;
+import controllers.ControladorPruebas;
+import views.Pricipal;
 import views.usuarios.RequisitosEstudiante;
 
 public class Navegacion {
@@ -99,7 +100,7 @@ public class Navegacion {
 		if (home == null) {
 			home = new JLabel("New label");
 			home.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-			home.setIcon(new ImageIcon(prueba.class.getResource("/img/inicio.png")));
+			home.setIcon(new ImageIcon(Pricipal.class.getResource("/img/inicio.png")));
 			home.setBounds(19, 114, 33, 28);
 			home.addMouseListener(new MouseAdapter() {
 				@Override
@@ -110,7 +111,7 @@ public class Navegacion {
 					getGestion_bg().setVisible(false);
 					getGuardar_bg().setVisible(false);
 		
-					ControladorLogin.mostrarInicio();
+					ControladorPruebas.mostrarInicio();
 				}
 
 				@Override
@@ -127,7 +128,7 @@ public class Navegacion {
 		if (guardar == null) {
 			guardar = new JLabel("New label");
 			guardar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-			guardar.setIcon(new ImageIcon(prueba.class.getResource("/img/Updates.png")));
+			guardar.setIcon(new ImageIcon(Pricipal.class.getResource("/img/Updates.png")));
 			guardar.setBounds(19, 330, 33, 28);
 			guardar.addMouseListener(new MouseAdapter() {
 				@Override
@@ -153,7 +154,7 @@ public class Navegacion {
 		if (account == null) {
 			account = new JLabel("New label");
 			account.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-			account.setIcon(new ImageIcon(prueba.class.getResource("/img/account.png")));
+			account.setIcon(new ImageIcon(Pricipal.class.getResource("/img/account.png")));
 			account.setBounds(19, 638, 33, 28);
 			account.addMouseListener(new MouseAdapter() {
 				@Override
@@ -163,6 +164,8 @@ public class Navegacion {
 					getAccount_bg().setVisible(true);
 					getGestion_bg().setVisible(false);
 					getGuardar_bg().setVisible(false);
+
+                    ControladorPruebas.mostrarLogin();
 				}
 
 				@Override
@@ -186,6 +189,8 @@ public class Navegacion {
 					getAccount_bg().setVisible(false);
 					getGestion_bg().setVisible(true);
 					getGuardar_bg().setVisible(false);
+
+                    ControladorPruebas.mostrarRequisitosEstudiantes();
 				}
 
 				@Override
@@ -195,7 +200,7 @@ public class Navegacion {
 				}
 			});
 			gestion.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-			gestion.setIcon(new ImageIcon(prueba.class.getResource("/img/business.png")));
+			gestion.setIcon(new ImageIcon(Pricipal.class.getResource("/img/business.png")));
 			gestion.setBounds(19, 186, 33, 28);
 		}
 		return gestion;
@@ -205,7 +210,7 @@ public class Navegacion {
 		if (reportes == null) {
 			reportes = new JLabel("New label");
 			reportes.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-			reportes.setIcon(new ImageIcon(prueba.class.getResource("/img/Business Report.png")));
+			reportes.setIcon(new ImageIcon(Pricipal.class.getResource("/img/Business Report.png")));
 			reportes.setBounds(19, 258, 33, 28);
 			reportes.addMouseListener(new MouseAdapter() {
 				@Override
@@ -230,7 +235,7 @@ public class Navegacion {
 	private JLabel getHome_bg() {
 		if (home_bg == null) {
 			home_bg = new JLabel("New label");
-			home_bg.setIcon(new ImageIcon(prueba.class.getResource("/diagramas/Rounded Square.png")));
+			home_bg.setIcon(new ImageIcon(Pricipal.class.getResource("/diagramas/Rounded Square.png")));
 			home_bg.setBounds(9, 93, 50, 71);
 		}
 		return home_bg;
@@ -240,7 +245,7 @@ public class Navegacion {
 		if (gestion_bg == null) {
 			gestion_bg = new JLabel("New label");
 			gestion_bg.setVisible(false);
-			gestion_bg.setIcon(new ImageIcon(prueba.class.getResource("/diagramas/Rounded Square.png")));
+			gestion_bg.setIcon(new ImageIcon(Pricipal.class.getResource("/diagramas/Rounded Square.png")));
 			gestion_bg.setBounds(9, 165, 50, 71);
 		}
 		return gestion_bg;
@@ -250,7 +255,7 @@ public class Navegacion {
 		if (reportes_bg == null) {
 			reportes_bg = new JLabel("New label");
 			reportes_bg.setVisible(false);
-			reportes_bg.setIcon(new ImageIcon(prueba.class.getResource("/diagramas/Rounded Square.png")));
+			reportes_bg.setIcon(new ImageIcon(Pricipal.class.getResource("/diagramas/Rounded Square.png")));
 			reportes_bg.setBounds(9, 237, 50, 71);
 		}
 		return reportes_bg;
@@ -260,7 +265,7 @@ public class Navegacion {
 		if (guardar_bg == null) {
 			guardar_bg = new JLabel("New label");
 			guardar_bg.setVisible(false);
-			guardar_bg.setIcon(new ImageIcon(prueba.class.getResource("/diagramas/Rounded Square.png")));
+			guardar_bg.setIcon(new ImageIcon(Pricipal.class.getResource("/diagramas/Rounded Square.png")));
 			guardar_bg.setBounds(9, 311, 50, 71);
 		}
 		return guardar_bg;
@@ -270,7 +275,7 @@ public class Navegacion {
 		if (account_bg == null) {
 			account_bg = new JLabel("New label");
 			account_bg.setVisible(false);
-			account_bg.setIcon(new ImageIcon(prueba.class.getResource("/diagramas/Rounded Square.png")));
+			account_bg.setIcon(new ImageIcon(Pricipal.class.getResource("/diagramas/Rounded Square.png")));
 			account_bg.setBounds(9, 617, 50, 71);
 		}
 		return account_bg;
@@ -337,7 +342,7 @@ public class Navegacion {
 					getLabel_2().setVisible(true);
 				}
 			});
-			label_1.setIcon(new ImageIcon(prueba.class.getResource("/img/Menu.png")));
+			label_1.setIcon(new ImageIcon(Pricipal.class.getResource("/img/Menu.png")));
 			label_1.setBounds(122, 13, 33, 28);
 		}
 		return label_1;
@@ -354,7 +359,7 @@ public class Navegacion {
 					label_2.setVisible(false);
 				}
 			});
-			label_2.setIcon(new ImageIcon(prueba.class.getResource("/img/Menu.png")));
+			label_2.setIcon(new ImageIcon(Pricipal.class.getResource("/img/Menu.png")));
 			label_2.setBounds(31, 13, 21, 28);
 		}
 		return label_2;

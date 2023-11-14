@@ -15,9 +15,9 @@ import models.usuarios.Empleado;
 import models.usuarios.Estudiante;
 import models.usuarios.Usuario;
 import utiles.Colores;
-import views.Inicio;
-import views.usuarios.EstudianteTramites;
-import views.usuarios.RequisitosBajaEstudiantes;
+import views.old.EstudianteTramites;
+import views.old.Inicios;
+import views.old.RequisitosBajaEstudiantes;
 
 public class ControladorPrincipal {
 
@@ -30,7 +30,7 @@ public class ControladorPrincipal {
                         .getGestorSolicitudes()
                         .verificarEstudianteSolicitaLicencia((Estudiante) Auth.usuarioAutenticado());
             }
-            Inicio inicio = new Inicio(Auth.usuarioAutenticado(), estudianteSolicitaLicencia);
+            Inicios inicio = new Inicios(Auth.usuarioAutenticado(), estudianteSolicitaLicencia);
             inicio.setVisible(true);
         } else {
             ControladorLogin.mostrarLogin();

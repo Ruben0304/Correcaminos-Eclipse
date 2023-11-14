@@ -121,7 +121,7 @@ public class Principal{
 			lblEntrar.addMouseListener(new MouseAdapter() {
 				@Override
 				public void mouseClicked(MouseEvent e) {
-					ControladorLogin.mostrarLogin2();
+					// ControladorLogin.mostrarLogin2();
                   
 				}
 			});

@@ -33,6 +33,7 @@ import controllers.ControladorLogin;
 import views.auth.Entrar;
 import views.jpersonalizados.JFoto;
 import views.jpersonalizados.JImagen;
+import views.usuarios.RequisitosEstudiante;
 
 import java.net.URL;
 
@@ -115,7 +116,7 @@ public class prueba extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		this.setVista(getPanel_RequisitosEstud());
+		this.setVista(RequisitosEstudiante.getVista().getPanel_RequisitosEstud());
 	}
 
 	private JPanel getPanel_inicio() {

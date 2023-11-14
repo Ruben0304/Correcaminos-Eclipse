@@ -127,6 +127,7 @@ public class Inicio{
 				}
 			});
 			lblEntrar.setForeground(Color.WHITE);
+			lblEntrar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 			lblEntrar.setFont(new Font("Segoe UI Semibold", Font.BOLD, 20));
 			lblEntrar.setBounds(921, 37, 89, 30);
 		}

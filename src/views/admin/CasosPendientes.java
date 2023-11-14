@@ -1,103 +1,102 @@
-package vistas.admin;
+package views.admin;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.util.ArrayList;
 
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTable;
+import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
 
-import controllers.ControladorAdmin;
-import controllers.ControladorLogin;
-import models.departamentos.Biblioteca;
-import models.gestion.GestorPrincipal;
 import models.usuarios.Estudiante;
 import models.usuarios.Persona;
-import models.usuarios.Usuario;
+import views.components.Navegacion;
 
-import javax.swing.*;
+public class CasosPendientes {
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+    private JPanel panel_2;
+	private JLabel lblCasosPendientes;
+	private JTable table;
+	private JButton btnNewButton;
+    private static CasosPendientes instance = null;
 
-public class CasosPendientes extends JFrame {
+    private CasosPendientes () {}
 
-    private JTable table_2;
-
-    /**
-     * Create the frame.
-     */
-    public CasosPendientes(final Usuario usuarioAutenticado,
-            final ArrayList<Persona> usuariosPendientes) {
-
-        setResizable(false);
-        setTitle("Casos Pendientes");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(786, 645);
-        setLocationRelativeTo(null);
-        getContentPane().setLayout(null);
-
-        // JList<String> userList = new JList<>(new AbstractListModel() {
-        // String[] values = new String[] {"ddd", "trt", "u"};
-        // public int getSize() {
-        // return values.length;
-        // }
-        // public Object getElementAt(int index) {
-        // return values[index];
-        // }
-        // });
-        // userList.setBounds(60, 170, 500, 72);
-        // getContentPane().add(userList);
-
-        JButton confirmButton = new JButton("Confirmar Entrega");
-        confirmButton.setBounds(589, 517, 137, 25);
-        getContentPane().add(confirmButton);
-
-        Object[][] data = new Object[usuariosPendientes.size()][3];
-        int i = 0;
-        for (Persona p : usuariosPendientes) {
-            data[i][0] = p.getCi();
-            data[i][1] = p.getNombre();
-            data[i][2] = p.getApellidos();
-            i++;
+    
+    
+    public static CasosPendientes getVista() {
+        if (instance == null) {
+            instance = new CasosPendientes();
         }
-
-        table_2 = new JTable();
-        table_2.setModel(new DefaultTableModel(
-                data,
-                new String[] {
-                        "Carnet", "Nombre", "Apellidos"
-                }));
-        table_2.setBounds(112, 33, 587, 476);
-        getContentPane().add(table_2);
-
-        JButton btnNewButton = new JButton("Ir a login");
-        btnNewButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent arg0) {
-                ControladorLogin.cerrarSesion();
-                dispose();
-            }
-        });
-        btnNewButton.setBounds(457, 517, 97, 25);
-        getContentPane().add(btnNewButton);
-
-        confirmButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-                int selectedRow = table_2.getSelectedRow();
-                if (selectedRow != -1) {
-                    String carnet = table_2.getValueAt(selectedRow, 0).toString();
-                    Biblioteca.quitarLibrosPrestados(
-                            ((Estudiante) GestorPrincipal.buscarPersonaEnLista(carnet, usuariosPendientes)));
-
-                    ControladorAdmin.mostrarGestionLicencias();
-                    dispose();
-                    // DefaultTableModel modelo = (DefaultTableModel) table_2.getModel();
-
-                    // modelo.fireTableDataChanged();
-
-                }
-
-            }
-        });
-
+        return instance;
     }
+
+
+    public JPanel getPanelCasosPendientes() {
+		if (panel_2 == null) {
+			panel_2 = new JPanel();
+			panel_2.setBounds(71, 0, 1051, 700);
+			panel_2.setBackground(new Color(31, 33, 36));
+			panel_2.setLayout(null);
+			panel_2.add(getLblCasosPendientes());
+			panel_2.add(getTable());
+			panel_2.add(getBtnNewButton());
+		}
+		return panel_2;
+	}
+
+	private JLabel getLblCasosPendientes() {
+		if (lblCasosPendientes == null) {
+			lblCasosPendientes = new JLabel("Casos pendientes");
+			lblCasosPendientes.setForeground(Color.WHITE);
+			lblCasosPendientes.setFont(new Font("Segoe UI Semibold", Font.BOLD, 40));
+			lblCasosPendientes.setBounds(357, 55, 333, 54);
+		}
+		return lblCasosPendientes;
+	}
+
+	private JTable getTable() {
+		if (table == null) {
+			table = new JTable();
+			table.setFillsViewportHeight(true);
+			table.setForeground(Color.WHITE);
+			table.setBorder(new LineBorder(new Color(255, 255, 255), 9, true));
+
+			ArrayList<Estudiante> usuariosPendientes = new ArrayList<Estudiante>();
+			Object[][] data = new Object[usuariosPendientes.size() + 1][3];
+			int i = 1;
+			data[0][0] = "Carnet";
+			data[0][1] = "Nombre";
+			data[0][2] = "Apellidos";
+			for (Persona p : usuariosPendientes) {
+
+				data[i][0] = p.getCi();
+				data[i][1] = p.getNombre();
+				data[i][2] = p.getApellidos();
+				i++;
+			}
+
+			table.setModel(new DefaultTableModel(
+					new Object[][] {
+							{ null, null, null },
+					},
+					new String[] {
+							"Carnet", "Nombre", "Apellidos"
+					}));
+			table.setBounds(112, 33, 587, 476);
+
+		}
+		return table;
+	}
+
+	private JButton getBtnNewButton() {
+		if (btnNewButton == null) {
+			btnNewButton = new JButton("New button");
+			btnNewButton.setBounds(826, 593, 97, 25);
+		}
+		return btnNewButton;
+	}
 }

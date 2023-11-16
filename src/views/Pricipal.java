@@ -73,5 +73,4 @@ public class Pricipal extends JFrame {
 		contentPane.add(Navegacion.getVista().getBarraNavegacion());
 		this.setVista(Inicio.getVista().getPanel_lateral());
 	}
-
 }

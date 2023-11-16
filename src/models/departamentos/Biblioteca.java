@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import models.responsabilidades.ResponsabilidadesEstudiantes;
 import models.usuarios.Estudiante;
-import utiles.TiposResponsabilidad;
+import util.TiposResponsabilidad;
 
 public class Biblioteca {
 

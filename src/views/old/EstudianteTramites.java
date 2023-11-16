@@ -35,7 +35,7 @@ import com.toedter.calendar.JDateChooser;
 import controllers.ControladorPrincipal;
 import models.departamentos.Secretaria;
 import models.usuarios.Estudiante;
-import utiles.Colores;
+import util.Colores;
 
 
 

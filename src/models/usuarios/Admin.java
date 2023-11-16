@@ -1,6 +1,6 @@
 package models.usuarios;
 
-import utiles.TipoDepartamento;
+import util.TipoDepartamento;
 
 public class Admin extends Usuario{
     private TipoDepartamento tipoDepartamento;

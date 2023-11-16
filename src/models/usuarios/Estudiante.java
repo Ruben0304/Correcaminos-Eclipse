@@ -1,7 +1,7 @@
 package models.usuarios;
 
-import utiles.Facultad;
-import utiles.TipoCurso;
+import util.Facultad;
+import util.TipoCurso;
 
 public class Estudiante extends Persona {
 	protected int curso;

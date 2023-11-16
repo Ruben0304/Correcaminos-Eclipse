@@ -16,7 +16,7 @@ import models.gestion.estudiantes.GestorSolicitudesEstudiante;
 import models.usuarios.Admin;
 import models.usuarios.Estudiante;
 import models.usuarios.Usuario;
-import utiles.Colores;
+import util.Colores;
 
 import java.awt.Toolkit;
 

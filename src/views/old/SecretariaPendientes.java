@@ -10,7 +10,7 @@ import models.gestion.GestorPrincipal;
 import models.usuarios.Estudiante;
 import models.usuarios.Persona;
 import models.usuarios.Usuario;
-import utiles.Colores;
+import util.Colores;
 
 import javax.swing.*;
 

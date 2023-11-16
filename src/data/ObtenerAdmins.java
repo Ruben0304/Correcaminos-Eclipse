@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import com.google.gson.Gson;
 
 import models.usuarios.Admin;
-import utiles.TipoDepartamento;
+import util.TipoDepartamento;
 
 public class ObtenerAdmins {
 

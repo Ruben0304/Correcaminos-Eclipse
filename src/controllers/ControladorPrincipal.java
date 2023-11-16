@@ -14,7 +14,7 @@ import models.responsabilidades.ResponsabilidadesEstudiantes;
 import models.usuarios.Empleado;
 import models.usuarios.Estudiante;
 import models.usuarios.Usuario;
-import utiles.Colores;
+import util.Colores;
 import views.old.EstudianteTramites;
 import views.old.Inicios;
 import views.old.RequisitosBajaEstudiantes;

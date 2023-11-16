@@ -1,7 +1,7 @@
 package models.usuarios;
 
 import models.departamentos.Secretaria;
-import utiles.Facultad;
+import util.Facultad;
 
 public abstract class Empleado extends Persona{
     protected String numerotrabajador;

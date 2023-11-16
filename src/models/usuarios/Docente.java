@@ -1,6 +1,6 @@
 package models.usuarios;
 
-import utiles.Facultad;
+import util.Facultad;
 
 public class Docente extends Empleado{
     private String departamento;

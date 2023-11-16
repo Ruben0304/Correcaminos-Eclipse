@@ -22,7 +22,7 @@ import models.departamentos.Biblioteca;
 import models.departamentos.Economia;
 import models.usuarios.Becado;
 import models.usuarios.Estudiante;
-import utiles.Colores;
+import util.Colores;
 
 import java.awt.Toolkit;
 import java.awt.Color;

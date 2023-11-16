@@ -3,7 +3,7 @@ package models.usuarios;
 
 
 import models.departamentos.Secretaria;
-import utiles.Facultad;
+import util.Facultad;
 
 public abstract class Persona extends Usuario {
     protected String ci;

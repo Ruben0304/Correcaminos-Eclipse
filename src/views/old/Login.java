@@ -26,11 +26,10 @@ import javax.swing.border.MatteBorder;
 
 import controllers.ControladorLogin;
 import controllers.ControladorPrincipal;
+import util.Colores;
 
 import javax.swing.SwingConstants;
 import javax.swing.JPasswordField;
-
-import utiles.Colores;
 
 import java.awt.Cursor;
 

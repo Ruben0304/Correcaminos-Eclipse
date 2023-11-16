@@ -3,7 +3,7 @@ package models.responsabilidades;
 import java.util.ArrayList;
 
 import models.usuarios.Estudiante;
-import utiles.TiposResponsabilidad;
+import util.TiposResponsabilidad;
 
 public class ResponsabilidadesEstudiantes {
     private Estudiante  estudiante;

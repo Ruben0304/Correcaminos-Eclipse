@@ -3,7 +3,7 @@ package models.solicitudes;
 import java.time.LocalDate;
 
 import models.usuarios.Estudiante;
-import utiles.Estado;
+import util.Estado;
 
 public class SolicitudBaja {
     protected Estudiante estudiante;

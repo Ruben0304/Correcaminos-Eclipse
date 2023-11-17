@@ -1,30 +1,22 @@
 package models.solicitudes;
 
 import java.time.LocalDate;
+import java.util.Date;
 
 import models.usuarios.Estudiante;
 import utiles.Estado;
 
-public class SolicitudBaja {
-    protected Estudiante estudiante;
+public abstract class SolicitudBaja {
     protected Estado estado;
     protected String motivo;
-    protected String fecha;
+    protected Date fecha;
 
     
 
-    public SolicitudBaja(Estudiante estudiante, String motivo) {
-        this.estudiante = estudiante;
+    public SolicitudBaja(String motivo) {
         this.estado = Estado.PENDIENTE;
         this.motivo = motivo;
-        LocalDate fechaActual = LocalDate.now();
-        this.fecha = fechaActual.toString();
-    }
-
-    
-
-    public Estudiante getEstudiante() {
-        return estudiante;
+        this.fecha = new Date();
     }
 
     public Estado getEstado() {
@@ -35,7 +27,7 @@ public class SolicitudBaja {
         return motivo;
     }
 
-    public String getFecha() {
+    public Date getFecha() {
         return fecha;
     }
 

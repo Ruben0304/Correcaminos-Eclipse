@@ -1,26 +1,29 @@
 package models.solicitudes;
 
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.Calendar;
+
 import models.usuarios.Estudiante;
 
-public class SolicitudLicencia extends SolicitudBaja{
-    private String fechaSalida;
-    private String fechaRegreso;
+public abstract class SolicitudLicencia extends SolicitudBaja{
+    protected Date fechaSalida;
+    protected Date fechaRegreso;
     
    
-    public SolicitudLicencia(Estudiante estudiante, String motivo,
-            String fechaSalida, String fechaRegreso) {
-        super(estudiante, motivo);
+    public SolicitudLicencia(String motivo,String fechaSalida, String fechaRegreso) {
+        super(motivo);
         this.fechaSalida = fechaSalida;
         this.fechaRegreso = fechaRegreso;
+        
+        
     }
 
-    
-
-    public String getFechaSalida() {
+    public Date getFechaSalida() {
         return fechaSalida;
     }
 
-    public String getFechaRegreso() {
+    public Date getFechaRegreso() {
         return fechaRegreso;
     }
 

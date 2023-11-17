@@ -29,6 +29,17 @@ public class Secretaria implements VerificadorEstudiante {
 	        }
 	}
 	
+	@Override
+	public ArrayList<Estudiante> getEstudiantesPendientes(ArrayList<ResponsabilidadesEstudiantes> responsabilidades) {
+        ArrayList<Estudiante> es = new ArrayList<>();
+        for (ResponsabilidadesEstudiantes r : responsabilidades) {
+            if (verificarRequisitos(r)) {
+                es.add(r.getEstudiante());
+            }
+        }
+        return es;
+    }
+	
 	
     
 }

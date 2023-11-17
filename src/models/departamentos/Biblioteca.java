@@ -33,7 +33,7 @@ public class Biblioteca implements VerificadorEstudiante, VerificadorEmpleado {
 		return tieneLibrosPrestados(responsabilidadesTrabajador);
 	}
 
-    public void quitarLibrosPrestados(Estudiante e, ArrayList<ResponsabilidadesEstudiantes> responsabilidades) {
+    public void recogerLibrosPrestados(Estudiante e, ArrayList<ResponsabilidadesEstudiantes> responsabilidades) {
         boolean encontrado = false;
         for (int i = 0; i < responsabilidades.size() && !encontrado; i++) {
 
@@ -44,7 +44,20 @@ public class Biblioteca implements VerificadorEstudiante, VerificadorEmpleado {
 
         }
     }
+    
+    public void recogerLibrosPrestados(Empleado e, ArrayList<ResponsabilidadesEmpleados> responsabilidades) {
+        boolean encontrado = false;
+        for (int i = 0; i < responsabilidades.size() && !encontrado; i++) {
 
+            encontrado = responsabilidades.get(i).getEmpleado().equals(e);
+            if (encontrado) {
+                responsabilidades.get(i).getResponsabilidades().remove(ResponsabilidadesTrabajador.LIBROS_BIBLIOTECA);
+            }
+
+        }
+    }
+
+    @Override
     public ArrayList<Estudiante> getEstudiantesPendientes(
             ArrayList<ResponsabilidadesEstudiantes> responsabilidades) {
         ArrayList<Estudiante> es = new ArrayList<>();
@@ -56,6 +69,7 @@ public class Biblioteca implements VerificadorEstudiante, VerificadorEmpleado {
         return es;
     }
     
+    @Override
     public ArrayList<Empleado> getEmpleadosPendientes(
             ArrayList<ResponsabilidadesEmpleados> responsabilidades) {
         ArrayList<Empleado> es = new ArrayList<>();

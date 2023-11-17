@@ -1,7 +1,6 @@
 package views;
 
 import java.awt.EventQueue;
-import utiles.Colores;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -17,21 +16,12 @@ import views.components.Navegacion;
 import views.usuarios.RequisitosEstudiante;
 
 import java.net.URL;
-import javax.swing.border.TitledBorder;
-import javax.swing.UIManager;
-import javax.swing.JLabel;
-import java.awt.Font;
-import javax.swing.JTextField;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
 public class Pricipal extends JFrame {
 
 	private JPanel contentPane;
 
 	private static Pricipal instance = null;
-	
 
 	/**
 	 * Launch the application.
@@ -71,11 +61,10 @@ public class Pricipal extends JFrame {
 	}
 
 	public Pricipal() {
-		setTitle("CorreCaminosCujae");
 
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Pricipal.class.getResource("/img/usuario_blanco.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 900, 600);
+		setBounds(100, 100, 1140, 744);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(31, 33, 36));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -84,5 +73,6 @@ public class Pricipal extends JFrame {
 		contentPane.add(Navegacion.getVista().getBarraNavegacion());
 		this.setVista(Inicio.getVista().getPanel_lateral());
 	}
-	
+
 }
+

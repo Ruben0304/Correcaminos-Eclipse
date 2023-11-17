@@ -10,7 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class SolicitudBajaEmpleado {
+public class TramitesEmpleados {
 	
 	
 	private JPanel panel;
@@ -25,14 +25,14 @@ public class SolicitudBajaEmpleado {
 	private JButton btnNewButton_1;
 	private JLabel lblExistenCamposVacos;
 	private JLabel lblDatosPersonalesEmpleados;
-	private static SolicitudBajaEmpleado instance = null;
+	private static TramitesEmpleados instance = null;
 	private JLabel lblNewLabel;
 
 	
 	
-	public static SolicitudBajaEmpleado getVista() {
+	public static TramitesEmpleados getVista() {
         if (instance == null) {
-            instance = new SolicitudBajaEmpleado();
+            instance = new TramitesEmpleados();
         }
         return instance;
     }

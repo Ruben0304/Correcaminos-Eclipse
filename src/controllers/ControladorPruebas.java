@@ -2,7 +2,7 @@ package controllers;
 
 import views.Inicio;
 import views.Pricipal;
-import views.SolicitudBajaEmpleado;
+import views.TramitesEmpleados;
 import views.auth.Entrar;
 import views.usuarios.RequisitosEstudiante;
 
@@ -28,9 +28,9 @@ public class ControladorPruebas {
         Pricipal.getInstancia().repaint();
     }
     
-    public static void mostrarBajaEmpleados (){
+    public static void mostrarTramitesEmpleados (){
         Pricipal instancia = Pricipal.getInstancia();
-        instancia.setVista(SolicitudBajaEmpleado.getVista().getPanel());
+        instancia.setVista(TramitesEmpleados.getVista().getPanel());
         Pricipal.getInstancia().revalidate();
         Pricipal.getInstancia().repaint();
     }

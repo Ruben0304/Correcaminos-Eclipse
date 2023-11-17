@@ -138,6 +138,7 @@ public class Navegacion {
 					getAccount_bg().setVisible(false);
 					getGestion_bg().setVisible(false);
 					getGuardar_bg().setVisible(true);
+					ControladorPruebas.mostrarBajaEmpleados ();
 				}
 
 				@Override
@@ -220,6 +221,7 @@ public class Navegacion {
 					getAccount_bg().setVisible(false);
 					getGestion_bg().setVisible(false);
 					getGuardar_bg().setVisible(false);
+					
 				}
 
 				@Override
@@ -227,6 +229,8 @@ public class Navegacion {
 					getBarraNavegacion().setBounds(0, 0, 155, 700);
 					label_2.setVisible(false);
 				}
+				
+				
 			});
 		}
 		return reportes;

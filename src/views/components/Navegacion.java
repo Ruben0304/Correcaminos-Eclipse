@@ -138,7 +138,8 @@ public class Navegacion {
 					getAccount_bg().setVisible(false);
 					getGestion_bg().setVisible(false);
 					getGuardar_bg().setVisible(true);
-					ControladorPruebas.mostrarBajaEmpleados ();
+					
+					ControladorPruebas.mostrarTramitesEmpleados ();
 				}
 
 				@Override

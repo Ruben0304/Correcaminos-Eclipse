@@ -10,7 +10,6 @@ import models.reports.BajasAceptadasPorFacultad;
 import models.solicitudes.SolicitudBaja;
 import models.solicitudes.SolicitudLicencia;
 import models.usuarios.Estudiante;
-import util.Facultad;
 
 public class GestorSolicitudesEstudiante implements Actualizador {
 
@@ -105,15 +104,35 @@ public class GestorSolicitudesEstudiante implements Actualizador {
         return bajas;
     }
 
-    public ArrayList<BajasAceptadasPorFacultad> ordenarBajasPorCantidad(boolean ascendente) {
-        ArrayList<BajasAceptadasPorFacultad> bajas = obtenerCantidadBajasAceptadasPorFacultad();
-        if (ascendente) {
-            Collections.sort(bajas, (b1, b2) -> Integer.compare(b1.getCantidadBajas(), b2.getCantidadBajas()));
-        } else {
-            Collections.sort(bajas, (b1, b2) -> Integer.compare(b2.getCantidadBajas(), b1.getCantidadBajas()));
-        }
-        return bajas;
+    public ArrayList<BajasAceptadasPorFacultad> ordenarFacultadesPorCantidadBajasAceptadas() {
+        ArrayList<BajasAceptadasPorFacultad> bajasOrdenadas = obtenerCantidadBajasAceptadasPorFacultad();
+
+        Collections.sort(bajasOrdenadas, new Comparator<BajasAceptadasPorFacultad>() {
+            @Override
+            public int compare(BajasAceptadasPorFacultad b1, BajasAceptadasPorFacultad b2) {
+                return Integer.compare(b1.getCantidadBajas(), b2.getCantidadBajas());
+            }
+        });
+
+        return bajasOrdenadas;
     }
+
+    public int totalSolicitudesBajaPendientes() {
+        return solicitudesBajaPendientes.size();
+    }
+
+    public int totalSolicitudesLicenciaPendientes() {
+        return solicitudesLicenciaPendientes.size();
+    }
+
+    public int toalSolicitudesBajaYLicencia() {
+        return totalSolicitudesBajaPendientes() + totalSolicitudesLicenciaPendientes();
+    }
+
+    // public ArrayList<SolicitudBaja> filtrarPorFecha(String anio) {
+    // ArrayList<SolicitudBaja> solBajasFiltradas = new ArrayList<>();
+
+    // }
 
     // public ArrayList<Facultad> facultadesConMasBajasAceptadas() {
     // ArrayList<Facultad> ordenada = new ArrayList<>();

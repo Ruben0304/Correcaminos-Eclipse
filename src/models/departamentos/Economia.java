@@ -2,11 +2,12 @@ package models.departamentos;
 
 import java.util.ArrayList;
 
+import models.interfaces.VerificadorEstudiante;
 import models.responsabilidades.ResponsabilidadesEstudiantes;
 import models.usuarios.Estudiante;
 import utiles.TiposResponsabilidad;
 
-public class Economia {
+public class Economia implements VerificadorEstudiante {
 
     public boolean tieneEstipendio(ResponsabilidadesEstudiantes responsabilidades) {
         return responsabilidades.getResponsabilidades().contains(TiposResponsabilidad.ESTIPENDIO);
@@ -16,7 +17,8 @@ public class Economia {
          return responsabilidades.getResponsabilidades().contains(TiposResponsabilidad.DEUDA);
     }
 
-    public boolean tieneRequisitosCumplidos(ResponsabilidadesEstudiantes responsabilidades) {
+    @Override
+    public boolean verificarRequisitos(ResponsabilidadesEstudiantes responsabilidades) {
         return tieneDeuda(responsabilidades) && tieneEstipendio(responsabilidades);
     }
 

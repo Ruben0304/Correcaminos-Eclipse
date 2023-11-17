@@ -2,20 +2,36 @@ package models.departamentos;
 
 import java.util.ArrayList;
 
+import models.interfaces.VerificadorEmpleado;
+import models.interfaces.VerificadorEstudiante;
+import models.responsabilidades.ResponsabilidadesEmpleados;
 import models.responsabilidades.ResponsabilidadesEstudiantes;
+import models.usuarios.Empleado;
 import models.usuarios.Estudiante;
+import utiles.ResponsabilidadesTrabajador;
 import utiles.TiposResponsabilidad;
 
-public class Biblioteca {
+public class Biblioteca implements VerificadorEstudiante, VerificadorEmpleado {
 
     public boolean tieneLibrosPrestados(ResponsabilidadesEstudiantes r){
         return r.getResponsabilidades().contains(TiposResponsabilidad.LIBROS_BIBLIOTECA);
         
     }
-
-    public boolean tieneRequisitosCumplidos(ResponsabilidadesEstudiantes responsabilidadesEstudiantes) {
+    
+    public boolean tieneLibrosPrestados(ResponsabilidadesEmpleados r){
+        return r.getResponsabilidades().contains(ResponsabilidadesTrabajador.LIBROS_BIBLIOTECA);
+        
+    }
+    
+    @Override
+    public boolean verificarRequisitos(ResponsabilidadesEstudiantes responsabilidadesEstudiantes) {
         return tieneLibrosPrestados(responsabilidadesEstudiantes);
     }
+    
+    @Override
+	public boolean verificarRequisitos(ResponsabilidadesEmpleados responsabilidadesTrabajador) {
+		return tieneLibrosPrestados(responsabilidadesTrabajador);
+	}
 
     public void quitarLibrosPrestados(Estudiante e, ArrayList<ResponsabilidadesEstudiantes> responsabilidades) {
         boolean encontrado = false;
@@ -33,12 +49,32 @@ public class Biblioteca {
             ArrayList<ResponsabilidadesEstudiantes> responsabilidades) {
         ArrayList<Estudiante> es = new ArrayList<>();
         for (ResponsabilidadesEstudiantes r : responsabilidades) {
-            if (tieneRequisitosCumplidos(r)) {
+            if (verificarRequisitos(r)) {
                 es.add(r.getEstudiante());
             }
         }
         return es;
     }
+    
+    public ArrayList<Empleado> getEmpleadosPendientes(
+            ArrayList<ResponsabilidadesEmpleados> responsabilidades) {
+        ArrayList<Empleado> es = new ArrayList<>();
+        for (ResponsabilidadesEmpleados r : responsabilidades) {
+            if (verificarRequisitos(r)) {
+                es.add(r.getEmpleado());
+            }
+        }
+        return es;
+    }
+    
+
+	
+
+	
+
+	
+
+	
 
    
 

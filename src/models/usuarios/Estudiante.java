@@ -8,26 +8,18 @@ public class Estudiante extends Persona {
 	protected TipoCurso tipoCurso;
 	protected String carrera;
 	protected int grupo;
+	protected Facultad facultad;
 
 	public Estudiante(String nombreUsuario, String contrasena, String ci, String nombre, String primer_apellido,
 			String segundo_apellido,
 			Facultad facultad, int curso, TipoCurso tipoCurso, String carrera,
 			int grupo) {
-		super(nombreUsuario, contrasena, ci, nombre, primer_apellido, segundo_apellido, facultad);
+		super(nombreUsuario, contrasena, ci, nombre, primer_apellido, segundo_apellido);
 		this.curso = curso;
 		this.tipoCurso = tipoCurso;
 		this.carrera = carrera;
 		this.grupo = grupo;
-
-	}
-
-	@Override
-	public void solicitarLicencia(String motivo, String fechaInicio, String fechaFin) {
-
-	}
-
-	@Override
-	public void solicitarBaja() {
+		this.facultad = facultad;
 
 	}
 
@@ -37,6 +29,10 @@ public class Estudiante extends Persona {
 
 	public TipoCurso getTipoCurso() {
 		return tipoCurso;
+	}
+
+	public Facultad getFacultad() {
+		return facultad;
 	}
 
 	public String getCarrera() {

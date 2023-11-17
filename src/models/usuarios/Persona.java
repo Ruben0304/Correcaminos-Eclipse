@@ -10,24 +10,16 @@ public abstract class Persona extends Usuario {
     protected String nombre;
     protected String primer_apellido;
     protected String segundo_apellido;
-    protected Facultad facultad;
     
    
 
-    public Persona(String nombreUsuario, String contrasena, String ci, String nombre, String primer_apellido, String segundo_apellido,
-            Facultad facultad) {
+    public Persona(String nombreUsuario, String contrasena, String ci, String nombre, String primer_apellido, String segundo_apellido) {
         super(nombreUsuario, contrasena);
         this.ci = ci;
         this.nombre = nombre;
         this.primer_apellido = primer_apellido;
-        this.segundo_apellido = segundo_apellido;
-        this.facultad = facultad;
-        
+        this.segundo_apellido = segundo_apellido;      
     }
-
-    public abstract void solicitarLicencia(String motivo, String fechaInicio, String fechaFin);
-
-    public abstract void solicitarBaja();
 
     public String getCi() {
         return ci;
@@ -47,10 +39,6 @@ public abstract class Persona extends Usuario {
 
     public String getSegundo_apellido() {
         return segundo_apellido;
-    }
-
-    public Facultad getFacultad() {
-        return facultad;
     }
 
     public char getSexo(){

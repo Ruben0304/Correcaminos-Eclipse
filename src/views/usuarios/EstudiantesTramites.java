@@ -1,8 +1,8 @@
-package views;
+package views.usuarios;
 
 //import javax.swing.ImageIcon;
 
-import javafx.scene.layout.Region;
+// import javafx.scene.layout.Region;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;

@@ -40,7 +40,7 @@ public class PendientesEstudiantes extends DefaultTableModel {
 		}
 
 		@SuppressWarnings("unchecked")
-		public void modificar(String Nombre, String PrimerApellido ,String SegundoApellido, Facultad Facultad){
+		public void modificar(int pos,String Nombre, String PrimerApellido ,String SegundoApellido, Facultad Facultad){
 			Object[] newRow = new Object[]{Nombre, PrimerApellido, SegundoApellido, Facultad};
 			
 			setValueAt(Nombre, pos, 0);

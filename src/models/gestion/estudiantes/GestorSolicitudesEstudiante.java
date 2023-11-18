@@ -36,7 +36,6 @@ public class GestorSolicitudesEstudiante implements Actualizador {
 
     }
 
-
     public ArrayList<SolicitudLicenciaEstudiante> getSolicitudesLicenciaPendientes() {
 
         return solicitudesLicenciaPendientes;
@@ -44,7 +43,15 @@ public class GestorSolicitudesEstudiante implements Actualizador {
 
     public boolean verificarEstudianteSolicitaLicencia(Estudiante e) {
 
-        return getEstudianteLicenciaPendientes().contains(e);
+        boolean encontrado = false;
+        ArrayList<Estudiante> estudiantes = getEstudianteLicenciaPendientes();
+        for (int i = 0; i < estudiantes.size() && !encontrado; i++) {
+            if (e.getCi().equals(estudiantes.get(i).getCi())) {
+             encontrado = true;
+            }
+        }
+
+        return encontrado;
 
     }
 

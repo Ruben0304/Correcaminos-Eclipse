@@ -14,42 +14,25 @@ import java.util.ArrayList;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+import models.usuarios.Empleado;
 import models.usuarios.Estudiante;
 
 public class ObtenerEstudiantes {
     public static ArrayList<Estudiante> cargarDesdeArchivo() {
-        // URL del archivo PHP que devuelve JSON
-        String url = "https://rplay-soccer.com/correcamino/ObtenerDatos.php?Token=Correcaminos&Listado=estudiantes";
+         Gson gson = new Gson();
+        
+	    ArrayList<Estudiante> estudiantes = new ArrayList<>();
 
-        try {
-            // Crea una conexión HTTP
-            HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
-            connection.setRequestMethod("GET");
-
-            // Obtiene la respuesta JSON
-            BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-            StringBuilder jsonBuilder = new StringBuilder();
-            String line;
-
-            while ((line = reader.readLine()) != null) {
-                jsonBuilder.append(line);
-            }
-
-            String json = jsonBuilder.toString();
-            reader.close();
-            connection.disconnect();
-
-            // Convierte el JSON en un ArrayList de objetos Estudiante
-            Gson gson = new Gson();
+        try (BufferedReader reader = new BufferedReader(new FileReader("./estudiantes.json"))) {
             Type listType = new TypeToken<ArrayList<Estudiante>>() {
             }.getType();
-            ArrayList<Estudiante> estudiantes = gson.fromJson(json, listType);
 
-            return estudiantes;
+            estudiantes = gson.fromJson(reader, listType);
+
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        return null;
+        return estudiantes;
     }
 }

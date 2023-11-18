@@ -12,7 +12,8 @@ import java.util.Map;
 
 import data.ObtenerSolicitudes;
 import models.interfaces.Actualizador;
-
+import models.reports.BajasAceptadasPorAnio;
+import models.reports.BajasAceptadasPorFacultad;
 import models.solicitudes.SolicitudBaja;
 import models.solicitudes.SolicitudLicencia;
 import models.usuarios.Estudiante;
@@ -100,7 +101,7 @@ public class GestorSolicitudesEstudiante implements Actualizador {
             boolean encontrado = false;
             for (int i = 0; i < bajas.size() && !encontrado; i++) {
                 if (bajas.get(i).getFacultad().equals(s.getEstudiante().getFacultad())) {
-                    bajas.get(i).setCantidadBajas(bajas.get(i).getCantidadBajas() + 1);
+                    bajas.get(i).setCantidad(bajas.get(i).getCantidad() + 1);
                     encontrado = true;
                 }
             }
@@ -117,14 +118,12 @@ public class GestorSolicitudesEstudiante implements Actualizador {
         Collections.sort(bajasOrdenadas, new Comparator<BajasAceptadasPorFacultad>() {
             @Override
             public int compare(BajasAceptadasPorFacultad b1, BajasAceptadasPorFacultad b2) {
-                return Integer.compare(b1.getCantidadBajas(), b2.getCantidadBajas());
+                return Integer.compare(b1.getCantidad(), b2.getCantidad());
             }
         });
 
         return bajasOrdenadas;
     }
-
-    
 
     public int totalSolicitudesBajaPendientes() {
         return solicitudesBajaPendientes.size();
@@ -176,22 +175,27 @@ public class GestorSolicitudesEstudiante implements Actualizador {
         return solicitudes;
     }
 
-    public HashMap<Integer, Integer> cantidadDeLicenciaPorAnio(int anioMinimo) {
-        HashMap<Integer, Integer> solicitudes = new HashMap<>();
-    
+    public ArrayList<BajasAceptadasPorAnio> cantidadDeLicenciaPorAnio(int anioMinimo) {
+        ArrayList<BajasAceptadasPorAnio> solicitudes = new ArrayList<>();
+
         for (SolicitudLicencia s : solicitudesLicenciaAceptadas) {
+            boolean encontrado = false;
             if (s.getAnioExpedicion() > anioMinimo) {
-                Integer cantidad = solicitudes.get(s.getAnioExpedicion());
-                if (cantidad == null) {
-                    cantidad = 0;
+                for (int i = 0; i < solicitudes.size() && !encontrado; i++) {
+                    if (solicitudes.get(i).getAnio() == s.getAnioExpedicion()) {
+                        solicitudes.get(i).setCantidad(solicitudes.get(i).getCantidad() + 1);
+                        encontrado = true;
+                    }
                 }
-                solicitudes.put(s.getAnioExpedicion(), cantidad + 1);
+                if (!encontrado) {
+                    solicitudes.add(new BajasAceptadasPorAnio(s.getAnioExpedicion(), 1));
+                }
+
             }
         }
-    
+
         return solicitudes;
     }
-    
 
     // Filtraciones bajas
 

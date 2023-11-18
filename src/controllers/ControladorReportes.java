@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 
 import models.gestion.estudiantes.GestorEstudiantes;
-
+import models.reports.BajasAceptadasPorFacultad;
 import models.solicitudes.SolicitudLicencia;
 import util.Facultad;
 

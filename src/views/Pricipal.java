@@ -51,11 +51,9 @@ public class Pricipal extends JFrame {
 	}
 
 	public void setVista(JPanel panel) {
-		if (contentPane.getComponentCount()>1) {
-			contentPane.remove(1);
-		}
 		
-
+		contentPane.removeAll();
+		contentPane.add(Navegacion.getVista().getBarraNavegacion());
 		contentPane.add(panel);
 
 	}
@@ -70,7 +68,6 @@ public class Pricipal extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		contentPane.add(Navegacion.getVista().getBarraNavegacion());
 		this.setVista(Inicio.getVista().getPanel_lateral());
 	}
 }

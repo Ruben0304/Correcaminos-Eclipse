@@ -3,7 +3,6 @@ package controllers;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 
@@ -23,7 +22,7 @@ public abstract class ControladorReportes {
         return textArea;
     }
 
-    public static JOptionPane facultadesConMasBajasAceptadas() {
+    public static void facultadesConMasBajasAceptadas() {
         ArrayList<BajasAceptadasPorFacultad> ordenado = GestorEstudiantes.gestorEstudiantes().getGestorSolicitudes()
                 .ordenarFacultadesPorCantidadBajasAceptadas();
         ArrayList<Facultad> facMasBajas = new ArrayList<>();
@@ -44,33 +43,31 @@ public abstract class ControladorReportes {
 
         JTextArea textArea = crearTextArea(info);
 
-        JOptionPane optionPane = new JOptionPane(textArea, JOptionPane.INFORMATION_MESSAGE);
-        return optionPane;
+        JOptionPane.showMessageDialog(null, textArea);
     }
 
-    public static JOptionPane totalLicenciasAceptadasElAnioAnterior() {
+    public static void totalLicenciasAceptadasElAnioAnterior() {
         Calendar calendar = Calendar.getInstance();
         int anioActual = calendar.get(Calendar.YEAR);
 
         int anioAnterior = anioActual - 1;
 
-        int total = GestorEstudiantes.gestorEstudiantes().getGestorSolicitudes().filtrarLicenciasPorAnio(anioAnterior)
-                .size();
+        int total = GestorEstudiantes.gestorEstudiantes().getGestorSolicitudes().cantidadDeBajasDeUnAnio(anioAnterior);
 
-        String info = "El total de licencias aceptadas el anio anterior fue de:\n";
-        info = " " + total + "\n";
+        String info = "El total de licencias aceptadas el año anterior fue de: " + total;
 
         JTextArea textArea = crearTextArea(info);
 
-        JOptionPane optionPane = new JOptionPane(textArea, JOptionPane.INFORMATION_MESSAGE);
-        return optionPane;
+        JOptionPane.showMessageDialog(null, textArea);
+        JOptionPane.showMessageDialog(null, total);
     }
 
-    public static JOptionPane anioConMasBajasLicenciasAceptadasEnUltimos10() {
+    public static void anioConMasBajasLicenciasAceptadasEnUltimos10() {
         Calendar calendar = Calendar.getInstance();
         int anioActual = calendar.get(Calendar.YEAR);
 
-        ArrayList<BajasAceptadasPorAnio> solicitudes =  GestorEstudiantes.gestorEstudiantes().getGestorSolicitudes().cantidadDeBajasPorAnio(anioActual - 10);
+        ArrayList<BajasAceptadasPorAnio> solicitudes = GestorEstudiantes.gestorEstudiantes().getGestorSolicitudes()
+                .cantidadDeBajasPorAnio(anioActual - 10);
         ArrayList<Integer> aniosMasBajas = new ArrayList<>();
         int maxBajas = 0;
 
@@ -92,8 +89,7 @@ public abstract class ControladorReportes {
 
         JTextArea textArea = crearTextArea(info);
 
-        JOptionPane optionPane = new JOptionPane(textArea, JOptionPane.INFORMATION_MESSAGE);
-        return optionPane;
+       JOptionPane.showMessageDialog(null, textArea);
     }
 
 }

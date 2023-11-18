@@ -20,6 +20,7 @@ import util.BooleanosEstudianteBecadoBaja;
 import util.Colores;
 import views.Inicio;
 import views.Pricipal;
+import views.Reportes;
 import views.TramitesEmpleados;
 import views.old.EstudianteTramites;
 import views.old.Inicios;
@@ -150,6 +151,13 @@ public class ControladorPrincipal {
     public static void mostrarTramites() {
         Pricipal instancia = Pricipal.getInstancia();
         instancia.setVista(EstudiantesTramites.getVista((Estudiante) Auth.usuarioAutenticado()).getPanel_lateral());
+        Pricipal.getInstancia().revalidate();
+        Pricipal.getInstancia().repaint();
+    }
+
+     public static void mostrarReportes (){
+        Pricipal instancia = Pricipal.getInstancia();
+        instancia.setVista(Reportes.getVista().getPanel());
         Pricipal.getInstancia().revalidate();
         Pricipal.getInstancia().repaint();
     }

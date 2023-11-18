@@ -8,10 +8,14 @@ import javax.swing.JPanel;
 import java.awt.Color;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 import java.awt.Font;
 
 import javax.swing.JRadioButton;
+
+import controllers.ControladorReportes;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
@@ -120,7 +124,7 @@ public class Reportes {
 	}
 	private JRadioButton getRdbtnNewRadioButton_2() {
 		if (rdbtnNewRadioButton_2 == null) {
-			rdbtnNewRadioButton_2 = new JRadioButton("A\u00F1o durante el cual se aceptaron m\u00E1s bajas y licencias en la \u00FAltima d\u00E9cada");
+			rdbtnNewRadioButton_2 = new JRadioButton("A\u00F1o durante el cual se aceptaron m\u00E1s bajasen la \u00FAltima d\u00E9cada");
 			rdbtnNewRadioButton_2.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					if(rdbtnNewRadioButton_2.isSelected()){
@@ -179,6 +183,19 @@ public class Reportes {
 			btnVerReporteSeleccionado = new JButton("Ver Reporte Seleccionado");
 			btnVerReporteSeleccionado.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
+				if (rdbtnNewRadioButton.isSelected()) {
+					ControladorReportes.facultadesConMasBajasAceptadas();
+				}
+				else if (rdbtnNewRadioButton_1.isSelected()) {
+				ControladorReportes.totalLicenciasAceptadasElAnioAnterior();
+					
+				}
+				else if (rdbtnNewRadioButton_2.isSelected()) {
+					ControladorReportes.anioConMasBajasLicenciasAceptadasEnUltimos10();
+				}
+				else{
+
+				}
 				}
 			});
 			btnVerReporteSeleccionado.setForeground(Color.WHITE);

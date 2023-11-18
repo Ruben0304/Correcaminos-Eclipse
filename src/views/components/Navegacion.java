@@ -4,6 +4,7 @@ import java.awt.event.MouseAdapter;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import java.awt.Color;
@@ -219,7 +220,7 @@ public class Navegacion {
 					getGestion_bg().setVisible(false);
 					getGuardar_bg().setVisible(false);
 
-					// ControladorPruebas.mostrarReportes();
+				ControladorPrincipal.mostrarReportes();
 
 				}
 

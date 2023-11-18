@@ -8,14 +8,16 @@ import javax.swing.JRootPane;
 import javax.swing.border.EmptyBorder;
 
 import java.awt.Color;
-
 import java.awt.Toolkit;
 
+import models.usuarios.Estudiante;
 import views.components.Navegacion;
-
 import views.usuarios.RequisitosEstudiante;
 
 import java.net.URL;
+import java.util.ArrayList;
+
+
 
 public class Pricipal extends JFrame {
 
@@ -73,6 +75,8 @@ public class Pricipal extends JFrame {
 		contentPane.add(Navegacion.getVista().getBarraNavegacion());
 		this.setVista(Inicio.getVista().getPanel_lateral());
 	}
+	
+	
 
 }
 

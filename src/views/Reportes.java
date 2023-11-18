@@ -144,7 +144,7 @@ public class Reportes {
 			lblL = new JLabel("l");
 			lblL.setBounds(45, 138, 118, 92);
 			
-			ImageIcon ico = new ImageIcon(getClass().getResource("/pruebasss/161d078eaef4acd47cfbe0f0f401efa7.jpg")); 
+			ImageIcon ico = new ImageIcon(getClass().getResource("/img/161d078eaef4acd47cfbe0f0f401efa7.jpg")); 
 			ImageIcon img = new ImageIcon(ico.getImage().getScaledInstance(lblL.getWidth(), lblL.getHeight(), Image.SCALE_SMOOTH));
 			lblL.setIcon((img));
 		}
@@ -154,7 +154,7 @@ public class Reportes {
 		if (label == null) {
 			label = new JLabel("l");
 			label.setBounds(44, 273, 118, 92);
-			ImageIcon ico = new ImageIcon(getClass().getResource("/pruebasss/383cdd4f690fe24465250e8432a9a806.jpg")); 
+			ImageIcon ico = new ImageIcon(getClass().getResource("/img/383cdd4f690fe24465250e8432a9a806.jpg")); 
 			ImageIcon img = new ImageIcon(ico.getImage().getScaledInstance(label.getWidth(), label.getHeight(), Image.SCALE_SMOOTH));
 			label.setIcon((img));
 		}

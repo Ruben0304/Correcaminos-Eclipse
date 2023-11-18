@@ -2,6 +2,10 @@ package controllers;
 
 import java.util.ArrayList;
 
+import javax.swing.JTable;
+import javax.swing.ListSelectionModel;
+import javax.swing.table.DefaultTableModel;
+
 import auth.Auth;
 import models.departamentos.Biblioteca;
 import models.departamentos.Secretaria;
@@ -10,12 +14,18 @@ import models.gestion.GestorPrincipal;
 import models.gestion.estudiantes.GestorEstudiantes;
 import models.responsabilidades.ResponsabilidadesEstudiantes;
 import models.usuarios.Admin;
+import models.usuarios.Estudiante;
 import models.usuarios.Persona;
 import models.usuarios.Usuario;
 import views.admin.CasosPendientes;
 import views.old.SecretariaPendientes;
 
 public class ControladorAdmin {
+	private DefaultTableModel tableModel; 
+	private JTable table;
+	
+	
+	
     public static void mostrarGestionLicencias() {
         ArrayList<Persona> usuariosPendientes = new ArrayList<>();
         Usuario usuarioAutenticado = Auth.usuarioAutenticado();
@@ -28,6 +38,7 @@ public class ControladorAdmin {
                 usuariosPendientes.addAll(gestDep.getBiblioteca().getEstudiantesPendientes(listadoResponsabilidades));
                 CasosPendientes biblioteca = new CasosPendientes(usuarioAutenticado, usuariosPendientes);
                 biblioteca.setVisible(true);
+                cargarTablaConEstudiantesPendientes(usuariosPendientes);
                 break;
             case Secretaria:
                 // usuariosPendientes.addAll(secretaria.getEstudianteLicenciaPendientes());
@@ -36,7 +47,23 @@ public class ControladorAdmin {
                 // break;
             default:
                 break;
+                
+                table = new JTable();
+            	table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+            	scrollPane.setViewportView(table);
         }
+        
+      
 
     }
+    public void cargarTablaConEstudiantesPendientes(ArrayList<Estudiante> estudiantes){		
+    	Estudiante[] valores = new Estudiante[estudiantes.size()];
+		int i = 0;
+		for (Estudiante c : estudiantes){
+			valores[i] = c;	
+			i++;
+		}
+		tableModel = new PendientesEstudiantes(valores);
+		table.setModel(tableModel);		
+	}
 }

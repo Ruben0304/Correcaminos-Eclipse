@@ -1,5 +1,50 @@
 [
-  {"empleado":{"departamento":"Diseño","categoriaDocente":"DOCTOR","facultad":"Arquitectura","numerotrabajador":"21334","ci":"94101532412","nombre":"Luis","primer_apellido":"Robert","segundo_apellido":"Roca","nombreUsuario":"empleado22","contrasena":"1234"},"estado":"PENDIENTE","motivo":"Lejanía","fecha":{"year":2023,"month":10,"dayOfMonth":18,"hourOfDay":0,"minute":23,"second":11}},
-{"empleado":{"departamento":"Diseño","categoriaDocente":"MASTER","facultad":"Ing_Informatica","numerotrabajador":"21364","ci":"94101532412","nombre":"Sandra","primer_apellido":"Castillo","segundo_apellido":"Trela","nombreUsuario":"empleado26","contrasena":"123423"},"estado":"PENDIENTE","motivo":"Enfermedad","fecha":{"year":2023,"month":10,"dayOfMonth":18,"hourOfDay":8,"minute":45,"second":12}},
-
+  {
+    "empleado": {
+      "departamento": "Diseño",
+      "categoriaDocente": "DOCTOR",
+      "facultad": "Arquitectura",
+      "numerotrabajador": "21334",
+      "ci": "94101532412",
+      "nombre": "Luis",
+      "primer_apellido": "Robert",
+      "segundo_apellido": "Roca",
+      "nombreUsuario": "empleado22",
+      "contrasena": "1234"
+    },
+    "estado": "PENDIENTE",
+    "motivo": "Lejanía",
+    "fecha": {
+      "year": 2023,
+      "month": 10,
+      "dayOfMonth": 18,
+      "hourOfDay": 0,
+      "minute": 23,
+      "second": 11
+    }
+  },
+  {
+    "empleado": {
+      "departamento": "Diseño",
+      "categoriaDocente": "MASTER",
+      "facultad": "Ing_Informatica",
+      "numerotrabajador": "21364",
+      "ci": "94101532412",
+      "nombre": "Sandra",
+      "primer_apellido": "Castillo",
+      "segundo_apellido": "Trela",
+      "nombreUsuario": "empleado26",
+      "contrasena": "123423"
+    },
+    "estado": "PENDIENTE",
+    "motivo": "Enfermedad",
+    "fecha": {
+      "year": 2023,
+      "month": 10,
+      "dayOfMonth": 18,
+      "hourOfDay": 8,
+      "minute": 45,
+      "second": 12
+    }
+  },
 ]

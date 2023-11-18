@@ -69,6 +69,7 @@ public class ControladorPrincipal {
                 ResponsabilidadesEstudiantes respEst = GestorEstudiantes.gestorEstudiantes()
                         .getGestorResponsabilidadesEstudiantes()
                         .getListadoDeUnEstudiante(usuarioAutenticado);
+                        
 
                 boolean tieneLibrosPrestados = gestDep.getBiblioteca().tieneLibrosPrestados(respEst);
 

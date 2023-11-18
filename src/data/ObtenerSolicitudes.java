@@ -11,18 +11,18 @@ import java.util.ArrayList;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
-import models.interfaces.RegistradorSolicitudesLicencias;
-import models.solicitudes.SolicitudLicencia;
-import models.usuarios.Estudiante;
+
+import models.solicitudes.SolicitudLicenciaEstudiante;
+
 
 public class ObtenerSolicitudes {
-    public static ArrayList<SolicitudLicencia> cargarDesdeArchivo() {
+    public static ArrayList<SolicitudLicenciaEstudiante> cargarDesdeArchivo() {
        
         Gson gson = new Gson();
-        ArrayList<SolicitudLicencia> solicitudes = new ArrayList<>();
+        ArrayList<SolicitudLicenciaEstudiante> solicitudes = new ArrayList<>();
 
         try (BufferedReader reader = new BufferedReader(new FileReader("./solicitudes.json"))) {
-            Type listType = new TypeToken<ArrayList<SolicitudLicencia>>() {
+            Type listType = new TypeToken<ArrayList<SolicitudLicenciaEstudiante>>() {
             }.getType();
             solicitudes = gson.fromJson(reader, listType);   
         } catch (IOException e) {

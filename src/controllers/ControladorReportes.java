@@ -2,9 +2,7 @@ package controllers;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+
 
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
@@ -12,7 +10,7 @@ import javax.swing.JTextArea;
 import models.gestion.estudiantes.GestorEstudiantes;
 import models.reports.BajasAceptadasPorAnio;
 import models.reports.BajasAceptadasPorFacultad;
-import models.solicitudes.SolicitudLicencia;
+
 import util.Facultad;
 
 public abstract class ControladorReportes {

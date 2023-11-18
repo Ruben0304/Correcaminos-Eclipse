@@ -4,63 +4,40 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
-
 import data.ObtenerSolicitudes;
 import models.interfaces.Actualizador;
 import models.reports.BajasAceptadasPorAnio;
 import models.reports.BajasAceptadasPorFacultad;
-import models.solicitudes.SolicitudBaja;
-import models.solicitudes.SolicitudLicencia;
+
+import models.solicitudes.SolicitudBajaEstudiante;
+
+import models.solicitudes.SolicitudLicenciaEstudiante;
 import models.usuarios.Estudiante;
 import util.Facultad;
 
 public class GestorSolicitudesEstudiante implements Actualizador {
 
-    ArrayList<SolicitudLicencia> solicitudesLicenciaAceptadas;
-    ArrayList<SolicitudBaja> solicitudesBajaAceptadas;
+    ArrayList<SolicitudLicenciaEstudiante> solicitudesLicenciaAceptadas;
+    ArrayList<SolicitudBajaEstudiante> solicitudesBajaAceptadas;
 
-    ArrayList<SolicitudLicencia> solicitudesLicenciaPendientes;
-    ArrayList<SolicitudBaja> solicitudesBajaPendientes;
+    ArrayList<SolicitudLicenciaEstudiante> solicitudesLicenciaPendientes;
+    ArrayList<SolicitudBajaEstudiante> solicitudesBajaPendientes;
 
     public GestorSolicitudesEstudiante(ArrayList<Estudiante> estudiantes) {
         this.solicitudesLicenciaAceptadas = new ArrayList<>();
         this.solicitudesBajaAceptadas = new ArrayList<>();
         this.solicitudesLicenciaPendientes = new ArrayList<>();
         this.solicitudesBajaPendientes = new ArrayList<>();
-        registrarLicenciasEstudiantes(estudiantes);
+        registrarLicenciasEstudiantes();
     }
 
-    private void registrarLicenciasEstudiantes(ArrayList<Estudiante> estudiantes) {
-        ArrayList<SolicitudLicencia> solicitudesCargadas = ObtenerSolicitudes.cargarDesdeArchivo();
-        ArrayList<SolicitudLicencia> solicitudesRegistradas = new ArrayList<>();
-        for (SolicitudLicencia solicitud : solicitudesCargadas) {
-            String estudianteId = solicitud.getEstudiante().getCi();
-            Estudiante estudianteExistente = referenciarEstudiante(estudianteId, estudiantes);
+    private void registrarLicenciasEstudiantes() {
+        solicitudesLicenciaPendientes = ObtenerSolicitudes.cargarDesdeArchivo();
 
-            if (estudianteExistente != null) {
-                SolicitudLicencia solicitudRegistrada = new SolicitudLicencia(
-                        estudianteExistente, solicitud.getMotivo(), solicitud.getFechaSalida(),
-                        solicitud.getFechaRegreso());
-                solicitudesRegistradas.add(solicitudRegistrada);
-            }
-        }
-
-        this.solicitudesLicenciaPendientes.addAll(solicitudesRegistradas);
     }
 
-    private Estudiante referenciarEstudiante(String id, ArrayList<Estudiante> estudiantes) {
-        boolean encontrado = false;
-        Estudiante estudianteEncontrado = null;
-        for (int i = 0; i < estudiantes.size() && !encontrado; i++) {
-            encontrado = id.equals(estudiantes.get(i).getCi());
-            if (encontrado) {
-                estudianteEncontrado = estudiantes.get(i);
-            }
-        }
-        return estudianteEncontrado;
-    }
 
-    public ArrayList<SolicitudLicencia> getSolicitudesLicenciaPendientes() {
+    public ArrayList<SolicitudLicenciaEstudiante> getSolicitudesLicenciaPendientes() {
 
         return solicitudesLicenciaPendientes;
     }
@@ -73,13 +50,13 @@ public class GestorSolicitudesEstudiante implements Actualizador {
 
     public ArrayList<Estudiante> getEstudianteLicenciaPendientes() {
         ArrayList<Estudiante> es = new ArrayList<>();
-        for (SolicitudLicencia s : this.solicitudesLicenciaPendientes) {
+        for (SolicitudLicenciaEstudiante s : this.solicitudesLicenciaPendientes) {
             es.add(s.getEstudiante());
         }
         return es;
     }
 
-    public void agregarSolicitudDeLicencia(SolicitudLicencia solicitud) {
+    public void agregarSolicitudDeLicencia(SolicitudLicenciaEstudiante solicitud) {
         solicitudesLicenciaPendientes.add(solicitud);
     }
 
@@ -92,7 +69,7 @@ public class GestorSolicitudesEstudiante implements Actualizador {
 
         ArrayList<BajasAceptadasPorFacultad> bajas = new ArrayList<>();
 
-        for (SolicitudBaja s : solicitudesBajaAceptadas) {
+        for (SolicitudBajaEstudiante s : solicitudesBajaAceptadas) {
             boolean encontrado = false;
             for (int i = 0; i < bajas.size() && !encontrado; i++) {
                 if (bajas.get(i).getFacultad().equals(s.getEstudiante().getFacultad())) {
@@ -134,10 +111,10 @@ public class GestorSolicitudesEstudiante implements Actualizador {
 
     // Filtraciones licencias
 
-    public ArrayList<SolicitudLicencia> filtrarLicenciasPendientesPorFacultad(Facultad f) {
-        ArrayList<SolicitudLicencia> solicitudLicenciasF = new ArrayList<>();
+    public ArrayList<SolicitudLicenciaEstudiante> filtrarLicenciasPendientesPorFacultad(Facultad f) {
+        ArrayList<SolicitudLicenciaEstudiante> solicitudLicenciasF = new ArrayList<>();
 
-        for (SolicitudLicencia s : solicitudesLicenciaPendientes) {
+        for (SolicitudLicenciaEstudiante s : solicitudesLicenciaPendientes) {
             if (s.getEstudiante().getFacultad().equals(f)) {
                 solicitudLicenciasF.add(s);
             }
@@ -146,10 +123,10 @@ public class GestorSolicitudesEstudiante implements Actualizador {
         return solicitudLicenciasF;
     }
 
-    public ArrayList<SolicitudLicencia> filtrarLicenciasAceptadasPorFacultad(Facultad f) {
-        ArrayList<SolicitudLicencia> solicitudLicenciasF = new ArrayList<>();
+    public ArrayList<SolicitudLicenciaEstudiante> filtrarLicenciasAceptadasPorFacultad(Facultad f) {
+        ArrayList<SolicitudLicenciaEstudiante> solicitudLicenciasF = new ArrayList<>();
 
-        for (SolicitudLicencia s : solicitudesLicenciaAceptadas) {
+        for (SolicitudLicenciaEstudiante s : solicitudesLicenciaAceptadas) {
             if (s.getEstudiante().getFacultad().equals(f)) {
                 solicitudLicenciasF.add(s);
             }
@@ -158,10 +135,10 @@ public class GestorSolicitudesEstudiante implements Actualizador {
         return solicitudLicenciasF;
     }
 
-    public ArrayList<SolicitudLicencia> filtrarLicenciasPorAnio(int anio) {
-        ArrayList<SolicitudLicencia> solicitudes = new ArrayList<>();
+    public ArrayList<SolicitudLicenciaEstudiante> filtrarLicenciasPorAnio(int anio) {
+        ArrayList<SolicitudLicenciaEstudiante> solicitudes = new ArrayList<>();
 
-        for (SolicitudLicencia solicitud : solicitudesLicenciaAceptadas) {
+        for (SolicitudLicenciaEstudiante solicitud : solicitudesLicenciaAceptadas) {
             if (solicitud.getAnioExpedicion() == anio) {
                 solicitudes.add(solicitud);
             }
@@ -173,7 +150,7 @@ public class GestorSolicitudesEstudiante implements Actualizador {
     public ArrayList<BajasAceptadasPorAnio> cantidadDeBajasPorAnio(int anioMinimo) {
         ArrayList<BajasAceptadasPorAnio> solicitudes = new ArrayList<>();
 
-        for (SolicitudLicencia s : solicitudesLicenciaAceptadas) {
+        for (SolicitudLicenciaEstudiante s : solicitudesLicenciaAceptadas) {
             boolean encontrado = false;
             if (s.getAnioExpedicion() >= anioMinimo) {
                 for (int i = 0; i < solicitudes.size() && !encontrado; i++) {
@@ -194,10 +171,10 @@ public class GestorSolicitudesEstudiante implements Actualizador {
 
     // Filtraciones bajas
 
-    public ArrayList<SolicitudBaja> filtrarBajasPendientesPorFacultad(Facultad f) {
-        ArrayList<SolicitudBaja> solicitudBajasF = new ArrayList<>();
+    public ArrayList<SolicitudBajaEstudiante> filtrarBajasPendientesPorFacultad(Facultad f) {
+        ArrayList<SolicitudBajaEstudiante> solicitudBajasF = new ArrayList<>();
 
-        for (SolicitudBaja s : solicitudesBajaPendientes) {
+        for (SolicitudBajaEstudiante s : solicitudesBajaPendientes) {
             if (s.getEstudiante().getFacultad().equals(f)) {
                 solicitudBajasF.add(s);
             }
@@ -206,10 +183,10 @@ public class GestorSolicitudesEstudiante implements Actualizador {
         return solicitudBajasF;
     }
 
-    public ArrayList<SolicitudBaja> filtrarBajasAceptadasPorFacultad(Facultad f) {
-        ArrayList<SolicitudBaja> solicitudBajasF = new ArrayList<>();
+    public ArrayList<SolicitudBajaEstudiante> filtrarBajasAceptadasPorFacultad(Facultad f) {
+        ArrayList<SolicitudBajaEstudiante> solicitudBajasF = new ArrayList<>();
 
-        for (SolicitudBaja s : solicitudesBajaAceptadas) {
+        for (SolicitudBajaEstudiante s : solicitudesBajaAceptadas) {
             if (s.getEstudiante().getFacultad().equals(f)) {
                 solicitudBajasF.add(s);
             }
@@ -218,8 +195,8 @@ public class GestorSolicitudesEstudiante implements Actualizador {
         return solicitudBajasF;
     }
 
-    // public ArrayList<SolicitudBaja> filtrarPorFecha(String anio) {
-    // ArrayList<SolicitudBaja> solBajasFiltradas = new ArrayList<>();
+    // public ArrayList<SolicitudBajaEstudiante> filtrarPorFecha(String anio) {
+    // ArrayList<SolicitudBajaEstudiante> solBajasFiltradas = new ArrayList<>();
 
     // }
 

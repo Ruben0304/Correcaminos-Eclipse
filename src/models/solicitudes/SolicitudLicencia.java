@@ -27,6 +27,12 @@ public abstract class SolicitudLicencia extends SolicitudBaja{
         return fechaRegreso;
     }
 
+    public int getAnioExpedicion() {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(fechaSalida);
+        return calendar.get(Calendar.YEAR);
+    }
+
     
     
     

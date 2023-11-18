@@ -1,6 +1,7 @@
 package models.solicitudes;
 
 
+import java.util.Calendar;
 import java.util.Date;
 
 
@@ -33,6 +34,13 @@ public abstract class SolicitudBaja {
 
     public void setEstado(Estado estado) {
         this.estado = estado;
+    }
+
+
+      public int getAnioExpedicion() {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(fecha);
+        return calendar.get(Calendar.YEAR);
     }
 
    

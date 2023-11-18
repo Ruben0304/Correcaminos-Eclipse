@@ -41,4 +41,12 @@ public class Estudiante extends Persona {
 		return grupo;
 	}
 
+
+
+    public Facultad getFacultad() {
+        return facultad;
+    }
+
+	
+
 }

@@ -8,7 +8,7 @@ public class SolicitudLicenciaEstudiante extends SolicitudLicencia {
 
 	private Estudiante estudiante;
 
-	public SolicitudLicenciaEstudiante(String motivo, Date fechaSalida, Date fechaRegreso, Estudiante estudiante) {
+	public SolicitudLicenciaEstudiante(Estudiante estudiante, String motivo, Date fechaSalida, Date fechaRegreso) {
 		super(motivo, fechaSalida, fechaRegreso);
 		this.estudiante = estudiante;
 	}
@@ -16,5 +16,7 @@ public class SolicitudLicenciaEstudiante extends SolicitudLicencia {
 	public Estudiante getEstudiante() {
 		return estudiante;
 	}
+
+
 
 }

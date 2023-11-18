@@ -92,38 +92,37 @@ public class GestorSolicitudesEstudiante implements Actualizador {
 
     }
 
-    public HashMap<Facultad, Integer> obtenerCantidadBajasAceptadasPorFacultad() {
-        HashMap<Facultad, Integer> bajas = new HashMap<>();
-    
+    public ArrayList<BajasAceptadasPorFacultad> obtenerCantidadBajasAceptadasPorFacultad() {
+
+        ArrayList<BajasAceptadasPorFacultad> bajas = new ArrayList<>();
+
         for (SolicitudBaja s : solicitudesBajaAceptadas) {
-            Facultad facultad = s.getEstudiante().getFacultad();
-            Integer cantidad = bajas.get(facultad);
-            if (cantidad == null) {
-                cantidad = 0;
+            boolean encontrado = false;
+            for (int i = 0; i < bajas.size() && !encontrado; i++) {
+                if (bajas.get(i).getFacultad().equals(s.getEstudiante().getFacultad())) {
+                    bajas.get(i).setCantidadBajas(bajas.get(i).getCantidadBajas() + 1);
+                    encontrado = true;
+                }
             }
-            bajas.put(facultad, cantidad + 1);
+            if (!encontrado) {
+                bajas.add(new BajasAceptadasPorFacultad(s.getEstudiante().getFacultad(), 1));
+            }
         }
-    
         return bajas;
     }
 
-    public LinkedHashMap<Facultad, Integer> ordenarFacultadesPorCantidadBajasAceptadas() {
-    HashMap<Facultad, Integer> bajas = obtenerCantidadBajasAceptadasPorFacultad();
-    List<Map.Entry<Facultad, Integer>> list = new LinkedList<>(bajas.entrySet());
+    public ArrayList<BajasAceptadasPorFacultad> ordenarFacultadesPorCantidadBajasAceptadas() {
+        ArrayList<BajasAceptadasPorFacultad> bajasOrdenadas = obtenerCantidadBajasAceptadasPorFacultad();
 
-    Collections.sort(list, new Comparator<Map.Entry<Facultad, Integer>>() {
-        public int compare(Map.Entry<Facultad, Integer> o1, Map.Entry<Facultad, Integer> o2) {
-            return (o2.getValue()).compareTo(o1.getValue());
-        }
-    });
+        Collections.sort(bajasOrdenadas, new Comparator<BajasAceptadasPorFacultad>() {
+            @Override
+            public int compare(BajasAceptadasPorFacultad b1, BajasAceptadasPorFacultad b2) {
+                return Integer.compare(b1.getCantidadBajas(), b2.getCantidadBajas());
+            }
+        });
 
-    LinkedHashMap<Facultad, Integer> result = new LinkedHashMap<>();
-    for (Map.Entry<Facultad, Integer> entry : list) {
-        result.put(entry.getKey(), entry.getValue());
+        return bajasOrdenadas;
     }
-
-    return result;
-}
 
     
 

@@ -25,16 +25,14 @@ public abstract class ControladorReportes {
     }
 
     public static JOptionPane facultadesConMasBajasAceptadas() {
-        LinkedHashMap<Facultad, Integer> ordenado = GestorEstudiantes.gestorEstudiantes().getGestorSolicitudes()
+        ArrayList<BajasAceptadasPorFacultad> ordenado = GestorEstudiantes.gestorEstudiantes().getGestorSolicitudes()
                 .ordenarFacultadesPorCantidadBajasAceptadas();
         ArrayList<Facultad> facMasBajas = new ArrayList<>();
 
-        int maxBajas = ordenado.entrySet().iterator().next().getValue();
-
         for (int i = 0; i < ordenado.size(); i++) {
-            Map.Entry<Facultad, Integer> entry = (Map.Entry<Facultad, Integer>) ordenado.entrySet().toArray()[i];
-            if (entry.getValue() == maxBajas) {
-                facMasBajas.add(entry.getKey());
+
+            if (ordenado.get(i).getCantidadBajas() == ordenado.get(0).getCantidadBajas()) {
+                facMasBajas.add(ordenado.get(i).getFacultad());
             } else {
                 i = ordenado.size();
             }

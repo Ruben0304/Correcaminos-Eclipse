@@ -71,6 +71,24 @@ public class CasosPendientes {
 		if (btnNewButton == null) {
 			btnNewButton = new JButton("Confirmar entrega");
 			btnNewButton.setBounds(826, 593, 97, 25);
+
+			public void actionPerformed(ActionEvent e) {
+
+                int selectedRow = table_2.getSelectedRow();
+                if (selectedRow != -1) {
+                    String carnet = table_2.getValueAt(selectedRow, 0).toString();
+                    Biblioteca.quitarLibrosPrestados(
+                            ((Estudiante) GestorPrincipal.buscarPersonaEnLista(carnet, usuariosPendientes)));
+
+                    ControladorAdmin.mostrarGestionLicencias();
+                    dispose();
+                    // DefaultTableModel modelo = (DefaultTableModel) table_2.getModel();
+
+                    // modelo.fireTableDataChanged();
+
+                }
+
+            }
 		}
 		return btnNewButton;
 	}

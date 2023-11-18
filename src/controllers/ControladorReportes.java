@@ -2,6 +2,8 @@ package controllers;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collection;
+import java.util.Collections;
 
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
@@ -25,6 +27,8 @@ public abstract class ControladorReportes {
     public static void facultadesConMasBajasAceptadas() {
         ArrayList<BajasAceptadasPorFacultad> ordenado = GestorEstudiantes.gestorEstudiantes().getGestorSolicitudes()
                 .ordenarFacultadesPorCantidadBajasAceptadas();
+
+        Collections.reverse(ordenado);
         ArrayList<Facultad> facMasBajas = new ArrayList<>();
 
         for (int i = 0; i < ordenado.size(); i++) {
@@ -59,7 +63,7 @@ public abstract class ControladorReportes {
         JTextArea textArea = crearTextArea(info);
 
         JOptionPane.showMessageDialog(null, textArea);
-        JOptionPane.showMessageDialog(null, total);
+       
     }
 
     public static void anioConMasBajasLicenciasAceptadasEnUltimos10() {
@@ -89,7 +93,7 @@ public abstract class ControladorReportes {
 
         JTextArea textArea = crearTextArea(info);
 
-       JOptionPane.showMessageDialog(null, textArea);
+        JOptionPane.showMessageDialog(null, textArea);
     }
 
 }

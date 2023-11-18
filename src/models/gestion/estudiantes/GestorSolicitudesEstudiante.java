@@ -105,37 +105,7 @@ public class GestorSolicitudesEstudiante implements Actualizador {
 
     }
 
-    public ArrayList<BajasAceptadasPorFacultad> obtenerCantidadBajasAceptadasPorFacultad() {
-
-        ArrayList<BajasAceptadasPorFacultad> bajas = new ArrayList<>();
-
-        for (SolicitudBajaEstudiante s : solicitudesBajaAceptadas) {
-            boolean encontrado = false;
-            for (int i = 0; i < bajas.size() && !encontrado; i++) {
-                if (bajas.get(i).getFacultad().equals(s.getEstudiante().getFacultad())) {
-                    bajas.get(i).setCantidad(bajas.get(i).getCantidad() + 1);
-                    encontrado = true;
-                }
-            }
-            if (!encontrado) {
-                bajas.add(new BajasAceptadasPorFacultad(s.getEstudiante().getFacultad(), 1));
-            }
-        }
-        return bajas;
-    }
-
-    public ArrayList<BajasAceptadasPorFacultad> ordenarFacultadesPorCantidadBajasAceptadas() {
-        ArrayList<BajasAceptadasPorFacultad> bajasOrdenadas = obtenerCantidadBajasAceptadasPorFacultad();
-
-        Collections.sort(bajasOrdenadas, new Comparator<BajasAceptadasPorFacultad>() {
-            @Override
-            public int compare(BajasAceptadasPorFacultad b1, BajasAceptadasPorFacultad b2) {
-                return Integer.compare(b1.getCantidad(), b2.getCantidad());
-            }
-        });
-
-        return bajasOrdenadas;
-    }
+    
 
     public int totalSolicitudesBajaPendientes() {
         return solicitudesBajaPendientes.size();
@@ -189,6 +159,7 @@ public class GestorSolicitudesEstudiante implements Actualizador {
 
     // Filtraciones bajas
 
+
     public ArrayList<BajasAceptadasPorAnio> cantidadDeBajasPorAnio(int anioMinimo) {
         ArrayList<BajasAceptadasPorAnio> solicitudes = new ArrayList<>();
 
@@ -212,7 +183,7 @@ public class GestorSolicitudesEstudiante implements Actualizador {
     }
 
     public int cantidadDeBajasDeUnAnio(int anio) {
-        ArrayList<BajasAceptadasPorAnio> solicitudes = new ArrayList<>();
+       
         int total = 0;
         for (SolicitudBajaEstudiante s : solicitudesBajaAceptadas) {
             if (s.getAnioExpedicion() == anio) {
@@ -257,6 +228,38 @@ public class GestorSolicitudesEstudiante implements Actualizador {
         }
 
         return solicitudes;
+    }
+
+    public ArrayList<BajasAceptadasPorFacultad> obtenerCantidadBajasAceptadasPorFacultad() {
+
+        ArrayList<BajasAceptadasPorFacultad> bajas = new ArrayList<>();
+
+        for (SolicitudBajaEstudiante s : solicitudesBajaAceptadas) {
+            boolean encontrado = false;
+            for (int i = 0; i < bajas.size() && !encontrado; i++) {
+                if (bajas.get(i).getFacultad().equals(s.getEstudiante().getFacultad())) {
+                    bajas.get(i).setCantidad(bajas.get(i).getCantidad() + 1);
+                    encontrado = true;
+                }
+            }
+            if (!encontrado) {
+                bajas.add(new BajasAceptadasPorFacultad(s.getEstudiante().getFacultad(), 1));
+            }
+        }
+        return bajas;
+    }
+
+    public ArrayList<BajasAceptadasPorFacultad> ordenarFacultadesPorCantidadBajasAceptadas() {
+        ArrayList<BajasAceptadasPorFacultad> bajasOrdenadas = obtenerCantidadBajasAceptadasPorFacultad();
+
+        Collections.sort(bajasOrdenadas, new Comparator<BajasAceptadasPorFacultad>() {
+            @Override
+            public int compare(BajasAceptadasPorFacultad b1, BajasAceptadasPorFacultad b2) {
+                return Integer.compare(b1.getCantidad(), b2.getCantidad());
+            }
+        });
+
+        return bajasOrdenadas;
     }
 
     // public ArrayList<SolicitudBajaEstudiante> filtrarPorFecha(String anio) {

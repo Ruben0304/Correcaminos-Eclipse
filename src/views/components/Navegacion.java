@@ -14,6 +14,7 @@ import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+import controllers.ControladorAdmin;
 import controllers.ControladorLogin;
 import controllers.ControladorPrincipal;
 import controllers.ControladorPruebas;
@@ -136,7 +137,7 @@ public class Navegacion {
 					getGestion_bg().setVisible(false);
 					getGuardar_bg().setVisible(true);
 
-					// ControladorPruebas.mostrarTramitesEmpleados ();
+					ControladorAdmin.mostrarGestionLicencias();
 				}
 
 				@Override

@@ -12,7 +12,7 @@ public class GestorAdmins implements Actualizador {
 
     public GestorAdmins() {
         admins = new ArrayList<>();
-        ObtenerAdmins.cargarDesdeArchivo();
+        admins = ObtenerAdmins.cargarDesdeArchivo();
     }
 
     public static GestorAdmins gestorAdmins() {

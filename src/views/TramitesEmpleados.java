@@ -7,10 +7,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
-
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
 
 
 
@@ -28,11 +28,10 @@ public class TramitesEmpleados {
 	private JLabel lblMotivoDeSolicitud;
 	private JLabel lblFechaDeSalida;
 	private JLabel lblFechaDeEntrada;
-	private JTextField txtMotivo;
+	private JTextField textField;
 	private JButton btnNewButton;
 	private JButton btnNewButton_1;
 	private JButton btnNewButton_2;
-	private JLabel lblExistenCamposVacos;
 	private JDateChooser dateChooser;
 	private JDateChooser dateChooser_1;
 	 private static TramitesEmpleados instance = null;
@@ -62,11 +61,10 @@ public class TramitesEmpleados {
 			panel.add(getLblMotivoDeSolicitud());
 			panel.add(getLblFechaDeSalida());
 			panel.add(getLblFechaDeEntrada());
-			panel.add(getTxtMotivo());
+			panel.add(getTextField());
 			panel.add(getBtnNewButton());
 			panel.add(getBtnNewButton_1());
 			panel.add(getBtnNewButton_2());
-			panel.add(getLblExistenCamposVacos());
 			panel.add(getDateChooser());
 			panel.add(getDateChooser_1());
 		}
@@ -140,7 +138,7 @@ public class TramitesEmpleados {
 			lblFechaDeSalida = new JLabel("Fecha de salida (Licencia):");
 			lblFechaDeSalida.setForeground(Color.WHITE);
 			lblFechaDeSalida.setFont(new Font("Arial Narrow", Font.BOLD, 18));
-			lblFechaDeSalida.setBounds(58, 301, 220, 25);
+			lblFechaDeSalida.setBounds(58, 309, 220, 25);
 		}
 		return lblFechaDeSalida;
 	}
@@ -149,84 +147,98 @@ public class TramitesEmpleados {
 			lblFechaDeEntrada = new JLabel("Fecha de entrada (Licencia):");
 			lblFechaDeEntrada.setForeground(Color.WHITE);
 			lblFechaDeEntrada.setFont(new Font("Arial Narrow", Font.BOLD, 18));
-			lblFechaDeEntrada.setBounds(58, 337, 220, 25);
+			lblFechaDeEntrada.setBounds(58, 352, 220, 25);
 		}
 		return lblFechaDeEntrada;
-	}
-	private JTextField getTxtMotivo() {
-		if (txtMotivo == null) {
-			txtMotivo = new JTextField();
-			txtMotivo.setBounds(207, 270, 404, 20);
-			txtMotivo.setColumns(10);
-		}
-		return txtMotivo;
 	}
 	private JButton getBtnNewButton() {
 		if (btnNewButton == null) {
 			btnNewButton = new JButton("Solicitar Baja");
 			btnNewButton.setEnabled(false);
+			btnNewButton.setForeground(Color.WHITE);
 			btnNewButton.setFont(new Font("Arial Black", Font.BOLD, 15));
+			btnNewButton.setBackground(new Color(42, 100, 56));
+			btnNewButton.setBounds(57, 402, 205, 41);
 			btnNewButton.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					if(txtMotivo!=null && !txtMotivo.getText().isEmpty())
+					if(!(textField.getText().isEmpty()) && textField.getText() !=null){
 						btnNewButton.setEnabled(true);
-					else
-						lblExistenCamposVacos.setVisible(true);
+					    btnNewButton_1.setEnabled(true);}
+					else{
+						btnNewButton.setEnabled(false);
+				        btnNewButton_1.setEnabled(false);}
 					
 				}
 			});
-			btnNewButton.setBounds(38, 402, 189, 41);
+			
 		}
 		return btnNewButton;
 	}
 	private JButton getBtnNewButton_1() {
 		if (btnNewButton_1 == null) {
 			btnNewButton_1 = new JButton("Solicitar Licencia");
+			btnNewButton_1.setForeground(Color.WHITE);
 			btnNewButton_1.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					if(txtMotivo!=null && !txtMotivo.getText().isEmpty())
+					if(!(textField.getText().isEmpty()) && textField.getText() !=null){
 						btnNewButton.setEnabled(true);
-					else
-						lblExistenCamposVacos.setVisible(true);
+					    btnNewButton_1.setEnabled(true);}
+					else{
+						btnNewButton.setEnabled(false);
+				        btnNewButton_1.setEnabled(false);}
 				}
 			});
 			btnNewButton_1.setEnabled(false);
 			btnNewButton_1.setFont(new Font("Arial Black", Font.BOLD, 15));
 			btnNewButton_1.setBounds(424, 402, 205, 41);
+			btnNewButton_1.setBackground(new Color(42, 100, 56));
 		}
 		return btnNewButton_1;
 	}
 	private JButton getBtnNewButton_2() {
 		if (btnNewButton_2 == null) {
 			btnNewButton_2 = new JButton("Cancelar");
+			btnNewButton_2.setForeground(Color.WHITE);
 			btnNewButton_2.setFont(new Font("Arial Black", Font.BOLD, 15));
-			btnNewButton_2.setBounds(254, 402, 145, 41);
+			btnNewButton_2.setBounds(281, 470, 145, 41);
+			btnNewButton_2.setBackground(new Color(42, 100, 56));
 		}
 		return btnNewButton_2;
-	}
-	private JLabel getLblExistenCamposVacos() {
-		if (lblExistenCamposVacos == null) {
-			lblExistenCamposVacos = new JLabel("Alerta!! Existen campos vac\u00EDos");
-			lblExistenCamposVacos.setVisible(false);
-			lblExistenCamposVacos.setForeground(new Color(128, 0, 0));
-			lblExistenCamposVacos.setFont(new Font("Arial Black", Font.BOLD, 18));
-			lblExistenCamposVacos.setBounds(173, 474, 419, 25);
-		}
-		return lblExistenCamposVacos;
 	}
 	private JDateChooser getDateChooser() {
 		if (dateChooser == null) {
 			dateChooser = new JDateChooser("dd/MM/yyyy","##/##/####",'_'); 
-			dateChooser.setBounds(251, 306, 91, 20);
+			dateChooser.setBounds(251, 314, 101, 20);
 		}
 		return dateChooser;
 	}
 	private JDateChooser getDateChooser_1() {
 		if (dateChooser_1 == null) {
 			dateChooser_1 = new JDateChooser("dd/MM/yyyy","##/##/####",'_');
-			dateChooser_1.setBounds(261, 342, 91, 20);
+			dateChooser_1.setBounds(261, 357, 91, 20);
 		}
 		return dateChooser_1;
+	}
+	
+	
+	private JTextField getTextField() {
+		if (textField == null) {
+			textField = new JTextField();
+			textField.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					if(!(textField.getText().isEmpty()) && textField.getText() !=null){
+						btnNewButton.setEnabled(true);
+					    btnNewButton_1.setEnabled(true);}
+					else{
+						btnNewButton.setEnabled(false);
+				        btnNewButton_1.setEnabled(false);}
+					
+				}
+			});
+			textField.setBounds(215, 270, 375, 20);
+			textField.setColumns(10);
+		}
+		return textField;
 	}
 }
 

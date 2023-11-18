@@ -2,6 +2,7 @@ package controllers;
 
 import views.Inicio;
 import views.Pricipal;
+import views.Reportes;
 import views.TramitesEmpleados;
 import views.auth.Entrar;
 import views.usuarios.RequisitosEstudiante;
@@ -31,6 +32,13 @@ public class ControladorPruebas {
     public static void mostrarTramitesEmpleados (){
         Pricipal instancia = Pricipal.getInstancia();
         instancia.setVista(TramitesEmpleados.getVista().getPanel());
+        Pricipal.getInstancia().revalidate();
+        Pricipal.getInstancia().repaint();
+    }
+    
+    public static void mostrarReportes (){
+        Pricipal instancia = Pricipal.getInstancia();
+        instancia.setVista(Reportes.getVista().getPanel());
         Pricipal.getInstancia().revalidate();
         Pricipal.getInstancia().repaint();
     }

@@ -25,8 +25,6 @@ public class Navegacion {
 	private JLabel guardar;
 	private JLabel account;
 	private JLabel gestion;
-	private JPanel panel;
-
 	private JLabel reportes;
 
 	private JLabel home_bg;
@@ -222,6 +220,8 @@ public class Navegacion {
 					getAccount_bg().setVisible(false);
 					getGestion_bg().setVisible(false);
 					getGuardar_bg().setVisible(false);
+					
+					ControladorPruebas.mostrarReportes();
 					
 				}
 

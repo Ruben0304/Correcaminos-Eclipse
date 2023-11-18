@@ -60,7 +60,7 @@ public class GestorResponsabilidadesEstudiantes implements Actualizador {
     public ResponsabilidadesEstudiantes getListadoDeUnEstudiante(Estudiante e) {
         ResponsabilidadesEstudiantes responsabilidadesEst = null;
         for (ResponsabilidadesEstudiantes responsabilidadesEstudiantes : responsabilidadesEstudiantesPendientes) {
-            if (e.equals(responsabilidadesEstudiantes.getEstudiante())) {
+            if (e.getCi().equals(responsabilidadesEstudiantes.getEstudiante().getCi())) {
             responsabilidadesEst = responsabilidadesEstudiantes;
             }
         }

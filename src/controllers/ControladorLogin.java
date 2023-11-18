@@ -1,19 +1,5 @@
 package controllers;
 
-import java.awt.CardLayout;
-import java.awt.Container;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.util.ArrayList;
-
-import javax.swing.JPanel;
 
 import auth.Auth;
 import auth.Session;
@@ -27,16 +13,20 @@ import views.old.Login;
 
 public class ControladorLogin {
 
-     public static void mostrarLogin (){
-        Pricipal instancia = Pricipal.getInstancia();
-        instancia.setVista(Entrar.getVista().getPanel());
-        Pricipal.getInstancia().revalidate();
-        Pricipal.getInstancia().repaint();
+    public static void mostrarLogin() {
+        if (Auth.hayUsuarioAutenticado()) {
+            cerrarSesion();
+        } else {
+            Pricipal instancia = Pricipal.getInstancia();
+            instancia.setVista(Entrar.getVista().getPanel());
+            Pricipal.getInstancia().revalidate();
+            Pricipal.getInstancia().repaint();
+        }
+
     }
 
     public static void mostrarInicio() {
 
-        
     }
 
     public static boolean intentarAutenticar(String nombreUsuario, String password, boolean mantenerConectado) {
@@ -70,7 +60,5 @@ public class ControladorLogin {
             Auth.iniciarSesion(u);
         }
     }
-
-   
 
 }

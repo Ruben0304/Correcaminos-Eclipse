@@ -30,7 +30,6 @@ public class ControladorPrincipal {
 
     public static void mostrarInicio() {
 
-
         if (Auth.hayUsuarioAutenticado()) {
             boolean estudianteSolicitaLicencia = false;
             if (Auth.usuarioAutenticado() instanceof Estudiante) {
@@ -38,16 +37,17 @@ public class ControladorPrincipal {
                         .getGestorSolicitudes()
                         .verificarEstudianteSolicitaLicencia((Estudiante) Auth.usuarioAutenticado());
             }
-            
+
             // Inicios inicio = new Inicios(Auth.usuarioAutenticado(),
             // estudianteSolicitaLicencia);
             // inicio.setVisible(true);
-        } 
+        }
 
         Pricipal instancia = Pricipal.getInstancia();
-            instancia.setVista(Inicio.getVista().getPanel_lateral(Auth.hayUsuarioAutenticado() ? Auth.usuarioAutenticado() : null));
-            Pricipal.getInstancia().revalidate();
-            Pricipal.getInstancia().repaint();
+        instancia.setVista(
+                Inicio.getVista(Auth.hayUsuarioAutenticado() ? Auth.usuarioAutenticado() : null).getPanel_lateral());
+        Pricipal.getInstancia().revalidate();
+        Pricipal.getInstancia().repaint();
 
     }
 
@@ -57,68 +57,78 @@ public class ControladorPrincipal {
 
     public static void mostrarRequisitosBajaEstudiantes() {
 
-        GestorDepartamentos gestDep = GestorDepartamentos.gestorDepartamentos();
+        if (!Auth.hayUsuarioAutenticado()) {
+            ControladorLogin.mostrarLogin();
+        } else {
 
-        if (Auth.usuarioAutenticado() instanceof Estudiante) {
-            Estudiante usuarioAutenticado = (Estudiante) Auth.usuarioAutenticado();
+            GestorDepartamentos gestDep = GestorDepartamentos.gestorDepartamentos();
 
-            ResponsabilidadesEstudiantes respEst = GestorEstudiantes.gestorEstudiantes()
-                    .getGestorResponsabilidadesEstudiantes()
-                    .getListadoDeUnEstudiante(usuarioAutenticado);
+            if (Auth.usuarioAutenticado() instanceof Estudiante) {
+                Estudiante usuarioAutenticado = (Estudiante) Auth.usuarioAutenticado();
 
-            boolean tieneLibrosPrestados = gestDep.getBiblioteca().tieneLibrosPrestados(respEst);
+                ResponsabilidadesEstudiantes respEst = GestorEstudiantes.gestorEstudiantes()
+                        .getGestorResponsabilidadesEstudiantes()
+                        .getListadoDeUnEstudiante(usuarioAutenticado);
 
-            boolean tieneEstipendio = gestDep.getEconomia().tieneEstipendio(respEst);
+                boolean tieneLibrosPrestados = gestDep.getBiblioteca().tieneLibrosPrestados(respEst);
 
-            boolean tieneDeuda = gestDep.getEconomia().tieneDeuda(respEst);
+                boolean tieneEstipendio = gestDep.getEconomia().tieneEstipendio(respEst);
 
-            boolean tieneLibrosDocentes = gestDep.getAlmacenDeLibros().tieneLibrosDocentes(respEst);
+                boolean tieneDeuda = gestDep.getEconomia().tieneDeuda(respEst);
 
-            boolean tieneCarnetDeEstudiante = gestDep.getSecretaria().tieneCarnetDeEstudiante(respEst);
+                boolean tieneLibrosDocentes = gestDep.getAlmacenDeLibros().tieneLibrosDocentes(respEst);
 
-            boolean tieneCuentaUsuarioAbierta = gestDep.getSeguridadInformatica().tieneCuentaUsuarioAbierta(respEst);
+                boolean tieneCarnetDeEstudiante = gestDep.getSecretaria().tieneCarnetDeEstudiante(respEst);
 
-            if (Auth.usuarioAutenticado() instanceof Becado) {
-                usuarioAutenticado = (Becado) usuarioAutenticado;
+                boolean tieneCuentaUsuarioAbierta = gestDep.getSeguridadInformatica()
+                        .tieneCuentaUsuarioAbierta(respEst);
 
-                boolean tienePertenenciasDeLaCUJAE = gestDep.getDireccionDeBecas().tienePertenenciasDeLaCUJAE(respEst);
+                if (Auth.usuarioAutenticado() instanceof Becado) {
+                    usuarioAutenticado = (Becado) usuarioAutenticado;
 
-                boolean tieneCarnetDeBecado = gestDep.getDireccionDeBecas().tieneCarnetDeBecado(respEst);
+                    boolean tienePertenenciasDeLaCUJAE = gestDep.getDireccionDeBecas()
+                            .tienePertenenciasDeLaCUJAE(respEst);
 
-                Pricipal instancia = Pricipal.getInstancia();
+                    boolean tieneCarnetDeBecado = gestDep.getDireccionDeBecas().tieneCarnetDeBecado(respEst);
 
-                instancia.setVista(RequisitosEstudiante.getVista().getPanel_RequisitosEstud(tieneLibrosPrestados,
-                        tieneEstipendio, tieneDeuda, tieneLibrosDocentes, tieneCarnetDeEstudiante,
-                        tieneCuentaUsuarioAbierta, tienePertenenciasDeLaCUJAE, tieneCarnetDeBecado));
-                Pricipal.getInstancia().revalidate();
-                Pricipal.getInstancia().repaint();
+                    Pricipal instancia = Pricipal.getInstancia();
 
-            } else {
+                    instancia.setVista(RequisitosEstudiante.getVista(tieneLibrosPrestados,
+                            tieneEstipendio, tieneDeuda, tieneLibrosDocentes, tieneCarnetDeEstudiante,
+                            tieneCuentaUsuarioAbierta, tienePertenenciasDeLaCUJAE, tieneCarnetDeBecado)
+                            .getPanel_RequisitosEstud());
+                    Pricipal.getInstancia().revalidate();
+                    Pricipal.getInstancia().repaint();
 
-                Pricipal instancia = Pricipal.getInstancia();
+                } else {
 
-                instancia.setVista(RequisitosEstudiante.getVista().getPanel_RequisitosEstud(tieneLibrosPrestados,
-                        tieneEstipendio, tieneDeuda, tieneLibrosDocentes, tieneCarnetDeEstudiante,
-                        tieneCuentaUsuarioAbierta));
-                Pricipal.getInstancia().revalidate();
-                Pricipal.getInstancia().repaint();
+                    Pricipal instancia = Pricipal.getInstancia();
+
+                    instancia.setVista(RequisitosEstudiante.getVista(tieneLibrosPrestados,
+                            tieneEstipendio, tieneDeuda, tieneLibrosDocentes, tieneCarnetDeEstudiante,
+                            tieneCuentaUsuarioAbierta).getPanel_RequisitosEstud());
+                    Pricipal.getInstancia().revalidate();
+                    Pricipal.getInstancia().repaint();
+                }
+
             }
 
-        }
+            else if (Auth.usuarioAutenticado() instanceof Empleado) {
+                // Empleado usuarioAutenticado = (Empleado) Auth.usuarioAutenticado();
+                // ResponsabilidadesEmpleados respEst = GestorEmpleados.gestorEmpleados()
+                // .getGestorResponsabilidadesEmpleado()
+                // .getListadoDeUnEmpleado(usuarioAutenticado);
 
-        else if (Auth.usuarioAutenticado() instanceof Empleado) {
-            // Empleado usuarioAutenticado = (Empleado) Auth.usuarioAutenticado();
-            // ResponsabilidadesEmpleados respEst = GestorEmpleados.gestorEmpleados()
-            //         .getGestorResponsabilidadesEmpleado()
-            //         .getListadoDeUnEmpleado(usuarioAutenticado);
+                // boolean tieneLibrosPrestados =
+                // gestDep.getBiblioteca().tieneLibrosPrestados(respEst);
 
-            // boolean tieneLibrosPrestados = gestDep.getBiblioteca().tieneLibrosPrestados(respEst);
+                // Pricipal instancia = Pricipal.getInstancia();
+                // instancia.setVista(RequisitosEmpleado.getVista().getPanel_RequisitosEstud(tieneLibrosPrestados,
+                // tieneEstipendio, tieneDeuda));
+                // Pricipal.getInstancia().revalidate();
+                // Pricipal.getInstancia().repaint();
+            }
 
-            // Pricipal instancia = Pricipal.getInstancia();
-            // instancia.setVista(RequisitosEmpleado.getVista().getPanel_RequisitosEstud(tieneLibrosPrestados,
-            // tieneEstipendio, tieneDeuda));
-            // Pricipal.getInstancia().revalidate();
-            // Pricipal.getInstancia().repaint();
         }
 
     }

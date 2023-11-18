@@ -23,6 +23,9 @@ public class GestorDepartamentos {
         recursosHumanos = new RecursosHumanos();
         biblioteca = new Biblioteca();
         economia = new Economia();
+        almacenDeLibros = new AlmacenDeLibros();
+        seguridadInformatica = new SeguridadInformatica();
+        direccionDeBecas = new DireccionDeBecas();
     }
 
     public static GestorDepartamentos gestorDepartamentos() {
@@ -48,15 +51,15 @@ public class GestorDepartamentos {
         return economia;
     }
 
-    public AlmacenDeLibros getAlmacenDeLibros(){
+    public AlmacenDeLibros getAlmacenDeLibros() {
         return almacenDeLibros;
     }
 
-    public SeguridadInformatica getSeguridadInformatica(){
+    public SeguridadInformatica getSeguridadInformatica() {
         return seguridadInformatica;
     }
 
-    public DireccionDeBecas getDireccionDeBecas(){
+    public DireccionDeBecas getDireccionDeBecas() {
         return direccionDeBecas;
     }
 

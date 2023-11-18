@@ -21,7 +21,7 @@ import views.usuarios.RequisitosEstudiante;
 
 public class Navegacion {
 
-    private JPanel panel_inicio;
+	private JPanel panel_inicio;
 	private JLabel home;
 	private JLabel guardar;
 	private JLabel account;
@@ -40,20 +40,17 @@ public class Navegacion {
 	private JLabel lblCuenta;
 	private JLabel label_1;
 	private JLabel label_2;
-    private static Navegacion instance = null;
+	private static Navegacion instance = null;
 
-    private Navegacion () {}
+	private Navegacion() {
+	}
 
-    
-    
-    public static Navegacion getVista() {
-        if (instance == null) {
-            instance = new Navegacion();
-        }
-        return instance;
-    }
+	public static Navegacion getVista() {
 
-    public JPanel getBarraNavegacion() {
+		return new Navegacion();
+	}
+
+	public JPanel getBarraNavegacion() {
 		if (panel_inicio == null) {
 			panel_inicio = new JPanel();
 			panel_inicio.addMouseListener(new MouseAdapter() {
@@ -95,7 +92,7 @@ public class Navegacion {
 		return panel_inicio;
 	}
 
-    private JLabel getHome() {
+	private JLabel getHome() {
 		if (home == null) {
 			home = new JLabel("New label");
 			home.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -109,7 +106,7 @@ public class Navegacion {
 					getAccount_bg().setVisible(false);
 					getGestion_bg().setVisible(false);
 					getGuardar_bg().setVisible(false);
-		
+
 					ControladorPrincipal.mostrarInicio();
 				}
 
@@ -137,7 +134,7 @@ public class Navegacion {
 					getAccount_bg().setVisible(false);
 					getGestion_bg().setVisible(false);
 					getGuardar_bg().setVisible(true);
-					
+
 					// ControladorPruebas.mostrarTramitesEmpleados ();
 				}
 
@@ -166,7 +163,7 @@ public class Navegacion {
 					getGestion_bg().setVisible(false);
 					getGuardar_bg().setVisible(false);
 
-                   ControladorLogin.mostrarLogin();
+					ControladorLogin.mostrarLogin();
 				}
 
 				@Override
@@ -191,7 +188,7 @@ public class Navegacion {
 					getGestion_bg().setVisible(true);
 					getGuardar_bg().setVisible(false);
 
-                   ControladorPrincipal.mostrarRequisitosEstudiantes();
+					ControladorPrincipal.mostrarRequisitosBajaEstudiantes();
 				}
 
 				@Override
@@ -221,9 +218,9 @@ public class Navegacion {
 					getAccount_bg().setVisible(false);
 					getGestion_bg().setVisible(false);
 					getGuardar_bg().setVisible(false);
-					
+
 					// ControladorPruebas.mostrarReportes();
-					
+
 				}
 
 				@Override
@@ -231,8 +228,7 @@ public class Navegacion {
 					getBarraNavegacion().setBounds(0, 0, 155, 700);
 					label_2.setVisible(false);
 				}
-				
-				
+
 			});
 		}
 		return reportes;

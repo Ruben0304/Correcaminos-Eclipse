@@ -46,22 +46,61 @@ public class RequisitosEstudiante {
 	private boolean tienePertenenciasDeLaCUJAE;
 	private boolean tieneCarnetDeBecado;
 
-	private RequisitosEstudiante() {
+	private RequisitosEstudiante(boolean tieneLibrosPrestados, boolean tieneEstipendio,
+			boolean tieneDeuda,
+			boolean tieneLibrosDocentes, boolean tieneCarnetDeEstudiante, boolean tieneCuentaUsuarioAbierta,
+			boolean tienePertenenciasDeLaCUJAE, boolean tieneCarnetDeBecado) {
 
+		this.tieneLibrosPrestados = tieneLibrosPrestados;
+		this.tieneEstipendio = tieneEstipendio;
+		this.tieneDeuda = tieneDeuda;
+		this.tieneLibrosDocentes = tieneLibrosDocentes;
+		this.tieneCarnetDeEstudiante = tieneCarnetDeEstudiante;
+		this.tieneCuentaUsuarioAbierta = tieneCuentaUsuarioAbierta;
+		this.tienePertenenciasDeLaCUJAE = tienePertenenciasDeLaCUJAE;
+		this.tieneCarnetDeBecado = tieneCarnetDeBecado;
+		this.panel_RequisitosEstud = getPanel_RequisitosEstudBecado();
 	}
 
-	public static RequisitosEstudiante getVista() {
-		if (instance == null) {
-			instance = new RequisitosEstudiante();
-		}
-		return instance;
+	private RequisitosEstudiante(boolean tieneLibrosPrestados, boolean tieneEstipendio,
+			boolean tieneDeuda,
+			boolean tieneLibrosDocentes, boolean tieneCarnetDeEstudiante, boolean tieneCuentaUsuarioAbierta) {
+
+		this.tieneLibrosPrestados = tieneLibrosPrestados;
+		this.tieneEstipendio = tieneEstipendio;
+		this.tieneDeuda = tieneDeuda;
+		this.tieneLibrosDocentes = tieneLibrosDocentes;
+		this.tieneCarnetDeEstudiante = tieneCarnetDeEstudiante;
+		this.tieneCuentaUsuarioAbierta = tieneCuentaUsuarioAbierta;
+		this.panel_RequisitosEstud = getPanel_RequisitosEstud();
+	}
+
+	// becado
+	public static RequisitosEstudiante getVista(boolean tieneLibrosPrestados, boolean tieneEstipendio,
+			boolean tieneDeuda,
+			boolean tieneLibrosDocentes, boolean tieneCarnetDeEstudiante, boolean tieneCuentaUsuarioAbierta,
+			boolean tienePertenenciasDeLaCUJAE, boolean tieneCarnetDeBecado) {
+
+		return new RequisitosEstudiante(tieneLibrosPrestados, tieneEstipendio,
+				tieneDeuda,
+				tieneLibrosDocentes, tieneCarnetDeEstudiante, tieneCuentaUsuarioAbierta,
+				tienePertenenciasDeLaCUJAE, tieneCarnetDeBecado);
+	}
+
+	// no becado
+
+	public static RequisitosEstudiante getVista(boolean tieneLibrosPrestados, boolean tieneEstipendio,
+			boolean tieneDeuda,
+			boolean tieneLibrosDocentes, boolean tieneCarnetDeEstudiante, boolean tieneCuentaUsuarioAbierta) {
+
+		return new RequisitosEstudiante(tieneLibrosPrestados, tieneEstipendio,
+				tieneDeuda,
+				tieneLibrosDocentes, tieneCarnetDeEstudiante, tieneCuentaUsuarioAbierta);
 	}
 
 	// Becado
 
-	public JPanel getPanel_RequisitosEstud(boolean tieneLibrosPrestados, boolean tieneEstipendio, boolean tieneDeuda,
-			boolean tieneLibrosDocentes, boolean tieneCarnetDeEstudiante, boolean tieneCuentaUsuarioAbierta,
-			boolean tienePertenenciasDeLaCUJAE, boolean tieneCarnetDeBecado) {
+	public JPanel getPanel_RequisitosEstudBecado() {
 		if (panel_RequisitosEstud == null) {
 			panel_RequisitosEstud = new JPanel();
 			panel_RequisitosEstud.setBounds(178, 0, 944, 700);
@@ -91,22 +130,13 @@ public class RequisitosEstudiante {
 			panel_RequisitosEstud.add(getLblEntregadasPertenencias());
 			panel_RequisitosEstud.add(getLabel_15());
 
-			this.tieneLibrosPrestados = tieneLibrosPrestados;
-			this.tieneEstipendio = tieneEstipendio;
-			this.tieneDeuda = tieneDeuda;
-			this.tieneLibrosDocentes = tieneLibrosDocentes;
-			this.tieneCarnetDeEstudiante = tieneCarnetDeEstudiante;
-			this.tieneCuentaUsuarioAbierta = tieneCuentaUsuarioAbierta;
-			this.tienePertenenciasDeLaCUJAE = tienePertenenciasDeLaCUJAE;
-			this.tieneCarnetDeBecado = tieneCarnetDeBecado;
 		}
 		return panel_RequisitosEstud;
 	}
 
 	// No becado
 
-	public JPanel getPanel_RequisitosEstud(boolean tieneLibrosPrestados, boolean tieneEstipendio, boolean tieneDeuda,
-			boolean tieneLibrosDocentes, boolean tieneCarnetDeEstudiante, boolean tieneCuentaUsuarioAbierta) {
+	public JPanel getPanel_RequisitosEstud() {
 		if (panel_RequisitosEstud == null) {
 			panel_RequisitosEstud = new JPanel();
 			panel_RequisitosEstud.setBounds(178, 0, 944, 700);
@@ -130,13 +160,6 @@ public class RequisitosEstudiante {
 			panel_RequisitosEstud.add(getLblAlmacenDeLibros());
 			panel_RequisitosEstud.add(getLabel_7());
 			panel_RequisitosEstud.add(getLblEntregadoTodosLos_1());
-
-			this.tieneLibrosPrestados = tieneLibrosPrestados;
-			this.tieneEstipendio = tieneEstipendio;
-			this.tieneDeuda = tieneDeuda;
-			this.tieneLibrosDocentes = tieneLibrosDocentes;
-			this.tieneCarnetDeEstudiante = tieneCarnetDeEstudiante;
-			this.tieneCuentaUsuarioAbierta = tieneCuentaUsuarioAbierta;
 
 		}
 		return panel_RequisitosEstud;
@@ -197,7 +220,7 @@ public class RequisitosEstudiante {
 			label_4 = new JLabel("");
 			label_4.setIcon(new ImageIcon(
 					Pricipal.class.getResource("/img/" + (tieneDeuda ? "Canceel.png" : "Checkmarkkk.png"))));
-			label_4.setBounds(52, 368, 20, 20);
+			label_4.setBounds(50, 368, 23, 21);
 		}
 		return label_4;
 	}

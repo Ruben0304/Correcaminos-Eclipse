@@ -14,7 +14,9 @@ import util.TiposResponsabilidad;
 public class Biblioteca implements VerificadorEstudiante, VerificadorEmpleado {
 
     public boolean tieneLibrosPrestados(ResponsabilidadesEstudiantes r){
+    
         return r.getResponsabilidades().contains(TiposResponsabilidad.LIBROS_BIBLIOTECA);
+
         
     }
     

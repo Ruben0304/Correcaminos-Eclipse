@@ -38,19 +38,20 @@ public class Inicio{
 	private JLabel label_6;
     private JLabel label_3;
 	private JLabel lblInicio;
-    private static Inicio instance = null;
+    private static Inicio instance;
 	private Usuario usuarioAutenticado;
 
     
-    private Inicio() {}
+    private Inicio(Usuario usuario) {
+		this.usuarioAutenticado = usuario;
+	}
 
     
     
-    public static Inicio getVista() {
-        if (instance == null) {
-            instance = new Inicio();
-        }
-        return instance;
+    public static Inicio getVista(Usuario usuario) {
+        
+        
+        return new Inicio(usuario);
     }
 
 
@@ -101,7 +102,7 @@ public class Inicio{
 	/**
 	 * @wbp.parser.entryPoint
 	 */
-	public JPanel getPanel_lateral(Usuario usuarioAutenticado) {
+	public JPanel getPanel_lateral() {
 		if (panel_lateral == null) {
 			panel_lateral = new JPanel();
 			panel_lateral.setAlignmentX(Component.LEFT_ALIGNMENT);
@@ -125,7 +126,7 @@ public class Inicio{
 			lblEntrar.addMouseListener(new MouseAdapter() {
 				@Override
 				public void mouseClicked(MouseEvent e) {
-					ControladorPruebas.mostrarLogin();
+					// ControladorPruebas.mostrarLogin();
                   
 				}
 			});

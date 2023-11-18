@@ -16,5 +16,42 @@
     "estado": "PENDIENTE",
     "motivo": "Enfermedad",
     "fecha":"Nov 18, 2023 3:58:38 AM"
+  }, 
+  {
+    "estudiante": {
+      "curso": 2,
+    "tipoCurso": "ENCUENTRO",
+    "carrera": "Ingenieria Informatica",
+    "grupo": 2,
+    "ci": "12345678902",
+    "nombre": "Maria",
+    "primer_apellido": "Gonzalez",
+    "segundo_apellido": "Perez",
+    "facultad": "Ing_Informatica",
+    "nombreUsuario": "estudiante2",
+    "contrasena": "6cf615d5bcaac778352a8f1f3360d23f02f34ec182e259897fd6ce485d7870d4"
+    },
+    "estado": "PENDIENTE",
+    "motivo": "Lejania",
+    "fecha":"Nov 18, 2023 3:58:38 AM"
+  }, 
+  {
+    "estudiante": {
+      "curso": 3,
+    "tipoCurso": "DIURNO",
+    "carrera": "Ingenieria Informatica",
+    "grupo": 3,
+    "ci": "23456789013",
+    "nombre": "Pedro",
+    "primer_apellido": "Lopez",
+    "segundo_apellido": "Perez",
+    "facultad": "Ing_Informatica",
+    "nombreUsuario": "estudiante3",
+    "contrasena": "5906ac361a137e2d286465cd6588ebb5ac3f5ae955001100bc41577c3d751764"
+    },
+    "estado": "PENDIENTE",
+    "motivo": "Problemas personales",
+    "fecha":"Nov 18, 2023 3:58:38 AM"
   }
+
 ]

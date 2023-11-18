@@ -10,43 +10,37 @@ import models.usuarios.Estudiante;
 import util.ResponsabilidadesTrabajador;
 import util.TiposResponsabilidad;
 
-
-
-public class RecursosHumanos implements VerificadorEmpleado {
-
-	public boolean tieneSalarioIndebido(ResponsabilidadesEmpleados r) {
-		return r.getResponsabilidades().contains(ResponsabilidadesTrabajador.SALARIO_INDEBIDO);
-	}
-	@Override
-	public boolean verificarRequisitos(ResponsabilidadesEmpleados responsabilidadesTrabajador) {
-		return tieneSalarioIndebido(responsabilidadesTrabajador);
+public class Contabilidad implements VerificadorEmpleado {
+	
+	public boolean tieneDeudaPendiente(ResponsabilidadesEmpleados r) {
+		return r.getResponsabilidades().contains(ResponsabilidadesTrabajador.DEUDA);
 	}
 	
-	public void recogerSalarioIndebido(Empleado e, ArrayList<ResponsabilidadesEmpleados> responsabilidades) {
+	@Override
+	public boolean verificarRequisitos(ResponsabilidadesEmpleados responsabilidadesTrabajador) {
+		return tieneDeudaPendiente(responsabilidadesTrabajador);
+	}
+	
+	public void saldarDeuda(Estudiante e, ArrayList<ResponsabilidadesEstudiantes> responsabilidades) {
 		boolean encontrado = false;
         for (int i = 0; i < responsabilidades.size() && !encontrado; i++) {
 
-            encontrado = responsabilidades.get(i).getEmpleado().equals(e);
+            encontrado = responsabilidades.get(i).getEstudiante().equals(e);
             if (encontrado) {
-                responsabilidades.get(i).getResponsabilidades().remove(ResponsabilidadesTrabajador.LIBROS_BIBLIOTECA);
+                responsabilidades.get(i).getResponsabilidades().remove(TiposResponsabilidad.LIBROS_BIBLIOTECA);
             }
 
         }
-        
 	}
 	
 	@Override
 	public ArrayList<Empleado> getEmpleadosPendientes(ArrayList<ResponsabilidadesEmpleados> responsabilidades) {
-        
-		ArrayList<Empleado> es = new ArrayList<>();
-        
-		for (ResponsabilidadesEmpleados r : responsabilidades) {
+        ArrayList<Empleado> es = new ArrayList<>();
+        for (ResponsabilidadesEmpleados r : responsabilidades) {
             if (verificarRequisitos(r)) {
                 es.add(r.getEmpleado());
             }
         }
         return es;
     }
-
-   
 }

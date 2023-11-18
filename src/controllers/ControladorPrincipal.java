@@ -93,16 +93,13 @@ public class ControladorPrincipal {
     }
 
     public static void mostrarRequisitosEstudiantes() {
-        Pricipal instancia = Pricipal.getInstancia();
-        instancia.setVista(RequisitosEstudiante.getVista().getPanel_RequisitosEstud());
-        Pricipal.getInstancia().revalidate();
-        Pricipal.getInstancia().repaint();
+        // Pricipal instancia = Pricipal.getInstancia();
+        // instancia.setVista(RequisitosEstudiante.getVista().getPanel_RequisitosEstud());
+        // Pricipal.getInstancia().revalidate();
+        // Pricipal.getInstancia().repaint();
     }
 
-    public static void mostrarInicio() {
-
-    }
-
+    
     public static void mostrarTramitesEmpleados() {
         Pricipal instancia = Pricipal.getInstancia();
         instancia.setVista(TramitesEmpleados.getVista().getPanel());

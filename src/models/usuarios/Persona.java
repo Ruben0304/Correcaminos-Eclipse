@@ -23,9 +23,7 @@ public abstract class Persona extends Usuario {
         
     }
 
-    public abstract void solicitarLicencia(String motivo, String fechaInicio, String fechaFin);
-
-    public abstract void solicitarBaja();
+   
 
     public String getCi() {
         return ci;

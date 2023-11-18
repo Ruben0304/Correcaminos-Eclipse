@@ -1,10 +1,10 @@
 package models.usuarios;
 
-import java.util.ArrayList;
+
 
 import util.Facultad;
 import util.TipoCurso;
-import util.TiposResponsabilidad;
+
 
 public class Becado extends Estudiante {
    private String idBecado;

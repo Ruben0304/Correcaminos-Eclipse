@@ -1,6 +1,6 @@
 package models.usuarios;
 
-import util.Facultad;
+
 
 public class NoDocente extends Empleado{
     private String seccion;

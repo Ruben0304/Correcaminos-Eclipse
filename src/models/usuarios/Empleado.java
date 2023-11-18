@@ -1,11 +1,5 @@
 package models.usuarios;
 
-import java.util.ArrayList;
-
-import models.departamentos.Secretaria;
-import util.Facultad;
-import util.ResponsabilidadesTrabajador;
-import util.TiposResponsabilidad;
 
 public abstract class Empleado extends Persona{
     protected String numerotrabajador;

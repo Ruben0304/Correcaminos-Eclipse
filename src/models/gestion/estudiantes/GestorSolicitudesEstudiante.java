@@ -1,15 +1,22 @@
 package models.gestion.estudiantes;
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 import data.ObtenerSolicitudes;
 import models.interfaces.Actualizador;
-import models.reports.BajasAceptadasPorFacultad;
+
 import models.solicitudes.SolicitudBaja;
 import models.solicitudes.SolicitudLicencia;
 import models.usuarios.Estudiante;
+import util.Facultad;
 
 public class GestorSolicitudesEstudiante implements Actualizador {
 
@@ -85,37 +92,40 @@ public class GestorSolicitudesEstudiante implements Actualizador {
 
     }
 
-    public ArrayList<BajasAceptadasPorFacultad> obtenerCantidadBajasAceptadasPorFacultad() {
-
-        ArrayList<BajasAceptadasPorFacultad> bajas = new ArrayList<>();
-
+    public HashMap<Facultad, Integer> obtenerCantidadBajasAceptadasPorFacultad() {
+        HashMap<Facultad, Integer> bajas = new HashMap<>();
+    
         for (SolicitudBaja s : solicitudesBajaAceptadas) {
-            boolean encontrado = false;
-            for (int i = 0; i < bajas.size() && !encontrado; i++) {
-                if (bajas.get(i).getFacultad().equals(s.getEstudiante().getFacultad())) {
-                    bajas.get(i).setCantidadBajas(bajas.get(i).getCantidadBajas() + 1);
-                    encontrado = true;
-                }
+            Facultad facultad = s.getEstudiante().getFacultad();
+            Integer cantidad = bajas.get(facultad);
+            if (cantidad == null) {
+                cantidad = 0;
             }
-            if (!encontrado) {
-                bajas.add(new BajasAceptadasPorFacultad(s.getEstudiante().getFacultad(), 1));
-            }
+            bajas.put(facultad, cantidad + 1);
         }
+    
         return bajas;
     }
 
-    public ArrayList<BajasAceptadasPorFacultad> ordenarFacultadesPorCantidadBajasAceptadas() {
-        ArrayList<BajasAceptadasPorFacultad> bajasOrdenadas = obtenerCantidadBajasAceptadasPorFacultad();
+    public LinkedHashMap<Facultad, Integer> ordenarFacultadesPorCantidadBajasAceptadas() {
+    HashMap<Facultad, Integer> bajas = obtenerCantidadBajasAceptadasPorFacultad();
+    List<Map.Entry<Facultad, Integer>> list = new LinkedList<>(bajas.entrySet());
 
-        Collections.sort(bajasOrdenadas, new Comparator<BajasAceptadasPorFacultad>() {
-            @Override
-            public int compare(BajasAceptadasPorFacultad b1, BajasAceptadasPorFacultad b2) {
-                return Integer.compare(b1.getCantidadBajas(), b2.getCantidadBajas());
-            }
-        });
+    Collections.sort(list, new Comparator<Map.Entry<Facultad, Integer>>() {
+        public int compare(Map.Entry<Facultad, Integer> o1, Map.Entry<Facultad, Integer> o2) {
+            return (o2.getValue()).compareTo(o1.getValue());
+        }
+    });
 
-        return bajasOrdenadas;
+    LinkedHashMap<Facultad, Integer> result = new LinkedHashMap<>();
+    for (Map.Entry<Facultad, Integer> entry : list) {
+        result.put(entry.getKey(), entry.getValue());
     }
+
+    return result;
+}
+
+    
 
     public int totalSolicitudesBajaPendientes() {
         return solicitudesBajaPendientes.size();
@@ -127,6 +137,87 @@ public class GestorSolicitudesEstudiante implements Actualizador {
 
     public int toalSolicitudesBajaYLicencia() {
         return totalSolicitudesBajaPendientes() + totalSolicitudesLicenciaPendientes();
+    }
+
+    // Filtraciones licencias
+
+    public ArrayList<SolicitudLicencia> filtrarLicenciasPendientesPorFacultad(Facultad f) {
+        ArrayList<SolicitudLicencia> solicitudLicenciasF = new ArrayList<>();
+
+        for (SolicitudLicencia s : solicitudesLicenciaPendientes) {
+            if (s.getEstudiante().getFacultad().equals(f)) {
+                solicitudLicenciasF.add(s);
+            }
+        }
+
+        return solicitudLicenciasF;
+    }
+
+    public ArrayList<SolicitudLicencia> filtrarLicenciasAceptadasPorFacultad(Facultad f) {
+        ArrayList<SolicitudLicencia> solicitudLicenciasF = new ArrayList<>();
+
+        for (SolicitudLicencia s : solicitudesLicenciaAceptadas) {
+            if (s.getEstudiante().getFacultad().equals(f)) {
+                solicitudLicenciasF.add(s);
+            }
+        }
+
+        return solicitudLicenciasF;
+    }
+
+    public ArrayList<SolicitudLicencia> filtrarLicenciasPorAnio(int anio) {
+        ArrayList<SolicitudLicencia> solicitudes = new ArrayList<>();
+
+        for (SolicitudLicencia solicitud : solicitudesLicenciaAceptadas) {
+            if (solicitud.getAnioExpedicion() == anio) {
+                solicitudes.add(solicitud);
+            }
+        }
+
+        return solicitudes;
+    }
+
+    public HashMap<Integer, Integer> cantidadDeLicenciaPorAnio(int anioMinimo) {
+        HashMap<Integer, Integer> solicitudes = new HashMap<>();
+    
+        for (SolicitudLicencia s : solicitudesLicenciaAceptadas) {
+            if (s.getAnioExpedicion() > anioMinimo) {
+                Integer cantidad = solicitudes.get(s.getAnioExpedicion());
+                if (cantidad == null) {
+                    cantidad = 0;
+                }
+                solicitudes.put(s.getAnioExpedicion(), cantidad + 1);
+            }
+        }
+    
+        return solicitudes;
+    }
+    
+
+    // Filtraciones bajas
+
+    public ArrayList<SolicitudBaja> filtrarBajasPendientesPorFacultad(Facultad f) {
+        ArrayList<SolicitudBaja> solicitudBajasF = new ArrayList<>();
+
+        for (SolicitudBaja s : solicitudesBajaPendientes) {
+            if (s.getEstudiante().getFacultad().equals(f)) {
+                solicitudBajasF.add(s);
+            }
+        }
+
+        return solicitudBajasF;
+    }
+
+    public ArrayList<SolicitudBaja> filtrarBajasAceptadasPorFacultad(Facultad f) {
+        ArrayList<SolicitudBaja> solicitudBajasF = new ArrayList<>();
+
+        for (SolicitudBaja s : solicitudesBajaAceptadas) {
+            if (s.getEstudiante().getFacultad().equals(f)) {
+                solicitudBajasF.add(s);
+            }
+        }
+
+        return solicitudBajasF;
     }
 
     // public ArrayList<SolicitudBaja> filtrarPorFecha(String anio) {

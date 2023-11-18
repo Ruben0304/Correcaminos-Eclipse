@@ -1,5 +1,6 @@
 package models.solicitudes;
 
+import java.sql.Date;
 import java.time.LocalDate;
 
 import models.usuarios.Estudiante;
@@ -9,7 +10,7 @@ public class SolicitudBaja {
     protected Estudiante estudiante;
     protected Estado estado;
     protected String motivo;
-    protected String fecha;
+    protected Date fecha;
 
     
 
@@ -17,9 +18,9 @@ public class SolicitudBaja {
         this.estudiante = estudiante;
         this.estado = Estado.PENDIENTE;
         this.motivo = motivo;
-        LocalDate fechaActual = LocalDate.now();
-        this.fecha = fechaActual.toString();
+        this.fecha = new Date(System.currentTimeMillis()); 
     }
+    
 
     
 

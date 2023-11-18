@@ -21,18 +21,15 @@ public class CasosPendientes {
 	private JLabel lblCasosPendientes;
 	private JTable table;
 	private JButton btnNewButton;
-    private static CasosPendientes instance = null;
-
-    private CasosPendientes () {}
+	private ArrayList<Estudiante> usuariosPendientes;
+    
+    public CasosPendientes (ArrayList<Estudiante> usuariosPendientes) {
+		this.usuariosPendientes = usuariosPendientes;
+	}
 
     
     
-    public static CasosPendientes getVista() {
-        if (instance == null) {
-            instance = new CasosPendientes();
-        }
-        return instance;
-    }
+    
 
 
     public JPanel getPanelCasosPendientes() {
@@ -65,7 +62,7 @@ public class CasosPendientes {
 			table.setForeground(Color.WHITE);
 			table.setBorder(new LineBorder(new Color(255, 255, 255), 9, true));
 
-			ArrayList<Estudiante> usuariosPendientes = new ArrayList<Estudiante>();
+			
 			Object[][] data = new Object[usuariosPendientes.size() + 1][3];
 			int i = 1;
 			data[0][0] = "Carnet";

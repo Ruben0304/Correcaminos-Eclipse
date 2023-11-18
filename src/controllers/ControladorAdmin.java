@@ -10,6 +10,7 @@ import models.gestion.GestorPrincipal;
 import models.gestion.estudiantes.GestorEstudiantes;
 import models.responsabilidades.ResponsabilidadesEstudiantes;
 import models.usuarios.Admin;
+import models.usuarios.Estudiante;
 import models.usuarios.Persona;
 import models.usuarios.Usuario;
 import views.Pricipal;
@@ -19,21 +20,26 @@ import views.old.SecretariaPendientes;
 
 public class ControladorAdmin {
     public static void mostrarGestionLicencias() {
-        ArrayList<Persona> usuariosPendientes = new ArrayList<>();
+        ArrayList<Estudiante> usuariosPendientes = new ArrayList<>();
         Usuario usuarioAutenticado = Auth.usuarioAutenticado();
         GestorDepartamentos gestDep = GestorDepartamentos.gestorDepartamentos();
         ArrayList<ResponsabilidadesEstudiantes> listadoResponsabilidades = GestorEstudiantes.gestorEstudiantes()
                 .getGestorResponsabilidadesEstudiantes().getResponsabilidadesEstudiantesPendientes();
-                
+
         switch (((Admin) usuarioAutenticado).getTipoDepartamento()) {
             case Biblioteca:
                 usuariosPendientes.addAll(gestDep.getBiblioteca().getEstudiantesPendientes(listadoResponsabilidades));
-                CasosPendientes biblioteca = new CasosPendientes(usuarioAutenticado, usuariosPendientes);
-                biblioteca.setVisible(true);
+
+                Pricipal instancia = Pricipal.getInstancia();
+                instancia.setVista(new CasosPendientes(usuariosPendientes).getPanelCasosPendientes());
+                Pricipal.getInstancia().revalidate();
+                Pricipal.getInstancia().repaint();
+
                 break;
             case Secretaria:
                 // usuariosPendientes.addAll(secretaria.getEstudianteLicenciaPendientes());
-                // SecretariaPendientes view = new SecretariaPendientes(usuarioAutenticado, usuariosPendientes);
+                // SecretariaPendientes view = new SecretariaPendientes(usuarioAutenticado,
+                // usuariosPendientes);
                 // view.setVisible(true);
                 // break;
             default:
@@ -42,10 +48,4 @@ public class ControladorAdmin {
 
     }
 
-    public static void mostrarReportes (){
-        Pricipal instancia = Pricipal.getInstancia();
-        instancia.setVista(Reportes.getVista().getPanel());
-        Pricipal.getInstancia().revalidate();
-        Pricipal.getInstancia().repaint();
-    }
 }

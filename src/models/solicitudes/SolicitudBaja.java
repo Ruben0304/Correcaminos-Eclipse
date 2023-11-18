@@ -1,7 +1,9 @@
 package models.solicitudes;
 
 import java.time.LocalDate;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 import models.usuarios.Estudiante;
 import utiles.Estado;
@@ -9,14 +11,14 @@ import utiles.Estado;
 public abstract class SolicitudBaja {
     protected Estado estado;
     protected String motivo;
-    protected Date fecha;
+    protected Calendar fecha;
 
     
 
     public SolicitudBaja(String motivo) {
         this.estado = Estado.PENDIENTE;
         this.motivo = motivo;
-        this.fecha = new Date();
+        this.fecha = new GregorianCalendar();
     }
 
     public Estado getEstado() {
@@ -27,7 +29,7 @@ public abstract class SolicitudBaja {
         return motivo;
     }
 
-    public Date getFecha() {
+    public Calendar getFecha() {
         return fecha;
     }
 

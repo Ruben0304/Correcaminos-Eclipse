@@ -13,32 +13,7 @@ public class ResponsabilidadesEmpleados {
     
     public ResponsabilidadesEmpleados(Empleado empleado, ArrayList<ResponsabilidadesTrabajador> responsabilidades) {
     	this.responsabilidades = responsabilidades;
-    	
-    	if (empleado instanceof NoDocente) {
-    		this.empleado = new NoDocente(
-    				 empleado.getNombreUsuario(),
-    				 empleado.getContrasena(),
-    				 empleado.getCi(),
-    				 empleado.getNombre(),
-    				 empleado.getPrimer_apellido(),
-    				 empleado.getSegundo_apellido(),
-                     empleado.getNumerotrabajador(),
-                     ((NoDocente)empleado).getSeccion());
-    	}
-    	else {
-    		this.empleado = new Docente(
-   				 empleado.getNombreUsuario(),
-   				 empleado.getContrasena(),
-   				 empleado.getCi(),
-   				 empleado.getNombre(),
-   				 empleado.getPrimer_apellido(),
-   				 empleado.getSegundo_apellido(),
-   				 empleado.getNumerotrabajador(),
-   				 ((Docente)empleado).getFacultad(),
-                 ((Docente)empleado).getDepartamento(),
-                 ((Docente)empleado).getCategoriaDocente());
-    	}
-    	
+    	this.empleado = empleado;
     }
 
 	public Empleado getEmpleado() {

@@ -7,11 +7,11 @@ import java.util.Calendar;
 import models.usuarios.Estudiante;
 
 public abstract class SolicitudLicencia extends SolicitudBaja{
-    protected Date fechaSalida;
-    protected Date fechaRegreso;
+    protected Calendar fechaSalida;
+    protected Calendar fechaRegreso;
     
    
-    public SolicitudLicencia(String motivo,String fechaSalida, String fechaRegreso) {
+    public SolicitudLicencia(String motivo,Calendar fechaSalida, Calendar fechaRegreso) {
         super(motivo);
         this.fechaSalida = fechaSalida;
         this.fechaRegreso = fechaRegreso;
@@ -19,14 +19,29 @@ public abstract class SolicitudLicencia extends SolicitudBaja{
         
     }
 
-    public Date getFechaSalida() {
+    public Calendar getFechaSalida() {
         return fechaSalida;
     }
 
-    public Date getFechaRegreso() {
+    public Calendar getFechaRegreso() {
         return fechaRegreso;
     }
 
+	public void setFechaSalida(Calendar fechaSalida) {
+		if(fechaSalida != null)
+			this.fechaSalida = fechaSalida;
+		else
+			throw new IllegalArgumentException("La fecha no es valida");
+	}
+
+	public void setFechaRegreso(Calendar fechaRegreso) {
+		if(fechaRegreso != null)
+			this.fechaRegreso = fechaRegreso;
+		else
+			throw new IllegalArgumentException("La fecha no es valida");
+	}
+
+    
     
     
 }

@@ -39,7 +39,7 @@ public class ObtenerSolicitudes {
     }
 
     public static ArrayList<SolicitudBajaEstudiante> cargarDesdeArchivoB() {
-        escribir();
+        escribirB();
         Gson gson = new Gson();
         ArrayList<SolicitudBajaEstudiante> solicitudes = new ArrayList<>();
 

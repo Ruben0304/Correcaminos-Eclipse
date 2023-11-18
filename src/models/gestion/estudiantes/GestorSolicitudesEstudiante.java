@@ -55,6 +55,20 @@ public class GestorSolicitudesEstudiante implements Actualizador {
 
     }
 
+    public boolean verificarEstudianteSolicitaBaja(Estudiante e) {
+
+        boolean encontrado = false;
+        ArrayList<Estudiante> estudiantes = getEstudianteBajaPendientes();
+        for (int i = 0; i < estudiantes.size() && !encontrado; i++) {
+            if (e.getCi().equals(estudiantes.get(i).getCi())) {
+             encontrado = true;
+            }
+        }
+
+        return encontrado;
+
+    }
+
     public ArrayList<Estudiante> getEstudianteLicenciaPendientes() {
         ArrayList<Estudiante> es = new ArrayList<>();
         for (SolicitudLicenciaEstudiante s : this.solicitudesLicenciaPendientes) {
@@ -63,8 +77,20 @@ public class GestorSolicitudesEstudiante implements Actualizador {
         return es;
     }
 
-    public void agregarSolicitudDeLicencia(SolicitudLicenciaEstudiante solicitud) {
-        solicitudesLicenciaPendientes.add(solicitud);
+     public ArrayList<Estudiante> getEstudianteBajaPendientes() {
+        ArrayList<Estudiante> es = new ArrayList<>();
+        for (SolicitudBajaEstudiante s : this.solicitudesBajaPendientes) {
+            es.add(s.getEstudiante());
+        }
+        return es;
+    }
+
+    public void agregarSolicitudDeLicencia(Estudiante e, String motivo) {
+        solicitudesLicenciaPendientes.add(new SolicitudLicenciaEstudiante(e, motivo, null, null));
+    }
+
+     public void agregarSolicitudDeBaja(Estudiante e, String motivo) {
+        solicitudesBajaPendientes.add(new SolicitudBajaEstudiante(motivo, e));
     }
 
     @Override

@@ -9,6 +9,7 @@ import models.gestion.GestorDepartamentos;
 import models.gestion.GestorPrincipal;
 import models.gestion.empleados.GestorEmpleados;
 import models.gestion.estudiantes.GestorEstudiantes;
+import models.gestion.estudiantes.GestorSolicitudesEstudiante;
 import models.responsabilidades.ResponsabilidadesEstudiantes;
 import models.usuarios.Becado;
 import models.usuarios.Empleado;
@@ -58,12 +59,11 @@ public class ControladorPrincipal {
         } else {
 
             GestorDepartamentos gestDep = GestorDepartamentos.gestorDepartamentos();
-
+            GestorSolicitudesEstudiante gestorSolicitudesEstudiante = GestorEstudiantes.gestorEstudiantes().getGestorSolicitudes();
             if (Auth.usuarioAutenticado() instanceof Estudiante) {
 
                 Estudiante usuarioAutenticado = (Estudiante) Auth.usuarioAutenticado();
-                if (!GestorEstudiantes.gestorEstudiantes().getGestorSolicitudes()
-                        .verificarEstudianteSolicitaLicencia(usuarioAutenticado)) {
+                if (!(gestorSolicitudesEstudiante.verificarEstudianteSolicitaLicencia(usuarioAutenticado) || gestorSolicitudesEstudiante.verificarEstudianteSolicitaBaja(usuarioAutenticado))) {
                     mostrarTramites();
                 } else {
                     ResponsabilidadesEstudiantes respEst = GestorEstudiantes.gestorEstudiantes()

@@ -26,6 +26,7 @@ import java.awt.SystemColor;
 
 import javax.swing.border.LineBorder;
 
+import controllers.ControladorPrincipal;
 import models.usuarios.Becado;
 import models.usuarios.Estudiante;
 
@@ -228,6 +229,8 @@ public class EstudiantesTramites {
 			btnSolicitarLicencia.setBackground(new Color(42, 100, 56));
 			btnSolicitarLicencia.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
+					estudiante.solicitarLicencia(textFieldMotivo.getText());
+					ControladorPrincipal.mostrarRequisitosBajaEstudiantes();
 				}
 			});
 			btnSolicitarLicencia.setFont(new Font("Segoe UI Semibold", Font.BOLD, 23));
@@ -243,6 +246,8 @@ public class EstudiantesTramites {
 			btnSolicitarBaja.setFont(new Font("Segoe UI Semibold", Font.BOLD, 23));
 			btnSolicitarBaja.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
+					estudiante.solicitarBaja(textFieldMotivo.getText());
+					ControladorPrincipal.mostrarRequisitosBajaEstudiantes();
 				}
 			});
 			btnSolicitarBaja.setBorder(new LineBorder(null, 1, true));

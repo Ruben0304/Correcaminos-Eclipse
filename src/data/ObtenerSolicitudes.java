@@ -43,7 +43,7 @@ public class ObtenerSolicitudes {
         Gson gson = new Gson();
         ArrayList<SolicitudBajaEstudiante> solicitudes = new ArrayList<>();
 
-        try (BufferedReader reader = new BufferedReader(new FileReader("./solicitudesBajaEstudiantesAceptadas.json"))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("./solicitudesBajasEstudiantesAceptadas.json"))) {
             Type listType = new TypeToken<ArrayList<SolicitudBajaEstudiante>>() {
             }.getType();
             solicitudes = gson.fromJson(reader, listType);

@@ -15,42 +15,6 @@
       "contrasena": "6cf615d5bcaac778352a8f1f3360d23f02f34ec182e259897fd6ce485d7870d4"
     },
     "estado": "PENDIENTE",
-    "motivo": "Lejanía",
-    "fecha": {
-      "year": 2023,
-      "month": 10,
-      "dayOfMonth": 18,
-      "hourOfDay": 0,
-      "minute": 23,
-      "second": 11
-    }
-  },
-
-
-
-  {
-    "fechaSalida": "hoy",
-    "fechaRegreso": "mes que viene",
-    "estudiante": {
-      "curso": 2,
-      "tipoCurso": "ENCUENTRO",
-      "carrera": "Ingenieria Informatica",
-      "grupo": 2,
-      "responsabilidades": [
-        "CARNET_CUJAE",
-        "ESTIPENDIO",
-        "LIBROS_DOCENTES",
-        "CUENTA_USUARIO"
-      ],
-      "ci": "12345678902",
-      "nombre": "Maria",
-      "primer_apellido": "Gonzalez",
-      "segundo_apellido": "Perez",
-      "facultad": "Ing_Informatica",
-      "nombreUsuario": "estudiante2",
-      "contrasena": "6cf615d5bcaac778352a8f1f3360d23f02f34ec182e259897fd6ce485d7870d4"
-    },
-    "estado": "PENDIENTE",
     "motivo": "fdfdfd",
     "fecha": "2023-11-03"
   },

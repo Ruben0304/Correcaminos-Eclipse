@@ -42,6 +42,9 @@ public class RequisitosEstudiante {
 	private boolean tieneDeuda;
 	private boolean tieneLibrosDocentes;
 	private boolean tieneCarnetDeEstudiante;
+	private boolean tieneCuentaUsuarioAbierta;
+	private boolean tienePertenenciasDeLaCUJAE;
+	private boolean tieneCarnetDeBecado;
 
 	private RequisitosEstudiante() {
 
@@ -56,7 +59,9 @@ public class RequisitosEstudiante {
 
 	// Becado
 
-	public JPanel getPanel_RequisitosEstud(los mismos parametros mas los de becados) {
+	public JPanel getPanel_RequisitosEstud(boolean tieneLibrosPrestados, boolean tieneEstipendio, boolean tieneDeuda,
+			boolean tieneLibrosDocentes, boolean tieneCarnetDeEstudiante, boolean tieneCuentaUsuarioAbierta,
+			boolean tienePertenenciasDeLaCUJAE, boolean tieneCarnetDeBecado) {
 		if (panel_RequisitosEstud == null) {
 			panel_RequisitosEstud = new JPanel();
 			panel_RequisitosEstud.setBounds(178, 0, 944, 700);
@@ -86,16 +91,22 @@ public class RequisitosEstudiante {
 			panel_RequisitosEstud.add(getLblEntregadasPertenencias());
 			panel_RequisitosEstud.add(getLabel_15());
 
-			this.tieneLibrosPrestados=tieneLibrosPrestados;
-			this.tieneEstipendio=tieneEstipendio;
+			this.tieneLibrosPrestados = tieneLibrosPrestados;
+			this.tieneEstipendio = tieneEstipendio;
+			this.tieneDeuda = tieneDeuda;
+			this.tieneLibrosDocentes = tieneLibrosDocentes;
+			this.tieneCarnetDeEstudiante = tieneCarnetDeEstudiante;
+			this.tieneCuentaUsuarioAbierta = tieneCuentaUsuarioAbierta;
+			this.tienePertenenciasDeLaCUJAE = tienePertenenciasDeLaCUJAE;
+			this.tieneCarnetDeBecado = tieneCarnetDeBecado;
 		}
 		return panel_RequisitosEstud;
 	}
 
-	// no becado
+	// No becado
 
 	public JPanel getPanel_RequisitosEstud(boolean tieneLibrosPrestados, boolean tieneEstipendio, boolean tieneDeuda,
-			boolean tieneLibrosDocentes, boolean tieneCarnetDeEstudiante) {
+			boolean tieneLibrosDocentes, boolean tieneCarnetDeEstudiante, boolean tieneCuentaUsuarioAbierta) {
 		if (panel_RequisitosEstud == null) {
 			panel_RequisitosEstud = new JPanel();
 			panel_RequisitosEstud.setBounds(178, 0, 944, 700);
@@ -118,18 +129,14 @@ public class RequisitosEstudiante {
 			panel_RequisitosEstud.add(getLabel_8());
 			panel_RequisitosEstud.add(getLblAlmacenDeLibros());
 			panel_RequisitosEstud.add(getLabel_7());
-			// panel_RequisitosEstud.add(getLblEntregadoTodosLos_1());
-			// panel_RequisitosEstud.add(getLblGestionDeBeca());
-			// panel_RequisitosEstud.add(getLabel_11());
-			// panel_RequisitosEstud.add(getLblEntregadoCarnetDe());
-			// panel_RequisitosEstud.add(getLblEntregadasPertenencias());
-			// panel_RequisitosEstud.add(getLabel_15());
+			panel_RequisitosEstud.add(getLblEntregadoTodosLos_1());
 
 			this.tieneLibrosPrestados = tieneLibrosPrestados;
 			this.tieneEstipendio = tieneEstipendio;
 			this.tieneDeuda = tieneDeuda;
 			this.tieneLibrosDocentes = tieneLibrosDocentes;
 			this.tieneCarnetDeEstudiante = tieneCarnetDeEstudiante;
+			this.tieneCuentaUsuarioAbierta = tieneCuentaUsuarioAbierta;
 
 		}
 		return panel_RequisitosEstud;
@@ -238,7 +245,8 @@ public class RequisitosEstudiante {
 	private JLabel getLabel_6() {
 		if (label_6 == null) {
 			label_6 = new JLabel("");
-			label_6.setIcon(new ImageIcon(Pricipal.class.getResource("/img/" + (tieneCarnetDeEstudiante ? "Canceel.png" : "Checkmarkkk.png"))));
+			label_6.setIcon(new ImageIcon(Pricipal.class
+					.getResource("/img/" + (tieneCarnetDeEstudiante ? "Canceel.png" : "Checkmarkkk.png"))));
 			label_6.setBounds(52, 548, 31, 35);
 		}
 		return label_6;
@@ -277,7 +285,8 @@ public class RequisitosEstudiante {
 	private JLabel getLabel_8() {
 		if (label_8 == null) {
 			label_8 = new JLabel("");
-			label_8.setIcon(new ImageIcon(Pricipal.class.getResource("/img/Canceel.png")));
+			label_8.setIcon(new ImageIcon(Pricipal.class
+					.getResource("/img/" + (tieneCuentaUsuarioAbierta ? "Canceel.png" : "Checkmarkkk.png"))));
 			label_8.setBounds(478, 221, 31, 35);
 		}
 		return label_8;
@@ -326,7 +335,8 @@ public class RequisitosEstudiante {
 	private JLabel getLabel_11() {
 		if (label_11 == null) {
 			label_11 = new JLabel("");
-			label_11.setIcon(new ImageIcon(Pricipal.class.getResource("/img/Canceel.png")));
+			label_11.setIcon(new ImageIcon(
+					Pricipal.class.getResource("/img/" + (tieneCarnetDeBecado ? "Canceel.png" : "Checkmarkkk.png"))));
 			label_11.setBounds(478, 546, 20, 20);
 		}
 		return label_11;
@@ -355,7 +365,8 @@ public class RequisitosEstudiante {
 	private JLabel getLabel_15() {
 		if (label_15 == null) {
 			label_15 = new JLabel("");
-			label_15.setIcon(new ImageIcon(Pricipal.class.getResource("/img/Checkmarkkk.png")));
+			label_15.setIcon(new ImageIcon(Pricipal.class
+					.getResource("/img/" + (tienePertenenciasDeLaCUJAE ? "Canceel.png" : "Checkmarkkk.png"))));
 			label_15.setBounds(478, 578, 42, 35);
 		}
 		return label_15;

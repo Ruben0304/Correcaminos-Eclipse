@@ -15,9 +15,13 @@ import models.usuarios.Empleado;
 import models.usuarios.Estudiante;
 import models.usuarios.Usuario;
 import util.Colores;
+import views.Inicio;
+import views.Pricipal;
+import views.TramitesEmpleados;
 import views.old.EstudianteTramites;
 import views.old.Inicios;
 import views.old.RequisitosBajaEstudiantes;
+import views.usuarios.RequisitosEstudiante;
 
 public class ControladorPrincipal {
 
@@ -30,8 +34,13 @@ public class ControladorPrincipal {
                         .getGestorSolicitudes()
                         .verificarEstudianteSolicitaLicencia((Estudiante) Auth.usuarioAutenticado());
             }
-            Inicios inicio = new Inicios(Auth.usuarioAutenticado(), estudianteSolicitaLicencia);
-            inicio.setVisible(true);
+            Pricipal instancia = Pricipal.getInstancia();
+            instancia.setVista(Inicio.getVista().getPanel_lateral());
+            Pricipal.getInstancia().revalidate();
+            Pricipal.getInstancia().repaint();
+            // Inicios inicio = new Inicios(Auth.usuarioAutenticado(),
+            // estudianteSolicitaLicencia);
+            // inicio.setVisible(true);
         } else {
             ControladorLogin.mostrarLogin();
         }
@@ -48,8 +57,9 @@ public class ControladorPrincipal {
 
         if (Auth.usuarioAutenticado() instanceof Estudiante) {
             Estudiante usuarioAutenticado = (Estudiante) Auth.usuarioAutenticado();
-            ResponsabilidadesEstudiantes respEst = GestorEstudiantes.gestorEstudiantes().getGestorResponsabilidadesEstudiantes()
-                            .getListadoDeUnEstudiante(usuarioAutenticado);
+            ResponsabilidadesEstudiantes respEst = GestorEstudiantes.gestorEstudiantes()
+                    .getGestorResponsabilidadesEstudiantes()
+                    .getListadoDeUnEstudiante(usuarioAutenticado);
 
             boolean tieneLibrosPrestados = gestDep.getBiblioteca().tieneLibrosPrestados(respEst);
 
@@ -57,9 +67,10 @@ public class ControladorPrincipal {
 
             boolean tieneDeuda = gestDep.getEconomia().tieneDeuda(respEst);
 
-            RequisitosBajaEstudiantes requisitosBajaEstudiantes = new RequisitosBajaEstudiantes(
-                    usuarioAutenticado, tieneEstipendio, tieneDeuda, tieneLibrosPrestados);
-            requisitosBajaEstudiantes.setVisible(true);
+            Pricipal instancia = Pricipal.getInstancia();
+            instancia.setVista(RequisitosEstudiante.getVista().getPanel_RequisitosEstud(tieneLibrosPrestados, tieneEstipendio, tieneDeuda));
+            Pricipal.getInstancia().revalidate();
+            Pricipal.getInstancia().repaint();
 
         }
 
@@ -79,6 +90,24 @@ public class ControladorPrincipal {
         GestorPrincipal.getGestorPrincipal().actualizarDatos();
         mostrarInicio();
 
+    }
+
+    public static void mostrarRequisitosEstudiantes() {
+        Pricipal instancia = Pricipal.getInstancia();
+        instancia.setVista(RequisitosEstudiante.getVista().getPanel_RequisitosEstud());
+        Pricipal.getInstancia().revalidate();
+        Pricipal.getInstancia().repaint();
+    }
+
+    public static void mostrarInicio() {
+
+    }
+
+    public static void mostrarTramitesEmpleados() {
+        Pricipal instancia = Pricipal.getInstancia();
+        instancia.setVista(TramitesEmpleados.getVista().getPanel());
+        Pricipal.getInstancia().revalidate();
+        Pricipal.getInstancia().repaint();
     }
 
 }

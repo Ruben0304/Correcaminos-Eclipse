@@ -71,4 +71,11 @@ public class ControladorLogin {
         }
     }
 
+    public static void mostrarLogin (){
+        Pricipal instancia = Pricipal.getInstancia();
+        instancia.setVista(Entrar.getVista().getPanel());
+        Pricipal.getInstancia().revalidate();
+        Pricipal.getInstancia().repaint();
+    }
+
 }

@@ -10,6 +10,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 
 import models.gestion.estudiantes.GestorEstudiantes;
+import models.reports.BajasAceptadasPorAnio;
 import models.reports.BajasAceptadasPorFacultad;
 import models.solicitudes.SolicitudLicencia;
 import util.Facultad;
@@ -31,7 +32,7 @@ public abstract class ControladorReportes {
 
         for (int i = 0; i < ordenado.size(); i++) {
 
-            if (ordenado.get(i).getCantidadBajas() == ordenado.get(0).getCantidadBajas()) {
+            if (ordenado.get(i).getCantidad() == ordenado.get(0).getCantidad()) {
                 facMasBajas.add(ordenado.get(i).getFacultad());
             } else {
                 i = ordenado.size();
@@ -68,24 +69,27 @@ public abstract class ControladorReportes {
     }
 
     public static JOptionPane anioConMasBajasLicenciasAceptadasEnUltimos10() {
-        ArrayList<Integer> aniosMasLicencias = new ArrayList<>();
-        int maxLicencias = 0;
+        Calendar calendar = Calendar.getInstance();
+        int anioActual = calendar.get(Calendar.YEAR);
 
-        for (Map.Entry<Integer, Integer> entry : GestorEstudiantes.gestorEstudiantes().getGestorSolicitudes()
-                .cantidadDeLicenciaPorAnio(2014).entrySet()) {
-            int cantidadLicencias = entry.getValue();
-            if (cantidadLicencias > maxLicencias) {
-                maxLicencias = cantidadLicencias;
-                aniosMasLicencias.clear();
-                aniosMasLicencias.add(entry.getKey());
-            } else if (cantidadLicencias == maxLicencias) {
-                aniosMasLicencias.add(entry.getKey());
+        ArrayList<BajasAceptadasPorAnio> solicitudes =  GestorEstudiantes.gestorEstudiantes().getGestorSolicitudes().cantidadDeBajasPorAnio(anioActual - 10);
+        ArrayList<Integer> aniosMasBajas = new ArrayList<>();
+        int maxBajas = 0;
+
+        for (BajasAceptadasPorAnio solicitud : solicitudes) {
+            int cantidadBajas = solicitud.getCantidad();
+            if (cantidadBajas > maxBajas) {
+                maxBajas = cantidadBajas;
+                aniosMasBajas.clear();
+                aniosMasBajas.add(solicitud.getAnio());
+            } else if (cantidadBajas == maxBajas) {
+                aniosMasBajas.add(solicitud.getAnio());
             }
         }
 
         String info = "El anio(s) con mayor contidad de bajas y licencias aceptadas fue:\n";
-        for (Integer integer : aniosMasLicencias) {
-            info = " - " + integer + "\n";
+        for (int anio : aniosMasBajas) {
+            info = " - " + anio + "\n";
         }
 
         JTextArea textArea = crearTextArea(info);

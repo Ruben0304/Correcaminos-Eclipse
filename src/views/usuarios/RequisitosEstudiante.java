@@ -37,7 +37,14 @@ public class RequisitosEstudiante {
 	private JLabel label_15;
     private static RequisitosEstudiante instance = null;
 
-    private RequisitosEstudiante () {}
+	private boolean tieneLibrosPrestados;
+	private boolean tieneEstipendio;
+	private boolean tieneDeuda;
+
+
+    private RequisitosEstudiante () {
+		
+	}
 
     
     
@@ -48,7 +55,7 @@ public class RequisitosEstudiante {
         return instance;
     }
 
-    public JPanel getPanel_RequisitosEstud() {
+    public JPanel getPanel_RequisitosEstud(boolean tieneLibrosPrestados, boolean tieneEstipendio, boolean tieneDeuda) {
 		if (panel_RequisitosEstud == null) {
 			panel_RequisitosEstud = new JPanel();
 			panel_RequisitosEstud.setBounds(178, 0, 944, 700);
@@ -77,6 +84,9 @@ public class RequisitosEstudiante {
 			panel_RequisitosEstud.add(getLblEntregadoCarnetDe());
 			panel_RequisitosEstud.add(getLblEntregadasPertenencias());
 			panel_RequisitosEstud.add(getLabel_15());
+
+			this.tieneLibrosPrestados=tieneLibrosPrestados;
+			this.tieneEstipendio=tieneEstipendio;
 		}
 		return panel_RequisitosEstud;
 	}
@@ -114,7 +124,7 @@ public class RequisitosEstudiante {
 	private JLabel getLblNewLabel() {
 		if (lblNewLabel == null) {
 			lblNewLabel = new JLabel("");
-			lblNewLabel.setIcon(new ImageIcon(Pricipal.class.getResource("/img/Checkmarkkk.png")));
+			lblNewLabel.setIcon(new ImageIcon(Pricipal.class.getResource("/img/"  + (tieneLibrosPrestados ? "Canceel.png" : "Checkmarkkk.png") )));
 			lblNewLabel.setBounds(52, 221, 42, 35);
 		}
 		return lblNewLabel;
@@ -133,7 +143,7 @@ public class RequisitosEstudiante {
 	private JLabel getLabel_4() {
 		if (label_4 == null) {
 			label_4 = new JLabel("");
-			label_4.setIcon(new ImageIcon(Pricipal.class.getResource("/img/Canceel.png")));
+			label_4.setIcon(new ImageIcon(Pricipal.class.getResource("/img/"  + (tieneDeuda ? "Canceel.png" : "Checkmarkkk.png"))));
 			label_4.setBounds(52, 368, 20, 20);
 		}
 		return label_4;
@@ -162,7 +172,7 @@ public class RequisitosEstudiante {
 	private JLabel getLabel_5() {
 		if (label_5 == null) {
 			label_5 = new JLabel("");
-			label_5.setIcon(new ImageIcon(Pricipal.class.getResource("/img/Canceel.png")));
+			label_5.setIcon(new ImageIcon(Pricipal.class.getResource("/img/"  + (tieneEstipendio ? "Canceel.png" : "Checkmarkkk.png"))));
 			label_5.setBounds(52, 404, 20, 20);
 		}
 		return label_5;

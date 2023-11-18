@@ -12,6 +12,8 @@ import models.responsabilidades.ResponsabilidadesEstudiantes;
 import models.usuarios.Admin;
 import models.usuarios.Persona;
 import models.usuarios.Usuario;
+import views.Pricipal;
+import views.Reportes;
 import views.admin.CasosPendientes;
 import views.old.SecretariaPendientes;
 
@@ -38,5 +40,12 @@ public class ControladorAdmin {
                 break;
         }
 
+    }
+
+    public static void mostrarReportes (){
+        Pricipal instancia = Pricipal.getInstancia();
+        instancia.setVista(Reportes.getVista().getPanel());
+        Pricipal.getInstancia().revalidate();
+        Pricipal.getInstancia().repaint();
     }
 }

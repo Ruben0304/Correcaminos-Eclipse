@@ -1,14 +1,9 @@
 package models.gestion.estudiantes;
 
-import java.sql.Date;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
+
 
 import data.ObtenerSolicitudes;
 import models.interfaces.Actualizador;
@@ -175,12 +170,12 @@ public class GestorSolicitudesEstudiante implements Actualizador {
         return solicitudes;
     }
 
-    public ArrayList<BajasAceptadasPorAnio> cantidadDeLicenciaPorAnio(int anioMinimo) {
+    public ArrayList<BajasAceptadasPorAnio> cantidadDeBajasPorAnio(int anioMinimo) {
         ArrayList<BajasAceptadasPorAnio> solicitudes = new ArrayList<>();
 
         for (SolicitudLicencia s : solicitudesLicenciaAceptadas) {
             boolean encontrado = false;
-            if (s.getAnioExpedicion() > anioMinimo) {
+            if (s.getAnioExpedicion() >= anioMinimo) {
                 for (int i = 0; i < solicitudes.size() && !encontrado; i++) {
                     if (solicitudes.get(i).getAnio() == s.getAnioExpedicion()) {
                         solicitudes.get(i).setCantidad(solicitudes.get(i).getCantidad() + 1);

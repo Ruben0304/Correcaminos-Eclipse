@@ -5,7 +5,7 @@ import javax.swing.SwingUtilities;
 import controllers.ControladorLogin;
 import controllers.ControladorPrincipal;
 import models.gestion.GestorPrincipal;
-
+import views.Pricipal;
 
 public class Main {
 	public static void main(String[] args) {
@@ -14,9 +14,11 @@ public class Main {
 			public void run() {
 				try {
 
-					 ControladorLogin.comprobarSession();
-					 ControladorPrincipal.mostrarInicio();
-                     
+					ControladorLogin.comprobarSession();
+					Pricipal frame = Pricipal.getInstancia();
+					frame.setVisible(true);
+					ControladorPrincipal.mostrarInicio();
+
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

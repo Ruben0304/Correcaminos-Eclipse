@@ -6,6 +6,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
+import auth.Auth;
 import controllers.ControladorLogin;
 import controllers.ControladorPruebas;
 
@@ -118,7 +119,7 @@ public class Inicio{
 
 	private JLabel getLblEntrar() {
 		if (lblEntrar == null) {
-			lblEntrar = new JLabel("Entrar");
+			lblEntrar = new JLabel(Auth.hayUsuarioAutenticado() ? Auth.usuarioAutenticado().getNombreUsuario() : "Entrar" );
 			lblEntrar.addMouseListener(new MouseAdapter() {
 				@Override
 				public void mouseClicked(MouseEvent e) {

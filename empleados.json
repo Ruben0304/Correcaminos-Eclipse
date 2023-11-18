@@ -1,102 +1,102 @@
 [
-  { 
-      "nombreUsuario": "empleado1",
-      "contrasena": "0b14d501a594442a01c6859541bcb3e81", 
-      "ci": "80112031821", 
-      "nombre": "Leonardo", 
-      "primer_apellido": "Perez", 
-      "segundo_apellido": "Rubial",
-      "numerotrabajador": "20134",
-      "facultad": "Ing_Electrica", 
-      "departamento": "Redes",
-     "categoriaDocente": "Doctor"
+  {
+    "nombreUsuario": "empleado1",
+    "contrasena": "0b14d501a594442a01c6859541bcb3e81",
+    "ci": "80112031821",
+    "nombre": "Leonardo",
+    "primer_apellido": "Perez",
+    "segundo_apellido": "Rubial",
+    "numerotrabajador": "20134",
+    "facultad": "Ing_Electrica",
+    "departamento": "Redes",
+    "categoriaDocente": "Doctor"
   },
-  { 
-"nombreUsuario": "empleado2",
-"contrasena": "0b14d501a594442a01c6859541bcb3e81", 
-"ci": "90021530827", 
-"nombre": "Reinier", 
-"primer_apellido": "Acosta", 
-"segundo_apellido": "Sanchez",
-"numerotrabajador": "20134",
-"seccion": "Limpieza"
-},
-{ 
-"nombreUsuario": "empleado3",
-"contrasena": "0b14d501a594442a01c6859541bcb3e81", 
-"ci": "35603103121", 
-"nombre": "Carlos", 
-"primer_apellido": "Martinez", 
-"segundo_apellido": "Sanchez",
-"numerotrabajador": "20136",
-"facultad": "Ing_Mecanica", 
-"departamento": "Mantenimiento",
-"categoriaDocente": "Ingeniero"
-},
-{ 
-"nombreUsuario": "empleado4",
-"contrasena": "0b14d501a594442a01c6859541bcb3e81", 
-"ci": "55604303121", 
-"nombre": "Laura", 
-"primer_apellido": "Lopez", 
-"segundo_apellido": "Fernandez",
-"numerotrabajador": "20137",
-"facultad": "Ing_Informatica", 
-"departamento": "Sistemas",
-"categoriaDocente": "Master"
-},
-{ 
-"nombreUsuario": "empleado6",
-"contrasena": "0b14d501a594442a01c6859541bcb3e81", 
-"ci": "15612293121", 
-"nombre": "Ana", 
-"primer_apellido": "Garcia", 
-"segundo_apellido": "Perez",
-"numerotrabajador": "20139",
-"facultad": "Ing_Automatica_y_Biomedica", 
-"departamento": "Biomedica",
-"categoriaDocente": "Master"
-},
-{
-"nombreUsuario": "empleado7",
-"contrasena": "8b6c4e1f3d5a7b9c6e4d2a8f5d7c9a6b5e3",
-"ci": "45013193122",
-"nombre": "Pedro",
-"primer_apellido": "Diaz",
-"segundo_apellido": "Perez",
-"numerotrabajador": "80078",
-"seccion": "Limpieza"
-},
-{
-"nombreUsuario": "empleado9",
-"contrasena": "7c5e3f9d1a4b2c7a8f6d5e3d8c4a7f9b6",
-"ci": "25033163122",
-"nombre": "Carlos",
-"primer_apellido": "Lopez",
-"segundo_apellido": "Gutierrez",
-"numerotrabajador": "70056",
-"seccion": "Comedor"
-},
-{
-"nombreUsuario": "empleado19",
-"contrasena": "4a7f3e9d1c5b2a3f8e4d7a9c8b6e5d2",
-"ci": "05123153122",
-"nombre": "Juan",
-"primer_apellido": "Martinez",
-"segundo_apellido": "Garcia",
-"numerotrabajador": "90034",
-"seccion": "Limpieza"
-},
-{ 
-"nombreUsuario": "empleado20",
-"contrasena": "0b14d501a594442a01c6859541bcb3e81", 
-"ci": "15605293121", 
-"nombre": "Fernando", 
-"primer_apellido": "Martinez", 
-"segundo_apellido": "Sanchez",
-"numerotrabajador": "20142",
-"facultad": "Arquitectura", 
-"departamento": "Diseño",
-"categoriaDocente": "Doctor"
-}
+  {
+    "nombreUsuario": "empleado2",
+    "contrasena": "0b14d501a594442a01c6859541bcb3e81",
+    "ci": "90021530827",
+    "nombre": "Reinier",
+    "primer_apellido": "Acosta",
+    "segundo_apellido": "Sanchez",
+    "numerotrabajador": "20134",
+    "seccion": "Limpieza"
+  },
+  {
+    "nombreUsuario": "empleado3",
+    "contrasena": "0b14d501a594442a01c6859541bcb3e81",
+    "ci": "35603103121",
+    "nombre": "Carlos",
+    "primer_apellido": "Martinez",
+    "segundo_apellido": "Sanchez",
+    "numerotrabajador": "20136",
+    "facultad": "Ing_Mecanica",
+    "departamento": "Mantenimiento",
+    "categoriaDocente": "Ingeniero"
+  },
+  {
+    "nombreUsuario": "empleado4",
+    "contrasena": "0b14d501a594442a01c6859541bcb3e81",
+    "ci": "55604303121",
+    "nombre": "Laura",
+    "primer_apellido": "Lopez",
+    "segundo_apellido": "Fernandez",
+    "numerotrabajador": "20137",
+    "facultad": "Ing_Informatica",
+    "departamento": "Sistemas",
+    "categoriaDocente": "Master"
+  },
+  {
+    "nombreUsuario": "empleado6",
+    "contrasena": "0b14d501a594442a01c6859541bcb3e81",
+    "ci": "15612293121",
+    "nombre": "Ana",
+    "primer_apellido": "Garcia",
+    "segundo_apellido": "Perez",
+    "numerotrabajador": "20139",
+    "facultad": "Ing_Automatica_y_Biomedica",
+    "departamento": "Biomedica",
+    "categoriaDocente": "Master"
+  },
+  {
+    "nombreUsuario": "empleado7",
+    "contrasena": "8b6c4e1f3d5a7b9c6e4d2a8f5d7c9a6b5e3",
+    "ci": "45013193122",
+    "nombre": "Pedro",
+    "primer_apellido": "Diaz",
+    "segundo_apellido": "Perez",
+    "numerotrabajador": "80078",
+    "seccion": "Limpieza"
+  },
+  {
+    "nombreUsuario": "empleado9",
+    "contrasena": "7c5e3f9d1a4b2c7a8f6d5e3d8c4a7f9b6",
+    "ci": "25033163122",
+    "nombre": "Carlos",
+    "primer_apellido": "Lopez",
+    "segundo_apellido": "Gutierrez",
+    "numerotrabajador": "70056",
+    "seccion": "Comedor"
+  },
+  {
+    "nombreUsuario": "empleado19",
+    "contrasena": "4a7f3e9d1c5b2a3f8e4d7a9c8b6e5d2",
+    "ci": "05123153122",
+    "nombre": "Juan",
+    "primer_apellido": "Martinez",
+    "segundo_apellido": "Garcia",
+    "numerotrabajador": "90034",
+    "seccion": "Limpieza"
+  },
+  {
+    "nombreUsuario": "empleado20",
+    "contrasena": "0b14d501a594442a01c6859541bcb3e81",
+    "ci": "15605293121",
+    "nombre": "Fernando",
+    "primer_apellido": "Martinez",
+    "segundo_apellido": "Sanchez",
+    "numerotrabajador": "20142",
+    "facultad": "Arquitectura",
+    "departamento": "Diseño",
+    "categoriaDocente": "Doctor"
+  }
 ]

@@ -15,12 +15,12 @@ public class GestorPrincipal implements Actualizador{
     private static GestorPrincipal gestorPrincipal;
     private GestorAdmins gestorAdmins;
     private GestorEstudiantes gestorEstudiantes;
-    private GestorEmpleados gestorEmpleados;
+    // private GestorEmpleados gestorEmpleados;
     private GestorDepartamentos gestorDepartamentos;
 
     private GestorPrincipal() {
         gestorEstudiantes = GestorEstudiantes.gestorEstudiantes();
-        gestorEmpleados = GestorEmpleados.gestorEmpleados();
+        // gestorEmpleados = GestorEmpleados.gestorEmpleados();
         gestorAdmins = GestorAdmins.gestorAdmins();
         gestorDepartamentos = GestorDepartamentos.gestorDepartamentos();
     }
@@ -91,9 +91,9 @@ public class GestorPrincipal implements Actualizador{
         return gestorEstudiantes;
     }
 
-    public GestorEmpleados getGestorEmpleados() {
-        return gestorEmpleados;
-    }
+    // public GestorEmpleados getGestorEmpleados() {
+    //     return gestorEmpleados;
+    // }
 
     public GestorDepartamentos getGestorDepartamentos() {
         return gestorDepartamentos;

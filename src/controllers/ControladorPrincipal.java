@@ -37,16 +37,16 @@ public class ControladorPrincipal {
                         .getGestorSolicitudes()
                         .verificarEstudianteSolicitaLicencia((Estudiante) Auth.usuarioAutenticado());
             }
-            Pricipal instancia = Pricipal.getInstancia();
-            instancia.setVista(Inicio.getVista().getPanel_lateral());
-            Pricipal.getInstancia().revalidate();
-            Pricipal.getInstancia().repaint();
+            
             // Inicios inicio = new Inicios(Auth.usuarioAutenticado(),
             // estudianteSolicitaLicencia);
             // inicio.setVisible(true);
-        } else {
-            ControladorLogin.mostrarLogin();
-        }
+        } 
+
+        Pricipal instancia = Pricipal.getInstancia();
+            instancia.setVista(Inicio.getVista().getPanel_lateral());
+            Pricipal.getInstancia().revalidate();
+            Pricipal.getInstancia().repaint();
 
     }
 
@@ -106,12 +106,12 @@ public class ControladorPrincipal {
         }
 
         else if (Auth.usuarioAutenticado() instanceof Empleado) {
-            Empleado usuarioAutenticado = (Empleado) Auth.usuarioAutenticado();
-            ResponsabilidadesEmpleados respEst = GestorEmpleados.gestorEmpleados()
-                    .getGestorResponsabilidadesEmpleado()
-                    .getListadoDeUnEmpleado(usuarioAutenticado);
+            // Empleado usuarioAutenticado = (Empleado) Auth.usuarioAutenticado();
+            // ResponsabilidadesEmpleados respEst = GestorEmpleados.gestorEmpleados()
+            //         .getGestorResponsabilidadesEmpleado()
+            //         .getListadoDeUnEmpleado(usuarioAutenticado);
 
-            boolean tieneLibrosPrestados = gestDep.getBiblioteca().tieneLibrosPrestados(respEst);
+            // boolean tieneLibrosPrestados = gestDep.getBiblioteca().tieneLibrosPrestados(respEst);
 
             // Pricipal instancia = Pricipal.getInstancia();
             // instancia.setVista(RequisitosEmpleado.getVista().getPanel_RequisitosEstud(tieneLibrosPrestados,

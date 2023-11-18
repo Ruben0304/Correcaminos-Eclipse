@@ -25,8 +25,6 @@ public class Navegacion {
 	private JLabel guardar;
 	private JLabel account;
 	private JLabel gestion;
-	private JPanel panel;
-
 	private JLabel reportes;
 
 	private JLabel home_bg;
@@ -138,6 +136,8 @@ public class Navegacion {
 					getAccount_bg().setVisible(false);
 					getGestion_bg().setVisible(false);
 					getGuardar_bg().setVisible(true);
+					
+					ControladorPruebas.mostrarTramitesEmpleados ();
 				}
 
 				@Override
@@ -220,6 +220,9 @@ public class Navegacion {
 					getAccount_bg().setVisible(false);
 					getGestion_bg().setVisible(false);
 					getGuardar_bg().setVisible(false);
+					
+					ControladorPruebas.mostrarReportes();
+					
 				}
 
 				@Override
@@ -227,6 +230,8 @@ public class Navegacion {
 					getBarraNavegacion().setBounds(0, 0, 155, 700);
 					label_2.setVisible(false);
 				}
+				
+				
 			});
 		}
 		return reportes;

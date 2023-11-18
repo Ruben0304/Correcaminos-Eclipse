@@ -30,6 +30,7 @@ public class ControladorPrincipal {
 
     public static void mostrarInicio() {
 
+
         if (Auth.hayUsuarioAutenticado()) {
             boolean estudianteSolicitaLicencia = false;
             if (Auth.usuarioAutenticado() instanceof Estudiante) {
@@ -44,7 +45,7 @@ public class ControladorPrincipal {
         } 
 
         Pricipal instancia = Pricipal.getInstancia();
-            instancia.setVista(Inicio.getVista().getPanel_lateral());
+            instancia.setVista(Inicio.getVista().getPanel_lateral(Auth.hayUsuarioAutenticado() ? Auth.usuarioAutenticado() : null));
             Pricipal.getInstancia().revalidate();
             Pricipal.getInstancia().repaint();
 

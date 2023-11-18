@@ -9,6 +9,7 @@ import javax.swing.JTextArea;
 import auth.Auth;
 import controllers.ControladorLogin;
 import controllers.ControladorPruebas;
+import models.usuarios.Usuario;
 
 import java.awt.Color;
 import java.awt.Component;
@@ -38,6 +39,7 @@ public class Inicio{
     private JLabel label_3;
 	private JLabel lblInicio;
     private static Inicio instance = null;
+	private Usuario usuarioAutenticado;
 
     
     private Inicio() {}
@@ -99,7 +101,7 @@ public class Inicio{
 	/**
 	 * @wbp.parser.entryPoint
 	 */
-	public JPanel getPanel_lateral() {
+	public JPanel getPanel_lateral(Usuario usuarioAutenticado) {
 		if (panel_lateral == null) {
 			panel_lateral = new JPanel();
 			panel_lateral.setAlignmentX(Component.LEFT_ALIGNMENT);
@@ -119,7 +121,7 @@ public class Inicio{
 
 	private JLabel getLblEntrar() {
 		if (lblEntrar == null) {
-			lblEntrar = new JLabel(Auth.hayUsuarioAutenticado() ? Auth.usuarioAutenticado().getNombreUsuario() : "Entrar" );
+			lblEntrar = new JLabel(usuarioAutenticado != null ? usuarioAutenticado.getNombreUsuario() : "Entrar" );
 			lblEntrar.addMouseListener(new MouseAdapter() {
 				@Override
 				public void mouseClicked(MouseEvent e) {

@@ -67,6 +67,6 @@ public class Pricipal extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		this.setVista(Inicio.getVista().getPanel_lateral());
+
 	}
 }

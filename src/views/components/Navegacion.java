@@ -14,6 +14,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import controllers.ControladorLogin;
+import controllers.ControladorPrincipal;
 import controllers.ControladorPruebas;
 import views.Pricipal;
 import views.usuarios.RequisitosEstudiante;
@@ -109,7 +110,7 @@ public class Navegacion {
 					getGestion_bg().setVisible(false);
 					getGuardar_bg().setVisible(false);
 		
-					ControladorPruebas.mostrarInicio();
+					ControladorPrincipal.mostrarInicio();
 				}
 
 				@Override
@@ -137,7 +138,7 @@ public class Navegacion {
 					getGestion_bg().setVisible(false);
 					getGuardar_bg().setVisible(true);
 					
-					ControladorPruebas.mostrarTramitesEmpleados ();
+					// ControladorPruebas.mostrarTramitesEmpleados ();
 				}
 
 				@Override
@@ -165,7 +166,7 @@ public class Navegacion {
 					getGestion_bg().setVisible(false);
 					getGuardar_bg().setVisible(false);
 
-                    ControladorPruebas.mostrarLogin();
+                   ControladorLogin.mostrarLogin();
 				}
 
 				@Override
@@ -190,7 +191,7 @@ public class Navegacion {
 					getGestion_bg().setVisible(true);
 					getGuardar_bg().setVisible(false);
 
-                    ControladorPruebas.mostrarRequisitosEstudiantes();
+                   ControladorPrincipal.mostrarRequisitosEstudiantes();
 				}
 
 				@Override
@@ -221,7 +222,7 @@ public class Navegacion {
 					getGestion_bg().setVisible(false);
 					getGuardar_bg().setVisible(false);
 					
-					ControladorPruebas.mostrarReportes();
+					// ControladorPruebas.mostrarReportes();
 					
 				}
 

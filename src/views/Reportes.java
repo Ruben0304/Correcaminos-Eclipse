@@ -88,11 +88,11 @@ public class Reportes {
 			rdbtnNewRadioButton.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					if(rdbtnNewRadioButton.isSelected()){
-						rdbtnNewRadioButton_1.setEnabled(false);
-						rdbtnNewRadioButton_2.setEnabled(false);}
+						rdbtnNewRadioButton_1.setSelected(false);
+						rdbtnNewRadioButton_2.setSelected(false);}
 						else{
-							rdbtnNewRadioButton_1.setEnabled(true);
-							rdbtnNewRadioButton_2.setEnabled(true);}
+							rdbtnNewRadioButton_1.setSelected(true);
+							rdbtnNewRadioButton_2.setSelected(true);}
 				}
 			});
 			rdbtnNewRadioButton.setBackground(Color.DARK_GRAY);
@@ -104,15 +104,15 @@ public class Reportes {
 	}
 	private JRadioButton getRdbtnNewRadioButton_1() {
 		if (rdbtnNewRadioButton_1 == null) {
-			rdbtnNewRadioButton_1 = new JRadioButton("Total de licencias aceptadas durante el a\u00F1o anterior\r\n");
+			rdbtnNewRadioButton_1 = new JRadioButton("Total de bajas aceptadas durante el a\u00F1o anterior\r\n");
 			rdbtnNewRadioButton_1.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					if(rdbtnNewRadioButton_1.isSelected()){
-						rdbtnNewRadioButton_2.setEnabled(false);
-						rdbtnNewRadioButton.setEnabled(false);}
+						rdbtnNewRadioButton_2.setSelected(false);
+						rdbtnNewRadioButton.setSelected(false);}
 						else{
-							rdbtnNewRadioButton_2.setEnabled(true);
-							rdbtnNewRadioButton.setEnabled(true);}
+							rdbtnNewRadioButton_2.setSelected(true);
+							rdbtnNewRadioButton.setSelected(true);}
 				}
 			});
 			rdbtnNewRadioButton_1.setBackground(Color.DARK_GRAY);
@@ -128,11 +128,11 @@ public class Reportes {
 			rdbtnNewRadioButton_2.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					if(rdbtnNewRadioButton_2.isSelected()){
-					rdbtnNewRadioButton_1.setEnabled(false);
-					rdbtnNewRadioButton.setEnabled(false);}
+					rdbtnNewRadioButton_1.setSelected(false);
+					rdbtnNewRadioButton.setSelected(false);}
 					else{
-						rdbtnNewRadioButton_1.setEnabled(true);
-						rdbtnNewRadioButton.setEnabled(true);}
+						rdbtnNewRadioButton_1.setSelected(true);
+						rdbtnNewRadioButton.setSelected(true);}
 						
 				}
 			});
@@ -187,7 +187,7 @@ public class Reportes {
 					ControladorReportes.facultadesConMasBajasAceptadas();
 				}
 				else if (rdbtnNewRadioButton_1.isSelected()) {
-				ControladorReportes.totalLicenciasAceptadasElAnioAnterior();
+				ControladorReportes.totalBajasAceptadasElAnioAnterior();
 					
 				}
 				else if (rdbtnNewRadioButton_2.isSelected()) {

@@ -17,7 +17,7 @@ public class DireccionDeBecas implements VerificadorEstudiante {
 	}
 	@Override
 	public boolean verificarRequisitos(ResponsabilidadesEstudiantes responsabilidadesEstudiantes) {
-		return tienePertenenciasDeLaCUJAE(responsabilidadesEstudiantes);
+		return tienePertenenciasDeLaCUJAE(responsabilidadesEstudiantes) || tieneCarnetDeBecado(responsabilidadesEstudiantes);
 	}
 	
 	public void recogerPertenenciasDeEstudiante(Estudiante e, ArrayList<ResponsabilidadesEstudiantes> responsabilidades) {
@@ -26,7 +26,8 @@ public class DireccionDeBecas implements VerificadorEstudiante {
 
             encontrado = responsabilidades.get(i).getEstudiante().equals(e);
             if (encontrado) {
-                responsabilidades.get(i).getResponsabilidades().remove(TiposResponsabilidad.LIBROS_BIBLIOTECA);
+                responsabilidades.get(i).getResponsabilidades().remove(TiposResponsabilidad.PERTENENCIAS_BECA);
+                responsabilidades.get(i).getResponsabilidades().remove(TiposResponsabilidad.CARNET_BECADO);
             }
 
         }

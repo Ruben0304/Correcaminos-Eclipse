@@ -109,8 +109,6 @@ public class Inicio{
 			panel_lateral.setBackground(new Color(31, 33, 36));
 			panel_lateral.setBounds(70, 0, 1052, 700);
 			panel_lateral.setLayout(null);
-			panel_lateral.add(getLabel_3());
-			panel_lateral.add(getLblInicio());
 			panel_lateral.add(getLblCorrecaminosCujae());
 			panel_lateral.add(getTxtrnecesitasSolicitarUna());
 			panel_lateral.add(getLblQueSomos());
@@ -122,11 +120,14 @@ public class Inicio{
 
 	private JLabel getLblEntrar() {
 		if (lblEntrar == null) {
-			lblEntrar = new JLabel(usuarioAutenticado != null ? usuarioAutenticado.getNombreUsuario() : "Entrar" );
+			lblEntrar = new JLabel(usuarioAutenticado != null ? "Salir" : "Entrar" );
 			lblEntrar.addMouseListener(new MouseAdapter() {
 				@Override
 				public void mouseClicked(MouseEvent e) {
-					// ControladorPruebas.mostrarLogin();
+					if (usuarioAutenticado != null) {
+						ControladorLogin.cerrarSesion();
+					}
+					ControladorLogin.mostrarLogin();
                   
 				}
 			});
@@ -138,23 +139,5 @@ public class Inicio{
 		return lblEntrar;
 	}
 
-    private JLabel getLabel_3() {
-		if (label_3 == null) {
-			label_3 = new JLabel("");
-			label_3.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-			label_3.setBounds(123, 46, 33, 28);
-			label_3.setIcon(new ImageIcon(Pricipal.class.getResource("/img/Back Arrow.png")));
-		}
-		return label_3;
-	}
-
-	private JLabel getLblInicio() {
-		if (lblInicio == null) {
-			lblInicio = new JLabel("Inicio");
-			lblInicio.setBounds(162, 44, 89, 30);
-			lblInicio.setForeground(new Color(255, 255, 255));
-			lblInicio.setFont(new Font("Segoe UI Semibold", Font.BOLD, 23));
-		}
-		return lblInicio;
-	}
+   
 }

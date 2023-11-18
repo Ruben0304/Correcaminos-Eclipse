@@ -19,9 +19,21 @@ public class Economia implements VerificadorEstudiante {
 
     @Override
     public boolean verificarRequisitos(ResponsabilidadesEstudiantes responsabilidades) {
-        return tieneDeuda(responsabilidades) && tieneEstipendio(responsabilidades);
+        return tieneDeuda(responsabilidades) || tieneEstipendio(responsabilidades);
     }
 
+    public void confirmarEntregas(Estudiante e, ArrayList<ResponsabilidadesEstudiantes> responsabilidades) {
+		boolean encontrado = false;
+        for (int i = 0; i < responsabilidades.size() && !encontrado; i++) {
+
+            encontrado = responsabilidades.get(i).getEstudiante().equals(e);
+            if (encontrado) {
+                responsabilidades.get(i).getResponsabilidades().remove(TiposResponsabilidad.ESTIPENDIO);
+                responsabilidades.get(i).getResponsabilidades().remove(TiposResponsabilidad.DEUDA);
+            }
+
+        }
+	}
    
     @Override
     public ArrayList<Estudiante> getEstudiantesPendientes(

@@ -2,6 +2,8 @@ package controllers;
 
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
+
 import auth.Auth;
 import models.departamentos.Biblioteca;
 import models.departamentos.Economia;
@@ -102,30 +104,21 @@ public class ControladorPrincipal {
 
                     } else {
 
-                        Pricipal instancia = Pricipal.getInstancia();
+                        if (!(booleanos.isTieneCarnetDeEstudiante() | booleanos.isTieneCuentaUsuarioAbierta()
+                                || booleanos.isTieneDeuda() || booleanos.isTieneEstipendio()
+                                || booleanos.isTieneLibrosDocentes() || booleanos.isTieneLibrosPrestados())) {
+                            JOptionPane.showMessageDialog(null, "Su solicitud ha sido aceptada");
+                        } else {
+                            Pricipal instancia = Pricipal.getInstancia();
 
-                        instancia.setVista(RequisitosEstudiante.getVista(booleanos).getPanel_RequisitosEstud());
-                        Pricipal.getInstancia().revalidate();
-                        Pricipal.getInstancia().repaint();
+                            instancia.setVista(RequisitosEstudiante.getVista(booleanos).getPanel_RequisitosEstud());
+                            Pricipal.getInstancia().revalidate();
+                            Pricipal.getInstancia().repaint();
+                        }
+
                     }
                 }
 
-            }
-
-            else if (Auth.usuarioAutenticado() instanceof Empleado) {
-                // Empleado usuarioAutenticado = (Empleado) Auth.usuarioAutenticado();
-                // ResponsabilidadesEmpleados respEst = GestorEmpleados.gestorEmpleados()
-                // .getGestorResponsabilidadesEmpleado()
-                // .getListadoDeUnEmpleado(usuarioAutenticado);
-
-                // boolean tieneLibrosPrestados =
-                // gestDep.getBiblioteca().tieneLibrosPrestados(respEst);
-
-                // Pricipal instancia = Pricipal.getInstancia();
-                // instancia.setVista(RequisitosEmpleado.getVista().getPanel_RequisitosEstud(tieneLibrosPrestados,
-                // tieneEstipendio, tieneDeuda));
-                // Pricipal.getInstancia().revalidate();
-                // Pricipal.getInstancia().repaint();
             }
 
         }
@@ -155,7 +148,7 @@ public class ControladorPrincipal {
         Pricipal.getInstancia().repaint();
     }
 
-     public static void mostrarReportes (){
+    public static void mostrarReportes() {
         Pricipal instancia = Pricipal.getInstancia();
         instancia.setVista(Reportes.getVista().getPanel());
         Pricipal.getInstancia().revalidate();

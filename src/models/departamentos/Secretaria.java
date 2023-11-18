@@ -12,6 +12,7 @@ public class Secretaria implements VerificadorEstudiante {
 	public boolean tieneCarnetDeEstudiante(ResponsabilidadesEstudiantes r) {
 		return r.getResponsabilidades().contains(TiposResponsabilidad.CARNET_CUJAE);
 	}
+	
 	@Override
 	public boolean verificarRequisitos(ResponsabilidadesEstudiantes responsabilidadesEstudiantes) {
 		return tieneCarnetDeEstudiante(responsabilidadesEstudiantes);
@@ -23,7 +24,7 @@ public class Secretaria implements VerificadorEstudiante {
 
 	            encontrado = responsabilidades.get(i).getEstudiante().equals(e);
 	            if (encontrado) {
-	                responsabilidades.get(i).getResponsabilidades().remove(TiposResponsabilidad.LIBROS_BIBLIOTECA);
+	                responsabilidades.get(i).getResponsabilidades().remove(TiposResponsabilidad.CARNET_CUJAE);
 	            }
 
 	        }

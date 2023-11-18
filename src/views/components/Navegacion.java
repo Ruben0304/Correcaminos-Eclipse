@@ -7,6 +7,8 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+import auth.Auth;
+
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Cursor;
@@ -18,6 +20,9 @@ import controllers.ControladorAdmin;
 import controllers.ControladorLogin;
 import controllers.ControladorPrincipal;
 import controllers.ControladorPruebas;
+import models.usuarios.Admin;
+import models.usuarios.Estudiante;
+import models.usuarios.Usuario;
 import views.Pricipal;
 import views.usuarios.RequisitosEstudiante;
 
@@ -43,6 +48,7 @@ public class Navegacion {
 	private JLabel label_1;
 	private JLabel label_2;
 	private static Navegacion instance = null;
+	private final Usuario usuarioAutenticado = Auth.usuarioAutenticado();
 
 	private Navegacion() {
 	}
@@ -73,19 +79,26 @@ public class Navegacion {
 			panel_inicio.setBackground(new Color(20, 20, 20));
 			panel_inicio.setLayout(null);
 			panel_inicio.add(getHome());
-			panel_inicio.add(getGuardar());
+			if (usuarioAutenticado != null && usuarioAutenticado instanceof Admin) {
+				panel_inicio.add(getReportes());
+				// panel_inicio.add(getGuardar());
+				panel_inicio.add(getLblReportes());
+				// panel_inicio.add(getLabel_1_1());
+
+			}
+
 			panel_inicio.add(getAccount());
 			panel_inicio.add(getGestion());
-			panel_inicio.add(getReportes());
+
 			panel_inicio.add(getHome_bg());
+
 			panel_inicio.add(getGestion_bg());
 			panel_inicio.add(getReportes_bg());
 			panel_inicio.add(getGuardar_bg());
 			panel_inicio.add(getAccount_bg());
 			panel_inicio.add(getLabel());
 			panel_inicio.add(getLblGestion());
-			panel_inicio.add(getLblReportes());
-			panel_inicio.add(getLabel_1_1());
+
 			panel_inicio.add(getLabel_1_2());
 			panel_inicio.add(getLabel_1());
 			panel_inicio.add(getLabel_2());
@@ -137,7 +150,7 @@ public class Navegacion {
 					getGestion_bg().setVisible(false);
 					getGuardar_bg().setVisible(true);
 
-					ControladorAdmin.mostrarGestionLicencias();
+					
 				}
 
 				@Override
@@ -190,7 +203,16 @@ public class Navegacion {
 					getGestion_bg().setVisible(true);
 					getGuardar_bg().setVisible(false);
 
-					ControladorPrincipal.mostrarRequisitosBajaEstudiantes();
+					if (usuarioAutenticado != null) {
+						if (usuarioAutenticado instanceof Estudiante) {
+							ControladorPrincipal.mostrarRequisitosBajaEstudiantes();
+						} else if (usuarioAutenticado instanceof Admin) {
+							ControladorAdmin.mostrarGestionLicencias();
+						}
+					} else {
+						ControladorLogin.mostrarLogin();
+					}
+
 				}
 
 				@Override
@@ -221,7 +243,7 @@ public class Navegacion {
 					getGestion_bg().setVisible(false);
 					getGuardar_bg().setVisible(false);
 
-				ControladorPrincipal.mostrarReportes();
+					ControladorPrincipal.mostrarReportes();
 
 				}
 

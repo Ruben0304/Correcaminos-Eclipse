@@ -15,10 +15,7 @@
     },
     "responsabilidades": [
       "CARNET_CUJAE",
-      "ESTIPENDIO",
-      "LIBROS_DOCENTES",
-      "CUENTA_USUARIO",
-      "LIBROS_BIBLIOTECA"
+      "ESTIPENDIO"
     ]
   },
   {

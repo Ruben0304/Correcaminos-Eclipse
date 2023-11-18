@@ -15,7 +15,7 @@ public class ControladorLogin {
 
     public static void mostrarLogin() {
         if (Auth.hayUsuarioAutenticado()) {
-            cerrarSesion();
+            ControladorPrincipal.mostrarInicio();
         } else {
             Pricipal instancia = Pricipal.getInstancia();
             instancia.setVista(Entrar.getVista().getPanel());

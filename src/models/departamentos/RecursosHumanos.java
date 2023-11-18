@@ -28,7 +28,7 @@ public class RecursosHumanos implements VerificadorEmpleado {
 
             encontrado = responsabilidades.get(i).getEmpleado().equals(e);
             if (encontrado) {
-                responsabilidades.get(i).getResponsabilidades().remove(ResponsabilidadesTrabajador.LIBROS_BIBLIOTECA);
+                responsabilidades.get(i).getResponsabilidades().remove(ResponsabilidadesTrabajador.SALARIO_INDEBIDO);
             }
 
         }

@@ -50,7 +50,7 @@ public abstract class ControladorReportes {
         JOptionPane.showMessageDialog(null, textArea);
     }
 
-    public static void totalLicenciasAceptadasElAnioAnterior() {
+    public static void totalBajasAceptadasElAnioAnterior() {
         Calendar calendar = Calendar.getInstance();
         int anioActual = calendar.get(Calendar.YEAR);
 
@@ -88,7 +88,7 @@ public abstract class ControladorReportes {
 
         String info = "El anio(s) con mayor contidad de bajas y licencias aceptadas fue:\n";
         for (int anio : aniosMasBajas) {
-            info = " - " + anio + "\n";
+            info =  anio + "\n";
         }
 
         JTextArea textArea = crearTextArea(info);

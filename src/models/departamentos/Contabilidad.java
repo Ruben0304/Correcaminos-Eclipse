@@ -27,7 +27,7 @@ public class Contabilidad implements VerificadorEmpleado {
 
             encontrado = responsabilidades.get(i).getEstudiante().equals(e);
             if (encontrado) {
-                responsabilidades.get(i).getResponsabilidades().remove(TiposResponsabilidad.LIBROS_BIBLIOTECA);
+                responsabilidades.get(i).getResponsabilidades().remove(TiposResponsabilidad.DEUDA);
             }
 
         }

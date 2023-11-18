@@ -80,8 +80,8 @@ public class CasosPendientes {
 					int selectedRow = getTable().getSelectedRow();
 					if (selectedRow != -1) {
 						String carnet = getTable().getValueAt(selectedRow, 0).toString();
-						ControladorAdmin.confirmarEntrega();
-						ControladorAdmin.mostrarGestionLicencias();
+						ControladorAdmin.confirmarEntrega(carnet);
+						
 						// DefaultTableModel modelo = (DefaultTableModel) table_2.getModel();
 
 						// modelo.fireTableDataChanged();

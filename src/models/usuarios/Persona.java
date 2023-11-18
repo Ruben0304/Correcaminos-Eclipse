@@ -2,26 +2,24 @@ package models.usuarios;
 
 
 
-import models.departamentos.Secretaria;
-import util.Facultad;
+
 
 public abstract class Persona extends Usuario {
     protected String ci;
     protected String nombre;
     protected String primer_apellido;
     protected String segundo_apellido;
-    protected Facultad facultad;
+  
     
    
 
-    public Persona(String nombreUsuario, String contrasena, String ci, String nombre, String primer_apellido, String segundo_apellido,
-            Facultad facultad) {
+    public Persona(String nombreUsuario, String contrasena, String ci, String nombre, String primer_apellido, String segundo_apellido) {
         super(nombreUsuario, contrasena);
         this.ci = ci;
         this.nombre = nombre;
         this.primer_apellido = primer_apellido;
         this.segundo_apellido = segundo_apellido;
-        this.facultad = facultad;
+        
         
     }
 
@@ -49,9 +47,7 @@ public abstract class Persona extends Usuario {
         return segundo_apellido;
     }
 
-    public Facultad getFacultad() {
-        return facultad;
-    }
+
 
     public char getSexo(){
     

@@ -1,7 +1,7 @@
 package models.usuarios;
 
-import utiles.CategoriaDocente;
-import utiles.Facultad;
+import util.CategoriaDocente;
+import util.Facultad;
 
 public class Docente extends Empleado{
     private String departamento;

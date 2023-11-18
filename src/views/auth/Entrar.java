@@ -4,11 +4,14 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
 
 import controllers.ControladorLogin;
+import controllers.ControladorPrincipal;
 import models.usuarios.Usuario;
 import views.Pricipal;
 
@@ -18,6 +21,8 @@ import java.awt.Color;
 
 
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class Entrar {
     private JPanel panel;
@@ -25,7 +30,7 @@ public class Entrar {
 	private JTextField textField;
 	private JLabel label_3;
 	private JLabel lblContrasea;
-	private JTextField textField_1;
+	private JPasswordField textField_1;
 	private JButton button;
 	private JCheckBox checkBox;
     private static Entrar instance = null;
@@ -95,9 +100,9 @@ public class Entrar {
 		}
 		return lblContrasea;
 	}
-	private JTextField getTextField_1() {
+	private JPasswordField getTextField_1() {
 		if (textField_1 == null) {
-			textField_1 = new JTextField();
+			textField_1 = new JPasswordField();
 			textField_1.setSelectionColor(new Color(143, 188, 143));
 			textField_1.setForeground(Color.WHITE);
 			textField_1.setColumns(10);
@@ -115,6 +120,19 @@ public class Entrar {
 			button.setBorder(null);
 			button.setBackground(new Color(42, 100, 56));
 			button.setBounds(422, 571, 182, 48);
+			button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				char[] passwordChars = getTextField_1().getPassword();
+				String contrasena = new String(passwordChars);
+				String user = getTextField().getText();
+
+				if (ControladorLogin.intentarAutenticar(user, contrasena, getCheckBox().isSelected())) {
+					ControladorPrincipal.mostrarInicio();
+				} else {
+					JOptionPane.showMessageDialog(null, "Credenciales incorrectas", "Error de autenticación", JOptionPane.ERROR_MESSAGE);
+				}
+			}
+		});
 		}
 		return button;
 	}

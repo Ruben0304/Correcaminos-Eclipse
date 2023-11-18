@@ -17,7 +17,7 @@ import models.usuarios.Estudiante;
 
 public class ObtenerSolicitudes {
     public static ArrayList<SolicitudLicenciaEstudiante> cargarDesdeArchivo() {
-        escribir();
+       
         Gson gson = new Gson();
         ArrayList<SolicitudLicenciaEstudiante> solicitudes = new ArrayList<>();
 
@@ -31,15 +31,15 @@ public class ObtenerSolicitudes {
         return solicitudes;
     }
 
-    private static void escribir() {
-        SolicitudLicenciaEstudiante solicitud = new SolicitudLicenciaEstudiante(
-                new Estudiante(null, null, null, null, null, null, null, 0, null, null, 0), null, null, null);
-        Gson gson = new Gson();
-        System.out.println(gson.toJson(solicitud));
-    }
+    // private static void escribir() {
+    //     SolicitudLicenciaEstudiante solicitud = new SolicitudLicenciaEstudiante(
+    //             new Estudiante(null, null, null, null, null, null, null, 0, null, null, 0), null, null, null);
+    //     Gson gson = new Gson();
+    //     System.out.println(gson.toJson(solicitud));
+    // }
 
     public static ArrayList<SolicitudBajaEstudiante> cargarDesdeArchivoB() {
-        escribir();
+        // escribir();
         Gson gson = new Gson();
         ArrayList<SolicitudBajaEstudiante> solicitudes = new ArrayList<>();
 
@@ -53,11 +53,11 @@ public class ObtenerSolicitudes {
         return solicitudes;
     }
 
-    private static void escribirB() {
-        SolicitudBajaEstudiante solicitud = new SolicitudBajaEstudiante(null,
-                new Estudiante(null, null, null, null, null, null, null, 0, null, null, 0));
-        Gson gson = new Gson();
-        System.out.println(gson.toJson(solicitud));
-    }
+    // private static void escribirB() {
+    //     SolicitudBajaEstudiante solicitud = new SolicitudBajaEstudiante(null,
+    //             new Estudiante(null, null, null, null, null, null, null, 0, null, null, 0));
+    //     Gson gson = new Gson();
+    //     System.out.println(gson.toJson(solicitud));
+    // }
 
 }

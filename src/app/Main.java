@@ -1,5 +1,6 @@
 package app;
 
+import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 
 import controllers.ControladorLogin;
@@ -17,6 +18,7 @@ public class Main {
 					ControladorLogin.comprobarSession();
 					Pricipal frame = Pricipal.getInstancia();
 					frame.setVisible(true);
+					JOptionPane.showMessageDialog(null, "Muy importante leer documento Importante.txt en la raiz del proyecto");
 					ControladorPrincipal.mostrarInicio();
 
 				} catch (Exception e) {

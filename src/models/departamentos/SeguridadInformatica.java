@@ -14,7 +14,7 @@ import util.TiposResponsabilidad;
 public class SeguridadInformatica implements VerificadorEstudiante, VerificadorEmpleado {
 
 	public boolean tieneCuentaUsuarioAbierta(ResponsabilidadesEmpleados r) {
-		return (r.getResponsabilidades().contains(ResponsabilidadesTrabajador.CUENTA_USUARIO));
+		return (r.getResponsabilidade.contains(ResponsabilidadesTrabajador.CUENTA_USUARIO));
 	}
 	
 	public boolean tieneCuentaUsuarioAbierta(ResponsabilidadesEstudiantes r) {

@@ -60,9 +60,6 @@ public class ControladorPrincipal {
 
         if (Auth.usuarioAutenticado() instanceof Estudiante) {
             Estudiante usuarioAutenticado = (Estudiante) Auth.usuarioAutenticado();
-            if (Auth.usuarioAutenticado() instanceof Becado) {
-                usuarioAutenticado = (Becado) usuarioAutenticado;
-            }
 
             ResponsabilidadesEstudiantes respEst = GestorEstudiantes.gestorEstudiantes()
                     .getGestorResponsabilidadesEstudiantes()
@@ -78,12 +75,33 @@ public class ControladorPrincipal {
 
             boolean tieneCarnetDeEstudiante = gestDep.getSecretaria().tieneCarnetDeEstudiante(respEst);
 
-            Pricipal instancia = Pricipal.getInstancia();
+            boolean tieneCuentaUsuarioAbierta = gestDep.getSeguridadInformatica().tieneCuentaUsuarioAbierta(respEst);
 
-            instancia.setVista(RequisitosEstudiante.getVista().getPanel_RequisitosEstud(tieneLibrosPrestados,
-                    tieneEstipendio, tieneDeuda, tieneLibrosDocentes, tieneCarnetDeEstudiante));
-            Pricipal.getInstancia().revalidate();
-            Pricipal.getInstancia().repaint();
+            if (Auth.usuarioAutenticado() instanceof Becado) {
+                usuarioAutenticado = (Becado) usuarioAutenticado;
+
+                boolean tienePertenenciasDeLaCUJAE = gestDep.getDireccionDeBecas().tienePertenenciasDeLaCUJAE(respEst);
+
+                boolean tieneCarnetDeBecado = gestDep.getDireccionDeBecas().tieneCarnetDeBecado(respEst);
+
+                Pricipal instancia = Pricipal.getInstancia();
+
+                instancia.setVista(RequisitosEstudiante.getVista().getPanel_RequisitosEstud(tieneLibrosPrestados,
+                        tieneEstipendio, tieneDeuda, tieneLibrosDocentes, tieneCarnetDeEstudiante,
+                        tieneCuentaUsuarioAbierta, tienePertenenciasDeLaCUJAE, tieneCarnetDeBecado));
+                Pricipal.getInstancia().revalidate();
+                Pricipal.getInstancia().repaint();
+
+            } else {
+
+                Pricipal instancia = Pricipal.getInstancia();
+
+                instancia.setVista(RequisitosEstudiante.getVista().getPanel_RequisitosEstud(tieneLibrosPrestados,
+                        tieneEstipendio, tieneDeuda, tieneLibrosDocentes, tieneCarnetDeEstudiante,
+                        tieneCuentaUsuarioAbierta));
+                Pricipal.getInstancia().revalidate();
+                Pricipal.getInstancia().repaint();
+            }
 
         }
 

@@ -12,6 +12,9 @@ public class DireccionDeBecas implements VerificadorEstudiante {
 	public boolean tienePertenenciasDeLaCUJAE(ResponsabilidadesEstudiantes r) {
 		return r.getResponsabilidades().contains(TiposResponsabilidad.PERTENENCIAS_BECA);
 	}
+    public boolean tieneCarnetDeBecado(ResponsabilidadesEstudiantes r) {
+		return r.getResponsabilidades().contains(TiposResponsabilidad.CARNET_BECADO);
+	}
 	@Override
 	public boolean verificarRequisitos(ResponsabilidadesEstudiantes responsabilidadesEstudiantes) {
 		return tienePertenenciasDeLaCUJAE(responsabilidadesEstudiantes);

@@ -2,6 +2,8 @@ package views.admin;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
@@ -13,6 +15,9 @@ import javax.swing.ListSelectionModel;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
 
+import controllers.ControladorAdmin;
+import models.departamentos.Biblioteca;
+import models.gestion.GestorPrincipal;
 import models.usuarios.Estudiante;
 import models.usuarios.Persona;
 import views.components.Navegacion;
@@ -52,8 +57,6 @@ public class CasosPendientes {
 		return lblCasosPendientes;
 	}
 
-
-
 	private JTable getTable() {
 		if (table == null) {
 			table = new JTable();
@@ -71,24 +74,22 @@ public class CasosPendientes {
 		if (btnNewButton == null) {
 			btnNewButton = new JButton("Confirmar entrega");
 			btnNewButton.setBounds(826, 593, 97, 25);
+			btnNewButton.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
 
-			public void actionPerformed(ActionEvent e) {
+					int selectedRow = getTable().getSelectedRow();
+					if (selectedRow != -1) {
+						String carnet = getTable().getValueAt(selectedRow, 0).toString();
+						ControladorAdmin.confirmarEntrega();
+						ControladorAdmin.mostrarGestionLicencias();
+						// DefaultTableModel modelo = (DefaultTableModel) table_2.getModel();
 
-                int selectedRow = table_2.getSelectedRow();
-                if (selectedRow != -1) {
-                    String carnet = table_2.getValueAt(selectedRow, 0).toString();
-                    Biblioteca.quitarLibrosPrestados(
-                            ((Estudiante) GestorPrincipal.buscarPersonaEnLista(carnet, usuariosPendientes)));
+						// modelo.fireTableDataChanged();
 
-                    ControladorAdmin.mostrarGestionLicencias();
-                    dispose();
-                    // DefaultTableModel modelo = (DefaultTableModel) table_2.getModel();
+					}
 
-                    // modelo.fireTableDataChanged();
-
-                }
-
-            }
+				}
+			});
 		}
 		return btnNewButton;
 	}

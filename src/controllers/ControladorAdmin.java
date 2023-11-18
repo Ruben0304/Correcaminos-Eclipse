@@ -8,6 +8,8 @@ import models.departamentos.Secretaria;
 import models.gestion.GestorDepartamentos;
 import models.gestion.GestorPrincipal;
 import models.gestion.estudiantes.GestorEstudiantes;
+import models.gestion.estudiantes.GestorResponsabilidadesEstudiantes;
+import models.gestion.estudiantes.GestorSolicitudesEstudiante;
 import models.responsabilidades.ResponsabilidadesEstudiantes;
 import models.usuarios.Admin;
 import models.usuarios.Estudiante;
@@ -19,6 +21,7 @@ import views.admin.CasosPendientes;
 import views.old.SecretariaPendientes;
 
 public class ControladorAdmin {
+
     public static void mostrarGestionLicencias() {
         ArrayList<Estudiante> usuariosPendientes = new ArrayList<>();
         Usuario usuarioAutenticado = Auth.usuarioAutenticado();
@@ -47,6 +50,26 @@ public class ControladorAdmin {
                 break;
         }
 
+    }
+
+    public static void confirmarEntrega(Estudiante e){
+        Admin usuarioAutenticado = (Admin) Auth.usuarioAutenticado();
+        GestorDepartamentos gestorDepartamentos = GestorDepartamentos.gestorDepartamentos();
+        GestorResponsabilidadesEstudiantes gestorResponsabilidadesEstudiantes = GestorEstudiantes.gestorEstudiantes().getGestorResponsabilidadesEstudiantes();
+        switch (((Admin) usuarioAutenticado).getTipoDepartamento()) {
+            case Biblioteca:
+                gestorDepartamentos.getBiblioteca().recogerLibrosPrestados(e, gestorResponsabilidadesEstudiantes.getResponsabilidadesEstudiantesPendientes());
+
+                break;
+            case Secretaria:
+                // usuariosPendientes.addAll(secretaria.getEstudianteLicenciaPendientes());
+                // SecretariaPendientes view = new SecretariaPendientes(usuarioAutenticado,
+                // usuariosPendientes);
+                // view.setVisible(true);
+                // break;
+            default:
+                break;
+        }
     }
 
 }

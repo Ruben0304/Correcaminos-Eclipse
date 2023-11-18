@@ -1,4 +1,7 @@
 package views.admin;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 import javax.swing.table.DefaultTableModel; 
 
 import models.usuarios.Estudiante;
@@ -17,14 +20,15 @@ public class EstudianteTableModel extends DefaultTableModel {
 		}          
 	
 	
-	public EstudianteTableModel(Estudiante [] estudiantes){
+	public EstudianteTableModel(ArrayList<Estudiante> estudiantes){
 		String[] columnNames = {
 				"Nombre", "Primer Apellido", "Segundo Apellido", "Carrera"};
 		this.setColumnIdentifiers(columnNames);
-		for (int i = 0; i < estudiantes.length; i++) {
-			Object[] newRow = new Object[]{estudiantes[i].getNombre(), estudiantes[i].getPrimer_apellido(), estudiantes[i].getSegundo_apellido(), estudiantes[i].getCarrera()};
+		for (Estudiante e : estudiantes) {
+			Object[] newRow = new Object[]{e.getNombre(), e.getPrimer_apellido(),e.getSegundo_apellido(), e.getCarrera()};
 			addRow(newRow);
 		}
+		
 	}
 		
 	// M�todo para agregar un estudiante a la tabla    

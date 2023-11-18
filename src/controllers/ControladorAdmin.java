@@ -30,9 +30,7 @@ public class ControladorAdmin {
             case Biblioteca:
                 usuariosPendientes.addAll(gestDep.getBiblioteca().getEstudiantesPendientes(listadoResponsabilidades));
 
-                for (Estudiante usuario : usuariosPendientes) {
-                    System.out.println(usuario.getNombre());
-                }
+                
                 Pricipal instancia = Pricipal.getInstancia();
                 instancia.setVista(new CasosPendientes(usuariosPendientes).getPanelCasosPendientes());
                 Pricipal.getInstancia().revalidate();

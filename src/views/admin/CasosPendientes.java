@@ -7,7 +7,9 @@ import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.ListSelectionModel;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
 
@@ -17,22 +19,17 @@ import views.components.Navegacion;
 
 public class CasosPendientes {
 
-    private JPanel panel_2;
+	private JPanel panel_2;
 	private JLabel lblCasosPendientes;
 	private JTable table;
 	private JButton btnNewButton;
 	private ArrayList<Estudiante> usuariosPendientes;
-    
-    public CasosPendientes (ArrayList<Estudiante> usuariosPendientes) {
+
+	public CasosPendientes(ArrayList<Estudiante> usuariosPendientes) {
 		this.usuariosPendientes = usuariosPendientes;
 	}
 
-    
-    
-    
-
-
-    public JPanel getPanelCasosPendientes() {
+	public JPanel getPanelCasosPendientes() {
 		if (panel_2 == null) {
 			panel_2 = new JPanel();
 			panel_2.setBounds(71, 0, 1051, 700);
@@ -55,34 +52,15 @@ public class CasosPendientes {
 		return lblCasosPendientes;
 	}
 
+
+
 	private JTable getTable() {
 		if (table == null) {
 			table = new JTable();
-			table.setFillsViewportHeight(true);
-			table.setForeground(Color.WHITE);
-			table.setBorder(new LineBorder(new Color(255, 255, 255), 9, true));
-
-			
-			Object[][] data = new Object[usuariosPendientes.size() + 1][3];
-			int i = 1;
-			data[0][0] = "Carnet";
-			data[0][1] = "Nombre";
-			data[0][2] = "Apellidos";
-			for (Persona p : usuariosPendientes) {
-
-				data[i][0] = p.getCi();
-				data[i][1] = p.getNombre();
-				data[i][2] = p.getApellidos();
-				i++;
-			}
-
-			table.setModel(new DefaultTableModel(
-					new Object[][] {
-							{ null, null, null },
-					},
-					new String[] {
-							"Carnet", "Nombre", "Apellidos"
-					}));
+			// table.setFillsViewportHeight(true);
+			table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+			// scrollPane.setViewportView(table);
+			table.setModel(new PendientesEstudiantes(usuariosPendientes));
 			table.setBounds(112, 33, 587, 476);
 
 		}
@@ -91,7 +69,7 @@ public class CasosPendientes {
 
 	private JButton getBtnNewButton() {
 		if (btnNewButton == null) {
-			btnNewButton = new JButton("New button");
+			btnNewButton = new JButton("Confirmar entrega");
 			btnNewButton.setBounds(826, 593, 97, 25);
 		}
 		return btnNewButton;

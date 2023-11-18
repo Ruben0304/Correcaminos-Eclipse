@@ -29,12 +29,19 @@ public class GestorSolicitudesEstudiante implements Actualizador {
         this.solicitudesLicenciaPendientes = new ArrayList<>();
         this.solicitudesBajaPendientes = new ArrayList<>();
         registrarLicenciasEstudiantes();
+        registrarBajasEstudiantesAceptadas();
     }
 
     private void registrarLicenciasEstudiantes() {
         solicitudesLicenciaPendientes = ObtenerSolicitudes.cargarDesdeArchivo();
 
     }
+
+    private void registrarBajasEstudiantesAceptadas() {
+        solicitudesBajaAceptadas = ObtenerSolicitudes.cargarDesdeArchivoB();
+
+    }
+
 
     public ArrayList<SolicitudLicenciaEstudiante> getSolicitudesLicenciaPendientes() {
 

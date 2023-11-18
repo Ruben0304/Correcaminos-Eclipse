@@ -1,6 +1,8 @@
 package views;
 import javax.swing.table.DefaultTableModel; 
 
+import models.usuarios.Estudiante;
+
 
  
 public class EstudianteTableModel extends DefaultTableModel {   
@@ -11,24 +13,24 @@ public class EstudianteTableModel extends DefaultTableModel {
 
 	public EstudianteTableModel() {    
 		// Definir las columnas de la tabla  
-		super(new Object[]{"Nombre", "Primer Apellido", "Segundo Apellido", "Facultad"}, 0);  
+		super(new Object[]{"Nombre", "Primer Apellido", "Segundo Apellido", "Carrera"}, 0);  
 		}          
 	
 	
 	public EstudianteTableModel(Estudiante [] estudiantes){
 		String[] columnNames = {
-				"No. Cliente", "Nombre", "Direcci\u00F3n", "Tel\u00E9fono"};
+				"Nombre", "Primer Apellido", "Segundo Apellido", "Carrera"};
 		this.setColumnIdentifiers(columnNames);
 		for (int i = 0; i < estudiantes.length; i++) {
-			Object[] newRow = new Object[]{estudiantes[i].getNombre(), estudiantes[i].getPrimer_apellido(), estudiantes[i].getSegundo_apellido(), estudiantes[i].getFacultad()};
+			Object[] newRow = new Object[]{estudiantes[i].getNombre(), estudiantes[i].getPrimer_apellido(), estudiantes[i].getSegundo_apellido(), estudiantes[i].getCarrera()};
 			addRow(newRow);
 		}
 	}
 		
 	// Método para agregar un estudiante a la tabla    
-	public void agregarEstudiante(String nombre, String primerApellido, String segundoApellido, String facultad) {  
+	public void agregarEstudiante(String nombre, String primerApellido, String segundoApellido,  String carrera) {  
 		// Crear un vector con los datos del estudiante      
-		Object[] fila = {nombre, primerApellido, segundoApellido, facultad};      
+		Object[] fila = {nombre, primerApellido, segundoApellido, carrera};      
 		// Agregar la fila a la tabla     
 		addRow(fila); 
 		}       

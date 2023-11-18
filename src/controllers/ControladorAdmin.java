@@ -2,6 +2,8 @@ package controllers;
 
 import java.util.ArrayList;
 
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
@@ -17,6 +19,8 @@ import models.usuarios.Admin;
 import models.usuarios.Estudiante;
 import models.usuarios.Persona;
 import models.usuarios.Usuario;
+import views.EstudianteTableModel;
+import views.Pricipal;
 import views.admin.CasosPendientes;
 import views.old.SecretariaPendientes;
 
@@ -48,9 +52,7 @@ public class ControladorAdmin {
             default:
                 break;
                 
-                table = new JTable();
-            	table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-            	scrollPane.setViewportView(table);
+              
         }
         
       
@@ -63,7 +65,17 @@ public class ControladorAdmin {
 			valores[i] = c;	
 			i++;
 		}
-		tableModel = new PendientesEstudiantes(valores);
+		tableModel = new EstudianteTableModel(valores);
 		table.setModel(tableModel);		
 	}
+    
+    private JTable getTable() {
+		if (table == null) {
+			table = new JTable();
+    		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+			table.setBounds(879, 37, 40, 37);
+					}
+		return table;
+	}
+    
 }

@@ -27,11 +27,11 @@ import views.old.Login;
 
 public class ControladorLogin {
 
-    public static void mostrarLogin() {
-
-        Login login = new Login();
-        login.setVisible(true);
-
+     public static void mostrarLogin (){
+        Pricipal instancia = Pricipal.getInstancia();
+        instancia.setVista(Entrar.getVista().getPanel());
+        Pricipal.getInstancia().revalidate();
+        Pricipal.getInstancia().repaint();
     }
 
     public static void mostrarInicio() {
@@ -71,11 +71,6 @@ public class ControladorLogin {
         }
     }
 
-    public static void mostrarLogin (){
-        Pricipal instancia = Pricipal.getInstancia();
-        instancia.setVista(Entrar.getVista().getPanel());
-        Pricipal.getInstancia().revalidate();
-        Pricipal.getInstancia().repaint();
-    }
+   
 
 }

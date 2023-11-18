@@ -7,10 +7,13 @@ import models.departamentos.Biblioteca;
 import models.departamentos.Economia;
 import models.gestion.GestorDepartamentos;
 import models.gestion.GestorPrincipal;
+import models.gestion.empleados.GestorEmpleados;
 import models.gestion.estudiantes.GestorEstudiantes;
 import models.gestion.estudiantes.GestorResponsabilidadesEstudiantes;
 import models.gestion.estudiantes.GestorSolicitudesEstudiante;
+import models.responsabilidades.ResponsabilidadesEmpleados;
 import models.responsabilidades.ResponsabilidadesEstudiantes;
+import models.usuarios.Becado;
 import models.usuarios.Empleado;
 import models.usuarios.Estudiante;
 import models.usuarios.Usuario;
@@ -57,6 +60,10 @@ public class ControladorPrincipal {
 
         if (Auth.usuarioAutenticado() instanceof Estudiante) {
             Estudiante usuarioAutenticado = (Estudiante) Auth.usuarioAutenticado();
+            if (Auth.usuarioAutenticado() instanceof Becado) {
+                usuarioAutenticado = (Becado) usuarioAutenticado;
+            }
+
             ResponsabilidadesEstudiantes respEst = GestorEstudiantes.gestorEstudiantes()
                     .getGestorResponsabilidadesEstudiantes()
                     .getListadoDeUnEstudiante(usuarioAutenticado);
@@ -67,11 +74,32 @@ public class ControladorPrincipal {
 
             boolean tieneDeuda = gestDep.getEconomia().tieneDeuda(respEst);
 
+            boolean tieneLibrosDocentes = gestDep.getAlmacenDeLibros().tieneLibrosDocentes(respEst);
+
+            boolean tieneCarnetDeEstudiante = gestDep.getSecretaria().tieneCarnetDeEstudiante(respEst);
+
             Pricipal instancia = Pricipal.getInstancia();
-            instancia.setVista(RequisitosEstudiante.getVista().getPanel_RequisitosEstud(tieneLibrosPrestados, tieneEstipendio, tieneDeuda));
+
+            instancia.setVista(RequisitosEstudiante.getVista().getPanel_RequisitosEstud(tieneLibrosPrestados,
+                    tieneEstipendio, tieneDeuda, tieneLibrosDocentes, tieneCarnetDeEstudiante));
             Pricipal.getInstancia().revalidate();
             Pricipal.getInstancia().repaint();
 
+        }
+
+        else if (Auth.usuarioAutenticado() instanceof Empleado) {
+            Empleado usuarioAutenticado = (Empleado) Auth.usuarioAutenticado();
+            ResponsabilidadesEmpleados respEst = GestorEmpleados.gestorEmpleados()
+                    .getGestorResponsabilidadesEmpleado()
+                    .getListadoDeUnEmpleado(usuarioAutenticado);
+
+            boolean tieneLibrosPrestados = gestDep.getBiblioteca().tieneLibrosPrestados(respEst);
+
+            // Pricipal instancia = Pricipal.getInstancia();
+            // instancia.setVista(RequisitosEmpleado.getVista().getPanel_RequisitosEstud(tieneLibrosPrestados,
+            // tieneEstipendio, tieneDeuda));
+            // Pricipal.getInstancia().revalidate();
+            // Pricipal.getInstancia().repaint();
         }
 
     }
@@ -99,7 +127,6 @@ public class ControladorPrincipal {
         // Pricipal.getInstancia().repaint();
     }
 
-    
     public static void mostrarTramitesEmpleados() {
         Pricipal instancia = Pricipal.getInstancia();
         instancia.setVista(TramitesEmpleados.getVista().getPanel());

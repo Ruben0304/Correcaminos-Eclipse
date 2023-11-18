@@ -1,10 +1,10 @@
 package models.gestion;
 
+import models.departamentos.AlmacenDeLibros;
 import models.departamentos.Biblioteca;
 import models.departamentos.Economia;
 import models.departamentos.RecursosHumanos;
 import models.departamentos.Secretaria;
-
 
 public class GestorDepartamentos {
     private static GestorDepartamentos gestorDepartamentos;
@@ -12,6 +12,7 @@ public class GestorDepartamentos {
     private RecursosHumanos recursosHumanos;
     private Biblioteca biblioteca;
     private Economia economia;
+    private AlmacenDeLibros almacenDeLibros;
 
     public GestorDepartamentos() {
         secretaria = new Secretaria();
@@ -26,7 +27,7 @@ public class GestorDepartamentos {
         }
         return gestorDepartamentos;
     }
-    
+
     public Secretaria getSecretaria() {
         return secretaria;
     }
@@ -43,9 +44,8 @@ public class GestorDepartamentos {
         return economia;
     }
 
-  
+    public AlmacenDeLibros getAlmacenDeLibros(){
+        return almacenDeLibros;
+    }
 
-    
-
-    
 }

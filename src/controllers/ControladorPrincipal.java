@@ -15,6 +15,8 @@ import models.usuarios.Becado;
 import models.usuarios.Empleado;
 import models.usuarios.Estudiante;
 import models.usuarios.Usuario;
+import util.BooleanosEstudianteBaja;
+import util.BooleanosEstudianteBecadoBaja;
 import util.Colores;
 import views.Inicio;
 import views.Pricipal;
@@ -50,8 +52,6 @@ public class ControladorPrincipal {
 
     }
 
- 
-
     public static void mostrarRequisitosBajaEstudiantes() {
 
         if (!Auth.hayUsuarioAutenticado()) {
@@ -59,43 +59,42 @@ public class ControladorPrincipal {
         } else {
 
             GestorDepartamentos gestDep = GestorDepartamentos.gestorDepartamentos();
-            GestorSolicitudesEstudiante gestorSolicitudesEstudiante = GestorEstudiantes.gestorEstudiantes().getGestorSolicitudes();
+            GestorSolicitudesEstudiante gestorSolicitudesEstudiante = GestorEstudiantes.gestorEstudiantes()
+                    .getGestorSolicitudes();
             if (Auth.usuarioAutenticado() instanceof Estudiante) {
 
                 Estudiante usuarioAutenticado = (Estudiante) Auth.usuarioAutenticado();
-                if (!(gestorSolicitudesEstudiante.verificarEstudianteSolicitaLicencia(usuarioAutenticado) || gestorSolicitudesEstudiante.verificarEstudianteSolicitaBaja(usuarioAutenticado))) {
+                if (!(gestorSolicitudesEstudiante.verificarEstudianteSolicitaLicencia(usuarioAutenticado)
+                        || gestorSolicitudesEstudiante.verificarEstudianteSolicitaBaja(usuarioAutenticado))) {
                     mostrarTramites();
                 } else {
                     ResponsabilidadesEstudiantes respEst = GestorEstudiantes.gestorEstudiantes()
                             .getGestorResponsabilidadesEstudiantes()
                             .getListadoDeUnEstudiante(usuarioAutenticado);
+                    BooleanosEstudianteBaja booleanos = new BooleanosEstudianteBaja();
 
-                    boolean tieneLibrosPrestados = gestDep.getBiblioteca().tieneLibrosPrestados(respEst);
-
-                    boolean tieneEstipendio = gestDep.getEconomia().tieneEstipendio(respEst);
-
-                    boolean tieneDeuda = gestDep.getEconomia().tieneDeuda(respEst);
-
-                    boolean tieneLibrosDocentes = gestDep.getAlmacenDeLibros().tieneLibrosDocentes(respEst);
-
-                    boolean tieneCarnetDeEstudiante = gestDep.getSecretaria().tieneCarnetDeEstudiante(respEst);
-
-                    boolean tieneCuentaUsuarioAbierta = gestDep.getSeguridadInformatica()
-                            .tieneCuentaUsuarioAbierta(respEst);
+                    booleanos.setTieneLibrosPrestados(gestDep.getBiblioteca().tieneLibrosPrestados(respEst));
+                    booleanos.setTieneEstipendio(gestDep.getEconomia().tieneEstipendio(respEst));
+                    booleanos.setTieneDeuda(gestDep.getEconomia().tieneDeuda(respEst));
+                    booleanos.setTieneLibrosDocentes(gestDep.getAlmacenDeLibros().tieneLibrosDocentes(respEst));
+                    booleanos.setTieneCarnetDeEstudiante(gestDep.getSecretaria().tieneCarnetDeEstudiante(respEst));
+                    booleanos.setTieneCuentaUsuarioAbierta(gestDep.getSeguridadInformatica()
+                            .tieneCuentaUsuarioAbierta(respEst));
 
                     if (Auth.usuarioAutenticado() instanceof Becado) {
                         usuarioAutenticado = (Becado) usuarioAutenticado;
 
-                        boolean tienePertenenciasDeLaCUJAE = gestDep.getDireccionDeBecas()
-                                .tienePertenenciasDeLaCUJAE(respEst);
+                        BooleanosEstudianteBecadoBaja booleanosBecado = (BooleanosEstudianteBecadoBaja) booleanos;
 
-                        boolean tieneCarnetDeBecado = gestDep.getDireccionDeBecas().tieneCarnetDeBecado(respEst);
+                        booleanosBecado.setTienePertenenciasDeLaCUJAE(gestDep.getDireccionDeBecas()
+                                .tienePertenenciasDeLaCUJAE(respEst));
+
+                        booleanosBecado
+                                .setTieneCarnetDeBecado(gestDep.getDireccionDeBecas().tieneCarnetDeBecado(respEst));
 
                         Pricipal instancia = Pricipal.getInstancia();
 
-                        instancia.setVista(RequisitosEstudiante.getVista(tieneLibrosPrestados,
-                                tieneEstipendio, tieneDeuda, tieneLibrosDocentes, tieneCarnetDeEstudiante,
-                                tieneCuentaUsuarioAbierta, tienePertenenciasDeLaCUJAE, tieneCarnetDeBecado)
+                        instancia.setVista(RequisitosEstudiante.getVista(booleanosBecado)
                                 .getPanel_RequisitosEstud());
                         Pricipal.getInstancia().revalidate();
                         Pricipal.getInstancia().repaint();
@@ -104,9 +103,7 @@ public class ControladorPrincipal {
 
                         Pricipal instancia = Pricipal.getInstancia();
 
-                        instancia.setVista(RequisitosEstudiante.getVista(tieneLibrosPrestados,
-                                tieneEstipendio, tieneDeuda, tieneLibrosDocentes, tieneCarnetDeEstudiante,
-                                tieneCuentaUsuarioAbierta).getPanel_RequisitosEstud());
+                        instancia.setVista(RequisitosEstudiante.getVista(booleanos).getPanel_RequisitosEstud());
                         Pricipal.getInstancia().revalidate();
                         Pricipal.getInstancia().repaint();
                     }
@@ -150,10 +147,9 @@ public class ControladorPrincipal {
 
     }
 
-
     public static void mostrarTramites() {
         Pricipal instancia = Pricipal.getInstancia();
-        instancia.setVista(EstudiantesTramites.getVista((Estudiante)Auth.usuarioAutenticado()).getPanel_lateral());
+        instancia.setVista(EstudiantesTramites.getVista((Estudiante) Auth.usuarioAutenticado()).getPanel_lateral());
         Pricipal.getInstancia().revalidate();
         Pricipal.getInstancia().repaint();
     }

@@ -7,6 +7,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import util.BooleanosEstudianteBaja;
+import util.BooleanosEstudianteBecadoBaja;
 import views.Pricipal;
 
 public class RequisitosEstudiante {
@@ -37,65 +39,32 @@ public class RequisitosEstudiante {
 	private JLabel label_15;
 	private static RequisitosEstudiante instance = null;
 
-	private boolean tieneLibrosPrestados;
-	private boolean tieneEstipendio;
-	private boolean tieneDeuda;
-	private boolean tieneLibrosDocentes;
-	private boolean tieneCarnetDeEstudiante;
-	private boolean tieneCuentaUsuarioAbierta;
-	private boolean tienePertenenciasDeLaCUJAE;
-	private boolean tieneCarnetDeBecado;
 
-	private RequisitosEstudiante(boolean tieneLibrosPrestados, boolean tieneEstipendio,
-			boolean tieneDeuda,
-			boolean tieneLibrosDocentes, boolean tieneCarnetDeEstudiante, boolean tieneCuentaUsuarioAbierta,
-			boolean tienePertenenciasDeLaCUJAE, boolean tieneCarnetDeBecado) {
+	private BooleanosEstudianteBaja booleanos;
 
-		this.tieneLibrosPrestados = tieneLibrosPrestados;
-		this.tieneEstipendio = tieneEstipendio;
-		this.tieneDeuda = tieneDeuda;
-		this.tieneLibrosDocentes = tieneLibrosDocentes;
-		this.tieneCarnetDeEstudiante = tieneCarnetDeEstudiante;
-		this.tieneCuentaUsuarioAbierta = tieneCuentaUsuarioAbierta;
-		this.tienePertenenciasDeLaCUJAE = tienePertenenciasDeLaCUJAE;
-		this.tieneCarnetDeBecado = tieneCarnetDeBecado;
+	private RequisitosEstudiante(BooleanosEstudianteBecadoBaja booleanos) {
+
+		this.booleanos=booleanos;
 		this.panel_RequisitosEstud = getPanel_RequisitosEstudBecado();
 	}
 
-	private RequisitosEstudiante(boolean tieneLibrosPrestados, boolean tieneEstipendio,
-			boolean tieneDeuda,
-			boolean tieneLibrosDocentes, boolean tieneCarnetDeEstudiante, boolean tieneCuentaUsuarioAbierta) {
+	private RequisitosEstudiante(BooleanosEstudianteBaja booleanos) {
 
-		this.tieneLibrosPrestados = tieneLibrosPrestados;
-		this.tieneEstipendio = tieneEstipendio;
-		this.tieneDeuda = tieneDeuda;
-		this.tieneLibrosDocentes = tieneLibrosDocentes;
-		this.tieneCarnetDeEstudiante = tieneCarnetDeEstudiante;
-		this.tieneCuentaUsuarioAbierta = tieneCuentaUsuarioAbierta;
+		this.booleanos=booleanos;
 		this.panel_RequisitosEstud = getPanel_RequisitosEstud();
 	}
 
 	// becado
-	public static RequisitosEstudiante getVista(boolean tieneLibrosPrestados, boolean tieneEstipendio,
-			boolean tieneDeuda,
-			boolean tieneLibrosDocentes, boolean tieneCarnetDeEstudiante, boolean tieneCuentaUsuarioAbierta,
-			boolean tienePertenenciasDeLaCUJAE, boolean tieneCarnetDeBecado) {
+	public static RequisitosEstudiante getVista(BooleanosEstudianteBecadoBaja booleanos) {
 
-		return new RequisitosEstudiante(tieneLibrosPrestados, tieneEstipendio,
-				tieneDeuda,
-				tieneLibrosDocentes, tieneCarnetDeEstudiante, tieneCuentaUsuarioAbierta,
-				tienePertenenciasDeLaCUJAE, tieneCarnetDeBecado);
+		return new RequisitosEstudiante(booleanos);
 	}
 
 	// no becado
 
-	public static RequisitosEstudiante getVista(boolean tieneLibrosPrestados, boolean tieneEstipendio,
-			boolean tieneDeuda,
-			boolean tieneLibrosDocentes, boolean tieneCarnetDeEstudiante, boolean tieneCuentaUsuarioAbierta) {
+	public static RequisitosEstudiante getVista(BooleanosEstudianteBaja booleanos) {
 
-		return new RequisitosEstudiante(tieneLibrosPrestados, tieneEstipendio,
-				tieneDeuda,
-				tieneLibrosDocentes, tieneCarnetDeEstudiante, tieneCuentaUsuarioAbierta);
+		return new RequisitosEstudiante(booleanos);
 	}
 
 	// Becado
@@ -199,7 +168,7 @@ public class RequisitosEstudiante {
 		if (lblNewLabel == null) {
 			lblNewLabel = new JLabel("");
 			lblNewLabel.setIcon(new ImageIcon(
-					Pricipal.class.getResource("/img/" + (tieneLibrosPrestados ? "Canceel.png" : "Checkmarkkk.png"))));
+					Pricipal.class.getResource("/img/" + (booleanos.isTieneLibrosPrestados() ? "Canceel.png" : "Checkmarkkk.png"))));
 			lblNewLabel.setBounds(52, 221, 42, 35);
 		}
 		return lblNewLabel;
@@ -219,7 +188,7 @@ public class RequisitosEstudiante {
 		if (label_4 == null) {
 			label_4 = new JLabel("");
 			label_4.setIcon(new ImageIcon(
-					Pricipal.class.getResource("/img/" + (tieneDeuda ? "Canceel.png" : "Checkmarkkk.png"))));
+					Pricipal.class.getResource("/img/" + (booleanos.isTieneDeuda() ? "Canceel.png" : "Checkmarkkk.png"))));
 			label_4.setBounds(50, 368, 23, 21);
 		}
 		return label_4;
@@ -249,7 +218,7 @@ public class RequisitosEstudiante {
 		if (label_5 == null) {
 			label_5 = new JLabel("");
 			label_5.setIcon(new ImageIcon(
-					Pricipal.class.getResource("/img/" + (tieneEstipendio ? "Canceel.png" : "Checkmarkkk.png"))));
+					Pricipal.class.getResource("/img/" + (booleanos.isTieneEstipendio() ? "Canceel.png" : "Checkmarkkk.png"))));
 			label_5.setBounds(52, 404, 20, 20);
 		}
 		return label_5;
@@ -269,7 +238,7 @@ public class RequisitosEstudiante {
 		if (label_6 == null) {
 			label_6 = new JLabel("");
 			label_6.setIcon(new ImageIcon(Pricipal.class
-					.getResource("/img/" + (tieneCarnetDeEstudiante ? "Canceel.png" : "Checkmarkkk.png"))));
+					.getResource("/img/" + (booleanos.isTieneCarnetDeEstudiante() ? "Canceel.png" : "Checkmarkkk.png"))));
 			label_6.setBounds(52, 548, 31, 35);
 		}
 		return label_6;
@@ -309,7 +278,7 @@ public class RequisitosEstudiante {
 		if (label_8 == null) {
 			label_8 = new JLabel("");
 			label_8.setIcon(new ImageIcon(Pricipal.class
-					.getResource("/img/" + (tieneCuentaUsuarioAbierta ? "Canceel.png" : "Checkmarkkk.png"))));
+					.getResource("/img/" + (booleanos.isTieneCuentaUsuarioAbierta() ? "Canceel.png" : "Checkmarkkk.png"))));
 			label_8.setBounds(478, 221, 31, 35);
 		}
 		return label_8;
@@ -329,7 +298,7 @@ public class RequisitosEstudiante {
 		if (label_7 == null) {
 			label_7 = new JLabel("");
 			label_7.setIcon(new ImageIcon(
-					Pricipal.class.getResource("/img/" + (tieneLibrosDocentes ? "Canceel.png" : "Checkmarkkk.png"))));
+					Pricipal.class.getResource("/img/" + (booleanos.isTieneLibrosDocentes() ? "Canceel.png" : "Checkmarkkk.png"))));
 			label_7.setBounds(478, 361, 42, 35);
 		}
 		return label_7;
@@ -359,7 +328,7 @@ public class RequisitosEstudiante {
 		if (label_11 == null) {
 			label_11 = new JLabel("");
 			label_11.setIcon(new ImageIcon(
-					Pricipal.class.getResource("/img/" + (tieneCarnetDeBecado ? "Canceel.png" : "Checkmarkkk.png"))));
+					Pricipal.class.getResource("/img/" + (((BooleanosEstudianteBecadoBaja)booleanos).isTieneCarnetDeBecado() ? "Canceel.png" : "Checkmarkkk.png"))));
 			label_11.setBounds(478, 546, 20, 20);
 		}
 		return label_11;
@@ -389,7 +358,7 @@ public class RequisitosEstudiante {
 		if (label_15 == null) {
 			label_15 = new JLabel("");
 			label_15.setIcon(new ImageIcon(Pricipal.class
-					.getResource("/img/" + (tienePertenenciasDeLaCUJAE ? "Canceel.png" : "Checkmarkkk.png"))));
+					.getResource("/img/" + (((BooleanosEstudianteBecadoBaja)booleanos).isTienePertenenciasDeLaCUJAE() ? "Canceel.png" : "Checkmarkkk.png"))));
 			label_15.setBounds(478, 578, 42, 35);
 		}
 		return label_15;

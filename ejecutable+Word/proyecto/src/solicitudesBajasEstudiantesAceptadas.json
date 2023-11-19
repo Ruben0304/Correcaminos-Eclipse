@@ -1,0 +1,56 @@
+[
+  {
+    "estudiante": {
+      "curso": 2,
+      "tipoCurso": "ENCUENTRO",
+      "carrera": "Ingenieria Informatica",
+      "grupo": 2,
+      "ci": "78901234560",
+      "nombre": "Manuelito",
+      "primer_apellido": "Torres",
+      "segundo_apellido": "Fernandez",
+      "facultad": "Ing_Informatica",
+      "nombreUsuario": "estudiante100",
+      "contrasena": "57f3ebab63f156fd8f776ba645a55d96360a15eeffc8b0e4afe4c05fa88219aa"
+    },
+    "estado": "ACEPTADO",
+    "motivo": "Accidente",
+    "fecha": "Nov 18, 2023 11:36:55 AM"
+  },
+  {
+    "estudiante": {
+      "curso": 3,
+      "tipoCurso": "DIURNO",
+      "carrera": "Ingenieria Informatica",
+      "grupo": 3,
+      "ci": "65432101234",
+      "nombre": "Maria",
+      "primer_apellido": "Lopez",
+      "segundo_apellido": "Fernandez",
+      "facultad": "Ing_Industrial",
+      "nombreUsuario": "estudiante154",
+      "contrasena": "c63c2d34ebe84032ad47b87af194fedd17dacf8222b2ea7f4ebfee3dd6db2dfb"
+    },
+    "estado": "ACEPTADO",
+    "motivo": " Problemas familiares",
+    "fecha": "Nov 18, 2022 12:00:55 PM"
+  },
+  {
+    "estudiante": {
+      "curso": 3,
+      "tipoCurso": "DIURNO",
+      "carrera": "Ingenieria Informatica",
+      "grupo": 3,
+      "ci": "23456789011",
+      "nombre": "Pedro",
+      "primer_apellido": "Lopez",
+      "segundo_apellido": "Perez",
+      "facultad": "Ing_Industrial",
+      "nombreUsuario": "estudiante38",
+      "contrasena": "5906ac361a137e2d286465cd6588ebb5ac3f5ae955001100bc41577c3d751764"
+    },
+    "estado": "ACEPTADO",
+    "motivo": "Problemas de salud",
+    "fecha": "Nov 18, 2022 10:00:55 AM"
+  }
+]

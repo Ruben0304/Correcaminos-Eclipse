@@ -4,7 +4,7 @@ Para esta versión beta seguir las siguientes instrucciones:
 
 En caso de entrar como estudiante:
 Insertar en nombre de usuario: estudiante1 (Puede elegir entre estudiante1 a estudiannte15)
-Insertar en contraseña: Estudiante1 (corresponde al nombre de usuario estudiante1, CAMBIAR NUMERO DEL FINAL EN CORRESPONDENCIA CON EL USUARIO QUE DESEE ENTRAR)
+Insertar en contraseña: password1 (corresponde al nombre de usuario estudiante1, CAMBIAR NUMERO DEL FINAL EN CORRESPONDENCIA CON EL USUARIO QUE DESEE ENTRAR)
 
 En caso de entrar como administrador:
 

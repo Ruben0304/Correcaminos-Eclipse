@@ -22,6 +22,7 @@ public class Main {
 					ControladorPrincipal.mostrarInicio();
 
 				} catch (Exception e) {
+					JOptionPane.showMessageDialog(null, e);
 					e.printStackTrace();
 				}
 			}

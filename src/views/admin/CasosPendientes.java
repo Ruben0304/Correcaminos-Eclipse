@@ -40,22 +40,14 @@ public class CasosPendientes {
 			panel_2.setBounds(71, 0, 1051, 700);
 			panel_2.setBackground(new Color(31, 33, 36));
 			panel_2.setLayout(null);
-			panel_2.add(getLblCasosPendientes());
+			
 			panel_2.add(getTable());
 			panel_2.add(getBtnNewButton());
 		}
 		return panel_2;
 	}
 
-	private JLabel getLblCasosPendientes() {
-		if (lblCasosPendientes == null) {
-			lblCasosPendientes = new JLabel("Casos pendientes");
-			lblCasosPendientes.setForeground(Color.WHITE);
-			lblCasosPendientes.setFont(new Font("Segoe UI Semibold", Font.BOLD, 40));
-			lblCasosPendientes.setBounds(357, 55, 333, 54);
-		}
-		return lblCasosPendientes;
-	}
+	
 
 	private JTable getTable() {
 		if (table == null) {

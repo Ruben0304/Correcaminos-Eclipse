@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.Comparator;
 
 import data.ObtenerSolicitudes;
+import data.ObtenerSolicitudesBajasEstudiantesAceptadas;
 import models.interfaces.Actualizador;
 import models.reports.BajasAceptadasPorAnio;
 import models.reports.BajasAceptadasPorFacultad;
@@ -38,7 +39,7 @@ public class GestorSolicitudesEstudiante implements Actualizador {
     }
 
     private void registrarBajasEstudiantesAceptadas() {
-        solicitudesBajaAceptadas = ObtenerSolicitudes.cargarDesdeArchivoB();
+        solicitudesBajaAceptadas = ObtenerSolicitudesBajasEstudiantesAceptadas.cargarDesdeArchivoB();
 
     }
 

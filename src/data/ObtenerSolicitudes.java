@@ -38,20 +38,7 @@ public class ObtenerSolicitudes {
     //     System.out.println(gson.toJson(solicitud));
     // }
 
-    public static ArrayList<SolicitudBajaEstudiante> cargarDesdeArchivoB() {
-        // escribir();
-        Gson gson = new Gson();
-        ArrayList<SolicitudBajaEstudiante> solicitudes = new ArrayList<>();
-
-        try (BufferedReader reader = new BufferedReader(new FileReader("./solicitudesBajasEstudiantesAceptadas.json"))) {
-            Type listType = new TypeToken<ArrayList<SolicitudBajaEstudiante>>() {
-            }.getType();
-            solicitudes = gson.fromJson(reader, listType);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return solicitudes;
-    }
+    
 
     // private static void escribirB() {
     //     SolicitudBajaEstudiante solicitud = new SolicitudBajaEstudiante(null,

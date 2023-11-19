@@ -12,8 +12,7 @@ nombre de usuario:             contraseñas:
 Biblioteca                     biblioteca
 Economia                       economia
 SeguridadInformatica           seguridadinformatica
-AlmacenLibrosDocentes          almacenlibrosdocentes
-DireccionBecas                 direccionbecas
+AlmacenLibrosDocentes          almacenlibrosdocentes                 
 Secretaria                     secretaria
 
 3- Existen estudiantes inicializados que ya han solicitado baja y licencia, asi como algunos a los que se han inicializado sin dicho tramite.

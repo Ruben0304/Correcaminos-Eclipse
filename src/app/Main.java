@@ -6,11 +6,14 @@ import javax.swing.SwingUtilities;
 import controllers.ControladorLogin;
 import controllers.ControladorPrincipal;
 import models.gestion.GestorPrincipal;
+import models.gestion.estudiantes.GestorEstudiantes;
+import models.usuarios.Estudiante;
 import views.Pricipal;
 
 public class Main {
 	public static void main(String[] args) {
 		GestorPrincipal.getGestorPrincipal();
+		tests();
 		SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -27,5 +30,12 @@ public class Main {
 				}
 			}
 		});
+	}
+
+	public static void tests(){
+          for (Estudiante e : GestorEstudiantes.gestorEstudiantes().filtrar("Juan")) {
+			System.out.println(e.getApellidos());
+		  }     
+		
 	}
 }

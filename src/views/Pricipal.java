@@ -16,6 +16,7 @@ import views.components.Navegacion;
 import views.usuarios.RequisitosEstudiante;
 
 import java.net.URL;
+import views.admin.PanelAdministracion;
 
 public class Pricipal extends JFrame {
 
@@ -53,7 +54,8 @@ public class Pricipal extends JFrame {
 		
 		contentPane.removeAll();
 		contentPane.add(Navegacion.getVista().getBarraNavegacion());
-		contentPane.add(panel);
+		contentPane.add(new PanelAdministracion ());
+		
 
 	}
 

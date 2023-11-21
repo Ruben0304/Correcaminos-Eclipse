@@ -61,6 +61,8 @@ public class Chat {
     public void setNombreUsuario(String nombreUsuario) {
         this.nombreUsuario = nombreUsuario;
     }
+
+	
     
 
 }

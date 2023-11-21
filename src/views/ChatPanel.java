@@ -91,7 +91,10 @@ public class ChatPanel extends JPanel implements ActionListener {
             // Limpiar el campo de texto despu�s de enviar el mensaje
             chatArea.append(" " + nombre + " \n");
             chatArea.append(message + "\n\n");
-            chat.agregarMensaje(new Mensaje(usuario.getNombreUsuario(), messageField.getText()));
+            Mensaje m = new Mensaje(usuario.getNombreUsuario(), messageField.getText());
+            System.out.println(m.getNombreUsuario());
+            System.out.println(m.getContenido());
+            chat.agregarMensaje(m);
             messageField.setText("");
         }
     }

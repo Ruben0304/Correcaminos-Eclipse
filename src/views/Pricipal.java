@@ -71,7 +71,7 @@ public class Pricipal extends JFrame implements ActionListener {
 	public void setVista(JPanel panel) {
 
 		contentPane.removeAll();
-		contentPane.add(Navegacion.getVista().getBarraNavegacion());
+		contentPane.add(Navegacion.getBarraNavegacion());
 	//  contentPane.add(panel);
 		// contentPane.add(ChatPanel());
 		contentPane.add(new PanelAdministracion());

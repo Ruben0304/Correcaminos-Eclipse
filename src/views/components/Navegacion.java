@@ -43,7 +43,7 @@ public class Navegacion extends JPanel {
 	private static Navegacion instance = null;
 	private final Usuario usuarioAutenticado = Auth.usuarioAutenticado();
 
-	public Navegacion() {
+	private Navegacion() {
 		addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -87,12 +87,12 @@ public class Navegacion extends JPanel {
 		add(getLabel_2());
 	}
 
-	public JPanel getBarraNavegacion() {
+	public static JPanel getBarraNavegacion() {
 		if (instance == null) {
 			instance = new Navegacion();
 
 		}
-		return panel_inicio;
+		return instance;
 	}
 
 	private JLabel getHome() {
@@ -316,7 +316,7 @@ public class Navegacion extends JPanel {
 
 	private JLabel getLblReportes() {
 		if (lblReportes == null) {
-			lblReportes = new JLabel("Reportes");
+			lblReportes = new JLabel("Chats");
 			lblReportes.setForeground(Color.WHITE);
 			lblReportes.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 17));
 			lblReportes.setBounds(71, 258, 89, 30);
@@ -326,7 +326,7 @@ public class Navegacion extends JPanel {
 
 	private JLabel getLabel_1_1() {
 		if (lblGuardar == null) {
-			lblGuardar = new JLabel("Guardar");
+			lblGuardar = new JLabel("Reportes");
 			lblGuardar.setForeground(Color.WHITE);
 			lblGuardar.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 17));
 			lblGuardar.setBounds(71, 327, 89, 30);

@@ -3,17 +3,24 @@ package views.admin;
 import javax.swing.JPanel;
 
 import java.awt.Color;
+import java.awt.Image;
 import java.awt.Rectangle;
+
 import javax.swing.JLabel;
+
 import java.awt.Font;
+
 import javax.swing.SwingConstants;
 import javax.swing.JMenuBar;
 import javax.swing.JComboBox;
 import javax.swing.JSlider;
 import javax.swing.JList;
 import javax.swing.DefaultComboBoxModel;
+
 import util.Facultad;
+
 import java.awt.Cursor;
+
 import javax.swing.border.BevelBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.JCheckBox;
@@ -25,6 +32,7 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.SoftBevelBorder;
 import javax.swing.ImageIcon;
+import util.TipoDepartamento;
 
 public class PanelAdministracion extends JPanel {
 	private JPanel panelFiltrados;
@@ -47,29 +55,27 @@ public class PanelAdministracion extends JPanel {
 	private JRadioButton rdbtnBaja;
 	private JRadioButton rdbtnLicencia;
 	private JScrollPane scrollPaneFiltrado;
-	private JTextField textFieldBuscarPorNombre;
 	private JComboBox comboBox_1;
-	private JLabel lblIconoBuscar;
 	private JTable table;
+	private JLabel lblNewLabel;
 
 	
 	public PanelAdministracion() {
 		setBounds(new Rectangle(178, 0, 944, 700));
 		setBackground(new Color(31, 33, 36));
 		setLayout(null);
-		add(getLblIconoBuscar());
 		add(getPanelFiltrados());
 		add(getPanelReportes());
 		add(getPanelCategorias());
 		add(getScrollPaneFiltrado());
-		add(getTextFieldBuscarPorNombre());
+		add(getLblNewLabel());
 
 	}
 	private JPanel getPanelFiltrados() {
 		if (panelFiltrados == null) {
 			panelFiltrados = new JPanel();
 			panelFiltrados.setBorder(new LineBorder(new Color(128, 128, 128), 1, true));
-			panelFiltrados.setBounds(674, 32, 258, 237);
+			panelFiltrados.setBounds(634, 32, 258, 237);
 			panelFiltrados.setBackground(new Color(26, 30, 40));
 			panelFiltrados.setLayout(null);
 			panelFiltrados.add(getLblTituloFilt());
@@ -87,7 +93,7 @@ public class PanelAdministracion extends JPanel {
 		if (panelReportes == null) {
 			panelReportes = new JPanel();
 			panelReportes.setBorder(new LineBorder(new Color(128, 128, 128), 1, true));
-			panelReportes.setBounds(674, 280, 258, 154);
+			panelReportes.setBounds(634, 280, 258, 154);
 			panelReportes.setBackground(new Color(26, 30, 40));
 			panelReportes.setLayout(null);
 			panelReportes.add(getLblTituloReportes());
@@ -100,7 +106,7 @@ public class PanelAdministracion extends JPanel {
 		if (panelCategorias == null) {
 			panelCategorias = new JPanel();
 			panelCategorias.setBorder(new LineBorder(new Color(105, 105, 105), 1, true));
-			panelCategorias.setBounds(674, 445, 258, 229);
+			panelCategorias.setBounds(634, 445, 258, 229);
 			panelCategorias.setBackground(new Color(26, 30, 40));
 			panelCategorias.setLayout(null);
 			panelCategorias.add(getLblTituloCategorias());
@@ -152,10 +158,11 @@ public class PanelAdministracion extends JPanel {
 	private JComboBox getComboBoxSeleccionarFac() {
 		if (comboBoxSeleccionarFac == null) {
 			comboBoxSeleccionarFac = new JComboBox();
+			comboBoxSeleccionarFac.setModel(new DefaultComboBoxModel(TipoDepartamento.values()));
 			comboBoxSeleccionarFac.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 			comboBoxSeleccionarFac.setMaximumRowCount(9);
 			comboBoxSeleccionarFac.setForeground(Color.BLACK);
-			comboBoxSeleccionarFac.setBackground(Color.GRAY);
+			comboBoxSeleccionarFac.setBackground(Color.WHITE);
 			comboBoxSeleccionarFac.setToolTipText("");
 			comboBoxSeleccionarFac.setFont(new Font("Segoe UI Semibold", Font.BOLD, 14));
 //			comboBoxSeleccionarFac.setModel(new DefaultComboBoxModel(Facultad.values()));
@@ -183,7 +190,7 @@ public class PanelAdministracion extends JPanel {
 	private JComboBox getComboBoxReportes() {
 		if (comboBoxReportes == null) {
 			comboBoxReportes = new JComboBox();
-			comboBoxReportes.setBackground(Color.GRAY);
+			comboBoxReportes.setBackground(Color.WHITE);
 			comboBoxReportes.setFont(new Font("Segoe UI Semibold", Font.BOLD, 15));
 			comboBoxReportes.setBounds(12, 67, 234, 25);
 		}
@@ -270,22 +277,11 @@ public class PanelAdministracion extends JPanel {
 		if (scrollPaneFiltrado == null) {
 			scrollPaneFiltrado = new JScrollPane();
 			scrollPaneFiltrado.setBackground(new Color(31, 33, 36));
-			scrollPaneFiltrado.setBounds(32, 100, 600, 574);
+			scrollPaneFiltrado.setBounds(0, 100, 590, 574);
 			scrollPaneFiltrado.setAutoscrolls(true);
 			scrollPaneFiltrado.setViewportView(getTable());
 		}
 		return scrollPaneFiltrado;
-	}
-	private JTextField getTextFieldBuscarPorNombre() {
-		if (textFieldBuscarPorNombre == null) {
-			textFieldBuscarPorNombre = new JTextField();
-			textFieldBuscarPorNombre.setBorder(new LineBorder(Color.WHITE, 1, true));
-			textFieldBuscarPorNombre.setBackground(Color.WHITE);
-			textFieldBuscarPorNombre.setFont(new Font("Segoe UI Semibold", Font.BOLD, 15));
-			textFieldBuscarPorNombre.setBounds(74, 32, 464, 28);
-			textFieldBuscarPorNombre.setColumns(10);
-		}
-		return textFieldBuscarPorNombre;
 	}
 	private JComboBox getComboBox_1() {
 		if (comboBox_1 == null) {
@@ -293,16 +289,6 @@ public class PanelAdministracion extends JPanel {
 			comboBox_1.setBounds(92, 131, 154, 25);
 		}
 		return comboBox_1;
-	}
-	private JLabel getLblIconoBuscar() {
-		if (lblIconoBuscar == null) {
-			lblIconoBuscar = new JLabel("");
-			lblIconoBuscar.setIcon(new ImageIcon("C:\\Users\\Usuario\\Pictures\\Searchhh.png"));
-			lblIconoBuscar.setForeground(Color.WHITE);
-			lblIconoBuscar.setFont(new Font("Segoe UI Semibold", Font.BOLD, 15));
-			lblIconoBuscar.setBounds(556, 32, 35, 28);
-		}
-		return lblIconoBuscar;
 	}
 	private JTable getTable() {
 		if (table == null) {
@@ -318,5 +304,16 @@ public class PanelAdministracion extends JPanel {
 			table.setCellSelectionEnabled(true);
 		}
 		return table;
+	}
+	private JLabel getLblNewLabel() {
+		if (lblNewLabel == null) {
+			lblNewLabel = new JLabel();
+			lblNewLabel.setBounds(36, -44, 504, 196);
+            ImageIcon ico = new ImageIcon("C:\\Users\\herna\\OneDrive\\Escritorio\\Nueva carpeta\\b.png");
+            ImageIcon img = new ImageIcon(
+                    ico.getImage().getScaledInstance(lblNewLabel.getWidth(), lblNewLabel.getHeight(), Image.SCALE_SMOOTH));
+            lblNewLabel.setIcon(img);
+		}
+		return lblNewLabel;
 	}
 }

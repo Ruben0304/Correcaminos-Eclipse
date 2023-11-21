@@ -34,10 +34,10 @@ import java.net.URL;
 public class Pricipal extends JFrame implements ActionListener {
 
 	private JPanel contentPane;
-	 private JTextArea chatArea = new JTextArea();
-	    private JTextField messageField = new JTextField();
-	    private JButton sendButton = new JButton("Enviar");
-	    
+	private JTextArea chatArea = new JTextArea();
+	private JTextField messageField = new JTextField();
+	private JButton sendButton = new JButton("Enviar");
+
 	private static Pricipal instance = null;
 	private JPanel panel_1;
 
@@ -45,15 +45,15 @@ public class Pricipal extends JFrame implements ActionListener {
 	 * Launch the application.
 	 */
 	// public static void main(String[] args) {
-	// 	EventQueue.invokeLater(new Runnable() {
-	// 		public void run() {
-	// 			try {
-					
-	// 			} catch (Exception e) {
-	// 				e.printStackTrace();
-	// 			}
-	// 		}
-	// 	});
+	// EventQueue.invokeLater(new Runnable() {
+	// public void run() {
+	// try {
+
+	// } catch (Exception e) {
+	// e.printStackTrace();
+	// }
+	// }
+	// });
 	// }
 
 	/**
@@ -68,17 +68,18 @@ public class Pricipal extends JFrame implements ActionListener {
 	}
 
 	public void setVista(JPanel panel) {
-		
+
 		contentPane.removeAll();
 		contentPane.add(Navegacion.getVista().getBarraNavegacion());
-		// contentPane.add(panel);
+	//  contentPane.add(panel);
 		// contentPane.add(ChatPanel());
-		contentPane.add(new ChatPanel(Auth.usuarioAutenticado(),TipoDepartamento.Biblioteca));
+		contentPane.add(new ChatPanel(Auth.usuarioAutenticado(), TipoDepartamento.Biblioteca));
 
 	}
 
 	public Pricipal() {
-
+		
+		
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Pricipal.class.getResource("/img/usuario_blanco.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1140, 744);
@@ -90,6 +91,7 @@ public class Pricipal extends JFrame implements ActionListener {
 		contentPane.add(getPanel_1());
 
 	}
+
 	private JPanel getPanel_1() {
 		if (panel_1 == null) {
 			panel_1 = new JPanel();
@@ -98,48 +100,48 @@ public class Pricipal extends JFrame implements ActionListener {
 		}
 		return panel_1;
 	}
-	
+
 	public JPanel ChatPanel() {
-        // Configurar el panel
+		// Configurar el panel
 		JPanel panel = new JPanel();
-        setLayout(new BorderLayout());
-        setPreferredSize(new Dimension(400, 300));
+		getContentPane().setLayout(new BorderLayout());
+		setPreferredSize(new Dimension(400, 300));
 
-        // Configurar el �rea de chat
-        chatArea.setEditable(false);
-        JScrollPane scrollPane = new JScrollPane(chatArea);
-        add(scrollPane, BorderLayout.CENTER);
+		// Configurar el �rea de chat
+		chatArea.setEditable(false);
+		JScrollPane scrollPane = new JScrollPane(chatArea);
+		getContentPane().add(scrollPane, BorderLayout.CENTER);
 
-        // Configurar el campo de texto y el bot�n de enviar
-        JPanel messagePanel = new JPanel(new GridBagLayout());
-        messagePanel.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
-        GridBagConstraints gbc = new GridBagConstraints();
-        gbc.gridx = 0;
-        gbc.gridy = 0;
-        gbc.weightx = 1.0;
-        gbc.fill = GridBagConstraints.HORIZONTAL;
-        gbc.insets = new Insets(0, 0, 0, 5);
-        messagePanel.add(messageField, gbc);
-        gbc.gridx++;
-        gbc.weightx = 0.0;
-        gbc.fill = GridBagConstraints.NONE;
-        messagePanel.add(sendButton, gbc);
-        add(messagePanel, BorderLayout.SOUTH);
+		// Configurar el campo de texto y el bot�n de enviar
+		JPanel messagePanel = new JPanel(new GridBagLayout());
+		messagePanel.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
+		GridBagConstraints gbc = new GridBagConstraints();
+		gbc.gridx = 0;
+		gbc.gridy = 0;
+		gbc.weightx = 1.0;
+		gbc.fill = GridBagConstraints.HORIZONTAL;
+		gbc.insets = new Insets(0, 0, 0, 5);
+		messagePanel.add(messageField, gbc);
+		gbc.gridx++;
+		gbc.weightx = 0.0;
+		gbc.fill = GridBagConstraints.NONE;
+		messagePanel.add(sendButton, gbc);
+		getContentPane().add(messagePanel, BorderLayout.SOUTH);
 
-        // Agregar un listener al bot�n de enviar
-        sendButton.addActionListener(this);
+		// Agregar un listener al bot�n de enviar
+		sendButton.addActionListener(this);
 		return panel;
-    }
+	}
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == sendButton) {
-            String message = messageField.getText();
-            if (!message.isEmpty()) {
-                chatArea.append("Yo: " + message + "\n");
-                messageField.setText("");
-            }
-        }
-    }
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == sendButton) {
+			String message = messageField.getText();
+			if (!message.isEmpty()) {
+				chatArea.append("Yo: " + message + "\n");
+				messageField.setText("");
+			}
+		}
+	}
 
 }

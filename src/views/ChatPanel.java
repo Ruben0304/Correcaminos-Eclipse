@@ -35,6 +35,8 @@ import java.awt.Cursor;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.border.LineBorder;
+import javax.swing.JRadioButton;
+import javax.swing.JCheckBox;
 
 public class ChatPanel extends JPanel implements ActionListener {
     private JTextArea chatArea = new JTextArea();
@@ -47,6 +49,17 @@ public class ChatPanel extends JPanel implements ActionListener {
     private JTextField textField;
     private final JLabel label = new JLabel("");
     private final JLabel lblNewLabel_2 = new JLabel("Biblioteca");
+    private final JLabel label_2 = new JLabel("Biblioteca");
+    private final JLabel lblSecretaria = new JLabel("Secretaria");
+    private final JLabel lblEconomia = new JLabel("Economia");
+    private final JLabel lblSinformatica = new JLabel("S.Informatica");
+    private JRadioButton rdbtnNewRadioButton;
+    private final JRadioButton radioButton = new JRadioButton("");
+    private final JRadioButton radioButton_1 = new JRadioButton("");
+    private final JRadioButton radioButton_2 = new JRadioButton("");
+    private final JPanel panel_1 = new JPanel();
+    private final JLabel lblDepartamentos = new JLabel("Departamentos");
+    private JTextArea txtrContanctaConLos;
 
     public ChatPanel(Usuario usuario, TipoDepartamento departamento) {
         // Configurar el panel
@@ -55,6 +68,8 @@ public class ChatPanel extends JPanel implements ActionListener {
         this.chat = AdministradorChats.getAdministradorChats().buscarChat(departamento, usuario.getNombreUsuario());
         setBounds(178, 0, 944, 700);
         setBackground(new Color(31, 33, 36));
+        chatArea.setWrapStyleWord(true);
+        chatArea.setLineWrap(true);
         chatArea.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
         chatArea.setBorder(null);
         chatArea.setMargin(new Insets(5, 10, 2, 2));
@@ -66,8 +81,8 @@ public class ChatPanel extends JPanel implements ActionListener {
         chatArea.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 15));
         if (chat != null) {
             for (Mensaje mensaje : chat.getMensajes()) {
-                chatArea.append(" " + mensaje.getNombreUsuario() + " \n");
-                chatArea.append(mensaje.getContenido() + "\n\n");
+                chatArea.append(mensaje.getNombreUsuario() + ": \n");
+                chatArea.append("  " + mensaje.getContenido() + "\n\n");
             }
 
         }
@@ -89,7 +104,7 @@ public class ChatPanel extends JPanel implements ActionListener {
                             // L�gica para enviar el mensaje
                             // ...
                             // Limpiar el campo de texto despu�s de enviar el mensaje
-                            chatArea.append(nombre + " \n");
+                            chatArea.append(nombre + " : \n");
                             chatArea.append("  " + message + "\n\n");
                             Mensaje m = new Mensaje(nombre, message);
                             System.out.println(m.getNombreUsuario());
@@ -111,15 +126,54 @@ public class ChatPanel extends JPanel implements ActionListener {
                 messageField.setBounds(230, 71, 441, -41);
                 messagePanel.add(messageField);
                 messagePanel.add(getTextField());
+        panel_1.setBounds(12, 33, 210, 547);
+        add(panel_1);
+        panel_1.setLayout(null);
+        panel_1.setBorder(new LineBorder(new Color(105, 105, 105)));
+        panel_1.setBackground(new Color(40, 42, 46));
+        label_2.setBounds(54, 119, 120, 27);
+        panel_1.add(label_2);
+        label_2.setForeground(new Color(248, 248, 255));
+        label_2.setFont(new Font("Segoe UI Semibold", Font.BOLD, 20));
+        lblSecretaria.setBounds(54, 184, 120, 27);
+        panel_1.add(lblSecretaria);
+        lblSecretaria.setForeground(new Color(248, 248, 255));
+        lblSecretaria.setFont(new Font("Segoe UI Semibold", Font.BOLD, 20));
+        lblEconomia.setBounds(54, 252, 120, 27);
+        panel_1.add(lblEconomia);
+        lblEconomia.setForeground(new Color(248, 248, 255));
+        lblEconomia.setFont(new Font("Segoe UI Semibold", Font.BOLD, 20));
+        lblSinformatica.setBounds(54, 315, 120, 27);
+        panel_1.add(lblSinformatica);
+        lblSinformatica.setForeground(new Color(248, 248, 255));
+        lblSinformatica.setFont(new Font("Segoe UI Semibold", Font.BOLD, 20));
+        panel_1.add(getRdbtnNewRadioButton());
+        radioButton.setBounds(24, 186, 25, 25);
+        panel_1.add(radioButton);
+        radioButton.setBackground(new Color(40, 42, 46));
+        radioButton_1.setBounds(24, 254, 25, 25);
+        panel_1.add(radioButton_1);
+        radioButton_1.setBackground(new Color(40, 42, 46));
+        radioButton_2.setBounds(24, 320, 25, 25);
+        panel_1.add(radioButton_2);
+        radioButton_2.setBackground(new Color(40, 42, 46));
+        lblDepartamentos.setForeground(new Color(248, 248, 255));
+        lblDepartamentos.setFont(new Font("Segoe UI Semibold", Font.BOLD, 20));
+        lblDepartamentos.setBounds(24, 27, 150, 27);
+        
+        panel_1.add(lblDepartamentos);
+        panel_1.add(getTxtrContanctaConLos());
         // Configurar el �rea de chat
         chatArea.setEditable(false);
         JScrollPane scrollPane = new JScrollPane(chatArea);
         scrollPane.setBorder(null);
-        scrollPane.setBounds(393, 100, 339, 457);
+        scrollPane.setBounds(317, 124, 525, 433);
+        
+        scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         add(scrollPane);
-        panel.setBorder(null);
+        panel.setBorder(new LineBorder(new Color(105, 105, 105)));
         panel.setBackground(new Color(40, 42, 46));
-        panel.setBounds(190, 23, 587, 557);
+        panel.setBounds(252, 33, 616, 547);
         
         add(panel);
         panel.setLayout(null);
@@ -158,5 +212,33 @@ public class ChatPanel extends JPanel implements ActionListener {
 			textField.setColumns(10);
 		}
 		return textField;
+	}
+	private JRadioButton getRdbtnNewRadioButton() {
+		if (rdbtnNewRadioButton == null) {
+			rdbtnNewRadioButton = new JRadioButton("");
+			rdbtnNewRadioButton.setBounds(24, 121, 25, 25);
+			rdbtnNewRadioButton.setBackground(new Color(40, 42, 46));
+		}
+		return rdbtnNewRadioButton;
+	}
+	private JTextArea getTxtrContanctaConLos() {
+		if (txtrContanctaConLos == null) {
+			txtrContanctaConLos = new JTextArea();
+			txtrContanctaConLos.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
+			txtrContanctaConLos.setText("Contancta con los distintos departamentos para definir horarios de visita o aclarar cualquier duda.");
+			txtrContanctaConLos.setWrapStyleWord(true);
+			txtrContanctaConLos.setVerifyInputWhenFocusTarget(false);
+			txtrContanctaConLos.setRequestFocusEnabled(false);
+			txtrContanctaConLos.setMargin(new Insets(5, 10, 2, 2));
+			txtrContanctaConLos.setLineWrap(true);
+			txtrContanctaConLos.setForeground(Color.WHITE);
+			txtrContanctaConLos.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 12));
+			txtrContanctaConLos.setFocusable(false);
+			txtrContanctaConLos.setEditable(false);
+			txtrContanctaConLos.setBorder(null);
+			txtrContanctaConLos.setBackground(new Color(40, 42, 46));
+			txtrContanctaConLos.setBounds(35, 460, 163, 74);
+		}
+		return txtrContanctaConLos;
 	}
 }

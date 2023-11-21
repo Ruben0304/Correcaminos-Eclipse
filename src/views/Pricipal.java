@@ -25,6 +25,7 @@ import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import views.admin.PanelAdministracion;
 import views.components.Navegacion;
 
 import views.usuarios.RequisitosEstudiante;
@@ -73,7 +74,7 @@ public class Pricipal extends JFrame implements ActionListener {
 		contentPane.add(Navegacion.getVista().getBarraNavegacion());
 	//  contentPane.add(panel);
 		// contentPane.add(ChatPanel());
-		contentPane.add(new ChatPanel(Auth.usuarioAutenticado(), TipoDepartamento.Biblioteca));
+		contentPane.add(new PanelAdministracion());
 
 	}
 

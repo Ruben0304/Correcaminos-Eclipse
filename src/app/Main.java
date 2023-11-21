@@ -21,10 +21,8 @@ public class Main {
 			public void run() {
 
 				ArrayList<Persona> lala = new ArrayList<>();
-				Persona p = new Persona(null);
+				
 
-				lala.add("mamawebo");
-				System.out.println(lala.contains("mamaweb"));
 				ControladorLogin.comprobarSession();
 				Pricipal frame = Pricipal.getInstancia();
 				frame.setVisible(true);

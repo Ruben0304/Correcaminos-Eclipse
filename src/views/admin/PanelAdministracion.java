@@ -158,8 +158,8 @@ public class PanelAdministracion extends JPanel {
 			comboBoxSeleccionarFac.setBackground(Color.GRAY);
 			comboBoxSeleccionarFac.setToolTipText("");
 			comboBoxSeleccionarFac.setFont(new Font("Segoe UI Semibold", Font.BOLD, 14));
-			comboBoxSeleccionarFac.setModel(new DefaultComboBoxModel(Facultad.values()));
-			comboBoxSeleccionarFac.setSelectedIndex(9);
+//			comboBoxSeleccionarFac.setModel(new DefaultComboBoxModel(Facultad.values()));
+//			comboBoxSeleccionarFac.setSelectedIndex(9);
 			comboBoxSeleccionarFac.setBounds(92, 72, 154, 25);
 		}
 		return comboBoxSeleccionarFac;

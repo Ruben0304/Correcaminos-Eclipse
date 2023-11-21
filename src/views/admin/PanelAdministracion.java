@@ -46,30 +46,31 @@ public class PanelAdministracion extends JPanel {
 	private JLabel lblTramite;
 	private JRadioButton rdbtnBaja;
 	private JRadioButton rdbtnLicencia;
-	private JScrollPane scrollPane;
+	private JScrollPane scrollPaneFiltrado;
 	private JTextField textFieldBuscarPorNombre;
 	private JComboBox comboBox_1;
-	private JLabel label;
-	private JPanel panel;
+	private JLabel lblIconoBuscar;
+	private JTable table;
 
 	
 	public PanelAdministracion() {
 		setBounds(new Rectangle(178, 0, 944, 700));
 		setBackground(new Color(31, 33, 36));
 		setLayout(null);
-		add(getLabel());
+		add(getLblIconoBuscar());
 		add(getPanelFiltrados());
 		add(getPanelReportes());
 		add(getPanelCategorias());
-		add(getScrollPane());
+		add(getScrollPaneFiltrado());
 		add(getTextFieldBuscarPorNombre());
 
 	}
 	private JPanel getPanelFiltrados() {
 		if (panelFiltrados == null) {
 			panelFiltrados = new JPanel();
-			panelFiltrados.setBounds(674, 13, 258, 229);
-			panelFiltrados.setBackground(new Color(31, 33, 36));
+			panelFiltrados.setBorder(new LineBorder(new Color(128, 128, 128), 1, true));
+			panelFiltrados.setBounds(674, 32, 258, 237);
+			panelFiltrados.setBackground(new Color(26, 30, 40));
 			panelFiltrados.setLayout(null);
 			panelFiltrados.add(getLblTituloFilt());
 			panelFiltrados.add(getLblFac());
@@ -85,8 +86,9 @@ public class PanelAdministracion extends JPanel {
 	private JPanel getPanelReportes() {
 		if (panelReportes == null) {
 			panelReportes = new JPanel();
-			panelReportes.setBounds(674, 255, 258, 154);
-			panelReportes.setBackground(new Color(31, 33, 36));
+			panelReportes.setBorder(new LineBorder(new Color(128, 128, 128), 1, true));
+			panelReportes.setBounds(674, 280, 258, 154);
+			panelReportes.setBackground(new Color(26, 30, 40));
 			panelReportes.setLayout(null);
 			panelReportes.add(getLblTituloReportes());
 			panelReportes.add(getComboBoxReportes());
@@ -97,8 +99,9 @@ public class PanelAdministracion extends JPanel {
 	private JPanel getPanelCategorias() {
 		if (panelCategorias == null) {
 			panelCategorias = new JPanel();
-			panelCategorias.setBounds(674, 424, 258, 263);
-			panelCategorias.setBackground(new Color(31, 33, 36));
+			panelCategorias.setBorder(new LineBorder(new Color(105, 105, 105), 1, true));
+			panelCategorias.setBounds(674, 445, 258, 229);
+			panelCategorias.setBackground(new Color(26, 30, 40));
 			panelCategorias.setLayout(null);
 			panelCategorias.add(getLblTituloCategorias());
 			panelCategorias.add(getRdbtnEstudiante());
@@ -191,7 +194,7 @@ public class PanelAdministracion extends JPanel {
 			lblTituloCategorias = new JLabel("Categoria");
 			lblTituloCategorias.setForeground(Color.WHITE);
 			lblTituloCategorias.setFont(new Font("Segoe UI Semibold", Font.BOLD, 19));
-			lblTituloCategorias.setBounds(83, 13, 102, 41);
+			lblTituloCategorias.setBounds(85, 11, 102, 41);
 		}
 		return lblTituloCategorias;
 	}
@@ -211,7 +214,7 @@ public class PanelAdministracion extends JPanel {
 			rdbtnEstudiante.setForeground(Color.WHITE);
 			rdbtnEstudiante.setBackground(new Color(31, 33, 36));
 			rdbtnEstudiante.setFont(new Font("Segoe UI Semibold", Font.BOLD, 15));
-			rdbtnEstudiante.setBounds(12, 85, 127, 25);
+			rdbtnEstudiante.setBounds(23, 85, 102, 25);
 		}
 		return rdbtnEstudiante;
 	}
@@ -220,7 +223,7 @@ public class PanelAdministracion extends JPanel {
 			lblTipoDePersona = new JLabel("Tipo de persona");
 			lblTipoDePersona.setForeground(Color.WHITE);
 			lblTipoDePersona.setFont(new Font("Segoe UI Semibold", Font.BOLD, 15));
-			lblTipoDePersona.setBounds(12, 47, 123, 28);
+			lblTipoDePersona.setBounds(23, 50, 123, 28);
 		}
 		return lblTipoDePersona;
 	}
@@ -230,7 +233,7 @@ public class PanelAdministracion extends JPanel {
 			rdbtnEmpleado.setForeground(Color.WHITE);
 			rdbtnEmpleado.setFont(new Font("Segoe UI Semibold", Font.BOLD, 15));
 			rdbtnEmpleado.setBackground(new Color(31, 33, 36));
-			rdbtnEmpleado.setBounds(12, 119, 127, 25);
+			rdbtnEmpleado.setBounds(125, 85, 127, 25);
 		}
 		return rdbtnEmpleado;
 	}
@@ -239,7 +242,7 @@ public class PanelAdministracion extends JPanel {
 			lblTramite = new JLabel("Tr\u00E1mite");
 			lblTramite.setForeground(Color.WHITE);
 			lblTramite.setFont(new Font("Segoe UI Semibold", Font.BOLD, 15));
-			lblTramite.setBounds(12, 157, 123, 28);
+			lblTramite.setBounds(23, 136, 123, 28);
 		}
 		return lblTramite;
 	}
@@ -249,7 +252,7 @@ public class PanelAdministracion extends JPanel {
 			rdbtnBaja.setForeground(Color.WHITE);
 			rdbtnBaja.setFont(new Font("Segoe UI Semibold", Font.BOLD, 15));
 			rdbtnBaja.setBackground(new Color(31, 33, 36));
-			rdbtnBaja.setBounds(12, 195, 127, 25);
+			rdbtnBaja.setBounds(21, 168, 73, 25);
 		}
 		return rdbtnBaja;
 	}
@@ -259,19 +262,19 @@ public class PanelAdministracion extends JPanel {
 			rdbtnLicencia.setForeground(Color.WHITE);
 			rdbtnLicencia.setFont(new Font("Segoe UI Semibold", Font.BOLD, 15));
 			rdbtnLicencia.setBackground(new Color(31, 33, 36));
-			rdbtnLicencia.setBounds(12, 229, 127, 25);
+			rdbtnLicencia.setBounds(125, 168, 127, 25);
 		}
 		return rdbtnLicencia;
 	}
-	private JScrollPane getScrollPane() {
-		if (scrollPane == null) {
-			scrollPane = new JScrollPane();
-			scrollPane.setBackground(new Color(31, 33, 36));
-			scrollPane.setBounds(32, 100, 600, 574);
-			scrollPane.setAutoscrolls(true);
-			scrollPane.setViewportView(getPanel());
+	private JScrollPane getScrollPaneFiltrado() {
+		if (scrollPaneFiltrado == null) {
+			scrollPaneFiltrado = new JScrollPane();
+			scrollPaneFiltrado.setBackground(new Color(31, 33, 36));
+			scrollPaneFiltrado.setBounds(32, 100, 600, 574);
+			scrollPaneFiltrado.setAutoscrolls(true);
+			scrollPaneFiltrado.setViewportView(getTable());
 		}
-		return scrollPane;
+		return scrollPaneFiltrado;
 	}
 	private JTextField getTextFieldBuscarPorNombre() {
 		if (textFieldBuscarPorNombre == null) {
@@ -291,22 +294,29 @@ public class PanelAdministracion extends JPanel {
 		}
 		return comboBox_1;
 	}
-	private JLabel getLabel() {
-		if (label == null) {
-			label = new JLabel("");
-			label.setIcon(new ImageIcon("C:\\Users\\Usuario\\Pictures\\Searchhh.png"));
-			label.setForeground(Color.WHITE);
-			label.setFont(new Font("Segoe UI Semibold", Font.BOLD, 15));
-			label.setBounds(556, 32, 35, 28);
+	private JLabel getLblIconoBuscar() {
+		if (lblIconoBuscar == null) {
+			lblIconoBuscar = new JLabel("");
+			lblIconoBuscar.setIcon(new ImageIcon("C:\\Users\\Usuario\\Pictures\\Searchhh.png"));
+			lblIconoBuscar.setForeground(Color.WHITE);
+			lblIconoBuscar.setFont(new Font("Segoe UI Semibold", Font.BOLD, 15));
+			lblIconoBuscar.setBounds(556, 32, 35, 28);
 		}
-		return label;
+		return lblIconoBuscar;
 	}
-	private JPanel getPanel() {
-		if (panel == null) {
-			panel = new JPanel();
-			panel.setBorder(new LineBorder(Color.WHITE, 2, true));
-			panel.setBackground(new Color(31, 33, 36));
+	private JTable getTable() {
+		if (table == null) {
+			table = new JTable();
+			table.setVisible(false);
+			table.setVerifyInputWhenFocusTarget(false);
+			table.setUpdateSelectionOnSort(false);
+			table.setEditingRow(3);
+			table.setEditingColumn(4);
+			table.setAutoCreateRowSorter(true);
+			table.setFillsViewportHeight(true);
+			table.setColumnSelectionAllowed(true);
+			table.setCellSelectionEnabled(true);
 		}
-		return panel;
+		return table;
 	}
 }

@@ -16,7 +16,7 @@ public class GestorEstudiantes  {
 
     public GestorEstudiantes() {
         estudiantes = new ArrayList<>();
-        registrarEstudiantes();
+        // registrarEstudiantes();
         gestorSolicitudes = new GestorSolicitudesEstudiante(estudiantes);
         gestorResponsabilidadesEstudiantes = new GestorResponsabilidadesEstudiantes(estudiantes);
 

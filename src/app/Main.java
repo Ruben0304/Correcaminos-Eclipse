@@ -9,15 +9,15 @@ import views.Pricipal;
 
 public class Main {
 	public static void main(String[] args) {
-		GestorPrincipal.getGestorPrincipal();
+		// GestorPrincipal.getGestorPrincipal();
 		SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
 				try {
 
-					ControladorLogin.comprobarSession();
+					// ControladorLogin.comprobarSession();
 					Pricipal frame = Pricipal.getInstancia();
 					frame.setVisible(true);
-					ControladorPrincipal.mostrarInicio();
+					// ControladorPrincipal.mostrarInicio();
 
 				} catch (Exception e) {
 					e.printStackTrace();

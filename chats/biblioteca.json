@@ -1,0 +1,71 @@
+{
+    "chats": [
+        {
+            "estudiante": {
+                "curso": 1,
+                "tipoCurso": "DIURNO",
+                "carrera": "Ingenieria Informatica",
+                "grupo": 1,
+                "ci": "01234567891",
+                "nombre": "Juan",
+                "primer_apellido": "Perez",
+                "segundo_apellido": "Perez",
+                "facultad": "Ing_Industrial",
+                "nombreUsuario": "estudiante1",
+                "contrasena": "0b14d501a594442a01c6859541bcb3e8164d183d32937b851835442f69d5c94e"
+            },
+            "contenido": "Hola, ¿cómo están?",
+            "fecha": "2023-11-20T10:30:00Z"
+        },
+        {
+            "estudiante": {
+                "curso": 2,
+                "tipoCurso": "ENCUENTRO",
+                "carrera": "Ingenieria Informatica",
+                "grupo": 2,
+                "ci": "12345678902",
+                "nombre": "Maria",
+                "primer_apellido": "Gonzalez",
+                "segundo_apellido": "Perez",
+                "facultad": "Ing_Industrial",
+                "nombreUsuario": "estudiante2",
+                "contrasena": "6cf615d5bcaac778352a8f1f3360d23f02f34ec182e259897fd6ce485d7870d4"
+            },
+            "contenido": "Hola, ¿cómo están?",
+            "fecha": "2023-11-20T10:30:00Z"
+        },
+        {
+            "estudiante": {
+                "curso": 1,
+                "tipoCurso": "DIURNO",
+                "carrera": "Ingenieria Informatica",
+                "grupo": 1,
+                "ci": "01234567891",
+                "nombre": "Juan",
+                "primer_apellido": "Perez",
+                "segundo_apellido": "Perez",
+                "facultad": "Ing_Industrial",
+                "nombreUsuario": "estudiante1",
+                "contrasena": "0b14d501a594442a01c6859541bcb3e8164d183d32937b851835442f69d5c94e"
+            },
+            "contenido": "Hola, ¿cómo están?",
+            "fecha": "2023-11-20T10:30:00Z"
+        },
+        {
+            "estudiante": {
+                "curso": 2,
+                "tipoCurso": "ENCUENTRO",
+                "carrera": "Ingenieria Informatica",
+                "grupo": 2,
+                "ci": "12345678902",
+                "nombre": "Maria",
+                "primer_apellido": "Gonzalez",
+                "segundo_apellido": "Perez",
+                "facultad": "Ing_Industrial",
+                "nombreUsuario": "estudiante2",
+                "contrasena": "6cf615d5bcaac778352a8f1f3360d23f02f34ec182e259897fd6ce485d7870d4"
+            },
+            "contenido": "Hola, ¿cómo están?",
+            "fecha": "2023-11-20T10:30:00Z"
+        }
+    }

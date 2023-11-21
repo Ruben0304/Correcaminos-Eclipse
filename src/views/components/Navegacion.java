@@ -13,6 +13,7 @@ import javax.swing.JPanel;
 
 import models.usuarios.Admin;
 import models.usuarios.Estudiante;
+import models.usuarios.Persona;
 import models.usuarios.Usuario;
 import views.Pricipal;
 import auth.Auth;
@@ -63,11 +64,14 @@ public class Navegacion extends JPanel {
 		setLayout(null);
 		add(getHome());
 		if (usuarioAutenticado != null && usuarioAutenticado instanceof Admin) {
+			
+
+		}
+		else if (usuarioAutenticado != null && usuarioAutenticado instanceof Persona) {
 			add(getReportes());
 			// panel_inicio.add(getGuardar());
 			add(getLblReportes());
 			// panel_inicio.add(getLabel_1_1());
-
 		}
 
 		add(getAccount());
@@ -218,8 +222,9 @@ public class Navegacion extends JPanel {
 	private JLabel getReportes() {
 		if (reportes == null) {
 			reportes = new JLabel("New label");
+			reportes.setVisible(true);
 			reportes.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-			reportes.setIcon(new ImageIcon(Pricipal.class.getResource("/img/Business Report.png")));
+			reportes.setIcon(new ImageIcon(Pricipal.class.getResource("/img/chat.png")));
 			reportes.setBounds(19, 258, 33, 28);
 			reportes.addMouseListener(new MouseAdapter() {
 				@Override
@@ -317,6 +322,7 @@ public class Navegacion extends JPanel {
 	private JLabel getLblReportes() {
 		if (lblReportes == null) {
 			lblReportes = new JLabel("Chats");
+			lblReportes.setVisible(true);
 			lblReportes.setForeground(Color.WHITE);
 			lblReportes.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 17));
 			lblReportes.setBounds(71, 258, 89, 30);

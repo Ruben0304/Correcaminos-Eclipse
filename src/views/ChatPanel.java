@@ -27,7 +27,6 @@ public class ChatPanel extends JPanel implements ActionListener {
     private JTextArea chatArea = new JTextArea();
     private JTextField messageField = new JTextField();
     private JButton sendButton = new JButton("Enviar");
-    private final JSlider slider = new JSlider();
 
     public ChatPanel() {
         // Configurar el panel
@@ -39,8 +38,6 @@ public class ChatPanel extends JPanel implements ActionListener {
         chatArea.setEditable(false);
         JScrollPane scrollPane = new JScrollPane(chatArea);
         add(scrollPane, BorderLayout.CENTER);
-        
-        scrollPane.setRowHeaderView(slider);
 
         // Configurar el campo de texto y el bot�n de enviar
         JPanel messagePanel = new JPanel(new GridBagLayout());

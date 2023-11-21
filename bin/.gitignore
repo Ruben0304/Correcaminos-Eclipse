@@ -1,7 +1,4 @@
-/models
-/data
 /app
-/controllers
+/data
+/models
 /views
-/util
-/auth

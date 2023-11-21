@@ -15,14 +15,11 @@ public class Pruebas {
 	
 		SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
-				try {
+				
 
 					AdministradorChats.getAdministradorChats();
 
-				} catch (Exception e) {
-					JOptionPane.showMessageDialog(null, e.getMessage());
-					
-				}
+				
 			}
 		});
 	}

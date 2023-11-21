@@ -1,16 +1,18 @@
 package models.chats;
 
-import java.sql.Date;
+import java.util.Date;
+import java.util.Calendar;
 
 public class Mensaje {
     private String nombreUsuario;
     private String contenido;
     private Date fecha;
 
-    public Mensaje(String nombreUsuario, String contenido, Date fecha) {
+    public Mensaje(String nombreUsuario, String contenido) {
         this.nombreUsuario = nombreUsuario;
         this.contenido = contenido;
-        this.fecha = fecha;
+        Calendar calendario = Calendar.getInstance(); 
+        this.fecha = calendario.getTime();
     }
 
     public String getNombreUsuario() {

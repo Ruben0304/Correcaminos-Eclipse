@@ -15,6 +15,9 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
+import auth.Auth;
+import util.TipoDepartamento;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -70,7 +73,7 @@ public class Pricipal extends JFrame implements ActionListener {
 		contentPane.add(Navegacion.getVista().getBarraNavegacion());
 		// contentPane.add(panel);
 		// contentPane.add(ChatPanel());
-		contentPane.add( new ChatPanel());
+		contentPane.add(new ChatPanel(Auth.usuarioAutenticado(),TipoDepartamento.Biblioteca));
 
 	}
 

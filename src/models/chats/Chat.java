@@ -5,23 +5,23 @@ import java.util.ArrayList;
 
 import com.google.gson.Gson;
 
+import data.GuardarChats;
 import models.usuarios.Persona;
 
 import util.TipoDepartamento;
 
 public class Chat {
     private TipoDepartamento departamento;
-    private Persona persona;
+    private String nombreUsuario;
     private ArrayList<Mensaje> mensajes;
 
-  
-    public Chat(TipoDepartamento departamento, Persona persona) {
+    public Chat(TipoDepartamento departamento, String nombreUsuario) {
         this.departamento = departamento;
-        this.persona = persona;
-      mensajes.add(new Mensaje(departamento.toString(), "mmawebo", null));
-        mensajes.add(new Mensaje(persona.getNombreUsuario(), "habla", null));
-       
-    
+        this.nombreUsuario = nombreUsuario;
+        mensajes = new ArrayList<>();
+        // mensajes.add(new Mensaje(departamento.toString(), persona.getNombreUsuario()));
+        // mensajes.add(new Mensaje("jujujuj", "habla"));
+
     }
 
     public TipoDepartamento getDepartamento() {
@@ -32,13 +32,13 @@ public class Chat {
         this.departamento = departamento;
     }
 
-    public Persona getPersona() {
-        return persona;
-    }
+    // public Persona getPersona() {
+    //     return persona;
+    // }
 
-    public void setPersona(Persona persona) {
-        this.persona = persona;
-    }
+    // public void setPersona(Persona persona) {
+    //     this.persona = persona;
+    // }
 
     public ArrayList<Mensaje> getMensajes() {
         return mensajes;
@@ -48,5 +48,19 @@ public class Chat {
         this.mensajes = mensajes;
     }
 
+     public void agregarMensaje(Mensaje m) {
+
+        this.mensajes.add(m);
+        GuardarChats.guardarChat(this);
+    }
+
+    public String getNombreUsuario() {
+        return nombreUsuario;
+    }
+
+    public void setNombreUsuario(String nombreUsuario) {
+        this.nombreUsuario = nombreUsuario;
+    }
     
+
 }

@@ -21,19 +21,38 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 import auth.Auth;
+import models.chats.AdministradorChats;
+import models.chats.Chat;
+import models.chats.Mensaje;
+import models.usuarios.Admin;
+import models.usuarios.Usuario;
+import util.TipoDepartamento;
+
 import javax.swing.JSlider;
 
 public class ChatPanel extends JPanel implements ActionListener {
     private JTextArea chatArea = new JTextArea();
     private JTextField messageField = new JTextField();
     private JButton sendButton = new JButton("Enviar");
+    private Chat chat;
+    private Usuario usuario;
 
-    public ChatPanel() {
+    public ChatPanel(Usuario usuario, TipoDepartamento departamento) {
         // Configurar el panel
+        AdministradorChats.getAdministradorChats();
+
+        this.chat = AdministradorChats.getAdministradorChats().buscarChat(departamento, usuario.getNombreUsuario());
+
         setLayout(new BorderLayout());
         setBounds(178, 0, 944, 700);
         chatArea.setFont(new Font("Segoe UI", Font.PLAIN, 17));
+        if (chat != null) {
+            for (Mensaje mensaje : chat.getMensajes()) {
+                chatArea.append(" " + mensaje.getNombreUsuario() + " \n");
+                chatArea.append(mensaje.getContenido() + "\n\n");
+            }
 
+        }
         // Configurar el �rea de chat
         chatArea.setEditable(false);
         JScrollPane scrollPane = new JScrollPane(chatArea);
@@ -72,15 +91,10 @@ public class ChatPanel extends JPanel implements ActionListener {
             // Limpiar el campo de texto despu�s de enviar el mensaje
             chatArea.append(" " + nombre + " \n");
             chatArea.append(message + "\n\n");
+            chat.agregarMensaje(new Mensaje(usuario.getNombreUsuario(), messageField.getText()));
             messageField.setText("");
         }
     }
 
-    public static void main(String[] args) {
-        JFrame frame = new JFrame("Chat");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.getContentPane().add(new ChatPanel());
-        frame.pack();
-        frame.setVisible(true);
-    }
+
 }

@@ -7,11 +7,13 @@ import java.util.Map;
 
 import com.google.gson.Gson;
 
+import data.ObtenerChats;
+import models.usuarios.Estudiante;
 import models.usuarios.Persona;
 import util.TipoDepartamento;
 
 public class AdministradorChats {
-    private Map<TipoDepartamento, ArrayList<Chat>> chats;
+    private ArrayList<Chat> chats;
     public static AdministradorChats administradorChats = null;
 
     public static AdministradorChats getAdministradorChats() {
@@ -22,47 +24,44 @@ public class AdministradorChats {
     }
 
     private AdministradorChats() {
-        this.chats = new HashMap<>();
-        crearChat(TipoDepartamento.Biblioteca, null);
-        crearChat(TipoDepartamento.Economia, null);
+        this.chats = new ArrayList<>();
+        // crearChat(TipoDepartamento.Biblioteca, new Estudiante("Manuel", null,
+        // "00909090909", null, null, null, null, 0, null, null, 0));
+        // crearChat(TipoDepartamento.Economia, new Estudiante("Manuel", null,
+        // "0090909909", null, null, null, null, 0, null, null, 0));
+        chats = ObtenerChats.cargarDesdeArchivo();
         Gson gson = new Gson();
-        System.out.println(gson.toJson(this));
+        System.out.println(gson.toJson(chats));
     }
 
-    public void crearChat(TipoDepartamento departamento, Persona persona) {
-        Chat chat = new Chat(departamento, persona);
-        ArrayList<Chat> lista = chats.get(departamento);
-        if (lista == null) {
-            lista = new ArrayList<>();
-            chats.put(departamento, lista);
-        }
-        lista.add(chat);
+    public void crearChat(TipoDepartamento departamento, String nombreUsuario) {
+        Chat chat = new Chat(departamento, nombreUsuario);
+        chats.add(chat);
     }
 
-    public void eliminarChat(TipoDepartamento departamento, Persona persona) {
+    // public void eliminarChat(TipoDepartamento departamento, Persona persona) {
 
-        ArrayList<Chat> lista = chats.get(departamento);
-        lista.remove(buscarChat(departamento, persona));
+    // ArrayList<Chat> lista = chats.get(departamento);
+    // lista.remove(buscarChat(departamento, persona));
 
-    }
+    // }
 
-    public Chat buscarChat(TipoDepartamento departamento, Persona persona) {
-        ArrayList<Chat> lista = chats.get(departamento);
+    public Chat buscarChat(TipoDepartamento departamento, String ci) {
         Chat chat = null;
-        if (lista != null) {
-            for (Chat ch : lista) {
-                if (ch.getPersona().getCi().equals(persona.getCi())) {
-                    chat = ch;
-                }
+
+        for (Chat ch : chats) {
+            if (ch.getNombreUsuario().equals(ci) && ch.getDepartamento().equals(departamento)) {
+                chat = ch;
             }
         }
+
         return chat;
     }
 
-    public List<Chat> listarChats(TipoDepartamento departamento) {
-        ArrayList<Chat> lista = chats.get(departamento);
+    // public List<Chat> listarChats(TipoDepartamento departamento) {
+    // ArrayList<Chat> lista = chats.get(departamento);
 
-        return lista != null ? lista : null;
-    }
+    // return lista != null ? lista : null;
+    // }
 
 }

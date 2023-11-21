@@ -16,18 +16,18 @@ public class ObtenerChats {
     public static ArrayList<Chat> cargarDesdeArchivo() {
         Gson gson = new Gson();
 
-        ArrayList<Estudiante> estudiantes = new ArrayList<>();
+        ArrayList<Chat> chat = new ArrayList<>();
 
-        try (BufferedReader reader = new BufferedReader(new FileReader("./estudiantes.json"))) {
-            Type listType = new TypeToken<ArrayList<Estudiante>>() {
+        try (BufferedReader reader = new BufferedReader(new FileReader("./chats/biblioteca.json"))) {
+            Type listType = new TypeToken<ArrayList<Chat>>() {
             }.getType();
 
-            estudiantes = gson.fromJson(reader, listType);
+            chat = gson.fromJson(reader, listType);
 
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        return estudiantes;
+        return chat;
     }
 }

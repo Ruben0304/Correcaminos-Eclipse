@@ -1,14 +1,5 @@
 package views.components;
 
-import java.awt.event.MouseAdapter;
-
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-
-import auth.Auth;
-
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Cursor;
@@ -16,18 +7,20 @@ import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-import controllers.ControladorAdmin;
-import controllers.ControladorLogin;
-import controllers.ControladorPrincipal;
-import controllers.ControladorPruebas;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
 import models.usuarios.Admin;
 import models.usuarios.Estudiante;
 import models.usuarios.Usuario;
 import views.Pricipal;
-import views.usuarios.RequisitosEstudiante;
+import auth.Auth;
+import controllers.ControladorAdmin;
+import controllers.ControladorLogin;
+import controllers.ControladorPrincipal;
 
-public class Navegacion {
-
+public class Navegacion extends JPanel {
 	private JPanel panel_inicio;
 	private JLabel home;
 	private JLabel guardar;
@@ -50,58 +43,53 @@ public class Navegacion {
 	private static Navegacion instance = null;
 	private final Usuario usuarioAutenticado = Auth.usuarioAutenticado();
 
-	private Navegacion() {
-	}
+	public Navegacion() {
+		addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				getBarraNavegacion().setBounds(0, 0, 155, 700);
+				label_2.setVisible(false);
+			}
 
-	public static Navegacion getVista() {
+			@Override
+			public void mouseExited(MouseEvent e) {
+				getBarraNavegacion().setBounds(0, 0, 71, 700);
+				getLabel_2().setVisible(true);
+			}
+		});
+		setBounds(0, 0, 71, 700);
+		setAlignmentX(Component.LEFT_ALIGNMENT);
+		setBackground(new Color(20, 20, 20));
+		setLayout(null);
+		add(getHome());
+		if (usuarioAutenticado != null && usuarioAutenticado instanceof Admin) {
+			add(getReportes());
+			// panel_inicio.add(getGuardar());
+			add(getLblReportes());
+			// panel_inicio.add(getLabel_1_1());
 
-		return new Navegacion();
+		}
+
+		add(getAccount());
+		add(getGestion());
+
+		add(getHome_bg());
+
+		add(getGestion_bg());
+		add(getReportes_bg());
+		add(getGuardar_bg());
+		add(getAccount_bg());
+		add(getLabel());
+		add(getLblGestion());
+
+		add(getLabel_1_2());
+		add(getLabel_1());
+		add(getLabel_2());
 	}
 
 	public JPanel getBarraNavegacion() {
-		if (panel_inicio == null) {
-			panel_inicio = new JPanel();
-			panel_inicio.addMouseListener(new MouseAdapter() {
-				@Override
-				public void mouseEntered(MouseEvent e) {
-					getBarraNavegacion().setBounds(0, 0, 155, 700);
-					label_2.setVisible(false);
-				}
-
-				@Override
-				public void mouseExited(MouseEvent e) {
-					getBarraNavegacion().setBounds(0, 0, 71, 700);
-					getLabel_2().setVisible(true);
-				}
-			});
-			panel_inicio.setBounds(0, 0, 71, 700);
-			panel_inicio.setAlignmentX(Component.LEFT_ALIGNMENT);
-			panel_inicio.setBackground(new Color(20, 20, 20));
-			panel_inicio.setLayout(null);
-			panel_inicio.add(getHome());
-			if (usuarioAutenticado != null && usuarioAutenticado instanceof Admin) {
-				panel_inicio.add(getReportes());
-				// panel_inicio.add(getGuardar());
-				panel_inicio.add(getLblReportes());
-				// panel_inicio.add(getLabel_1_1());
-
-			}
-
-			panel_inicio.add(getAccount());
-			panel_inicio.add(getGestion());
-
-			panel_inicio.add(getHome_bg());
-
-			panel_inicio.add(getGestion_bg());
-			panel_inicio.add(getReportes_bg());
-			panel_inicio.add(getGuardar_bg());
-			panel_inicio.add(getAccount_bg());
-			panel_inicio.add(getLabel());
-			panel_inicio.add(getLblGestion());
-
-			panel_inicio.add(getLabel_1_2());
-			panel_inicio.add(getLabel_1());
-			panel_inicio.add(getLabel_2());
+		if (instance == null) {
+			instance = new Navegacion();
 
 		}
 		return panel_inicio;
@@ -150,7 +138,6 @@ public class Navegacion {
 					getGestion_bg().setVisible(false);
 					getGuardar_bg().setVisible(true);
 
-					
 				}
 
 				@Override

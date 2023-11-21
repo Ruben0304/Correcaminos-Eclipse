@@ -310,7 +310,7 @@ public class PanelAdministracion extends JPanel {
 	private JLabel getLblNewLabel() {
 		if (lblNewLabel == null) {
 			lblNewLabel = new JLabel();
-			lblNewLabel.setBounds(60, -44, 464, 196);
+			lblNewLabel.setBounds(31, -43, 446, 196);
             ImageIcon ico = new ImageIcon("C:\\Users\\herna\\OneDrive\\Escritorio\\Nueva carpeta\\b.png");
             ImageIcon img = new ImageIcon(
                     ico.getImage().getScaledInstance(lblNewLabel.getWidth(), lblNewLabel.getHeight(), Image.SCALE_SMOOTH));
@@ -325,7 +325,7 @@ public class PanelAdministracion extends JPanel {
 			textField.setBackground(new Color(249, 249, 249));
 			
 			textField.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 15));
-			textField.setBounds(131, 44, 287, 22);
+			textField.setBounds(93, 44, 285, 22);
 			textField.setColumns(10);
 		}
 		return textField;

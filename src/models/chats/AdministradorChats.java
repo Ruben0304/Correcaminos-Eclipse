@@ -58,10 +58,15 @@ public class AdministradorChats {
         return chat;
     }
 
-    // public List<Chat> listarChats(TipoDepartamento departamento) {
-    // ArrayList<Chat> lista = chats.get(departamento);
+    public ArrayList<Chat> listarChats(TipoDepartamento departamento) {
+        ArrayList<Chat> chs = new ArrayList<>();
+        for (Chat chat : chats) {
+            if (chat.getDepartamento().equals(departamento)) {
+                chs.add(chat);
+            }
+        }
 
-    // return lista != null ? lista : null;
-    // }
+        return chs;
+    }
 
 }

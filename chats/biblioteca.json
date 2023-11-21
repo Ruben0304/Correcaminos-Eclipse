@@ -1,34 +1,38 @@
 [
-    {
-        "departamento": "Biblioteca",
+  {
+    "departamento": "Biblioteca",
+    "nombreUsuario": "estudiante1",
+    "mensajes": [
+      {
+        "nombreUsuario": "Biblioteca",
+        "contenido": "mmawebo",
+        "fecha": "Nov 20, 2023 9:46:09 PM"
+      },
+      {
         "nombreUsuario": "estudiante1",
-        "mensajes": [
-            {
-                "nombreUsuario": "Biblioteca",
-                "contenido": "mmawebo",
-                "fecha": "Nov 20, 2023 9:46:09 PM"
-            },
-            {
-                "nombreUsuario": "estudiante1",
-                "contenido": "habla",
-                "fecha": "Nov 20, 2023 9:46:09 PM"
-            }
-        ]
-    },
-    {
-        "departamento": "Economia",
-        "nombreUsuario": "Manuel",
-        "mensajes": [
-            {
-                "nombreUsuario": "Economia",
-                "contenido": "mmawebo",
-                "fecha": "Nov 20, 2023 9:46:09 PM"
-            },
-            {
-                "nombreUsuario": "Manuel",
-                "contenido": "habla",
-                "fecha": "Nov 20, 2023 9:46:09 PM"
-            }
-        ]
-    }
+        "contenido": "habla",
+        "fecha": "Nov 20, 2023 9:46:09 PM"
+      },
+      {
+        "nombreUsuario": "estudiante1",
+        "contenido": "hey",
+        "fecha": "Nov 20, 2023 10:48:20 PM"
+      },
+      {
+        "nombreUsuario": "estudiante1",
+        "contenido": "",
+        "fecha": "Nov 20, 2023 11:34:38 PM"
+      },
+      {
+        "nombreUsuario": "estudiante1",
+        "contenido": "hablate",
+        "fecha": "Nov 20, 2023 11:50:22 PM"
+      },
+      {
+        "nombreUsuario": "estudiante1",
+        "contenido": "holaa",
+        "fecha": "Nov 21, 2023 12:29:04 AM"
+      }
+    ]
+  }
 ]

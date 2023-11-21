@@ -51,7 +51,7 @@ public class Chat {
      public void agregarMensaje(Mensaje m) {
 
         this.mensajes.add(m);
-        GuardarChats.guardarChat(this);
+        GuardarChats.guardarChat(this.getDepartamento());
     }
 
     public String getNombreUsuario() {

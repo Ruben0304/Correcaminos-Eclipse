@@ -274,7 +274,7 @@ public class GestorSolicitudesEstudiante implements Actualizador {
     // Filtros administración
 
     public ArrayList<SolicitudBajaEstudiante> filtradoDinamicoSolicitudBajaEstudiantes(Map<String, String> filtros) {
-        ArrayList<SolicitudBajaEstudiante> solicitudBajaFiltradas = new ArrayList<>();
+        ArrayList<SolicitudBajaEstudiante> solicitudesBajaFiltradas = new ArrayList<>();
 
         for (SolicitudBajaEstudiante solictud : solicitudesBajaAceptadas) {
             boolean cumpleFiltros = true;
@@ -308,14 +308,69 @@ public class GestorSolicitudesEstudiante implements Actualizador {
             }
 
             if (cumpleFiltros) {
-                solicitudBajaFiltradas.add(solictud);
+                solicitudesBajaFiltradas.add(solictud);
             }
         }
 
-        return solicitudBajaFiltradas;
+        return solicitudesBajaFiltradas;
     }
 
     public SolicitudBajaEstudiante buscarBajaPorNombreOCi(SolicitudBajaEstudiante solicitud, String valor) {
+        boolean result = true;
+        if (!solicitud.getEstudiante().getNombreCompleto().contains(valor)) {
+            result = false;
+        }
+        if (!solicitud.getEstudiante().getCi().contains(valor)) {
+            result = false;
+        }
+
+        return result ? solicitud : null;
+    }
+
+    public ArrayList<SolicitudLicenciaEstudiante> filtradoDinamicoSolicitudLicenciaEstudiantes(
+            Map<String, String> filtros) {
+        ArrayList<SolicitudLicenciaEstudiante> solicitudesLicenciaFiltradas = new ArrayList<>();
+
+        for (SolicitudLicenciaEstudiante solictud : solicitudesLicenciaAceptadas) {
+            boolean cumpleFiltros = true;
+            for (Map.Entry<String, String> filtro : filtros.entrySet()) {
+                String atributo = filtro.getKey();
+                String valor = filtro.getValue();
+
+                switch (atributo) {
+                    case "facultad":
+                        if (!solictud.getEstudiante().getFacultad().toString().equals(valor)) {
+                            cumpleFiltros = false;
+                        }
+                        break;
+                    case "anio":
+                        if (!(solictud.getAnioExpedicion() == Integer.parseInt(valor))) {
+                            cumpleFiltros = false;
+                        }
+                        break;
+                    case "estado":
+                        if (!solictud.getEstado().toString().equals(valor)) {
+                            cumpleFiltros = false;
+                        }
+                        break;
+
+                    case "buscar":
+                        if ((buscarLicenciaPorNombreOCi(solictud, valor)).equals(null)) {
+                            cumpleFiltros = false;
+                        }
+                        break;
+                }
+            }
+
+            if (cumpleFiltros) {
+                solicitudesLicenciaFiltradas.add(solictud);
+            }
+        }
+
+        return solicitudesLicenciaFiltradas;
+    }
+
+    public SolicitudLicenciaEstudiante buscarLicenciaPorNombreOCi(SolicitudLicenciaEstudiante solicitud, String valor) {
         boolean result = true;
         if (!solicitud.getEstudiante().getNombreCompleto().contains(valor)) {
             result = false;

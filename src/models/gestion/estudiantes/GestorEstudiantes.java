@@ -79,36 +79,4 @@ public class GestorEstudiantes {
         return estudiantesFiltrados;
     }
 
-    public ArrayList<Estudiante> filtrar(Map<String, String> filtros) {
-    ArrayList<Estudiante> estudiantesFiltrados = new ArrayList<>();
-
-    for (Estudiante estudiante : estudiantes) {
-        boolean cumpleFiltros = true;
-        for (Map.Entry<String, String> filtro : filtros.entrySet()) {
-            String atributo = filtro.getKey();
-            String valor = filtro.getValue();
-
-            switch (atributo) {
-                case "nombre":
-                    if (!estudiante.getNombre().equals(valor)) {
-                        cumpleFiltros = false;
-                    }
-                    break;
-                case "facultad":
-                    if (!estudiante.getFacultad().equals(valor)) {
-                        cumpleFiltros = false;
-                    }
-                    break;
-                // Agrega más casos para cada atributo que quieras filtrar
-            }
-        }
-
-        if (cumpleFiltros) {
-            estudiantesFiltrados.add(estudiante);
-        }
-    }
-
-    return estudiantesFiltrados;
-}
-
 }

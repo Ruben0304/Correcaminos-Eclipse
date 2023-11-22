@@ -305,6 +305,7 @@ public class PanelAdministracion extends JPanel {
 	private JScrollPane getScrollPaneFiltrado() {
 		if (scrollPaneFiltrado == null) {
 			scrollPaneFiltrado = new JScrollPane();
+			scrollPaneFiltrado.setBorder(null);
 			scrollPaneFiltrado.setOpaque(false);
 			scrollPaneFiltrado.setBackground(new Color(40, 42, 46));
 			scrollPaneFiltrado.setBounds(0, 100, 590, 574);
@@ -421,6 +422,7 @@ public class PanelAdministracion extends JPanel {
 	private JTable getTable() {
 		if (table == null) {
 			table = new JTable();
+			table.setBorder(null);
 			table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 			// scrollPane.setViewportView(table);
 			table.setModel(new PendientesEstudiantes(GestorDepartamentos.gestorDepartamentos().getBiblioteca().getEstudiantesPendientes(GestorEstudiantes.gestorEstudiantes().getGestorResponsabilidadesEstudiantes().getResponsabilidadesEstudiantesPendientes())));

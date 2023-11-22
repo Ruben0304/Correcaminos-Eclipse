@@ -68,7 +68,7 @@ public class Navegacion extends JPanel {
 			
 
 		}
-		else if (usuarioAutenticado != null && usuarioAutenticado instanceof Persona) {
+		else if (usuarioAutenticado != null && usuarioAutenticado instanceof Estudiante) {
 			add(getReportes());
 			// panel_inicio.add(getGuardar());
 			add(getLblReportes());
@@ -93,11 +93,8 @@ public class Navegacion extends JPanel {
 	}
 
 	public static JPanel getBarraNavegacion() {
-		if (instance == null) {
-			instance = new Navegacion();
-
-		}
-		return instance;
+		
+		return new Navegacion();
 	}
 
 	private JLabel getHome() {

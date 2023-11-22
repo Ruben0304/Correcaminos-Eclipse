@@ -73,6 +73,8 @@ public class Pricipal extends JFrame implements ActionListener {
 		contentPane.removeAll();
 		contentPane.add(Navegacion.getBarraNavegacion());
 		contentPane.add(panel);
+		repaint();
+		revalidate();
 		
 	}
 

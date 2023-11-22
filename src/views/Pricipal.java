@@ -72,10 +72,8 @@ public class Pricipal extends JFrame implements ActionListener {
 
 		contentPane.removeAll();
 		contentPane.add(Navegacion.getBarraNavegacion());
-	//  contentPane.add(panel);
-		// contentPane.add(ChatPanel());
-		contentPane.add(new PanelAdministracion());
-
+		contentPane.add(panel);
+		
 	}
 
 	public Pricipal() {
@@ -89,7 +87,7 @@ public class Pricipal extends JFrame implements ActionListener {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		contentPane.add(getPanel_1());
+		
 
 	}
 

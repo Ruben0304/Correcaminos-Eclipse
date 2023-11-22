@@ -1,5 +1,6 @@
 package controllers;
 
+import java.security.Principal;
 import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
@@ -16,10 +17,12 @@ import models.responsabilidades.ResponsabilidadesEstudiantes;
 import models.usuarios.Becado;
 import models.usuarios.Empleado;
 import models.usuarios.Estudiante;
+import models.usuarios.Persona;
 import models.usuarios.Usuario;
 import util.BooleanosEstudianteBaja;
 import util.BooleanosEstudianteBecadoBaja;
 import util.Colores;
+import views.ChatPanel;
 import views.Inicio;
 import views.Pricipal;
 import views.Reportes;
@@ -121,6 +124,20 @@ public class ControladorPrincipal {
 
             }
 
+        }
+
+    }
+
+    public static void mostrarChats() {
+        if (Auth.hayUsuarioAutenticado()) {
+            Usuario autenticado = Auth.usuarioAutenticado();
+            if (autenticado instanceof Persona) {
+                Pricipal.getInstancia().setVista(new ChatPanel(autenticado));
+                Pricipal.getInstancia().revalidate();
+                Pricipal.getInstancia().repaint();
+            }
+        } else {
+            ControladorLogin.mostrarLogin();
         }
 
     }

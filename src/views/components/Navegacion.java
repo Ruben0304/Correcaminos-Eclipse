@@ -15,6 +15,7 @@ import models.usuarios.Admin;
 import models.usuarios.Estudiante;
 import models.usuarios.Persona;
 import models.usuarios.Usuario;
+import views.ChatPanel;
 import views.Pricipal;
 import auth.Auth;
 import controllers.ControladorAdmin;
@@ -235,7 +236,7 @@ public class Navegacion extends JPanel {
 					getGestion_bg().setVisible(false);
 					getGuardar_bg().setVisible(false);
 
-					ControladorPrincipal.mostrarReportes();
+					ControladorPrincipal.mostrarChats();
 
 				}
 

@@ -42,7 +42,7 @@ public class ChatPanel extends JPanel implements ActionListener {
     private JTextArea chatArea = new JTextArea();
     private JTextField messageField = new JTextField();
     private Chat chat;
-    private Usuario usuario;
+    private TipoDepartamento departamento = TipoDepartamento.Biblioteca;
     private JLabel lblNewLabel;
     private final JLabel lblNewLabel_1 = new JLabel("");
     private final JPanel panel = new JPanel();
@@ -61,7 +61,7 @@ public class ChatPanel extends JPanel implements ActionListener {
     private final JLabel lblDepartamentos = new JLabel("Departamentos");
     private JTextArea txtrContanctaConLos;
 
-    public ChatPanel(Usuario usuario, TipoDepartamento departamento) {
+    public ChatPanel(Usuario usuario) {
         // Configurar el panel
         AdministradorChats.getAdministradorChats();
 

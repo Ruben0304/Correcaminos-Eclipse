@@ -23,6 +23,7 @@ public class Main {
 				ArrayList<Persona> lala = new ArrayList<>();
 				
 
+				
 				ControladorLogin.comprobarSession();
 				Pricipal frame = Pricipal.getInstancia();
 				frame.setVisible(true);

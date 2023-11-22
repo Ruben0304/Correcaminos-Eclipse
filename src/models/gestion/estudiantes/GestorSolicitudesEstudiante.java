@@ -273,7 +273,7 @@ public class GestorSolicitudesEstudiante implements Actualizador {
 
     // Filtros administración
 
-    public ArrayList<SolicitudBajaEstudiante> filtrar(Map<String, String> filtros) {
+    public ArrayList<SolicitudBajaEstudiante> filtrarSolicBajaEstudiantes(Map<String, String> filtros) {
         ArrayList<SolicitudBajaEstudiante> solicitudBajaFiltradas = new ArrayList<>();
 
         for (SolicitudBajaEstudiante solictud : solicitudesBajaAceptadas) {
@@ -300,7 +300,7 @@ public class GestorSolicitudesEstudiante implements Actualizador {
                         break;
 
                     case "buscar":
-                        if ((busqueda(solictud, valor)).equals(null)) {
+                        if ((buscarBajaPorNombreOCi(solictud, valor)).equals(null)) {
                             cumpleFiltros = false;
                         }
                         break;
@@ -315,7 +315,7 @@ public class GestorSolicitudesEstudiante implements Actualizador {
         return solicitudBajaFiltradas;
     }
 
-    public SolicitudBajaEstudiante busqueda(SolicitudBajaEstudiante solicitud, String valor) {
+    public SolicitudBajaEstudiante buscarBajaPorNombreOCi(SolicitudBajaEstudiante solicitud, String valor) {
         boolean result = true;
         if (!solicitud.getEstudiante().getNombreCompleto().contains(valor)) {
             result = false;

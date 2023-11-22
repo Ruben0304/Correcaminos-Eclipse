@@ -132,8 +132,5 @@ public class ControladorAdmin {
         mostrarGestionLicencias();
     }
 
-    public ArrayList<SolicitudLicencia> filtrarLicencias (String filtro){
-        
-    }
 
 }

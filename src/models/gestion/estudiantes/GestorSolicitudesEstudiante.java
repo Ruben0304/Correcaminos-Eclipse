@@ -273,7 +273,7 @@ public class GestorSolicitudesEstudiante implements Actualizador {
 
     // Filtros administración
 
-    public ArrayList<SolicitudBajaEstudiante> filtrarSolicBajaEstudiantes(Map<String, String> filtros) {
+    public ArrayList<SolicitudBajaEstudiante> filtradoDinamicoSolicitudBajaEstudiantes(Map<String, String> filtros) {
         ArrayList<SolicitudBajaEstudiante> solicitudBajaFiltradas = new ArrayList<>();
 
         for (SolicitudBajaEstudiante solictud : solicitudesBajaAceptadas) {

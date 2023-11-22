@@ -16,8 +16,6 @@ public abstract class Persona extends Usuario {
 
     }
 
-  
-
     public String getCi() {
         return ci;
     }
@@ -36,6 +34,10 @@ public abstract class Persona extends Usuario {
 
     public String getSegundo_apellido() {
         return segundo_apellido;
+    }
+
+    public String getNombreCompleto() {
+        return getNombre() + " " + getApellidos();
     }
 
     public char getSexo() {

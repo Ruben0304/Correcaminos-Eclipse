@@ -37,6 +37,7 @@ import java.awt.event.MouseEvent;
 import javax.swing.border.LineBorder;
 import javax.swing.JRadioButton;
 import javax.swing.JCheckBox;
+import java.awt.SystemColor;
 
 public class ChatPanel extends JPanel implements ActionListener {
     private JTextArea chatArea = new JTextArea();
@@ -171,7 +172,7 @@ public class ChatPanel extends JPanel implements ActionListener {
         
         scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         add(scrollPane);
-        panel.setBorder(new LineBorder(new Color(105, 105, 105)));
+        panel.setBorder(new LineBorder(new Color(128, 128, 128)));
         panel.setBackground(new Color(40, 42, 46));
         panel.setBounds(252, 33, 616, 547);
         

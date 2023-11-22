@@ -38,6 +38,9 @@ public abstract class Persona extends Usuario {
         return segundo_apellido;
     }
 
+    public String getNombreCompleto () {
+        return getNombre() + " " + getApellidos();
+    }
     public char getSexo() {
 
         return this.ci.charAt(9) % 2 == 0 ? 'M' : 'F';

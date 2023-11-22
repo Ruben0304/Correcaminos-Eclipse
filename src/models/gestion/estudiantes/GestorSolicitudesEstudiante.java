@@ -3,13 +3,14 @@ package models.gestion.estudiantes;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Map;
 
 import data.ObtenerSolicitudes;
 import data.ObtenerSolicitudesBajasEstudiantesAceptadas;
 import models.interfaces.Actualizador;
 import models.reports.BajasAceptadasPorAnio;
 import models.reports.BajasAceptadasPorFacultad;
-
+import models.solicitudes.SolicitudBaja;
 import models.solicitudes.SolicitudBajaEstudiante;
 
 import models.solicitudes.SolicitudLicenciaEstudiante;
@@ -42,7 +43,6 @@ public class GestorSolicitudesEstudiante implements Actualizador {
         solicitudesBajaAceptadas = ObtenerSolicitudesBajasEstudiantesAceptadas.cargarDesdeArchivoB();
 
     }
-
 
     public ArrayList<SolicitudLicenciaEstudiante> getSolicitudesLicenciaPendientes() {
 
@@ -106,8 +106,6 @@ public class GestorSolicitudesEstudiante implements Actualizador {
 
     }
 
-    
-
     public int totalSolicitudesBajaPendientes() {
         return solicitudesBajaPendientes.size();
     }
@@ -160,7 +158,6 @@ public class GestorSolicitudesEstudiante implements Actualizador {
 
     // Filtraciones bajas
 
-
     public ArrayList<BajasAceptadasPorAnio> cantidadDeBajasPorAnio(int anioMinimo) {
         ArrayList<BajasAceptadasPorAnio> solicitudes = new ArrayList<>();
 
@@ -184,7 +181,7 @@ public class GestorSolicitudesEstudiante implements Actualizador {
     }
 
     public int cantidadDeBajasDeUnAnio(int anio) {
-       
+
         int total = 0;
         for (SolicitudBajaEstudiante s : solicitudesBajaAceptadas) {
             if (s.getAnioExpedicion() == anio) {
@@ -273,4 +270,52 @@ public class GestorSolicitudesEstudiante implements Actualizador {
     // int max = 0;
 
     // }
+
+    // Filtros administración
+
+    public ArrayList<SolicitudBajaEstudiante> filtrar(Map<String, String> filtros) {
+        ArrayList<SolicitudBajaEstudiante> solicitudBajaFiltradas = new ArrayList<>();
+
+        for (SolicitudBajaEstudiante solictud : solicitudesBajaAceptadas) {
+            boolean cumpleFiltros = true;
+            for (Map.Entry<String, String> filtro : filtros.entrySet()) {
+                String atributo = filtro.getKey();
+                String valor = filtro.getValue();
+
+                switch (atributo) {
+                    case "facultad":
+                        if (!solictud.getEstudiante().getFacultad().toString().equals(valor)) {
+                            cumpleFiltros = false;
+                        }
+                        break;
+                    case "anio":
+                        if (!(solictud.getAnioExpedicion() == Integer.parseInt(valor))) {
+                            cumpleFiltros = false;
+                        }
+                        break;
+                    case "estado":                    
+                        if (!solictud.getEstado().toString().equals(valor)) {
+                             cumpleFiltros = false;
+                        }
+                        break;
+
+                        case "":
+
+                }
+            }
+
+            if (cumpleFiltros) {
+                solicitudBajaFiltradas.add(solictud);
+            }
+        }
+
+        return solicitudBajaFiltradas;
+    }
+
+    public boolean busqueda (SolicitudBajaEstudiante solicitud ,String valor){
+        boolean result = true;
+        if (!solicitud.getEstudiante().getNombreCompleto().contains(valor)) {
+            result = false;
+        }
+    }
 }

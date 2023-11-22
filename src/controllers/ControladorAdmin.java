@@ -11,6 +11,7 @@ import models.gestion.estudiantes.GestorEstudiantes;
 import models.gestion.estudiantes.GestorResponsabilidadesEstudiantes;
 import models.gestion.estudiantes.GestorSolicitudesEstudiante;
 import models.responsabilidades.ResponsabilidadesEstudiantes;
+import models.solicitudes.SolicitudLicencia;
 import models.usuarios.Admin;
 import models.usuarios.Estudiante;
 import models.usuarios.Persona;
@@ -129,6 +130,10 @@ public class ControladorAdmin {
                 break;
         }
         mostrarGestionLicencias();
+    }
+
+    public ArrayList<SolicitudLicencia> filtrarLicencias (String filtro){
+        
     }
 
 }

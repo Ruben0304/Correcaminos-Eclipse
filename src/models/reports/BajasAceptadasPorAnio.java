@@ -1,8 +1,10 @@
 package models.reports;
 
 public class BajasAceptadasPorAnio {
-    private int anio;
+    
+	private int anio;
     private int cantidad;
+    
     public BajasAceptadasPorAnio(int anio, int cantidad) {
         this.anio = anio;
         this.cantidad = cantidad;

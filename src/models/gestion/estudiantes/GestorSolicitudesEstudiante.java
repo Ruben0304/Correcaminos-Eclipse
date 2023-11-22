@@ -14,15 +14,14 @@ import models.solicitudes.SolicitudBajaEstudiante;
 
 import models.solicitudes.SolicitudLicenciaEstudiante;
 import models.usuarios.Estudiante;
-import util.Facultad;
+import utiles.Facultad;
 
-public class GestorSolicitudesEstudiante implements Actualizador {
+public class GestorSolicitudesEstudiante  {
 
-    ArrayList<SolicitudLicenciaEstudiante> solicitudesLicenciaAceptadas;
-    ArrayList<SolicitudBajaEstudiante> solicitudesBajaAceptadas;
-
-    ArrayList<SolicitudLicenciaEstudiante> solicitudesLicenciaPendientes;
-    ArrayList<SolicitudBajaEstudiante> solicitudesBajaPendientes;
+    private ArrayList<SolicitudLicenciaEstudiante> solicitudesLicenciaAceptadas;
+    private ArrayList<SolicitudBajaEstudiante> solicitudesBajaAceptadas;
+    private ArrayList<SolicitudLicenciaEstudiante> solicitudesLicenciaPendientes;
+    private ArrayList<SolicitudBajaEstudiante> solicitudesBajaPendientes;
 
     public GestorSolicitudesEstudiante(ArrayList<Estudiante> estudiantes) {
         this.solicitudesLicenciaAceptadas = new ArrayList<>();
@@ -101,13 +100,6 @@ public class GestorSolicitudesEstudiante implements Actualizador {
         solicitudesBajaPendientes.add(new SolicitudBajaEstudiante(motivo, e));
     }
 
-    @Override
-    public void actualizarDatos() {
-
-    }
-
-    
-
     public int totalSolicitudesBajaPendientes() {
         return solicitudesBajaPendientes.size();
     }
@@ -116,7 +108,7 @@ public class GestorSolicitudesEstudiante implements Actualizador {
         return solicitudesLicenciaPendientes.size();
     }
 
-    public int toalSolicitudesBajaYLicencia() {
+    public int totalSolicitudesBajaYLicencia() {
         return totalSolicitudesBajaPendientes() + totalSolicitudesLicenciaPendientes();
     }
 

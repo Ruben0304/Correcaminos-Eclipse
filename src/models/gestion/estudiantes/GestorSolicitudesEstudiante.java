@@ -293,14 +293,17 @@ public class GestorSolicitudesEstudiante implements Actualizador {
                             cumpleFiltros = false;
                         }
                         break;
-                    case "estado":                    
+                    case "estado":
                         if (!solictud.getEstado().toString().equals(valor)) {
-                             cumpleFiltros = false;
+                            cumpleFiltros = false;
                         }
                         break;
 
-                        case "":
-
+                    case "buscar":
+                        if ((busqueda(solictud, valor)).equals(null)) {
+                            cumpleFiltros = false;
+                        }
+                        break;
                 }
             }
 
@@ -312,10 +315,15 @@ public class GestorSolicitudesEstudiante implements Actualizador {
         return solicitudBajaFiltradas;
     }
 
-    public boolean busqueda (SolicitudBajaEstudiante solicitud ,String valor){
+    public SolicitudBajaEstudiante busqueda(SolicitudBajaEstudiante solicitud, String valor) {
         boolean result = true;
         if (!solicitud.getEstudiante().getNombreCompleto().contains(valor)) {
             result = false;
         }
+        if (!solicitud.getEstudiante().getCi().contains(valor)) {
+            result = false;
+        }
+
+        return result ? solicitud : null;
     }
 }

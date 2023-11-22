@@ -17,8 +17,7 @@ public class Pruebas {
 			public void run() {
 				
 
-					AdministradorChats.getAdministradorChats();
-
+					
 				
 			}
 		});

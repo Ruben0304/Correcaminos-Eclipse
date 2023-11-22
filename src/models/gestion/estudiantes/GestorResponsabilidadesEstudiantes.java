@@ -26,6 +26,7 @@ public class GestorResponsabilidadesEstudiantes implements Actualizador {
     public ArrayList<ResponsabilidadesEstudiantes> getResponsabilidadesEstudiantesCujae() {
         return responsabilidadesEstudiantesCujae;
     }
+    
 
     private void registrarResponsabilidades(ArrayList<Estudiante> estudiantes) {
         ArrayList<ResponsabilidadesEstudiantes> responsabilidades = ObtenerResponsabilidadesEstudiantes

@@ -15,7 +15,7 @@
     },
     "estado": "PENDIENTE",
     "motivo": "Enfermedad",
-    "fecha": "Nov 18, 2023 3:58:38 AM"
+    "fecha": "Nov 18, 2022 3:58:38 AM"
   },
   {
     "estudiante": {
@@ -33,7 +33,7 @@
     },
     "estado": "PENDIENTE",
     "motivo": "Lejania",
-    "fecha": "Nov 18, 2023 3:58:38 AM"
+    "fecha": "Nov 18, 2020 3:58:38 AM"
   },
   {
     "estudiante": {
@@ -51,6 +51,6 @@
     },
     "estado": "PENDIENTE",
     "motivo": "Problemas personales",
-    "fecha": "Nov 18, 2023 3:58:38 AM"
+    "fecha": "Nov 18, 2018 3:58:38 AM"
   }
 ]

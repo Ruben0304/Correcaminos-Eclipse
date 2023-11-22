@@ -263,6 +263,18 @@ public class GestorSolicitudesEstudiante implements Actualizador {
         return bajasOrdenadas;
     }
 
+    public ArrayList<SolicitudLicenciaEstudiante> getSolicitudesLicenciaAceptadas() {
+        return solicitudesLicenciaAceptadas;
+    }
+
+    public ArrayList<SolicitudBajaEstudiante> getSolicitudesBajaAceptadas() {
+        return solicitudesBajaAceptadas;
+    }
+
+    public ArrayList<SolicitudBajaEstudiante> getSolicitudesBajaPendientes() {
+        return solicitudesBajaPendientes;
+    }
+
     // public ArrayList<SolicitudBajaEstudiante> filtrarPorFecha(String anio) {
     // ArrayList<SolicitudBajaEstudiante> solBajasFiltradas = new ArrayList<>();
 

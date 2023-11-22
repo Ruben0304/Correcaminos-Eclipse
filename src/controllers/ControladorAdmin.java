@@ -18,6 +18,7 @@ import models.usuarios.Usuario;
 import views.Pricipal;
 import views.Reportes;
 import views.admin.CasosPendientes;
+import views.admin.PanelAdministracion;
 import views.old.SecretariaPendientes;
 
 public class ControladorAdmin {
@@ -41,9 +42,10 @@ public class ControladorAdmin {
             case Secretaria:
                 usuariosPendientes.addAll(gestDep.getSecretaria().getEstudiantesPendientes(listadoResponsabilidades));
 
-                instancia.setVista(new CasosPendientes(usuariosPendientes).getPanelCasosPendientes());
-                Pricipal.getInstancia().revalidate();
-                Pricipal.getInstancia().repaint();
+
+                instancia.setVista(new PanelAdministracion());
+                instancia.revalidate();
+                instancia.repaint();
                 break;
             case AlmacenLibrosDocentes:
                 usuariosPendientes.addAll(gestDep.getAlmacenDeLibros().getEstudiantesPendientes(listadoResponsabilidades));

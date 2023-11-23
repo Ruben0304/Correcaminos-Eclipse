@@ -315,11 +315,7 @@ public class GestorSolicitudesEstudiante implements Actualizador {
                         break;
 
                     case "buscar":
-<<<<<<< HEAD
-                        if ((buscarBajaPorNombreOCi(solictud, valor)) == null) {
-=======
                         if ((buscarBajaPorNombreOCi(solictud, valor)).equals(null)) {
->>>>>>> eduardo-dashboard
                             cumpleFiltros = false;
                         }
                         break;
@@ -336,16 +332,10 @@ public class GestorSolicitudesEstudiante implements Actualizador {
 
     public SolicitudBajaEstudiante buscarBajaPorNombreOCi(SolicitudBajaEstudiante solicitud, String valor) {
         boolean result = true;
-<<<<<<< HEAD
-      
-        if (!(solicitud.getEstudiante().getNombreCompleto().toLowerCase().contains(valor.toLowerCase())
-                || solicitud.getEstudiante().getCi().toLowerCase().contains(valor.toLowerCase()))) {
-=======
         if (!solicitud.getEstudiante().getNombreCompleto().contains(valor)) {
             result = false;
         }
         if (!solicitud.getEstudiante().getCi().contains(valor)) {
->>>>>>> eduardo-dashboard
             result = false;
         }
 

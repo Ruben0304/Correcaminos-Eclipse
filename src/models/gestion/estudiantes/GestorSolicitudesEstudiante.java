@@ -10,7 +10,7 @@ import data.ObtenerSolicitudesBajasEstudiantesAceptadas;
 import models.interfaces.Actualizador;
 import models.reports.BajasAceptadasPorAnio;
 import models.reports.BajasAceptadasPorFacultad;
-
+import models.solicitudes.SolicitudBaja;
 import models.solicitudes.SolicitudBajaEstudiante;
 
 import models.solicitudes.SolicitudLicenciaEstudiante;
@@ -282,6 +282,10 @@ public class GestorSolicitudesEstudiante implements Actualizador {
     // int max = 0;
 
     // }
+<<<<<<< HEAD
+=======
+
+>>>>>>> eduardo-dashboard
     // Filtros administración
 
     public ArrayList<SolicitudBajaEstudiante> filtradoDinamicoSolicitudBajaEstudiantes(Map<String, String> filtros) {
@@ -311,7 +315,11 @@ public class GestorSolicitudesEstudiante implements Actualizador {
                         break;
 
                     case "buscar":
+<<<<<<< HEAD
                         if ((buscarBajaPorNombreOCi(solictud, valor)) == null) {
+=======
+                        if ((buscarBajaPorNombreOCi(solictud, valor)).equals(null)) {
+>>>>>>> eduardo-dashboard
                             cumpleFiltros = false;
                         }
                         break;
@@ -328,9 +336,16 @@ public class GestorSolicitudesEstudiante implements Actualizador {
 
     public SolicitudBajaEstudiante buscarBajaPorNombreOCi(SolicitudBajaEstudiante solicitud, String valor) {
         boolean result = true;
+<<<<<<< HEAD
       
         if (!(solicitud.getEstudiante().getNombreCompleto().toLowerCase().contains(valor.toLowerCase())
                 || solicitud.getEstudiante().getCi().toLowerCase().contains(valor.toLowerCase()))) {
+=======
+        if (!solicitud.getEstudiante().getNombreCompleto().contains(valor)) {
+            result = false;
+        }
+        if (!solicitud.getEstudiante().getCi().contains(valor)) {
+>>>>>>> eduardo-dashboard
             result = false;
         }
 
@@ -382,10 +397,20 @@ public class GestorSolicitudesEstudiante implements Actualizador {
 
     public SolicitudLicenciaEstudiante buscarLicenciaPorNombreOCi(SolicitudLicenciaEstudiante solicitud, String valor) {
         boolean result = true;
+<<<<<<< HEAD
         if (!solicitud.getEstudiante().getNombreCompleto().contains(valor)
                 || !solicitud.getEstudiante().getCi().contains(valor)) {
             result = false;
         }
+=======
+        if (!solicitud.getEstudiante().getNombreCompleto().contains(valor)) {
+            result = false;
+        }
+        if (!solicitud.getEstudiante().getCi().contains(valor)) {
+            result = false;
+        }
+
+>>>>>>> eduardo-dashboard
         return result ? solicitud : null;
     }
 }

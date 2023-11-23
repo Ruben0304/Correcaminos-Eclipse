@@ -10,7 +10,7 @@ import data.ObtenerSolicitudesBajasEstudiantesAceptadas;
 import models.interfaces.Actualizador;
 import models.reports.BajasAceptadasPorAnio;
 import models.reports.BajasAceptadasPorFacultad;
-
+import models.solicitudes.SolicitudBaja;
 import models.solicitudes.SolicitudBajaEstudiante;
 
 import models.solicitudes.SolicitudLicenciaEstudiante;

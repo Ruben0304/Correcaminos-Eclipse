@@ -328,9 +328,7 @@ public class GestorSolicitudesEstudiante implements Actualizador {
 
     public SolicitudBajaEstudiante buscarBajaPorNombreOCi(SolicitudBajaEstudiante solicitud, String valor) {
         boolean result = true;
-        if (valor.equals("")) {
-            valor = " ";
-        }
+      
         if (!(solicitud.getEstudiante().getNombreCompleto().toLowerCase().contains(valor.toLowerCase())
                 || solicitud.getEstudiante().getCi().toLowerCase().contains(valor.toLowerCase()))) {
             result = false;

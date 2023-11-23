@@ -10,7 +10,7 @@ public class SolicitudLicenciaEmpleado extends SolicitudLicencia {
 	private Empleado empleado;
 
 	public SolicitudLicenciaEmpleado(Estado estado, String motivo, Date fechaSalida, Date fechaRegreso, Empleado empleado) {
-		super(estado, motivo, fechaSalida, fechaRegreso);
+		// super( motivo, fechaSalida, fechaRegreso);
 		this.empleado = empleado;
 	}
 

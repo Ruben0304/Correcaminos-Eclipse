@@ -12,7 +12,7 @@ public abstract class SolicitudBaja extends Solicitud{
 
 
     public SolicitudBaja(Estado estado, String motivo, Date fecha) {
-        super(estado, motivo);
+        super(motivo);
         this.fecha = fecha;
     }
 

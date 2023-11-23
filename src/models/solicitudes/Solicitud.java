@@ -6,7 +6,7 @@ public abstract class Solicitud {
     protected Estado estado;
     protected String motivo;
 
-    public Solicitud(Estado estado, String motivo) {
+    public Solicitud(String motivo) {
         this.estado = Estado.PENDIENTE;
         this.motivo = motivo;
     }

@@ -94,7 +94,7 @@ public class GestorSolicitudesEstudiante implements Actualizador {
     }
 
     public void agregarSolicitudDeLicencia(Estudiante e, String motivo) {
-        solicitudesLicenciaPendientes.add(new SolicitudLicenciaEstudiante(e, motivo, null, null));
+        solicitudesLicenciaPendientes.add(new SolicitudLicenciaEstudiante(e, motivo));
     }
 
     public void agregarSolicitudDeBaja(Estudiante e, String motivo) {

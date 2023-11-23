@@ -11,10 +11,10 @@ public abstract class SolicitudLicencia extends Solicitud {
     protected Date fechaSalida;
     protected Date fechaRegreso;
 
-    public SolicitudLicencia(Estado estado, String motivo, Date fechaSalida, Date fechaRegreso) {
-        super(estado, motivo);
-        this.fechaSalida = fechaSalida;
-        this.fechaRegreso = fechaRegreso;
+    public SolicitudLicencia(String motivot) {
+        super(motivo);
+        // this.fechaSalida = fechaSalida;
+        // this.fechaRegreso = fechaRegreso;
     }
 
     public Date getFechaSalida() {

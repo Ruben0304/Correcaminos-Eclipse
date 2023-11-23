@@ -313,9 +313,9 @@ public class GestorSolicitudesEstudiante implements Actualizador {
                             cumpleFiltros = false;
                         }
                         break;
-
+                       
                     case "buscar":
-                        if ((buscarBajaPorNombreOCi(solictud, valor)).equals(null)) {
+                        if ((buscarBajaPorNombreOCi(solictud, valor)) == null) {
                             cumpleFiltros = false;
                         }
                         break;
@@ -332,12 +332,10 @@ public class GestorSolicitudesEstudiante implements Actualizador {
 
     public SolicitudBajaEstudiante buscarBajaPorNombreOCi(SolicitudBajaEstudiante solicitud, String valor) {
         boolean result = true;
-        if (!solicitud.getEstudiante().getNombreCompleto().contains(valor)) {
+        if (!(solicitud.getEstudiante().getNombreCompleto().contains(valor) || solicitud.getEstudiante().getCi().contains(valor))){
             result = false;
         }
-        if (!solicitud.getEstudiante().getCi().contains(valor)) {
-            result = false;
-        }
+       
 
         return result ? solicitud : null;
     }
@@ -387,14 +385,10 @@ public class GestorSolicitudesEstudiante implements Actualizador {
 
     public SolicitudLicenciaEstudiante buscarLicenciaPorNombreOCi(SolicitudLicenciaEstudiante solicitud, String valor) {
         boolean result = true;
-        if (!solicitud.getEstudiante().getNombreCompleto().contains(valor)) {
+        if (!solicitud.getEstudiante().getNombreCompleto().contains(valor) || !solicitud.getEstudiante().getCi().contains(valor)) {
             result = false;
         }
-        if (!solicitud.getEstudiante().getCi().contains(valor)) {
-            result = false;
-        }
-
         return result ? solicitud : null;
     }
 }
-}
+

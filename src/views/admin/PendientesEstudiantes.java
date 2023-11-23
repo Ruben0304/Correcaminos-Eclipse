@@ -2,6 +2,7 @@ package views.admin;
 
 import javax.swing.table.DefaultTableModel;
 import util.Facultad;
+import models.solicitudes.SolicitudBajaEstudiante;
 import models.usuarios.Estudiante;
 
 import java.util.ArrayList;
@@ -24,6 +25,18 @@ public class PendientesEstudiantes extends DefaultTableModel {
 		for (Estudiante e : estudiantes) {
 			Object[] newRow = new Object[] { e.getCi(), e.getNombre(), e.getApellidos(),
 					e.getCarrera() };
+			addRow(newRow);
+		}
+
+	}
+
+	public PendientesEstudiantes(ArrayList<SolicitudBajaEstudiante> soli, int a) {
+		String[] columnNames = {
+				"DNI", "Nombre", "Apellido", "Carrera" };
+		this.setColumnIdentifiers(columnNames);
+		for (SolicitudBajaEstudiante e : soli) {
+			Object[] newRow = new Object[] { e.getEstudiante().getCi(), e.getEstudiante().getNombre(), e.getEstudiante().getApellidos(),
+					e.getEstudiante().getCarrera() };
 			addRow(newRow);
 		}
 

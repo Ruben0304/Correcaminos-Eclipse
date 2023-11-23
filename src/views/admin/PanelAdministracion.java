@@ -7,6 +7,7 @@ import java.awt.Component;
 import java.awt.Image;
 import java.awt.Rectangle;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import javax.swing.JLabel;
 
@@ -40,6 +41,7 @@ import util.Motivos;
 import javax.swing.event.ChangeListener;
 import javax.swing.table.DefaultTableCellRenderer;
 
+import controllers.ControladorFiltrado;
 import models.gestion.GestorDepartamentos;
 import models.gestion.estudiantes.GestorEstudiantes;
 import models.gestion.estudiantes.GestorResponsabilidadesEstudiantes;
@@ -48,6 +50,11 @@ import models.solicitudes.SolicitudLicenciaEstudiante;
 import models.usuarios.Estudiante;
 
 import javax.swing.event.ChangeEvent;
+import util.Estado;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.event.ItemListener;
+import java.awt.event.ItemEvent;
 
 
 
@@ -81,9 +88,23 @@ public class PanelAdministracion extends JPanel {
 	private JLabel label_1;
 	private JLabel label_2;
 	private JTable table;
+	private HashMap<String,String> map;
+	private  ArrayList<SolicitudBajaEstudiante> solicitudBajaEstudiantes;
+	private static PanelAdministracion panelAdministracion = null;
 
+
+	// public void filtrarTabla(){
+
+	// }
+
+	public static PanelAdministracion getPanelAdministracion(ArrayList<SolicitudBajaEstudiante> solicitudBajaEstudiantes){
+		if(panelAdministracion == null){
+			panelAdministracion = new PanelAdministracion(solicitudBajaEstudiantes);
+		}
+		return panelAdministracion;
+	}
 	
-	public PanelAdministracion() {
+	private PanelAdministracion(ArrayList<SolicitudBajaEstudiante> solicitudBajaEstudiantes) {
 		setBounds(new Rectangle(178, 0, 944, 700));
 		setBackground(new Color(31, 33, 36));
 		setLayout(null);
@@ -93,6 +114,7 @@ public class PanelAdministracion extends JPanel {
 		add(getScrollPaneFiltrado());
 		add(getLblNewLabel());
 		add(getTextField());
+		this.solicitudBajaEstudiantes = solicitudBajaEstudiantes;
 
 	}
 	private JPanel getPanelFiltrados() {
@@ -187,6 +209,13 @@ public class PanelAdministracion extends JPanel {
 	private JComboBox getComboBoxSeleccionarFac() {
 		if (comboBoxSeleccionarFac == null) {
 			comboBoxSeleccionarFac = new JComboBox();
+			comboBoxSeleccionarFac.addItemListener(new ItemListener() {
+				public void itemStateChanged(ItemEvent e) {
+					map.put("facultad", comboBoxSeleccionarFac.getSelectedItem().toString());
+					ControladorFiltrado.Filtrar(map);
+				}
+			});
+			
 			comboBoxSeleccionarFac.setModel(new DefaultComboBoxModel(TipoDepartamento.values()));
 			comboBoxSeleccionarFac.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 			comboBoxSeleccionarFac.setMaximumRowCount(9);
@@ -203,6 +232,7 @@ public class PanelAdministracion extends JPanel {
 	private JComboBox getComboBox() {
 		if (comboBox == null) {
 			comboBox = new JComboBox();
+			comboBox.setModel(new DefaultComboBoxModel(Estado.values()));
 			comboBox.setBounds(92, 97, 154, 25);
 		}
 		return comboBox;
@@ -419,32 +449,20 @@ public class PanelAdministracion extends JPanel {
 		}
 		return label_2;
 	}
-	private JTable getTable() {
+	public JTable getTable() {
 		if (table == null) {
 			table = new JTable();
 			table.setBorder(null);
 			table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 			// scrollPane.setViewportView(table);
-			table.setModel(new PendientesEstudiantes(GestorDepartamentos.gestorDepartamentos().getBiblioteca().getEstudiantesPendientes(GestorEstudiantes.gestorEstudiantes().getGestorResponsabilidadesEstudiantes().getResponsabilidadesEstudiantesPendientes())));
+			table.setModel(new PendientesEstudiantes(this.solicitudBajaEstudiantes,8));
 			table.setBounds(112, 33, 587, 476);
 			table.setBackground(new Color(31, 33, 36));
 			table.setRowHeight(50);
 			table.setGridColor(Color.WHITE);
 			table.setForeground(Color.WHITE);
 			table.setDefaultRenderer(Object.class, new DefaultTableCellRenderer() {
-            // @Override
-            // public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
-            //     Component c = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
-
-            //     // Establecer el color de fondo personalizado
-            //     if (row >= table.getRowCount()) {
-            //         c.setBackground(Color.LIGHT_GRAY); // Cambia el color a tu preferencia
-            //     } else {
-            //         c.setBackground(table.getBackground());
-            //     }
-
-            //     return c;
-            // }
+         
         });
 		}
 		return table;

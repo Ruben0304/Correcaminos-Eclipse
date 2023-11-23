@@ -11,6 +11,7 @@ import models.gestion.estudiantes.GestorEstudiantes;
 import models.gestion.estudiantes.GestorResponsabilidadesEstudiantes;
 import models.gestion.estudiantes.GestorSolicitudesEstudiante;
 import models.responsabilidades.ResponsabilidadesEstudiantes;
+import models.solicitudes.SolicitudBajaEstudiante;
 import models.usuarios.Admin;
 import models.usuarios.Estudiante;
 import models.usuarios.Persona;
@@ -40,15 +41,17 @@ public class ControladorAdmin {
 
                 break;
             case Secretaria:
-                usuariosPendientes.addAll(gestDep.getSecretaria().getEstudiantesPendientes(listadoResponsabilidades));
+                // usuariosPendientes.addAll(gestDep.getSecretaria().getEstudiantesPendientes(listadoResponsabilidades));
+                ArrayList<SolicitudBajaEstudiante> solicitudBajaEstudiantes = GestorEstudiantes.gestorEstudiantes()
+                        .getGestorSolicitudes().getSolicitudesBajaAceptadas();
 
-
-                instancia.setVista(new PanelAdministracion());
+                instancia.setVista(PanelAdministracion.getPanelAdministracion(solicitudBajaEstudiantes));
                 instancia.revalidate();
                 instancia.repaint();
                 break;
             case AlmacenLibrosDocentes:
-                usuariosPendientes.addAll(gestDep.getAlmacenDeLibros().getEstudiantesPendientes(listadoResponsabilidades));
+                usuariosPendientes
+                        .addAll(gestDep.getAlmacenDeLibros().getEstudiantesPendientes(listadoResponsabilidades));
 
                 instancia.setVista(new CasosPendientes(usuariosPendientes).getPanelCasosPendientes());
                 Pricipal.getInstancia().revalidate();
@@ -64,7 +67,8 @@ public class ControladorAdmin {
                 break;
 
             case SeguridadInformatica:
-                usuariosPendientes.addAll(gestDep.getSeguridadInformatica().getEstudiantesPendientes(listadoResponsabilidades));
+                usuariosPendientes
+                        .addAll(gestDep.getSeguridadInformatica().getEstudiantesPendientes(listadoResponsabilidades));
 
                 instancia.setVista(new CasosPendientes(usuariosPendientes).getPanelCasosPendientes());
                 Pricipal.getInstancia().revalidate();
@@ -72,7 +76,8 @@ public class ControladorAdmin {
                 break;
 
             case DireccionBecas:
-                usuariosPendientes.addAll(gestDep.getDireccionDeBecas().getEstudiantesPendientes(listadoResponsabilidades));
+                usuariosPendientes
+                        .addAll(gestDep.getDireccionDeBecas().getEstudiantesPendientes(listadoResponsabilidades));
 
                 instancia.setVista(new CasosPendientes(usuariosPendientes).getPanelCasosPendientes());
                 Pricipal.getInstancia().revalidate();

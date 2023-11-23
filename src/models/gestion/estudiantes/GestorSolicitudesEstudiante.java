@@ -309,7 +309,10 @@ public class GestorSolicitudesEstudiante implements Actualizador {
                             cumpleFiltros = false;
                         }
                         break;
-
+                    case "motivo":
+                        if (!solictud.getMotivo().toString().equals(valor)) {
+                            cumpleFiltros = false;
+                        }
                     case "buscar":
                         if ((buscarBajaPorNombreOCi(solictud, valor)) == null) {
                             cumpleFiltros = false;
@@ -328,7 +331,7 @@ public class GestorSolicitudesEstudiante implements Actualizador {
 
     public SolicitudBajaEstudiante buscarBajaPorNombreOCi(SolicitudBajaEstudiante solicitud, String valor) {
         boolean result = true;
-      
+
         if (!(solicitud.getEstudiante().getNombreCompleto().toLowerCase().contains(valor.toLowerCase())
                 || solicitud.getEstudiante().getCi().toLowerCase().contains(valor.toLowerCase()))) {
             result = false;
@@ -363,6 +366,10 @@ public class GestorSolicitudesEstudiante implements Actualizador {
                             cumpleFiltros = false;
                         }
                         break;
+                    case "motivo":
+                        if (!solictud.getMotivo().toString().equals(valor)) {
+                            cumpleFiltros = false;
+                        }
 
                     case "buscar":
                         if ((buscarLicenciaPorNombreOCi(solictud, valor)).equals(null)) {
@@ -382,8 +389,8 @@ public class GestorSolicitudesEstudiante implements Actualizador {
 
     public SolicitudLicenciaEstudiante buscarLicenciaPorNombreOCi(SolicitudLicenciaEstudiante solicitud, String valor) {
         boolean result = true;
-        if (!solicitud.getEstudiante().getNombreCompleto().contains(valor)
-                || !solicitud.getEstudiante().getCi().contains(valor)) {
+        if (!(solicitud.getEstudiante().getNombreCompleto().toLowerCase().contains(valor.toLowerCase())
+                || solicitud.getEstudiante().getCi().toLowerCase().contains(valor.toLowerCase()))) {
             result = false;
         }
         return result ? solicitud : null;

@@ -11,9 +11,9 @@ public abstract class SolicitudBaja extends Solicitud{
     protected Date fecha;
 
 
-    public SolicitudBaja(Estado estado, String motivo, Date fecha) {
+    public SolicitudBaja(String motivo) {
         super(motivo);
-        this.fecha = fecha;
+        
     }
 
     public Date getFecha() {

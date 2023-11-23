@@ -11,7 +11,7 @@ public abstract class SolicitudLicencia extends Solicitud {
     protected Date fechaSalida;
     protected Date fechaRegreso;
 
-    public SolicitudLicencia(String motivot) {
+    public SolicitudLicencia(String motivo) {
         super(motivo);
         // this.fechaSalida = fechaSalida;
         // this.fechaRegreso = fechaRegreso;

@@ -9,8 +9,8 @@ public class SolicitudBajaEmpleado extends SolicitudBaja {
 	
 	private Empleado empleado;
 	
-	public SolicitudBajaEmpleado(Estado estado, String motivo, Date fecha, Empleado empleado) {
-		super(estado, motivo, fecha);
+	public SolicitudBajaEmpleado(String motivo, Empleado empleado) {
+		super(motivo);
 		this.empleado = empleado;
 	}
 

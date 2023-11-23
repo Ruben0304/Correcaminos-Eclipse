@@ -9,8 +9,8 @@ public class SolicitudBajaEstudiante extends SolicitudBaja {
 	
 	private Estudiante estudiante;
 	
-	public SolicitudBajaEstudiante(Estado estado, String motivo, Date fecha, Estudiante estudiante) {
-		super(estado, motivo, fecha);
+	public SolicitudBajaEstudiante(String motivo, Estudiante estudiante) {
+		super(motivo);
 		this.estudiante = estudiante;
 		
 	}

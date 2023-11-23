@@ -282,10 +282,6 @@ public class GestorSolicitudesEstudiante implements Actualizador {
     // int max = 0;
 
     // }
-<<<<<<< HEAD
-=======
-
->>>>>>> eduardo-dashboard
     // Filtros administración
 
     public ArrayList<SolicitudBajaEstudiante> filtradoDinamicoSolicitudBajaEstudiantes(Map<String, String> filtros) {
@@ -387,12 +383,6 @@ public class GestorSolicitudesEstudiante implements Actualizador {
 
     public SolicitudLicenciaEstudiante buscarLicenciaPorNombreOCi(SolicitudLicenciaEstudiante solicitud, String valor) {
         boolean result = true;
-<<<<<<< HEAD
-        if (!solicitud.getEstudiante().getNombreCompleto().contains(valor)
-                || !solicitud.getEstudiante().getCi().contains(valor)) {
-            result = false;
-        }
-=======
         if (!solicitud.getEstudiante().getNombreCompleto().contains(valor)) {
             result = false;
         }
@@ -400,7 +390,6 @@ public class GestorSolicitudesEstudiante implements Actualizador {
             result = false;
         }
 
->>>>>>> eduardo-dashboard
         return result ? solicitud : null;
     }
 }

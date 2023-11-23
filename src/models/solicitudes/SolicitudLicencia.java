@@ -5,18 +5,16 @@ import java.util.GregorianCalendar;
 import java.util.Calendar;
 
 import models.usuarios.Estudiante;
+import util.Estado;
 
-public abstract class SolicitudLicencia extends SolicitudBaja{
+public abstract class SolicitudLicencia extends Solicitud {
     protected Date fechaSalida;
     protected Date fechaRegreso;
-    
-   
-    public SolicitudLicencia(String motivo,Date fechaSalida, Date fechaRegreso) {
-        super(motivo);
+
+    public SolicitudLicencia(Estado estado, String motivo, Date fechaSalida, Date fechaRegreso) {
+        super(estado, motivo);
         this.fechaSalida = fechaSalida;
         this.fechaRegreso = fechaRegreso;
-        
-        
     }
 
     public Date getFechaSalida() {
@@ -33,7 +31,4 @@ public abstract class SolicitudLicencia extends SolicitudBaja{
         return calendar.get(Calendar.YEAR);
     }
 
-    
-    
-    
 }

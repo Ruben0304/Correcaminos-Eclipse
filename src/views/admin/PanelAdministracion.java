@@ -223,8 +223,7 @@ public class PanelAdministracion extends JPanel {
 
 					getMap().put("facultad", comboBoxSeleccionarFac.getSelectedItem().toString());
 					getTable().setModel(
-							new PendientesEstudiantes(GestorEstudiantes.gestorEstudiantes().getGestorSolicitudes()
-									.filtradoDinamicoSolicitudBajaEstudiantes(getMap()), 8));
+							new PendientesEstudiantes(ControladorFiltrado.obtenerSolicitudesBajaEstudiantesFiltradas(getMap()), 8));
 				}
 			});
 			comboBoxSeleccionarFac.addItemListener(new ItemListener() {
@@ -238,7 +237,7 @@ public class PanelAdministracion extends JPanel {
 			comboBoxSeleccionarFac.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 			comboBoxSeleccionarFac.setMaximumRowCount(9);
 			comboBoxSeleccionarFac.setForeground(Color.BLACK);
-			comboBoxSeleccionarFac.setBackground(new Color(169, 169, 169));
+			comboBoxSeleccionarFac.setBackground(new Color(245, 255, 250));
 			comboBoxSeleccionarFac.setToolTipText("");
 			comboBoxSeleccionarFac.setFont(new Font("Segoe UI Semibold", Font.BOLD, 14));
 			// comboBoxSeleccionarFac.setModel(new DefaultComboBoxModel(Facultad.values()));
@@ -251,12 +250,12 @@ public class PanelAdministracion extends JPanel {
 	private JComboBox getComboBox() {
 		if (comboBox == null) {
 			comboBox = new JComboBox();
+			comboBox.setBackground(new Color(224, 255, 255));
 			comboBox.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					getMap().put("estado", comboBox.getSelectedItem().toString());
 					getTable().setModel(
-							new PendientesEstudiantes(GestorEstudiantes.gestorEstudiantes().getGestorSolicitudes()
-									.filtradoDinamicoSolicitudBajaEstudiantes(map), 8));
+							new PendientesEstudiantes(ControladorFiltrado.obtenerSolicitudesBajaEstudiantesFiltradas(getMap()), 8));
 				}
 			});
 			comboBox.setModel(new DefaultComboBoxModel(Estado.values()));
@@ -373,7 +372,7 @@ public class PanelAdministracion extends JPanel {
 	private JScrollPane getScrollPaneFiltrado() {
 		if (scrollPaneFiltrado == null) {
 			scrollPaneFiltrado = new JScrollPane();
-			scrollPaneFiltrado.setBorder(null);
+			scrollPaneFiltrado.setBorder(new LineBorder(new Color(128, 128, 128), 1, true));
 			scrollPaneFiltrado.setOpaque(false);
 			scrollPaneFiltrado.setBackground(new Color(40, 42, 46));
 			scrollPaneFiltrado.setBounds(0, 100, 590, 574);
@@ -402,25 +401,26 @@ public class PanelAdministracion extends JPanel {
 			textField = new JTextField();
 			textField.addKeyListener(new KeyListener() {
 				// private String buscar = textField.getText();
-	
+
 				@Override
-				public void keyTyped(KeyEvent e) {}
-	
+				public void keyTyped(KeyEvent e) {
+				}
+
 				@Override
-				public void keyPressed(KeyEvent e) {}
-	
+				public void keyPressed(KeyEvent e) {
+				}
+
 				@Override
 				public void keyReleased(KeyEvent e) {
-					
-						
-						getMap().put("buscar", textField.getText());
-					getTable().setModel(new PendientesEstudiantes(GestorEstudiantes.gestorEstudiantes().getGestorSolicitudes()
-									.filtradoDinamicoSolicitudBajaEstudiantes(getMap()), 8));
-						
-					
+
+					getMap().put("buscar", textField.getText());
+					getTable().setModel(
+							new PendientesEstudiantes(
+									ControladorFiltrado.obtenerSolicitudesBajaEstudiantesFiltradas(getMap()), 8));
+
 				}
 			});
-			
+
 			textField.setBorder(null);
 			textField.setBackground(new Color(249, 249, 249));
 
@@ -448,8 +448,8 @@ public class PanelAdministracion extends JPanel {
 				public void actionPerformed(ActionEvent e) {
 					map.put("motivo", comboBox_2.getSelectedItem().toString());
 					getTable().setModel(
-							new PendientesEstudiantes(GestorEstudiantes.gestorEstudiantes().getGestorSolicitudes()
-									.filtradoDinamicoSolicitudBajaEstudiantes(map), 8));
+							new PendientesEstudiantes(
+									ControladorFiltrado.obtenerSolicitudesBajaEstudiantesFiltradas(getMap()), 8));
 				}
 			});
 			comboBox_2.setModel(new DefaultComboBoxModel(Motivos.values()));
@@ -457,7 +457,7 @@ public class PanelAdministracion extends JPanel {
 			comboBox_2.setMaximumRowCount(9);
 			comboBox_2.setForeground(Color.BLACK);
 			comboBox_2.setFont(new Font("Segoe UI Semibold", Font.BOLD, 14));
-			comboBox_2.setBackground(Color.WHITE);
+			comboBox_2.setBackground(new Color(255, 245, 238));
 			comboBox_2.setBounds(92, 137, 154, 25);
 		}
 		return comboBox_2;
@@ -474,21 +474,20 @@ public class PanelAdministracion extends JPanel {
 			slider.setPaintLabels(true);
 			slider.addChangeListener(new ChangeListener() {
 				public void stateChanged(ChangeEvent e) {
-					
 
-					
+					getLabel_2().setText("= " + Integer.toString(slider.getValue()));
+
 					getMap().put("anio", Integer.toString(slider.getValue()));
-					
 
 					getTable().setModel(
-							new PendientesEstudiantes(GestorEstudiantes.gestorEstudiantes().getGestorSolicitudes()
-									.filtradoDinamicoSolicitudBajaEstudiantes(getMap()), 8));
+							new PendientesEstudiantes(
+									ControladorFiltrado.obtenerSolicitudesBajaEstudiantesFiltradas(getMap()), 8));
 
 				}
 			});
 
 			slider.setMinorTickSpacing(1);
-			
+
 			slider.setBackground(new Color(40, 42, 46));
 			slider.setBounds(22, 196, 224, 26);
 		}
@@ -528,27 +527,27 @@ public class PanelAdministracion extends JPanel {
 	public JTable getTable() {
 		if (table == null) {
 			table = new JTable();
+			table.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
 			table.setBorder(null);
 			table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 			// scrollPane.setViewportView(table);
-			if (map == null) {
-				table.setModel(new PendientesEstudiantes(
-						GestorEstudiantes.gestorEstudiantes().getGestorSolicitudes().getSolicitudesBajaAceptadas(), 8));
-			} else {
-				table.setModel(new PendientesEstudiantes(
-						GestorEstudiantes.gestorEstudiantes().getGestorSolicitudes()
-								.filtradoDinamicoSolicitudBajaEstudiantes(getMap()),
-						8));
-			}
+
+			table.setModel(new PendientesEstudiantes(
+					ControladorFiltrado.obtenerSolicitudesBajaEstudiantesFiltradas(getMap()), 8));
 
 			table.setBounds(112, 33, 587, 476);
 			table.setBackground(new Color(31, 33, 36));
 			table.setRowHeight(50);
 			table.setGridColor(new Color(31, 33, 36));
 			table.setForeground(Color.WHITE);
-			table.setDefaultRenderer(Object.class, new DefaultTableCellRenderer() {
+			DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
+			centerRenderer.setHorizontalAlignment(JLabel.CENTER);
 
-			});
+			// table.getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
+			// table.getColumnModel().getColumn(1).setCellRenderer(centerRenderer);
+			// table.getColumnModel().getColumn(2).setCellRenderer(centerRenderer);
+			// table.getColumnModel().getColumn(3).setCellRenderer(centerRenderer);
+
 		}
 		return table;
 	}
@@ -556,7 +555,7 @@ public class PanelAdministracion extends JPanel {
 	public HashMap<String, String> getMap() {
 		if (this.map == null) {
 			this.map = new HashMap<>();
-			
+
 		}
 		return this.map;
 	}

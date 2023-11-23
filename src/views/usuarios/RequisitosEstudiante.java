@@ -37,7 +37,7 @@ public class RequisitosEstudiante {
 	private JLabel lblEntregadoCarnetDe;
 	private JLabel lblEntregadasPertenencias;
 	private JLabel label_15;
-	private static RequisitosEstudiante instance = null;
+	
 
 
 	private BooleanosEstudianteBaja booleanos;
@@ -140,6 +140,7 @@ public class RequisitosEstudiante {
 			lblTitulo.setForeground(Color.WHITE);
 			lblTitulo.setFont(new Font("Segoe UI Semibold", Font.BOLD, 40));
 			lblTitulo.setBounds(295, 65, 225, 54);
+			
 		}
 		return lblTitulo;
 	}

@@ -8,6 +8,7 @@ import java.awt.Image;
 import java.awt.Rectangle;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 import javax.swing.JLabel;
 
@@ -54,9 +55,9 @@ import util.Estado;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ItemListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.ItemEvent;
-
-
 
 public class PanelAdministracion extends JPanel {
 	private JPanel panelFiltrados;
@@ -88,23 +89,21 @@ public class PanelAdministracion extends JPanel {
 	private JLabel label_1;
 	private JLabel label_2;
 	private JTable table;
-	private HashMap<String,String> map;
-	private  ArrayList<SolicitudBajaEstudiante> solicitudBajaEstudiantes;
+	private HashMap<String, String> map;
+	private ArrayList<SolicitudBajaEstudiante> solicitudBajaEstudiantes;
 	private static PanelAdministracion panelAdministracion = null;
-
 
 	// public void filtrarTabla(){
 
 	// }
 
-	public static PanelAdministracion getPanelAdministracion(ArrayList<SolicitudBajaEstudiante> solicitudBajaEstudiantes){
-		if(panelAdministracion == null){
-			panelAdministracion = new PanelAdministracion(solicitudBajaEstudiantes);
-		}
-		return panelAdministracion;
+	public static PanelAdministracion getPanelAdministracion(
+			ArrayList<SolicitudBajaEstudiante> solicitudBajaEstudiantes) {
+
+		return new PanelAdministracion();
 	}
-	
-	private PanelAdministracion(ArrayList<SolicitudBajaEstudiante> solicitudBajaEstudiantes) {
+
+	private PanelAdministracion() {
 		setBounds(new Rectangle(178, 0, 944, 700));
 		setBackground(new Color(31, 33, 36));
 		setLayout(null);
@@ -114,9 +113,12 @@ public class PanelAdministracion extends JPanel {
 		add(getScrollPaneFiltrado());
 		add(getLblNewLabel());
 		add(getTextField());
-		this.solicitudBajaEstudiantes = solicitudBajaEstudiantes;
+
+		// this.solicitudBajaEstudiantes = solicitudBajaEstudiantes;
+		this.map = new HashMap<>();
 
 	}
+
 	private JPanel getPanelFiltrados() {
 		if (panelFiltrados == null) {
 			panelFiltrados = new JPanel();
@@ -136,10 +138,11 @@ public class PanelAdministracion extends JPanel {
 			panelFiltrados.add(getLabel());
 			panelFiltrados.add(getLabel_1());
 			panelFiltrados.add(getLabel_2());
-			
+
 		}
 		return panelFiltrados;
 	}
+
 	private JPanel getPanelReportes() {
 		if (panelReportes == null) {
 			panelReportes = new JPanel();
@@ -153,6 +156,7 @@ public class PanelAdministracion extends JPanel {
 		}
 		return panelReportes;
 	}
+
 	private JPanel getPanelCategorias() {
 		if (panelCategorias == null) {
 			panelCategorias = new JPanel();
@@ -170,6 +174,7 @@ public class PanelAdministracion extends JPanel {
 		}
 		return panelCategorias;
 	}
+
 	private JLabel getLblTituloFilt() {
 		if (lblTituloFilt == null) {
 			lblTituloFilt = new JLabel("Filtrar");
@@ -179,6 +184,7 @@ public class PanelAdministracion extends JPanel {
 		}
 		return lblTituloFilt;
 	}
+
 	private JLabel getLblFac() {
 		if (lblFac == null) {
 			lblFac = new JLabel("Facultad");
@@ -188,6 +194,7 @@ public class PanelAdministracion extends JPanel {
 		}
 		return lblFac;
 	}
+
 	private JLabel getLblAnio() {
 		if (lblAnio == null) {
 			lblAnio = new JLabel("A\u00F1o");
@@ -197,6 +204,7 @@ public class PanelAdministracion extends JPanel {
 		}
 		return lblAnio;
 	}
+
 	private JLabel getLabelEstado() {
 		if (labelEstado == null) {
 			labelEstado = new JLabel("Estado");
@@ -206,37 +214,57 @@ public class PanelAdministracion extends JPanel {
 		}
 		return labelEstado;
 	}
+
 	private JComboBox getComboBoxSeleccionarFac() {
 		if (comboBoxSeleccionarFac == null) {
 			comboBoxSeleccionarFac = new JComboBox();
-			comboBoxSeleccionarFac.addItemListener(new ItemListener() {
-				public void itemStateChanged(ItemEvent e) {
-					map.put("facultad", comboBoxSeleccionarFac.getSelectedItem().toString());
-					ControladorFiltrado.Filtrar(map);
+			comboBoxSeleccionarFac.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+
+					getMap().put("facultad", comboBoxSeleccionarFac.getSelectedItem().toString());
+					getTable().setModel(
+							new PendientesEstudiantes(GestorEstudiantes.gestorEstudiantes().getGestorSolicitudes()
+									.filtradoDinamicoSolicitudBajaEstudiantes(getMap()), 8));
 				}
 			});
-			
-			comboBoxSeleccionarFac.setModel(new DefaultComboBoxModel(TipoDepartamento.values()));
+			comboBoxSeleccionarFac.addItemListener(new ItemListener() {
+				public void itemStateChanged(ItemEvent e) {
+					// System.out.println(comboBoxSeleccionarFac.getSelectedItem().toString());
+
+				}
+			});
+
+			comboBoxSeleccionarFac.setModel(new DefaultComboBoxModel(Facultad.values()));
 			comboBoxSeleccionarFac.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 			comboBoxSeleccionarFac.setMaximumRowCount(9);
 			comboBoxSeleccionarFac.setForeground(Color.BLACK);
 			comboBoxSeleccionarFac.setBackground(new Color(169, 169, 169));
 			comboBoxSeleccionarFac.setToolTipText("");
 			comboBoxSeleccionarFac.setFont(new Font("Segoe UI Semibold", Font.BOLD, 14));
-//			comboBoxSeleccionarFac.setModel(new DefaultComboBoxModel(Facultad.values()));
-//			comboBoxSeleccionarFac.setSelectedIndex(9);
+			// comboBoxSeleccionarFac.setModel(new DefaultComboBoxModel(Facultad.values()));
+			// comboBoxSeleccionarFac.setSelectedIndex(9);
 			comboBoxSeleccionarFac.setBounds(92, 55, 154, 25);
 		}
 		return comboBoxSeleccionarFac;
 	}
+
 	private JComboBox getComboBox() {
 		if (comboBox == null) {
 			comboBox = new JComboBox();
+			comboBox.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					getMap().put("estado", comboBox.getSelectedItem().toString());
+					getTable().setModel(
+							new PendientesEstudiantes(GestorEstudiantes.gestorEstudiantes().getGestorSolicitudes()
+									.filtradoDinamicoSolicitudBajaEstudiantes(map), 8));
+				}
+			});
 			comboBox.setModel(new DefaultComboBoxModel(Estado.values()));
 			comboBox.setBounds(92, 97, 154, 25);
 		}
 		return comboBox;
 	}
+
 	private JLabel getLblTituloReportes() {
 		if (lblTituloReportes == null) {
 			lblTituloReportes = new JLabel("Reportes");
@@ -246,6 +274,7 @@ public class PanelAdministracion extends JPanel {
 		}
 		return lblTituloReportes;
 	}
+
 	private JComboBox getComboBoxReportes() {
 		if (comboBoxReportes == null) {
 			comboBoxReportes = new JComboBox();
@@ -255,6 +284,7 @@ public class PanelAdministracion extends JPanel {
 		}
 		return comboBoxReportes;
 	}
+
 	private JLabel getLblTituloCategorias() {
 		if (lblTituloCategorias == null) {
 			lblTituloCategorias = new JLabel("Categoria");
@@ -264,6 +294,7 @@ public class PanelAdministracion extends JPanel {
 		}
 		return lblTituloCategorias;
 	}
+
 	private JCheckBox getChckbxGenerarPdf() {
 		if (chckbxGenerarPdf == null) {
 			chckbxGenerarPdf = new JCheckBox("Generar PDF");
@@ -274,6 +305,7 @@ public class PanelAdministracion extends JPanel {
 		}
 		return chckbxGenerarPdf;
 	}
+
 	private JRadioButton getRdbtnEstudiante() {
 		if (rdbtnEstudiante == null) {
 			rdbtnEstudiante = new JRadioButton("Estudiante");
@@ -284,6 +316,7 @@ public class PanelAdministracion extends JPanel {
 		}
 		return rdbtnEstudiante;
 	}
+
 	private JLabel getLblTipoDePersona() {
 		if (lblTipoDePersona == null) {
 			lblTipoDePersona = new JLabel("Tipo de persona");
@@ -293,6 +326,7 @@ public class PanelAdministracion extends JPanel {
 		}
 		return lblTipoDePersona;
 	}
+
 	private JRadioButton getRdbtnEmpleado() {
 		if (rdbtnEmpleado == null) {
 			rdbtnEmpleado = new JRadioButton("Empleado");
@@ -303,6 +337,7 @@ public class PanelAdministracion extends JPanel {
 		}
 		return rdbtnEmpleado;
 	}
+
 	private JLabel getLblTramite() {
 		if (lblTramite == null) {
 			lblTramite = new JLabel("Tr\u00E1mite");
@@ -312,6 +347,7 @@ public class PanelAdministracion extends JPanel {
 		}
 		return lblTramite;
 	}
+
 	private JRadioButton getRdbtnBaja() {
 		if (rdbtnBaja == null) {
 			rdbtnBaja = new JRadioButton("Baja");
@@ -322,6 +358,7 @@ public class PanelAdministracion extends JPanel {
 		}
 		return rdbtnBaja;
 	}
+
 	private JRadioButton getRdbtnLicencia() {
 		if (rdbtnLicencia == null) {
 			rdbtnLicencia = new JRadioButton("Licencia");
@@ -332,6 +369,7 @@ public class PanelAdministracion extends JPanel {
 		}
 		return rdbtnLicencia;
 	}
+
 	private JScrollPane getScrollPaneFiltrado() {
 		if (scrollPaneFiltrado == null) {
 			scrollPaneFiltrado = new JScrollPane();
@@ -345,29 +383,54 @@ public class PanelAdministracion extends JPanel {
 		}
 		return scrollPaneFiltrado;
 	}
+
 	private JLabel getLblNewLabel() {
 		if (lblNewLabel == null) {
 			lblNewLabel = new JLabel();
 			lblNewLabel.setBounds(58, -43, 446, 196);
-            ImageIcon ico = new ImageIcon("C:\\Users\\herna\\OneDrive\\Escritorio\\Nueva carpeta\\b.png");
-            ImageIcon img = new ImageIcon(
-                    ico.getImage().getScaledInstance(lblNewLabel.getWidth(), lblNewLabel.getHeight(), Image.SCALE_SMOOTH));
-            lblNewLabel.setIcon(img);
+			ImageIcon ico = new ImageIcon("C:\\Users\\herna\\OneDrive\\Escritorio\\Nueva carpeta\\b.png");
+			ImageIcon img = new ImageIcon(
+					ico.getImage().getScaledInstance(lblNewLabel.getWidth(), lblNewLabel.getHeight(),
+							Image.SCALE_SMOOTH));
+			lblNewLabel.setIcon(img);
 		}
 		return lblNewLabel;
 	}
+
 	private JTextField getTextField() {
 		if (textField == null) {
 			textField = new JTextField();
+			textField.addKeyListener(new KeyListener() {
+				// private String buscar = textField.getText();
+	
+				@Override
+				public void keyTyped(KeyEvent e) {}
+	
+				@Override
+				public void keyPressed(KeyEvent e) {}
+	
+				@Override
+				public void keyReleased(KeyEvent e) {
+					
+						
+						getMap().put("buscar", textField.getText());
+					getTable().setModel(new PendientesEstudiantes(GestorEstudiantes.gestorEstudiantes().getGestorSolicitudes()
+									.filtradoDinamicoSolicitudBajaEstudiantes(getMap()), 8));
+						
+					
+				}
+			});
+			
 			textField.setBorder(null);
 			textField.setBackground(new Color(249, 249, 249));
-			
+
 			textField.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 15));
 			textField.setBounds(120, 44, 285, 22);
 			textField.setColumns(10);
 		}
 		return textField;
 	}
+
 	private JLabel getLblMotivo() {
 		if (lblMotivo == null) {
 			lblMotivo = new JLabel("Motivo");
@@ -377,9 +440,18 @@ public class PanelAdministracion extends JPanel {
 		}
 		return lblMotivo;
 	}
+
 	private JComboBox getComboBox_2() {
 		if (comboBox_2 == null) {
 			comboBox_2 = new JComboBox();
+			comboBox_2.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					map.put("motivo", comboBox_2.getSelectedItem().toString());
+					getTable().setModel(
+							new PendientesEstudiantes(GestorEstudiantes.gestorEstudiantes().getGestorSolicitudes()
+									.filtradoDinamicoSolicitudBajaEstudiantes(map), 8));
+				}
+			});
 			comboBox_2.setModel(new DefaultComboBoxModel(Motivos.values()));
 			comboBox_2.setToolTipText("");
 			comboBox_2.setMaximumRowCount(9);
@@ -390,39 +462,40 @@ public class PanelAdministracion extends JPanel {
 		}
 		return comboBox_2;
 	}
+
 	private JSlider getSlider() {
 		if (slider == null) {
 			slider = new JSlider();
-			slider.setValue(2018);
-			slider.addChangeListener(new ChangeListener() {
-				public void stateChanged(ChangeEvent e) {
-
-					
-					getLabel_2().setText("= " + Integer.toString(slider.getValue()));
-					ArrayList<Estudiante> es = new ArrayList<>();
-					ArrayList<SolicitudBajaEstudiante> sols = GestorEstudiantes.gestorEstudiantes().getGestorSolicitudes().getSolicitudesBajaAceptadas();
-					for (SolicitudBajaEstudiante solicitudLicenciaEstudiante : sols) {
-					
-						if (solicitudLicenciaEstudiante.getAnioExpedicion() == slider.getValue()){
-							es.add(solicitudLicenciaEstudiante.getEstudiante());
-						}
-					}
-					getTable().setModel(new PendientesEstudiantes(es));
-				   
-				}
-			});
-			slider.setSnapToTicks(true);
-			slider.setValueIsAdjusting(true);
-			slider.setValue(2020);
-			slider.setMinorTickSpacing(1);
 			slider.setMinimum(2015);
 			slider.setMaximum(2023);
+			slider.setValue(2023);
+			slider.setMajorTickSpacing(10);
+			slider.setMinorTickSpacing(1);
+			slider.setPaintLabels(true);
+			slider.addChangeListener(new ChangeListener() {
+				public void stateChanged(ChangeEvent e) {
+					
+
+					
+					getMap().put("anio", Integer.toString(slider.getValue()));
+					
+
+					getTable().setModel(
+							new PendientesEstudiantes(GestorEstudiantes.gestorEstudiantes().getGestorSolicitudes()
+									.filtradoDinamicoSolicitudBajaEstudiantes(getMap()), 8));
+
+				}
+			});
+
+			slider.setMinorTickSpacing(1);
+			
 			slider.setBackground(new Color(40, 42, 46));
 			slider.setBounds(22, 196, 224, 26);
 		}
 		return slider;
 	}
-	private JLabel getLabel() { 
+
+	private JLabel getLabel() {
 		if (label == null) {
 			label = new JLabel("2023");
 			label.setForeground(Color.WHITE);
@@ -431,6 +504,7 @@ public class PanelAdministracion extends JPanel {
 		}
 		return label;
 	}
+
 	private JLabel getLabel_1() {
 		if (label_1 == null) {
 			label_1 = new JLabel("2015");
@@ -440,6 +514,7 @@ public class PanelAdministracion extends JPanel {
 		}
 		return label_1;
 	}
+
 	private JLabel getLabel_2() {
 		if (label_2 == null) {
 			label_2 = new JLabel("= 2015");
@@ -449,22 +524,40 @@ public class PanelAdministracion extends JPanel {
 		}
 		return label_2;
 	}
+
 	public JTable getTable() {
 		if (table == null) {
 			table = new JTable();
 			table.setBorder(null);
 			table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 			// scrollPane.setViewportView(table);
-			table.setModel(new PendientesEstudiantes(this.solicitudBajaEstudiantes,8));
+			if (map == null) {
+				table.setModel(new PendientesEstudiantes(
+						GestorEstudiantes.gestorEstudiantes().getGestorSolicitudes().getSolicitudesBajaAceptadas(), 8));
+			} else {
+				table.setModel(new PendientesEstudiantes(
+						GestorEstudiantes.gestorEstudiantes().getGestorSolicitudes()
+								.filtradoDinamicoSolicitudBajaEstudiantes(getMap()),
+						8));
+			}
+
 			table.setBounds(112, 33, 587, 476);
 			table.setBackground(new Color(31, 33, 36));
 			table.setRowHeight(50);
-			table.setGridColor(Color.WHITE);
+			table.setGridColor(new Color(31, 33, 36));
 			table.setForeground(Color.WHITE);
 			table.setDefaultRenderer(Object.class, new DefaultTableCellRenderer() {
-         
-        });
+
+			});
 		}
 		return table;
+	}
+
+	public HashMap<String, String> getMap() {
+		if (this.map == null) {
+			this.map = new HashMap<>();
+			
+		}
+		return this.map;
 	}
 }

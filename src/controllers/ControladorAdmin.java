@@ -44,6 +44,7 @@ public class ControladorAdmin {
                 // usuariosPendientes.addAll(gestDep.getSecretaria().getEstudiantesPendientes(listadoResponsabilidades));
                 ArrayList<SolicitudBajaEstudiante> solicitudBajaEstudiantes = GestorEstudiantes.gestorEstudiantes()
                         .getGestorSolicitudes().getSolicitudesBajaAceptadas();
+                       
 
                 instancia.setVista(PanelAdministracion.getPanelAdministracion(solicitudBajaEstudiantes));
                 instancia.revalidate();

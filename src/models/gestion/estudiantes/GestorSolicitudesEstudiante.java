@@ -44,7 +44,6 @@ public class GestorSolicitudesEstudiante implements Actualizador {
 
     }
 
-
     public ArrayList<SolicitudLicenciaEstudiante> getSolicitudesLicenciaPendientes() {
 
         return solicitudesLicenciaPendientes;
@@ -107,8 +106,6 @@ public class GestorSolicitudesEstudiante implements Actualizador {
 
     }
 
-    
-
     public int totalSolicitudesBajaPendientes() {
         return solicitudesBajaPendientes.size();
     }
@@ -161,7 +158,6 @@ public class GestorSolicitudesEstudiante implements Actualizador {
 
     // Filtraciones bajas
 
-
     public ArrayList<BajasAceptadasPorAnio> cantidadDeBajasPorAnio(int anioMinimo) {
         ArrayList<BajasAceptadasPorAnio> solicitudes = new ArrayList<>();
 
@@ -185,7 +181,7 @@ public class GestorSolicitudesEstudiante implements Actualizador {
     }
 
     public int cantidadDeBajasDeUnAnio(int anio) {
-       
+
         int total = 0;
         for (SolicitudBajaEstudiante s : solicitudesBajaAceptadas) {
             if (s.getAnioExpedicion() == anio) {
@@ -286,7 +282,7 @@ public class GestorSolicitudesEstudiante implements Actualizador {
     // int max = 0;
 
     // }
-     // Filtros administración
+    // Filtros administración
 
     public ArrayList<SolicitudBajaEstudiante> filtradoDinamicoSolicitudBajaEstudiantes(Map<String, String> filtros) {
         ArrayList<SolicitudBajaEstudiante> solicitudesBajaFiltradas = new ArrayList<>();
@@ -313,7 +309,7 @@ public class GestorSolicitudesEstudiante implements Actualizador {
                             cumpleFiltros = false;
                         }
                         break;
-                       
+
                     case "buscar":
                         if ((buscarBajaPorNombreOCi(solictud, valor)) == null) {
                             cumpleFiltros = false;
@@ -332,10 +328,13 @@ public class GestorSolicitudesEstudiante implements Actualizador {
 
     public SolicitudBajaEstudiante buscarBajaPorNombreOCi(SolicitudBajaEstudiante solicitud, String valor) {
         boolean result = true;
-        if (!(solicitud.getEstudiante().getNombreCompleto().contains(valor) || solicitud.getEstudiante().getCi().contains(valor))){
+        if (valor.equals("")) {
+            valor = " ";
+        }
+        if (!(solicitud.getEstudiante().getNombreCompleto().toLowerCase().contains(valor.toLowerCase())
+                || solicitud.getEstudiante().getCi().toLowerCase().contains(valor.toLowerCase()))) {
             result = false;
         }
-       
 
         return result ? solicitud : null;
     }
@@ -385,10 +384,10 @@ public class GestorSolicitudesEstudiante implements Actualizador {
 
     public SolicitudLicenciaEstudiante buscarLicenciaPorNombreOCi(SolicitudLicenciaEstudiante solicitud, String valor) {
         boolean result = true;
-        if (!solicitud.getEstudiante().getNombreCompleto().contains(valor) || !solicitud.getEstudiante().getCi().contains(valor)) {
+        if (!solicitud.getEstudiante().getNombreCompleto().contains(valor)
+                || !solicitud.getEstudiante().getCi().contains(valor)) {
             result = false;
         }
         return result ? solicitud : null;
     }
 }
-

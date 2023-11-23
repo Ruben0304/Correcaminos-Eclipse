@@ -171,7 +171,7 @@ public class EstudianteTramites extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				// String nombre = textMotivo.getText();
 
-				// String motivo = textMotivo.getText();
+				// Motivos motivo = textMotivo.getText();
 
 				// if(nombre==null|| nombre.isEmpty() || motivo.isEmpty()||motivo==null)
 				// errorMessage.setVisible(true);
@@ -195,7 +195,7 @@ public class EstudianteTramites extends JFrame {
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 
-				String motivo = textMotivo.getText();
+				Motivos motivo = textMotivo.getText();
 				String fechaInicio = "trtrt";
 				
 				String fechaFin = "ggtg";

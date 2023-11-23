@@ -1,16 +1,14 @@
 package models.solicitudes;
 
-import java.util.Date;
-
 import models.usuarios.Estudiante;
-import util.Estado;
+import util.Motivos;
 
 public class SolicitudBajaEstudiante extends SolicitudBaja {
 	
 	private Estudiante estudiante;
 	
-	public SolicitudBajaEstudiante(Estado estado, String motivo, Date fecha, Estudiante estudiante) {
-		super(estado, motivo, fecha);
+	public SolicitudBajaEstudiante(Motivos motivo, Estudiante estudiante) {
+		super(motivo);
 		this.estudiante = estudiante;
 		
 	}

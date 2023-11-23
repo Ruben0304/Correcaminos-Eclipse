@@ -2,6 +2,7 @@ package models.usuarios;
 
 import models.gestion.estudiantes.GestorEstudiantes;
 import util.Facultad;
+import util.Motivos;
 import util.TipoCurso;
 
 public class Estudiante extends Persona {
@@ -24,11 +25,11 @@ public class Estudiante extends Persona {
 
 	}
 
-	public void solicitarLicencia(String motivo){
+	public void solicitarLicencia(Motivos motivo){
 		GestorEstudiantes.gestorEstudiantes().getGestorSolicitudes().agregarSolicitudDeLicencia(this,motivo);
 	}
 
-	public void solicitarBaja(String motivo){
+	public void solicitarBaja(Motivos motivo){
 		GestorEstudiantes.gestorEstudiantes().getGestorSolicitudes().agregarSolicitudDeBaja(this,motivo);
 	}
 

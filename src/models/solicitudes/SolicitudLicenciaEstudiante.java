@@ -3,21 +3,19 @@ package models.solicitudes;
 import java.sql.Date;
 
 import models.usuarios.Estudiante;
-import util.Estado;
+import util.Motivos;
 
 public class SolicitudLicenciaEstudiante extends SolicitudLicencia {
 
 	private Estudiante estudiante;
 
-	public SolicitudLicenciaEstudiante(Estudiante estudiante,Estado estado, String motivo, Date fechaSalida, Date fechaRegreso) {
-		super(estado, motivo, fechaSalida, fechaRegreso);
+	public SolicitudLicenciaEstudiante( Motivos motivo, Estudiante estudiante) {
+		super(motivo);
 		this.estudiante = estudiante;
 	}
 
 	public Estudiante getEstudiante() {
 		return estudiante;
 	}
-
-
 
 }

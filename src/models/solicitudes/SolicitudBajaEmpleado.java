@@ -1,16 +1,14 @@
 package models.solicitudes;
 
-import java.util.Date;
-
 import models.usuarios.Empleado;
-import util.Estado;
+import util.Motivos;
 
 public class SolicitudBajaEmpleado extends SolicitudBaja {
 	
 	private Empleado empleado;
 	
-	public SolicitudBajaEmpleado(Estado estado, String motivo, Date fecha, Empleado empleado) {
-		super(estado, motivo, fecha);
+	public SolicitudBajaEmpleado(Motivos motivo, Empleado empleado) {
+		super(motivo);
 		this.empleado = empleado;
 	}
 

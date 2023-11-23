@@ -16,6 +16,7 @@ import models.solicitudes.SolicitudBajaEstudiante;
 import models.solicitudes.SolicitudLicenciaEstudiante;
 import models.usuarios.Estudiante;
 import util.Facultad;
+import util.Motivos;
 
 public class GestorSolicitudesEstudiante implements Actualizador {
 
@@ -93,11 +94,11 @@ public class GestorSolicitudesEstudiante implements Actualizador {
         return es;
     }
 
-    public void agregarSolicitudDeLicencia(Estudiante e, String motivo) {
-        solicitudesLicenciaPendientes.add(new SolicitudLicenciaEstudiante(e, motivo, null, null));
+    public void agregarSolicitudDeLicencia(Estudiante e, Motivos motivo) {
+        solicitudesLicenciaPendientes.add(new SolicitudLicenciaEstudiante(motivo, e));
     }
 
-    public void agregarSolicitudDeBaja(Estudiante e, String motivo) {
+    public void agregarSolicitudDeBaja(Estudiante e, Motivos motivo) {
         solicitudesBajaPendientes.add(new SolicitudBajaEstudiante(motivo, e));
     }
 

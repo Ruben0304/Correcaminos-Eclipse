@@ -15,15 +15,9 @@ import views.admin.PendientesEstudiantes;
 
 public class ControladorFiltrado {
 
-    public static void Filtrar(HashMap<String, String> map) {
-
-      ArrayList<SolicitudBajaEstudiante> solicitudBajaEstudiantes =  GestorEstudiantes.gestorEstudiantes().getGestorSolicitudes().filtradoDinamicoSolicitudBajaEstudiantes(map);
-       PanelAdministracion panel = PanelAdministracion.getPanelAdministracion(solicitudBajaEstudiantes);
-       Pricipal principal = Pricipal.getInstancia();
-        panel.revalidate();
-        panel.repaint();
-        principal.revalidate();
-        principal.repaint();
-
+    public static ArrayList<SolicitudBajaEstudiante> obtenerSolicitudesBajaEstudiantesFiltradas(
+            HashMap<String, String> map) {
+        return GestorEstudiantes.gestorEstudiantes().getGestorSolicitudes()
+                .filtradoDinamicoSolicitudBajaEstudiantes(map);
     }
 }

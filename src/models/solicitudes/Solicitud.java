@@ -26,13 +26,14 @@ public abstract class Solicitud {
         return motivo;
     }
 
-    public void setEstado(Estado estado) {
-        this.estado = estado;
-    }
-
     public Date getFecha() {
         return fecha;
     }
+
+        public void setEstado(Estado estado) {
+        this.estado = estado;
+    }
+
 
     public int getAnioExpedicion() {
         Calendar calendar = Calendar.getInstance();

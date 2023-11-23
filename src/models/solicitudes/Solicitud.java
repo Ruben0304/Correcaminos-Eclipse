@@ -30,6 +30,10 @@ public abstract class Solicitud {
         this.estado = estado;
     }
 
+    public Date getFecha() {
+        return fecha;
+    }
+
     public int getAnioExpedicion() {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(fecha);

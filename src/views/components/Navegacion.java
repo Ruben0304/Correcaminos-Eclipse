@@ -49,13 +49,13 @@ public class Navegacion extends JPanel {
 		addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
-				getBarraNavegacion().setBounds(0, 0, 155, 700);
+				setBounds(0, 0, 155, 700);
 				label_2.setVisible(false);
 			}
 
 			@Override
 			public void mouseExited(MouseEvent e) {
-				getBarraNavegacion().setBounds(0, 0, 71, 700);
+				setBounds(0, 0, 71, 700);
 				getLabel_2().setVisible(true);
 			}
 		});
@@ -117,7 +117,7 @@ public class Navegacion extends JPanel {
 
 				@Override
 				public void mouseEntered(MouseEvent e) {
-					getBarraNavegacion().setBounds(0, 0, 155, 700);
+					setBounds(0, 0, 155, 700);
 					label_2.setVisible(false);
 				}
 			});
@@ -144,7 +144,7 @@ public class Navegacion extends JPanel {
 
 				@Override
 				public void mouseEntered(MouseEvent e) {
-					getBarraNavegacion().setBounds(0, 0, 155, 700);
+					setBounds(0, 0, 155, 700);
 					label_2.setVisible(false);
 				}
 			});
@@ -172,7 +172,7 @@ public class Navegacion extends JPanel {
 
 				@Override
 				public void mouseEntered(MouseEvent e) {
-					getBarraNavegacion().setBounds(0, 0, 155, 700);
+					setBounds(0, 0, 155, 700);
 					label_2.setVisible(false);
 				}
 			});
@@ -206,7 +206,7 @@ public class Navegacion extends JPanel {
 
 				@Override
 				public void mouseEntered(MouseEvent e) {
-					getBarraNavegacion().setBounds(0, 0, 155, 700);
+					setBounds(0, 0, 155, 700);
 					label_2.setVisible(false);
 				}
 			});
@@ -239,7 +239,7 @@ public class Navegacion extends JPanel {
 
 				@Override
 				public void mouseEntered(MouseEvent e) {
-					getBarraNavegacion().setBounds(0, 0, 155, 700);
+					setBounds(0, 0, 155, 700);
 					label_2.setVisible(false);
 				}
 
@@ -355,7 +355,7 @@ public class Navegacion extends JPanel {
 			label_1.addMouseListener(new MouseAdapter() {
 				@Override
 				public void mouseClicked(MouseEvent e) {
-					getBarraNavegacion().setBounds(0, 0, 71, 700);
+					setBounds(0, 0, 71, 700);
 					getLabel_2().setVisible(true);
 				}
 			});
@@ -372,7 +372,7 @@ public class Navegacion extends JPanel {
 			label_2.addMouseListener(new MouseAdapter() {
 				@Override
 				public void mouseClicked(MouseEvent e) {
-					getBarraNavegacion().setBounds(0, 0, 155, 700);
+					setBounds(0, 0, 155, 700);
 					label_2.setVisible(false);
 				}
 			});

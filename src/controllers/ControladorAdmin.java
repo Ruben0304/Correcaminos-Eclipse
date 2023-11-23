@@ -3,24 +3,18 @@ package controllers;
 import java.util.ArrayList;
 
 import auth.Auth;
-import models.departamentos.Biblioteca;
-import models.departamentos.Secretaria;
 import models.gestion.GestorDepartamentos;
 import models.gestion.GestorPrincipal;
 import models.gestion.estudiantes.GestorEstudiantes;
 import models.gestion.estudiantes.GestorResponsabilidadesEstudiantes;
-import models.gestion.estudiantes.GestorSolicitudesEstudiante;
 import models.responsabilidades.ResponsabilidadesEstudiantes;
 import models.solicitudes.SolicitudBajaEstudiante;
 import models.usuarios.Admin;
 import models.usuarios.Estudiante;
-import models.usuarios.Persona;
 import models.usuarios.Usuario;
 import views.Pricipal;
-import views.Reportes;
 import views.admin.CasosPendientes;
 import views.admin.PanelAdministracion;
-import views.old.SecretariaPendientes;
 
 public class ControladorAdmin {
 

@@ -65,10 +65,8 @@ public class Navegacion extends JPanel {
 		setLayout(null);
 		add(getHome());
 		if (usuarioAutenticado != null && usuarioAutenticado instanceof Admin) {
-			
 
-		}
-		else if (usuarioAutenticado != null && usuarioAutenticado instanceof Estudiante) {
+		} else if (usuarioAutenticado != null && usuarioAutenticado instanceof Estudiante) {
 			add(getReportes());
 			// panel_inicio.add(getGuardar());
 			add(getLblReportes());
@@ -93,7 +91,7 @@ public class Navegacion extends JPanel {
 	}
 
 	public static JPanel getBarraNavegacion() {
-		
+
 		return new Navegacion();
 	}
 
@@ -166,8 +164,12 @@ public class Navegacion extends JPanel {
 					getAccount_bg().setVisible(true);
 					getGestion_bg().setVisible(false);
 					getGuardar_bg().setVisible(false);
+					if (Auth.hayUsuarioAutenticado()) {
+                        ControladorPrincipal.mostrarAccount();
+					} else {
+						ControladorLogin.mostrarLogin();
+					}
 
-					ControladorLogin.mostrarLogin();
 				}
 
 				@Override

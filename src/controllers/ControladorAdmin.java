@@ -22,12 +22,11 @@ public class ControladorAdmin {
         ArrayList<Estudiante> usuariosPendientes = new ArrayList<>();
         Usuario usuarioAutenticado = Auth.usuarioAutenticado();
         GestorDepartamentos gestDep = GestorDepartamentos.gestorDepartamentos();
-        ArrayList<ResponsabilidadesEstudiantes> listadoResponsabilidades = GestorEstudiantes.gestorEstudiantes()
-                .getGestorResponsabilidadesEstudiantes().getResponsabilidadesEstudiantesPendientes();
+        ArrayList<ResponsabilidadesEstudiantes> listadoResponsabilidades = new ArrayList<>();
         Pricipal instancia = Pricipal.getInstancia();
         switch (((Admin) usuarioAutenticado).getTipoDepartamento()) {
             case Biblioteca:
-                usuariosPendientes.addAll(gestDep.getBiblioteca().getEstudiantesPendientes(listadoResponsabilidades));
+                // usuariosPendientes.addAll(gestDep.getBiblioteca().getEstudiantesPendientes(listadoResponsabilidades));
 
                 instancia.setVista(new CasosPendientes(usuariosPendientes).getPanelCasosPendientes());
                 Pricipal.getInstancia().revalidate();
@@ -92,44 +91,44 @@ public class ControladorAdmin {
                 .getGestorResponsabilidadesEstudiantes();
         GestorEstudiantes gestorEstudiantes = GestorEstudiantes.gestorEstudiantes();
 
-        switch (((Admin) usuarioAutenticado).getTipoDepartamento()) {
-            case Biblioteca:
-                gestorDepartamentos.getBiblioteca().recogerLibrosPrestados(
-                        gestorEstudiantes.buscarEstudiantePorCi(carnet),
-                        gestorResponsabilidadesEstudiantes.getResponsabilidadesEstudiantesPendientes());
+        // switch (((Admin) usuarioAutenticado).getTipoDepartamento()) {
+        //     case Biblioteca:
+        //         gestorDepartamentos.getBiblioteca().recogerLibrosPrestados(
+        //                 gestorEstudiantes.buscarEstudiantePorCi(carnet),
+        //                 gestorResponsabilidadesEstudiantes.getResponsabilidadesEstudiantesPendientes());
 
-                break;
-            case Secretaria:
-                gestorDepartamentos.getSecretaria().devolverCarnetCujae(gestorEstudiantes.buscarEstudiantePorCi(carnet),
-                        gestorResponsabilidadesEstudiantes.getResponsabilidadesEstudiantesPendientes());
-                break;
-            case AlmacenLibrosDocentes:
-                gestorDepartamentos.getAlmacenDeLibros().recogerLibrosDocentes(
-                        gestorEstudiantes.buscarEstudiantePorCi(carnet),
-                        gestorResponsabilidadesEstudiantes.getResponsabilidadesEstudiantesPendientes());
-                break;
+        //         break;
+        //     case Secretaria:
+        //         gestorDepartamentos.getSecretaria().devolverCarnetCujae(gestorEstudiantes.buscarEstudiantePorCi(carnet),
+        //                 gestorResponsabilidadesEstudiantes.getResponsabilidadesEstudiantesPendientes());
+        //         break;
+        //     case AlmacenLibrosDocentes:
+        //         gestorDepartamentos.getAlmacenDeLibros().recogerLibrosDocentes(
+        //                 gestorEstudiantes.buscarEstudiantePorCi(carnet),
+        //                 gestorResponsabilidadesEstudiantes.getResponsabilidadesEstudiantesPendientes());
+        //         break;
 
-            case Economia:
-                gestorDepartamentos.getEconomia().confirmarEntregas(gestorEstudiantes.buscarEstudiantePorCi(carnet),
-                        gestorResponsabilidadesEstudiantes.getResponsabilidadesEstudiantesPendientes());
+        //     case Economia:
+        //         gestorDepartamentos.getEconomia().confirmarEntregas(gestorEstudiantes.buscarEstudiantePorCi(carnet),
+        //                 gestorResponsabilidadesEstudiantes.getResponsabilidadesEstudiantesPendientes());
 
-                break;
+        //         break;
 
-            case SeguridadInformatica:
-                gestorDepartamentos.getSeguridadInformatica().cerrarCuenta(
-                        gestorEstudiantes.buscarEstudiantePorCi(carnet),
-                        gestorResponsabilidadesEstudiantes.getResponsabilidadesEstudiantesPendientes());
-                break;
+        //     case SeguridadInformatica:
+        //         gestorDepartamentos.getSeguridadInformatica().cerrarCuenta(
+        //                 gestorEstudiantes.buscarEstudiantePorCi(carnet),
+        //                 gestorResponsabilidadesEstudiantes.getResponsabilidadesEstudiantesPendientes());
+        //         break;
 
-            case DireccionBecas:
-                gestorDepartamentos.getDireccionDeBecas().recogerPertenenciasDeEstudiante(
-                        gestorEstudiantes.buscarEstudiantePorCi(carnet),
-                        gestorResponsabilidadesEstudiantes.getResponsabilidadesEstudiantesPendientes());
-                break;
-            default:
+        //     case DireccionBecas:
+        //         gestorDepartamentos.getDireccionDeBecas().recogerPertenenciasDeEstudiante(
+        //                 gestorEstudiantes.buscarEstudiantePorCi(carnet),
+        //                 gestorResponsabilidadesEstudiantes.getResponsabilidadesEstudiantesPendientes());
+        //         break;
+        //     default:
 
-                break;
-        }
+        //         break;
+        // }
         mostrarGestionLicencias();
     }
 

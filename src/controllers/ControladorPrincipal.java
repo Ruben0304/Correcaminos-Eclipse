@@ -27,6 +27,7 @@ import views.Inicio;
 import views.Pricipal;
 import views.Reportes;
 import views.TramitesEmpleados;
+import views.auth.CuentaJP;
 import views.old.EstudianteTramites;
 import views.old.Inicios;
 import views.old.RequisitosBajaEstudiantes;
@@ -125,6 +126,16 @@ public class ControladorPrincipal {
             }
 
         }
+
+    }
+
+    public static void mostrarAccount() {
+       
+            Pricipal instancia = Pricipal.getInstancia();
+            instancia.setVista(new CuentaJP());
+            Pricipal.getInstancia().revalidate();
+            Pricipal.getInstancia().repaint();
+        
 
     }
 

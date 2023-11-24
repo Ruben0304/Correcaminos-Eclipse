@@ -314,10 +314,13 @@ public class GestorSolicitudesEstudiante implements Actualizador {
                         if (!solictud.getMotivo().toString().equals(valor)) {
                             cumpleFiltros = false;
                         }
+                        break;
                     case "buscar":
                         if ((buscarBajaPorNombreOCi(solictud, valor)) == null) {
                             cumpleFiltros = false;
                         }
+                        break;
+                        default: 
                         break;
                 }
             }
@@ -371,11 +374,13 @@ public class GestorSolicitudesEstudiante implements Actualizador {
                         if (!solictud.getMotivo().toString().equals(valor)) {
                             cumpleFiltros = false;
                         }
-
+                        break;
                     case "buscar":
                         if ((buscarLicenciaPorNombreOCi(solictud, valor)).equals(null)) {
                             cumpleFiltros = false;
                         }
+                        break;
+                        default:
                         break;
                 }
             }

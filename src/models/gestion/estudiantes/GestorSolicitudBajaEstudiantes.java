@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
+import data.ObtenerSolicitudesBajasEstudiantes;
 import data.ObtenerSolicitudesBajasEstudiantesAceptadas;
 import models.reports.BajasAceptadasPorAnio;
 import models.reports.BajasAceptadasPorFacultad;
@@ -15,9 +16,19 @@ public class GestorSolicitudBajaEstudiantes {
 	 private ArrayList<SolicitudBajaEstudiante> solicitudesBajaAceptadas;
 	 private ArrayList<SolicitudBajaEstudiante> solicitudesBajaPendientes;
 	 
+	 public GestorSolicitudBajaEstudiantes() {
+		 solicitudesBajaAceptadas = new ArrayList<SolicitudBajaEstudiante>();
+		 solicitudesBajaPendientes = new ArrayList<SolicitudBajaEstudiante>();
+		 registrarBajasEstudiantesPendientes();
+		 registrarBajasEstudiantesAceptadas();
+	 }
+	 
+	 private void registrarBajasEstudiantesPendientes() {
+		 solicitudesBajaPendientes = ObtenerSolicitudesBajasEstudiantes.cargarDesdeArchivoB();
+	 }
+	 
 	 private void registrarBajasEstudiantesAceptadas() {
 	        solicitudesBajaAceptadas = ObtenerSolicitudesBajasEstudiantesAceptadas.cargarDesdeArchivoB();
-
      }
 	 
 	 public boolean verificarEstudianteSolicitaBaja(Estudiante e) {

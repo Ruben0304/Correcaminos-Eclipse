@@ -15,13 +15,13 @@ import models.solicitudes.SolicitudBajaEstudiante;
 import models.solicitudes.SolicitudLicenciaEstudiante;
 import models.usuarios.Estudiante;
 
-public class ObtenerSolicitudes {
+public class ObtenerSolicitudesLicenciaEstudiante {
     public static ArrayList<SolicitudLicenciaEstudiante> cargarDesdeArchivo() {
        
         Gson gson = new Gson();
         ArrayList<SolicitudLicenciaEstudiante> solicitudes = new ArrayList<>();
 
-        try (BufferedReader reader = new BufferedReader(new FileReader("./solicitudes.json"))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("./solicitudesLicenciaEstudiante.json"))) {
             Type listType = new TypeToken<ArrayList<SolicitudLicenciaEstudiante>>() {
             }.getType();
             solicitudes = gson.fromJson(reader, listType);

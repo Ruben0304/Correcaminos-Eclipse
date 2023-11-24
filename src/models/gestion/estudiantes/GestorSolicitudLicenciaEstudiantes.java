@@ -3,6 +3,8 @@ package models.gestion.estudiantes;
 import java.util.ArrayList;
 
 import data.ObtenerSolicitudes;
+import data.ObtenerSolicitudesLicenciaEstudiante;
+import data.ObtenerSolicitudesLicenciaEstudianteAceptadas;
 import models.solicitudes.SolicitudLicenciaEstudiante;
 import models.usuarios.Estudiante;
 import utiles.Facultad;
@@ -15,13 +17,17 @@ public class GestorSolicitudLicenciaEstudiantes {
 	 public GestorSolicitudLicenciaEstudiantes() {
 			this.solicitudesLicenciaAceptadas = new ArrayList<SolicitudLicenciaEstudiante>();
 			this.solicitudesLicenciaPendientes = new ArrayList<SolicitudLicenciaEstudiante>();
-			registrarLicenciasEstudiantes();
+			registrarLicenciasEstudiantesPendientes();
+			registrarLicenciasEstudiantesAceptadas();
 	}
 	 
-	 private void registrarLicenciasEstudiantes() {
-	        solicitudesLicenciaPendientes = ObtenerSolicitudes.cargarDesdeArchivo();
-
-    }
+	 private void registrarLicenciasEstudiantesPendientes() {
+	        solicitudesLicenciaPendientes = ObtenerSolicitudesLicenciaEstudiante.cargarDesdeArchivo();
+	 }
+	 
+	 private void registrarLicenciasEstudiantesAceptadas() {
+		 solicitudesLicenciaAceptadas = ObtenerSolicitudesLicenciaEstudianteAceptadas.cargarDesdeArchivo();
+	 }
 	 
 	public ArrayList<SolicitudLicenciaEstudiante> getSolicitudesLicenciaPendientes() {
 

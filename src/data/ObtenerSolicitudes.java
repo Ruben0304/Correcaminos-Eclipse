@@ -15,6 +15,8 @@ import models.solicitudes.SolicitudBajaEstudiante;
 import models.solicitudes.SolicitudLicenciaEstudiante;
 import models.usuarios.Estudiante;
 
+//cambiar nombre a de clase a ObtenerSolicitudesLicenciaEstudiantes 
+
 public class ObtenerSolicitudes {
     public static ArrayList<SolicitudLicenciaEstudiante> cargarDesdeArchivo() {
        

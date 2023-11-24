@@ -1,6 +1,7 @@
 package models.departamentos;
 
 import java.util.ArrayList;
+import java.util.Set;
 
 import models.interfaces.VerificadorEmpleado;
 import models.interfaces.VerificadorEstudiante;
@@ -13,9 +14,9 @@ import util.TiposResponsabilidad;
 
 public class Biblioteca implements VerificadorEstudiante, VerificadorEmpleado {
 
-    public boolean tieneLibrosPrestados(ResponsabilidadesEstudiantes r){
+    public boolean tieneLibrosPrestados(Set<TiposResponsabilidad> r){
     
-        return r.getResponsabilidades().contains(TiposResponsabilidad.LIBROS_BIBLIOTECA);
+        return r.contains(TiposResponsabilidad.LIBROS_BIBLIOTECA);
 
         
     }

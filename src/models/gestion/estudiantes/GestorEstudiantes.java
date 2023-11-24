@@ -22,7 +22,7 @@ public class GestorEstudiantes {
         estudiantes = new ArrayList<>();
         registrarEstudiantes();
         gestorSolicitudes = new GestorSolicitudesEstudiante(estudiantes);
-        gestorResponsabilidadesEstudiantes = new GestorResponsabilidadesEstudiantes(estudiantes);
+        gestorResponsabilidadesEstudiantes = new GestorResponsabilidadesEstudiantes();
 
     }
 

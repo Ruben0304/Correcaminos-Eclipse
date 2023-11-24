@@ -22,9 +22,7 @@ public abstract class Solicitud {
         return estado;
     }
 
-    public Motivos getMotivo() {
-        return motivo;
-    }
+   
 
     public Date getFecha() {
         return fecha;

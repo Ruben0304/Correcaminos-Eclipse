@@ -283,7 +283,7 @@ public class GestorSolicitudesEstudiante implements Actualizador {
     // int max = 0;
 
     // }
-    
+
     // Filtros administración
 
     public ArrayList<SolicitudBajaEstudiante> filtradoDinamicoSolicitudBajaEstudiantes(Map<String, String> filtros) {
@@ -327,7 +327,7 @@ public class GestorSolicitudesEstudiante implements Actualizador {
                 solicitudesBajaFiltradas.add(solictud);
             }
         }
-
+        
         return solicitudesBajaFiltradas;
     }
 

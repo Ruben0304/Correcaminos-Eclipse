@@ -466,6 +466,7 @@ public class PanelAdministracion extends JPanel {
 	private JComboBox getComboBoxMotivos() {
 		if (comboBoxMotivos == null) {
 			comboBoxMotivos = new JComboBox();
+			comboBoxMotivos.setModel(new DefaultComboBoxModel(Motivos.values()));
 			comboBoxMotivos.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					map.put("motivo", comboBoxMotivos.getSelectedItem().toString());
@@ -474,7 +475,7 @@ public class PanelAdministracion extends JPanel {
 									ControladorFiltrado.obtenerSolicitudesBajaEstudiantesFiltradas(getMap()), 8));
 				}
 			});
-			comboBoxMotivos.setModel(new DefaultComboBoxModel(Motivos.values()));
+			
 			comboBoxMotivos.setToolTipText("");
 			comboBoxMotivos.setMaximumRowCount(9);
 			comboBoxMotivos.setForeground(Color.BLACK);
@@ -493,7 +494,6 @@ public class PanelAdministracion extends JPanel {
 			slider.setValue(2023);
 			slider.setMajorTickSpacing(10);
 			slider.setMinorTickSpacing(1);
-			slider.setPaintLabels(true);
 			slider.addChangeListener(new ChangeListener() {
 				public void stateChanged(ChangeEvent e) {
 

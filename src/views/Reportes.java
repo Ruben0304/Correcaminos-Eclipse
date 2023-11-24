@@ -191,7 +191,7 @@ public class Reportes {
 					
 				}
 				else if (rdbtnNewRadioButton_2.isSelected()) {
-					ControladorReportes.anioConMasBajasLicenciasAceptadasEnUltimos10();
+					ControladorReportes.anioConMasBajasAceptadasEnUltimos10();
 				}
 				else{
 

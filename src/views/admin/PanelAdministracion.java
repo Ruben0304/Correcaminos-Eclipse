@@ -469,10 +469,12 @@ public class PanelAdministracion extends JPanel {
 			comboBoxMotivos.setModel(new DefaultComboBoxModel(Motivos.values()));
 			comboBoxMotivos.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					map.put("motivo", comboBoxMotivos.getSelectedItem().toString());
+					getMap().put("motivo", comboBoxMotivos.getSelectedItem().toString());
 					getTable().setModel(
 							new PendientesEstudiantes(
 									ControladorFiltrado.obtenerSolicitudesBajaEstudiantesFiltradas(getMap()), 8));
+									
+									
 				}
 			});
 			

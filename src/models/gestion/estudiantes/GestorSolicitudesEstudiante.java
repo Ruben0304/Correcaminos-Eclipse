@@ -315,6 +315,7 @@ public class GestorSolicitudesEstudiante implements Actualizador {
                         if (!solictud.getMotivo().toString().equals(valor)) {
                             cumpleFiltros = false;
                         }
+                        break;
                     case "buscar":
                         if ((buscarBajaPorNombreOCi(solictud, valor)) == null) {
                             cumpleFiltros = false;
@@ -335,7 +336,7 @@ public class GestorSolicitudesEstudiante implements Actualizador {
         boolean result = true;
 
         if (!(solicitud.getEstudiante().getNombreCompleto().toLowerCase().contains(valor.toLowerCase())
-                || solicitud.getEstudiante().getCi().toLowerCase().contains(valor.toLowerCase()))) {
+                || solicitud.getEstudiante().getCi().toLowerCase().contains(valor.toLowerCase())  )) {
             result = false;
         }
 
@@ -369,9 +370,9 @@ public class GestorSolicitudesEstudiante implements Actualizador {
                         }
                         break;
                     case "motivo":
-                        if (!solictud.getMotivo().toString().equals(valor)) {
-                            cumpleFiltros = false;
-                        }
+                        // if (!solictud.getMotivo().toString().equals(valor)) {
+                        //     cumpleFiltros = false;
+                        // }
 
                     case "buscar":
                         if ((buscarLicenciaPorNombreOCi(solictud, valor)).equals(null)) {

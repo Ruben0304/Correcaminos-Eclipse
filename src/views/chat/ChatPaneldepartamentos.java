@@ -1,12 +1,9 @@
 package views.chat;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
+
 import java.awt.Font;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
+
 import java.awt.Image;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
@@ -14,8 +11,6 @@ import java.awt.event.ActionListener;
 
 import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
-import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -23,22 +18,20 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 import auth.Auth;
+import controllers.ControladorAdmin;
 import models.chats.AdministradorChats;
 import models.chats.Chat;
 import models.chats.Mensaje;
 import models.usuarios.Admin;
-import models.usuarios.Usuario;
-import util.TipoDepartamento;
 
-import javax.swing.JSlider;
 import javax.swing.ImageIcon;
 import java.awt.Cursor;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.border.LineBorder;
-import javax.swing.JRadioButton;
-import javax.swing.JCheckBox;
-import java.awt.SystemColor;
+
+import javax.swing.JTable;
+import javax.swing.ListSelectionModel;
 
 public class ChatPaneldepartamentos extends JPanel implements ActionListener {
     private JTextArea chatArea = new JTextArea();
@@ -54,14 +47,14 @@ public class ChatPaneldepartamentos extends JPanel implements ActionListener {
     private final JLabel lblDepartamentos = new JLabel("Departamentos");
     private JTextArea txtrContanctaConLos;
     private ButtonGroup rbtnGroup = new ButtonGroup();
-    private JScrollPane scrollPane_1; 
+    private JScrollPane scrollPane_1;
+    private final Admin departamento = (Admin) Auth.usuarioAutenticado();
+    private JTable table;
 
-    public ChatPaneldepartamentos(Usuario usuario) {
-        // Configurar el panel
+    public ChatPaneldepartamentos() {
+
         AdministradorChats.getAdministradorChats();
 
-        this.chat = AdministradorChats.getAdministradorChats().buscarChat(departamento.getTipoDepartamento(),
-                usuario.getNombreUsuario());
         setBounds(178, 0, 944, 700);
         setBackground(new Color(31, 33, 36));
         chatArea.setWrapStyleWord(true);
@@ -160,6 +153,7 @@ public class ChatPaneldepartamentos extends JPanel implements ActionListener {
 
         panel.add(lblNewLabel_2);
         add(getScrollPane_1());
+        add(getTable());
     }
 
     @Override
@@ -223,5 +217,49 @@ public class ChatPaneldepartamentos extends JPanel implements ActionListener {
             scrollPane_1.setAutoscrolls(true);
         }
         return scrollPane_1;
+    }
+
+    private JTable getTable() {
+        if (table == null) {
+            table = new JTable();
+            table.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+
+                    int selectedRow = table.getSelectedRow();
+                    if (selectedRow != -1) {
+                        String nombreUsuario = table.getValueAt(selectedRow, 0).toString();
+                        setChat(AdministradorChats.getAdministradorChats().buscarChat(
+                                departamento.getTipoDepartamento(),
+                                nombreUsuario));
+                        chatArea.revalidate();
+                        chatArea.repaint();
+
+                        // DefaultTableModel modelo = (DefaultTableModel) table_2.getModel();
+
+                        // modelo.fireTableDataChanged();
+
+                    }
+
+                }
+            });
+            table.setBounds(0, 0, 588, -121);
+            table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+            table.setRowHeight(50);
+            table.setGridColor(new Color(31, 33, 36));
+            table.setForeground(Color.WHITE);
+            table.setBorder(null);
+            table.setBackground(new Color(31, 33, 36));
+            table.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
+        }
+        return table;
+    }
+
+    public Chat getChat() {
+        return chat;
+    }
+
+    public void setChat(Chat chat) {
+        this.chat = chat;
     }
 }

@@ -44,7 +44,6 @@ public class ChatPaneldepartamentos extends JPanel implements ActionListener {
     private JTextArea chatArea = new JTextArea();
     private JTextField messageField = new JTextField();
     private Chat chat;
-    private TipoDepartamento departamento = TipoDepartamento.Biblioteca;
     private JLabel lblNewLabel;
     private final JLabel lblNewLabel_1 = new JLabel("");
     private final JPanel panel = new JPanel();
@@ -55,13 +54,14 @@ public class ChatPaneldepartamentos extends JPanel implements ActionListener {
     private final JLabel lblDepartamentos = new JLabel("Departamentos");
     private JTextArea txtrContanctaConLos;
     private ButtonGroup rbtnGroup = new ButtonGroup();
-    private JScrollPane scrollPane_1;
+    private JScrollPane scrollPane_1; 
 
     public ChatPaneldepartamentos(Usuario usuario) {
         // Configurar el panel
         AdministradorChats.getAdministradorChats();
 
-        this.chat = AdministradorChats.getAdministradorChats().buscarChat(departamento, usuario.getNombreUsuario());
+        this.chat = AdministradorChats.getAdministradorChats().buscarChat(departamento.getTipoDepartamento(),
+                usuario.getNombreUsuario());
         setBounds(178, 0, 944, 700);
         setBackground(new Color(31, 33, 36));
         chatArea.setWrapStyleWord(true);
@@ -212,15 +212,16 @@ public class ChatPaneldepartamentos extends JPanel implements ActionListener {
         }
         return txtrContanctaConLos;
     }
-	private JScrollPane getScrollPane_1() {
-		if (scrollPane_1 == null) {
-			scrollPane_1 = new JScrollPane();
-			scrollPane_1.setBounds(23, 106, 187, 370);
-			scrollPane_1.setOpaque(false);
-			scrollPane_1.setBorder(new LineBorder(new Color(128, 128, 128), 1, true));
-			scrollPane_1.setBackground(new Color(40, 42, 46));
-			scrollPane_1.setAutoscrolls(true);
-		}
-		return scrollPane_1;
-	}
+
+    private JScrollPane getScrollPane_1() {
+        if (scrollPane_1 == null) {
+            scrollPane_1 = new JScrollPane();
+            scrollPane_1.setBounds(23, 106, 187, 370);
+            scrollPane_1.setOpaque(false);
+            scrollPane_1.setBorder(new LineBorder(new Color(128, 128, 128), 1, true));
+            scrollPane_1.setBackground(new Color(40, 42, 46));
+            scrollPane_1.setAutoscrolls(true);
+        }
+        return scrollPane_1;
+    }
 }

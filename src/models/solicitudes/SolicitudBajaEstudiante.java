@@ -2,7 +2,7 @@ package models.solicitudes;
 
 import models.usuarios.Estudiante;
 
-public class SolicitudBajaEstudiante extends SolicitudBaja {
+public class SolicitudBajaEstudiante extends Solicitud {
 	
 	private Estudiante estudiante;
 	

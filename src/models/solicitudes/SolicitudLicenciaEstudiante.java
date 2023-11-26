@@ -1,6 +1,6 @@
 package models.solicitudes;
 
-import java.sql.Date;
+import java.util.Calendar;
 
 import models.usuarios.Estudiante;
 
@@ -8,7 +8,7 @@ public class SolicitudLicenciaEstudiante extends SolicitudLicencia {
 
 	private Estudiante estudiante;
 
-	public SolicitudLicenciaEstudiante(Estudiante estudiante, String motivo, Date fechaSalida, Date fechaRegreso) {
+	public SolicitudLicenciaEstudiante(Estudiante estudiante, String motivo, Calendar fechaSalida, Calendar fechaRegreso) {
 		super(motivo, fechaSalida, fechaRegreso);
 		this.estudiante = estudiante;
 	}

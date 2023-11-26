@@ -2,22 +2,21 @@ package models.solicitudes;
 
 
 import java.util.Calendar;
-import java.util.Date;
-
+import java.util.GregorianCalendar;
 
 import util.Estado;
 
-public abstract class SolicitudBaja {
+public abstract class Solicitud {
     protected Estado estado;
     protected String motivo;
-    protected Date fecha;
+    protected Calendar fecha;
 
     
 
-    public SolicitudBaja(String motivo) {
+    public Solicitud(String motivo) {
         this.estado = Estado.PENDIENTE;
         this.motivo = motivo;
-        this.fecha = new Date();
+        this.fecha = new GregorianCalendar();
     }
 
     public Estado getEstado() {
@@ -28,7 +27,7 @@ public abstract class SolicitudBaja {
         return motivo;
     }
 
-    public Date getFecha() {
+    public Calendar getFecha() {
         return fecha;
     }
 
@@ -38,9 +37,8 @@ public abstract class SolicitudBaja {
 
 
       public int getAnioExpedicion() {
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(fecha);
-        return calendar.get(Calendar.YEAR);
+        return fecha.get(Calendar.YEAR);
+        
     }
 
    

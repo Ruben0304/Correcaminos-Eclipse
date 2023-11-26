@@ -3,7 +3,7 @@
     "estudiante": {
       "curso": 2,
       "tipoCurso": "ENCUENTRO",
-      "carrera": "Ingenieria Informatica",
+      "carrera": "Ing_Informatica",
       "grupo": 2,
       "ci": "78901234560",
       "nombre": "Manuelito",
@@ -21,7 +21,7 @@
     "estudiante": {
       "curso": 3,
       "tipoCurso": "DIURNO",
-      "carrera": "Ingenieria Informatica",
+      "carrera": "Ing_Industrial",
       "grupo": 3,
       "ci": "65432101234",
       "nombre": "Maria",
@@ -32,14 +32,14 @@
       "contrasena": "c63c2d34ebe84032ad47b87af194fedd17dacf8222b2ea7f4ebfee3dd6db2dfb"
     },
     "estado": "ACEPTADO",
-    "motivo": "Problemas familiares",
+    "motivo": "Enfermedad",
     "fecha": "Nov 18, 2022 12:00:55 PM"
   },
   {
     "estudiante": {
       "curso": 3,
       "tipoCurso": "DIURNO",
-      "carrera": "Ingenieria Informatica",
+      "carrera": "Ing_Industrial",
       "grupo": 3,
       "ci": "23456789011",
       "nombre": "Pedro",
@@ -50,7 +50,170 @@
       "contrasena": "5906ac361a137e2d286465cd6588ebb5ac3f5ae955001100bc41577c3d751764"
     },
     "estado": "ACEPTADO",
-    "motivo": "Problemas de salud",
+    "motivo": "Enfermedad",
     "fecha": "Nov 18, 2022 10:00:55 AM"
+  },
+  {
+    "estudiante": {
+      "curso": 2,
+      "tipoCurso": "ENCUENTRO",
+      "carrera": "Ing_Informatica",
+      "grupo": 2,
+      "ci": "789012345789",
+      "nombre": "fede",
+      "primer_apellido": "hu",
+      "segundo_apellido": "potro",
+      "facultad": "Ing_Informatica",
+      "nombreUsuario": "estudiante100",
+      "contrasena": "57f3ebab63f156fd8f776ba645a55d96360a15eeffc8b0e4afe4c05fa88219aa"
+    },
+    "estado": "ACEPTADO",
+    "motivo": "Accidente",
+    "fecha": "Nov 18, 2023 11:36:55 AM"
+  },
+  
+  {
+    "estudiante": {
+      "curso": 2,
+      "tipoCurso": "ENCUENTRO",
+      "carrera": "Ing_Industrial",
+      "grupo": 2,
+      "ci": "123456789012",
+      "nombre": "Laura",
+      "primer_apellido": "González",
+      "segundo_apellido": "Martínez",
+      "facultad": "Ing_Industrial",
+      "nombreUsuario": "estudiante101",
+      "contrasena": "57f3ebab63f156fd8f776ba645a55d96360a15eeffc8b0e4afe4c05fa88219aa"
+    },
+    "estado": "ACEPTADO",
+    "motivo": "Accidente",
+    "fecha": "Nov 19, 2022 09:45:00 AM"
+  },
+  {
+    "estudiante": {
+      "curso": 4,
+      "tipoCurso": "ENCUENTRO",
+      "carrera": "Ing_Civil",
+      "grupo": 4,
+      "ci": "567890123456",
+      "nombre": "Pedro",
+      "primer_apellido": "González",
+      "segundo_apellido": "Sánchez",
+      "facultad": "Ing_Civil",
+      "nombreUsuario": "estudiante103",
+      "contrasena": "5906ac361a137e2d286465cd6588ebb5ac3f5ae955001100bc41577c3d751764"
+    },
+    "estado": "ACEPTADO",
+    "motivo": "Accidente",
+    "fecha": "Nov 21, 2021 08:15:00 AM"
+  },
+  {
+    "estudiante": {
+      "curso": 2,
+      "tipoCurso": "ENCUENTRO",
+      "carrera": "Ing_Civil",
+      "grupo": 2,
+      "ci": "135792468024",
+      "nombre": "Juan",
+      "primer_apellido": "Hernández",
+      "segundo_apellido": "Rodríguez",
+      "facultad": "Ing_Civil",
+      "nombreUsuario": "estudiante104",
+      "contrasena": "57f3ebab63f156fd8f776ba645a55d96360a15eeffc8b0e4afe4c05fa88219aa"
+    },
+    "estado": "ACEPTADO",
+    "motivo": "Enfermedad",
+    "fecha": "Nov 19, 2022 04:30:50 PM"
+  },
+  {
+    "estudiante": {
+      "curso": 2,
+      "tipoCurso": "ENCUENTRO",
+      "carrera": "Ing_Civil",
+      "grupo": 2,
+      "ci": "135792454024",
+      "nombre": "Perico",
+      "primer_apellido": "Hernández",
+      "segundo_apellido": "Yuyu",
+      "facultad": "Ing_Civil",
+      "nombreUsuario": "estudiante104",
+      "contrasena": "57f3ebab63f156fd8f776ba645a55d96360a15eeffc8b0e4afe4c05fa88219aa"
+    },
+    "estado": "ACEPTADO",
+    "motivo": "Enfermedad",
+    "fecha": "Nov 19, 2022 04:30:50 PM"
+  },
+  {
+    "estudiante": {
+      "curso": 2,
+      "tipoCurso": "ENCUENTRO",
+      "carrera": "Ing_Quimica",
+      "grupo": 2,
+      "ci": "135792454024",
+      "nombre": "Perico",
+      "primer_apellido": "Hernández",
+      "segundo_apellido": "Yuyu",
+      "facultad": "Ing_Quimica",
+      "nombreUsuario": "estudiante104",
+      "contrasena": "57f3ebab63f156fd8f776ba645a55d96360a15eeffc8b0e4afe4c05fa88219aa"
+    },
+    "estado": "ACEPTADO",
+    "motivo": "Enfermedad",
+    "fecha": "Nov 19, 2022 04:30:50 PM"
+  },
+  {
+    "estudiante": {
+      "curso": 2,
+      "tipoCurso": "ENCUENTRO",
+      "carrera": "Ing_Quimica",
+      "grupo": 2,
+      "ci": "135792454324",
+      "nombre": "Ernesto",
+      "primer_apellido": "Hernández",
+      "segundo_apellido": "Losa",
+      "facultad": "Ing_Quimica",
+      "nombreUsuario": "estudiante104",
+      "contrasena": "57f3ebab63f156fd8f776ba645a55d96360a15eeffc8b0e4afe4c05fa88219aa"
+    },
+    "estado": "ACEPTADO",
+    "motivo": "Accidente",
+    "fecha": "Nov 19, 2022 04:30:50 PM"
+  },
+  {
+    "estudiante": {
+      "curso": 2,
+      "tipoCurso": "ENCUENTRO",
+      "carrera": "Ing_Informatica",
+      "grupo": 2,
+      "ci": "135792454324",
+      "nombre": "Gavi",
+      "primer_apellido": "Hernández",
+      "segundo_apellido": "Losa",
+      "facultad": "Ing_Informatica",
+      "nombreUsuario": "estudiante104",
+      "contrasena": "57f3ebab63f156fd8f776ba645a55d96360a15eeffc8b0e4afe4c05fa88219aa"
+    },
+    "estado": "ACEPTADO",
+    "motivo": "Enfermedad",
+    "fecha": "Nov 19, 2021 04:30:50 PM"
+  },
+  {
+    "estudiante": {
+      "curso": 2,
+      "tipoCurso": "ENCUENTRO",
+      "carrera": "Ing_Industrial",
+      "grupo": 2,
+      "ci": "135792454324",
+      "nombre": "Fernando",
+      "primer_apellido": "Palomo",
+      "segundo_apellido": "Perez",
+      "facultad": "Ing_Industrial",
+      "nombreUsuario": "estudiante104",
+      "contrasena": "57f3ebab63f156fd8f776ba645a55d96360a15eeffc8b0e4afe4c05fa88219aa"
+    },
+    "estado": "ACEPTADO",
+    "motivo": "Accidente",
+    "fecha": "Nov 19, 2020 04:30:50 PM"
   }
 ]

@@ -13,26 +13,4 @@ public abstract class SolicitudBaja extends Solicitud {
 
     }
 
-    public Estado getEstado() {
-        return estado;
-    }
-
-    public Motivos getMotivo() {
-        return motivo;
-    }
-
-    public Date getFecha() {
-        return fecha;
-    }
-
-    public void setEstado(Estado estado) {
-        this.estado = estado;
-    }
-
-    public int getAnioExpedicion() {
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(fecha);
-        return calendar.get(Calendar.YEAR);
-    }
-
 }

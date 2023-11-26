@@ -43,6 +43,7 @@ import javax.swing.event.ChangeListener;
 import javax.swing.table.DefaultTableCellRenderer;
 
 import controllers.ControladorFiltrado;
+import controllers.ControladorReportes;
 import models.gestion.GestorDepartamentos;
 import models.gestion.estudiantes.GestorEstudiantes;
 import models.gestion.estudiantes.GestorResponsabilidadesEstudiantes;
@@ -58,6 +59,7 @@ import java.awt.event.ItemListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.ItemEvent;
+import java.awt.ComponentOrientation;
 
 public class PanelAdministracion extends JPanel {
 	private JPanel panelFiltrados;
@@ -68,7 +70,7 @@ public class PanelAdministracion extends JPanel {
 	private JLabel lblAnio;
 	private JLabel labelEstado;
 	private JComboBox comboBoxSeleccionarFac;
-	private JComboBox comboBox;
+	private JComboBox comboBoxEstado;
 	private JLabel lblTituloReportes;
 	private JComboBox comboBoxReportes;
 	private JLabel lblTituloCategorias;
@@ -83,7 +85,7 @@ public class PanelAdministracion extends JPanel {
 	private JLabel lblNewLabel;
 	private JTextField textField;
 	private JLabel lblMotivo;
-	private JComboBox comboBox_2;
+	private JComboBox comboBoxMotivos;
 	private JSlider slider;
 	private JLabel label;
 	private JLabel label_1;
@@ -131,9 +133,9 @@ public class PanelAdministracion extends JPanel {
 			panelFiltrados.add(getLblAnio());
 			panelFiltrados.add(getLabelEstado());
 			panelFiltrados.add(getComboBoxSeleccionarFac());
-			panelFiltrados.add(getComboBox());
+			panelFiltrados.add(getComboBoxEstado());
 			panelFiltrados.add(getLblMotivo());
-			panelFiltrados.add(getComboBox_2());
+			panelFiltrados.add(getComboBoxMotivos());
 			panelFiltrados.add(getSlider());
 			panelFiltrados.add(getLabel());
 			panelFiltrados.add(getLabel_1());
@@ -223,7 +225,8 @@ public class PanelAdministracion extends JPanel {
 
 					getMap().put("facultad", comboBoxSeleccionarFac.getSelectedItem().toString());
 					getTable().setModel(
-							new PendientesEstudiantes(ControladorFiltrado.obtenerSolicitudesBajaEstudiantesFiltradas(getMap()), 8));
+							new PendientesEstudiantes(
+									ControladorFiltrado.obtenerSolicitudesBajaEstudiantesFiltradas(getMap()), 8));
 				}
 			});
 			comboBoxSeleccionarFac.addItemListener(new ItemListener() {
@@ -247,21 +250,23 @@ public class PanelAdministracion extends JPanel {
 		return comboBoxSeleccionarFac;
 	}
 
-	private JComboBox getComboBox() {
-		if (comboBox == null) {
-			comboBox = new JComboBox();
-			comboBox.setBackground(new Color(224, 255, 255));
-			comboBox.addActionListener(new ActionListener() {
+	private JComboBox getComboBoxEstado() {
+		if (comboBoxEstado == null) {
+			comboBoxEstado = new JComboBox();
+			comboBoxEstado.setFont(new Font("Segoe UI Semibold", Font.BOLD, 14));
+			comboBoxEstado.setBackground(new Color(224, 255, 255));
+			comboBoxEstado.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					getMap().put("estado", comboBox.getSelectedItem().toString());
+					getMap().put("estado", comboBoxEstado.getSelectedItem().toString());
 					getTable().setModel(
-							new PendientesEstudiantes(ControladorFiltrado.obtenerSolicitudesBajaEstudiantesFiltradas(getMap()), 8));
+							new PendientesEstudiantes(
+									ControladorFiltrado.obtenerSolicitudesBajaEstudiantesFiltradas(getMap()), 8));
 				}
 			});
-			comboBox.setModel(new DefaultComboBoxModel(Estado.values()));
-			comboBox.setBounds(92, 97, 154, 25);
+			comboBoxEstado.setModel(new DefaultComboBoxModel(Estado.values()));
+			comboBoxEstado.setBounds(92, 97, 154, 25);
 		}
-		return comboBox;
+		return comboBoxEstado;
 	}
 
 	private JLabel getLblTituloReportes() {
@@ -277,8 +282,25 @@ public class PanelAdministracion extends JPanel {
 	private JComboBox getComboBoxReportes() {
 		if (comboBoxReportes == null) {
 			comboBoxReportes = new JComboBox();
+			comboBoxReportes.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					if(comboBoxReportes.getSelectedItem().toString().equals(comboBoxReportes.getModel().getElementAt(1))){
+						ControladorReportes.anioConMasBajasAceptadasEnUltimos10();
+					}
+					else if (comboBoxReportes.getSelectedItem().toString().equals(comboBoxReportes.getModel().getElementAt(2))) {
+						ControladorReportes.totalBajasAceptadasElAnioAnterior();
+					}
+					else if (comboBoxReportes.getSelectedItem().toString().equals(comboBoxReportes.getModel().getElementAt(3))){
+						ControladorReportes.facultadesConMasBajasAceptadas();
+					}
+				}
+			});
+			comboBoxReportes.setAutoscrolls(true);
+			comboBoxReportes.setLightWeightPopupEnabled(false);
+			comboBoxReportes.setModel(new DefaultComboBoxModel(new String[] { "", "A\u00F1o(s) con mas bajas aceptadas",
+					"Total bajas aceptadas en a\u00F1o anterior", "Facultad(es) con mas bajas aceptadas" }));
 			comboBoxReportes.setBackground(Color.WHITE);
-			comboBoxReportes.setFont(new Font("Segoe UI Semibold", Font.BOLD, 15));
+			comboBoxReportes.setFont(new Font("Segoe UI Semibold", Font.BOLD, 13));
 			comboBoxReportes.setBounds(12, 59, 234, 27);
 		}
 		return comboBoxReportes;
@@ -441,26 +463,29 @@ public class PanelAdministracion extends JPanel {
 		return lblMotivo;
 	}
 
-	private JComboBox getComboBox_2() {
-		if (comboBox_2 == null) {
-			comboBox_2 = new JComboBox();
-			comboBox_2.addActionListener(new ActionListener() {
+	private JComboBox getComboBoxMotivos() {
+		if (comboBoxMotivos == null) {
+			comboBoxMotivos = new JComboBox();
+			comboBoxMotivos.setModel(new DefaultComboBoxModel(Motivos.values()));
+			comboBoxMotivos.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					map.put("motivo", comboBox_2.getSelectedItem().toString());
+					getMap().put("motivo", comboBoxMotivos.getSelectedItem().toString());
 					getTable().setModel(
 							new PendientesEstudiantes(
 									ControladorFiltrado.obtenerSolicitudesBajaEstudiantesFiltradas(getMap()), 8));
+									
+									
 				}
 			});
-			comboBox_2.setModel(new DefaultComboBoxModel(Motivos.values()));
-			comboBox_2.setToolTipText("");
-			comboBox_2.setMaximumRowCount(9);
-			comboBox_2.setForeground(Color.BLACK);
-			comboBox_2.setFont(new Font("Segoe UI Semibold", Font.BOLD, 14));
-			comboBox_2.setBackground(new Color(255, 245, 238));
-			comboBox_2.setBounds(92, 137, 154, 25);
+			
+			comboBoxMotivos.setToolTipText("");
+			comboBoxMotivos.setMaximumRowCount(9);
+			comboBoxMotivos.setForeground(Color.BLACK);
+			comboBoxMotivos.setFont(new Font("Segoe UI Semibold", Font.BOLD, 14));
+			comboBoxMotivos.setBackground(new Color(255, 245, 238));
+			comboBoxMotivos.setBounds(92, 137, 154, 25);
 		}
-		return comboBox_2;
+		return comboBoxMotivos;
 	}
 
 	private JSlider getSlider() {
@@ -471,7 +496,6 @@ public class PanelAdministracion extends JPanel {
 			slider.setValue(2023);
 			slider.setMajorTickSpacing(10);
 			slider.setMinorTickSpacing(1);
-			slider.setPaintLabels(true);
 			slider.addChangeListener(new ChangeListener() {
 				public void stateChanged(ChangeEvent e) {
 

@@ -11,6 +11,8 @@ import com.google.gson.reflect.TypeToken;
 
 import models.solicitudes.SolicitudBajaEstudiante;
 
+//cambiar nombre a de clase a ObtenerSolicitudesBajaEstudiantes
+
 public class ObtenerSolicitudesBajasEstudiantesAceptadas {
     public static ArrayList<SolicitudBajaEstudiante> cargarDesdeArchivoB() {
         // escribir();

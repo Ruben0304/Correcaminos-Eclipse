@@ -58,7 +58,7 @@ public abstract class ControladorReportes {
 
         int total = GestorEstudiantes.gestorEstudiantes().getGestorSolicitudes().cantidadDeBajasDeUnAnio(anioAnterior);
 
-        String info = "El total de licencias aceptadas el año anterior fue de: " + total;
+        String info = "El total de bajas aceptadas el anio anterior fue de: " + total;
 
         JTextArea textArea = crearTextArea(info);
 
@@ -66,7 +66,7 @@ public abstract class ControladorReportes {
        
     }
 
-    public static void anioConMasBajasLicenciasAceptadasEnUltimos10() {
+    public static void anioConMasBajasAceptadasEnUltimos10() {
         Calendar calendar = Calendar.getInstance();
         int anioActual = calendar.get(Calendar.YEAR);
 
@@ -86,7 +86,7 @@ public abstract class ControladorReportes {
             }
         }
 
-        String info = "El anio(s) con mayor contidad de bajas y licencias aceptadas fue:\n";
+        String info = "El anio(s) con mayor contidad de bajas aceptadas fue:\n";
         for (int anio : aniosMasBajas) {
             info =  anio + "\n";
         }

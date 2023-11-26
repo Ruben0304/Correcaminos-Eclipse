@@ -20,4 +20,9 @@ public class ControladorFiltrado {
         return GestorEstudiantes.gestorEstudiantes().getGestorSolicitudes()
                 .filtradoDinamicoSolicitudBajaEstudiantes(map);
     }
+     public static ArrayList<SolicitudBajaEstudiante> me(
+            HashMap<String, String> map) {
+        return GestorEstudiantes.gestorEstudiantes().getGestorSolicitudes()
+                .filtradoDinamicoSolicitudBajaEstudiantes(map);
+    }
 }

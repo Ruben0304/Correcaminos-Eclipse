@@ -22,7 +22,11 @@ public class ControladorFiltrado {
     }
      public static ArrayList<SolicitudBajaEstudiante> me(
             HashMap<String, String> map) {
+                if (true) {
+                    
+                }
         return GestorEstudiantes.gestorEstudiantes().getGestorSolicitudes()
                 .filtradoDinamicoSolicitudBajaEstudiantes(map);
+               
     }
 }

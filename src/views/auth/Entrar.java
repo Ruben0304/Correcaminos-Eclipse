@@ -13,7 +13,7 @@ import javax.swing.border.LineBorder;
 import controllers.ControladorLogin;
 import controllers.ControladorPrincipal;
 import models.usuarios.Usuario;
-import views.Pricipal;
+import views.layouts.Pricipal;
 
 import java.awt.Color;
 

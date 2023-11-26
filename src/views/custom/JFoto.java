@@ -1,4 +1,4 @@
-package views.jpersonalizados;
+package views.custom;
 
 import java.awt.Graphics;
 import java.awt.Image;
@@ -7,7 +7,7 @@ import java.net.URL;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
-import views.Pricipal;
+import views.layouts.Pricipal;
 
 public class JFoto extends JLabel {
 

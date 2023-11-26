@@ -1,4 +1,4 @@
-package views.admin;
+package views.chat;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -40,7 +40,7 @@ import javax.swing.JRadioButton;
 import javax.swing.JCheckBox;
 import java.awt.SystemColor;
 
-public class ChatPanel extends JPanel implements ActionListener {
+public class ChatPaneldepartamentos extends JPanel implements ActionListener {
     private JTextArea chatArea = new JTextArea();
     private JTextField messageField = new JTextField();
     private Chat chat;
@@ -57,7 +57,7 @@ public class ChatPanel extends JPanel implements ActionListener {
     private ButtonGroup rbtnGroup = new ButtonGroup();
     private JScrollPane scrollPane_1;
 
-    public ChatPanel(Usuario usuario) {
+    public ChatPaneldepartamentos(Usuario usuario) {
         // Configurar el panel
         AdministradorChats.getAdministradorChats();
 

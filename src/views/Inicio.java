@@ -10,6 +10,7 @@ import auth.Auth;
 import controllers.ControladorLogin;
 import controllers.ControladorPruebas;
 import models.usuarios.Usuario;
+import views.layouts.Pricipal;
 
 import java.awt.Color;
 import java.awt.Component;

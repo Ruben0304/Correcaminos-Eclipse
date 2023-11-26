@@ -1,11 +1,11 @@
 package controllers;
 
 import views.Inicio;
-import views.Pricipal;
 import views.Reportes;
 import views.TramitesEmpleados;
 import views.auth.Entrar;
-import views.usuarios.RequisitosEstudiante;
+import views.client.RequisitosEstudiante;
+import views.layouts.Pricipal;
 
 public class ControladorPruebas {
     // public static void mostrarLogin (){

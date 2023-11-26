@@ -16,7 +16,7 @@ import javax.swing.border.LineBorder;
 import auth.Auth;
 import models.usuarios.Admin;
 import models.usuarios.Persona;
-import views.Pricipal;
+import views.layouts.Pricipal;
 
 public class CuentaJP extends JPanel {
 	private JLabel label_4;

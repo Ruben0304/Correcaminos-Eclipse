@@ -1,4 +1,4 @@
-package views;
+package views.client;
 
 //import javax.swing.ImageIcon;
 

@@ -23,16 +23,16 @@ import util.BooleanosEstudianteBaja;
 import util.BooleanosEstudianteBecadoBaja;
 import util.Colores;
 import views.Inicio;
-import views.Pricipal;
 import views.Reportes;
 import views.TramitesEmpleados;
 import views.auth.CuentaJP;
 import views.chat.ChatPanel;
+import views.client.EstudiantesTramites;
+import views.client.RequisitosEstudiante;
+import views.layouts.Pricipal;
 import views.old.EstudianteTramites;
 import views.old.Inicios;
 import views.old.RequisitosBajaEstudiantes;
-import views.usuarios.EstudiantesTramites;
-import views.usuarios.RequisitosEstudiante;
 
 public class ControladorPrincipal {
 

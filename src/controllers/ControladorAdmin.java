@@ -12,9 +12,9 @@ import models.solicitudes.SolicitudBajaEstudiante;
 import models.usuarios.Admin;
 import models.usuarios.Estudiante;
 import models.usuarios.Usuario;
-import views.Pricipal;
 import views.admin.CasosPendientes;
 import views.admin.PanelAdministracion;
+import views.layouts.Pricipal;
 
 public class ControladorAdmin {
 

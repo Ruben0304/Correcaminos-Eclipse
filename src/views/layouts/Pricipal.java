@@ -1,4 +1,4 @@
-package views;
+package views.layouts;
 
 import java.awt.EventQueue;
 import java.awt.GridBagConstraints;
@@ -26,9 +26,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import views.admin.PanelAdministracion;
+import views.client.RequisitosEstudiante;
 import views.components.Navegacion;
-
-import views.usuarios.RequisitosEstudiante;
 
 import java.net.URL;
 

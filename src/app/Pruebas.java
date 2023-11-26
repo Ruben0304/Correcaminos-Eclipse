@@ -12,7 +12,7 @@ import models.chats.AdministradorChats;
 import models.gestion.GestorPrincipal;
 import models.gestion.estudiantes.GestorEstudiantes;
 import models.solicitudes.SolicitudBajaEstudiante;
-import views.Pricipal;
+import views.layouts.Pricipal;
 
 public class Pruebas {
     public static void main(String[] args) {

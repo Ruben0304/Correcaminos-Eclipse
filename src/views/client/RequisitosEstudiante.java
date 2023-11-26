@@ -1,4 +1,4 @@
-package views.usuarios;
+package views.client;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -9,7 +9,7 @@ import javax.swing.JPanel;
 
 import util.BooleanosEstudianteBaja;
 import util.BooleanosEstudianteBecadoBaja;
-import views.Pricipal;
+import views.layouts.Pricipal;
 
 public class RequisitosEstudiante {
 

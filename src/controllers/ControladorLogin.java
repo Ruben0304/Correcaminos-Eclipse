@@ -7,8 +7,8 @@ import auth.VerificarCredenciales;
 import models.gestion.GestorPrincipal;
 import models.usuarios.Usuario;
 import views.Inicio;
-import views.Pricipal;
 import views.auth.Entrar;
+import views.layouts.Pricipal;
 import views.old.Login;
 
 public class ControladorLogin {

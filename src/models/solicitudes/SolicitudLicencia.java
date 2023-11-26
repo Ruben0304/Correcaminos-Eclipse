@@ -5,20 +5,33 @@ import java.util.GregorianCalendar;
 import java.util.Calendar;
 
 import models.usuarios.Estudiante;
+import util.MotivoLicencia;
 import util.Motivos;
 
-public abstract class SolicitudLicencia extends Solicitud {
+public class SolicitudLicencia extends Solicitud {
 
-    protected Date fechaRegreso;
+    private MotivoLicencia motivo;
+    private Calendar fechaSalida;
+    private Calendar fechaRegreso;
 
-    public SolicitudLicencia(Motivos motivo) {
-        super(motivo);
-        fechaRegreso = null;
+    public SolicitudLicencia(long id, MotivoLicencia motivo, Calendar fechaSalida, Calendar fechaRegreso) {
+        super(id);
+        this.motivo = motivo;
+        this.fechaSalida = fechaSalida;
+        this.fechaRegreso = fechaRegreso;
 
     }
 
-    public Date getFechaRegreso() {
-        return fechaRegreso;
+    public MotivoLicencia getMotivo() {
+        return motivo;
+    }
+
+    public Calendar getFechaSalida() {
+        return fechaSalida;
+    }
+
+    public void setFechaSalida(Calendar fechaSalida) {
+        this.fechaSalida = fechaSalida;
     }
 
 }

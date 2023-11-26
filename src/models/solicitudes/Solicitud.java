@@ -1,29 +1,24 @@
 package models.solicitudes;
 
 import java.util.Calendar;
-import java.util.Date;
+import java.util.GregorianCalendar;
 
 import util.Estado;
 import util.Motivos;
 
 public abstract class Solicitud {
+    protected long id;
     protected Estado estado;
-    protected Motivos motivo;
-    protected Date fecha;
+    protected Calendar fechaDePeticion;
 
-    public Solicitud(Motivos motivo) {
+
+    public Solicitud(long id) {
         this.estado = Estado.PENDIENTE;
-        this.motivo = motivo;
-        Calendar fechaActual = Calendar.getInstance();
-        fecha = fechaActual.getTime();
+        this.fechaDePeticion = new GregorianCalendar();
     }
 
     public Estado getEstado() {
         return estado;
-    }
-
-    public Motivos getMotivo() {
-        return motivo;
     }
 
     public void setEstado(Estado estado) {
@@ -31,9 +26,23 @@ public abstract class Solicitud {
     }
 
     public int getAnioExpedicion() {
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(fecha);
-        return calendar.get(Calendar.YEAR);
+        return fechaDePeticion.get(Calendar.YEAR);
     }
+
+    public int getMesExpedicion() {
+        return fechaDePeticion.get(Calendar.MONTH);
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public Calendar getFechaDePeticion() {
+        return fechaDePeticion;
+    }
+
+    
+
+    
 
 }

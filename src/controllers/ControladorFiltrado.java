@@ -22,6 +22,7 @@ public class ControladorFiltrado {
     }
      public static ArrayList<SolicitudBajaEstudiante> me(
             HashMap<String, String> map) {
+               int x = 3;
         return GestorEstudiantes.gestorEstudiantes().getGestorSolicitudes()
                 .filtradoDinamicoSolicitudBajaEstudiantes(map);
     }

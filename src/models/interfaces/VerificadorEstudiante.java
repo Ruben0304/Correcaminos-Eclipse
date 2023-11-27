@@ -6,7 +6,7 @@ import models.responsabilidades.ResponsabilidadesEstudiantes;
 import models.usuarios.Estudiante;
 
 public interface VerificadorEstudiante {
-	boolean verificarRequisitos(ResponsabilidadesEstudiantes responsabilidadesEstudiantes);
+	boolean verificarRequisitos(Estudiante e);
 	
-	public ArrayList<Estudiante> getEstudiantesPendientes(ArrayList<ResponsabilidadesEstudiantes> responsabilidades);
+	public ArrayList<Estudiante> getEstudiantesPendientes();
 }

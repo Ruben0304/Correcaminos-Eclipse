@@ -12,6 +12,7 @@ import models.gestion.GestorDepartamentos;
 import models.gestion.GestorPrincipal;
 import models.gestion.empleados.GestorEmpleados;
 import models.gestion.estudiantes.GestorEstudiantes;
+import models.gestion.estudiantes.GestorResponsabilidadesEstudiantes;
 import models.gestion.estudiantes.GestorSolicitudesEstudiante;
 import models.responsabilidades.ResponsabilidadesEstudiantes;
 import models.usuarios.Becado;
@@ -30,9 +31,6 @@ import views.chat.ChatPanel;
 import views.client.EstudiantesTramites;
 import views.client.RequisitosEstudiante;
 import views.layouts.Pricipal;
-import views.old.EstudianteTramites;
-import views.old.Inicios;
-import views.old.RequisitosBajaEstudiantes;
 
 public class ControladorPrincipal {
 
@@ -71,16 +69,14 @@ public class ControladorPrincipal {
             if (Auth.usuarioAutenticado() instanceof Estudiante) {
 
                 Estudiante usuarioAutenticado = (Estudiante) Auth.usuarioAutenticado();
-                if (!(gestorSolicitudesEstudiante.verificarEstudianteSolicitaLicencia(usuarioAutenticado)
-                        || gestorSolicitudesEstudiante.verificarEstudianteSolicitaBaja(usuarioAutenticado))) {
+                if (!(gestorSolicitudesEstudiante.verificarEstudianteSolicitaAlgo(usuarioAutenticado))) {
                     mostrarTramites();
                 } else {
-                    ResponsabilidadesEstudiantes respEst = GestorEstudiantes.gestorEstudiantes()
-                            .getGestorResponsabilidadesEstudiantes()
-                            .getListadoDeUnEstudiante(usuarioAutenticado);
+                    GestorResponsabilidadesEstudiantes gestorResponsabilidades = GestorEstudiantes.gestorEstudiantes()
+                            .getGestorResponsabilidadesEstudiantes();
                     BooleanosEstudianteBaja booleanos = new BooleanosEstudianteBaja();
 
-                    booleanos.setTieneLibrosPrestados(gestDep.getBiblioteca().tieneLibrosPrestados(respEst));
+                    booleanos.setTieneLibrosPrestados(gestDep.getBiblioteca().tieneLibrosPrestados(null));
                     booleanos.setTieneEstipendio(gestDep.getEconomia().tieneEstipendio(respEst));
                     booleanos.setTieneDeuda(gestDep.getEconomia().tieneDeuda(respEst));
                     booleanos.setTieneLibrosDocentes(gestDep.getAlmacenDeLibros().tieneLibrosDocentes(respEst));
@@ -130,12 +126,11 @@ public class ControladorPrincipal {
     }
 
     public static void mostrarAccount() {
-       
-            Pricipal instancia = Pricipal.getInstancia();
-            instancia.setVista(new CuentaJP());
-            Pricipal.getInstancia().revalidate();
-            Pricipal.getInstancia().repaint();
-        
+
+        Pricipal instancia = Pricipal.getInstancia();
+        instancia.setVista(new CuentaJP());
+        Pricipal.getInstancia().revalidate();
+        Pricipal.getInstancia().repaint();
 
     }
 

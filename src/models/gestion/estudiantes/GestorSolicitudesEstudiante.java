@@ -26,7 +26,7 @@ public class GestorSolicitudesEstudiante{
         // this.solicitudes = ObtenerSolicitudes.cargarDesdeArchivo();
 
     }
-
+/
     public boolean verificarEstudianteSolicitaAlgo(Estudiante e) {
         boolean solicita = false;
         if (solicitudes.containsKey(e)) {

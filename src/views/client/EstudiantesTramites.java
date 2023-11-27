@@ -136,6 +136,7 @@ public class EstudiantesTramites {
 			lblFacultad.setForeground(Color.WHITE);
 			lblFacultad.setFont(new Font("Segoe UI Semibold", Font.BOLD, 23));
 			lblFacultad.setBounds(123, 178, 99, 30);
+			
 			panel_lateral.add(lblFacultad);
 
 			lblCarrera = new JLabel("Carrera:");

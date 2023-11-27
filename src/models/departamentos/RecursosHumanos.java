@@ -1,51 +1,53 @@
 package models.departamentos;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Set;
 
 import models.interfaces.VerificadorEmpleado;
-import models.responsabilidades.ResponsabilidadesEmpleados;
-import models.responsabilidades.ResponsabilidadesEstudiantes;
+import models.usuarios.Docente;
 import models.usuarios.Empleado;
-import models.usuarios.Estudiante;
-import util.ResponsabilidadesTrabajador;
+import models.usuarios.NoDocente;
 import util.TiposResponsabilidad;
 
 
 
 public class RecursosHumanos implements VerificadorEmpleado {
-
-	public boolean tieneSalarioIndebido(ResponsabilidadesEmpleados r) {
-		return r.getResponsabilidades().contains(ResponsabilidadesTrabajador.SALARIO_INDEBIDO);
-	}
-	@Override
-	public boolean verificarRequisitos(ResponsabilidadesEmpleados responsabilidadesTrabajador) {
-		return tieneSalarioIndebido(responsabilidadesTrabajador);
-	}
 	
-	public void recogerSalarioIndebido(Empleado e, ArrayList<ResponsabilidadesEmpleados> responsabilidades) {
-		boolean encontrado = false;
-        for (int i = 0; i < responsabilidades.size() && !encontrado; i++) {
-
-            encontrado = responsabilidades.get(i).getEmpleado().equals(e);
-            if (encontrado) {
-                responsabilidades.get(i).getResponsabilidades().remove(ResponsabilidadesTrabajador.SALARIO_INDEBIDO);
-            }
-
-        }
-        
+	private HashMap<Empleado, TiposResponsabilidad> empleadosConSalarioIndebido;
+	
+	public boolean tieneSalarioIndebido(Empleado e) {
+		return empleadosConSalarioIndebido.containsKey(e);
 	}
 	
 	@Override
-	public ArrayList<Empleado> getEmpleadosPendientes(ArrayList<ResponsabilidadesEmpleados> responsabilidades) {
+	public boolean verificarRequisitos(Empleado e) {
+		return tieneSalarioIndebido(e);
+	}
+	
+	public void recogerSalarioIndebido(Empleado e) {
+		empleadosConSalarioIndebido.remove(e);  
+	}
+	
+	@Override
+	public ArrayList<String> getEmpleadosPendientes() {
         
-		ArrayList<Empleado> es = new ArrayList<>();
+		ArrayList<String> nombresEmpleados = new ArrayList<>();
+           
+    	Set<Empleado> empleadosPendientes = empleadosConSalarioIndebido.keySet();
         
-		for (ResponsabilidadesEmpleados r : responsabilidades) {
-            if (verificarRequisitos(r)) {
-                es.add(r.getEmpleado());
-            }
+        for (Empleado e: empleadosPendientes) {
+        	nombresEmpleados.add(e.getNombre() + " " + e.getPrimer_apellido() + " " +  e.getSegundo_apellido());
+        	
+        	if (e instanceof Docente) {
+        		nombresEmpleados.add(" " + ((Docente)e).getDepartamento());
+        	}
+        	else {
+        		nombresEmpleados.add(" " + ((NoDocente)e).getSeccion());
+        	}
         }
-        return es;
+		
+        return nombresEmpleados;
     }
 
    

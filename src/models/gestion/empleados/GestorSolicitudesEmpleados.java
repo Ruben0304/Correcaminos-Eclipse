@@ -1,31 +1,50 @@
 package models.gestion.empleados;
 
-import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Set;
+import java.util.HashSet;
 
 import data.ObtenerSolicitudesEmpleados;
-import models.responsabilidades.ResponsabilidadesEmpleados;
+import models.solicitudes.Solicitud;
 import models.solicitudes.SolicitudBaja;
+import models.solicitudes.SolicitudLicencia;
+import models.usuarios.Empleado;
 
 public class GestorSolicitudesEmpleados {
     
-	private ArrayList<SolicitudBaja> solicitudesPendientes;
+	private HashMap<Empleado, Set<Solicitud>> solicitudesEmpleados;
 	
 	public GestorSolicitudesEmpleados() {
-		solicitudesPendientes = new  ArrayList<SolicitudBaja>();
+		solicitudesEmpleados = new  HashMap<Empleado, Set<Solicitud>>();
 		registrarLicenciasEmpleados();
 	}
     
-    
-    
     private void registrarLicenciasEmpleados() {
-    	solicitudesPendientes = ObtenerSolicitudesEmpleados.cargarDesdeArchivo();
+    	solicitudesEmpleados = ObtenerSolicitudesEmpleados.cargarDesdeArchivo();
     }
 
-
-
-	public ArrayList<SolicitudBaja> getSolicitudesPendientes() {
-		return solicitudesPendientes;
+	public HashMap<Empleado, Set<Solicitud>> getSolicitudesPendientes() {
+		return solicitudesEmpleados;
+	}
+	
+	public boolean agregarSolicitud(Empleado e, Solicitud s) {
+		
+		boolean registroExitoso = false;
+		
+		if (solicitudesEmpleados.containsKey(e)) {
+			registroExitoso = solicitudesEmpleados.get(e).add(s);
+		}
+		else {
+			Set<Solicitud> nuevoSet = new HashSet<>();
+			registroExitoso = nuevoSet.add(s);
+			solicitudesEmpleados.put(e, nuevoSet);
+		}
+		
+		return registroExitoso;
 	}
     
+    public Set<Solicitud> getSolicitudesEmpleado(Empleado e) {
+    	return solicitudesEmpleados.get(e);
+    }
     
 }

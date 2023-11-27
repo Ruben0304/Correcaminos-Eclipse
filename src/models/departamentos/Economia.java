@@ -1,50 +1,48 @@
 package models.departamentos;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Set;
 
+import data.ObtenerEstudiantesConEstipendio;
 import models.interfaces.VerificadorEstudiante;
-import models.responsabilidades.ResponsabilidadesEstudiantes;
 import models.usuarios.Estudiante;
 import util.TiposResponsabilidad;
 
 public class Economia implements VerificadorEstudiante {
-
-    public boolean tieneEstipendio(ResponsabilidadesEstudiantes responsabilidades) {
-        return responsabilidades.getResponsabilidades().contains(TiposResponsabilidad.ESTIPENDIO);
-    }
-
-    public boolean tieneDeuda(ResponsabilidadesEstudiantes responsabilidades) {
-         return responsabilidades.getResponsabilidades().contains(TiposResponsabilidad.DEUDA);
+	
+	private HashMap<Estudiante, TiposResponsabilidad> estudiantesConEstipendio;
+	
+	public void cargarInformacionEstudiantesConCarnet() {
+		estudiantesConEstipendio = ObtenerEstudiantesConEstipendio.cargarDesdeArchivo();
+	}
+	
+    public boolean tieneEstipendio(Estudiante e) {
+        return estudiantesConEstipendio.containsKey(e);
     }
 
     @Override
-    public boolean verificarRequisitos(ResponsabilidadesEstudiantes responsabilidades) {
-        return tieneDeuda(responsabilidades) || tieneEstipendio(responsabilidades);
+    public boolean verificarRequisitos(Estudiante e) {
+        return tieneEstipendio(e);
     }
 
-    public void confirmarEntregas(Estudiante e, ArrayList<ResponsabilidadesEstudiantes> responsabilidades) {
-		boolean encontrado = false;
-        for (int i = 0; i < responsabilidades.size() && !encontrado; i++) {
+    public void cancelarPagoEstipendio(Estudiante e) {
+    	estudiantesConEstipendio.remove(e);
+    }
 
-            encontrado = responsabilidades.get(i).getEstudiante().equals(e);
-            if (encontrado) {
-                responsabilidades.get(i).getResponsabilidades().remove(TiposResponsabilidad.ESTIPENDIO);
-                responsabilidades.get(i).getResponsabilidades().remove(TiposResponsabilidad.DEUDA);
-            }
-
-        }
-	}
    
     @Override
-    public ArrayList<Estudiante> getEstudiantesPendientes(
-            ArrayList<ResponsabilidadesEstudiantes> responsabilidades) {
-        ArrayList<Estudiante> es = new ArrayList<>();
-        for (ResponsabilidadesEstudiantes r : responsabilidades) {
-            if (verificarRequisitos(r)) {
-                es.add(r.getEstudiante());
-            }
+    public ArrayList<String> getEstudiantesPendientes() {
+        
+    	ArrayList<String> nombresEstudiantes = new ArrayList<>();
+       
+    	Set<Estudiante> estudiantesPendientes = estudiantesConEstipendio.keySet();
+        
+        for (Estudiante e: estudiantesPendientes) {
+        	nombresEstudiantes.add(e.getNombre() + " " + e.getPrimer_apellido() + " " +  e.getSegundo_apellido());
         }
-        return es;
+        
+        return nombresEstudiantes;
     }
 
 

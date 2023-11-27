@@ -31,8 +31,9 @@ public class GestorSolicitudesEstudiante{
         boolean solicita = false;
         if (solicitudes.containsKey(e)) {
             for (Solicitud s : solicitudes.get(e)) {
-                s.getEstado().equals(Estado.PENDIENTE);
-                solicita = true;
+                if ( s.getEstado().equals(Estado.PENDIENTE)) {
+                    solicita = true;
+                }
             }
 
         }

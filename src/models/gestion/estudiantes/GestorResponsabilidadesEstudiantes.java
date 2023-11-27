@@ -16,40 +16,6 @@ public class GestorResponsabilidadesEstudiantes implements Actualizador {
     private HashMap<Estudiante, Set<String>> librosNoDocentes;
     private HashMap<Estudiante, Set<String>> librosDocentes;
 
-    // private void registrarResponsabilidades(ArrayList<Estudiante> estudiantes) {
-    // ArrayList<ResponsabilidadesEstudiantes> responsabilidades =
-    // ObtenerResponsabilidadesEstudiantes
-    // .cargarDesdeArchivo();
-    // ArrayList<ResponsabilidadesEstudiantes> responsabilidadesRegistradas = new
-    // ArrayList<>();
-
-    // for (ResponsabilidadesEstudiantes resp : responsabilidades) {
-    // String estudianteId = resp.getEstudiante().getCi();
-    // Estudiante estudianteExistente = referenciarEstudiante(estudianteId,
-    // estudiantes);
-
-    // if (estudianteExistente != null) {
-    // ResponsabilidadesEstudiantes respRegistrada = new
-    // ResponsabilidadesEstudiantes(
-    // resp.getResponsabilidades(), estudianteExistente);
-    // responsabilidadesRegistradas.add(respRegistrada);
-    // }
-    // }
-    // this.responsabilidadesEstudiantesPendientes.addAll(responsabilidadesRegistradas);
-    // }
-
-    // private Estudiante referenciarEstudiante(String id, ArrayList<Estudiante>
-    // estudiantes) {
-    // boolean encontrado = false;
-    // Estudiante estudianteEncontrado = null;
-    // for (int i = 0; i < estudiantes.size() && !encontrado; i++) {
-    // encontrado = id.equals(estudiantes.get(i).getCi());
-    // if (encontrado) {
-    // estudianteEncontrado = estudiantes.get(i);
-    // }
-    // }
-    // return estudianteEncontrado;
-    // }
 
     public GestorResponsabilidadesEstudiantes() {
         responsabilidades = new HashMap<>();

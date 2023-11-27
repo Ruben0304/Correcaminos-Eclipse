@@ -3,6 +3,7 @@ package models.gestion.estudiantes;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.Map;
 
 import data.ObtenerSolicitudes;
@@ -11,20 +12,15 @@ import models.interfaces.Actualizador;
 import models.reports.BajasAceptadasPorAnio;
 import models.reports.BajasAceptadasPorFacultad;
 
-import models.solicitudes.SolicitudBajaEstudiante;
 
-import models.solicitudes.SolicitudLicenciaEstudiante;
 import models.usuarios.Estudiante;
 import util.Facultad;
 import util.Motivos;
 
 public class GestorSolicitudesEstudiante implements Actualizador {
 
-    ArrayList<SolicitudLicenciaEstudiante> solicitudesLicenciaAceptadas;
-    ArrayList<SolicitudBajaEstudiante> solicitudesBajaAceptadas;
-
-    ArrayList<SolicitudLicenciaEstudiante> solicitudesLicenciaPendientes;
-    ArrayList<SolicitudBajaEstudiante> solicitudesBajaPendientes;
+   private HashMap<Estudiante, Set<Solicitud>> solicitudes;
+    
 
     public GestorSolicitudesEstudiante(ArrayList<Estudiante> estudiantes) {
         this.solicitudesLicenciaAceptadas = new ArrayList<>();
@@ -33,6 +29,7 @@ public class GestorSolicitudesEstudiante implements Actualizador {
         this.solicitudesBajaPendientes = new ArrayList<>();
         registrarLicenciasEstudiantes();
         registrarBajasEstudiantesAceptadas();
+    
     }
 
     private void registrarLicenciasEstudiantes() {

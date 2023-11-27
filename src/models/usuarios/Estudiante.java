@@ -1,6 +1,6 @@
 package models.usuarios;
 
-import models.gestion.estudiantes.GestorEstudiantes;
+import models.gestion.estudiantes.Secretaria;
 import util.Facultad;
 import util.Motivos;
 import util.TipoCurso;
@@ -26,11 +26,11 @@ public class Estudiante extends Persona {
 	}
 
 	public void solicitarLicencia(Motivos motivo){
-		GestorEstudiantes.gestorEstudiantes().getGestorSolicitudes().agregarSolicitudDeLicencia(this,motivo);
+		Secretaria.gestorEstudiantes().getGestorSolicitudes().agregarSolicitudDeLicencia(this,motivo);
 	}
 
 	public void solicitarBaja(Motivos motivo){
-		GestorEstudiantes.gestorEstudiantes().getGestorSolicitudes().agregarSolicitudDeBaja(this,motivo);
+		Secretaria.gestorEstudiantes().getGestorSolicitudes().agregarSolicitudDeBaja(this,motivo);
 	}
 
 	public int getCurso() {

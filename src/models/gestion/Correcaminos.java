@@ -5,29 +5,29 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import models.gestion.empleados.GestorEmpleados;
-import models.gestion.estudiantes.GestorEstudiantes;
+import models.gestion.estudiantes.Secretaria;
 
 import models.interfaces.Actualizador;
 import models.usuarios.Persona;
 import models.usuarios.Usuario;
 
-public class GestorPrincipal implements Actualizador{
-    private static GestorPrincipal gestorPrincipal;
+public class Correcaminos implements Actualizador{
+    private static Correcaminos gestorPrincipal;
     private GestorAdmins gestorAdmins;
-    private GestorEstudiantes gestorEstudiantes;
+    private Secretaria gestorEstudiantes;
     // private GestorEmpleados gestorEmpleados;
     private GestorDepartamentos gestorDepartamentos;
 
-    private GestorPrincipal() {
-        gestorEstudiantes = GestorEstudiantes.gestorEstudiantes();
+    private Correcaminos() {
+        gestorEstudiantes = Secretaria.gestorEstudiantes();
         // gestorEmpleados = GestorEmpleados.gestorEmpleados();
         gestorAdmins = GestorAdmins.gestorAdmins();
         gestorDepartamentos = GestorDepartamentos.gestorDepartamentos();
     }
 
-    public static GestorPrincipal getGestorPrincipal() {
+    public static Correcaminos getGestorPrincipal() {
         if (gestorPrincipal == null) {
-            gestorPrincipal = new GestorPrincipal();
+            gestorPrincipal = new Correcaminos();
         }
         return gestorPrincipal;
     }
@@ -87,7 +87,7 @@ public class GestorPrincipal implements Actualizador{
         return gestorAdmins;
     }
 
-    public GestorEstudiantes getGestorEstudiantes() {
+    public Secretaria getGestorEstudiantes() {
         return gestorEstudiantes;
     }
 

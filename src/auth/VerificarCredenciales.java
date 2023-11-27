@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 
 
-import models.gestion.GestorPrincipal;
+import models.gestion.Correcaminos;
 import models.usuarios.Usuario;
 
 public class VerificarCredenciales {
@@ -22,7 +22,7 @@ private Usuario usuario;
     private boolean autenticar(String nombreUsuario, String contrasena) {
         boolean encontrado = false;
         boolean autenticado = false;
-        ArrayList<Usuario> usuarios = GestorPrincipal.getGestorPrincipal().getUsuarios();
+        ArrayList<Usuario> usuarios = Correcaminos.getGestorPrincipal().getUsuarios();
 
         for (int i = 0; i < usuarios.size() && !encontrado; i++) {
             encontrado = nombreUsuario.equals(usuarios.get(i).getNombreUsuario());

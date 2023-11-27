@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 import auth.Auth;
 import models.gestion.GestorDepartamentos;
-import models.gestion.GestorPrincipal;
-import models.gestion.estudiantes.GestorEstudiantes;
+import models.gestion.Correcaminos;
+import models.gestion.estudiantes.Secretaria;
 import models.gestion.estudiantes.GestorResponsabilidadesEstudiantes;
 import models.responsabilidades.ResponsabilidadesEstudiantes;
 import models.solicitudes.SolicitudBajaEstudiante;
@@ -35,7 +35,7 @@ public class ControladorAdmin {
                 break;
             case Secretaria:
                 // usuariosPendientes.addAll(gestDep.getSecretaria().getEstudiantesPendientes(listadoResponsabilidades));
-                ArrayList<SolicitudBajaEstudiante> solicitudBajaEstudiantes = GestorEstudiantes.gestorEstudiantes()
+                ArrayList<SolicitudBajaEstudiante> solicitudBajaEstudiantes = Secretaria.gestorEstudiantes()
                         .getGestorSolicitudes().getSolicitudesBajaAceptadas();
                        
 
@@ -87,9 +87,9 @@ public class ControladorAdmin {
     public static void confirmarEntrega(String carnet) {
         Admin usuarioAutenticado = (Admin) Auth.usuarioAutenticado();
         GestorDepartamentos gestorDepartamentos = GestorDepartamentos.gestorDepartamentos();
-        GestorResponsabilidadesEstudiantes gestorResponsabilidadesEstudiantes = GestorEstudiantes.gestorEstudiantes()
+        GestorResponsabilidadesEstudiantes gestorResponsabilidadesEstudiantes = Secretaria.gestorEstudiantes()
                 .getGestorResponsabilidadesEstudiantes();
-        GestorEstudiantes gestorEstudiantes = GestorEstudiantes.gestorEstudiantes();
+        Secretaria gestorEstudiantes = Secretaria.gestorEstudiantes();
 
         // switch (((Admin) usuarioAutenticado).getTipoDepartamento()) {
         //     case Biblioteca:

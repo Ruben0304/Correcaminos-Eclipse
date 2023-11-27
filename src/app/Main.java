@@ -7,15 +7,15 @@ import javax.swing.SwingUtilities;
 
 import controllers.ControladorLogin;
 import controllers.ControladorPrincipal;
-import models.gestion.GestorPrincipal;
-import models.gestion.estudiantes.GestorEstudiantes;
+import models.gestion.Correcaminos;
+import models.gestion.estudiantes.Secretaria;
 import models.usuarios.Estudiante;
 import models.usuarios.Persona;
 import views.layouts.Pricipal;
 
 public class Main {
 	public static void main(String[] args) {
-		GestorPrincipal.getGestorPrincipal();
+		Correcaminos.getGestorPrincipal();
 
 		SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
@@ -37,7 +37,7 @@ public class Main {
 	}
 
 	public static void tests() {
-		for (Estudiante e : GestorEstudiantes.gestorEstudiantes().filtrar("Juan")) {
+		for (Estudiante e : Secretaria.gestorEstudiantes().filtrar("Juan")) {
 			System.out.println(e.getApellidos());
 		}
 

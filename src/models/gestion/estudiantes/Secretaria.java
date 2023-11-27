@@ -6,19 +6,19 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 import data.ObtenerEstudiantes;
-import models.gestion.GestorPrincipal;
+import models.gestion.Correcaminos;
 import models.interfaces.Actualizador;
 
 import models.usuarios.Estudiante;
 import util.Facultad;
 
-public class GestorEstudiantes {
-    private static GestorEstudiantes gestorEstudiantes;
+public class Secretaria {
+    private static Secretaria gestorEstudiantes;
     private GestorSolicitudesEstudiante gestorSolicitudes;
     private GestorResponsabilidadesEstudiantes gestorResponsabilidadesEstudiantes;
     private ArrayList<Estudiante> estudiantes;
 
-    public GestorEstudiantes() {
+    public Secretaria() {
         estudiantes = new ArrayList<>();
         registrarEstudiantes();
         gestorSolicitudes = new GestorSolicitudesEstudiante(estudiantes);
@@ -26,9 +26,9 @@ public class GestorEstudiantes {
 
     }
 
-    public static GestorEstudiantes gestorEstudiantes() {
+    public static Secretaria gestorEstudiantes() {
         if (gestorEstudiantes == null) {
-            gestorEstudiantes = new GestorEstudiantes();
+            gestorEstudiantes = new Secretaria();
         }
         return gestorEstudiantes;
     }

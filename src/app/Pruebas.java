@@ -9,8 +9,8 @@ import javax.swing.SwingUtilities;
 import controllers.ControladorLogin;
 import controllers.ControladorPrincipal;
 import models.chats.AdministradorChats;
-import models.gestion.GestorPrincipal;
-import models.gestion.estudiantes.GestorEstudiantes;
+import models.gestion.Correcaminos;
+import models.gestion.estudiantes.Secretaria;
 import models.solicitudes.SolicitudBajaEstudiante;
 import views.layouts.Pricipal;
 
@@ -29,7 +29,7 @@ public class Pruebas {
 				hash.put("estado", "ACEPTADO");
 				hash.put("anio", "2023");
 				;
-				for (SolicitudBajaEstudiante s : GestorEstudiantes.gestorEstudiantes().getGestorSolicitudes().filtradoDinamicoSolicitudBajaEstudiantes(hash)) {
+				for (SolicitudBajaEstudiante s : Secretaria.gestorEstudiantes().getGestorSolicitudes().filtradoDinamicoSolicitudBajaEstudiantes(hash)) {
 					System.out.println(s.getEstudiante().getNombreCompleto());
 				}
 

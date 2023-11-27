@@ -4,7 +4,7 @@ package controllers;
 import auth.Auth;
 import auth.Session;
 import auth.VerificarCredenciales;
-import models.gestion.GestorPrincipal;
+import models.gestion.Correcaminos;
 import models.usuarios.Usuario;
 import views.Inicio;
 import views.auth.Entrar;

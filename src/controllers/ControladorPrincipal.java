@@ -9,9 +9,9 @@ import auth.Auth;
 import models.departamentos.Biblioteca;
 import models.departamentos.Economia;
 import models.gestion.GestorDepartamentos;
-import models.gestion.GestorPrincipal;
+import models.gestion.Correcaminos;
 import models.gestion.empleados.GestorEmpleados;
-import models.gestion.estudiantes.GestorEstudiantes;
+import models.gestion.estudiantes.Secretaria;
 import models.gestion.estudiantes.GestorResponsabilidadesEstudiantes;
 import models.gestion.estudiantes.GestorSolicitudesEstudiante;
 import models.responsabilidades.ResponsabilidadesEstudiantes;
@@ -39,7 +39,7 @@ public class ControladorPrincipal {
         if (Auth.hayUsuarioAutenticado()) {
             boolean estudianteSolicitaLicencia = false;
             if (Auth.usuarioAutenticado() instanceof Estudiante) {
-                estudianteSolicitaLicencia = GestorPrincipal.getGestorPrincipal().getGestorEstudiantes()
+                estudianteSolicitaLicencia = Correcaminos.getGestorPrincipal().getGestorEstudiantes()
                         .getGestorSolicitudes()
                         .verificarEstudianteSolicitaLicencia((Estudiante) Auth.usuarioAutenticado());
             }
@@ -64,7 +64,7 @@ public class ControladorPrincipal {
         } else {
 
             GestorDepartamentos gestDep = GestorDepartamentos.gestorDepartamentos();
-            GestorSolicitudesEstudiante gestorSolicitudesEstudiante = GestorEstudiantes.gestorEstudiantes()
+            GestorSolicitudesEstudiante gestorSolicitudesEstudiante = Secretaria.gestorEstudiantes()
                     .getGestorSolicitudes();
             if (Auth.usuarioAutenticado() instanceof Estudiante) {
 
@@ -72,7 +72,7 @@ public class ControladorPrincipal {
                 if (!(gestorSolicitudesEstudiante.verificarEstudianteSolicitaAlgo(usuarioAutenticado))) {
                     mostrarTramites();
                 } else {
-                    GestorResponsabilidadesEstudiantes gestorResponsabilidades = GestorEstudiantes.gestorEstudiantes()
+                    GestorResponsabilidadesEstudiantes gestorResponsabilidades = Secretaria.gestorEstudiantes()
                             .getGestorResponsabilidadesEstudiantes();
                     BooleanosEstudianteBaja booleanos = new BooleanosEstudianteBaja();
 
@@ -159,7 +159,7 @@ public class ControladorPrincipal {
 
     public static void actualizarDatos() {
 
-        GestorPrincipal.getGestorPrincipal().actualizarDatos();
+        Correcaminos.getGestorPrincipal().actualizarDatos();
         mostrarInicio();
 
     }

@@ -17,7 +17,7 @@ import javax.swing.table.DefaultTableModel;
 
 import controllers.ControladorAdmin;
 import models.departamentos.Biblioteca;
-import models.gestion.GestorPrincipal;
+import models.gestion.Correcaminos;
 import models.usuarios.Estudiante;
 import models.usuarios.Persona;
 import views.components.Navegacion;

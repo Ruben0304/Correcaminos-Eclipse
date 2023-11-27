@@ -6,7 +6,7 @@ import java.util.HashMap;
 
 import javax.swing.JPanel;
 
-import models.gestion.estudiantes.GestorEstudiantes;
+import models.gestion.estudiantes.Secretaria;
 import models.gestion.estudiantes.GestorSolicitudesEstudiante;
 import models.solicitudes.SolicitudBajaEstudiante;
 import views.admin.PanelAdministracion;
@@ -17,7 +17,7 @@ public class ControladorFiltrado {
 
     public static ArrayList<SolicitudBajaEstudiante> obtenerSolicitudesBajaEstudiantesFiltradas(
             HashMap<String, String> map) {
-        return GestorEstudiantes.gestorEstudiantes().getGestorSolicitudes()
+        return Secretaria.gestorEstudiantes().getGestorSolicitudes()
                 .filtradoDinamicoSolicitudBajaEstudiantes(map);
     }
 }

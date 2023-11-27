@@ -8,7 +8,7 @@ import java.util.Collections;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 
-import models.gestion.estudiantes.GestorEstudiantes;
+import models.gestion.estudiantes.Secretaria;
 import models.reports.BajasAceptadasPorAnio;
 import models.reports.BajasAceptadasPorFacultad;
 
@@ -25,7 +25,7 @@ public abstract class ControladorReportes {
     }
 
     public static void facultadesConMasBajasAceptadas() {
-        ArrayList<BajasAceptadasPorFacultad> ordenado = GestorEstudiantes.gestorEstudiantes().getGestorSolicitudes()
+        ArrayList<BajasAceptadasPorFacultad> ordenado = Secretaria.gestorEstudiantes().getGestorSolicitudes()
                 .ordenarFacultadesPorCantidadBajasAceptadas();
 
         Collections.reverse(ordenado);
@@ -56,7 +56,7 @@ public abstract class ControladorReportes {
 
         int anioAnterior = anioActual - 1;
 
-        int total = GestorEstudiantes.gestorEstudiantes().getGestorSolicitudes().cantidadDeBajasDeUnAnio(anioAnterior);
+        int total = Secretaria.gestorEstudiantes().getGestorSolicitudes().cantidadDeBajasDeUnAnio(anioAnterior);
 
         String info = "El total de licencias aceptadas el año anterior fue de: " + total;
 
@@ -70,7 +70,7 @@ public abstract class ControladorReportes {
         Calendar calendar = Calendar.getInstance();
         int anioActual = calendar.get(Calendar.YEAR);
 
-        ArrayList<BajasAceptadasPorAnio> solicitudes = GestorEstudiantes.gestorEstudiantes().getGestorSolicitudes()
+        ArrayList<BajasAceptadasPorAnio> solicitudes = Secretaria.gestorEstudiantes().getGestorSolicitudes()
                 .cantidadDeBajasPorAnio(anioActual - 10);
         ArrayList<Integer> aniosMasBajas = new ArrayList<>();
         int maxBajas = 0;

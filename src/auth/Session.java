@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 import com.google.gson.Gson;
 
-import models.gestion.GestorPrincipal;
+import models.gestion.Correcaminos;
 
 import models.usuarios.Usuario;
 
@@ -51,7 +51,7 @@ public class Session {
 
     public static Usuario ValidarSession() {
         boolean encontrado = false;
-        ArrayList<Usuario> usuarios = GestorPrincipal.getGestorPrincipal().getUsuarios();
+        ArrayList<Usuario> usuarios = Correcaminos.getGestorPrincipal().getUsuarios();
         Session session = obtenerSession();
         Usuario u = null;
 

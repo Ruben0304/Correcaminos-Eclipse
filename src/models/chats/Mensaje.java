@@ -1,18 +1,18 @@
 package models.chats;
 
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.Calendar;
 
 public class Mensaje {
     private String nombreUsuario;
     private String contenido;
-    private Date fecha;
+    private Calendar fecha;
 
     public Mensaje(String nombreUsuario, String contenido) {
         this.nombreUsuario = nombreUsuario;
         this.contenido = contenido;
-        Calendar calendario = Calendar.getInstance(); 
-        this.fecha = calendario.getTime();
+        this.fecha = new GregorianCalendar();
     }
 
     public String getNombreUsuario() {
@@ -23,7 +23,7 @@ public class Mensaje {
         return contenido;
     }
 
-    public Date getFecha() {
+    public Calendar getFecha() {
         return fecha;
     }
 

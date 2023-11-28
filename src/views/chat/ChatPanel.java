@@ -23,10 +23,12 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 import auth.Auth;
+import controllers.ControladorChats;
 import models.chats.AdministradorChats;
-import models.chats.Chat;
+
 import models.chats.Mensaje;
 import models.usuarios.Admin;
+import models.usuarios.Persona;
 import models.usuarios.Usuario;
 import util.TipoDepartamento;
 
@@ -35,6 +37,8 @@ import javax.swing.ImageIcon;
 import java.awt.Cursor;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
+
 import javax.swing.border.LineBorder;
 import javax.swing.JRadioButton;
 import javax.swing.JCheckBox;
@@ -43,8 +47,6 @@ import java.awt.SystemColor;
 public class ChatPanel extends JPanel implements ActionListener {
     private JTextArea chatArea = new JTextArea();
     private JTextField messageField = new JTextField();
-    private Chat chat;
-    private TipoDepartamento departamento = TipoDepartamento.Biblioteca;
     private JLabel lblNewLabel;
     private final JLabel lblNewLabel_1 = new JLabel("");
     private final JPanel panel = new JPanel();
@@ -63,12 +65,14 @@ public class ChatPanel extends JPanel implements ActionListener {
     private JTextArea txtrContanctaConLos;
     private ButtonGroup rbtnGroup = new ButtonGroup();
     private JRadioButton radioButtonBiblioteca = new JRadioButton("");
+    private ArrayList<Mensaje> mensajes;
+    private Admin departamento;
+    private final Persona persona = (Persona) Auth.usuarioAutenticado();
 
-    public ChatPanel(Usuario usuario) {
-        // Configurar el panel
-        AdministradorChats.getAdministradorChats();
+    public ChatPanel(Admin admin) {
 
-        this.chat = AdministradorChats.getAdministradorChats().buscarChat(departamento, usuario.getNombreUsuario());
+        this.mensajes = ControladorChats.obtenerMensajes(admin, persona);
+        this.departamento = admin;
         setBounds(178, 0, 944, 700);
         setBackground(new Color(31, 33, 36));
         chatArea.setWrapStyleWord(true);
@@ -87,8 +91,8 @@ public class ChatPanel extends JPanel implements ActionListener {
         rbtnGroup.add(radioButtonSInformatica);
         rbtnGroup.add(radioButtonSecretaria);
         rbtnGroup.add(radioButtonBiblioteca);
-        if (chat != null) {
-            for (Mensaje mensaje : chat.getMensajes()) {
+        if (!mensajes.isEmpty()) {
+            for (Mensaje mensaje : mensajes) {
                 chatArea.append(mensaje.getNombreUsuario() + ": \n");
                 chatArea.append("  " + mensaje.getContenido() + "\n\n");
             }
@@ -96,7 +100,7 @@ public class ChatPanel extends JPanel implements ActionListener {
         }
         setLayout(null);
 
-        // Configurar el campo de texto y el bot�n de enviar
+        
         JPanel messagePanel = new JPanel();
         messagePanel.setBackground(new Color(31, 33, 36));
         messagePanel.setBounds(0, 593, 944, 107);
@@ -106,19 +110,15 @@ public class ChatPanel extends JPanel implements ActionListener {
             @Override
             public void mouseClicked(MouseEvent e) {
 
-                String nombre = Auth.hayUsuarioAutenticado() ? Auth.usuarioAutenticado().getNombreUsuario()
-                        : "Biblioteca";
                 String message = getTextField().getText();
 
-                // L�gica para enviar el mensaje
-                // ...
-                // Limpiar el campo de texto despu�s de enviar el mensaje
-                chatArea.append(nombre + " : \n");
+                
+                chatArea.append(persona.getNombreUsuario() + " : \n");
                 chatArea.append("  " + message + "\n\n");
-                Mensaje m = new Mensaje(nombre, message);
-                System.out.println(m.getNombreUsuario());
-                System.out.println(m.getContenido());
-                chat.agregarMensaje(m);
+
+               
+                mensajes.add(new Mensaje(persona.getNombreUsuario(), message));
+                ControladorChats.guardarMensajes(departamento, persona);
                 getTextField().setText("");
 
             }

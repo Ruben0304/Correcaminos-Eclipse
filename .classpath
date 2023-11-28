@@ -8,7 +8,5 @@
 	</classpathentry>
 	<classpathentry kind="lib" path="C:/Users/herna/Downloads/jcalendar-1.4.jar"/>
 	<classpathentry kind="lib" path="C:/Users/herna/Downloads/gson-2.2.2.jar"/>
-	<classpathentry kind="lib" path="C:/Cosas/Programacion/Java_Programs/Correcaminos-Eclipse/bibliotecas/gson-2.2.2.jar"/>
-	<classpathentry kind="lib" path="C:/Cosas/Programacion/Java_Programs/Correcaminos-Eclipse/bibliotecas/jcalendar-1.4.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

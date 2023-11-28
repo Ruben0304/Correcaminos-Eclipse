@@ -1,0 +1,84 @@
+{
+  "models.usuarios.Admin@27701d23": {
+    "models.usuarios.Estudiante@36b637d9": [
+      {
+        "nombreUsuario": "persona2",
+        "contenido": "¿Qué tal el proyecto?",
+        "fecha": {
+          "year": 2023,
+          "month": 10,
+          "dayOfMonth": 28,
+          "hourOfDay": 15,
+          "minute": 25,
+          "second": 50
+        }
+      },
+      {
+        "nombreUsuario": "admin2",
+        "contenido": "Va bien, solo falta un poco.",
+        "fecha": {
+          "year": 2023,
+          "month": 10,
+          "dayOfMonth": 28,
+          "hourOfDay": 15,
+          "minute": 25,
+          "second": 50
+        }
+      }
+    ]
+  },
+  "models.usuarios.Admin@1739f1d6": {
+    "models.usuarios.Estudiante@3dd160e2": [
+      {
+        "nombreUsuario": "persona3",
+        "contenido": "Hola, soy nuevo aquí.",
+        "fecha": {
+          "year": 2023,
+          "month": 10,
+          "dayOfMonth": 28,
+          "hourOfDay": 15,
+          "minute": 25,
+          "second": 50
+        }
+      },
+      {
+        "nombreUsuario": "admin1",
+        "contenido": "Bienvenido, ¿en qué puedo ayudarte?",
+        "fecha": {
+          "year": 2023,
+          "month": 10,
+          "dayOfMonth": 28,
+          "hourOfDay": 15,
+          "minute": 25,
+          "second": 50
+        }
+      }
+    ],
+    "models.usuarios.Estudiante@3d81af15": [
+      {
+        "nombreUsuario": "persona1",
+        "contenido": "Hola, ¿cómo estás?",
+        "fecha": {
+          "year": 2023,
+          "month": 10,
+          "dayOfMonth": 28,
+          "hourOfDay": 15,
+          "minute": 25,
+          "second": 50
+        }
+      },
+      {
+        "nombreUsuario": "admin1",
+        "contenido": "Bien, gracias. ¿Y tú?",
+        "fecha": {
+          "year": 2023,
+          "month": 10,
+          "dayOfMonth": 28,
+          "hourOfDay": 15,
+          "minute": 25,
+          "second": 50
+        }
+      }
+    ]
+  }
+}

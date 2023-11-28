@@ -30,23 +30,16 @@ public class RecursosHumanos implements VerificadorEmpleado {
 	}
 	
 	@Override
-	public ArrayList<String> getEmpleadosPendientes() {
+	public ArrayList<Empleado> getEmpleadosPendientes() {
         
-		ArrayList<String> nombresEmpleados = new ArrayList<>();
+		ArrayList<Empleado> nombresEmpleados = new ArrayList<>();
            
     	Set<Empleado> empleadosPendientes = empleadosConSalarioIndebido.keySet();
         
         for (Empleado e: empleadosPendientes) {
-        	nombresEmpleados.add(e.getNombre() + " " + e.getPrimer_apellido() + " " +  e.getSegundo_apellido());
-        	
-        	if (e instanceof Docente) {
-        		nombresEmpleados.add(" " + ((Docente)e).getDepartamento());
-        	}
-        	else {
-        		nombresEmpleados.add(" " + ((NoDocente)e).getSeccion());
-        	}
+        	nombresEmpleados.add(e);
         }
-		
+   	
         return nombresEmpleados;
     }
 

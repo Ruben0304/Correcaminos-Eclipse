@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.TreeMap;
+
 
 import com.google.gson.Gson;
 
@@ -26,7 +26,7 @@ public class AdministradorChats {
     }
 
     private AdministradorChats() {
-        this.chats = new TreeMap<>();
+        this.chats = new HashMap<>();
 
     }
 
@@ -34,6 +34,10 @@ public class AdministradorChats {
 
         chats.get(departamento).put(p,mensajes);
 
+    }
+
+    public Map<Admin, Map<Persona, ArrayList<Mensaje>>> getChats() {
+        return chats;
     }
     
 

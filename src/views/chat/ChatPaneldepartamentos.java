@@ -44,7 +44,7 @@ public class ChatPaneldepartamentos extends JPanel implements ActionListener {
     private final JLabel label = new JLabel("");
     private final JLabel lblNewLabel_2 = new JLabel("Estudiante1");
     private final JPanel panel_1 = new JPanel();
-    private final JLabel lblDepartamentos = new JLabel("Departamentos");
+    private final JLabel lblDepartamentos = new JLabel("Conversaciones");
     private JTextArea txtrContanctaConLos;
     private ButtonGroup rbtnGroup = new ButtonGroup();
     private JScrollPane scrollPane_1;

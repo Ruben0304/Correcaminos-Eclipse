@@ -1,40 +1,40 @@
 package models.departamentos;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Set;
 
-import models.interfaces.VerificadorEmpleado;
-import models.interfaces.VerificadorEstudiante;
+import interfaces.VerificadorEmpleado;
+import interfaces.VerificadorEstudiante;
 import models.responsabilidades.ResponsabilidadesEmpleados;
 import models.responsabilidades.ResponsabilidadesEstudiantes;
 import models.usuarios.Empleado;
 import models.usuarios.Estudiante;
+import models.usuarios.Persona;
 import util.ResponsabilidadesTrabajador;
 import util.TiposResponsabilidad;
 
 public class Biblioteca implements VerificadorEstudiante, VerificadorEmpleado {
 
-    public boolean tieneLibrosPrestados(Set<TiposResponsabilidad> r){
-    
-        return r.contains(TiposResponsabilidad.LIBROS_BIBLIOTECA);
+    private HashMap<Persona, Set<String>> librosPrestados;
 
-        
+    public boolean tieneLibrosPrestados(Persona p) {
+
+        return librosPrestados.containsKey(p);
+
     }
+
     
-    public boolean tieneLibrosPrestados(ResponsabilidadesEmpleados r){
-        return r.getResponsabilidades().contains(ResponsabilidadesTrabajador.LIBROS_BIBLIOTECA);
-        
-    }
-    
+
     @Override
-    public boolean verificarRequisitos(ResponsabilidadesEstudiantes responsabilidadesEstudiantes) {
-        return tieneLibrosPrestados(responsabilidadesEstudiantes);
+    public boolean verificarRequisitos(Estudiante e) {
+        return tieneLibrosPrestados(e);
     }
-    
+
     @Override
-	public boolean verificarRequisitos(ResponsabilidadesEmpleados responsabilidadesTrabajador) {
-		return tieneLibrosPrestados(responsabilidadesTrabajador);
-	}
+    public boolean verificarRequisitos(ResponsabilidadesEmpleados responsabilidadesTrabajador) {
+        return tieneLibrosPrestados(responsabilidadesTrabajador);
+    }
 
     public void recogerLibrosPrestados(Estudiante e, ArrayList<ResponsabilidadesEstudiantes> responsabilidades) {
         boolean encontrado = false;
@@ -47,7 +47,7 @@ public class Biblioteca implements VerificadorEstudiante, VerificadorEmpleado {
 
         }
     }
-    
+
     public void recogerLibrosPrestados(Empleado e, ArrayList<ResponsabilidadesEmpleados> responsabilidades) {
         boolean encontrado = false;
         for (int i = 0; i < responsabilidades.size() && !encontrado; i++) {
@@ -71,7 +71,7 @@ public class Biblioteca implements VerificadorEstudiante, VerificadorEmpleado {
         }
         return es;
     }
-    
+
     @Override
     public ArrayList<Empleado> getEmpleadosPendientes(
             ArrayList<ResponsabilidadesEmpleados> responsabilidades) {
@@ -83,16 +83,5 @@ public class Biblioteca implements VerificadorEstudiante, VerificadorEmpleado {
         }
         return es;
     }
-    
-
-	
-
-	
-
-	
-
-	
-
-   
 
 }

@@ -14,8 +14,8 @@ import models.usuarios.Persona;
 import util.TipoDepartamento;
 
 public class AdministradorChats {
-    private TreeMap<TipoDepartamento,Map<String,ArrayList<Mensaje>>> chats;
-    private ArrayList<Chat> chats;
+    private Map<TipoDepartamento,Map<String,ArrayList<Mensaje>>> chats;
+    // private ArrayList<Chat> chats;
     public static AdministradorChats administradorChats = null;
 
     public static AdministradorChats getAdministradorChats() {
@@ -26,7 +26,7 @@ public class AdministradorChats {
     }
 
     private AdministradorChats() {
-        this.chats = new ArrayList<>();
+        this.chats = new TreeMap<>();
         // crearChat(TipoDepartamento.Biblioteca, new Estudiante("Manuel", null,
         // "00909090909", null, null, null, null, 0, null, null, 0));
         // crearChat(TipoDepartamento.Economia, new Estudiante("Manuel", null,

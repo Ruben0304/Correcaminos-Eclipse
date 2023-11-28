@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 
 import com.google.gson.Gson;
 
@@ -13,6 +14,7 @@ import models.usuarios.Persona;
 import util.TipoDepartamento;
 
 public class AdministradorChats {
+    private TreeMap<TipoDepartamento,Map<String,ArrayList<Mensaje>>> chats;
     private ArrayList<Chat> chats;
     public static AdministradorChats administradorChats = null;
 

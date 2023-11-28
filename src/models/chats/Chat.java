@@ -2,6 +2,7 @@ package models.chats;
 
 import java.sql.Date;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import com.google.gson.Gson;
 
@@ -11,9 +12,11 @@ import models.usuarios.Persona;
 import util.TipoDepartamento;
 
 public class Chat {
-    private TipoDepartamento departamento;
-    private String nombreUsuario;
-    private ArrayList<Mensaje> mensajes;
+    
+    // private TipoDepartamento departamento;
+    private HashMap<String,ArrayList<Mensaje>> mensajes;
+    // private String nombreUsuario;
+    // private ArrayList<Mensaje> mensajes;
 
     public Chat(TipoDepartamento departamento, String nombreUsuario) {
         this.departamento = departamento;

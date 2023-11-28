@@ -30,6 +30,11 @@ public class AdministradorChats {
 
     }
 
+    public void actualizarMensajes(Admin departamento, Persona p, ArrayList<Mensaje> mensajes ) {
+
+        chats.get(departamento).put(p,mensajes);
+
+    }
     
 
     public ArrayList<Mensaje> obtenerMensajes(Admin departamento, Persona p) {

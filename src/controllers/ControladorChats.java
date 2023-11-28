@@ -16,6 +16,7 @@ public class ControladorChats {
     }
 
     public static void guardarMensajes(Admin departamento, Persona p) {
+        AdministradorChats.getAdministradorChats().
         GuardarChats.guardarChat(departamento, p);
     }
 }

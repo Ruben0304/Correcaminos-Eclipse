@@ -15,6 +15,7 @@ public abstract class Persona {
         this.segundo_apellido = segundo_apellido;
 
     }
+    
 
     public String getCi() {
         return ci;

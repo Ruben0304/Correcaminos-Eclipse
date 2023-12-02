@@ -2,13 +2,41 @@
   {
       "id": 1,
       "motivo": "Vacaciones",
-      "fechaSalida": "2023-12-15T00:00:00Z",
-      "fechaRegreso": "2024-01-15T00:00:00Z"
+      "fechaSalida": {
+        "year": 2023,
+        "month": 10,
+        "dayOfMonth": 28,
+        "hourOfDay": 20,
+        "minute": 23,
+        "second": 54
+      },
+      "fechaRegreso": {
+        "year": 2023,
+        "month": 10,
+        "dayOfMonth": 28,
+        "hourOfDay": 20,
+        "minute": 23,
+        "second": 54
+      }
   },
   {
       "id": 2,
       "motivo": "Enfermedad",
-      "fechaSalida": "2023-12-20T00:00:00Z",
-      "fechaRegreso": "2023-12-27T00:00:00Z"
+      "fechaSalida": {
+        "year": 2023,
+        "month": 10,
+        "dayOfMonth": 28,
+        "hourOfDay": 20,
+        "minute": 23,
+        "second": 54
+      },
+      "fechaRegreso": {
+        "year": 2023,
+        "month": 10,
+        "dayOfMonth": 28,
+        "hourOfDay": 20,
+        "minute": 23,
+        "second": 54
+      }
   }
 ]

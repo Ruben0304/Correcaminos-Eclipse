@@ -12,9 +12,9 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import models.solicitudes.Solicitud;
-import models.solicitudes.SolicitudBajaEstudiante;
+
 import models.solicitudes.SolicitudLicencia;
-import models.solicitudes.SolicitudLicenciaEstudiante;
+
 import models.usuarios.Estudiante;
 
 public class ObtenerSolicitudes {
@@ -24,7 +24,7 @@ public class ObtenerSolicitudes {
         ArrayList<Solicitud> solicitudes = new ArrayList<>();
         ArrayList<SolicitudLicencia> licencias = new ArrayList<>();
 
-        try (BufferedReader reader = new BufferedReader(new FileReader("./solicitudes.json"))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("./jsons/solicitudes.json"))) {
             Type listType = new TypeToken<ArrayList<SolicitudLicencia>>() {
             }.getType();
             licencias = gson.fromJson(reader, listType);

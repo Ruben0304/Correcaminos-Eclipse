@@ -10,7 +10,7 @@
           "departamento": "Matemáticas",
           "categoriaDocente": "Profesor Titular"
       },
-      {
+      [{
           "id": 1,
           "motivo": "Vacaciones",
           "fechaSalida": {
@@ -29,6 +29,6 @@
               "minute": 23,
               "second": 54
           }
-      }
+      }]
   ]
 ]

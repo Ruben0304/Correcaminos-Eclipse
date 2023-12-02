@@ -40,68 +40,38 @@ public class ControladorFiltrado {
                     String valor = filtro.getValue();
 
                     switch (atributo) {
-                        case "licencia":
-                            SolicitudLicencia solicitudLicencia = ((SolicitudLicencia) s);
-                            switch (atributo) {
-                                case "anio":
-                                    if (!(solicitudLicencia.getAnioExpedicion() == Integer.parseInt(valor))) {
-                                        cumpleFiltros = false;
-                                    }
-                                    break;
-                                case "estado":
-                                    if (!solicitudLicencia.getEstado().toString().equals(valor)) {
-                                        cumpleFiltros = false;
-                                    }
-                                    break;
-                                case "motivo":
-                                    if (!solicitudLicencia.getMotivo().toString().equals(valor)) {
-                                        cumpleFiltros = false;
-                                    }
-                                    break;
-                                case "buscar":
-                                    if (!(buscarPorNombreOCi(estudiante, valor))) {
-                                        cumpleFiltros = false;
-                                    }
-                                    break;
-                            }
-
-                            if (cumpleFiltros) {
-                                solicitudesFiltradas.add(solicitudLicencia);
+                        case "anio":
+                            if (!(s.getAnioExpedicion() == Integer.parseInt(valor))) {
+                                cumpleFiltros = false;
                             }
                             break;
-
-                        case "baja":
-                            SolicitudBaja solicitudBaja = ((SolicitudBaja) s);
-                            switch (atributo) {
-                                case "anio":
-                                    if (!(solicitudBaja.getAnioExpedicion() == Integer.parseInt(valor))) {
-                                        cumpleFiltros = false;
-                                    }
-                                    break;
-                                case "estado":
-                                    if (!solicitudBaja.getEstado().toString().equals(valor)) {
-                                        cumpleFiltros = false;
-                                    }
-                                    break;
-                                case "motivo":
-                                    if (!solicitudBaja.getMotivo().toString().equals(valor)) {
-                                        cumpleFiltros = false;
-                                    }
-                                    break;
-                                case "buscar":
-                                    if (!(buscarPorNombreOCi(estudiante, valor))) {
-                                        cumpleFiltros = false;
-                                    }
-                                    break;
+                        case "estado":
+                            if (!s.getEstado().toString().equals(valor)) {
+                                cumpleFiltros = false;
                             }
-
-                            if (cumpleFiltros) {
-                                solicitudesFiltradas.add(solicitudBaja);
+                            break;
+                        case "motivo":
+                            if (s instanceof SolicitudLicencia) {
+                                if (!((SolicitudLicencia) s).getMotivo().toString().equals(valor)) {
+                                    cumpleFiltros = false;
+                                } else if (s instanceof SolicitudBaja) {
+                                    if (!((SolicitudBaja) s).getMotivo().toString().equals(valor)) {
+                                        cumpleFiltros = false;
+                                    }
+                                }
+                            }
+                            break;
+                        case "buscar":
+                            if (!(buscarPorNombreOCi(estudiante, valor))) {
+                                cumpleFiltros = false;
                             }
                             break;
                     }
-                }
 
+                    if (cumpleFiltros) {
+                        solicitudesFiltradas.add(s);
+                    }
+                }
             }
         }
 

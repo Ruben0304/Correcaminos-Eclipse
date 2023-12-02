@@ -15,33 +15,38 @@ import models.usuarios.Persona;
 import util.TipoDepartamento;
 
 public class AdministradorChats {
-    private Map<Admin, Map<Persona, ArrayList<Mensaje>>> chats;
-    public static AdministradorChats administradorChats = null;
+    private HashMap<String, HashMap<String, ArrayList<Mensaje>>> chats;
+    // public static AdministradorChats administradorChats = null;
 
-    public static AdministradorChats getAdministradorChats() {
-        if (administradorChats == null) {
-            administradorChats = new AdministradorChats();
-        }
-        return administradorChats;
-    }
+    // public static AdministradorChats getAdministradorChats() {
+    //     if (administradorChats == null) {
+    //         administradorChats = new AdministradorChats();
+    //     }
+    //     return administradorChats;
+    // }
 
-    private AdministradorChats() {
-        this.chats = new HashMap<>();
-
-    }
-
-    public void actualizarMensajes(Admin departamento, Persona p, ArrayList<Mensaje> mensajes ) {
-
-        chats.get(departamento).put(p,mensajes);
+    public AdministradorChats() {
+        chats = new HashMap<>();
 
     }
 
-    public Map<Admin, Map<Persona, ArrayList<Mensaje>>> getChats() {
+    public void addChat(String departamento, String p, ArrayList<Mensaje> mensajes ) {
+
+        if (!chats.containsKey(departamento)) {
+            chats.put(departamento, new HashMap<String, ArrayList<Mensaje>>());
+          }
+         
+          chats.get(departamento).put(p, mensajes);
+        
+
+    }
+
+    public HashMap<String, HashMap<String, ArrayList<Mensaje>>> getChats() {
         return chats;
     }
     
 
-    public ArrayList<Mensaje> obtenerMensajes(Admin departamento, Persona p) {
+    public ArrayList<Mensaje> obtenerMensajes(String departamento, String p) {
 
         return chats.get(departamento).get(p);
 

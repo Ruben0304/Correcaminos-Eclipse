@@ -66,10 +66,11 @@ public class ChatPanel extends JPanel implements ActionListener {
     private ButtonGroup rbtnGroup = new ButtonGroup();
     private JRadioButton radioButtonBiblioteca = new JRadioButton("");
     private ArrayList<Mensaje> mensajes;
-    private Admin departamento;
-    private final Persona persona = (Persona) Auth.usuarioAutenticado();
+    private String departamento;
+    private final String persona = "persona1";
+    // private final Persona persona = (Persona) Auth.usuarioAutenticado();
 
-    public ChatPanel(Admin admin) {
+    public ChatPanel(String admin) {
 
         this.mensajes = ControladorChats.obtenerMensajes(admin, persona);
         this.departamento = admin;

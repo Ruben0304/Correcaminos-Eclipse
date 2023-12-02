@@ -5,18 +5,18 @@ import java.util.GregorianCalendar;
 import java.util.Calendar;
 
 public class Mensaje {
-    private String nombreUsuario;
+    private String emisor;
     private String contenido;
     private Calendar fecha;
 
     public Mensaje(String nombreUsuario, String contenido) {
-        this.nombreUsuario = nombreUsuario;
+        this.emisor = nombreUsuario;
         this.contenido = contenido;
         this.fecha = new GregorianCalendar();
     }
 
-    public String getNombreUsuario() {
-        return nombreUsuario;
+    public String getEmisor() {
+        return emisor;
     }
 
     public String getContenido() {

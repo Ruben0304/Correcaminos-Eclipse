@@ -5,29 +5,34 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
-import models.chats.Chat;
+
+import models.chats.Mensaje;
+import models.usuarios.Admin;
 import models.usuarios.Estudiante;
+import models.usuarios.Persona;
 
 public class ObtenerChats {
-    public static ArrayList<Chat> cargarDesdeArchivo() {
+    public static HashMap<Admin, Map<Persona, ArrayList<Mensaje>>> cargarDesdeArchivo() {
         Gson gson = new Gson();
 
-        ArrayList<Chat> chat = new ArrayList<>();
+        try (BufferedReader reader = new BufferedReader(new
+				FileReader("./chats/biblioteca.json"))) {
+				Type listType = new TypeToken<HashMap<Admin, Map<Persona, ArrayList<Mensaje>>>>(){}.getType();
 
-        try (BufferedReader reader = new BufferedReader(new FileReader("./chats/biblioteca.json"))) {
-            Type listType = new TypeToken<ArrayList<Chat>>() {
-            }.getType();
+				HashMap<Admin, Map<Persona, ArrayList<Mensaje>>> chats = gson.fromJson(reader,
+				listType);
+				return chats;
 
-            chat = gson.fromJson(reader, listType);
+				} catch (IOException e) {
+				e.printStackTrace();
+				}
 
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        return chat;
+        return null;
     }
 }

@@ -93,6 +93,9 @@ public class Pruebas {
 				HashMap<String, HashMap<String, ArrayList<Mensaje>>> chats = chatCollection.getChats();
 
 				ChatPanel chatPanel = new ChatPanel("admin1");
+
+
+				
 				// Imprimir los chats por consola
 				// ControladorLogin.comprobarSession();
 				// Pricipal frame = Pricipal.getInstancia();

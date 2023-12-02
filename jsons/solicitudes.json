@@ -30,5 +30,69 @@
               "second": 54
           }
       }]
+  ],
+  [
+      {
+          "ci": "87654321",
+          "nombre": "Ruben",
+          "primer_apellido": "Rodríguez",
+          "segundo_apellido": "López",
+          "numerotrabajador": "456789",
+          "facultad": "Ing_Industrial",
+          "departamento": "Física Teórica",
+          "categoriaDocente": "Profesor Asociado"
+      },
+      [{
+          "id": 2,
+          "motivo": "Enfermedad",
+          "fechaSalida": {
+              "year": 2023,
+              "month": 10,
+              "dayOfMonth": 28,
+              "hourOfDay": 20,
+              "minute": 23,
+              "second": 54
+          },
+          "fechaRegreso": {
+              "year": 2023,
+              "month": 10,
+              "dayOfMonth": 28,
+              "hourOfDay": 20,
+              "minute": 23,
+              "second": 54
+          }
+      }]
+  ],
+  [
+      {
+          "ci": "11223344",
+          "nombre": "Eduardo",
+          "primer_apellido": "Martínez",
+          "segundo_apellido": "Hernández",
+          "numerotrabajador": "321654",
+          "facultad": "Ing_Industrial",
+          "departamento": "Química Orgánica",
+          "categoriaDocente": "Profesor Auxiliar"
+      },
+      [{
+          "id": 3,
+          "motivo": "Licencia sin sueldo",
+          "fechaSalida": {
+              "year": 2023,
+              "month": 10,
+              "dayOfMonth": 28,
+              "hourOfDay": 20,
+              "minute": 23,
+              "second": 54
+          },
+          "fechaRegreso": {
+              "year": 2023,
+              "month": 10,
+              "dayOfMonth": 28,
+              "hourOfDay": 20,
+              "minute": 23,
+              "second": 54
+          }
+      }]
   ]
 ]

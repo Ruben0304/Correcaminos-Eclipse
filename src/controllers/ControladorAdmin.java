@@ -8,7 +8,6 @@ import models.gestion.Correcaminos;
 import models.gestion.estudiantes.Secretaria;
 import models.gestion.estudiantes.GestorResponsabilidadesEstudiantes;
 import models.responsabilidades.ResponsabilidadesEstudiantes;
-import models.solicitudes.SolicitudBajaEstudiante;
 import models.usuarios.Admin;
 import models.usuarios.Estudiante;
 import models.usuarios.Usuario;

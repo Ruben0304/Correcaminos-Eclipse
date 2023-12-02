@@ -5,8 +5,11 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 import javax.sound.sampled.AudioFileFormat.Type;
 import javax.swing.JOptionPane;
@@ -25,10 +28,15 @@ import models.chats.Mensaje;
 import models.gestion.Correcaminos;
 import models.gestion.estudiantes.Secretaria;
 import models.solicitudes.Solicitud;
+import models.solicitudes.SolicitudBaja;
+import models.solicitudes.SolicitudLicencia;
 import models.usuarios.Admin;
 import models.usuarios.Estudiante;
 import models.usuarios.Persona;
 import util.Facultad;
+import util.MotivoBaja;
+import util.MotivoLicencia;
+import util.Motivos;
 import util.TipoCurso;
 import util.TipoDepartamento;
 import views.chat.ChatPanel;
@@ -37,14 +45,51 @@ import views.layouts.Pricipal;
 public class Pruebas {
 	public static void main(String[] args) {
 
+		HashMap<Estudiante, Set<Solicitud>> solicitudesEstudiantes = new HashMap<>();
+
+		for (int i = 0; i < 5; i++) {
+            Estudiante estudiante = new Estudiante("CI" + i, "Nombre" + i, "Apellido1_" + i, "Apellido2_" + i, Facultad.Ing_Informatica, i, TipoCurso.DIURNO, "Carrera" + i, i);
+            Set<Solicitud> solicitudes = new HashSet<>();
+
+            for (int j = 0; j < 3; j++) {
+                if (j % 2 == 0) {
+                    SolicitudBaja solicitudBaja = new SolicitudBaja(j, MotivoBaja.Accidente);
+                    solicitudes.add(solicitudBaja);
+                } else {
+                    Calendar fechaSalida = Calendar.getInstance();
+                    Calendar fechaRegreso = Calendar.getInstance();
+                    fechaRegreso.add(Calendar.MONTH, 1);
+                    SolicitudLicencia solicitudLicencia = new SolicitudLicencia(j, MotivoLicencia.Accidente, fechaSalida, fechaRegreso);
+                    solicitudes.add(solicitudLicencia);
+                }
+            }
+
+            solicitudesEstudiantes.put(estudiante, solicitudes);
+        }
+
 
 		HashMap<String, String> filtros = new HashMap<String, String>();
 
-		filtros.put("anio", "2020");
-		filtros.put("aio", "2020");
+		filtros.put("anio", "");
+		filtros.put("buscar", "");
+		filtros.put("estado", "");
+		filtros.put("motivo", "");
+
+		HashMap<String, String> filtros1 = new HashMap<String, String>();
+		filtros1.put("anio", "");
+		filtros1.put("buscar", "");
+		filtros1.put("estado", "");
+		filtros1.put("motivo", "");
+
+		HashMap<String, String> filtros2 = new HashMap<String, String>();
+		filtros2.put("anio", "");
+		filtros2.put("buscar", "");
+		filtros2.put("estado", "");
+		filtros2.put("motivo", "");
 
 
-		ArrayList<Solicitud> solicitudesFiltradas = ControladorFiltrado.obtenerSolicitudesBajaEstudiantesFiltradas(filtros);
+
+		ArrayList<Solicitud> solicitudesFiltradas = ControladorFiltrado.filtradoDinamicoSolicitudEstudiantes(filtros2, solicitudesEstudiantes);
 
 		for(Solicitud solicitud : solicitudesFiltradas){
 			System.out.println((solicitud.getId()));

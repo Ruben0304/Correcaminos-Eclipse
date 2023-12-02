@@ -6,9 +6,9 @@ public abstract class Empleado extends Persona{
 
 
     
-    public Empleado(String nombreUsuario, String contrasena, String ci, String nombre, String primer_apellido, String segundo_apellido,
+    public Empleado(String ci, String nombre, String primer_apellido, String segundo_apellido,
                      String numerotrabajador) {
-        super(nombreUsuario, contrasena, ci, nombre, primer_apellido,segundo_apellido);
+        super(ci, nombre, primer_apellido,segundo_apellido);
         this.numerotrabajador = numerotrabajador;
     }
 

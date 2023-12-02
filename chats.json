@@ -1,1 +1,86 @@
-{"chats":{"admin1":{"persona3":[{"emisor":"persona3","contenido":"Hola, soy nuevo aquí.","fecha":{"year":2023,"month":10,"dayOfMonth":28,"hourOfDay":20,"minute":23,"second":54}},{"emisor":"admin1","contenido":"Bienvenido, ¿en qué puedo ayudarte?","fecha":{"year":2023,"month":10,"dayOfMonth":28,"hourOfDay":20,"minute":23,"second":54}}],"persona1":[{"emisor":"persona1","contenido":"Hola, ¿cómo estás?","fecha":{"year":2023,"month":10,"dayOfMonth":28,"hourOfDay":20,"minute":23,"second":54}},{"emisor":"admin1","contenido":"Bien, gracias. ¿Y tú?","fecha":{"year":2023,"month":10,"dayOfMonth":28,"hourOfDay":20,"minute":23,"second":54}}]},"admin2":{"persona2":[{"emisor":"persona2","contenido":"¿Qué tal el proyecto?","fecha":{"year":2023,"month":10,"dayOfMonth":28,"hourOfDay":20,"minute":23,"second":54}},{"emisor":"admin2","contenido":"Va bien, solo falta un poco.","fecha":{"year":2023,"month":10,"dayOfMonth":28,"hourOfDay":20,"minute":23,"second":54}}]}}}
+{
+    "chats": {
+        "admin1": {
+            "persona3": [
+                {
+                    "emisor": "persona3",
+                    "contenido": "Hola, soy nuevo aquï¿½.",
+                    "fecha": {
+                        "year": 2023,
+                        "month": 10,
+                        "dayOfMonth": 28,
+                        "hourOfDay": 20,
+                        "minute": 23,
+                        "second": 54
+                    }
+                },
+                {
+                    "emisor": "admin1",
+                    "contenido": "Bienvenido, ï¿½en quï¿½ puedo ayudarte?",
+                    "fecha": {
+                        "year": 2023,
+                        "month": 10,
+                        "dayOfMonth": 28,
+                        "hourOfDay": 20,
+                        "minute": 23,
+                        "second": 54
+                    }
+                }
+            ],
+            "persona1": [
+                {
+                    "emisor": "persona1",
+                    "contenido": "Hola, ï¿½cï¿½mo estï¿½s?",
+                    "fecha": {
+                        "year": 2023,
+                        "month": 10,
+                        "dayOfMonth": 28,
+                        "hourOfDay": 20,
+                        "minute": 23,
+                        "second": 54
+                    }
+                },
+                {
+                    "emisor": "admin1",
+                    "contenido": "Bien, gracias. ï¿½Y tï¿½?",
+                    "fecha": {
+                        "year": 2023,
+                        "month": 10,
+                        "dayOfMonth": 28,
+                        "hourOfDay": 20,
+                        "minute": 23,
+                        "second": 54
+                    }
+                }
+            ]
+        },
+        "admin2": {
+            "persona2": [
+                {
+                    "emisor": "persona2",
+                    "contenido": "ï¿½Quï¿½ tal el proyecto?",
+                    "fecha": {
+                        "year": 2023,
+                        "month": 10,
+                        "dayOfMonth": 28,
+                        "hourOfDay": 20,
+                        "minute": 23,
+                        "second": 54
+                    }
+                },
+                {
+                    "emisor": "admin2",
+                    "contenido": "Va bien, solo falta un poco.",
+                    "fecha": {
+                        "year": 2023,
+                        "month": 10,
+                        "dayOfMonth": 28,
+                        "hourOfDay": 20,
+                        "minute": 23,
+                        "second": 54
+                    }
+                }
+            ]
+        }
+    }
+}

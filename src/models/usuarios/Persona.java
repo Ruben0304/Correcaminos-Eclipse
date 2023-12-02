@@ -1,14 +1,14 @@
 package models.usuarios;
 
-public abstract class Persona extends Usuario {
+public abstract class Persona {
     protected String ci;
     protected String nombre;
     protected String primer_apellido;
     protected String segundo_apellido;
 
-    public Persona(String nombreUsuario, String contrasena, String ci, String nombre, String primer_apellido,
+    public Persona( String ci, String nombre, String primer_apellido,
             String segundo_apellido) {
-        super(nombreUsuario, contrasena);
+       
         this.ci = ci;
         this.nombre = nombre;
         this.primer_apellido = primer_apellido;

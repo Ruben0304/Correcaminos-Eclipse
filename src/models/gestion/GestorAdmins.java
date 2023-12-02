@@ -3,7 +3,7 @@ package models.gestion;
 import java.util.ArrayList;
 
 import data.ObtenerAdmins;
-import models.interfaces.Actualizador;
+import interfaces.Actualizador;
 import models.usuarios.Admin;
 
 public class GestorAdmins implements Actualizador {

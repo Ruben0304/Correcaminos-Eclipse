@@ -4,10 +4,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import interfaces.Actualizador;
 import models.gestion.empleados.GestorEmpleados;
 import models.gestion.estudiantes.Secretaria;
-
-import models.interfaces.Actualizador;
 import models.usuarios.Persona;
 import models.usuarios.Usuario;
 

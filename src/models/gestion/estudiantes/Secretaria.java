@@ -6,9 +6,8 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 import data.ObtenerEstudiantes;
+import interfaces.Actualizador;
 import models.gestion.Correcaminos;
-import models.interfaces.Actualizador;
-
 import models.usuarios.Estudiante;
 import util.Facultad;
 

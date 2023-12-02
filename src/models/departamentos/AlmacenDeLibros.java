@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Set;
 
-import models.interfaces.VerificadorEstudiante;
+import interfaces.VerificadorEstudiante;
 import models.responsabilidades.ResponsabilidadesEstudiantes;
 import models.usuarios.Empleado;
 import models.usuarios.Estudiante;

@@ -2,7 +2,7 @@ package models.departamentos;
 
 import java.util.ArrayList;
 
-import models.interfaces.VerificadorEstudiante;
+import interfaces.VerificadorEstudiante;
 import models.responsabilidades.ResponsabilidadesEstudiantes;
 import models.usuarios.Estudiante;
 import util.TiposResponsabilidad;

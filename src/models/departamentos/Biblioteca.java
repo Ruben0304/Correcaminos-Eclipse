@@ -22,7 +22,9 @@ public class Biblioteca implements VerificadorEstudiante, VerificadorEmpleado {
     public boolean verificarRequisitos(Estudiante e) {
         return tieneLibrosPrestados(e);
     }
+
     
+
     @Override
 	public boolean verificarRequisitos(Empleado e) {
 		return tieneLibrosPrestados(e);
@@ -31,7 +33,7 @@ public class Biblioteca implements VerificadorEstudiante, VerificadorEmpleado {
     public void recogerLibrosPrestados(Persona p) {
     	personasConLibrosDocentes.remove(p);
     }
-    
+
     @Override
     public ArrayList<Estudiante> getEstudiantesPendientes() {
     	

@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.Set;
 
 import data.ObtenerEstudiantesConEstipendio;
-import models.interfaces.VerificadorEstudiante;
+import interfaces.VerificadorEstudiante;
 import models.usuarios.Estudiante;
 import util.TiposResponsabilidad;
 

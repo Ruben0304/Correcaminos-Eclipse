@@ -4,84 +4,65 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Set;
 
-import interfaces.VerificadorEmpleado;
-import interfaces.VerificadorEstudiante;
-import models.responsabilidades.ResponsabilidadesEmpleados;
-import models.responsabilidades.ResponsabilidadesEstudiantes;
+import models.interfaces.VerificadorEmpleado;
+import models.interfaces.VerificadorEstudiante;
 import models.usuarios.Empleado;
 import models.usuarios.Estudiante;
 import models.usuarios.Persona;
-import util.ResponsabilidadesTrabajador;
-import util.TiposResponsabilidad;
 
 public class Biblioteca implements VerificadorEstudiante, VerificadorEmpleado {
-
-    private HashMap<Persona, Set<String>> librosPrestados;
-
-    public boolean tieneLibrosPrestados(Persona p) {
-
-        return librosPrestados.containsKey(p);
-
+	
+	private HashMap<Persona, Set<String>> personasConLibrosDocentes;
+	
+	public boolean tieneLibrosPrestados(Persona p){
+        return personasConLibrosDocentes.containsKey(p);        
     }
-
-    
-
+	
     @Override
     public boolean verificarRequisitos(Estudiante e) {
         return tieneLibrosPrestados(e);
     }
 
+    
+
     @Override
-    public boolean verificarRequisitos(ResponsabilidadesEmpleados responsabilidadesTrabajador) {
-        return tieneLibrosPrestados(responsabilidadesTrabajador);
-    }
+	public boolean verificarRequisitos(Empleado e) {
+		return tieneLibrosPrestados(e);
+	}
 
-    public void recogerLibrosPrestados(Estudiante e, ArrayList<ResponsabilidadesEstudiantes> responsabilidades) {
-        boolean encontrado = false;
-        for (int i = 0; i < responsabilidades.size() && !encontrado; i++) {
-
-            encontrado = responsabilidades.get(i).getEstudiante().equals(e);
-            if (encontrado) {
-                responsabilidades.get(i).getResponsabilidades().remove(TiposResponsabilidad.LIBROS_BIBLIOTECA);
-            }
-
-        }
-    }
-
-    public void recogerLibrosPrestados(Empleado e, ArrayList<ResponsabilidadesEmpleados> responsabilidades) {
-        boolean encontrado = false;
-        for (int i = 0; i < responsabilidades.size() && !encontrado; i++) {
-
-            encontrado = responsabilidades.get(i).getEmpleado().equals(e);
-            if (encontrado) {
-                responsabilidades.get(i).getResponsabilidades().remove(ResponsabilidadesTrabajador.LIBROS_BIBLIOTECA);
-            }
-
-        }
+    public void recogerLibrosPrestados(Persona p) {
+    	personasConLibrosDocentes.remove(p);
     }
 
     @Override
-    public ArrayList<Estudiante> getEstudiantesPendientes(
-            ArrayList<ResponsabilidadesEstudiantes> responsabilidades) {
-        ArrayList<Estudiante> es = new ArrayList<>();
-        for (ResponsabilidadesEstudiantes r : responsabilidades) {
-            if (verificarRequisitos(r)) {
-                es.add(r.getEstudiante());
-            }
+    public ArrayList<Estudiante> getEstudiantesPendientes() {
+    	
+    	ArrayList<Estudiante> estudiantes = new ArrayList<>();
+        
+    	Set<Persona> estudiantesPendientes = personasConLibrosDocentes.keySet();
+        
+        for (Persona p: estudiantesPendientes) {
+        	if (p instanceof Estudiante) estudiantes.add(((Estudiante)p));
         }
-        return es;
+   	
+        return estudiantes;
     }
-
+    
     @Override
-    public ArrayList<Empleado> getEmpleadosPendientes(
-            ArrayList<ResponsabilidadesEmpleados> responsabilidades) {
-        ArrayList<Empleado> es = new ArrayList<>();
-        for (ResponsabilidadesEmpleados r : responsabilidades) {
-            if (verificarRequisitos(r)) {
-                es.add(r.getEmpleado());
-            }
+    public ArrayList<Empleado> getEmpleadosPendientes() {
+    	
+    	ArrayList<Empleado> nombresEmpleados = new ArrayList<>();
+        
+    	Set<Persona> empleadosPendientes = personasConLibrosDocentes.keySet();
+        
+        for (Persona p: empleadosPendientes) {
+        	if(p instanceof Empleado) nombresEmpleados.add(((Empleado)p));
         }
-        return es;
+   	
+        return nombresEmpleados;
     }
-
+    
+    public Set<String> obtenerLibrosPendientes(Persona p) {
+    	return personasConLibrosDocentes.get(p);
+    }
 }

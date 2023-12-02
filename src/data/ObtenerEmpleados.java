@@ -36,7 +36,7 @@ public class ObtenerEmpleados {
             Type listType = new TypeToken<ArrayList<Docente>>() {
             }.getType();
 
-            noDocentes = gson.fromJson(reader, listType);
+            docentes = gson.fromJson(reader, listType);
 
         } catch (IOException e) {
             e.printStackTrace();

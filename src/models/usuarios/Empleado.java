@@ -1,7 +1,7 @@
 package models.usuarios;
 
 
-public  class Empleado extends Persona{
+public abstract class Empleado extends Persona{
     protected String numerotrabajador;
 
 

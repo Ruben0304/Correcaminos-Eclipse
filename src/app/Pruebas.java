@@ -33,6 +33,7 @@ import controllers.ControladorLogin;
 import controllers.ControladorPrincipal;
 import data.ObtenerChats;
 import data.ObtenerEmpleados;
+import data.ObtenerSolicitudes;
 import models.chats.AdministradorChats;
 import models.chats.Mensaje;
 import models.gestion.Correcaminos;
@@ -54,9 +55,9 @@ public class Pruebas {
 
 		SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
-				
-			System.out.println(ObtenerEmpleados.cargarDesdeArchivo().get(4).getNombre());	
 
+				System.out.println(ObtenerEmpleados.cargarDesdeArchivo().get(4).getNombre());
+				System.out.println(ObtenerSolicitudes.cargarDesdeArchivo().get(1).getAnioExpedicion());
 			}
 		});
 	}

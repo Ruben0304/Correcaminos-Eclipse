@@ -22,5 +22,29 @@
         "segundo_apellido": "Hernández",
         "numerotrabajador": "321654",
         "seccion": "Química"
+    },
+    {
+        "ci": "12345678",
+        "nombre": "Marcel",
+        "primer_apellido": "Pérez",
+        "segundo_apellido": "González",
+        "numerotrabajador": "987654",
+        "seccion": "Matemáticas"
+    },
+    {
+        "ci": "87654321",
+        "nombre": "Ruben",
+        "primer_apellido": "Rodríguez",
+        "segundo_apellido": "López",
+        "numerotrabajador": "456789",
+        "seccion": "Física"
+    },
+    {
+        "ci": "11223344",
+        "nombre": "Eduardo",
+        "primer_apellido": "Martínez",
+        "segundo_apellido": "Hernández",
+        "numerotrabajador": "321654",
+        "seccion": "Química"
     }
 ]

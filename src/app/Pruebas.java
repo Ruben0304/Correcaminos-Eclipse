@@ -55,7 +55,7 @@ public class Pruebas {
 		SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
 				
-				ObtenerEmpleados.cargarDesdeArchivo();
+			System.out.println(ObtenerEmpleados.cargarDesdeArchivo().get(4).getNombre());	
 
 			}
 		});

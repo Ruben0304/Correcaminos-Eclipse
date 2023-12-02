@@ -14,17 +14,17 @@ import java.io.IOException;
 
 public class ObtenerEmpleados {
 	
-	public static ArrayList<NoDocente> cargarDesdeArchivo(){
+	public static ArrayList<Empleado> cargarDesdeArchivo(){
 		 
 	    Gson gson = new Gson();
         
 	    ArrayList<Empleado> empleados = new ArrayList<>();
 
         try (BufferedReader reader = new BufferedReader(new FileReader("./jsons/nodocentes.json"))) {
-            Type listType = new TypeToken<ArrayList<NoDocente>>() {
+            Type listType = new TypeToken<ArrayList<Empleado>>() {
             }.getType();
 
-            empleados.addAll(gson.fromJson(reader, listType));
+            empleados = gson.fromJson(reader, listType);
 
         } catch (IOException e) {
             e.printStackTrace();

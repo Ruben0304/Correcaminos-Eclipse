@@ -35,8 +35,9 @@ public class ControladorFiltrado {
             Estudiante estudiante = solicitudes.getKey();
             Set<Solicitud> listaSolicitudes = solicitudes.getValue();
             for (Solicitud s : listaSolicitudes) {
+                boolean cumpleFiltros = true;
                 for (Map.Entry<String, String> filtro : filtros.entrySet()) {
-                    boolean cumpleFiltros = true;
+
                     String atributo = filtro.getKey();
                     String valor = filtro.getValue();
 
@@ -76,9 +77,9 @@ public class ControladorFiltrado {
                             break;
                     }
 
-                    if (cumpleFiltros) {
-                        solicitudesFiltradas.add(s);
-                    }
+                }
+                if (cumpleFiltros) {
+                    solicitudesFiltradas.add(s);
                 }
             }
         }

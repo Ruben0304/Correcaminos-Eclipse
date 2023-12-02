@@ -5,14 +5,13 @@ import java.util.HashMap;
 import java.util.Set;
 
 import interfaces.VerificadorEstudiante;
-import models.responsabilidades.ResponsabilidadesEstudiantes;
 import models.usuarios.Empleado;
 import models.usuarios.Estudiante;
 import util.TiposResponsabilidad;
 
 public class AlmacenDeLibros implements VerificadorEstudiante {
 
-	private HashMap<Estudiante, TiposResponsabilidad> estudiantesConLibrosDocentes;
+	private HashMap<Estudiante, Set<String>> estudiantesConLibrosDocentes;
 	
 	public boolean tieneLibrosDocentes(Estudiante e) {
 		return estudiantesConLibrosDocentes.containsKey(e);
@@ -39,5 +38,8 @@ public class AlmacenDeLibros implements VerificadorEstudiante {
    	
         return estudiantes;
     }
-
+	
+	public Set<String> librosDocentesPendientes(Estudiante e) {
+		return estudiantesConLibrosDocentes.get(e);
+	}
 }

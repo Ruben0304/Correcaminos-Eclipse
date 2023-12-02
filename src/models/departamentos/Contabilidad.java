@@ -1,46 +1,45 @@
 package models.departamentos;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Set;
 
 import interfaces.VerificadorEmpleado;
-import models.responsabilidades.ResponsabilidadesEmpleados;
-import models.responsabilidades.ResponsabilidadesEstudiantes;
 import models.usuarios.Empleado;
-import models.usuarios.Estudiante;
-import util.ResponsabilidadesTrabajador;
-import util.TiposResponsabilidad;
 
 public class Contabilidad implements VerificadorEmpleado {
 	
-	public boolean tieneDeudaPendiente(ResponsabilidadesEmpleados r) {
-		return r.getResponsabilidades().contains(ResponsabilidadesTrabajador.DEUDA);
+	private HashMap<Empleado, Double> empleadosDeudas;
+	
+	@Override
+	public boolean verificarRequisitos(Empleado e) {
+		return empleadosDeudas.containsKey(e);
+	}
+	
+	public void saldarDeuda(Empleado e, double deuda) {
+		Double d = empleadosDeudas.get(e);
+		
+		if (deuda == d.doubleValue()) {
+			empleadosDeudas.remove(e);
+		}
+		else {
+			d = d.valueOf(d.doubleValue() - deuda);
+			empleadosDeudas.put(e, d);
+		}
 	}
 	
 	@Override
-	public boolean verificarRequisitos(ResponsabilidadesEmpleados responsabilidadesTrabajador) {
-		return tieneDeudaPendiente(responsabilidadesTrabajador);
-	}
-	
-	public void saldarDeuda(Estudiante e, ArrayList<ResponsabilidadesEstudiantes> responsabilidades) {
-		boolean encontrado = false;
-        for (int i = 0; i < responsabilidades.size() && !encontrado; i++) {
-
-            encontrado = responsabilidades.get(i).getEstudiante().equals(e);
-            if (encontrado) {
-                responsabilidades.get(i).getResponsabilidades().remove(TiposResponsabilidad.DEUDA);
-            }
-
+	public ArrayList<Empleado> getEmpleadosPendientes() {
+        
+		ArrayList<Empleado> nombresEmpleados = new ArrayList<>();
+           
+    	Set<Empleado> empleadosPendientes = empleadosDeudas.keySet();
+        
+        for (Empleado e: empleadosPendientes) {
+        	nombresEmpleados.add(e);
         }
-	}
-	
-	@Override
-	public ArrayList<Empleado> getEmpleadosPendientes(ArrayList<ResponsabilidadesEmpleados> responsabilidades) {
-        ArrayList<Empleado> es = new ArrayList<>();
-        for (ResponsabilidadesEmpleados r : responsabilidades) {
-            if (verificarRequisitos(r)) {
-                es.add(r.getEmpleado());
-            }
-        }
-        return es;
+   	
+        return nombresEmpleados;
     }
+
 }

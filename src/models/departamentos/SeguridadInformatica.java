@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Set;
 
-import models.interfaces.VerificadorEmpleado;
-import models.interfaces.VerificadorEstudiante;
+import interfaces.VerificadorEmpleado;
+import interfaces.VerificadorEstudiante;
 import models.usuarios.Empleado;
 import models.usuarios.Estudiante;
 import models.usuarios.Persona;

@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Set;
 
-import models.interfaces.VerificadorEmpleado;
-import models.interfaces.VerificadorEstudiante;
+import interfaces.VerificadorEmpleado;
+import interfaces.VerificadorEstudiante;
 import models.usuarios.Empleado;
 import models.usuarios.Estudiante;
 import models.usuarios.Persona;
@@ -22,8 +22,6 @@ public class Biblioteca implements VerificadorEstudiante, VerificadorEmpleado {
     public boolean verificarRequisitos(Estudiante e) {
         return tieneLibrosPrestados(e);
     }
-
-    
 
     @Override
 	public boolean verificarRequisitos(Empleado e) {

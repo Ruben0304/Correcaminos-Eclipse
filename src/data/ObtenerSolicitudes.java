@@ -19,13 +19,15 @@ import models.solicitudes.SolicitudLicencia;
 import models.usuarios.Docente;
 import models.usuarios.Empleado;
 import models.usuarios.Estudiante;
+import models.usuarios.NoDocente;
 
 public class ObtenerSolicitudes {
-    public static HashMap<Docente, Set<SolicitudLicencia>> cargarDesdeArchivo() {
+    public static HashMap<Empleado, Set<Solicitud>> cargarDesdeArchivo() {
 
         Gson gson = new Gson();
         HashMap<Empleado, Set<Solicitud>> solicitudes = new HashMap<>();
-        HashMap<Docente, Set<SolicitudLicencia>> licencias = new HashMap<>();
+        HashMap<Empleado, Set<Solicitud>> licencias = new HashMap<>();
+        HashMap<Empleado, Set<Solicitud>> licenci = new HashMap<>();
 
         try (BufferedReader reader = new BufferedReader(new FileReader("./jsons/solicitudes.json"))) {
             Type listType = new TypeToken<HashMap<Docente, Set<SolicitudLicencia>>>() {
@@ -35,8 +37,18 @@ public class ObtenerSolicitudes {
             e.printStackTrace();
         }
 
+        try (BufferedReader reader = new BufferedReader(new FileReader("./jsons/solicitudes.json"))) {
+            Type listType = new TypeToken<HashMap<NoDocente, Set<SolicitudLicencia>>>() {
+            }.getType();
+            licenci = gson.fromJson(reader, listType);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         
-        return licencias;
+
+        solicitudes.putAll(licencias);
+        solicitudes.putAll(licenci);
+        return solicitudes;
     }
 
     // private static void escribir() {

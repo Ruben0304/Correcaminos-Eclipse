@@ -7,6 +7,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Set;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -14,26 +16,27 @@ import com.google.gson.reflect.TypeToken;
 import models.solicitudes.Solicitud;
 
 import models.solicitudes.SolicitudLicencia;
-
+import models.usuarios.Docente;
+import models.usuarios.Empleado;
 import models.usuarios.Estudiante;
 
 public class ObtenerSolicitudes {
-    public static ArrayList<Solicitud> cargarDesdeArchivo() {
+    public static HashMap<Docente, Set<SolicitudLicencia>> cargarDesdeArchivo() {
 
         Gson gson = new Gson();
-        ArrayList<Solicitud> solicitudes = new ArrayList<>();
-        ArrayList<SolicitudLicencia> licencias = new ArrayList<>();
+        HashMap<Empleado, Set<Solicitud>> solicitudes = new HashMap<>();
+        HashMap<Docente, Set<SolicitudLicencia>> licencias = new HashMap<>();
 
         try (BufferedReader reader = new BufferedReader(new FileReader("./jsons/solicitudes.json"))) {
-            Type listType = new TypeToken<ArrayList<SolicitudLicencia>>() {
+            Type listType = new TypeToken<HashMap<Docente, Set<SolicitudLicencia>>>() {
             }.getType();
             licencias = gson.fromJson(reader, listType);
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        solicitudes.addAll(licencias);
-        return solicitudes;
+        
+        return licencias;
     }
 
     // private static void escribir() {

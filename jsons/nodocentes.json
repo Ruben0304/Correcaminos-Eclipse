@@ -22,44 +22,6 @@
         "segundo_apellido": "Hernández",
         "numerotrabajador": "321654",
         "seccion": "Química"
-    },
-    {
-        "ci": "12345678",
-        "nombre": "Marcel",
-        "primer_apellido": "Pérez",
-        "segundo_apellido": "González",
-        "numerotrabajador": "987654",
-        "facultad": {
-            "nombre": "Facultad de Ciencias",
-            "ubicacion": "Edificio A"
-        },
-        "departamento": "Matemáticas",
-        "categoriaDocente": "Profesor Titular"
-    },
-    {
-        "ci": "87654321",
-        "nombre": "Ruben",
-        "primer_apellido": "Rodríguez",
-        "segundo_apellido": "López",
-        "numerotrabajador": "456789",
-        "facultad": {
-            "nombre": "Facultad de Física",
-            "ubicacion": "Edificio B"
-        },
-        "departamento": "Física Teórica",
-        "categoriaDocente": "Profesor Asociado"
-    },
-    {
-        "ci": "11223344",
-        "nombre": "Eduardo",
-        "primer_apellido": "Martínez",
-        "segundo_apellido": "Hernández",
-        "numerotrabajador": "321654",
-        "facultad": {
-            "nombre": "Facultad de Química",
-            "ubicacion": "Edificio C"
-        },
-        "departamento": "Química Orgánica",
-        "categoriaDocente": "Profesor Auxiliar"
     }
+   
 ]

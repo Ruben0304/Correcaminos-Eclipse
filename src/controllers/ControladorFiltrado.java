@@ -20,14 +20,15 @@ import views.layouts.Pricipal;
 
 public class ControladorFiltrado {
 
-    // public static ArrayList<Solicitud> obtenerSolicitudesBajaEstudiantesFiltradas(
-    //         HashMap<String, String> map) {
-    //     return filtradoDinamicoSolicitudEstudiantes(map);
+    // public static ArrayList<Solicitud>
+    // obtenerSolicitudesBajaEstudiantesFiltradas(
+    // HashMap<String, String> map) {
+    // return filtradoDinamicoSolicitudEstudiantes(map);
     // }
 
-    public static ArrayList<Solicitud> filtradoDinamicoSolicitudEstudiantes(Map<String, String> filtros, HashMap<Estudiante, Set<Solicitud>> solicitudesEstudianes) {
-        //HashMap<Estudiante, Set<Solicitud>> solicitudesEstudianes = Secretaria.gestorEstudiantes()
-                //.getGestorSolicitudes().getSolicitudes();
+    public static ArrayList<Solicitud> filtradoDinamicoSolicitudEstudiantes(Map<String, String> filtros) {
+        HashMap<Estudiante, Set<Solicitud>> solicitudesEstudianes = Secretaria.gestorEstudiantes()
+                .getGestorSolicitudes().getSolicitudes();
         ArrayList<Solicitud> solicitudesFiltradas = new ArrayList<>();
 
         for (Map.Entry<Estudiante, Set<Solicitud>> solicitudes : solicitudesEstudianes.entrySet()) {
@@ -54,16 +55,23 @@ public class ControladorFiltrado {
                             if (s instanceof SolicitudLicencia) {
                                 if (!((SolicitudLicencia) s).getMotivo().toString().equals(valor)) {
                                     cumpleFiltros = false;
-                                } else if (s instanceof SolicitudBaja) {
-                                    if (!((SolicitudBaja) s).getMotivo().toString().equals(valor)) {
-                                        cumpleFiltros = false;
-                                    }
+                                }
+                            } else {
+                                if (!((SolicitudBaja) s).getMotivo().toString().equals(valor)) {
+                                    cumpleFiltros = false;
                                 }
                             }
                             break;
                         case "buscar":
                             if (!(buscarPorNombreOCi(estudiante, valor))) {
                                 cumpleFiltros = false;
+                            }
+                            break;
+                        case "tipoSolicitud":
+                            if (!("licencia".equals(valor))) {
+                                if (s instanceof SolicitudBaja) {
+                                    cumpleFiltros = false;
+                                }
                             }
                             break;
                     }

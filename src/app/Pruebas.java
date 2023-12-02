@@ -32,6 +32,7 @@ import com.google.gson.reflect.TypeToken;
 import controllers.ControladorLogin;
 import controllers.ControladorPrincipal;
 import data.ObtenerChats;
+import data.ObtenerEmpleados;
 import models.chats.AdministradorChats;
 import models.chats.Mensaje;
 import models.gestion.Correcaminos;
@@ -54,7 +55,7 @@ public class Pruebas {
 		SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
 				
-				
+				ObtenerEmpleados.cargarDesdeArchivo();
 
 			}
 		});

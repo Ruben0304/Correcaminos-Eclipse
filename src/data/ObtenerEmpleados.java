@@ -3,7 +3,7 @@ package data;
 import java.util.ArrayList;
 
 import models.usuarios.Empleado;
-
+import models.usuarios.NoDocente;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -14,17 +14,17 @@ import java.io.IOException;
 
 public class ObtenerEmpleados {
 	
-	public static ArrayList<Empleado> cargarDesdeArchivo(){
+	public static ArrayList<NoDocente> cargarDesdeArchivo(){
 		 
 	    Gson gson = new Gson();
         
 	    ArrayList<Empleado> empleados = new ArrayList<>();
 
-        try (BufferedReader reader = new BufferedReader(new FileReader("./empleados.json"))) {
-            Type listType = new TypeToken<ArrayList<Empleado>>() {
+        try (BufferedReader reader = new BufferedReader(new FileReader("./jsons/nodocentes.json"))) {
+            Type listType = new TypeToken<ArrayList<NoDocente>>() {
             }.getType();
 
-            empleados = gson.fromJson(reader, listType);
+            empleados.addAll(gson.fromJson(reader, listType));
 
         } catch (IOException e) {
             e.printStackTrace();

@@ -57,7 +57,7 @@ public class Pruebas {
 			public void run() {
 
 				System.out.println(ObtenerEmpleados.cargarDesdeArchivo().get(4).getNombre());
-				System.out.println(ObtenerSolicitudes.cargarDesdeArchivo().get(1).getId());
+				ObtenerSolicitudes.cargarDesdeArchivo();
 			}
 		});
 	}

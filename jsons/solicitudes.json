@@ -1,6 +1,6 @@
 [
-  {
-      "key": {
+  [
+      {
           "ci": "12345678",
           "nombre": "Marcel",
           "primer_apellido": "Pérez",
@@ -10,7 +10,7 @@
           "departamento": "Matemáticas",
           "categoriaDocente": "Profesor Titular"
       },
-      "value": {
+      {
           "id": 1,
           "motivo": "Vacaciones",
           "fechaSalida": {
@@ -30,37 +30,5 @@
               "second": 54
           }
       }
-  },
-  {
-      "key": {
-          "ci": "87654321",
-          "nombre": "Ruben",
-          "primer_apellido": "Rodríguez",
-          "segundo_apellido": "López",
-          "numerotrabajador": "456789",
-          "facultad": "Ing_Industrial",
-          "departamento": "Física Teórica",
-          "categoriaDocente": "Profesor Asociado"
-      },
-      "value": {
-          "id": 2,
-          "motivo": "Enfermedad",
-          "fechaSalida": {
-              "year": 2023,
-              "month": 10,
-              "dayOfMonth": 28,
-              "hourOfDay": 20,
-              "minute": 23,
-              "second": 54
-          },
-          "fechaRegreso": {
-              "year": 2023,
-              "month": 10,
-              "dayOfMonth": 28,
-              "hourOfDay": 20,
-              "minute": 23,
-              "second": 54
-          }
-      }
-  }
+  ]
 ]

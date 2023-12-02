@@ -12,11 +12,11 @@ public class Estudiante extends Persona {
 	protected int grupo;
 	protected Facultad facultad;
 
-	public Estudiante(String nombreUsuario, String contrasena, String ci, String nombre, String primer_apellido,
+	public Estudiante(String ci, String nombre, String primer_apellido,
 			String segundo_apellido,
 			Facultad facultad, int curso, TipoCurso tipoCurso, String carrera,
 			int grupo) {
-		super(nombreUsuario, contrasena, ci, nombre, primer_apellido, segundo_apellido);
+		super(ci, nombre, primer_apellido, segundo_apellido);
 		this.curso = curso;
 		this.tipoCurso = tipoCurso;
 		this.carrera = carrera;

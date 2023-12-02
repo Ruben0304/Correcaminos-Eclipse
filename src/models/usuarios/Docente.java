@@ -8,9 +8,9 @@ public class Docente extends Empleado{
     private CategoriaDocente categoriaDocente;
     private Facultad facultad;
 
-    public Docente(String nombreUsuario, String contrasena, String ci, String nombre, String primer_apellido, String segundo_apellido,
+    public Docente( String ci, String nombre, String primer_apellido, String segundo_apellido,
                     String numerotrabajador, Facultad facultad,  String departamento,CategoriaDocente categoriaDocente) {
-        super(nombreUsuario, contrasena, ci, nombre, primer_apellido,segundo_apellido, numerotrabajador);
+        super(ci, nombre, primer_apellido,segundo_apellido, numerotrabajador);
         this.departamento = departamento;
         this.categoriaDocente = categoriaDocente;
         this.facultad = facultad;

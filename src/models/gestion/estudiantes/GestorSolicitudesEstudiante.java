@@ -27,6 +27,10 @@ public class GestorSolicitudesEstudiante{
 
     }
 
+    
+public HashMap<Estudiante, Set<Solicitud>> getSolicitudes() {
+    return solicitudes;
+}
     public boolean verificarEstudianteSolicitaAlgo(Estudiante e) {
         boolean solicita = false;
         if (solicitudes.containsKey(e)) {

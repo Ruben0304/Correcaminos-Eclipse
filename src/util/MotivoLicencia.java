@@ -1,5 +1,8 @@
 package util;
 
 public enum MotivoLicencia {
-    Vacaciones,Enfermedad
+    Vacaciones, 
+    Enfermedad,
+    Todos, 
+    Accidente
 }

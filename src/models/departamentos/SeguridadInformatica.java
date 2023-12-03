@@ -1,72 +1,65 @@
  package models.departamentos;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Set;
 
 import interfaces.Autenticable;
-import models.interfaces.VerificadorEmpleado;
-import models.interfaces.VerificadorEstudiante;
+import interfaces.VerificadorEmpleado;
+import interfaces.VerificadorEstudiante;
 import models.usuarios.Credenciales;
 import models.usuarios.Empleado;
 import models.usuarios.Estudiante;
 import models.usuarios.Persona;
-import models.usuarios.Usuario;
+
 
 public class SeguridadInformatica implements VerificadorEstudiante, VerificadorEmpleado {
 
-	private HashMap<Credenciales,Persona> usuariosCujae;
-	
+    private HashMap<Credenciales,Persona> usuariosCujae;
 
-	public boolean tieneCuentaUsuarioAbierta(Persona p) {
-		return usuariosCujae.containsKey(p);
-	}
+    public boolean tieneCuentaUsuarioAbierta(Persona c) {
+        return usuariosCujae.containsValue(c);
+    }
 
-	public HashMap<Credenciales, Persona> getUsuariosCujae() {
-		return usuariosCujae;
-	}
-	
-	@Override
-	public boolean verificarRequisitos(Estudiante e) {
-		return tieneCuentaUsuarioAbierta(e);
-	}
+    public HashMap<Credenciales, Persona> getUsuariosCujae() {
+        return usuariosCujae;
+    }
 
-	@Override
-	public boolean verificarRequisitos(Empleado e) {
-		return tieneCuentaUsuarioAbierta(e);
-	}
-	
-	public void cerrarCuenta(Persona p) {
-		usuariosCujae.remove(p);
-	}
-	
-	 @Override
-	    public ArrayList<Estudiante> getEstudiantesPendientes() {
-	    	
-	    	ArrayList<Estudiante> estudiantes = new ArrayList<>();
-	        
-	    	Set<Persona> estudiantesPendientes = usuariosCujae.keySet();
-	        
-	        for (Persona p: estudiantesPendientes) {
-	        	if (p instanceof Estudiante) estudiantes.add(((Estudiante)p));
-	        }
-	   	
-	        return estudiantes;
-	    }
-	    
-	    @Override
-	    public ArrayList<Empleado> getEmpleadosPendientes() {
-	    	
-	    	ArrayList<Empleado> nombresEmpleados = new ArrayList<>();
-	        
-	    	Set<Persona> empleadosPendientes = usuariosCujae.keySet();
-	        
-	        for (Persona p: empleadosPendientes) {
-	        	if(p instanceof Empleado) nombresEmpleados.add(((Empleado)p));
-	        }
-	   	
-	        return nombresEmpleados;
-	    
-	}
+    @Override
+    public boolean verificarRequisitos(Estudiante e) {
+        return tieneCuentaUsuarioAbierta(e);
+    }
 
+    @Override
+    public boolean verificarRequisitos(Empleado e) {
+        return tieneCuentaUsuarioAbierta(e);
+    }
+
+    public void cerrarCuenta(Credenciales c) {
+        usuariosCujae.remove(c);
+    }
+
+    @Override
+    public ArrayList<Estudiante> getEstudiantesPendientes() {
+        ArrayList<Estudiante> estudiantes = new ArrayList<>();
+        Collection<Persona> personas = usuariosCujae.values();
+        for (Persona p: personas) {
+            if (p instanceof Estudiante) estudiantes.add((Estudiante)p);
+        }
+        return estudiantes;
+    }
+
+    @Override
+    public ArrayList<Empleado> getEmpleadosPendientes() {
+        ArrayList<Empleado> empleados = new ArrayList<>();
+        Collection<Persona> personas = usuariosCujae.values();
+        for (Persona p: personas) {
+            if(p instanceof Empleado) empleados.add((Empleado)p);
+        }
+        return empleados;
+    }
 }
+
+
+

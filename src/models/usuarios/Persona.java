@@ -1,6 +1,8 @@
 package models.usuarios;
 
-public abstract class Persona {
+import interfaces.Autenticable;
+
+public abstract class Persona implements Autenticable{
     protected String ci;
     protected String nombre;
     protected String primer_apellido;

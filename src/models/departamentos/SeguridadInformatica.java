@@ -15,14 +15,14 @@ import models.usuarios.Usuario;
 
 public class SeguridadInformatica implements VerificadorEstudiante, VerificadorEmpleado {
 
-	private HashMap<Credenciales,Autenticable> usuariosCujae;
+	private HashMap<Credenciales,Persona> usuariosCujae;
 	
 
 	public boolean tieneCuentaUsuarioAbierta(Persona p) {
 		return usuariosCujae.containsKey(p);
 	}
 
-	public HashMap<Credenciales, Autenticable> getUsuariosCujae() {
+	public HashMap<Credenciales, Persona> getUsuariosCujae() {
 		return usuariosCujae;
 	}
 	

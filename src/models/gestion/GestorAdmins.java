@@ -1,19 +1,21 @@
 package models.gestion;
 
 import java.util.ArrayList;
-
+import java.util.HashMap;
 import data.ObtenerAdmins;
 import interfaces.Actualizador;
 import models.usuarios.Admin;
+import models.usuarios.Credenciales;
 
 public class GestorAdmins implements Actualizador {
     private static GestorAdmins gestorAdmins;
-    private ArrayList<Admin> admins;
+    private HashMap<Credenciales,Admin> admins;
 
-    public GestorAdmins() {
-        admins = new ArrayList<>();
-        admins = ObtenerAdmins.cargarDesdeArchivo();
-    }
+    // public GestorAdmins() {
+    //     admins = new ArrayList<>();
+    //     admins = ObtenerAdmins.cargarDesdeArchivo();
+        
+    // }
 
     public static GestorAdmins gestorAdmins() {
         if (gestorAdmins == null) {
@@ -27,7 +29,7 @@ public class GestorAdmins implements Actualizador {
 
     }
 
-    public ArrayList<Admin> getAdmins() {
+    public HashMap<Credenciales,Admin> getAdmins() {
 
         return admins;
     }

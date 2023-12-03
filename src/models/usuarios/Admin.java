@@ -1,8 +1,9 @@
 package models.usuarios;
 
+import interfaces.Autenticable;
 import util.TipoDepartamento;
 
-public class Admin {
+public class Admin implements Autenticable{
     private TipoDepartamento tipoDepartamento;
 
     public Admin(TipoDepartamento tipoDepartamento) {

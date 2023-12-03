@@ -74,6 +74,11 @@ public class ControladorFiltrado {
                                     cumpleFiltros = false;
                                 }
                             }
+                           else if (!("baja".equals(valor))) {
+                                 if (s instanceof SolicitudLicencia) {
+                                    cumpleFiltros = false;
+                                }
+                            }
                             break;
                     }
 

@@ -1,5 +1,5 @@
 package interfaces;
 
-public interface Actualizador {
+public interface actualizador {
     void actualizarDatos();
 }

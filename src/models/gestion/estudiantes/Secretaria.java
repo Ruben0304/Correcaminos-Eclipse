@@ -6,7 +6,6 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 import data.ObtenerEstudiantes;
-import interfaces.Actualizador;
 import models.gestion.Correcaminos;
 import models.usuarios.Estudiante;
 import util.Facultad;
@@ -14,15 +13,12 @@ import util.Facultad;
 public class Secretaria {
     private static Secretaria gestorEstudiantes;
     private GestorSolicitudesEstudiante gestorSolicitudes;
-    private GestorResponsabilidadesEstudiantes gestorResponsabilidadesEstudiantes;
     private ArrayList<Estudiante> estudiantes;
 
     public Secretaria() {
         estudiantes = new ArrayList<>();
         registrarEstudiantes();
         gestorSolicitudes = new GestorSolicitudesEstudiante(estudiantes);
-        gestorResponsabilidadesEstudiantes = new GestorResponsabilidadesEstudiantes();
-
     }
 
     public static Secretaria gestorEstudiantes() {
@@ -58,10 +54,6 @@ public class Secretaria {
 
     public GestorSolicitudesEstudiante getGestorSolicitudes() {
         return gestorSolicitudes;
-    }
-
-    public GestorResponsabilidadesEstudiantes getGestorResponsabilidadesEstudiantes() {
-        return gestorResponsabilidadesEstudiantes;
     }
 
     public ArrayList<Estudiante> filtrar(String valor) {

@@ -23,8 +23,6 @@ public class Biblioteca implements VerificadorEstudiante, VerificadorEmpleado {
         return tieneLibrosPrestados(e);
     }
 
-    
-
     @Override
 	public boolean verificarRequisitos(Empleado e) {
 		return tieneLibrosPrestados(e);

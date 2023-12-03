@@ -3,7 +3,6 @@ package models.gestion;
 import java.util.ArrayList;
 import java.util.HashMap;
 import data.ObtenerAdmins;
-import interfaces.Actualizador;
 import models.usuarios.Admin;
 import models.usuarios.Credenciales;
 

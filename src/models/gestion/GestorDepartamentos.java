@@ -5,7 +5,7 @@ import models.departamentos.Biblioteca;
 import models.departamentos.DireccionDeBecas;
 import models.departamentos.Economia;
 import models.departamentos.RecursosHumanos;
-import models.departamentos.Secretaria;
+import models.gestion.estudiantes.Secretaria;
 import models.departamentos.SeguridadInformatica;
 
 public class GestorDepartamentos {

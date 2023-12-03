@@ -3,14 +3,13 @@ package models.gestion;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-
-import interfaces.Actualizador;
+import interfaces.actualizador;
 import models.gestion.empleados.GestorEmpleados;
 import models.gestion.estudiantes.Secretaria;
 import models.usuarios.Persona;
 
 
-public class Correcaminos implements Actualizador{
+public class Correcaminos implements actualizador{
     private static Correcaminos gestorPrincipal;
     private GestorAdmins gestorAdmins;
     private Secretaria gestorEstudiantes;

@@ -12,7 +12,7 @@ import util.TiposResponsabilidad;
 
 public class AlmacenDeLibros implements VerificadorEstudiante {
 
-	private HashMap<Estudiante, TiposResponsabilidad> estudiantesConLibrosDocentes;
+	private HashMap<Estudiante, Set<String>> estudiantesConLibrosDocentes;
 	
 	public boolean tieneLibrosDocentes(Estudiante e) {
 		return estudiantesConLibrosDocentes.containsKey(e);
@@ -22,8 +22,8 @@ public class AlmacenDeLibros implements VerificadorEstudiante {
 		return tieneLibrosDocentes(e);
 	}
 	
-	public void recogerLibrosDocentes(Estudiante e) {
-		estudiantesConLibrosDocentes.remove(e);
+	public void recogerLibrosDocentes(Estudiante e, Set<String> librosDocentes) {
+		estudiantesConLibrosDocentes.get(e).removeAll(librosDocentes);
 	}
 	
 	@Override
@@ -39,5 +39,9 @@ public class AlmacenDeLibros implements VerificadorEstudiante {
    	
         return estudiantes;
     }
+	
+	public Set<String> obtenerEstudianteLibrosDocentesPendientes(Estudiante e) {
+		return estudiantesConLibrosDocentes.get(e);
+	}
 
 }

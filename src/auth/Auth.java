@@ -1,16 +1,22 @@
 package auth;
 
-import models.usuarios.Usuario;
+import java.util.HashMap;
+
+import interfaces.Autenticable;
+import models.usuarios.Admin;
+
+import models.usuarios.Persona;
 
 public class Auth {
     private static Auth instancia;
-    private Usuario usuario;
+    private String nombreUsuario;
+    private Autenticable usuario;
 
     private Auth() {
 
     }
 
-    public static Usuario usuarioAutenticado() {
+    public static Autenticable usuarioAutenticado() {
         if (instancia == null) {
             instancia = new Auth();
         }
@@ -24,7 +30,7 @@ public class Auth {
         return instancia;
     }
 
-    public static void iniciarSesion(Usuario usuario) {
+    public static void iniciarSesion(Autenticable usuario) {
         if (instancia == null) {
             instancia = new Auth();
         }
@@ -45,11 +51,11 @@ public class Auth {
         instancia.logout();
     }
 
-    private Usuario getUsuario() {
+    private Autenticable getUsuario() {
         return usuario;
     }
 
-    private void login(Usuario usuario) {
+    private void login(Autenticable usuario) {
         this.usuario = usuario;
     }
 

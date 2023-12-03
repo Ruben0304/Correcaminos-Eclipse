@@ -10,14 +10,12 @@ import java.util.ArrayList;
 
 import com.google.gson.Gson;
 
+import interfaces.Autenticable;
 import models.gestion.Correcaminos;
-
-import models.usuarios.Usuario;
 
 public class Session {
     private String nombreUsuario;
     private String password;
-
 
     public Session(String nombreUsuario, String password) {
         this.nombreUsuario = nombreUsuario;
@@ -42,27 +40,19 @@ public class Session {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        } 
-        else{
-           session = new Session("null", "null");
+        } else {
+            session = new Session("null", "null");
         }
         return session;
     }
 
-    public static Usuario ValidarSession() {
-        boolean encontrado = false;
-        ArrayList<Usuario> usuarios = Correcaminos.getGestorPrincipal().getUsuarios();
+    public static Autenticable ValidarSession() {
+
         Session session = obtenerSession();
-        Usuario u = null;
 
-        for (int i = 0; i < usuarios.size() && !encontrado; i++) {
-            encontrado = session.getNombreUsuario().equals(usuarios.get(i).getNombreUsuario());
+        Autenticable u = null;
 
-            if (encontrado && session.getPassword().equals(usuarios.get(i).getContrasena())) {
-                u = usuarios.get(i);
-            }
-
-        }
+        VerificacionCredenciales.autenticar(session.getNombreUsuario(), session.getPassword());
 
         return u;
     }

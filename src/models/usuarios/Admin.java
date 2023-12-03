@@ -2,11 +2,10 @@ package models.usuarios;
 
 import util.TipoDepartamento;
 
-public class Admin extends Usuario{
+public class Admin {
     private TipoDepartamento tipoDepartamento;
 
-    public Admin(String nombreUsuario, String contrasena, TipoDepartamento tipoDepartamento) {
-        super(nombreUsuario, contrasena);
+    public Admin(TipoDepartamento tipoDepartamento) {
         this.tipoDepartamento = tipoDepartamento;
     }
 

@@ -4,8 +4,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Set;
 
+import interfaces.Autenticable;
 import models.interfaces.VerificadorEmpleado;
 import models.interfaces.VerificadorEstudiante;
+import models.usuarios.Credenciales;
 import models.usuarios.Empleado;
 import models.usuarios.Estudiante;
 import models.usuarios.Persona;
@@ -13,10 +15,15 @@ import models.usuarios.Usuario;
 
 public class SeguridadInformatica implements VerificadorEstudiante, VerificadorEmpleado {
 
-	private HashMap<Persona,Usuario> usuariosCujae;
+	private HashMap<Credenciales,Autenticable> usuariosCujae;
 	
+
 	public boolean tieneCuentaUsuarioAbierta(Persona p) {
 		return usuariosCujae.containsKey(p);
+	}
+
+	public HashMap<Credenciales, Autenticable> getUsuariosCujae() {
+		return usuariosCujae;
 	}
 	
 	@Override

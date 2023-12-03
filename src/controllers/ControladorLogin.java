@@ -1,11 +1,14 @@
 package controllers;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 import auth.Auth;
 import auth.Session;
-import auth.VerificarCredenciales;
+import auth.VerificacionCredenciales;
+import interfaces.Autenticable;
 import models.gestion.Correcaminos;
-import models.usuarios.Usuario;
+
 import views.Inicio;
 import views.auth.Entrar;
 import views.layouts.Pricipal;
@@ -31,16 +34,17 @@ public class ControladorLogin {
 
     public static boolean intentarAutenticar(String nombreUsuario, String password, boolean mantenerConectado) {
         boolean autenticado = false;
-        VerificarCredenciales verificar = new VerificarCredenciales(nombreUsuario, password);
-        if (verificar.credencialesCorrectas()) {
-            Auth.iniciarSesion(verificar.usuarioAlQuePertenecen());
+        Autenticable auth = VerificacionCredenciales.autenticar(nombreUsuario, hashContrasena(password));
+        if (auth != null) {
+            Auth.iniciarSesion(auth);
             autenticado = true;
             if (mantenerConectado) {
-                new Session(Auth.usuarioAutenticado().getNombreUsuario(),
-                        Auth.usuarioAutenticado().getContrasena());
+                new Session(nombreUsuario,
+                        hashContrasena(password));
 
             }
         }
+
         return autenticado;
     }
 
@@ -55,10 +59,32 @@ public class ControladorLogin {
     // }
 
     public static void comprobarSession() {
-        Usuario u = Session.ValidarSession();
+        Autenticable u = Session.ValidarSession();
         if (u != null) {
             Auth.iniciarSesion(u);
         }
     }
 
+    private static String hashContrasena(String contrasena) {
+
+        try {
+
+            MessageDigest md = MessageDigest.getInstance("SHA-256");
+
+            byte[] passwordBytes = contrasena.getBytes();
+
+            byte[] hashBytes = md.digest(passwordBytes);
+
+            StringBuilder hexString = new StringBuilder();
+            for (byte hashByte : hashBytes) {
+                hexString.append(String.format("%02x", hashByte));
+            }
+
+            return hexString.toString();
+
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 }

@@ -8,7 +8,7 @@ import interfaces.Actualizador;
 import models.gestion.empleados.GestorEmpleados;
 import models.gestion.estudiantes.Secretaria;
 import models.usuarios.Persona;
-import models.usuarios.Usuario;
+
 
 public class Correcaminos implements Actualizador{
     private static Correcaminos gestorPrincipal;
@@ -51,12 +51,7 @@ public class Correcaminos implements Actualizador{
         return personas;
     }
 
-    public ArrayList<Usuario> getUsuarios() {
-        ArrayList<Usuario> usuarios = new ArrayList<>();
-        usuarios.addAll(getPersonas());
-        usuarios.addAll(gestorAdmins.getAdmins());
-        return usuarios;
-    }
+ 
 
     @Override
     public void actualizarDatos() {

@@ -1,4 +1,4 @@
-package vistas;
+package views.roy_yany;
 
 import java.awt.Color;
 

@@ -1,4 +1,4 @@
-package vistas;
+package views.roy_yany;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -14,8 +14,8 @@ import javax.swing.JTable;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
 
-public class CasosPendientesContabilidad extends JPanel {
-
+public class CasosPendientesSegInf extends JPanel {
+	
 	private JPanel panel;
 	private JLabel lblCasosPendientesPor;
 	private JLabel lblBiblioteca;
@@ -30,10 +30,11 @@ public class CasosPendientesContabilidad extends JPanel {
 	private JLabel lblFiltrarPor;
 	private JLabel lblFacultad;
 	private JComboBox comboBox;
+
 	/**
 	 * Create the panel.
 	 */
-	public CasosPendientesContabilidad() {
+	public CasosPendientesSegInf() {
 		setBounds(178,0,944,700);
 		setBackground(new Color(31,33,36));
 		setLayout(null);
@@ -47,9 +48,8 @@ public class CasosPendientesContabilidad extends JPanel {
 		add(getLblFiltrarPor());
 		add(getLblFacultad());
 		add(getComboBox());
-
 	}
-
+	
 	private JPanel getPanel() {
 		if (panel == null) {
 			panel = new JPanel();
@@ -77,16 +77,16 @@ public class CasosPendientesContabilidad extends JPanel {
 	}
 	private JLabel getLblBiblioteca() {
 		if (lblBiblioteca == null) {
-			lblBiblioteca = new JLabel("Contabilidad");
+			lblBiblioteca = new JLabel("Seguridad Inform\u00E1tica");
 			lblBiblioteca.setForeground(Color.WHITE);
 			lblBiblioteca.setFont(new Font("Arial Narrow", Font.BOLD, 16));
-			lblBiblioteca.setBounds(825, 11, 109, 41);
+			lblBiblioteca.setBounds(769, 11, 165, 41);
 		}
 		return lblBiblioteca;
 	}
 	private JLabel getLblTipoDePersona() {
 		if (lblTipoDePersona == null) {
-			lblTipoDePersona = new JLabel("Tipo de empleado");
+			lblTipoDePersona = new JLabel("Tipo de persona");
 			lblTipoDePersona.setForeground(Color.WHITE);
 			lblTipoDePersona.setFont(new Font("Arial Narrow", Font.BOLD, 18));
 			lblTipoDePersona.setBounds(779, 169, 143, 31);
@@ -95,7 +95,7 @@ public class CasosPendientesContabilidad extends JPanel {
 	}
 	private JRadioButton getRdbtnEstudiante() {
 		if (rdbtnEstudiante == null) {
-			rdbtnEstudiante = new JRadioButton("Docente");
+			rdbtnEstudiante = new JRadioButton("Estudiante");
 			rdbtnEstudiante.setFont(new Font("Arial Narrow", Font.BOLD, 18));
 			rdbtnEstudiante.setForeground(Color.WHITE);
 			rdbtnEstudiante.setBounds(796, 207, 109, 23);
@@ -105,7 +105,7 @@ public class CasosPendientesContabilidad extends JPanel {
 	}
 	private JRadioButton getRdbtnEmpleado() {
 		if (rdbtnEmpleado == null) {
-			rdbtnEmpleado = new JRadioButton("No docente\r\n");
+			rdbtnEmpleado = new JRadioButton("Empleado");
 			rdbtnEmpleado.setFont(new Font("Arial Narrow", Font.BOLD, 18));
 			rdbtnEmpleado.setForeground(Color.WHITE);
 			rdbtnEmpleado.setBounds(796, 243, 109, 23);
@@ -202,10 +202,10 @@ public class CasosPendientesContabilidad extends JPanel {
 	}
 	private JLabel getLblFacultad() {
 		if (lblFacultad == null) {
-			lblFacultad = new JLabel("Facultad (Docente)\r\n");
+			lblFacultad = new JLabel("Facultad (Estudiante)\r\n");
 			lblFacultad.setForeground(Color.WHITE);
 			lblFacultad.setFont(new Font("Arial Narrow", Font.BOLD, 18));
-			lblFacultad.setBounds(779, 288, 155, 31);
+			lblFacultad.setBounds(769, 288, 165, 31);
 		}
 		return lblFacultad;
 	}
@@ -217,4 +217,5 @@ public class CasosPendientesContabilidad extends JPanel {
 		}
 		return comboBox;
 	}
+
 }

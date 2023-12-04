@@ -18,7 +18,7 @@ public class GestorDepartamentos {
     private SeguridadInformatica seguridadInformatica;
     private DireccionDeBecas direccionDeBecas;
 
-    public GestorDepartamentos() {
+    private GestorDepartamentos() {
         secretaria = new Secretaria();
         recursosHumanos = new RecursosHumanos();
         biblioteca = new Biblioteca();

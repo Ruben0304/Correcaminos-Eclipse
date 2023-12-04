@@ -3,7 +3,7 @@ package models.usuarios;
 import java.util.Objects;
 
 public class Credenciales {
-private String usuario;
+	private String usuario;
     private String contrasena;
 
    

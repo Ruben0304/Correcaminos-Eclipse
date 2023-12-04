@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Set;
 
+import data.ObtenerEmpleadosConSalarioIndebido;
+import data.ObtenerEstudiantesConLibrosDocentesPendientes;
 import interfaces.VerificadorEmpleado;
 import models.usuarios.Docente;
 import models.usuarios.Empleado;
@@ -11,10 +13,13 @@ import models.usuarios.NoDocente;
 import util.TiposResponsabilidad;
 
 
-
 public class RecursosHumanos implements VerificadorEmpleado {
 	
 	private HashMap<Empleado, TiposResponsabilidad> empleadosConSalarioIndebido;
+	
+	public void cargarInformacionEstudiantesConLibrosDocentes() {
+		empleadosConSalarioIndebido = ObtenerEmpleadosConSalarioIndebido.cargarDesdeArchivo();
+	}
 	
 	public boolean tieneSalarioIndebido(Empleado e) {
 		return empleadosConSalarioIndebido.containsKey(e);

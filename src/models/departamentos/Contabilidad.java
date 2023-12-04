@@ -4,12 +4,18 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Set;
 
+import data.ObtenerEmpleadosConDeudas;
+import data.ObtenerEstudiantesConEstipendio;
 import interfaces.VerificadorEmpleado;
 import models.usuarios.Empleado;
 
 public class Contabilidad implements VerificadorEmpleado {
 	
 	private HashMap<Empleado, Double> empleadosDeudas;
+	
+	public void cargarInformacionEstudiantesConEstipendio() {
+		empleadosDeudas = ObtenerEmpleadosConDeudas.cargarDesdeArchivo();
+	}
 	
 	@Override
 	public boolean verificarRequisitos(Empleado e) {

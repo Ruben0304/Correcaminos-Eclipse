@@ -4,16 +4,32 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Set;
 
+import data.ObtenerEstudiantesConLibrosDocentesPendientes;
+import data.ObtenerPersonasConLibrosBibliotecaPendientes;
 import interfaces.VerificadorEstudiante;
-import models.responsabilidades.ResponsabilidadesEstudiantes;
-import models.usuarios.Empleado;
 import models.usuarios.Estudiante;
-import util.TiposResponsabilidad;
 
 public class AlmacenDeLibros implements VerificadorEstudiante {
 
+	
+	private AlmacenDeLibros almacen;
 	private HashMap<Estudiante, Set<String>> estudiantesConLibrosDocentes;
 	
+	private AlmacenDeLibros() {
+		estudiantesConLibrosDocentes = new HashMap<Estudiante, Set<String>>();
+		cargarInformacionEstudiantesConLibrosDocentes();
+	}
+	
+	public AlmacenDeLibros getInstance() {
+		if (almacen == null) {
+			almacen = new AlmacenDeLibros();
+		}
+		return almacen;
+	}
+	
+	public void cargarInformacionEstudiantesConLibrosDocentes() {
+		estudiantesConLibrosDocentes = ObtenerEstudiantesConLibrosDocentesPendientes.cargarDesdeArchivo();
+	}
 	public boolean tieneLibrosDocentes(Estudiante e) {
 		return estudiantesConLibrosDocentes.containsKey(e);
 	}
@@ -43,5 +59,4 @@ public class AlmacenDeLibros implements VerificadorEstudiante {
 	public Set<String> obtenerEstudianteLibrosDocentesPendientes(Estudiante e) {
 		return estudiantesConLibrosDocentes.get(e);
 	}
-
 }

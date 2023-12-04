@@ -8,7 +8,7 @@
             "numerotrabajador": "987654",
             "facultad": "Ing_Industrial",
             "departamento": "Matemáticas",
-            "categoriaDocente": "Profesor Titular"
+            "categoriaDocente": "INGENIERO"
         },
         [
             {
@@ -42,7 +42,7 @@
             "numerotrabajador": "456789",
             "facultad": "Ing_Industrial",
             "departamento": "Física Teórica",
-            "categoriaDocente": "Profesor Asociado"
+            "categoriaDocente": "INGENIERO"
         },
         [
             {
@@ -76,7 +76,7 @@
             "numerotrabajador": "321654",
             "facultad": "Ing_Industrial",
             "departamento": "Química Orgánica",
-            "categoriaDocente": "Profesor Auxiliar"
+            "categoriaDocente": "DOCTOR"
         },
         [
             {

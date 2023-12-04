@@ -14,22 +14,38 @@ import com.google.gson.reflect.TypeToken;
 import models.solicitudes.Solicitud;
 import models.solicitudes.SolicitudBaja;
 import models.solicitudes.SolicitudLicencia;
+import models.usuarios.Docente;
 import models.usuarios.Empleado;
+import models.usuarios.NoDocente;
 
 public class ObtenerSolicitudesEmpleados {
 	
 	public static HashMap<Empleado, Set<Solicitud>> cargarDesdeArchivo() {
-		
-		Gson gson = new Gson();
-		HashMap<Empleado, Set<Solicitud>> solicitudes = new HashMap<Empleado, Set<Solicitud>>();
 
-        try (BufferedReader reader = new BufferedReader(new FileReader("./jsons/solicitudesEmpleados.json"))) {
-            Type listType = new TypeToken<HashMap<Empleado, Set<Solicitud>>>() {
+        Gson gson = new Gson();
+        HashMap<Empleado, Set<Solicitud>> solicitudes = new HashMap<>();
+        HashMap<Empleado, Set<Solicitud>> licencias = new HashMap<>();
+        HashMap<Empleado, Set<Solicitud>> licenci = new HashMap<>();
+
+        try (BufferedReader reader = new BufferedReader(new FileReader("./jsons/solicitudes/solicitudes.json"))) {
+            Type listType = new TypeToken<HashMap<Docente, Set<SolicitudLicencia>>>() {
             }.getType();
-            solicitudes = gson.fromJson(reader, listType);   
+            licencias = gson.fromJson(reader, listType);
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        try (BufferedReader reader = new BufferedReader(new FileReader("./jsons/solicitudes/solicitudes.json"))) {
+            Type listType = new TypeToken<HashMap<NoDocente, Set<SolicitudLicencia>>>() {
+            }.getType();
+            licenci = gson.fromJson(reader, listType);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        
+
+        solicitudes.putAll(licencias);
+        solicitudes.putAll(licenci);
         return solicitudes;
-	}
+    }
 }

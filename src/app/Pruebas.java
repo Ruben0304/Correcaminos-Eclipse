@@ -8,6 +8,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.HashSet;
@@ -37,7 +38,14 @@ import controllers.ControladorLogin;
 import controllers.ControladorPrincipal;
 import data.ObtenerChats;
 import data.ObtenerEmpleados;
-import data.ObtenerSolicitudes;
+import data.ObtenerEmpleadosConDeudas;
+import data.ObtenerEmpleadosConSalarioIndebido;
+import data.ObtenerEstudiantesConEstipendio;
+import data.ObtenerEstudiantesConLibrosDocentesPendientes;
+import data.ObtenerEstudiantesConPertenenciasBeca;
+import data.ObtenerPersonasConLibrosBibliotecaPendientes;
+import data.ObtenerSolicitudesEstudiantes;
+import data.ObtenerUsuariosCujae;
 import models.chats.AdministradorChats;
 import models.chats.Mensaje;
 import models.gestion.Correcaminos;
@@ -46,6 +54,7 @@ import models.solicitudes.Solicitud;
 import models.solicitudes.SolicitudBaja;
 import models.solicitudes.SolicitudLicencia;
 import models.usuarios.Admin;
+import models.usuarios.Becado;
 import models.usuarios.Docente;
 import models.usuarios.Empleado;
 import models.usuarios.Estudiante;
@@ -63,59 +72,59 @@ import views.layouts.Pricipal;
 public class Pruebas {
 	public static void main(String[] args) {
 
-		SwingUtilities.invokeLater(new Runnable() {
-			public void run() {
-		HashMap<Estudiante, Set<Solicitud>> solicitudesEstudiantes = new HashMap<>();
-
-		for (int i = 0; i < 5; i++) {
-            Estudiante estudiante = new Estudiante("CI" + i, "Nombre" + i, "Apellido1_" + i, "Apellido2_" + i, Facultad.Ing_Informatica, i, TipoCurso.DIURNO, "Carrera" + i, i);
-            Set<Solicitud> solicitudes = new HashSet<>();
-
-            for (int j = 0; j < 3; j++) {
-                if (j % 2 == 0) {
-                    SolicitudBaja solicitudBaja = new SolicitudBaja(j, MotivoBaja.Accidente);
-                    solicitudes.add(solicitudBaja);
-                } else {
-                    Calendar fechaSalida = Calendar.getInstance();
-                    Calendar fechaRegreso = Calendar.getInstance();
-                    fechaRegreso.add(Calendar.MONTH, 1);
-                    SolicitudLicencia solicitudLicencia = new SolicitudLicencia(j, MotivoLicencia.Accidente, fechaSalida, fechaRegreso);
-                    solicitudes.add(solicitudLicencia);
-                }
-            }
-
-            solicitudesEstudiantes.put(estudiante, solicitudes);
-        }
-
-		// pingaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-
-
-		HashMap<String, String> filtros = new HashMap<String, String>();
-
-		filtros.put("anio", "");
-		filtros.put("buscar", "");
-		filtros.put("estado", "");
-		filtros.put("motivo", "");
-
-		HashMap<String, String> filtros1 = new HashMap<String, String>();
-		filtros1.put("anio", "");
-		filtros1.put("buscar", "");
-		filtros1.put("estado", "");
-		filtros1.put("motivo", "");
-
-		HashMap<String, String> filtros2 = new HashMap<String, String>();
-		filtros2.put("anio", "");
-		filtros2.put("buscar", "");
-		filtros2.put("estado", "");
-		filtros2.put("motivo", "");
-
-
-
-		ArrayList<Solicitud> solicitudesFiltradas = ControladorFiltrado.filtradoDinamicoSolicitudEstudiantes(filtros2, solicitudesEstudiantes);
-
-		for(Solicitud solicitud : solicitudesFiltradas){
-			System.out.println((solicitud.getId()));
-		}
+//		SwingUtilities.invokeLater(new Runnable() {
+//			public void run() {
+//		HashMap<Estudiante, Set<Solicitud>> solicitudesEstudiantes = new HashMap<>();
+//
+//		for (int i = 0; i < 5; i++) {
+//            Estudiante estudiante = new Estudiante("CI" + i, "Nombre" + i, "Apellido1_" + i, "Apellido2_" + i, Facultad.Ing_Informatica, i, TipoCurso.DIURNO, "Carrera" + i, i);
+//            Set<Solicitud> solicitudes = new HashSet<>();
+//
+//            for (int j = 0; j < 3; j++) {
+//                if (j % 2 == 0) {
+//                    SolicitudBaja solicitudBaja = new SolicitudBaja(j, MotivoBaja.Accidente);
+//                    solicitudes.add(solicitudBaja);
+//                } else {
+//                    Calendar fechaSalida = Calendar.getInstance();
+//                    Calendar fechaRegreso = Calendar.getInstance();
+//                    fechaRegreso.add(Calendar.MONTH, 1);
+//                    SolicitudLicencia solicitudLicencia = new SolicitudLicencia(j, MotivoLicencia.Accidente, fechaSalida, fechaRegreso);
+//                    solicitudes.add(solicitudLicencia);
+//                }
+//            }
+//
+//            solicitudesEstudiantes.put(estudiante, solicitudes);
+//        }
+//
+//		// pingaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+//
+//
+//		HashMap<String, String> filtros = new HashMap<String, String>();
+//
+//		filtros.put("anio", "");
+//		filtros.put("buscar", "");
+//		filtros.put("estado", "");
+//		filtros.put("motivo", "");
+//
+//		HashMap<String, String> filtros1 = new HashMap<String, String>();
+//		filtros1.put("anio", "");
+//		filtros1.put("buscar", "");
+//		filtros1.put("estado", "");
+//		filtros1.put("motivo", "");
+//
+//		HashMap<String, String> filtros2 = new HashMap<String, String>();
+//		filtros2.put("anio", "");
+//		filtros2.put("buscar", "");
+//		filtros2.put("estado", "");
+//		filtros2.put("motivo", "");
+//
+//
+//
+//		ArrayList<Solicitud> solicitudesFiltradas = ControladorFiltrado.filtradoDinamicoSolicitudEstudiantes(filtros2, solicitudesEstudiantes);
+//
+//		for(Solicitud solicitud : solicitudesFiltradas){
+//			System.out.println((solicitud.getId()));
+//		}
 
 		// SwingUtilities.invokeLater(new Runnable() {
 		// 	public void run() {
@@ -177,11 +186,9 @@ public class Pruebas {
 		// 		ChatPanel chatPanel = new ChatPanel("admin1");
 
 
-				System.out.println(ObtenerEmpleados.cargarDesdeArchivo().get(4).getNombre());
 				
-				System.out.println(ObtenerSolicitudes.cargarDesdeArchivo().toString());
-			}
-		});
+//			}
+//		});
 		// 		// Imprimir los chats por consola
 		// 		// ControladorLogin.comprobarSession();
 		// 		// Pricipal frame = Pricipal.getInstancia();
@@ -211,5 +218,49 @@ public class Pruebas {
 
 		// 	}
 		// });
+		
+//		System.out.println(ObtenerEmpleados.cargarDesdeArchivo().get(4).getNombre());
+//		
+//		System.out.println(ObtenerSolicitudesEstudiantes.cargarDesdeArchivo().toString());
+		
+		System.out.println(ObtenerEstudiantesConEstipendio.cargarDesdeArchivo().isEmpty());
+		
+		System.out.println(ObtenerPersonasConLibrosBibliotecaPendientes.cargarDesdeArchivo().isEmpty());
+		
+		Collection<Set<String>> libros = ObtenerPersonasConLibrosBibliotecaPendientes.cargarDesdeArchivo().values();
+		
+		for (Set<String> s : libros) {
+			for (String libro : s) {
+				System.out.println(libro);
+			}
+		}
+		
+		HashMap<Empleado, Double> d = ObtenerEmpleadosConDeudas.cargarDesdeArchivo();
+		
+		Set<Empleado> em = d.keySet();
+		
+		for (Empleado e : em) {
+			System.out.println(d.get(e));
+		}
+		
+		Collection<Set<String>> pertenencias = ObtenerEstudiantesConPertenenciasBeca.cargarDesdeArchivo().values();
+		
+		for (Set<String> pertenencia : pertenencias) {
+			for (String p : pertenencia) {
+				System.out.println(p);
+			}
+		}
+		
+		Collection<Set<String>> ld = ObtenerEstudiantesConLibrosDocentesPendientes.cargarDesdeArchivo().values();
+		
+		for (Set<String> librosdocentes : ld) {
+			for (String librod : librosdocentes) {
+				System.out.println(librod);
+			}
+		}
+		
+		System.out.println(ObtenerEmpleadosConSalarioIndebido.cargarDesdeArchivo().isEmpty());
+		
+		System.out.println(ObtenerUsuariosCujae.cargarDesdeArchivo().isEmpty());
 	}
 }

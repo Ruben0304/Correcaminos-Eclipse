@@ -23,7 +23,7 @@ public class GestorSolicitudesEstudiante{
     }
 
     private void registrarSolicitudes() {
-        // this.solicitudes = ObtenerSolicitudes.cargarDesdeArchivo();
+        // this.solicitudes = ObtenerSolicitudesEstudiantes.cargarDesdeArchivo();
 
     }
 

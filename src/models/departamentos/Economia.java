@@ -13,7 +13,7 @@ public class Economia implements VerificadorEstudiante {
 	
 	private HashMap<Estudiante, TiposResponsabilidad> estudiantesConEstipendio;
 	
-	public void cargarInformacionEstudiantesConCarnet() {
+	public void cargarInformacionEstudiantesConEstipendio() {
 		estudiantesConEstipendio = ObtenerEstudiantesConEstipendio.cargarDesdeArchivo();
 	}
 	

@@ -5,6 +5,8 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Set;
 
+import data.ObtenerEstudiantesConLibrosDocentesPendientes;
+import data.ObtenerUsuariosCujae;
 import interfaces.Autenticable;
 import interfaces.VerificadorEmpleado;
 import interfaces.VerificadorEstudiante;
@@ -17,7 +19,11 @@ import models.usuarios.Persona;
 public class SeguridadInformatica implements VerificadorEstudiante, VerificadorEmpleado {
 
     private HashMap<Credenciales,Persona> usuariosCujae;
-
+    
+    public void cargarInformacionUsuariosCujae() {
+    	usuariosCujae = ObtenerUsuariosCujae.cargarDesdeArchivo();
+	} 
+    
     public boolean tieneCuentaUsuarioAbierta(Persona c) {
         return usuariosCujae.containsValue(c);
     }

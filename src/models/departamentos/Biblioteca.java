@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Set;
 
+import data.ObtenerEstudiantesConEstipendio;
+import data.ObtenerPersonasConLibrosBibliotecaPendientes;
 import interfaces.VerificadorEmpleado;
 import interfaces.VerificadorEstudiante;
 import models.usuarios.Empleado;
@@ -12,10 +14,14 @@ import models.usuarios.Persona;
 
 public class Biblioteca implements VerificadorEstudiante, VerificadorEmpleado {
 	
-	private HashMap<Persona, Set<String>> personasConLibrosDocentes;
+	private HashMap<Persona, Set<String>> personasConLibrosBiblioteca;
+	
+	public void cargarInformacionEstudiantesConEstipendio() {
+		personasConLibrosBiblioteca = ObtenerPersonasConLibrosBibliotecaPendientes.cargarDesdeArchivo();
+	}
 	
 	public boolean tieneLibrosPrestados(Persona p){
-        return personasConLibrosDocentes.containsKey(p);        
+        return personasConLibrosBiblioteca.containsKey(p);        
     }
 	
     @Override
@@ -29,7 +35,7 @@ public class Biblioteca implements VerificadorEstudiante, VerificadorEmpleado {
 	}
 
     public void recogerLibrosPrestados(Persona p) {
-    	personasConLibrosDocentes.remove(p);
+    	personasConLibrosBiblioteca.remove(p);
     }
 
     @Override
@@ -37,7 +43,7 @@ public class Biblioteca implements VerificadorEstudiante, VerificadorEmpleado {
     	
     	ArrayList<Estudiante> estudiantes = new ArrayList<>();
         
-    	Set<Persona> estudiantesPendientes = personasConLibrosDocentes.keySet();
+    	Set<Persona> estudiantesPendientes = personasConLibrosBiblioteca.keySet();
         
         for (Persona p: estudiantesPendientes) {
         	if (p instanceof Estudiante) estudiantes.add(((Estudiante)p));
@@ -51,7 +57,7 @@ public class Biblioteca implements VerificadorEstudiante, VerificadorEmpleado {
     	
     	ArrayList<Empleado> nombresEmpleados = new ArrayList<>();
         
-    	Set<Persona> empleadosPendientes = personasConLibrosDocentes.keySet();
+    	Set<Persona> empleadosPendientes = personasConLibrosBiblioteca.keySet();
         
         for (Persona p: empleadosPendientes) {
         	if(p instanceof Empleado) nombresEmpleados.add(((Empleado)p));
@@ -61,6 +67,6 @@ public class Biblioteca implements VerificadorEstudiante, VerificadorEmpleado {
     }
     
     public Set<String> obtenerLibrosPendientes(Persona p) {
-    	return personasConLibrosDocentes.get(p);
+    	return personasConLibrosBiblioteca.get(p);
     }
 }

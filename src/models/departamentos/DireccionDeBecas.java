@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Set;
 
+import data.ObtenerEstudiantesConEstipendio;
+import data.ObtenerEstudiantesConPertenenciasBeca;
 import interfaces.VerificadorEstudiante;
 import models.usuarios.Becado;
 import models.usuarios.Estudiante;
@@ -12,6 +14,9 @@ public class DireccionDeBecas implements VerificadorEstudiante {
 	
 	private HashMap<Becado, Set<String>> pertenenciasBecados;
 	
+	public void cargarInformacionEstudiantesConPertenenciasBeca() {
+		pertenenciasBecados = ObtenerEstudiantesConPertenenciasBeca.cargarDesdeArchivo();
+	}
 	
 	@Override
 	public boolean verificarRequisitos(Estudiante e) {

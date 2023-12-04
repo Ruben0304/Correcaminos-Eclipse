@@ -1,0 +1,17 @@
+[
+	[
+		{
+			 "usuario": "empleado2",
+   			 "contrasena": "kmieihduwgsqipqoffguwce"
+		},
+		{
+		       "ci": "87654321",
+		        "nombre": "María",
+		        "primer_apellido": "Rodríguez",
+		        "segundo_apellido": "López",
+		        "numerotrabajador": "456789",
+		        "seccion": "Física"
+    	}
+	]
+	
+]

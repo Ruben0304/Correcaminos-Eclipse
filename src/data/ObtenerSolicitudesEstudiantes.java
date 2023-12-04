@@ -14,40 +14,40 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import models.solicitudes.Solicitud;
-
+import models.solicitudes.SolicitudBaja;
 import models.solicitudes.SolicitudLicencia;
 import models.usuarios.Docente;
 import models.usuarios.Empleado;
 import models.usuarios.Estudiante;
 import models.usuarios.NoDocente;
 
-public class ObtenerSolicitudes {
-    public static HashMap<Empleado, Set<Solicitud>> cargarDesdeArchivo() {
+public class ObtenerSolicitudesEstudiantes {
+    public static HashMap<Estudiante, Set<Solicitud>> cargarDesdeArchivo() {
 
         Gson gson = new Gson();
-        HashMap<Empleado, Set<Solicitud>> solicitudes = new HashMap<>();
-        HashMap<Empleado, Set<Solicitud>> licencias = new HashMap<>();
-        HashMap<Empleado, Set<Solicitud>> licenci = new HashMap<>();
+        HashMap<Estudiante, Set<Solicitud>> solicitudes = new HashMap<>();
+        HashMap<Estudiante, Set<Solicitud>> licencias = new HashMap<>();
+        HashMap<Estudiante, Set<Solicitud>> bajas = new HashMap<>();
 
-        try (BufferedReader reader = new BufferedReader(new FileReader("./jsons/solicitudes.json"))) {
-            Type listType = new TypeToken<HashMap<Docente, Set<SolicitudLicencia>>>() {
+        try (BufferedReader reader = new BufferedReader(new FileReader("./jsons/solicitudes/solicitudesLicenciasEstudiantes.json"))) {
+            Type listType = new TypeToken<HashMap<Estudiante, Set<SolicitudLicencia>>>() {
             }.getType();
             licencias = gson.fromJson(reader, listType);
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        try (BufferedReader reader = new BufferedReader(new FileReader("./jsons/solicitudes.json"))) {
-            Type listType = new TypeToken<HashMap<NoDocente, Set<SolicitudLicencia>>>() {
+        try (BufferedReader reader = new BufferedReader(new FileReader("./jsons/solicitudes/solicitudesBajasEstudiantes.json"))) {
+            Type listType = new TypeToken<HashMap<Estudiante, Set<SolicitudBaja>>>() {
             }.getType();
-            licenci = gson.fromJson(reader, listType);
+            bajas = gson.fromJson(reader, listType);
         } catch (IOException e) {
             e.printStackTrace();
         }
         
 
         solicitudes.putAll(licencias);
-        solicitudes.putAll(licenci);
+        solicitudes.putAll(bajas);
         return solicitudes;
     }
 

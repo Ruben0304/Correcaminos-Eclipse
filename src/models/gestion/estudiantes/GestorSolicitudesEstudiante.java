@@ -6,7 +6,7 @@ import java.util.HashMap;
 
 import java.util.Set;
 
-
+import data.ObtenerSolicitudesEstudiantes;
 import models.solicitudes.Solicitud;
 
 import models.usuarios.Estudiante;
@@ -23,7 +23,7 @@ public class GestorSolicitudesEstudiante{
     }
 
     private void registrarSolicitudes() {
-        // this.solicitudes = ObtenerSolicitudesEstudiantes.cargarDesdeArchivo();
+        this.solicitudes = ObtenerSolicitudesEstudiantes.cargarDesdeArchivo();
 
     }
 

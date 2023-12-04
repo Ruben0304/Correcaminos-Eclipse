@@ -2,6 +2,8 @@ package models.departamentos;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import interfaces.VerificadorEmpleado;
@@ -13,9 +15,10 @@ import models.usuarios.Persona;
 public class Biblioteca implements VerificadorEstudiante, VerificadorEmpleado {
 	
 	private HashMap<Persona, Set<String>> personasConLibrosDocentes;
-	
+   
 	public boolean tieneLibrosPrestados(Persona p){
-        return personasConLibrosDocentes.containsKey(p);        
+        return personasConLibrosDocentes.containsKey(p);  
+      
     }
 	
     @Override

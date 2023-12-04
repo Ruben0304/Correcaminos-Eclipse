@@ -1,0 +1,34 @@
+[
+    [
+        {
+            "ci": "12345678",
+            "nombre": "Juan",
+            "primer_apellido": "Pérez",
+            "segundo_apellido": "González",
+            "numerotrabajador": "987654",
+            "seccion": "Matemáticas"
+        },
+        [
+            {
+                "id": 3,
+                "motivo": "Licencia sin sueldo",
+                "fechaSalida": {
+                    "year": 2023,
+                    "month": 10,
+                    "dayOfMonth": 28,
+                    "hourOfDay": 20,
+                    "minute": 23,
+                    "second": 54
+                },
+                "fechaRegreso": {
+                    "year": 2023,
+                    "month": 10,
+                    "dayOfMonth": 28,
+                    "hourOfDay": 20,
+                    "minute": 23,
+                    "second": 54
+                }
+            }
+        ]
+    ]
+]

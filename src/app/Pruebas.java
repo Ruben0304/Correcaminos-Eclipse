@@ -101,9 +101,9 @@ public class Pruebas {
 
 		HashMap<String, String> filtros = new HashMap<>();
 
-		filtros.put("anio", "2023");
-		filtros.put("buscar", "Juan");
-		// filtros.put("estado", "");
+		// filtros.put("anio", "2023");
+		filtros.put("buscar", "juan");
+		// filtros.put("estado", "PENDIENTE");
 		// filtros.put("motivo", "");
 
 		// HashMap<String, String> filtros1 = new HashMap<String, String>();
@@ -120,11 +120,13 @@ public class Pruebas {
 
 
 
-		ArrayList<Solicitud> solicitudesFiltradas = ControladorFiltrado.filtradoDinamicoSolicitudEstudiantes(filtros);
-
-		for(Solicitud solicitud : solicitudesFiltradas){
-			System.out.println((solicitud.getId()));
+		HashMap<Estudiante, Set<Solicitud>> solicitudesFiltradas = ControladorFiltrado.filtradoDinamicoSolicitudEstudiantes(filtros);
+		for (Map.Entry<Estudiante, Set<Solicitud>> solicitudes : solicitudesFiltradas.entrySet()) {
+            Estudiante estudiante = solicitudes.getKey();
+			Set<Solicitud> listaSolicitudes = solicitudes.getValue();
+			System.out.println(estudiante.getNombreCompleto());
 		}
+		
 
 		// SwingUtilities.invokeLater(new Runnable() {
 		// 	public void run() {

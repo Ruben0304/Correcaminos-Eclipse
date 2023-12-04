@@ -26,10 +26,10 @@ public class ControladorFiltrado {
     // return filtradoDinamicoSolicitudEstudiantes(map);
     // }
 
-    public static ArrayList<Solicitud> filtradoDinamicoSolicitudEstudiantes(Map<String, String> filtros) {
+    public static HashMap<Estudiante, Set<Solicitud>> filtradoDinamicoSolicitudEstudiantes(Map<String, String> filtros) {
         HashMap<Estudiante, Set<Solicitud>> solicitudesEstudianes = Secretaria.gestorEstudiantes()
                 .getGestorSolicitudes().getSolicitudes();
-        ArrayList<Solicitud> solicitudesFiltradas = new ArrayList<>();
+        HashMap<Estudiante, Set<Solicitud>> solicitudesFiltradas = new HashMap<>();
 
         for (Map.Entry<Estudiante, Set<Solicitud>> solicitudes : solicitudesEstudianes.entrySet()) {
             Estudiante estudiante = solicitudes.getKey();
@@ -84,7 +84,7 @@ public class ControladorFiltrado {
 
                 }
                 if (cumpleFiltros) {
-                    solicitudesFiltradas.add(s);
+                    solicitudesFiltradas.put(estudiante, listaSolicitudes);
                 }
             }
         }

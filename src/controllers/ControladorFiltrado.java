@@ -94,7 +94,7 @@ public class ControladorFiltrado {
 
     public static boolean buscarPorNombreOCi(Estudiante e, String valor) {
 
-        return !(e.getNombreCompleto().toLowerCase().contains(valor.toLowerCase())
+        return (e.getNombreCompleto().toLowerCase().contains(valor.toLowerCase())
                 || e.getCi().toLowerCase().contains(valor.toLowerCase()));
     }
 }

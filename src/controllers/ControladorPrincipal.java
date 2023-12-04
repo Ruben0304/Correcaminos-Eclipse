@@ -12,14 +12,14 @@ import models.gestion.GestorDepartamentos;
 import models.gestion.Correcaminos;
 import models.gestion.empleados.GestorEmpleados;
 import models.gestion.estudiantes.Secretaria;
-import models.gestion.estudiantes.GestorResponsabilidadesEstudiantes;
+
 import models.gestion.estudiantes.GestorSolicitudesEstudiante;
 import models.responsabilidades.ResponsabilidadesEstudiantes;
 import models.usuarios.Becado;
 import models.usuarios.Empleado;
 import models.usuarios.Estudiante;
 import models.usuarios.Persona;
-import models.usuarios.Usuario;
+
 import util.BooleanosEstudianteBaja;
 import util.BooleanosEstudianteBecadoBaja;
 import util.Colores;
@@ -41,7 +41,7 @@ public class ControladorPrincipal {
             if (Auth.usuarioAutenticado() instanceof Estudiante) {
                 estudianteSolicitaLicencia = Correcaminos.getGestorPrincipal().getGestorEstudiantes()
                         .getGestorSolicitudes()
-                        .verificarEstudianteSolicitaLicencia((Estudiante) Auth.usuarioAutenticado());
+                        .verificarEstudianteSolicitaAlgo((Estudiante) Auth.usuarioAutenticado());
             }
 
             // Inicios inicio = new Inicios(Auth.usuarioAutenticado(),
@@ -51,7 +51,7 @@ public class ControladorPrincipal {
 
         Pricipal instancia = Pricipal.getInstancia();
         instancia.setVista(
-                Inicio.getVista(Auth.hayUsuarioAutenticado() ? Auth.usuarioAutenticado() : null).getPanel_lateral());
+                Inicio.getVista().getPanel_lateral());
         Pricipal.getInstancia().revalidate();
         Pricipal.getInstancia().repaint();
 

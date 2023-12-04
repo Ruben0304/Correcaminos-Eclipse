@@ -102,7 +102,7 @@ public class Pruebas {
 		HashMap<String, String> filtros = new HashMap<>();
 
 		// filtros.put("anio", "2023");
-		filtros.put("buscar", "juan");
+		// filtros.put("buscar", "1234567890");
 		// filtros.put("estado", "PENDIENTE");
 		// filtros.put("motivo", "");
 

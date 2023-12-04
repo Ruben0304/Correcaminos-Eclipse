@@ -16,14 +16,22 @@ public class VerificacionCredenciales {
        
             Credenciales credenciales = new Credenciales(nombreUsuario, contrasena);
         
-            SeguridadInformatica s = GestorDepartamentos.gestorDepartamentos().getSeguridadInformatica();
-            GestorAdmins a = GestorAdmins.gestorAdmins();
+            System.out.println(credenciales.getUsuario());
+            if (!(credenciales.getUsuario() == null)) {
+                
+                SeguridadInformatica s = GestorDepartamentos.gestorDepartamentos().getSeguridadInformatica();
+                GestorAdmins a = GestorAdmins.gestorAdmins();
+            
+            
         
             Persona usuarioCujae = s.getUsuariosCujae().get(credenciales);
             Admin admin = a.getAdmins().get(credenciales);
-        
-          
             return usuarioCujae != null ? usuarioCujae : (admin != null ? admin : null);
+        }
+          return new Autenticable() {
+            
+          };
+            
         
     }
 

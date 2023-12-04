@@ -49,10 +49,9 @@ public class Session {
     public static Autenticable ValidarSession() {
 
         Session session = obtenerSession();
-
-        Autenticable u = null;
-
-        VerificacionCredenciales.autenticar(session.getNombreUsuario(), session.getPassword());
+        
+        Autenticable u = session.getNombreUsuario() == null ? null
+                : VerificacionCredenciales.autenticar(session.getNombreUsuario(), session.getPassword());
 
         return u;
     }

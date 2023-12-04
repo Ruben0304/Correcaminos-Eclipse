@@ -24,15 +24,7 @@ public class Estudiante extends Persona {
 		this.grupo = grupo;
 
 	}
-
-	public void solicitarLicencia(Motivos motivo){
-		Secretaria.gestorEstudiantes().getGestorSolicitudes().agregarSolicitudDeLicencia(this,motivo);
-	}
-
-	public void solicitarBaja(Motivos motivo){
-		Secretaria.gestorEstudiantes().getGestorSolicitudes().agregarSolicitudDeBaja(this,motivo);
-	}
-
+	
 	public int getCurso() {
 		return curso;
 	}

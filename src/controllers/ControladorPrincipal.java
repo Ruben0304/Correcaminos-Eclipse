@@ -136,9 +136,9 @@ public class ControladorPrincipal {
 
     public static void mostrarChats() {
         if (Auth.hayUsuarioAutenticado()) {
-            Usuario autenticado = Auth.usuarioAutenticado();
-            if (autenticado instanceof Persona) {
-                Pricipal.getInstancia().setVista(new ChatPanel(autenticado));
+           
+            if (Auth.usuarioAutenticado() instanceof Persona) {
+                Pricipal.getInstancia().setVista(new ChatPanel());
                 Pricipal.getInstancia().revalidate();
                 Pricipal.getInstancia().repaint();
             }

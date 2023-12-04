@@ -3,6 +3,7 @@ package controllers;
 import java.util.ArrayList;
 
 import auth.Auth;
+import interfaces.Autenticable;
 import models.gestion.GestorDepartamentos;
 import models.gestion.Correcaminos;
 import models.gestion.estudiantes.Secretaria;
@@ -10,7 +11,7 @@ import models.gestion.estudiantes.GestorResponsabilidadesEstudiantes;
 import models.responsabilidades.ResponsabilidadesEstudiantes;
 import models.usuarios.Admin;
 import models.usuarios.Estudiante;
-import models.usuarios.Usuario;
+
 import views.admin.CasosPendientes;
 import views.admin.PanelAdministracion;
 import views.layouts.Pricipal;
@@ -19,7 +20,7 @@ public class ControladorAdmin {
 
     public static void mostrarGestionLicencias() {
         ArrayList<Estudiante> usuariosPendientes = new ArrayList<>();
-        Usuario usuarioAutenticado = Auth.usuarioAutenticado();
+        Autenticable usuarioAutenticado = Auth.usuarioAutenticado();
         GestorDepartamentos gestDep = GestorDepartamentos.gestorDepartamentos();
         ArrayList<ResponsabilidadesEstudiantes> listadoResponsabilidades = new ArrayList<>();
         Pricipal instancia = Pricipal.getInstancia();

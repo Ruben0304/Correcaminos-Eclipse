@@ -9,7 +9,8 @@ import javax.swing.JTextArea;
 import auth.Auth;
 import controllers.ControladorLogin;
 import controllers.ControladorPruebas;
-import models.usuarios.Usuario;
+import interfaces.Autenticable;
+
 import views.layouts.Pricipal;
 
 import java.awt.Color;
@@ -40,19 +41,19 @@ public class Inicio{
     private JLabel label_3;
 	private JLabel lblInicio;
     private static Inicio instance;
-	private Usuario usuarioAutenticado;
+	
 
     
-    private Inicio(Usuario usuario) {
-		this.usuarioAutenticado = usuario;
+    private Inicio() {
+		
 	}
 
     
     
-    public static Inicio getVista(Usuario usuario) {
+    public static Inicio getVista() {
         
         
-        return new Inicio(usuario);
+        return new Inicio();
     }
 
 
@@ -121,11 +122,11 @@ public class Inicio{
 
 	private JLabel getLblEntrar() {
 		if (lblEntrar == null) {
-			lblEntrar = new JLabel(usuarioAutenticado != null ? "Salir" : "Entrar" );
+			lblEntrar = new JLabel(Auth.hayUsuarioAutenticado() ? Auth.getNombreUsuario() : "Entrar" );
 			lblEntrar.addMouseListener(new MouseAdapter() {
 				@Override
 				public void mouseClicked(MouseEvent e) {
-					if (usuarioAutenticado != null) {
+					if (Auth.hayUsuarioAutenticado()) {
 						ControladorLogin.cerrarSesion();
 					}
 					ControladorLogin.mostrarLogin();

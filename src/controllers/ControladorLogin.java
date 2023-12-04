@@ -12,7 +12,7 @@ import models.gestion.Correcaminos;
 import views.Inicio;
 import views.auth.Entrar;
 import views.layouts.Pricipal;
-import views.old.Login;
+
 
 public class ControladorLogin {
 
@@ -49,7 +49,7 @@ public class ControladorLogin {
     }
 
     public static void cerrarSesion() {
-        Auth.cerrarSesion();
+        Auth.logout();
         new Session("null", "null");
         mostrarLogin();
     }

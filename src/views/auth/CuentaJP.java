@@ -41,7 +41,7 @@ public class CuentaJP extends JPanel {
 		label_1.setBounds(131, 213, 120, 30);
 		add(label_1);
 
-		JLabel label_2 = new JLabel(Auth.usuarioAutenticado().getNombreUsuario());
+		JLabel label_2 = new JLabel(Auth.getNombreUsuario());
 		label_2.setForeground(Color.WHITE);
 		label_2.setFont(new Font("Segoe UI Semibold", Font.BOLD, 32));
 		label_2.setBounds(273, 207, 375, 43);

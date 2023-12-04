@@ -14,7 +14,6 @@ import javax.swing.JPanel;
 import models.usuarios.Admin;
 import models.usuarios.Estudiante;
 import models.usuarios.Persona;
-import models.usuarios.Usuario;
 import views.chat.ChatPanel;
 import views.layouts.Pricipal;
 import auth.Auth;
@@ -43,7 +42,7 @@ public class Navegacion extends JPanel {
 	private JLabel label_1;
 	private JLabel label_2;
 	private static Navegacion instance = null;
-	private final Usuario usuarioAutenticado = Auth.usuarioAutenticado();
+	
 
 	private Navegacion() {
 		addMouseListener(new MouseAdapter() {
@@ -64,9 +63,9 @@ public class Navegacion extends JPanel {
 		setBackground(new Color(20, 20, 20));
 		setLayout(null);
 		add(getHome());
-		if (usuarioAutenticado != null && usuarioAutenticado instanceof Admin) {
+		if (Auth.hayUsuarioAutenticado() && Auth.usuarioAutenticado() instanceof Admin) {
 
-		} else if (usuarioAutenticado != null && usuarioAutenticado instanceof Estudiante) {
+		} else if (Auth.hayUsuarioAutenticado() && Auth.usuarioAutenticado() instanceof Estudiante) {
 			add(getReportes());
 			// panel_inicio.add(getGuardar());
 			add(getLblReportes());
@@ -194,10 +193,10 @@ public class Navegacion extends JPanel {
 					getGestion_bg().setVisible(true);
 					getGuardar_bg().setVisible(false);
 
-					if (usuarioAutenticado != null) {
-						if (usuarioAutenticado instanceof Estudiante) {
+					if (Auth.hayUsuarioAutenticado()) {
+						if (Auth.usuarioAutenticado() instanceof Estudiante) {
 							ControladorPrincipal.mostrarRequisitosBajaEstudiantes();
-						} else if (usuarioAutenticado instanceof Admin) {
+						} else if (Auth.usuarioAutenticado() instanceof Admin) {
 							ControladorAdmin.mostrarGestionLicencias();
 						}
 					} else {

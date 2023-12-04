@@ -13,11 +13,11 @@ public class Auth {
     private static Autenticable usuario;
 
 
-    public static Autenticable getUsuario() {
+    public static Autenticable usuarioAutenticado() {
         return usuario;
     }
 
-    public static void login(Autenticable usuari) {
+    public static void iniciarSesion(Autenticable usuari) {
         usuario = usuari;
     }
 

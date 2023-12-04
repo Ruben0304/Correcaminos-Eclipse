@@ -45,9 +45,7 @@ import javax.swing.table.DefaultTableCellRenderer;
 import controllers.ControladorFiltrado;
 import models.gestion.GestorDepartamentos;
 import models.gestion.estudiantes.Secretaria;
-import models.gestion.estudiantes.GestorResponsabilidadesEstudiantes;
-import models.solicitudes.SolicitudBajaEstudiante;
-import models.solicitudes.SolicitudLicenciaEstudiante;
+
 import models.usuarios.Estudiante;
 
 import javax.swing.event.ChangeEvent;

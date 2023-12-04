@@ -14,6 +14,10 @@ public class DireccionDeBecas implements VerificadorEstudiante {
 	
 	private HashMap<Becado, Set<String>> pertenenciasBecados;
 	
+	public DireccionDeBecas() {
+		pertenenciasBecados = new HashMap<Becado, Set<String>>();
+		cargarInformacionEstudiantesConPertenenciasBeca();
+	}
 	public void cargarInformacionEstudiantesConPertenenciasBeca() {
 		pertenenciasBecados = ObtenerEstudiantesConPertenenciasBeca.cargarDesdeArchivo();
 	}

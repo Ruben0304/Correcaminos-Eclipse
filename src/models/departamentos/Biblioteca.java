@@ -16,7 +16,12 @@ public class Biblioteca implements VerificadorEstudiante, VerificadorEmpleado {
 	
 	private HashMap<Persona, Set<String>> personasConLibrosBiblioteca;
 	
-	public void cargarInformacionEstudiantesConEstipendio() {
+	public Biblioteca() {
+		personasConLibrosBiblioteca = new HashMap<Persona, Set<String>>();
+		cargarInformacionPersonasConLibrosBiblioteca();
+		
+	}
+	public void cargarInformacionPersonasConLibrosBiblioteca() {
 		personasConLibrosBiblioteca = ObtenerPersonasConLibrosBibliotecaPendientes.cargarDesdeArchivo();
 	}
 	

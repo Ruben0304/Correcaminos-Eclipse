@@ -13,7 +13,11 @@ public class Contabilidad implements VerificadorEmpleado {
 	
 	private HashMap<Empleado, Double> empleadosDeudas;
 	
-	public void cargarInformacionEstudiantesConEstipendio() {
+	public Contabilidad() {
+		empleadosDeudas = new HashMap<Empleado, Double>();
+		cargarInformacionEmpleadosConDeudas();
+	}
+	public void cargarInformacionEmpleadosConDeudas() {
 		empleadosDeudas = ObtenerEmpleadosConDeudas.cargarDesdeArchivo();
 	}
 	

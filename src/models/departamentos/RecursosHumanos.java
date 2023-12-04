@@ -17,7 +17,11 @@ public class RecursosHumanos implements VerificadorEmpleado {
 	
 	private HashMap<Empleado, TiposResponsabilidad> empleadosConSalarioIndebido;
 	
-	public void cargarInformacionEstudiantesConLibrosDocentes() {
+	public RecursosHumanos() {
+		empleadosConSalarioIndebido = new HashMap<Empleado, TiposResponsabilidad>();
+		cargarInformacionEstudiantesConSalarioIndebido();
+	}
+	public void cargarInformacionEstudiantesConSalarioIndebido() {
 		empleadosConSalarioIndebido = ObtenerEmpleadosConSalarioIndebido.cargarDesdeArchivo();
 	}
 	

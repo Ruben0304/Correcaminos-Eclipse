@@ -1,0 +1,47 @@
+[
+	[
+		{
+		    "curso": 2,
+		    "tipoCurso": "ENCUENTRO",
+		    "carrera": "Ingenieria Informatica",
+		    "grupo": 2,
+		    "ci": "12345678902",
+		    "nombre": "Maria",
+		    "primer_apellido": "Gonzalez",
+		    "segundo_apellido": "Perez",
+		    "facultad": "Ing_Informatica"
+  		},
+  		[
+	  		{
+	  			"id": 2,
+	  			"estado": "PENDIENTE",
+	    		"fecha": {
+		     		"year": 2023,
+		      		"month": 10,
+			        "dayOfMonth": 18,
+			        "hourOfDay": 0,
+			        "minute": 23,
+			        "second": 11
+	  		     },
+	  		     "motivo": "Accidente",
+	  		     "fechaSalida": {
+	  		     	"year": 2024,
+		      		"month": 1,
+			        "dayOfMonth": 15,
+			        "hourOfDay": 0,
+			        "minute": 0,
+			        "second": 0
+	  		     },
+	  		     "fechaRegreso": {
+	  		     	
+	  		     	"year": 2024,
+		      		"month": 1,
+			        "dayOfMonth": 30,
+			        "hourOfDay": 8,
+			        "minute": 0,
+			        "second": 0
+	  		     }
+	  		}
+  	 ]    
+	]
+]

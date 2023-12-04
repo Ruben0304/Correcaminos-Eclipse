@@ -8,9 +8,7 @@
       "ci": "94101532412",
       "nombre": "Luis",
       "primer_apellido": "Robert",
-      "segundo_apellido": "Roca",
-      "nombreUsuario": "empleado22",
-      "contrasena": "1234"
+      "segundo_apellido": "Roca"
     },
     "estado": "PENDIENTE",
     "motivo": "Lejanía",
@@ -32,9 +30,7 @@
       "ci": "94101532412",
       "nombre": "Sandra",
       "primer_apellido": "Castillo",
-      "segundo_apellido": "Trela",
-      "nombreUsuario": "empleado26",
-      "contrasena": "123423"
+      "segundo_apellido": "Trela"
     },
     "estado": "PENDIENTE",
     "motivo": "Enfermedad",

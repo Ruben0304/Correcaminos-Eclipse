@@ -20,6 +20,10 @@ public class SeguridadInformatica implements VerificadorEstudiante, VerificadorE
 
     private HashMap<Credenciales,Persona> usuariosCujae;
     
+    public SeguridadInformatica() {
+    	usuariosCujae = new HashMap<Credenciales,Persona>();
+    	cargarInformacionUsuariosCujae();
+    }
     public void cargarInformacionUsuariosCujae() {
     	usuariosCujae = ObtenerUsuariosCujae.cargarDesdeArchivo();
 	} 

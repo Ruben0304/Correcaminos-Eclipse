@@ -262,5 +262,7 @@ public class Pruebas {
 		System.out.println(ObtenerEmpleadosConSalarioIndebido.cargarDesdeArchivo().isEmpty());
 		
 		System.out.println(ObtenerUsuariosCujae.cargarDesdeArchivo().isEmpty());
+		
+		System.out.println(ObtenerSolicitudesEstudiantes.cargarDesdeArchivo().isEmpty());
 	}
 }

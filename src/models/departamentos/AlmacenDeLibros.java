@@ -15,16 +15,9 @@ public class AlmacenDeLibros implements VerificadorEstudiante {
 	private AlmacenDeLibros almacen;
 	private HashMap<Estudiante, Set<String>> estudiantesConLibrosDocentes;
 	
-	private AlmacenDeLibros() {
+	public AlmacenDeLibros() {
 		estudiantesConLibrosDocentes = new HashMap<Estudiante, Set<String>>();
 		cargarInformacionEstudiantesConLibrosDocentes();
-	}
-	
-	public AlmacenDeLibros getInstance() {
-		if (almacen == null) {
-			almacen = new AlmacenDeLibros();
-		}
-		return almacen;
 	}
 	
 	public void cargarInformacionEstudiantesConLibrosDocentes() {

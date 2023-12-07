@@ -16,6 +16,7 @@ import javax.swing.table.DefaultTableModel;
 public class AlmacenLibroJP extends JPanel {
 	private JTable table;
 	private JScrollPane scrollPaneFiltrado;
+	private JTable table_1;
 
 	/**
 	 * Create the panel.
@@ -35,6 +36,28 @@ public class AlmacenLibroJP extends JPanel {
 		label_5.setBounds(421, 41, 32, 41);
 		add(label_5);
 		label_5.setIcon(new ImageIcon(Principal.class.getResource("/img/libro.png")));
+		
+		JPanel panel = new JPanel();
+		panel.setLayout(null);
+		panel.setBorder(new LineBorder(Color.WHITE));
+		panel.setBackground(new Color(31, 33, 36));
+		panel.setBounds(23, 106, 719, 528);
+		add(panel);
+		
+		table_1 = new JTable();
+		table_1.setForeground(Color.WHITE);
+		table_1.setFont(new Font("Arial Narrow", Font.BOLD, 16));
+		table_1.setBackground(new Color(31, 33, 36));
+		table_1.setBounds(10, 11, 663, 483);
+		panel.add(table_1);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(10, 499, 698, 18);
+		panel.add(scrollPane);
+		
+		JScrollPane scrollPane_1 = new JScrollPane();
+		scrollPane_1.setBounds(683, 11, 25, 483);
+		panel.add(scrollPane_1);
 		
 	}
 	public JTable getTable() {
@@ -77,5 +100,4 @@ public class AlmacenLibroJP extends JPanel {
 		}
 		return scrollPaneFiltrado;
 	}
-
 }

@@ -20,11 +20,7 @@ import views.layouts.Pricipal;
 
 public class ControladorFiltrado {
 
-    // public static ArrayList<Solicitud>
-    // obtenerSolicitudesBajaEstudiantesFiltradas(
-    // HashMap<String, String> map) {
-    // return filtradoDinamicoSolicitudEstudiantes(map);
-    // }
+   
 
     public static HashMap<Estudiante, Set<Solicitud>> filtradoDinamicoSolicitudEstudiantes(Map<String, String> filtros) {
         HashMap<Estudiante, Set<Solicitud>> solicitudesEstudianes = Secretaria.gestorEstudiantes()

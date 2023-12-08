@@ -5,6 +5,8 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -13,6 +15,7 @@ import javax.swing.JComboBox;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
@@ -23,9 +26,21 @@ import com.formdev.flatlaf.FlatLaf;
 import com.formdev.flatlaf.fonts.roboto.FlatRobotoFont;
 import com.formdev.flatlaf.themes.FlatMacDarkLaf;
 import com.toedter.calendar.JDateChooser;
+
+import auth.Auth;
+import controllers.ControladorPrincipal;
+import models.gestion.empleados.GestorEmpleados;
+import models.gestion.estudiantes.Secretaria;
+import models.usuarios.Empleado;
+import models.usuarios.Estudiante;
+
 import javax.swing.DefaultComboBoxModel;
 import util.MotivoBaja;
-import util.MotivoLicencia;;;
+import util.MotivoLicencia;
+import java.awt.event.ContainerAdapter;
+import java.awt.event.ContainerEvent;
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeEvent;;;
 public class SolictudesEmpleados extends JPanel {
 
 	/**
@@ -44,7 +59,7 @@ public class SolictudesEmpleados extends JPanel {
 	private JButton btnCancelarLicencia;
 	private JButton btnSolicitarLicencia;
 	private JButton btnCancelarBaja;
-	private JDateChooser FechaSalida, FechaRegreso;
+	private JDateChooser fechaSalida, fechaRegreso;
 	private JLabel lblFechaDeSalida;
 	private JLabel lblFechaDeRegreso;
 
@@ -91,12 +106,29 @@ public class SolictudesEmpleados extends JPanel {
 		panelBaja.add(lblMotivoBajas);
 		
 		cbMotivosBaja = new JComboBox<String>();
-		cbMotivosBaja.setModel(new DefaultComboBoxModel(MotivoLicencia.values()));
+		cbMotivosBaja.setModel(new DefaultComboBoxModel(MotivoBaja.values()));
 		cbMotivosBaja.setBounds(59, 34, 259, 23);
 		
 		panelBaja.add(cbMotivosBaja);
 		
 		btnSolicitarLicencia = new JButton("Solicitar Licencia");
+		btnSolicitarLicencia.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				Calendar fs = fechaSalida.getCalendar();
+				Calendar fr = fechaRegreso.getCalendar();
+				
+				if (fs != null && fr != null) {
+					GestorEmpleados.gestorEmpleados().getGestorSolicitudesEmpleados().crearSolicitudLicencia((MotivoLicencia)cbMotivosLicencia.getSelectedItem(), (Empleado) Auth.usuarioAutenticado(),fs,fr);
+					JOptionPane.showMessageDialog(null, "Su solicitud está siendo procesada", "Estado de Trámite", JOptionPane.INFORMATION_MESSAGE);
+					ControladorPrincipal.mostrarInicio();
+				}
+				else {
+					JOptionPane.showMessageDialog(null, "Debe seleccionar una fecha de salida y una de regreso", "Fechas Vacías", JOptionPane.ERROR_MESSAGE);
+				}
+				
+			}
+		});
 		btnSolicitarLicencia.setFont(new Font(FlatRobotoFont.FAMILY, Font.PLAIN, 13));
 		btnSolicitarLicencia.setForeground(Color.BLACK);
 		btnSolicitarLicencia.setBounds(10, 166, 150, 23);
@@ -121,38 +153,56 @@ public class SolictudesEmpleados extends JPanel {
 		panelBaja.add(lblFechaDeRegreso);
 		
 
-		FechaSalida = new JDateChooser("dd/MM/yyyy","##/##/####",'_');
-		FechaSalida.setBounds(140, 76, 178, 27);
+		fechaSalida = new JDateChooser("dd/MM/yyyy","##/##/####",'_');
+		fechaSalida.setBounds(140, 76, 178, 27);
+		
+		fechaRegreso = new JDateChooser("dd/MM/yyyy","##/##/####",'_');
+		fechaRegreso.setBounds(140, 117, 178, 27);
+		fechaRegreso.setEnabled(false);
+		
 		// Crea un objeto Calendar y establece la fecha actual
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(new Date());
 
         // Suma 7 d�as a la fecha actual
         calendar.add(Calendar.DAY_OF_MONTH, 7);
-
+        
         // Establece la fecha resultante como la fecha m�nima seleccionable
-		FechaSalida.setMinSelectableDate(calendar.getTime());
+		fechaSalida.setMinSelectableDate(calendar.getTime());
+		
+		fechaSalida.getDateEditor().addPropertyChangeListener(new PropertyChangeListener() {
+		    @Override
+		    public void propertyChange(PropertyChangeEvent evt) {
+		    	
+		    	System.out.println(evt.getPropertyName());
+		    	if ("date".equals(evt.getPropertyName())){
+		    		
+		    		Date d = (Date) evt.getNewValue();
+		    		Calendar c = Calendar.getInstance();
+		    		c.setTime(d);
+			    	
+		    		fechaRegreso.setEnabled(true);
+			    	c.add(Calendar.DAY_OF_MONTH, 3);
+			    	fechaRegreso.setMinSelectableDate(c.getTime());
+			    	
+			    	c.add(Calendar.DAY_OF_MONTH, 90);
+			    	fechaRegreso.setMaxSelectableDate(c.getTime());
+		    	}
+		    	
+		    }
+		});
 		
 		
-		FechaRegreso = new JDateChooser("dd/MM/yyyy","##/##/####",'_');
-		// Establecer m�nimo tiempo de licencia 3 dias
-		calendar.add(Calendar.DAY_OF_MONTH,3);
-		FechaRegreso.setMinSelectableDate(calendar.getTime());
-		// Establecer m�ximo de 3 meses de licencia
-		calendar.add(Calendar.DAY_OF_MONTH,87);
-		FechaRegreso.setMaxSelectableDate(calendar.getTime());
-		FechaRegreso.setBounds(140, 117, 178, 27);
-		
-		for (Component c : FechaSalida.getComponents()) {
+		for (Component c : fechaSalida.getComponents()) {
 		    ((JComponent) c).setBackground(new Color(227, 226, 226));
 		}
-		for (Component c : FechaRegreso.getComponents()) {
+		for (Component c : fechaRegreso.getComponents()) {
 		    ((JComponent) c).setBackground(new Color(227, 226, 226));
 		}
 		
 		
-		panelBaja.add(FechaRegreso);
-		panelBaja.add(FechaSalida);
+		panelBaja.add(fechaRegreso);
+		panelBaja.add(fechaSalida);
 		
 		panelLicencia = new JPanel();
 		panelLicencia.setBorder(new TitledBorder(null, "Solicitud de Baja", TitledBorder.LEFT, TitledBorder.TOP, null, null));
@@ -166,11 +216,17 @@ public class SolictudesEmpleados extends JPanel {
 		panelLicencia.add(lblMotivosLicencia);
 		
 		cbMotivosLicencia = new JComboBox<String>();
-		cbMotivosLicencia.setModel(new DefaultComboBoxModel(MotivoBaja.values()));
+		cbMotivosLicencia.setModel(new DefaultComboBoxModel(MotivoLicencia.values()));
 		cbMotivosLicencia.setBounds(59, 28, 259, 23);
 		panelLicencia.add(cbMotivosLicencia);
 		
 		btnSolicitarBaja = new JButton("Solicitar Baja");
+		btnSolicitarBaja.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				GestorEmpleados.gestorEmpleados().getGestorSolicitudesEmpleados().crearSolicitudBaja((MotivoBaja)cbMotivosBaja.getSelectedItem(), (Empleado) Auth.usuarioAutenticado());
+				ControladorPrincipal.mostrarRequisitosEmpleados();
+			}
+		});
 		btnSolicitarBaja.setBounds(15, 76, 150, 23);
 		btnSolicitarBaja.setFont(new Font(FlatRobotoFont.FAMILY,Font.PLAIN,13));
 		btnSolicitarBaja.setForeground(Color.BLACK);

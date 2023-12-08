@@ -25,6 +25,7 @@ import models.usuarios.Persona;
 import util.BooleanosEstudianteBaja;
 import util.BooleanosEstudianteBecadoBaja;
 import util.Colores;
+import util.ResponsabilidadesTrabajador;
 import util.TiposResponsabilidad;
 import views.Inicio;
 import views.Reportes;
@@ -33,6 +34,7 @@ import views.admin.DepartamentosModelo;
 import views.auth.CuentaJP;
 import views.chat.ChatPanel;
 import views.client.EstudiantesTramites;
+import views.client.RequisitosEmpleados;
 import views.client.RequisitosEstudiante;
 import views.client.SolicitudBajaEmpleadoJP;
 import views.client.SolicitudesEstudiantes;
@@ -74,9 +76,7 @@ public class ControladorPrincipal {
     public static void mostrarRequisitosBajaEstudiantes() {
 
         GestorDepartamentos gestDep = GestorDepartamentos.gestorDepartamentos();
-        GestorSolicitudesEstudiante gestorSolicitudesEstudiante = Secretaria.gestorEstudiantes()
-                .getGestorSolicitudes();
-
+      
         HashMap<TiposResponsabilidad, Boolean> requisitos = new HashMap<>();
         Estudiante autenticado = (Estudiante) Auth.usuarioAutenticado();
 
@@ -103,6 +103,32 @@ public class ControladorPrincipal {
         Pricipal.getInstancia().repaint();
 
     }
+    
+    public static void mostrarRequisitosEmpleados() {
+
+        GestorDepartamentos gestDep = GestorDepartamentos.gestorDepartamentos();
+     
+        HashMap<ResponsabilidadesTrabajador, Boolean> requisitos = new HashMap<>();
+        Empleado autenticado = (Empleado) Auth.usuarioAutenticado();
+
+        requisitos.put(ResponsabilidadesTrabajador.LIBROS_BIBLIOTECA,
+                gestDep.getBiblioteca().verificarRequisitos(autenticado));
+        requisitos.put(ResponsabilidadesTrabajador.DEUDA, gestDep.getContabilidad().verificarRequisitos(autenticado));
+        requisitos.put(ResponsabilidadesTrabajador.SALARIO_INDEBIDO,
+                gestDep.getRecursosHumanos().verificarRequisitos(autenticado));
+        requisitos.put(ResponsabilidadesTrabajador.CUENTA_USUARIO,
+                gestDep.getSeguridadInformatica().verificarRequisitos(autenticado));
+        
+        Pricipal instancia = Pricipal.getInstancia();
+
+        instancia.setVista(RequisitosEmpleados.getVista(requisitos)
+                .getPanel_RequisitosEmpleados());
+        Pricipal.getInstancia().revalidate();
+        Pricipal.getInstancia().repaint();
+
+    }
+    
+    
 
     public static void mostrarAccount() {
 

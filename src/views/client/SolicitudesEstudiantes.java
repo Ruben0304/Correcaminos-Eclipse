@@ -93,6 +93,12 @@ public class SolicitudesEstudiantes extends JPanel {
 		panelBaja.add(cbMotivosBaja);
 		
 		btnSolicitarBaja = new JButton("Solicitar Baja");
+		btnSolicitarBaja.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Secretaria.gestorEstudiantes().getGestorSolicitudes().crearSolicitudBaja((MotivoBaja)cbMotivosBaja.getSelectedItem(), (Estudiante) Auth.usuarioAutenticado());
+				ControladorPrincipal.mostrarRequisitosBajaEstudiantes();
+			}
+		});
 		btnSolicitarBaja.setFont(new Font(FlatRobotoFont.FAMILY, Font.PLAIN, 13));
 		btnSolicitarBaja.setForeground(Color.BLACK);
 		btnSolicitarBaja.setBounds(10, 96, 150, 23);

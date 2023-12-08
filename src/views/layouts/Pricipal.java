@@ -15,6 +15,12 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
+import com.formdev.flatlaf.FlatLaf;
+import com.formdev.flatlaf.fonts.roboto.FlatRobotoFont;
+import com.formdev.flatlaf.themes.FlatMacDarkLaf;
+
+
+
 import auth.Auth;
 import util.TipoDepartamento;
 
@@ -78,6 +84,8 @@ public class Pricipal extends JFrame implements ActionListener {
 	}
 
 	public Pricipal() {
+		
+		
 		setResizable(false);
 		
 		

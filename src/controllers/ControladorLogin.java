@@ -14,24 +14,51 @@ import views.auth.Entrar;
 import views.auth.LoginTemplate;
 import views.layouts.Pricipal;
 
-
 public class ControladorLogin {
 
     public static void mostrarLogin() {
-        Credenciales c = Session.obtenerSession();
-        if (c != null) {
-            intentarAutenticar(c.getUsuario(), c.getContrasena(), false)
-            ControladorPrincipal.mostrarInicio();
-            
+        LoginTemplate frame = new LoginTemplate();
+        if (Session.obtenerSession() != null) {
+            Credenciales c = Session.obtenerSession();
+
+            if (c.getUsuario() != null) {
+                Autenticable auth = VerificacionCredenciales.autenticar(c.getUsuario(), c.getContrasena());
+                if (auth != null) {
+                    Auth.iniciarSesion(auth, c.getUsuario());
+                    ControladorPrincipal.mostrarInicio();
+
+                }
+
+                else {
+
+                    try {
+                       
+                        frame.setVisible(true);
+
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+
+                }
+            } else {
+                
+                try {
+                   
+                    frame.setVisible(true);
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
         } else {
             // Pricipal instancia = Pricipal.getInstancia();
             // instancia.setVista(Entrar.getVista().getPanel());
             // Pricipal.getInstancia().revalidate();
             // Pricipal.getInstancia().repaint();
             try {
-                LoginTemplate frame = new LoginTemplate();
+                
                 frame.setVisible(true);
-              
+
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -47,11 +74,10 @@ public class ControladorLogin {
         boolean autenticado = false;
         Autenticable auth = VerificacionCredenciales.autenticar(nombreUsuario, hashContrasena(password));
         if (auth != null) {
-            Auth.iniciarSesion(auth,nombreUsuario);
+            Auth.iniciarSesion(auth, nombreUsuario);
             autenticado = true;
             if (mantenerConectado) {
-                new Session(new Credenciales(nombreUsuario,hashContrasena(password)));
-
+                new Session(new Credenciales(nombreUsuario, hashContrasena(password)));
             }
         }
 

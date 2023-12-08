@@ -24,28 +24,51 @@ public class ObtenerSolicitudesEmpleados {
 
         Gson gson = new Gson();
         HashMap<Empleado, Set<Solicitud>> solicitudes = new HashMap<>();
-        HashMap<Empleado, Set<Solicitud>> licencias = new HashMap<>();
-        HashMap<Empleado, Set<Solicitud>> licenci = new HashMap<>();
+        HashMap<Empleado, Set<Solicitud>> licenciasDocentes = new HashMap<>();
+        HashMap<Empleado, Set<Solicitud>> licenciasNoDocentes = new HashMap<>();
+        HashMap<Empleado, Set<Solicitud>> bajasDocentes = new HashMap<>();
+        HashMap<Empleado, Set<Solicitud>> bajasNoDocentes = new HashMap<>();
 
-        try (BufferedReader reader = new BufferedReader(new FileReader("./jsons/solicitudes/solicitudes.json"))) {
+
+        try (BufferedReader reader = new BufferedReader(new FileReader("./jsons/solicitudes/solicitudesLicenciaDocentes.json"))) {
             Type listType = new TypeToken<HashMap<Docente, Set<SolicitudLicencia>>>() {
             }.getType();
-            licencias = gson.fromJson(reader, listType);
+            licenciasDocentes = gson.fromJson(reader, listType);
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        try (BufferedReader reader = new BufferedReader(new FileReader("./jsons/solicitudes/solicitudes.json"))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("./jsons/solicitudes/solicitudesBajasDocentes.json"))) {
+            Type listType = new TypeToken<HashMap<Docente, Set<SolicitudBaja>>>() {
+            }.getType();
+            bajasDocentes = gson.fromJson(reader, listType);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        try (BufferedReader reader = new BufferedReader(new FileReader("./jsons/solicitudes/solicitudesLicenciaNoDocentes.json"))) {
             Type listType = new TypeToken<HashMap<NoDocente, Set<SolicitudLicencia>>>() {
             }.getType();
-            licenci = gson.fromJson(reader, listType);
+            licenciasNoDocentes = gson.fromJson(reader, listType);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        try (BufferedReader reader = new BufferedReader(new FileReader("./jsons/solicitudes/solicitudesBajasNoDocentes.json"))) {
+            Type listType = new TypeToken<HashMap< NoDocente, Set<SolicitudBaja>>>() {
+            }.getType();
+            bajasNoDocentes = gson.fromJson(reader, listType);
         } catch (IOException e) {
             e.printStackTrace();
         }
         
 
-        solicitudes.putAll(licencias);
-        solicitudes.putAll(licenci);
+        solicitudes.putAll(licenciasDocentes);
+        solicitudes.putAll(licenciasNoDocentes);
+        solicitudes.putAll(bajasDocentes);
+        solicitudes.putAll(bajasNoDocentes);
+
+        
         return solicitudes;
     }
 }

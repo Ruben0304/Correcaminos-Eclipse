@@ -1,18 +1,16 @@
 [
     [
         {
-            "ci": "81020563846",
-            "nombre": "Marcel",
-            "primer_apellido": "Pérez",
-            "segundo_apellido": "González",
-            "numerotrabajador": "987654",
-            "facultad": "Ing_Industrial",
-            "departamento": "Matemáticas",
-            "categoriaDocente": "Profesor Titular"
+            "ci": "90070561846",
+        "nombre": "Jason",
+        "primer_apellido": "Beghe",
+        "segundo_apellido": "Soffer",
+        "numerotrabajador": "200001",
+        "seccion": "Seguridad"
         },
         [
             {
-                "id": 22,
+                "id": 27,
                 "estado": "PENDIENTE",
                 "fecha": {
                     "year": 2023,
@@ -45,18 +43,16 @@
     ],
     [
         {
-            "ci": "81030561847",
-            "nombre": "Diego",
-            "primer_apellido": "Ramos",
-            "segundo_apellido": "Rodriguez",
-            "numerotrabajador": "810000",
-            "facultad": "Ing_Informatica",
-            "departamento": "Programacion",
-            "categoriaDocente": "MASTER"
+            "ci": "91010561846",
+        "nombre": "Sophia",
+        "primer_apellido": "Bush",
+        "segundo_apellido": "Geraghty",
+        "numerotrabajador": "200002",
+        "seccion": "Mantenimiento"
         },
         [
             {
-                "id": 23,
+                "id": 28,
                 "estado": "PENDIENTE",
                 "fecha": {
                     "year": 2023,
@@ -88,19 +84,17 @@
     ],
     [
         {
-            "ci": "83050561849",
-            "nombre": "Martin",
-            "primer_apellido": "Rodriguez",
-            "segundo_apellido": "Perez",
-            "numerotrabajador": "830000",
-            "facultad": "Ing_Informatica",
-            "departamento": "Inteligencia Artificial",
-            "categoriaDocente": "INGENIERO"
+            "ci": "92020561846",
+            "nombre": "Brian",
+            "primer_apellido": "Geraghty",
+            "segundo_apellido": "Aguilar",
+            "numerotrabajador": "200003",
+            "seccion": "Cafeteria"
         },
         [
            
             {
-                "id": 24,
+                "id": 29,
                 "estado": "PENDIENTE",
                 "fecha": {
                     "year": 2023,
@@ -132,19 +126,17 @@
     ],
     [
         {
-            "ci": "84010561850",
-        "nombre": "Gabriela",
-        "primer_apellido": "Rocha",
-        "segundo_apellido": "Gonzalez",
-        "numerotrabajador": "840000",
-        "facultad": "Ing_Informatica",
-        "departamento": "Bases De Datos",
-        "categoriaDocente": "MASTER"
+            "ci": "93030561846",
+        "nombre": "Stella",
+        "primer_apellido": "Maeve",
+        "segundo_apellido": "O'Connor",
+        "numerotrabajador": "200004",
+        "seccion": "Comedor"
         },
         [
             
             {
-                "id": 25,
+                "id": 30,
                 "estado": "PENDIENTE",
                 "fecha": {
                     "year": 2023,
@@ -177,18 +169,16 @@
     ],
     [
         {
-            "ci": "80070561846",
-        "nombre": "Natalia",
-        "primer_apellido": "Oreiro",
-        "segundo_apellido": "Iglesias",
-        "numerotrabajador": "800001",
-        "facultad": "Ing_Informatica",
-        "departamento": "Matematicas",
-        "categoriaDocente": "INGENIERO"
+            "ci": "94040561846",
+        "nombre": "Kara",
+        "primer_apellido": "Killmer",
+        "segundo_apellido": "Eigenberg",
+        "numerotrabajador": "200005",
+        "seccion": "Limpieza"
         },
         [
             {
-                "id": 26,
+                "id": 31,
                 "estado": "PENDIENTE",
                 "fecha": {
                     "year": 2023,
@@ -219,4 +209,5 @@
             
         ]
     ]
+    
 ]

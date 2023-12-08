@@ -1,30 +1,174 @@
 [
-  [
-  	{
-	    "curso": 1,
-	    "tipoCurso": "DIURNO",
-	    "carrera": "Ingenieria Informatica",
-	    "grupo": 1,
-	    "ci": "01234567891",
-	    "nombre": "Juan",
-	    "primer_apellido": "Perez",
-	    "segundo_apellido": "Perez",
-	    "facultad": "Ing_Informatica"
-  	},
-  	[
-	  	{
-	  		"id": 1,
-	  		"estado": "PENDIENTE",
-	  		"fecha": {
-		      "year": 2023,
-		      "month": 10,
-		      "dayOfMonth": 18,
-		      "hourOfDay": 0,
-		      "minute": 23,
-		      "second": 11
-	    	},
-	    	"motivo": "Enfermedad"
-	  	}
-  	]
-  ]
+	[
+		{
+			"curso": 1,
+			"tipoCurso": "DIURNO",
+			"carrera": "Ingenieria Informatica",
+			"grupo": 1,
+			"ci": "01234567891",
+			"nombre": "Juan",
+			"primer_apellido": "Perez",
+			"segundo_apellido": "Perez",
+			"facultad": "Ing_Informatica"
+		},
+		[
+			{
+				"id": 12,
+				"estado": "PENDIENTE",
+				"fecha": {
+					"year": 2023,
+					"month": 10,
+					"dayOfMonth": 18,
+					"hourOfDay": 0,
+					"minute": 23,
+					"second": 11
+				},
+				"motivo": "Enfermedad"
+			}
+		]
+	],
+	[
+		{
+			"curso": 1,
+			"tipoCurso": "DIURNO",
+			"carrera": "Ingenieria Informatica",
+			"grupo": 11,
+			"ci": "01010161846",
+			"nombre": "Luciano",
+			"primer_apellido": "Castro",
+			"segundo_apellido": "Gonzalez",
+			"facultad": "Ing_Informatica"
+		},
+		[
+			{
+			"id": 7,
+			"estado": "PENDIENTE",
+			"fecha": {
+				"year": 2023,
+				"month": 9,
+				"dayOfMonth": 2,
+				"hourOfDay": 8,
+				"minute": 0,
+				"second": 0
+			},
+			"motivo": "Accidente"
+		}
+		]
+	],
+	[
+		{
+			"curso": 2,
+			"tipoCurso": "DIURNO",
+			"carrera": "Ingenieria Informatica",
+			"grupo": 23,
+			"ci": "02010161846",
+			"nombre": "Adrian",
+			"primer_apellido": "Suar",
+			"segundo_apellido": "Martinez",
+			"facultad": "Ing_Informatica"
+		},
+		[
+			{
+				"id": 8,
+				"estado": "PENDIENTE",
+				"fecha": {
+					"year": 2023,
+					"month": 10,
+					"dayOfMonth": 30,
+					"hourOfDay": 16,
+					"minute": 0,
+					"second": 0
+				},
+				"motivo": "Enfermedad"
+			}
+			
+		]
+	],
+	[
+		{
+			"curso": 3,
+			"tipoCurso": "DIURNO",
+			"carrera": "Ingenieria Informatica",
+			"grupo": 32,
+			"ci": "03010161846",
+			"nombre": "Facundo",
+			"primer_apellido": "Arana",
+			"segundo_apellido": "Gonzalez",
+			"facultad": "Ing_Informatica"
+		},
+		[
+			{
+				"id": 9,
+				"estado": "PENDIENTE",
+				"fecha": {
+					"year": 2023,
+					"month": 11,
+					"dayOfMonth": 28,
+					"hourOfDay": 12,
+					"minute": 0,
+					"second": 0
+				},
+				"motivo": "Enfermedad"
+			}
+				
+		]
+	],
+	[
+		{
+			"curso": 4,
+			"tipoCurso": "DIURNO",
+			"carrera": "Ingenieria Informatica",
+			"grupo": 44,
+			"ci": "04010161846",
+			"nombre": "Benjamin",
+			"primer_apellido": "Vicuña",
+			"segundo_apellido": "Gonzalez",
+			"facultad": "Ing_Informatica"
+		},
+		[
+			{
+				"id": 10,
+				"estado": "PENDIENTE",
+				"fecha": {
+					"year": 2023,
+					"month": 10,
+					"dayOfMonth": 11,
+					"hourOfDay": 16,
+					"minute": 0,
+					"second": 0
+				},
+				"motivo": "Accidente"
+			}
+			
+		]
+	],
+	[
+		{
+			"curso": 1,
+			"tipoCurso": "DIURNO",
+			"carrera": "Ingenieria Informatica",
+			"grupo": 13,
+			"ci": "01020161846",
+			"nombre": "Pablo",
+			"primer_apellido": "Echarri",
+			"segundo_apellido": "Martinez",
+			"facultad": "Ing_Informatica"
+		},
+		[
+			{
+				"id": 11,
+				"estado": "PENDIENTE",
+				"fecha": {
+					"year": 2023,
+					"month": 9,
+					"dayOfMonth": 20,
+					"hourOfDay": 12,
+					"minute": 0,
+					"second": 0
+				},
+				"motivo": "Enfermedad"
+			}
+			
+		]
+	]
 ]

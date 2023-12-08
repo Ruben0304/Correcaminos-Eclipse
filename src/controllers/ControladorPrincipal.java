@@ -182,10 +182,15 @@ public class ControladorPrincipal {
     public static void mostrarTramites() {
         Pricipal instancia = Pricipal.getInstancia();
         if (Auth.usuarioAutenticado() instanceof Estudiante) {
+            if (Secretaria.gestorEstudiantes().getGestorSolicitudes().verificarEstudianteSolicitaAlgo((Estudiante)Auth.usuarioAutenticado())) {
+                mostrarRequisitosBajaEstudiantes();;
+            }
+            else{
              instancia.setVista(new SolicitudesEstudiantes());
+            }
         }
         else if (Auth.usuarioAutenticado() instanceof Empleado) {
-             
+             instancia.setVista(new SolictudesEmpleados());
         }
         else if (Auth.usuarioAutenticado() instanceof Admin) {
             instancia.setVista(new DepartamentosModelo());

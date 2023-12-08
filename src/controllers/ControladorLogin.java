@@ -28,7 +28,7 @@ public class ControladorLogin {
             try {
                 LoginTemplate frame = new LoginTemplate();
                 frame.setVisible(true);
-             System.out.println(hashContrasena("prueba"));   
+              
             } catch (Exception e) {
                 e.printStackTrace();
             }

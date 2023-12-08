@@ -45,7 +45,7 @@ import javax.swing.table.DefaultTableCellRenderer;
 import controllers.ControladorFiltrado;
 import models.gestion.GestorDepartamentos;
 import models.gestion.estudiantes.Secretaria;
-
+import models.solicitudes.Solicitud;
 import models.usuarios.Estudiante;
 
 import javax.swing.event.ChangeEvent;
@@ -88,7 +88,7 @@ public class PanelAdministracion extends JPanel {
 	private JLabel label_2;
 	private JTable table;
 	private HashMap<String, String> map;
-	private ArrayList<SolicitudBajaEstudiante> solicitudBajaEstudiantes;
+	private ArrayList<Solicitud> solicitudBajaEstudiantes;
 	private static PanelAdministracion panelAdministracion = null;
 
 	// public void filtrarTabla(){
@@ -96,7 +96,7 @@ public class PanelAdministracion extends JPanel {
 	// }
 
 	public static PanelAdministracion getPanelAdministracion(
-			ArrayList<SolicitudBajaEstudiante> solicitudBajaEstudiantes) {
+			ArrayList<Solicitud> solicitudBajaEstudiantes) {
 
 		return new PanelAdministracion();
 	}
@@ -221,7 +221,7 @@ public class PanelAdministracion extends JPanel {
 
 					getMap().put("facultad", comboBoxSeleccionarFac.getSelectedItem().toString());
 					getTable().setModel(
-							new PendientesEstudiantes(ControladorFiltrado.obtenerSolicitudesBajaEstudiantesFiltradas(getMap()), 8));
+							new PendientesEstudiantes(ControladorFiltrado.filtradoDinamicoSolicitudEstudiantes(getMap())));
 				}
 			});
 			comboBoxSeleccionarFac.addItemListener(new ItemListener() {
@@ -253,7 +253,7 @@ public class PanelAdministracion extends JPanel {
 				public void actionPerformed(ActionEvent e) {
 					getMap().put("estado", comboBox.getSelectedItem().toString());
 					getTable().setModel(
-							new PendientesEstudiantes(ControladorFiltrado.obtenerSolicitudesBajaEstudiantesFiltradas(getMap()), 8));
+							new ModeloFiltrado(ControladorFiltrado.filtradoDinamicoSolicitudEstudiantes(getMap())));
 				}
 			});
 			comboBox.setModel(new DefaultComboBoxModel(Estado.values()));
@@ -309,7 +309,7 @@ public class PanelAdministracion extends JPanel {
 			rdbtnEstudiante.setForeground(Color.WHITE);
 			rdbtnEstudiante.setBackground(new Color(40, 42, 46));
 			rdbtnEstudiante.setFont(new Font("Segoe UI Semibold", Font.BOLD, 15));
-			rdbtnEstudiante.setBounds(23, 85, 102, 25);
+			// rdbtnEstudiante.setBounds(235, 102, 25);
 		}
 		return rdbtnEstudiante;
 	}
@@ -330,7 +330,7 @@ public class PanelAdministracion extends JPanel {
 			rdbtnEmpleado.setForeground(Color.WHITE);
 			rdbtnEmpleado.setFont(new Font("Segoe UI Semibold", Font.BOLD, 15));
 			rdbtnEmpleado.setBackground(new Color(40, 42, 46));
-			rdbtnEmpleado.setBounds(125, 85, 127, 25);
+			// rdbtnEmpleado.setBounds(1255, 127, 25);
 		}
 		return rdbtnEmpleado;
 	}
@@ -413,8 +413,8 @@ public class PanelAdministracion extends JPanel {
 
 					getMap().put("buscar", textField.getText());
 					getTable().setModel(
-							new PendientesEstudiantes(
-									ControladorFiltrado.obtenerSolicitudesBajaEstudiantesFiltradas(getMap()), 8));
+							new ModeloFiltrado(
+									ControladorFiltrado.filtradoDinamicoSolicitudEstudiantes(getMap())));
 
 				}
 			});
@@ -447,8 +447,8 @@ public class PanelAdministracion extends JPanel {
 				public void actionPerformed(ActionEvent e) {
 					map.put("motivo", comboBox_2.getSelectedItem().toString());
 					getTable().setModel(
-							new PendientesEstudiantes(
-									ControladorFiltrado.obtenerSolicitudesBajaEstudiantesFiltradas(getMap()), 8));
+							new ModeloFiltrado(
+									ControladorFiltrado.filtradoDinamicoSolicitudEstudiantes(getMap())));
 				}
 			});
 			
@@ -479,8 +479,8 @@ public class PanelAdministracion extends JPanel {
 					getMap().put("anio", Integer.toString(slider.getValue()));
 
 					getTable().setModel(
-							new PendientesEstudiantes(
-									ControladorFiltrado.obtenerSolicitudesBajaEstudiantesFiltradas(getMap()), 8));
+							new ModeloFiltrado(
+									ControladorFiltrado.filtradoDinamicoSolicitudEstudiantes(getMap())));
 
 				}
 			});
@@ -531,8 +531,8 @@ public class PanelAdministracion extends JPanel {
 			table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 			// scrollPane.setViewportView(table);
 
-			table.setModel(new PendientesEstudiantes(
-					ControladorFiltrado.obtenerSolicitudesBajaEstudiantesFiltradas(getMap()), 8));
+			table.setModel(new ModeloFiltrado(
+					ControladorFiltrado.filtradoDinamicoSolicitudEstudiantes(getMap())));
 
 			table.setBounds(112, 33, 587, 476);
 			table.setBackground(new Color(31, 33, 36));

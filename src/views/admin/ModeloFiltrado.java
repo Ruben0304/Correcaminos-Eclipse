@@ -1,49 +1,50 @@
 package views.admin;
 
 import javax.swing.table.DefaultTableModel;
+
+import controllers.ControladorFiltrado;
 import util.Facultad;
 import models.solicitudes.Solicitud;
+import models.solicitudes.SolicitudBaja;
+import models.usuarios.Empleado;
 import models.usuarios.Estudiante;
+import models.usuarios.Persona;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
 import java.util.Vector;
 
-public class PendientesEstudiantes extends DefaultTableModel {
+public class ModeloFiltrado extends DefaultTableModel {
 
 	private static final long serialVersionUID = 1L;
 
-	public PendientesEstudiantes() {
+	public ModeloFiltrado() {
 		String[] columnNames = {
 				"DNI", "Nombre", "Apellido", "Carrera" };
 		this.setColumnIdentifiers(columnNames);
 	}
 
-	public PendientesEstudiantes(ArrayList<Estudiante> estudiantes) {
+	public ModeloFiltrado(HashMap<Estudiante,Set<Solicitud>> solicitudes) {
 		String[] columnNames = {
-				"DNI", "Nombre", "Apellido", "Carrera" };
+				"Id","DNI", "Nombre", "Apellido", "Año","Tipo" };
 		this.setColumnIdentifiers(columnNames);
-		for (Estudiante e : estudiantes) {
-			Object[] newRow = new Object[] { e.getCi(), e.getNombre(), e.getApellidos(),
-					e.getCarrera() };
+		for (Map.Entry<Estudiante, Set<Solicitud>> s : solicitudes.entrySet()) {
+            Estudiante p = s.getKey();
+			Set<Solicitud> listaSolicitudes = s.getValue();
+			for (Solicitud solicitud : listaSolicitudes) {
+				Object[] newRow = new Object[] {solicitud.getId(), p.getCi(), p.getNombre(), p.getApellidos(),solicitud.getAnioExpedicion(),solicitud instanceof SolicitudBaja ? "Baja" : "Licencia"
+					 };
 			addRow(newRow);
-		}
-
-	}
-
-	public PendientesEstudiantes(ArrayList<Solicitud> soli, int a) {
-		String[] columnNames = {
-				"DNI", "Nombre", "Apellido", "Carrera" };
-		this.setColumnIdentifiers(columnNames);
-		for (Solicitud e : soli) {
-			if () {
-				
 			}
-			Object[] newRow = new Object[] { e.getEstudiante().getCi(), e.getEstudiante().getNombre(), e.getEstudiante().getApellidos(),
-					e.getEstudiante().getCarrera() };
-			addRow(newRow);
+			
 		}
+		
 
 	}
+
+
 
 	public void adicionar(String Nombre, String PrimerApellido, String SegundoApellido, Facultad Facultad) {
 		Object[] newRow = new Object[] { Nombre, PrimerApellido, SegundoApellido, Facultad };

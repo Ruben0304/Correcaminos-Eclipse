@@ -14,6 +14,7 @@ import javax.swing.JPanel;
 import models.usuarios.Admin;
 import models.usuarios.Estudiante;
 import models.usuarios.Persona;
+import util.TipoDepartamento;
 import views.chat.ChatPanel;
 import views.layouts.Pricipal;
 import auth.Auth;
@@ -44,14 +45,13 @@ public class Navegacion extends JPanel {
 	private static Navegacion instance;
 	private JLabel label_3;
 	private JLabel label_4;
-	
+
 	public static Navegacion getInstancia() {
 		if (instance == null) {
 			instance = new Navegacion();
 		}
 		return instance;
 	}
-
 
 	private Navegacion() {
 		addMouseListener(new MouseAdapter() {
@@ -73,14 +73,42 @@ public class Navegacion extends JPanel {
 		setLayout(null);
 		add(getLabel_4());
 		add(getLabel_3());
+
+		JLabel label_5 = new JLabel();
+		label_5.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		label_5.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+
+				getHome_bg().setVisible(false);
+				getReportes_bg().setVisible(false);
+				getAccount_bg().setVisible(false);
+				getGestion_bg().setVisible(false);
+				getGuardar_bg().setVisible(true);
+				ControladorAdmin.mostrarPanelAdmin();
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				setBounds(0, 0, 155, 700);
+				label_2.setVisible(false);
+			}
+		});
+		label_5.setIcon(new ImageIcon(Navegacion.class.getResource("/img/Business Report.png")));
+		label_5.setBounds(19, 333, 33, 28);
+
 		add(getHome());
-		if (Auth.hayUsuarioAutenticado() && Auth.usuarioAutenticado() instanceof Admin) {
+		if (Auth.hayUsuarioAutenticado() && Auth.usuarioAutenticado() instanceof Admin
+				&& (((Admin) Auth.usuarioAutenticado()).getTipoDepartamento().equals(TipoDepartamento.Secretaria)
+						|| ((Admin) Auth.usuarioAutenticado()).getTipoDepartamento()
+								.equals(TipoDepartamento.RecursosHumanos))) {
+			add(label_5);
 
 		} else if (Auth.hayUsuarioAutenticado() && Auth.usuarioAutenticado() instanceof Estudiante) {
 			add(getReportes());
-			// panel_inicio.add(getGuardar());
+
 			add(getLblReportes());
-			// panel_inicio.add(getLabel_1_1());
+
 		}
 
 		add(getAccount());
@@ -98,6 +126,12 @@ public class Navegacion extends JPanel {
 		add(getLabel_1_2());
 		add(getLabel_1());
 		add(getLabel_2());
+
+		JLabel lblRegistros = new JLabel("Registros");
+		lblRegistros.setForeground(Color.WHITE);
+		lblRegistros.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 17));
+		lblRegistros.setBounds(71, 333, 89, 30);
+		add(lblRegistros);
 	}
 
 	public static JPanel getBarraNavegacion() {
@@ -175,7 +209,7 @@ public class Navegacion extends JPanel {
 					getGestion_bg().setVisible(false);
 					getGuardar_bg().setVisible(false);
 					if (Auth.hayUsuarioAutenticado()) {
-                        ControladorPrincipal.mostrarAccount();
+						ControladorPrincipal.mostrarAccount();
 					} else {
 						ControladorLogin.mostrarLogin();
 					}
@@ -385,9 +419,11 @@ public class Navegacion extends JPanel {
 		}
 		return label_2;
 	}
+
 	public static void reiniciar() {
 		Navegacion.instance = null;
 	}
+
 	private JLabel getLabel_3() {
 		if (label_3 == null) {
 			label_3 = new JLabel();
@@ -396,6 +432,7 @@ public class Navegacion extends JPanel {
 		}
 		return label_3;
 	}
+
 	private JLabel getLabel_4() {
 		if (label_4 == null) {
 			label_4 = new JLabel("3");

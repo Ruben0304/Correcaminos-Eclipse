@@ -1,0 +1,15 @@
+[
+    {
+        "curso": 1,
+        "tipoCurso": "DIURNO",
+        "carrera": "Ingenieria Informatica",
+        "grupo": 13,
+        "ci": "01012367891",
+        "nombre": "Luis",
+        "primer_apellido": "Capote",
+        "segundo_apellido": "Perez",
+        "facultad": "Ing_Informatica",
+        "idBecado": "12345",
+        "noCuarto": 301
+      }
+]

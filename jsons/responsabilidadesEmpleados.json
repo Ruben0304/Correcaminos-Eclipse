@@ -31,8 +31,8 @@
 "seccion": "Limpieza"
   },  "responsabilidades": [
       "CARNET_CUJAE",
-      "LIBROS_BIBLIOTECA"
-      "CARNET_BIBLIOTECA",
+      "LIBROS_BIBLIOTECA",
+      "CARNET_BIBLIOTECA"
     ]
   },
   {
@@ -50,7 +50,7 @@
       "CARNET_CUJAE",
       "SALARIO_INDEBIDO",
       "LIBROS_BIBLIOTECA",
-      "CARNET_BIBLIOTECA",
+      "CARNET_BIBLIOTECA"
     ]
   },
   {
@@ -71,8 +71,8 @@
       "SALARIO_INDEBIDO",
       "DEUDA",
       "CUENTA_USUARIO",
-      "LIBROS_BIBLIOTECA"
-      "CARNET_BIBLIOTECA",
+      "LIBROS_BIBLIOTECA",
+      "CARNET_BIBLIOTECA"
     ]
   } 
 ]

@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+import models.usuarios.Becado;
 import models.usuarios.Empleado;
 import models.usuarios.Estudiante;
 
@@ -22,16 +23,31 @@ public class ObtenerEstudiantes {
          Gson gson = new Gson();
         
 	    ArrayList<Estudiante> estudiantes = new ArrayList<>();
+        ArrayList<Estudiante> estudiantesB = new ArrayList<>();
+        ArrayList<Estudiante> estudiantesNoB = new ArrayList<>();
 
         try (BufferedReader reader = new BufferedReader(new FileReader("./estudiantes.json"))) {
             Type listType = new TypeToken<ArrayList<Estudiante>>() {
             }.getType();
 
-            estudiantes = gson.fromJson(reader, listType);
+            estudiantesNoB = gson.fromJson(reader, listType);
 
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        try (BufferedReader reader = new BufferedReader(new FileReader("./estudiantesBecados.json"))) {
+            Type listType = new TypeToken<ArrayList<Becado>>() {
+            }.getType();
+
+            estudiantesB = gson.fromJson(reader, listType);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        estudiantes.addAll(estudiantesNoB);
+        estudiantes.addAll(estudiantesB);
 
         return estudiantes;
     }

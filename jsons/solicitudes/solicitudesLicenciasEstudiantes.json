@@ -1,47 +1,227 @@
 [
 	[
 		{
-		    "curso": 2,
-		    "tipoCurso": "ENCUENTRO",
-		    "carrera": "Ingenieria Informatica",
-		    "grupo": 2,
-		    "ci": "12345678902",
-		    "nombre": "Maria",
-		    "primer_apellido": "Gonzalez",
-		    "segundo_apellido": "Perez",
-		    "facultad": "Ing_Informatica"
+			"curso": 1,
+			"tipoCurso": "DIURNO",
+			"carrera": "Ingenieria Informatica",
+			"grupo": 11,
+			"ci": "02010561846",
+			"nombre": "Sebastian",
+			"primer_apellido": "Martinez",
+			"segundo_apellido": "Diaz",
+			"facultad": "Ing_Informatica"
   		},
   		[
-	  		{
-	  			"id": 2,
-	  			"estado": "PENDIENTE",
-	    		"fecha": {
-		     		"year": 2023,
-		      		"month": 10,
-			        "dayOfMonth": 18,
-			        "hourOfDay": 0,
-			        "minute": 23,
-			        "second": 11
-	  		     },
-	  		     "motivo": "Accidente",
-	  		     "fechaSalida": {
-	  		     	"year": 2024,
-		      		"month": 1,
-			        "dayOfMonth": 15,
-			        "hourOfDay": 0,
-			        "minute": 0,
-			        "second": 0
-	  		     },
-	  		     "fechaRegreso": {
-	  		     	
-	  		     	"year": 2024,
-		      		"month": 1,
-			        "dayOfMonth": 30,
-			        "hourOfDay": 8,
-			        "minute": 0,
-			        "second": 0
-	  		     }
-	  		}
+			{
+				"id": 12,
+				"estado": "PENDIENTE",
+				"fecha": {
+					"year": 2023,
+					"month": 10,
+					"dayOfMonth": 28,
+					"hourOfDay": 16,
+					"minute": 0,
+					"second": 0
+				},
+				"motivo": "Enfermedad",
+				"fechaSalida": {
+					"year": 2024,
+					"month": 1,
+					"dayOfMonth": 15,
+					"hourOfDay": 0,
+					"minute": 0,
+					"second": 0
+				},
+				"fechaRegreso": {
+					"year": 2024,
+					"month": 9,
+					"dayOfMonth": 1,
+					"hourOfDay": 8,
+					"minute": 0,
+					"second": 0
+				}
+			}
+			
+  	 ]    
+	],
+	[
+		{
+			"curso": 2,
+    "tipoCurso": "DIURNO",
+    "carrera": "Ingenieria Informatica",
+    "grupo": 23,
+    "ci": "02060561846",
+    "nombre": "Carolina",
+    "primer_apellido": "Gomez",
+    "segundo_apellido": "Lopez",
+    "facultad": "Ing_Informatica"
+  		},
+  		[
+			{
+				"id": 13,
+				"estado": "PENDIENTE",
+				"fecha": {
+					"year": 2023,
+					"month": 12,
+					"dayOfMonth": 22,
+					"hourOfDay": 8,
+					"minute": 0,
+					"second": 0
+				},
+				"motivo": "Accidente",
+				"fechaSalida": {
+					"year": 2024,
+					"month": 1,
+					"dayOfMonth": 15,
+					"hourOfDay": 0,
+					"minute": 0,
+					"second": 0
+				},
+				"fechaRegreso": {
+					"year": 2024,
+					"month": 9,
+					"dayOfMonth": 1,
+					"hourOfDay": 8,
+					"minute": 0,
+					"second": 0
+				}
+			}
+				
+  	 ]    
+	],
+	[
+		{
+			"curso": 3,
+    "tipoCurso": "DIURNO",
+    "carrera": "Ingenieria Informatica",
+    "grupo": 32,
+    "ci": "02090561846",
+    "nombre": "Sofia",
+    "primer_apellido": "Vergara",
+    "segundo_apellido": "Ramirez",
+    "facultad": "Ing_Informatica"
+  		},
+  		[
+			{
+				"id": 14,
+				"estado": "PENDIENTE",
+				"fecha": {
+					"year": 2023,
+					"month": 11,
+					"dayOfMonth": 2,
+					"hourOfDay": 16,
+					"minute": 0,
+					"second": 0
+				},
+				"motivo": "Enfermedad",
+				"fechaSalida": {
+					"year": 2024,
+					"month": 1,
+					"dayOfMonth": 15,
+					"hourOfDay": 0,
+					"minute": 0,
+					"second": 0
+				},
+				"fechaRegreso": {
+					"year": 2024,
+					"month": 9,
+					"dayOfMonth": 1,
+					"hourOfDay": 8,
+					"minute": 0,
+					"second": 0
+				}
+			}
+				
+  	 ]    
+	],
+	[
+		{
+			"curso": 4,
+    "tipoCurso": "DIURNO",
+    "carrera": "Ingenieria Informatica",
+    "grupo": 44,
+    "ci": "02040561846",
+    "nombre": "Juan",
+    "primer_apellido": "Pablo",
+    "segundo_apellido": "Raba",
+    "facultad": "Ing_Informatica"
+  		},
+  		[
+			{
+				"id": 15,
+				"estado": "PENDIENTE",
+				"fecha": {
+					"year": 2023,
+					"month": 9,
+					"dayOfMonth": 7,
+					"hourOfDay": 12,
+					"minute": 0,
+					"second": 0
+				},
+				"motivo": "Enfermedad",
+				"fechaSalida": {
+					"year": 2024,
+					"month": 1,
+					"dayOfMonth": 15,
+					"hourOfDay": 0,
+					"minute": 0,
+					"second": 0
+				},
+				"fechaRegreso": {
+					"year": 2024,
+					"month": 9,
+					"dayOfMonth": 1,
+					"hourOfDay": 8,
+					"minute": 0,
+					"second": 0
+				}
+			}
+				
+  	 ]    
+	],
+	[
+		{
+			"curso": 1,
+    "tipoCurso": "DIURNO",
+    "carrera": "Ingenieria Informatica",
+    "grupo": 13,
+    "ci": "02020561846",
+    "nombre": "Carmen",
+    "primer_apellido": "Villalobos",
+    "segundo_apellido": "Garcia",
+    "facultad": "Ing_Informatica"
+  		},
+  		[
+			{
+				"id": 16,
+				"estado": "PENDIENTE",
+				"fecha": {
+					"year": 2023,
+					"month": 12,
+					"dayOfMonth": 29,
+					"hourOfDay": 8,
+					"minute": 0,
+					"second": 0
+				},
+				"motivo": "Accidente",
+				"fechaSalida": {
+					"year": 2024,
+					"month": 1,
+					"dayOfMonth": 15,
+					"hourOfDay": 0,
+					"minute": 0,
+					"second": 0
+				},
+				"fechaRegreso": {
+					"year": 2024,
+					"month": 9,
+					"dayOfMonth": 1,
+					"hourOfDay": 8,
+					"minute": 0,
+					"second": 0
+				}
+			}
+			
   	 ]    
 	]
 ]

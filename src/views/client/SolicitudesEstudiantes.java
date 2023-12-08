@@ -13,10 +13,18 @@ import javax.swing.UIManager;
 import com.formdev.flatlaf.FlatLaf;
 import com.formdev.flatlaf.fonts.roboto.FlatRobotoFont;
 import com.formdev.flatlaf.themes.FlatMacDarkLaf;
+
+import auth.Auth;
+import controllers.ControladorPrincipal;
+import models.gestion.estudiantes.Secretaria;
+import models.usuarios.Estudiante;
+
 import javax.swing.JButton;
 import javax.swing.DefaultComboBoxModel;
 import util.MotivoLicencia;
 import util.MotivoBaja;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class SolicitudesEstudiantes extends JPanel {
 	/**
@@ -115,6 +123,12 @@ public class SolicitudesEstudiantes extends JPanel {
 		panelLicencia.add(cbMotivosLicencia);
 		
 		btnSolicitarLicencia = new JButton("Solicitar Licencia");
+		btnSolicitarLicencia.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Secretaria.gestorEstudiantes().getGestorSolicitudes().crearSolicitudLiciencia((MotivoLicencia)cbMotivosLicencia.getSelectedItem(), (Estudiante) Auth.usuarioAutenticado());
+				ControladorPrincipal.mostrarRequisitosBajaEstudiantes();
+			}
+		});
 		btnSolicitarLicencia.setBounds(10, 96, 150, 23);
 		btnSolicitarLicencia.setFont(new Font(FlatRobotoFont.FAMILY,Font.PLAIN,13));
 		btnSolicitarLicencia.setForeground(Color.BLACK);

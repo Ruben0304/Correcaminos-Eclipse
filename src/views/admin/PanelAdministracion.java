@@ -95,8 +95,7 @@ public class PanelAdministracion extends JPanel {
 
 	// }
 
-	public static PanelAdministracion getPanelAdministracion(
-			ArrayList<Solicitud> solicitudBajaEstudiantes) {
+	public static PanelAdministracion getPanelAdministracion() {
 
 		return new PanelAdministracion();
 	}
@@ -221,7 +220,7 @@ public class PanelAdministracion extends JPanel {
 
 					getMap().put("facultad", comboBoxSeleccionarFac.getSelectedItem().toString());
 					getTable().setModel(
-							new PendientesEstudiantes(ControladorFiltrado.filtradoDinamicoSolicitudEstudiantes(getMap())));
+							new ModeloFiltrado(ControladorFiltrado.filtradoDinamicoSolicitudEstudiantes(getMap())));
 				}
 			});
 			comboBoxSeleccionarFac.addItemListener(new ItemListener() {

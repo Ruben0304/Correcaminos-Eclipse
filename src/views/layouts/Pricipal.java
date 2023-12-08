@@ -92,8 +92,8 @@ public class Pricipal extends JFrame implements ActionListener {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Pricipal.class.getResource("/img/usuario_blanco.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1140, 744);
+		setLocationRelativeTo(this);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(31, 33, 36));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);

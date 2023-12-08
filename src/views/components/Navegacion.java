@@ -103,7 +103,7 @@ public class Navegacion extends JPanel {
 
 	private JLabel getHome() {
 		if (home == null) {
-			home = new JLabel("New label");
+			home = new JLabel();
 			home.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 			home.setIcon(new ImageIcon(Pricipal.class.getResource("/img/inicio.png")));
 			home.setBounds(19, 114, 33, 28);
@@ -131,7 +131,7 @@ public class Navegacion extends JPanel {
 
 	private JLabel getGuardar() {
 		if (guardar == null) {
-			guardar = new JLabel("New label");
+			guardar = new JLabel();
 			guardar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 			guardar.setIcon(new ImageIcon(Pricipal.class.getResource("/img/Updates.png")));
 			guardar.setBounds(19, 330, 33, 28);
@@ -158,7 +158,7 @@ public class Navegacion extends JPanel {
 
 	private JLabel getAccount() {
 		if (account == null) {
-			account = new JLabel("New label");
+			account = new JLabel();
 			account.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 			account.setIcon(new ImageIcon(Pricipal.class.getResource("/img/account.png")));
 			account.setBounds(19, 638, 33, 28);
@@ -190,7 +190,7 @@ public class Navegacion extends JPanel {
 
 	private JLabel getGestion() {
 		if (gestion == null) {
-			gestion = new JLabel("New label");
+			gestion = new JLabel();
 			gestion.addMouseListener(new MouseAdapter() {
 				@Override
 				public void mouseClicked(MouseEvent e) {
@@ -219,7 +219,7 @@ public class Navegacion extends JPanel {
 
 	private JLabel getReportes() {
 		if (reportes == null) {
-			reportes = new JLabel("New label");
+			reportes = new JLabel();
 			reportes.setVisible(true);
 			reportes.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 			reportes.setIcon(new ImageIcon(Pricipal.class.getResource("/img/chat.png")));
@@ -250,7 +250,7 @@ public class Navegacion extends JPanel {
 
 	private JLabel getHome_bg() {
 		if (home_bg == null) {
-			home_bg = new JLabel("New label");
+			home_bg = new JLabel();
 			home_bg.setIcon(new ImageIcon(Pricipal.class.getResource("/diagramas/Rounded Square.png")));
 			home_bg.setBounds(9, 93, 50, 71);
 		}
@@ -259,7 +259,7 @@ public class Navegacion extends JPanel {
 
 	private JLabel getGestion_bg() {
 		if (gestion_bg == null) {
-			gestion_bg = new JLabel("New label");
+			gestion_bg = new JLabel();
 			gestion_bg.setVisible(false);
 			gestion_bg.setIcon(new ImageIcon(Pricipal.class.getResource("/diagramas/Rounded Square.png")));
 			gestion_bg.setBounds(9, 165, 50, 71);
@@ -269,7 +269,7 @@ public class Navegacion extends JPanel {
 
 	private JLabel getReportes_bg() {
 		if (reportes_bg == null) {
-			reportes_bg = new JLabel("New label");
+			reportes_bg = new JLabel();
 			reportes_bg.setVisible(false);
 			reportes_bg.setIcon(new ImageIcon(Pricipal.class.getResource("/diagramas/Rounded Square.png")));
 			reportes_bg.setBounds(9, 237, 50, 71);
@@ -279,7 +279,7 @@ public class Navegacion extends JPanel {
 
 	private JLabel getGuardar_bg() {
 		if (guardar_bg == null) {
-			guardar_bg = new JLabel("New label");
+			guardar_bg = new JLabel();
 			guardar_bg.setVisible(false);
 			guardar_bg.setIcon(new ImageIcon(Pricipal.class.getResource("/diagramas/Rounded Square.png")));
 			guardar_bg.setBounds(9, 311, 50, 71);
@@ -289,7 +289,7 @@ public class Navegacion extends JPanel {
 
 	private JLabel getAccount_bg() {
 		if (account_bg == null) {
-			account_bg = new JLabel("New label");
+			account_bg = new JLabel();
 			account_bg.setVisible(false);
 			account_bg.setIcon(new ImageIcon(Pricipal.class.getResource("/diagramas/Rounded Square.png")));
 			account_bg.setBounds(9, 617, 50, 71);
@@ -309,7 +309,7 @@ public class Navegacion extends JPanel {
 
 	private JLabel getLblGestion() {
 		if (lblGestion == null) {
-			lblGestion = new JLabel("Gestion");
+			lblGestion = new JLabel("Trámites");
 			lblGestion.setForeground(Color.WHITE);
 			lblGestion.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 17));
 			lblGestion.setBounds(71, 184, 89, 30);
@@ -350,7 +350,7 @@ public class Navegacion extends JPanel {
 
 	private JLabel getLabel_1() {
 		if (label_1 == null) {
-			label_1 = new JLabel("New label");
+			label_1 = new JLabel();
 			label_1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 			label_1.addMouseListener(new MouseAdapter() {
 				@Override
@@ -367,7 +367,7 @@ public class Navegacion extends JPanel {
 
 	private JLabel getLabel_2() {
 		if (label_2 == null) {
-			label_2 = new JLabel("New label");
+			label_2 = new JLabel();
 			label_2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 			label_2.addMouseListener(new MouseAdapter() {
 				@Override
@@ -380,5 +380,8 @@ public class Navegacion extends JPanel {
 			label_2.setBounds(31, 13, 21, 28);
 		}
 		return label_2;
+	}
+	public static void reiniciar() {
+		Navegacion.instance = null;
 	}
 }

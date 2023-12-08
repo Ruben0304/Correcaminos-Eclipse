@@ -83,7 +83,7 @@ public class Inicio{
 			txtrnecesitasSolicitarUna.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 15));
 			txtrnecesitasSolicitarUna.setLineWrap(true);
 			txtrnecesitasSolicitarUna.setForeground(new Color(255, 255, 255));
-			txtrnecesitasSolicitarUna.setBackground(new Color(31, 33, 36));
+			
 			// new Color()
 			txtrnecesitasSolicitarUna.setText(
 					"\r\n. Correcamino: una app para gestionar bajas y licencias universitarias.\r\n\r\n.\u00BFNecesitas una baja o una licencia? Correcamino te ayuda a solicitarlas y a conocer los requisitos.\r\n\r\n.Correcamino te permite enviar tu solicitud electr\u00F3nicamente, recibir notificaciones, descargar documentos y contactar con el personal.\r\n\r\n.Correcamino es segura, r\u00E1pida y f\u00E1cil de usar. ");

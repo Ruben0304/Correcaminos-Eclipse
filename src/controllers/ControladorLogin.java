@@ -12,6 +12,7 @@ import models.usuarios.Credenciales;
 import views.Inicio;
 import views.auth.Entrar;
 import views.auth.LoginTemplate;
+import views.components.Navegacion;
 import views.layouts.Pricipal;
 
 public class ControladorLogin {
@@ -87,6 +88,8 @@ public class ControladorLogin {
     public static void cerrarSesion() {
         Auth.logout();
         new Session(null);
+        Navegacion.reiniciar();
+        Pricipal.getInstancia().dispose();
         mostrarLogin();
     }
 

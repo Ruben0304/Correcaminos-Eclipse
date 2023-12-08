@@ -27,8 +27,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Rectangle;
 import javax.swing.ImageIcon;
+import com.toedter.calendar.JDateChooser;
 
-public class SolicitudesEstudiantes extends JPanel {
+public class SolicitudesEmpleados extends JPanel {
 	/**
 	 * 
 	 */
@@ -48,7 +49,7 @@ public class SolicitudesEstudiantes extends JPanel {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					SolicitudesEstudiantes frame = new SolicitudesEstudiantes();
+					SolicitudesEmpleados frame = new SolicitudesEmpleados();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -60,7 +61,7 @@ public class SolicitudesEstudiantes extends JPanel {
 	/**
 	 * Create the frame.
 	 */
-	public SolicitudesEstudiantes() {
+	public SolicitudesEmpleados() {
 		
 		
 		
@@ -72,7 +73,7 @@ public class SolicitudesEstudiantes extends JPanel {
 		panelPrincipal.setLayout(null);
 		
 		panelBaja = new JPanel();
-		panelBaja.setBounds(509, 257, 407, 366);
+		panelBaja.setBounds(509, 236, 407, 387);
 		panelPrincipal.add(panelBaja);
 		panelBaja.setBorder(new TitledBorder(null, "Solicitud de Baja", TitledBorder.LEFT, TitledBorder.TOP, null, null));
 		panelBaja.setLayout(null);
@@ -91,12 +92,12 @@ public class SolicitudesEstudiantes extends JPanel {
 		btnSolicitarBaja.setForeground(Color.WHITE);
 		btnSolicitarBaja.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 18));
 		btnSolicitarBaja.setBackground(new Color(72, 189, 133));
-		btnSolicitarBaja.setBounds(107, 225, 223, 54);
+		btnSolicitarBaja.setBounds(106, 283, 223, 54);
 		panelBaja.add(btnSolicitarBaja);
 		
 		panelLicencia = new JPanel();
 		panelLicencia.setBorder(new TitledBorder(null, "Solicitud de Licencia", TitledBorder.LEFT, TitledBorder.TOP, null, null));
-		panelLicencia.setBounds(23, 257, 423, 366);
+		panelLicencia.setBounds(23, 236, 423, 387);
 		panelLicencia.setLayout(null);
 		panelPrincipal.add(panelLicencia);
 		
@@ -117,11 +118,31 @@ public class SolicitudesEstudiantes extends JPanel {
 				ControladorPrincipal.mostrarRequisitosBajaEstudiantes();
 			}
 		});
-		btnSolicitarLicencia.setBounds(89, 227, 223, 54);
+		btnSolicitarLicencia.setBounds(88, 288, 223, 54);
 		btnSolicitarLicencia.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 18));
 		btnSolicitarLicencia.setForeground(new Color(255, 255, 255));
 		btnSolicitarLicencia.setBackground(new Color(72, 189, 133));
 		panelLicencia.add(btnSolicitarLicencia);
+		
+		JDateChooser dateChooser = new JDateChooser("dd/MM/yyyy", "##/##/####", '_');
+		dateChooser.setForeground(new Color(255, 255, 255));
+		dateChooser.setBounds(169, 144, 201, 36);
+		panelLicencia.add(dateChooser);
+		
+		JDateChooser dateChooser_1 = new JDateChooser("dd/MM/yyyy", "##/##/####", '_');
+		dateChooser_1.setForeground(new Color(255, 255, 255));
+		dateChooser_1.setBounds(169, 217, 201, 36);
+		panelLicencia.add(dateChooser_1);
+		
+		JLabel lblFechaSalida = new JLabel("Salida:");
+		lblFechaSalida.setFont(new Font("Segoe UI", Font.PLAIN, 25));
+		lblFechaSalida.setBounds(53, 144, 90, 36);
+		panelLicencia.add(lblFechaSalida);
+		
+		JLabel lblRegreso = new JLabel("Regreso :");
+		lblRegreso.setFont(new Font("Segoe UI", Font.PLAIN, 25));
+		lblRegreso.setBounds(40, 217, 103, 36);
+		panelLicencia.add(lblRegreso);
 		
 		JLabel lblTrmites = new JLabel("Tr\u00E1mites");
 		lblTrmites.setForeground(Color.WHITE);
@@ -130,7 +151,7 @@ public class SolicitudesEstudiantes extends JPanel {
 		panelPrincipal.add(lblTrmites);
 		
 		JLabel label_2 = new JLabel("");
-		label_2.setIcon(new ImageIcon(SolicitudesEstudiantes.class.getResource("/img/Accountc.png")));
+		label_2.setIcon(new ImageIcon(SolicitudesEmpleados.class.getResource("/img/Accountc.png")));
 		label_2.setBounds(706, 24, 51, 37);
 		panelPrincipal.add(label_2);
 		

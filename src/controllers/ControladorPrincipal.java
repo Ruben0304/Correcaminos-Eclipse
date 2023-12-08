@@ -32,14 +32,14 @@ import views.TramitesEmpleados;
 import views.admin.DepartamentosModelo;
 import views.auth.CuentaJP;
 import views.chat.ChatPanel;
-import views.client.EstudiantesTramites;
+
+import views.client.InicioEmpleadoJP;
+import views.client.InicioEstudianteJP;
 import views.client.RequisitosEstudiante;
-import views.client.SolicitudBajaEmpleadoJP;
+import views.client.SolicitudesEmpleados;
 import views.client.SolicitudesEstudiantes;
-import views.client.SolictudesEmpleados;
+
 import views.layouts.Pricipal;
-import views.roy_yany.InicioEmpleadoJP;
-import views.roy_yany.InicioEstudianteJP;
 
 public class ControladorPrincipal {
 
@@ -158,7 +158,7 @@ public class ControladorPrincipal {
                     .verificarEmpleadoSolicitaAlgo((Empleado) Auth.usuarioAutenticado())) {
                 // mostrarRequisitosBajaEmpleado();
             }
-            instancia.setVista(new SolictudesEmpleados());
+            instancia.setVista(new SolicitudesEmpleados());
         } else if (Auth.usuarioAutenticado() instanceof Admin) {
             instancia.setVista(new DepartamentosModelo());
         }

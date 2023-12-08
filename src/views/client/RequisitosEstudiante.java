@@ -58,7 +58,7 @@ public class RequisitosEstudiante {
 			panel_RequisitosEstud = new JPanel();
 			panel_RequisitosEstud.setBounds(178, 0, 944, 700);
 			panel_RequisitosEstud.setLayout(null);
-			panel_RequisitosEstud.setBackground(new Color(31, 33, 36));
+			
 			panel_RequisitosEstud.add(getLblTitulo());
 			panel_RequisitosEstud.add(getLblBiblioteca());
 			panel_RequisitosEstud.add(getLblEntregadoTodosLos());

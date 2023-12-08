@@ -18,20 +18,18 @@ public class RecursosHumanos implements VerificadorEmpleado {
 	private HashMap<String, TiposResponsabilidad> empleadosConSalarioIndebido;
 	
 	public RecursosHumanos() {
-		empleadosConSalarioIndebido = new HashMap<Empleado, TiposResponsabilidad>();
+		empleadosConSalarioIndebido = new HashMap<String, TiposResponsabilidad>();
 		cargarInformacionEstudiantesConSalarioIndebido();
 	}
 	public void cargarInformacionEstudiantesConSalarioIndebido() {
 		empleadosConSalarioIndebido = ObtenerEmpleadosConSalarioIndebido.cargarDesdeArchivo();
 	}
 	
-	public boolean tieneSalarioIndebido(Empleado e) {
-		return empleadosConSalarioIndebido.containsKey(e);
-	}
+	
 	
 	@Override
 	public boolean verificarRequisitos(Empleado e) {
-		return tieneSalarioIndebido(e);
+		return empleadosConSalarioIndebido.containsKey(e.getCi());
 	}
 	
 	public void recogerSalarioIndebido(Empleado e) {

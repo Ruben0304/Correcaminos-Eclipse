@@ -24,7 +24,7 @@ public class DireccionDeBecas implements VerificadorEstudiante {
 	
 	@Override
 	public boolean verificarRequisitos(Estudiante e) {
-		return pertenenciasBecados.containsKey(((Becado)e));
+		return pertenenciasBecados.containsKey((e.getCi()));
 	}
 	
 	public void recogerPertenenciasDeEstudiante(Estudiante e, Set<String> pertenencias) {

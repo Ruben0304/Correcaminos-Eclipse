@@ -14,7 +14,7 @@ public class Contabilidad implements VerificadorEmpleado {
 	private HashMap<String, Double> empleadosDeudas;
 	
 	public Contabilidad() {
-		empleadosDeudas = new HashMap<Empleado, Double>();
+		empleadosDeudas = new HashMap<String, Double>();
 		cargarInformacionEmpleadosConDeudas();
 	}
 	public void cargarInformacionEmpleadosConDeudas() {
@@ -23,11 +23,11 @@ public class Contabilidad implements VerificadorEmpleado {
 	
 	@Override
 	public boolean verificarRequisitos(Empleado e) {
-		return empleadosDeudas.containsKey(e);
+		return empleadosDeudas.containsKey(e.getCi());
 	}
 	
 	public void saldarDeuda(Empleado e) {
-		empleadosDeudas.remove(e);
+		empleadosDeudas.remove(e.getCi());
 	}
 	
 	@Override

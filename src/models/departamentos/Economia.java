@@ -14,20 +14,17 @@ public class Economia implements VerificadorEstudiante {
 	private HashMap<String, TiposResponsabilidad> estudiantesConEstipendio;
 	
 	public Economia() {
-		estudiantesConEstipendio = new HashMap<Estudiante, TiposResponsabilidad>();
+		estudiantesConEstipendio = new HashMap<String, TiposResponsabilidad>();
 		cargarInformacionEstudiantesConEstipendio();
 	}
 	public void cargarInformacionEstudiantesConEstipendio() {
 		estudiantesConEstipendio = ObtenerEstudiantesConEstipendio.cargarDesdeArchivo();
 	}
 	
-    public boolean tieneEstipendio(Estudiante e) {
-        return estudiantesConEstipendio.containsKey(e);
-    }
 
     @Override
     public boolean verificarRequisitos(Estudiante e) {
-        return tieneEstipendio(e);
+        return estudiantesConEstipendio.containsKey(e.getCi());
     }
 
     public void cancelarPagoEstipendio(Estudiante e) {

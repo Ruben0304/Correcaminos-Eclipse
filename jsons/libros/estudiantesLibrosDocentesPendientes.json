@@ -1,18 +1,10 @@
 [
-  [
-      {
-	    "curso": 1,
-	    "tipoCurso": "DIURNO",
-	    "carrera": "Ingenieria Informatica",
-	    "grupo": 1,
-	    "ci": "01234567891",
-	    "nombre": "Juan",
-	    "primer_apellido": "Perez",
-	    "segundo_apellido": "Perez",
-	    "facultad": "Ing_Informatica"
-  	   },
-  	   [
-  	   		"Cálculo I", "Cálculo II", "Matemáticas Discretas"
-  	   ]
-  ]
+	[
+		"01234567891",
+		[
+			"Cálculo I",
+			"Cálculo II",
+			"Matemáticas Discretas"
+		]
+	]
 ]

@@ -20,6 +20,7 @@ import auth.Auth;
 import controllers.ControladorPrincipal;
 import models.gestion.empleados.GestorEmpleados;
 import models.gestion.estudiantes.Secretaria;
+import models.usuarios.Empleado;
 import models.usuarios.Estudiante;
 
 import javax.swing.JButton;
@@ -50,6 +51,7 @@ public class SolicitudesEmpleados extends JPanel {
 	private JButton btnSolicitarLicencia;
 	private JDateChooser fechaSalida ;
 	private JDateChooser fechaRegreso ;
+	private JComboBox<String> cbMotivosBaja;
 
 	/**
 	 * Launch the application.
@@ -87,10 +89,10 @@ public class SolicitudesEmpleados extends JPanel {
 		panelBaja.setBorder(new TitledBorder(null, "Solicitud de Baja", TitledBorder.LEFT, TitledBorder.TOP, null, null));
 		panelBaja.setLayout(null);
 		
-		JComboBox<String> comboBox = new JComboBox<String>();
-		comboBox.setModel(new DefaultComboBoxModel(MotivoBaja.values()));
-		comboBox.setBounds(159, 83, 201, 36);
-		panelBaja.add(comboBox);
+		cbMotivosBaja = new JComboBox<String>();
+		cbMotivosBaja.setModel(new DefaultComboBoxModel(MotivoBaja.values()));
+		cbMotivosBaja.setBounds(159, 83, 201, 36);
+		panelBaja.add(cbMotivosBaja);
 		
 		JLabel label = new JLabel("Motivo :");
 		label.setFont(new Font("Segoe UI", Font.PLAIN, 25));
@@ -123,8 +125,8 @@ public class SolicitudesEmpleados extends JPanel {
 		btnSolicitarLicencia = new JButton("Solicitar Licencia");
 		btnSolicitarLicencia.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				Secretaria.gestorEstudiantes().getGestorSolicitudes().crearSolicitudLiciencia((MotivoLicencia)cbMotivosLicencia.getSelectedItem(), (Estudiante) Auth.usuarioAutenticado());
-				ControladorPrincipal.mostrarRequisitosBajaEstudiantes();
+				GestorEmpleados.gestorEmpleados().getGestorSolicitudesEmpleados().crearSolicitudLiciencia((MotivoLicencia)cbMotivosLicencia.getSelectedItem(), (Empleado) Auth.usuarioAutenticado(), );
+				ControladorPrincipal.mostrarRequisitosEmpleados();
 			}
 		});
 		btnSolicitarLicencia.setBounds(88, 288, 223, 54);

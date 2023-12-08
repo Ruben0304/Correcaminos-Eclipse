@@ -36,6 +36,7 @@ import views.chat.ChatPanel;
 
 import views.client.InicioEmpleadoJP;
 import views.client.InicioEstudianteJP;
+import views.client.RequisitosEmpleados;
 import views.client.RequisitosEstudiante;
 import views.client.SolicitudesEmpleados;
 import views.client.SolicitudesEstudiantes;

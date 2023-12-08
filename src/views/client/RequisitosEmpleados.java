@@ -58,7 +58,6 @@ public class RequisitosEmpleados extends JPanel {
 			panel_RequisitosEmpl = new JPanel();
 			panel_RequisitosEmpl.setBounds(178, 0, 944, 700);
 			panel_RequisitosEmpl.setLayout(null);
-			panel_RequisitosEmpl.setBackground(new Color(31, 33, 36));
 			panel_RequisitosEmpl.add(getLblTitulo());
 			panel_RequisitosEmpl.add(getLblBiblioteca());
 			panel_RequisitosEmpl.add(getLblEntregadoTodosLos());

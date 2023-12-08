@@ -8,6 +8,7 @@ import java.awt.Font;
 import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JComboBox;
 import javax.swing.JComponent;
 import javax.swing.UIManager;
@@ -125,8 +126,18 @@ public class SolicitudesEmpleados extends JPanel {
 		btnSolicitarLicencia = new JButton("Solicitar Licencia");
 		btnSolicitarLicencia.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				GestorEmpleados.gestorEmpleados().getGestorSolicitudesEmpleados().crearSolicitudLiciencia((MotivoLicencia)cbMotivosLicencia.getSelectedItem(), (Empleado) Auth.usuarioAutenticado(), );
-				ControladorPrincipal.mostrarRequisitosEmpleados();
+					
+				Calendar fs = fechaSalida.getCalendar();
+				Calendar fr = fechaRegreso.getCalendar();
+				
+				if (fs != null && fr != null) {
+					GestorEmpleados.gestorEmpleados().getGestorSolicitudesEmpleados().crearSolicitudLicencia((MotivoLicencia)cbMotivosLicencia.getSelectedItem(), (Empleado) Auth.usuarioAutenticado(),fs,fr);
+					JOptionPane.showMessageDialog(null, "Su solicitud está siendo procesada", "Estado de Trámite", JOptionPane.INFORMATION_MESSAGE);
+					ControladorPrincipal.mostrarInicio();
+				}
+				else {
+					JOptionPane.showMessageDialog(null, "Debe seleccionar una fecha de salida y una de regreso", "Fechas Vacías", JOptionPane.ERROR_MESSAGE);
+				}
 			}
 		});
 		btnSolicitarLicencia.setBounds(88, 288, 223, 54);

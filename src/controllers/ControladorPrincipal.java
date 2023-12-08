@@ -188,7 +188,7 @@ public class ControladorPrincipal {
                 instancia.setVista(new SolicitudesEmpleados());
             }
         } else if (Auth.usuarioAutenticado() instanceof Admin) {
-            instancia.setVista(new DepartamentosModelo());
+            ControladorAdmin.mostrarGestionLicencias();
         }
 
         Pricipal.getInstancia().revalidate();

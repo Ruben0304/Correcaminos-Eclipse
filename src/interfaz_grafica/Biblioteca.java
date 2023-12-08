@@ -7,8 +7,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import interfaz_grafica.modelos_tablas.DepartamentoVerificadorLibrosTableModel;
 import views.admin.DepartamentosModelo;
+import views.modelos.DepartamentoVerificadorLibrosTableModel;
 
 public class Biblioteca extends DepartamentosModelo {
 

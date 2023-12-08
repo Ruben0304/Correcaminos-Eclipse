@@ -14,8 +14,9 @@ import com.formdev.flatlaf.fonts.roboto.FlatRobotoFont;
 import com.formdev.flatlaf.themes.FlatMacDarkLaf;
 
 import auth.Auth;
-import interfaz_grafica.modelos_tablas.DepartamentoVerificadorLibrosTableModel;
 import models.usuarios.Admin;
+import models.usuarios.Persona;
+import views.modelos.DepartamentoVerificadorLibrosTableModel;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -27,6 +28,8 @@ import javax.swing.JTable;
 import javax.swing.SwingConstants;
 
 import java.awt.event.ActionListener;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import javax.swing.JMenu;
 
@@ -65,7 +68,7 @@ public class DepartamentosModelo extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public DepartamentosModelo() {
+	public DepartamentosModelo(ArrayList<Persona> personas) {
 		
 		FlatLaf.registerCustomDefaultsSource("app.themes");
 		FlatMacDarkLaf.setup();
@@ -107,7 +110,7 @@ public class DepartamentosModelo extends JPanel {
 		panelContenedor.add(scrollPane);
 		
 		table = new JTable();
-		this.tableModel = new DepartamentoVerificadorLibrosTableModel();
+		this.tableModel = new DepartamentoVerificadorLibrosTableModel(personas);
 		this.table.setModel(tableModel);
 		table.setFont(new Font(FlatRobotoFont.FAMILY,Font.PLAIN,13));
 		table.setFocusable(false);

@@ -2,8 +2,8 @@ package interfaz_grafica;
 
 import java.awt.EventQueue;
 
-import interfaz_grafica.modelos_tablas.DepartamentoVerificadorLibrosTableModel;
 import views.admin.DepartamentosModelo;
+import views.modelos.DepartamentoVerificadorLibrosTableModel;
 
 public class AlmacenDeLibros extends DepartamentosModelo {
 	

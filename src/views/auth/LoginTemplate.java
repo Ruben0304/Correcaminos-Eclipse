@@ -175,13 +175,15 @@ public class LoginTemplate extends JFrame {
 		bEntrar.setForeground(Color.BLACK);
 		bEntrar.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		bEntrar.setContentAreaFilled(true);
+		
+	
 		bEntrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				char[] passwordChars = getTextField_1().getPassword();
+				char[] passwordChars = tClaveUsuario.getPassword();
 				String contrasena = new String(passwordChars);
-				String user = getTextField().getText();
+				String user = tNombreUsuario.getText();
 
-				if (ControladorLogin.intentarAutenticar(user, contrasena, getCheckBox().isSelected())) {
+				if (ControladorLogin.intentarAutenticar(user, contrasena, checkMantenerSesion.isSelected())) {
 					ControladorPrincipal.mostrarInicio();
 				} else {
 					JOptionPane.showMessageDialog(null, "Credenciales incorrectas", "Error de autenticación", JOptionPane.ERROR_MESSAGE);

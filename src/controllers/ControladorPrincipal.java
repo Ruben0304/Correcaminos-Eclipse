@@ -36,18 +36,18 @@ public class ControladorPrincipal {
 
     public static void mostrarInicio() {
 
-        if (Auth.hayUsuarioAutenticado()) {
+       
             boolean estudianteSolicitaLicencia = false;
             if (Auth.usuarioAutenticado() instanceof Estudiante) {
                 estudianteSolicitaLicencia = Correcaminos.getGestorPrincipal().getGestorEstudiantes()
                         .getGestorSolicitudes()
                         .verificarEstudianteSolicitaAlgo((Estudiante) Auth.usuarioAutenticado());
-            }
+            
 
             // Inicios inicio = new Inicios(Auth.usuarioAutenticado(),
             // estudianteSolicitaLicencia);
             // inicio.setVisible(true);
-        }
+        
 
         Pricipal instancia = Pricipal.getInstancia();
         instancia.setVista(

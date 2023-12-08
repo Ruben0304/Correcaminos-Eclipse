@@ -43,7 +43,7 @@ public class ControladorLogin {
         boolean autenticado = false;
         Autenticable auth = VerificacionCredenciales.autenticar(nombreUsuario, hashContrasena(password));
         if (auth != null) {
-            Auth.iniciarSesion(auth);
+            Auth.iniciarSesion(auth,nombreUsuario);
             autenticado = true;
             if (mantenerConectado) {
                 new Session(nombreUsuario,

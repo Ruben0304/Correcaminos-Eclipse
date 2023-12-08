@@ -22,7 +22,10 @@ import com.formdev.flatlaf.FlatClientProperties;
 import com.formdev.flatlaf.FlatLaf;
 import com.formdev.flatlaf.fonts.roboto.FlatRobotoFont;
 import com.formdev.flatlaf.themes.FlatMacDarkLaf;
-import com.toedter.calendar.JDateChooser;;;
+import com.toedter.calendar.JDateChooser;
+import javax.swing.DefaultComboBoxModel;
+import util.MotivoBaja;
+import util.MotivoLicencia;;;
 public class SolictudesEmpleados extends JPanel {
 
 	/**
@@ -88,6 +91,7 @@ public class SolictudesEmpleados extends JPanel {
 		panelBaja.add(lblMotivoBajas);
 		
 		cbMotivosBaja = new JComboBox<String>();
+		cbMotivosBaja.setModel(new DefaultComboBoxModel(MotivoLicencia.values()));
 		cbMotivosBaja.setBounds(59, 34, 259, 23);
 		
 		panelBaja.add(cbMotivosBaja);
@@ -162,6 +166,7 @@ public class SolictudesEmpleados extends JPanel {
 		panelLicencia.add(lblMotivosLicencia);
 		
 		cbMotivosLicencia = new JComboBox<String>();
+		cbMotivosLicencia.setModel(new DefaultComboBoxModel(MotivoBaja.values()));
 		cbMotivosLicencia.setBounds(59, 28, 259, 23);
 		panelLicencia.add(cbMotivosLicencia);
 		

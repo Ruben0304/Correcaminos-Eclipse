@@ -14,6 +14,9 @@ import com.formdev.flatlaf.FlatLaf;
 import com.formdev.flatlaf.fonts.roboto.FlatRobotoFont;
 import com.formdev.flatlaf.themes.FlatMacDarkLaf;
 import javax.swing.JButton;
+import javax.swing.DefaultComboBoxModel;
+import util.MotivoLicencia;
+import util.MotivoBaja;
 
 public class SolicitudesEstudiantes extends JPanel {
 	/**
@@ -76,6 +79,7 @@ public class SolicitudesEstudiantes extends JPanel {
 		panelBaja.add(lblMotivoBajas);
 		
 		cbMotivosBaja = new JComboBox<String>();
+		cbMotivosBaja.setModel(new DefaultComboBoxModel(MotivoBaja.values()));
 		cbMotivosBaja.setBounds(66, 44, 226, 23);
 		
 		panelBaja.add(cbMotivosBaja);
@@ -106,6 +110,7 @@ public class SolicitudesEstudiantes extends JPanel {
 		panelLicencia.add(lblMotivosLicencia);
 		
 		cbMotivosLicencia = new JComboBox<String>();
+		cbMotivosLicencia.setModel(new DefaultComboBoxModel(MotivoLicencia.values()));
 		cbMotivosLicencia.setBounds(66, 44, 226, 23);
 		panelLicencia.add(cbMotivosLicencia);
 		

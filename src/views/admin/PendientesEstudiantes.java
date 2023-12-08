@@ -2,7 +2,7 @@ package views.admin;
 
 import javax.swing.table.DefaultTableModel;
 import util.Facultad;
-import models.solicitudes.SolicitudBajaEstudiante;
+
 import models.usuarios.Estudiante;
 
 import java.util.ArrayList;

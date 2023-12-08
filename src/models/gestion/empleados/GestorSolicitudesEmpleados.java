@@ -11,6 +11,7 @@ import models.solicitudes.SolicitudBaja;
 import models.solicitudes.SolicitudLicencia;
 import models.usuarios.Empleado;
 import models.usuarios.Estudiante;
+import util.Estado;
 import util.MotivoBaja;
 import util.MotivoLicencia;
 
@@ -30,6 +31,21 @@ public class GestorSolicitudesEmpleados {
 	public HashMap<Empleado, Set<Solicitud>> getSolicitudesPendientes() {
 		return solicitudesEmpleados;
 	}
+
+	  public boolean verificarEmpleadoSolicitaAlgo(Empleado e) {
+        boolean solicita = false;
+        if (solicitudesEmpleados.containsKey(e)) {
+            for (Solicitud s : solicitudesEmpleados.get(e)) {
+                if (s.getEstado().equals(Estado.PENDIENTE)) {
+                    solicita = true;
+                }
+            }
+
+        }
+
+        return solicita;
+
+    }
 	
 	public void crearSolicitudBaja(MotivoBaja motivo, Empleado e) {
 

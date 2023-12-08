@@ -190,6 +190,9 @@ public class ControladorPrincipal {
             }
         }
         else if (Auth.usuarioAutenticado() instanceof Empleado) {
+            if (GestorEmpleados.gestorEmpleados().getGestorSolicitudesEmpleados().verificarEmpleadoSolicitaAlgo((Empleado)Auth.usuarioAutenticado())) {
+                // mostrarRequisitosBajaEmpleado();
+            }
              instancia.setVista(new SolictudesEmpleados());
         }
         else if (Auth.usuarioAutenticado() instanceof Admin) {

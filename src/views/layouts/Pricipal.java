@@ -89,7 +89,7 @@ public class Pricipal extends JFrame implements ActionListener {
 		setResizable(false);
 		
 		
-		setIconImage(Toolkit.getDefaultToolkit().getImage(Pricipal.class.getResource("/img/usuario_blanco.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Pricipal.class.getResource("/img/correcamino.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1140, 744);
 		setLocationRelativeTo(this);

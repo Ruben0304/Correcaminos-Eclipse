@@ -37,6 +37,7 @@ import javax.swing.border.MatteBorder;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.SystemColor;
+import java.awt.Toolkit;
 
 public class LoginTemplate extends JFrame {
 
@@ -77,6 +78,7 @@ public class LoginTemplate extends JFrame {
 	 * Create the frame.
 	 */
 	public LoginTemplate() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(LoginTemplate.class.getResource("/img/correcamino.png")));
 		
 		// FlatRobotoFont.install();
 		// UIManager.put("defaultFont", new Font(FlatLaf.S,Font.PLAIN,13));

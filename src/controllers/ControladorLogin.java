@@ -11,6 +11,7 @@ import models.gestion.Correcaminos;
 
 import views.Inicio;
 import views.auth.Entrar;
+import views.auth.LoginTemplate;
 import views.layouts.Pricipal;
 
 
@@ -20,10 +21,16 @@ public class ControladorLogin {
         if (Auth.hayUsuarioAutenticado()) {
             ControladorPrincipal.mostrarInicio();
         } else {
-            Pricipal instancia = Pricipal.getInstancia();
-            instancia.setVista(Entrar.getVista().getPanel());
-            Pricipal.getInstancia().revalidate();
-            Pricipal.getInstancia().repaint();
+            // Pricipal instancia = Pricipal.getInstancia();
+            // instancia.setVista(Entrar.getVista().getPanel());
+            // Pricipal.getInstancia().revalidate();
+            // Pricipal.getInstancia().repaint();
+            try {
+                LoginTemplate frame = new LoginTemplate();
+                frame.setVisible(true);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
 
     }

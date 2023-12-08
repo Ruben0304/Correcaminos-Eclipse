@@ -1,4 +1,4 @@
-package interfaz_grafica;
+package views.auth;
 
 
 import java.awt.Color;
@@ -12,24 +12,32 @@ import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.UIManager;
 
+
+
+
 import com.formdev.flatlaf.FlatClientProperties;
 import com.formdev.flatlaf.FlatLaf;
 import com.formdev.flatlaf.fonts.roboto.FlatRobotoFont;
 import com.formdev.flatlaf.themes.FlatMacDarkLaf;
+import com.formdev.flatlaf.themes.FlatMacLightLaf;
 
+import controllers.ControladorLogin;
+import controllers.ControladorPrincipal;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.border.TitledBorder;
+import javax.swing.border.MatteBorder;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class LoginTemplate extends JPanel {
+public class LoginTemplate extends JFrame {
 
 	/**
 	 * 
@@ -37,14 +45,16 @@ public class LoginTemplate extends JPanel {
 	private static final long serialVersionUID = 1L;
 	
 	// Atributos de la clase
-	 private JPanel pPrincipal;
-	 private ImageIcon iCerrar, iMinimizar,iUsuario, iClave, iDimAux;
+	 private JPanel pPrincipal, pIzquierda;
+	 private ImageIcon iCerrar, iMinimizar, iFondo, iUsuario, iClave, iDimAux;
 	 private JButton bEntrar,bCerrar;
 	 private JTextField tNombreUsuario;
 	 private JPasswordField tClaveUsuario;
-	 private JLabel lTituloLogin, lUsuario, lClave;
+	 private JLabel lEslogan, lTituloLogin, lFondo, lMantenerSesion, lUsuario, lClave;
 	 private JCheckBox checkMantenerSesion;
-	 private JPanel panelDatos;
+	 private JTextField textField;
+	 private JPasswordField passwordField;
+	 private JPanel panel;
 	 
 	/**
 	 * Launch the application.
@@ -82,15 +92,21 @@ public class LoginTemplate extends JPanel {
 	    this.crearJCheckBoxes();
 	    this.crearJLabels();
 		
-		this.setLayout(null);
-	    setBounds(70, 0, 1052, 700);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		getContentPane().setLayout(null);
+	    setSize(400, 500);
+	    setLocationRelativeTo(this);
+	    setUndecorated(true);
+	    
+	    
 	}
 	
 	private void crearImagenes() {
-	    iCerrar = new ImageIcon("./src/iconos/cerrar_login_blanco.png");
-	    iMinimizar = new ImageIcon("./src/imagenes/minimizar.png");
-	    iUsuario = new ImageIcon("./src/iconos/user.png");
-	    iClave = new ImageIcon("./src/iconos/password1.png");
+	    iCerrar = new ImageIcon(LoginTemplate.class.getResource("/img/cerrar_login_blanco.png"));
+	    // iMinimizar = new ImageIcon(LoginTemplate.class.getResource("/img/minimizar.png"));
+	    iFondo = new ImageIcon(LoginTemplate.class.getResource("/img/login.jpg"));
+	    iUsuario = new ImageIcon(LoginTemplate.class.getResource("/img/user.png"));
+	    iClave = new ImageIcon(LoginTemplate.class.getResource("/img/password1.png"));
 	}
 	
 	public void crearJPanels() {
@@ -99,15 +115,16 @@ public class LoginTemplate extends JPanel {
 		pPrincipal.setLocation(0, 0);
 		pPrincipal.setSize(400, 500);
 		pPrincipal.setLayout(null);
-		add(pPrincipal);
+		//pDerecha.setBackground(Color.WHITE);
+		getContentPane().add(pPrincipal);
 		
-		panelDatos = new JPanel();
+		panel = new JPanel();
 	    TitledBorder titulo = new TitledBorder(null, "Ingresar Datos", TitledBorder.CENTER, TitledBorder.TOP, null, Color.WHITE);
 		titulo.setTitleFont( new Font(FlatRobotoFont.FAMILY,Font.PLAIN,16));
-	    panelDatos.setBorder(titulo);
-		panelDatos.setBounds(24, 91, 351, 345);
-		pPrincipal.add(panelDatos);
-		panelDatos.setLayout(null);
+	    panel.setBorder(titulo);
+		panel.setBounds(24, 91, 351, 345);
+		pPrincipal.add(panel);
+		panel.setLayout(null);
 		
 	}
 	
@@ -121,7 +138,7 @@ public class LoginTemplate extends JPanel {
 		bCerrar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent arg0) {
-				ImageIcon image = new ImageIcon("./src/iconos/cerrar_login_rojo.png");
+				ImageIcon image = new ImageIcon(LoginTemplate.class.getResource("/img/cerrar_login_rojo.png"));
 				iDimAux = new ImageIcon(
 						image.getImage()
 				        .getScaledInstance(30, 30, Image.SCALE_AREA_AVERAGING)
@@ -147,23 +164,36 @@ public class LoginTemplate extends JPanel {
 		bCerrar.setSize(45, 30);
 		bCerrar.setFocusable(false);
 		bCerrar.setCursor(new Cursor(Cursor.HAND_CURSOR));
-		bCerrar.setIcon(iDimAux);
+		bCerrar.setIcon(new ImageIcon(LoginTemplate.class.getResource("/img/cerrar_login_blanco.png")));
 		bCerrar.setContentAreaFilled(false);
 		pPrincipal.add(bCerrar);	
 		
 		bEntrar = new JButton("Entrar");
 		bEntrar.setBounds(66, 209, 234, 37);
-		panelDatos.add(bEntrar);
+		panel.add(bEntrar);
 		bEntrar.setBackground(new Color(72, 189, 133));
 		bEntrar.setForeground(Color.BLACK);
 		bEntrar.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		bEntrar.setContentAreaFilled(true);
+		bEntrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				char[] passwordChars = getTextField_1().getPassword();
+				String contrasena = new String(passwordChars);
+				String user = getTextField().getText();
+
+				if (ControladorLogin.intentarAutenticar(user, contrasena, getCheckBox().isSelected())) {
+					ControladorPrincipal.mostrarInicio();
+				} else {
+					JOptionPane.showMessageDialog(null, "Credenciales incorrectas", "Error de autenticación", JOptionPane.ERROR_MESSAGE);
+				}
+			}
+		});
 	}
 	
 	public void crearJLabels() {
 		// Label TituloLogin
 		lTituloLogin = new JLabel("Correcaminos");
-		lTituloLogin.setBounds(25, 16, 260, 24);
+		lTituloLogin.setBounds(100, 16, 185, 24);
 		lTituloLogin.setFont(new Font(FlatRobotoFont.FAMILY_SEMIBOLD,Font.PLAIN,22));
 		pPrincipal.add(lTituloLogin);
 					
@@ -174,7 +204,7 @@ public class LoginTemplate extends JPanel {
 		lUsuario = new JLabel();
 		lUsuario.setBounds(21, 64, 46, 38);
 		lUsuario.setIcon(iDimAux);
-		panelDatos.add(lUsuario);
+		panel.add(lUsuario);
 		
 		iDimAux = new ImageIcon(
 				iClave.getImage()
@@ -183,7 +213,7 @@ public class LoginTemplate extends JPanel {
 		lClave = new JLabel();
 		lClave.setBounds(21, 141, 46, 40);
 		lClave.setIcon(iDimAux);
-		panelDatos.add(lClave);
+		panel.add(lClave);
 		
 	
 	}
@@ -194,11 +224,11 @@ public class LoginTemplate extends JPanel {
 		tClaveUsuario.putClientProperty(FlatClientProperties.STYLE,"" +
 				"showRevealButton:true");
 		tClaveUsuario.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT,"Introduzca su contrase�a");
-		panelDatos.add(tClaveUsuario);
+		panel.add(tClaveUsuario);
 		
 		tNombreUsuario = new JTextField();
 		tNombreUsuario.setBounds(66, 64, 234, 40);
-		panelDatos.add(tNombreUsuario);
+		panel.add(tNombreUsuario);
 		tNombreUsuario.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT,"Introduzca su nombre de usuario");
 		tNombreUsuario.putClientProperty(FlatClientProperties.STYLE,"" +
 				"showClearButton:true");
@@ -208,6 +238,6 @@ public class LoginTemplate extends JPanel {
 		
 		checkMantenerSesion = new JCheckBox("Mantener sesi�n iniciada");
 		checkMantenerSesion.setBounds(66, 260, 175, 25);
-		panelDatos.add(checkMantenerSesion);
+		panel.add(checkMantenerSesion);
 	}
 }

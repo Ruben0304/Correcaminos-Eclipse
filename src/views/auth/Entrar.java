@@ -12,6 +12,7 @@ import javax.swing.border.LineBorder;
 
 import controllers.ControladorLogin;
 import controllers.ControladorPrincipal;
+import interfaz_grafica.LoginTemplate;
 import views.layouts.Pricipal;
 
 import java.awt.Color;
@@ -59,7 +60,7 @@ public class Entrar {
 			panel.add(getButton());
 			panel.add(getCheckBox());
 		}
-		return panel;
+		return new LoginTemplate();
 	}
 	private JLabel getLblNewLabel() {
 		if (lblNewLabel == null) {

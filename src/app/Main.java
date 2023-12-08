@@ -8,7 +8,9 @@ import javax.swing.SwingUtilities;
 import controllers.ControladorLogin;
 import controllers.ControladorPrincipal;
 import models.gestion.Correcaminos;
+import models.gestion.GestorDepartamentos;
 import models.gestion.estudiantes.Secretaria;
+import models.usuarios.Credenciales;
 import models.usuarios.Estudiante;
 import models.usuarios.Persona;
 import views.layouts.Pricipal;
@@ -25,11 +27,12 @@ public class Main {
 
 				
 				// ControladorLogin.comprobarSession();
-				Pricipal frame = Pricipal.getInstancia();
-				frame.setVisible(true);
+				// Pricipal frame = Pricipal.getInstancia();
+				// frame.setVisible(true);
 				// JOptionPane.showMessageDialog(null, "Muy importante leer documento
 				// Importante.txt en la raiz del proyecto");
-				ControladorPrincipal.mostrarInicio();
+				ControladorLogin.mostrarLogin();
+				tests();
 
 			}
 		});
@@ -37,9 +40,10 @@ public class Main {
 	}
 
 	public static void tests() {
-		for (Estudiante e : Secretaria.gestorEstudiantes().filtrar("Juan")) {
-			System.out.println(e.getApellidos());
-		}
-
+		
+		System.out.println(GestorDepartamentos.gestorDepartamentos().getSeguridadInformatica().getUsuariosCujae().size());
+       Credenciales credenciales = new Credenciales("estudiante1", "eweryiewfhwewobuebweubeuewbx");
+	   System.out.println(GestorDepartamentos.gestorDepartamentos().getSeguridadInformatica().getUsuariosCujae().get(credenciales));
+	   
 	}
 }

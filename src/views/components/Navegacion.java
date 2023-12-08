@@ -41,8 +41,15 @@ public class Navegacion extends JPanel {
 	private JLabel lblCuenta;
 	private JLabel label_1;
 	private JLabel label_2;
-	private static Navegacion instance = null;
+	private static Navegacion instance;
 	
+	public static Navegacion getInstancia() {
+		if (instance == null) {
+			instance = new Navegacion();
+		}
+		return instance;
+	}
+
 
 	private Navegacion() {
 		addMouseListener(new MouseAdapter() {
@@ -193,15 +200,7 @@ public class Navegacion extends JPanel {
 					getGestion_bg().setVisible(true);
 					getGuardar_bg().setVisible(false);
 
-					if (Auth.hayUsuarioAutenticado()) {
-						if (Auth.usuarioAutenticado() instanceof Estudiante) {
-							ControladorPrincipal.mostrarRequisitosBajaEstudiantes();
-						} else if (Auth.usuarioAutenticado() instanceof Admin) {
-							ControladorAdmin.mostrarGestionLicencias();
-						}
-					} else {
-						ControladorLogin.mostrarLogin();
-					}
+					ControladorPrincipal.mostrarTramites();
 
 				}
 

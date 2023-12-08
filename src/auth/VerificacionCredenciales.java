@@ -23,7 +23,7 @@ public class VerificacionCredenciales {
             Persona usuarioCujae = s.getUsuariosCujae().get(credenciales);
             Admin admin = a.getAdmins().get(credenciales);
 
-            System.out.println(usuarioCujae.getApellidos());
+
             return usuarioCujae != null ? usuarioCujae : (admin != null ? admin : null);
         }
         return null;

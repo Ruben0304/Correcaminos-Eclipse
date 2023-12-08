@@ -185,6 +185,8 @@ public class LoginTemplate extends JFrame {
 
 				if (ControladorLogin.intentarAutenticar(user, contrasena, checkMantenerSesion.isSelected())) {
 					ControladorPrincipal.mostrarInicio();
+					dispose();
+
 				} else {
 					JOptionPane.showMessageDialog(null, "Credenciales incorrectas", "Error de autenticación", JOptionPane.ERROR_MESSAGE);
 				}

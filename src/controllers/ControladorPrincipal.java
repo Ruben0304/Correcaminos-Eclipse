@@ -15,6 +15,7 @@ import models.gestion.estudiantes.Secretaria;
 
 import models.gestion.estudiantes.GestorSolicitudesEstudiante;
 import models.responsabilidades.ResponsabilidadesEstudiantes;
+import models.usuarios.Admin;
 import models.usuarios.Becado;
 import models.usuarios.Empleado;
 import models.usuarios.Estudiante;
@@ -30,28 +31,41 @@ import views.auth.CuentaJP;
 import views.chat.ChatPanel;
 import views.client.EstudiantesTramites;
 import views.client.RequisitosEstudiante;
+import views.client.SolicitudBajaEmpleadoJP;
+import views.client.SolicitudesEstudiantes;
+import views.client.SolictudesEmpleados;
 import views.layouts.Pricipal;
+import views.roy_yany.InicioEmpleadoJP;
+import views.roy_yany.InicioEstudianteJP;
 
 public class ControladorPrincipal {
 
     public static void mostrarInicio() {
 
-       
-            boolean estudianteSolicitaLicencia = false;
-            if (Auth.usuarioAutenticado() instanceof Estudiante) {
-                estudianteSolicitaLicencia = Correcaminos.getGestorPrincipal().getGestorEstudiantes()
-                        .getGestorSolicitudes()
-                        .verificarEstudianteSolicitaAlgo((Estudiante) Auth.usuarioAutenticado());
-            
+        Pricipal instancia = Pricipal.getInstancia();
+        
+                
+             instancia.setVisible(true);
+        // boolean estudianteSolicitaLicencia = false;
+        if (Auth.usuarioAutenticado() instanceof Estudiante) {
+            // estudianteSolicitaLicencia = Correcaminos.getGestorPrincipal().getGestorEstudiantes()
+            //         .getGestorSolicitudes()
+            //         .verificarEstudianteSolicitaAlgo((Estudiante) Auth.usuarioAutenticado());
 
             // Inicios inicio = new Inicios(Auth.usuarioAutenticado(),
             // estudianteSolicitaLicencia);
             // inicio.setVisible(true);
-        
+            instancia.setVista(new InicioEstudianteJP());
 
-        Pricipal instancia = Pricipal.getInstancia();
-        instancia.setVista(
-                Inicio.getVista().getPanel_lateral());
+        }
+        else if (Auth.usuarioAutenticado() instanceof Empleado) {
+             instancia.setVista(new InicioEmpleadoJP());
+        }
+         else{
+             instancia.setVista(Inicio.getVista().getPanel_lateral());
+         }
+
+
         Pricipal.getInstancia().revalidate();
         Pricipal.getInstancia().repaint();
 
@@ -136,7 +150,7 @@ public class ControladorPrincipal {
 
     public static void mostrarChats() {
         if (Auth.hayUsuarioAutenticado()) {
-           
+
             if (Auth.usuarioAutenticado() instanceof Persona) {
                 Pricipal.getInstancia().setVista(new ChatPanel());
                 Pricipal.getInstancia().revalidate();
@@ -166,7 +180,13 @@ public class ControladorPrincipal {
 
     public static void mostrarTramites() {
         Pricipal instancia = Pricipal.getInstancia();
-        instancia.setVista(EstudiantesTramites.getVista((Estudiante) Auth.usuarioAutenticado()).getPanel_lateral());
+        if (Auth.usuarioAutenticado() instanceof Estudiante) {
+             instancia.setVista(new SolicitudesEstudiantes());
+        }
+        if (Auth.usuarioAutenticado() instanceof Empleado) {
+             instancia.setVista(new SolictudesEmpleados());
+        }
+       
         Pricipal.getInstancia().revalidate();
         Pricipal.getInstancia().repaint();
     }

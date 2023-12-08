@@ -41,9 +41,9 @@ public class Main {
 
 	public static void tests() {
 		
-		System.out.println(GestorDepartamentos.gestorDepartamentos().getSeguridadInformatica().getUsuariosCujae().size());
-       Credenciales credenciales = new Credenciales("estudiante1", "eweryiewfhwewobuebweubeuewbx");
-	   System.out.println(GestorDepartamentos.gestorDepartamentos().getSeguridadInformatica().getUsuariosCujae().get(credenciales));
+	// 	System.out.println(GestorDepartamentos.gestorDepartamentos().getSeguridadInformatica().getUsuariosCujae().size());
+    //    Credenciales credenciales = new Credenciales("estudiante1", "eweryiewfhwewobuebweubeuewbx");
+	//    System.out.println(GestorDepartamentos.gestorDepartamentos().getSeguridadInformatica().getUsuariosCujae().get(credenciales));
 	   
 	}
 }

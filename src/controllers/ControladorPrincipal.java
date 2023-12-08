@@ -182,9 +182,11 @@ public class ControladorPrincipal {
         } else if (Auth.usuarioAutenticado() instanceof Empleado) {
             if (GestorEmpleados.gestorEmpleados().getGestorSolicitudesEmpleados()
                     .verificarEmpleadoSolicitaAlgo((Empleado) Auth.usuarioAutenticado())) {
-                // mostrarRequisitosBajaEmpleado();
+                        JOptionPane.showMessageDialog(null, "Su solicitud está siendo procesada", "Estado de Trámite", JOptionPane.INFORMATION_MESSAGE);
+                        ControladorPrincipal.mostrarInicio();
+            }else {
+                instancia.setVista(new SolicitudesEmpleados());
             }
-            instancia.setVista(new SolicitudesEmpleados());
         } else if (Auth.usuarioAutenticado() instanceof Admin) {
             instancia.setVista(new DepartamentosModelo());
         }

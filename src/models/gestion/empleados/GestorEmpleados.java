@@ -1,9 +1,14 @@
 package models.gestion.empleados;
 
 import java.util.ArrayList;
+import java.util.Map;
+import java.util.Set;
 
 import data.ObtenerEmpleados;
+import models.solicitudes.Solicitud;
 import models.usuarios.Empleado;
+import models.usuarios.Estudiante;
+import util.Estado;
 
 public class GestorEmpleados {
     private static GestorEmpleados gestorEmpleados;
@@ -34,4 +39,5 @@ public class GestorEmpleados {
 	public GestorSolicitudesEmpleados getGestorSolicitudesEmpleados() {
 		return gestorSolicitudesEmpleados;
 	}
+	
 }

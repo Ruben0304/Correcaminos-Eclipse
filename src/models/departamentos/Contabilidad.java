@@ -31,14 +31,14 @@ public class Contabilidad implements VerificadorEmpleado {
 	}
 	
 	@Override
-	public ArrayList<Empleado> getEmpleadosPendientes() {
-		
-		ArrayList<Empleado> nombresEmpleados = new ArrayList<>();
+    public ArrayList<Empleado> getEmpleadosPendientes(ArrayList<Empleado> empleadosSolicitudesPendientes) {
+    	
+    	ArrayList<Empleado> nombresEmpleados = new ArrayList<>();
         
-    	Set<Empleado> empleadosPendientes = empleadosDeudas.keySet();
-        
-        for (Empleado e: empleadosPendientes) {
-        	nombresEmpleados.add(e);
+        for (Empleado e: empleadosSolicitudesPendientes) {
+        	if (empleadosDeudas.containsKey(e.getCi())) {
+        		nombresEmpleados.add(e);
+        	}
         }
    	
         return nombresEmpleados;

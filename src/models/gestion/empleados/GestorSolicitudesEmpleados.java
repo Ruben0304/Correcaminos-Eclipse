@@ -1,9 +1,11 @@
 package models.gestion.empleados;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Set;
 import java.util.HashSet;
+import java.util.Map;
 
 import data.ObtenerSolicitudesEmpleados;
 import models.solicitudes.Solicitud;
@@ -76,6 +78,24 @@ public class GestorSolicitudesEmpleados {
     
     public Set<Solicitud> getSolicitudesEmpleado(Empleado e) {
     	return solicitudesEmpleados.get(e);
+    }
+    
+    public ArrayList<Empleado> obtenerEstudiantesPendientes() {
+    	
+    	ArrayList<Empleado> empleados = new ArrayList<>();
+    	for (Map.Entry<Empleado, Set<Solicitud>> solicitud : solicitudesEmpleados.entrySet()) {
+            
+    		Empleado estudiante = solicitud.getKey();
+            Set<Solicitud> listaSolicitudes = solicitud.getValue();
+            
+            for (Solicitud s: listaSolicitudes) {
+            	if (s.getEstado().equals(Estado.PENDIENTE)) {
+            		empleados.add(estudiante);
+            	}
+            }
+        }
+
+        return empleados;
     }
     
 }

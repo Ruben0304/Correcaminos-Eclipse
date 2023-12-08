@@ -32,17 +32,18 @@ public class DireccionDeBecas implements VerificadorEstudiante {
 	}
 	
 	@Override
-	public ArrayList<Estudiante> getEstudiantesPendientes() {
-		
-		ArrayList<Estudiante> estudiantes = new ArrayList<>();
+    public ArrayList<Estudiante> getEstudiantesPendientes(ArrayList<Estudiante> estudiantesSolicitudesPendientes) {
+    	
+    	ArrayList<Estudiante> estudiantes = new ArrayList<>();
         
-    	Set<Becado> estudiantesPendientes = pertenenciasBecados.keySet();
-        
-        for (Becado b: estudiantesPendientes) {
-        	estudiantes.add(b);
+        for (Estudiante e: estudiantesSolicitudesPendientes) {
+        	if (pertenenciasBecados.containsKey(e.getCi())) {
+        		estudiantes.add(e);
+        	}
         }
    	
         return estudiantes;
+    
     }
 	
 	public Set<String> obtenerPertenenciasBecado(Estudiante e) {

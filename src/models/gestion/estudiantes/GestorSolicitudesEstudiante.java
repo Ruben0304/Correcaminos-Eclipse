@@ -3,8 +3,10 @@ package models.gestion.estudiantes;
 import java.time.Year;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 import data.ObtenerSolicitudesEstudiantes;
@@ -46,8 +48,28 @@ public class GestorSolicitudesEstudiante {
         }
 
         return solicita;
-
     }
+    
+    public ArrayList<Estudiante> obtenerEstudiantesPendientes() {
+    	
+    	ArrayList<Estudiante> estudiantes = new ArrayList<Estudiante>();
+        
+    	for (Map.Entry<Estudiante, Set<Solicitud>> solicitud : solicitudes.entrySet()) {
+            
+    		Estudiante estudiante = solicitud.getKey();
+            Set<Solicitud> listaSolicitudes = solicitud.getValue();
+            
+            for (Solicitud s: listaSolicitudes) {
+            	if (s.getEstado().equals(Estado.PENDIENTE)) {
+            		estudiantes.add(estudiante);
+            	}
+            }
+        }
+
+        return estudiantes;
+    }
+    
+    
 
     public void crearSolicitudBaja(MotivoBaja motivo, Estudiante e) {
 

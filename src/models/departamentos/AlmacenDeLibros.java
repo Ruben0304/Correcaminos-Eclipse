@@ -34,17 +34,18 @@ public class AlmacenDeLibros implements VerificadorEstudiante {
 	}
 	
 	@Override
-	public ArrayList<Estudiante> getEstudiantesPendientes() {
+    public ArrayList<Estudiante> getEstudiantesPendientes(ArrayList<Estudiante> estudiantesSolicitudesPendientes) {
+    	
+    	ArrayList<Estudiante> estudiantes = new ArrayList<>();
         
-		ArrayList<Estudiante> estudiantes = new ArrayList<>();
-        
-    	Set<Estudiante> estudiantesPendientes = estudiantesConLibrosDocentes.keySet();
-        
-        for (Estudiante e: estudiantesPendientes) {
-        	estudiantes.add(e);
+        for (Estudiante e: estudiantesSolicitudesPendientes) {
+        	if (estudiantesConLibrosDocentes.containsKey(e.getCi())) {
+        		estudiantes.add(e);
+        	}
         }
    	
         return estudiantes;
+    
     }
 	
 	public Set<String> obtenerEstudianteLibrosDocentesPendientes(Estudiante e) {

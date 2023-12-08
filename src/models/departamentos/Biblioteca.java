@@ -43,28 +43,29 @@ public class Biblioteca implements VerificadorEstudiante, VerificadorEmpleado {
     }
 
     @Override
-    public ArrayList<Estudiante> getEstudiantesPendientes() {
+    public ArrayList<Estudiante> getEstudiantesPendientes(ArrayList<Estudiante> estudiantesSolicitudesPendientes) {
     	
     	ArrayList<Estudiante> estudiantes = new ArrayList<>();
         
-    	Set<Persona> estudiantesPendientes = personasConLibrosBiblioteca.keySet();
-        
-        for (Persona p: estudiantesPendientes) {
-        	if (p instanceof Estudiante) estudiantes.add(((Estudiante)p));
+        for (Estudiante e: estudiantesSolicitudesPendientes) {
+        	if (personasConLibrosBiblioteca.containsKey(e.getCi())) {
+        		estudiantes.add(e);
+        	}
         }
    	
         return estudiantes;
+    
     }
     
     @Override
-    public ArrayList<Empleado> getEmpleadosPendientes() {
+    public ArrayList<Empleado> getEmpleadosPendientes(ArrayList<Empleado> empleadosSolicitudesPendientes) {
     	
     	ArrayList<Empleado> nombresEmpleados = new ArrayList<>();
         
-    	Set<Persona> empleadosPendientes = personasConLibrosBiblioteca.keySet();
-        
-        for (Persona p: empleadosPendientes) {
-        	if(p instanceof Empleado) nombresEmpleados.add(((Empleado)p));
+        for (Empleado e: empleadosSolicitudesPendientes) {
+        	if (personasConLibrosBiblioteca.containsKey(e.getCi())) {
+        		nombresEmpleados.add(e);
+        	}
         }
    	
         return nombresEmpleados;

@@ -33,17 +33,18 @@ public class Economia implements VerificadorEstudiante {
 
    
     @Override
-    public ArrayList<Estudiante> getEstudiantesPendientes() {
+    public ArrayList<Estudiante> getEstudiantesPendientes(ArrayList<Estudiante> estudiantesSolicitudesPendientes) {
+    	
+    	ArrayList<Estudiante> estudiantes = new ArrayList<>();
         
-    	ArrayList<Estudiante> nombresEstudiantes = new ArrayList<>();
-       
-    	Set<Estudiante> estudiantesPendientes = estudiantesConEstipendio.keySet();
-        
-        for (Estudiante e: estudiantesPendientes) {
-        	nombresEstudiantes.add(e);
+        for (Estudiante e: estudiantesSolicitudesPendientes) {
+        	if (estudiantesConEstipendio.containsKey(e.getCi())) {
+        		estudiantes.add(e);
+        	}
         }
-        
-        return nombresEstudiantes;
+   	
+        return estudiantes;
+    
     }
 
 

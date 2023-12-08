@@ -1,6 +1,7 @@
 package views.client;
 
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.EventQueue;
 import java.awt.Font;
 
@@ -8,6 +9,7 @@ import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
 import javax.swing.JLabel;
 import javax.swing.JComboBox;
+import javax.swing.JComponent;
 import javax.swing.UIManager;
 
 import com.formdev.flatlaf.FlatLaf;
@@ -16,6 +18,7 @@ import com.formdev.flatlaf.themes.FlatMacDarkLaf;
 
 import auth.Auth;
 import controllers.ControladorPrincipal;
+import models.gestion.empleados.GestorEmpleados;
 import models.gestion.estudiantes.Secretaria;
 import models.usuarios.Estudiante;
 
@@ -24,6 +27,10 @@ import javax.swing.DefaultComboBoxModel;
 import util.MotivoLicencia;
 import util.MotivoBaja;
 import java.awt.event.ActionListener;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+import java.util.Calendar;
+import java.util.Date;
 import java.awt.event.ActionEvent;
 import java.awt.Rectangle;
 import javax.swing.ImageIcon;
@@ -41,6 +48,8 @@ public class SolicitudesEmpleados extends JPanel {
 	private JLabel lblMotivosLicencia;
 	private JComboBox<String> cbMotivosLicencia;
 	private JButton btnSolicitarLicencia;
+	private JDateChooser fechaSalida ;
+	private JDateChooser fechaRegreso ;
 
 	/**
 	 * Launch the application.
@@ -124,15 +133,15 @@ public class SolicitudesEmpleados extends JPanel {
 		btnSolicitarLicencia.setBackground(new Color(72, 189, 133));
 		panelLicencia.add(btnSolicitarLicencia);
 		
-		JDateChooser dateChooser = new JDateChooser("dd/MM/yyyy", "##/##/####", '_');
-		dateChooser.setForeground(new Color(255, 255, 255));
-		dateChooser.setBounds(169, 144, 201, 36);
-		panelLicencia.add(dateChooser);
+		fechaSalida = new JDateChooser("dd/MM/yyyy","##/##/####",'_');
+		fechaSalida.setForeground(new Color(255, 255, 255));
+		fechaSalida.setBounds(169, 144, 201, 36);
+		panelLicencia.add(fechaSalida);
 		
-		JDateChooser dateChooser_1 = new JDateChooser("dd/MM/yyyy", "##/##/####", '_');
-		dateChooser_1.setForeground(new Color(255, 255, 255));
-		dateChooser_1.setBounds(169, 217, 201, 36);
-		panelLicencia.add(dateChooser_1);
+		fechaRegreso = new JDateChooser("dd/MM/yyyy","##/##/####",'_');
+		fechaRegreso.setForeground(new Color(255, 255, 255));
+		fechaRegreso.setBounds(169, 217, 201, 36);
+		panelLicencia.add(fechaRegreso);
 		
 		JLabel lblFechaSalida = new JLabel("Salida:");
 		lblFechaSalida.setFont(new Font("Segoe UI", Font.PLAIN, 25));
@@ -163,5 +172,62 @@ public class SolicitudesEmpleados extends JPanel {
 		
 		setBounds(178, 0, 944, 700);
 		
+
+
+
+
+		
+		
+		
+		
+		
+		fechaRegreso.setEnabled(false);
+		
+		// Crea un objeto Calendar y establece la fecha actual
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(new Date());
+
+        // Suma 7 d�as a la fecha actual
+        calendar.add(Calendar.DAY_OF_MONTH, 7);
+        
+        // Establece la fecha resultante como la fecha m�nima seleccionable
+		fechaSalida.setMinSelectableDate(calendar.getTime());
+		
+		fechaSalida.getDateEditor().addPropertyChangeListener(new PropertyChangeListener() {
+		    @Override
+		    public void propertyChange(PropertyChangeEvent evt) {
+		    	
+		    	System.out.println(evt.getPropertyName());
+		    	if ("date".equals(evt.getPropertyName())){
+		    		
+		    		Date d = (Date) evt.getNewValue();
+		    		Calendar c = Calendar.getInstance();
+		    		c.setTime(d);
+			    	
+		    		fechaRegreso.setEnabled(true);
+			    	c.add(Calendar.DAY_OF_MONTH, 3);
+			    	fechaRegreso.setMinSelectableDate(c.getTime());
+			    	
+			    	c.add(Calendar.DAY_OF_MONTH, 90);
+			    	fechaRegreso.setMaxSelectableDate(c.getTime());
+		    	}
+		    	
+		    }
+		});
+		
+		
+		for (Component c : fechaSalida.getComponents()) {
+		    ((JComponent) c).setBackground(new Color(227, 226, 226));
+		}
+		for (Component c : fechaRegreso.getComponents()) {
+		    ((JComponent) c).setBackground(new Color(227, 226, 226));
+		}
+
+		btnSolicitarBaja.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				GestorEmpleados.gestorEmpleados().getGestorSolicitudesEmpleados().crearSolicitudBaja((MotivoBaja)cbMotivosBaja.getSelectedItem(), (Empleado) Auth.usuarioAutenticado());
+				ControladorPrincipal.mostrarRequisitosEmpleados();
+			}
+		});
 	}
 }

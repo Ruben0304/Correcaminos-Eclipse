@@ -8,8 +8,9 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import interfaz_grafica.modelos_tablas.DepartamentoContabilidadTableModel;
+import views.admin.DepartamentosModelo;
 
-public class Contabilidad extends DepartamentosModel {
+public class Contabilidad extends DepartamentosModelo {
 
 	private JPanel contentPane;
 

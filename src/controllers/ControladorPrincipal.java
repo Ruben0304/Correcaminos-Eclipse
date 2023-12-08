@@ -27,6 +27,7 @@ import util.Colores;
 import views.Inicio;
 import views.Reportes;
 import views.TramitesEmpleados;
+import views.admin.DepartamentosModelo;
 import views.auth.CuentaJP;
 import views.chat.ChatPanel;
 import views.client.EstudiantesTramites;
@@ -183,8 +184,11 @@ public class ControladorPrincipal {
         if (Auth.usuarioAutenticado() instanceof Estudiante) {
              instancia.setVista(new SolicitudesEstudiantes());
         }
-        if (Auth.usuarioAutenticado() instanceof Empleado) {
-             instancia.setVista(new SolictudesEmpleados());
+        else if (Auth.usuarioAutenticado() instanceof Empleado) {
+             
+        }
+        else if (Auth.usuarioAutenticado() instanceof Admin) {
+            instancia.setVista(new DepartamentosModelo());
         }
        
         Pricipal.getInstancia().revalidate();

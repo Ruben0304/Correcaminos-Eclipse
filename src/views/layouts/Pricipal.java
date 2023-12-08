@@ -78,6 +78,7 @@ public class Pricipal extends JFrame implements ActionListener {
 	}
 
 	public Pricipal() {
+		setResizable(false);
 		
 		
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Pricipal.class.getResource("/img/usuario_blanco.png")));

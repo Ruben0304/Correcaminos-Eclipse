@@ -1,4 +1,4 @@
-package interfaz_grafica;
+package views.admin;
 
 import java.awt.Color;
 import java.awt.Cursor;
@@ -12,6 +12,10 @@ import javax.swing.table.TableModel;
 import com.formdev.flatlaf.FlatLaf;
 import com.formdev.flatlaf.fonts.roboto.FlatRobotoFont;
 import com.formdev.flatlaf.themes.FlatMacDarkLaf;
+
+import auth.Auth;
+import interfaz_grafica.modelos_tablas.DepartamentoVerificadorLibrosTableModel;
+import models.usuarios.Admin;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -27,7 +31,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.JMenu;
 
 
-public class DepartamentosModel extends JPanel {
+public class DepartamentosModelo extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 	
@@ -47,6 +51,7 @@ public class DepartamentosModel extends JPanel {
 	protected JMenu mnNewMenu;
 	protected JMenu mnReportes;
 	protected JMenuItem mntmVerReportes;
+	
 
 	/**
 	 * Launch the application.
@@ -55,7 +60,7 @@ public class DepartamentosModel extends JPanel {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					DepartamentosModel frame = new DepartamentosModel("Economía");
+					DepartamentosModel frame = new DepartamentosModel("Economï¿½a");
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -67,7 +72,7 @@ public class DepartamentosModel extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public DepartamentosModel(String nombreDept) {
+	public DepartamentosModelo() {
 		
 		FlatLaf.registerCustomDefaultsSource("app.themes");
 		FlatMacDarkLaf.setup();
@@ -83,7 +88,7 @@ public class DepartamentosModel extends JPanel {
 		panelContenedor.add(panelNombreDept);
 		panelNombreDept.setLayout(null);
 		
-		lNombreDepartamento = new JLabel(nombreDept);
+		lNombreDepartamento = new JLabel(Auth.getNombreUsuario());
 		lNombreDepartamento.setFont(new Font(FlatRobotoFont.FAMILY,Font.PLAIN,17));
 		lNombreDepartamento.setBounds(10, 8, 185, 14);
 		panelNombreDept.add(lNombreDepartamento);
@@ -148,6 +153,8 @@ public class DepartamentosModel extends JPanel {
 		panelContenedor.add(scrollPane);
 		
 		table = new JTable();
+		this.tableModel = new DepartamentoVerificadorLibrosTableModel();
+		this.table.setModel(tableModel);
 		table.setFont(new Font(FlatRobotoFont.FAMILY,Font.PLAIN,13));
 		table.setFocusable(false);
 		scrollPane.setViewportView(table);

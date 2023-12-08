@@ -8,8 +8,9 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import interfaz_grafica.modelos_tablas.DepartamentoSegInformaticaTableModel;
+import views.admin.DepartamentosModelo;
 
-public class SeguridadInformatica extends DepartamentosModel {
+public class SeguridadInformatica extends DepartamentosModelo {
 
 	private JPanel contentPane;
 
@@ -33,7 +34,7 @@ public class SeguridadInformatica extends DepartamentosModel {
 	 * Create the frame.
 	 */
 	public SeguridadInformatica() {
-		super("Seguridad Informática");
+		super("Seguridad Informï¿½tica");
 		lNombreDepartamento.setLocation(10, 6);
 		lNombreDepartamento.setSize(185, 25);
 		panelNombreDept.setSize(600, 35);

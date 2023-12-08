@@ -8,8 +8,9 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import interfaz_grafica.modelos_tablas.DepartamentoVerificadorLibrosTableModel;
+import views.admin.DepartamentosModelo;
 
-public class Biblioteca extends DepartamentosModel {
+public class Biblioteca extends DepartamentosModelo {
 
 	/**
 	 * 

@@ -3,8 +3,9 @@ package interfaz_grafica;
 import java.awt.EventQueue;
 
 import interfaz_grafica.modelos_tablas.DepartamentoVerificadorLibrosTableModel;
+import views.admin.DepartamentosModelo;
 
-public class AlmacenDeLibros extends DepartamentosModel {
+public class AlmacenDeLibros extends DepartamentosModelo {
 	
 	/**
 	 * 
@@ -28,9 +29,8 @@ public class AlmacenDeLibros extends DepartamentosModel {
 	}
 	
 	public AlmacenDeLibros() {
-		super("Almacén de Libros");
-		this.tableModel = new DepartamentoVerificadorLibrosTableModel();
-		this.table.setModel(tableModel);
+		super("Almacï¿½n de Libros");
+		
 	}
 
 }

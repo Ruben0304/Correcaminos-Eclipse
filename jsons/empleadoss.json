@@ -18,6 +18,15 @@
       "segundo_apellido": "López",
       "numerotrabajador": "ND456",
       "seccion": "Biblioteca"
-    }
+    },
+    {
+      "tipo": "NoDocente",
+      "ci": "11223344",
+      "nombre": "Carlos",
+      "primer_apellido": "Martínez",
+      "segundo_apellido": "Hernández",
+      "numerotrabajador": "321654",
+      "seccion": "Química"
+  }
   ]
   

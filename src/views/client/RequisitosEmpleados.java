@@ -10,12 +10,15 @@ import javax.swing.JPanel;
 
 import auth.Auth;
 import models.usuarios.Becado;
+import util.ResponsabilidadesTrabajador;
 import util.TiposResponsabilidad;
 import views.layouts.Pricipal;
 
-public class RequisitosEstudiante extends JPanel {
+public class RequisitosEmpleados extends JPanel {
 
-	private JPanel panel_RequisitosEstud;
+	private static final long serialVersionUID = 1L;
+
+	private JPanel panel_RequisitosEmpl;
 	private JLabel lblTitulo;
 	private JLabel lblBiblioteca;
 	private JLabel lblEntregadoTodosLos;
@@ -26,7 +29,6 @@ public class RequisitosEstudiante extends JPanel {
 	private JLabel label_5;
 	private JLabel lblEntregadoDelCarnet;
 	private JLabel label_6;
-	private JLabel lblSecretaria;
 	private JLabel lblSeguridadInformatica;
 	private JLabel lblCerradaCuentaUsuario;
 	private JLabel label_8;
@@ -38,51 +40,44 @@ public class RequisitosEstudiante extends JPanel {
 	private JLabel lblEntregadoCarnetDe;
 	private JLabel lblEntregadasPertenencias;
 	private JLabel label_15;
-	private HashMap<TiposResponsabilidad, Boolean> requisitos;
+	private HashMap<ResponsabilidadesTrabajador, Boolean> requisitos;
 
-	private RequisitosEstudiante(HashMap<TiposResponsabilidad, Boolean> requisitos) {
+	private RequisitosEmpleados(HashMap<ResponsabilidadesTrabajador, Boolean> requisitos) {
 
 		this.requisitos = requisitos;
-		this.panel_RequisitosEstud = getPanel_RequisitosEstud();
+		this.panel_RequisitosEmpl = getPanel_RequisitosEmpleados();
 	}
 
-	// no becado
+	public static RequisitosEmpleados getVista(HashMap<ResponsabilidadesTrabajador, Boolean> requisitos) {
 
-	public static RequisitosEstudiante getVista(HashMap<TiposResponsabilidad, Boolean> requisitos) {
-
-		return new RequisitosEstudiante(requisitos);
+		return new RequisitosEmpleados(requisitos);
 	}
 
-	public JPanel getPanel_RequisitosEstud() {
-		if (panel_RequisitosEstud == null) {
-			panel_RequisitosEstud = new JPanel();
-			panel_RequisitosEstud.setBounds(178, 0, 944, 700);
-			panel_RequisitosEstud.setLayout(null);
-			
-			panel_RequisitosEstud.add(getLblTitulo());
-			panel_RequisitosEstud.add(getLblBiblioteca());
-			panel_RequisitosEstud.add(getLblEntregadoTodosLos());
-			panel_RequisitosEstud.add(getLblNewLabel());
-			panel_RequisitosEstud.add(getLblEconomia());
-			panel_RequisitosEstud.add(getLabel_3_2());
-			panel_RequisitosEstud.add(getLabel_5());
-			panel_RequisitosEstud.add(getLabel_3_3());
-			panel_RequisitosEstud.add(getLabel_6());
-			panel_RequisitosEstud.add(getLblSecretaria());
-			panel_RequisitosEstud.add(getLblSeguridadInformatica());
-			panel_RequisitosEstud.add(getLabel_7_1());
-			panel_RequisitosEstud.add(getLabel_8());
-			panel_RequisitosEstud.add(getLblAlmacenDeLibros());
-			panel_RequisitosEstud.add(getLabel_7());
-			panel_RequisitosEstud.add(getLblEntregadoTodosLos_1());
+	public JPanel getPanel_RequisitosEmpleados() {
+		if (panel_RequisitosEmpl == null) {
+			panel_RequisitosEmpl = new JPanel();
+			panel_RequisitosEmpl.setBounds(178, 0, 944, 700);
+			panel_RequisitosEmpl.setLayout(null);
+			panel_RequisitosEmpl.setBackground(new Color(31, 33, 36));
+			panel_RequisitosEmpl.add(getLblTitulo());
+			panel_RequisitosEmpl.add(getLblBiblioteca());
+			panel_RequisitosEmpl.add(getLblEntregadoTodosLos());
+			panel_RequisitosEmpl.add(getLblNewLabel());
+			panel_RequisitosEmpl.add(getLblEconomia());
+			panel_RequisitosEmpl.add(getLabel_3_2());
+			panel_RequisitosEmpl.add(getLabel_5());
+			panel_RequisitosEmpl.add(getLabel_3_3());
+			panel_RequisitosEmpl.add(getLabel_6());
+			panel_RequisitosEmpl.add(getLblSeguridadInformatica());
+			panel_RequisitosEmpl.add(getLabel_7_1());
+			panel_RequisitosEmpl.add(getLabel_8());
+			panel_RequisitosEmpl.add(getLblAlmacenDeLibros());
+			panel_RequisitosEmpl.add(getLabel_7());
+			panel_RequisitosEmpl.add(getLblEntregadoTodosLos_1());
 
-			if (Auth.usuarioAutenticado() instanceof Becado) {
-				panel_RequisitosEstud.add(getLabel_11());
-				panel_RequisitosEstud.add(getLblEntregadasPertenencias());
-			}
 
 		}
-		return panel_RequisitosEstud;
+		return panel_RequisitosEmpl;
 	}
 
 	private JLabel getLblTitulo() {
@@ -121,41 +116,41 @@ public class RequisitosEstudiante extends JPanel {
 			lblNewLabel = new JLabel("");
 			lblNewLabel.setIcon(new ImageIcon(
 					Pricipal.class.getResource(
-							"/img/" + (requisitos.get(TiposResponsabilidad.LIBROS_BIBLIOTECA) ? "Canceel.png"
+							"/img/" + (requisitos.get(ResponsabilidadesTrabajador.LIBROS_BIBLIOTECA) ? "Canceel.png"
 									: "Checkmarkkk.png"))));
 			lblNewLabel.setBounds(52, 221, 42, 35);
 		}
 		return lblNewLabel;
 	}
 
-	// private JLabel getLabel_4() {
-	// if (label_4 == null) {
-	// label_4 = new JLabel("");
-	// label_4.setIcon(new ImageIcon(
-	// Pricipal.class
-	// .getResource("/img/" + (requisitos.get(TiposResponsabilidad.ESTIPENDIO) ?
-	// "Canceel.png" : "Checkmarkkk.png"))));
-	// label_4.setBounds(50, 368, 23, 21);
-	// }
-	// return label_4;
-	// }
+//	 private JLabel getLabel_4() {
+//		 if (label_4 == null) {
+//		 label_4 = new JLabel("");
+//		 label_4.setIcon(new ImageIcon(
+//		 Pricipal.class
+//		 .getResource("/img/" + (requisitos.get(ResponsabilidadesTrabajador.DEUDA) ?
+//		 "Canceel.png" : "Checkmarkkk.png"))));
+//		 label_4.setBounds(50, 368, 23, 21);
+//		 }
+//		 return label_4;
+//	 }
 
 	private JLabel getLblEconomia() {
 		if (lblEconomia == null) {
-			lblEconomia = new JLabel("Economia");
+			lblEconomia = new JLabel("Contabilidad");
 			lblEconomia.setForeground(Color.WHITE);
 			lblEconomia.setFont(new Font("Segoe UI Semibold", Font.BOLD, 26));
-			lblEconomia.setBounds(52, 307, 127, 54);
+			lblEconomia.setBounds(52, 307, 238, 54);
 		}
 		return lblEconomia;
 	}
 
 	private JLabel getLabel_3_2() {
 		if (lblDadoDeBaja == null) {
-			lblDadoDeBaja = new JLabel("Dado de baja en el estipendio");
+			lblDadoDeBaja = new JLabel("Deuda saldada");
 			lblDadoDeBaja.setForeground(Color.WHITE);
 			lblDadoDeBaja.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 18));
-			lblDadoDeBaja.setBounds(89, 369, 332, 54);
+			lblDadoDeBaja.setBounds(89, 361, 332, 54);
 		}
 		return lblDadoDeBaja;
 	}
@@ -165,9 +160,9 @@ public class RequisitosEstudiante extends JPanel {
 			label_5 = new JLabel("");
 			label_5.setIcon(new ImageIcon(
 					Pricipal.class.getResource(
-							"/img/" + (requisitos.get(TiposResponsabilidad.ESTIPENDIO) ? "Canceel.png"
+							"/img/" + (requisitos.get(ResponsabilidadesTrabajador.DEUDA) ? "Canceel.png"
 									: "Checkmarkkk.png"))));
-			label_5.setBounds(52, 388, 20, 20);
+			label_5.setBounds(52, 376, 20, 20);
 		}
 		return label_5;
 	}
@@ -177,7 +172,7 @@ public class RequisitosEstudiante extends JPanel {
 			lblEntregadoDelCarnet = new JLabel("Entregado el carnet de la CUJAE");
 			lblEntregadoDelCarnet.setForeground(Color.WHITE);
 			lblEntregadoDelCarnet.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 18));
-			lblEntregadoDelCarnet.setBounds(91, 509, 322, 54);
+			lblEntregadoDelCarnet.setBounds(515, 400, 322, 54);
 		}
 		return lblEntregadoDelCarnet;
 	}
@@ -188,19 +183,9 @@ public class RequisitosEstudiante extends JPanel {
 			label_6.setIcon(new ImageIcon(Pricipal.class
 					.getResource(
 							"/img/Canceel.png")));
-			label_6.setBounds(54, 521, 31, 35);
+			label_6.setBounds(478, 412, 31, 35);
 		}
 		return label_6;
-	}
-
-	private JLabel getLblSecretaria() {
-		if (lblSecretaria == null) {
-			lblSecretaria = new JLabel("Secretaria");
-			lblSecretaria.setForeground(Color.WHITE);
-			lblSecretaria.setFont(new Font("Segoe UI Semibold", Font.BOLD, 26));
-			lblSecretaria.setBounds(52, 458, 181, 54);
-		}
-		return lblSecretaria;
 	}
 
 	private JLabel getLblSeguridadInformatica() {
@@ -228,7 +213,7 @@ public class RequisitosEstudiante extends JPanel {
 			label_8 = new JLabel("");
 			label_8.setIcon(new ImageIcon(Pricipal.class
 					.getResource(
-							"/img/" + (requisitos.get(TiposResponsabilidad.CUENTA_USUARIO) ? "Canceel.png"
+							"/img/" + (requisitos.get(ResponsabilidadesTrabajador.CUENTA_USUARIO) ? "Canceel.png"
 									: "Checkmarkkk.png"))));
 			label_8.setBounds(478, 221, 31, 35);
 		}
@@ -237,10 +222,10 @@ public class RequisitosEstudiante extends JPanel {
 
 	private JLabel getLblAlmacenDeLibros() {
 		if (lblAlmacenDeLibros == null) {
-			lblAlmacenDeLibros = new JLabel("Almacen de libros");
+			lblAlmacenDeLibros = new JLabel("Recursos Humanos");
 			lblAlmacenDeLibros.setForeground(Color.WHITE);
 			lblAlmacenDeLibros.setFont(new Font("Segoe UI Semibold", Font.BOLD, 26));
-			lblAlmacenDeLibros.setBounds(478, 307, 225, 54);
+			lblAlmacenDeLibros.setBounds(478, 307, 271, 54);
 		}
 		return lblAlmacenDeLibros;
 	}
@@ -250,7 +235,7 @@ public class RequisitosEstudiante extends JPanel {
 			label_7 = new JLabel("");
 			label_7.setIcon(new ImageIcon(
 					Pricipal.class.getResource(
-							"/img/" + (requisitos.get(TiposResponsabilidad.LIBROS_DOCENTES) ? "Canceel.png"
+							"/img/" + (requisitos.get(ResponsabilidadesTrabajador.SALARIO_INDEBIDO) ? "Canceel.png"
 									: "Checkmarkkk.png"))));
 			label_7.setBounds(478, 361, 42, 35);
 		}
@@ -259,7 +244,7 @@ public class RequisitosEstudiante extends JPanel {
 
 	private JLabel getLblEntregadoTodosLos_1() {
 		if (lblEntregadoTodosLos_1 == null) {
-			lblEntregadoTodosLos_1 = new JLabel("Entregado todos los libros docentes");
+			lblEntregadoTodosLos_1 = new JLabel("No posee salario indebido\r\n");
 			lblEntregadoTodosLos_1.setForeground(Color.WHITE);
 			lblEntregadoTodosLos_1.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 18));
 			lblEntregadoTodosLos_1.setBounds(515, 349, 322, 54);

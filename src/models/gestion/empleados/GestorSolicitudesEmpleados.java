@@ -61,19 +61,14 @@ public class GestorSolicitudesEmpleados {
 
     }
 
-    public void crearSolicitudLiciencia(MotivoLicencia motivo, Empleado e) {
-
-       
-        Calendar c = Calendar.getInstance();
-        Calendar a = Calendar.getInstance();
-        a.add(Calendar.YEAR, 1);
+    public void crearSolicitudLicencia(MotivoLicencia motivo, Empleado e, Calendar salida, Calendar regreso) {
 
         if (solicitudesEmpleados.containsKey(e)) {
-            solicitudesEmpleados.get(e).add(new SolicitudLicencia(12,motivo,c,a));
+            solicitudesEmpleados.get(e).add(new SolicitudLicencia(12,motivo,salida,regreso));
         }
          else{
             Set<Solicitud> solicituds = new HashSet<>();
-            solicituds.add(new SolicitudLicencia(12,motivo,c,a));
+            solicituds.add(new SolicitudLicencia(12,motivo,salida,regreso));
             solicitudesEmpleados.put(e, solicituds);
         }
 

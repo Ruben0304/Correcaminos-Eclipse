@@ -40,6 +40,8 @@ public class SolicitudesEstudiantes extends JPanel {
 	private JLabel lblMotivosLicencia;
 	private JComboBox<String> cbMotivosLicencia;
 	private JButton btnSolicitarLicencia;
+	private JButton btnSolicitarBaja;
+	private JComboBox<String> cbMotivosBaja; 
 
 	/**
 	 * Launch the application.
@@ -87,9 +89,22 @@ public class SolicitudesEstudiantes extends JPanel {
 		label.setBounds(43, 85, 90, 23);
 		panelBaja.add(label);
 		
-		JButton btnSolicitarBaja = new JButton("Solicitar Baja");
-		btnSolicitarBaja.setForeground(Color.WHITE);
-		btnSolicitarBaja.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 18));
+		cbMotivosBaja = new JComboBox<String>();
+		cbMotivosBaja.setModel(new DefaultComboBoxModel(MotivoBaja.values()));
+		cbMotivosBaja.setBounds(66, 44, 226, 23);
+		
+		panelBaja.add(cbMotivosBaja);
+		
+		btnSolicitarBaja = new JButton("Solicitar Baja");
+		btnSolicitarBaja.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Secretaria.gestorEstudiantes().getGestorSolicitudes().crearSolicitudBaja((MotivoBaja)cbMotivosBaja.getSelectedItem(), (Estudiante) Auth.usuarioAutenticado());
+				ControladorPrincipal.mostrarRequisitosBajaEstudiantes();
+			}
+		});
+		btnSolicitarBaja.setFont(new Font(FlatRobotoFont.FAMILY, Font.PLAIN, 13));
+		btnSolicitarBaja.setForeground(Color.BLACK);
+		btnSolicitarBaja.setBounds(10, 96, 150, 23);
 		btnSolicitarBaja.setBackground(new Color(72, 189, 133));
 		btnSolicitarBaja.setBounds(107, 225, 223, 54);
 		panelBaja.add(btnSolicitarBaja);

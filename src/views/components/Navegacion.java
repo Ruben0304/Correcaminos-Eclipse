@@ -42,6 +42,8 @@ public class Navegacion extends JPanel {
 	private JLabel label_1;
 	private JLabel label_2;
 	private static Navegacion instance;
+	private JLabel label_3;
+	private JLabel label_4;
 	
 	public static Navegacion getInstancia() {
 		if (instance == null) {
@@ -69,6 +71,8 @@ public class Navegacion extends JPanel {
 		setAlignmentX(Component.LEFT_ALIGNMENT);
 		setBackground(new Color(20, 20, 20));
 		setLayout(null);
+		add(getLabel_4());
+		add(getLabel_3());
 		add(getHome());
 		if (Auth.hayUsuarioAutenticado() && Auth.usuarioAutenticado() instanceof Admin) {
 
@@ -251,7 +255,7 @@ public class Navegacion extends JPanel {
 	private JLabel getHome_bg() {
 		if (home_bg == null) {
 			home_bg = new JLabel();
-			home_bg.setIcon(new ImageIcon(Pricipal.class.getResource("/diagramas/Rounded Square.png")));
+			home_bg.setIcon(new ImageIcon(Navegacion.class.getResource("/img/bgVerde.png")));
 			home_bg.setBounds(9, 93, 50, 71);
 		}
 		return home_bg;
@@ -261,7 +265,7 @@ public class Navegacion extends JPanel {
 		if (gestion_bg == null) {
 			gestion_bg = new JLabel();
 			gestion_bg.setVisible(false);
-			gestion_bg.setIcon(new ImageIcon(Pricipal.class.getResource("/diagramas/Rounded Square.png")));
+			gestion_bg.setIcon(new ImageIcon(Navegacion.class.getResource("/img/bgVerde.png")));
 			gestion_bg.setBounds(9, 165, 50, 71);
 		}
 		return gestion_bg;
@@ -271,7 +275,7 @@ public class Navegacion extends JPanel {
 		if (reportes_bg == null) {
 			reportes_bg = new JLabel();
 			reportes_bg.setVisible(false);
-			reportes_bg.setIcon(new ImageIcon(Pricipal.class.getResource("/diagramas/Rounded Square.png")));
+			reportes_bg.setIcon(new ImageIcon(Navegacion.class.getResource("/img/bgVerde.png")));
 			reportes_bg.setBounds(9, 237, 50, 71);
 		}
 		return reportes_bg;
@@ -281,7 +285,7 @@ public class Navegacion extends JPanel {
 		if (guardar_bg == null) {
 			guardar_bg = new JLabel();
 			guardar_bg.setVisible(false);
-			guardar_bg.setIcon(new ImageIcon(Pricipal.class.getResource("/diagramas/Rounded Square.png")));
+			guardar_bg.setIcon(new ImageIcon(Navegacion.class.getResource("/img/bgVerde.png")));
 			guardar_bg.setBounds(9, 311, 50, 71);
 		}
 		return guardar_bg;
@@ -291,7 +295,7 @@ public class Navegacion extends JPanel {
 		if (account_bg == null) {
 			account_bg = new JLabel();
 			account_bg.setVisible(false);
-			account_bg.setIcon(new ImageIcon(Pricipal.class.getResource("/diagramas/Rounded Square.png")));
+			account_bg.setIcon(new ImageIcon(Navegacion.class.getResource("/img/bgVerde.png")));
 			account_bg.setBounds(9, 617, 50, 71);
 		}
 		return account_bg;
@@ -383,5 +387,22 @@ public class Navegacion extends JPanel {
 	}
 	public static void reiniciar() {
 		Navegacion.instance = null;
+	}
+	private JLabel getLabel_3() {
+		if (label_3 == null) {
+			label_3 = new JLabel();
+			label_3.setIcon(new ImageIcon(Navegacion.class.getResource("/img/burbuja20.png")));
+			label_3.setBounds(39, 172, 33, 28);
+		}
+		return label_3;
+	}
+	private JLabel getLabel_4() {
+		if (label_4 == null) {
+			label_4 = new JLabel("3");
+			label_4.setForeground(Color.WHITE);
+			label_4.setFont(new Font("Segoe UI", Font.BOLD, 12));
+			label_4.setBounds(46, 171, 21, 30);
+		}
+		return label_4;
 	}
 }

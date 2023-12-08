@@ -155,7 +155,7 @@ public class RequisitosEstudiante {
 			lblDadoDeBaja = new JLabel("Dado de baja en el estipendio");
 			lblDadoDeBaja.setForeground(Color.WHITE);
 			lblDadoDeBaja.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 18));
-			lblDadoDeBaja.setBounds(89, 385, 332, 54);
+			lblDadoDeBaja.setBounds(89, 369, 332, 54);
 		}
 		return lblDadoDeBaja;
 	}
@@ -167,7 +167,7 @@ public class RequisitosEstudiante {
 					Pricipal.class.getResource(
 							"/img/" + (requisitos.get(TiposResponsabilidad.ESTIPENDIO) ? "Canceel.png"
 									: "Checkmarkkk.png"))));
-			label_5.setBounds(52, 404, 20, 20);
+			label_5.setBounds(52, 388, 20, 20);
 		}
 		return label_5;
 	}
@@ -177,7 +177,7 @@ public class RequisitosEstudiante {
 			lblEntregadoDelCarnet = new JLabel("Entregado el carnet de la CUJAE");
 			lblEntregadoDelCarnet.setForeground(Color.WHITE);
 			lblEntregadoDelCarnet.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 18));
-			lblEntregadoDelCarnet.setBounds(89, 536, 322, 54);
+			lblEntregadoDelCarnet.setBounds(91, 509, 322, 54);
 		}
 		return lblEntregadoDelCarnet;
 	}
@@ -188,7 +188,7 @@ public class RequisitosEstudiante {
 			label_6.setIcon(new ImageIcon(Pricipal.class
 					.getResource(
 							"/img/Canceel.png")));
-			label_6.setBounds(52, 548, 31, 35);
+			label_6.setBounds(54, 521, 31, 35);
 		}
 		return label_6;
 	}
@@ -198,7 +198,7 @@ public class RequisitosEstudiante {
 			lblSecretaria = new JLabel("Secretaria");
 			lblSecretaria.setForeground(Color.WHITE);
 			lblSecretaria.setFont(new Font("Segoe UI Semibold", Font.BOLD, 26));
-			lblSecretaria.setBounds(50, 485, 181, 54);
+			lblSecretaria.setBounds(52, 458, 181, 54);
 		}
 		return lblSecretaria;
 	}

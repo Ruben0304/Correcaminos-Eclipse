@@ -40,17 +40,10 @@ public class DepartamentosModelo extends JPanel {
 	protected JTable table;
 	protected TableModel tableModel;
 	protected JLabel lNombreDepartamento;
-	protected JButton btnCerrar;
-	protected JButton btnMinimizar;
-	protected JMenuBar menuBar;
-	protected JMenuItem mntmCerrarSesin;
 	protected JLabel lblCasosPendientes;
 	protected JScrollPane scrollPane;
 	protected JButton btnConfirmarEntrega;
 	protected ImageIcon iDimAux, iMinimizar, iCerrar;
-	protected JMenu mnNewMenu;
-	protected JMenu mnReportes;
-	protected JMenuItem mntmVerReportes;
 	
 
 	/**
@@ -79,77 +72,38 @@ public class DepartamentosModelo extends JPanel {
 		crearImagenes();
 		
 		panelContenedor = new JPanel();
-		panelContenedor.setBounds(0, 0, 600, 400);
+		panelContenedor.setBounds(0, 0, 944, 700);;
 		add(panelContenedor);
 		panelContenedor.setLayout(null);
 		
 		panelNombreDept = new JPanel();
-		panelNombreDept.setBounds(0, 0, 600, 27);
+		panelNombreDept.setBounds(28, 0, 572, 43);
 		panelContenedor.add(panelNombreDept);
 		panelNombreDept.setLayout(null);
 		
 		lNombreDepartamento = new JLabel(Auth.getNombreUsuario());
-		lNombreDepartamento.setFont(new Font(FlatRobotoFont.FAMILY,Font.PLAIN,17));
-		lNombreDepartamento.setBounds(10, 8, 185, 14);
+		lNombreDepartamento.setFont(new Font("Segoe UI", Font.BOLD, 23));
+		lNombreDepartamento.setBounds(0, 8, 271, 35);
 		panelNombreDept.add(lNombreDepartamento);
 		
 		iDimAux = new ImageIcon(
 				iCerrar.getImage()
 		        .getScaledInstance(25, 25, Image.SCALE_AREA_AVERAGING)
 		    );
-		btnCerrar = new JButton("");
-		btnCerrar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				System.exit(0);
-			}
-		});
-		btnCerrar.setBounds(551, -1, 52, 28);
-		btnCerrar.setFocusable(false);
-		btnCerrar.setCursor(new Cursor(Cursor.HAND_CURSOR));
-		btnCerrar.setIcon(iDimAux);
-		btnCerrar.setContentAreaFilled(false);
-		panelNombreDept.add(btnCerrar);
 		
 		iDimAux = new ImageIcon(
 				iMinimizar.getImage()
 		        .getScaledInstance(21, 21, Image.SCALE_AREA_AVERAGING)
 		    );
-		btnMinimizar = new JButton("");
-		btnMinimizar.setBounds(538, 0, 33, 27);
-		btnMinimizar.setFocusable(false);
-		btnMinimizar.setCursor(new Cursor(Cursor.HAND_CURSOR));
-		btnMinimizar.setIcon(iDimAux);
-		btnMinimizar.setContentAreaFilled(false);
-		panelNombreDept.add(btnMinimizar);
-		
-		menuBar = new JMenuBar();
-		menuBar.setBounds(0, 27, 600, 21);
-		panelContenedor.add(menuBar);
-		
-		mnNewMenu = new JMenu("Opciones");
-		menuBar.add(mnNewMenu);
-		
-		mntmCerrarSesin = new JMenuItem("Cerrar sesi\u00F3n");
-		mntmCerrarSesin.setHorizontalTextPosition(SwingConstants.LEFT);
-		mntmCerrarSesin.setHorizontalAlignment(SwingConstants.LEFT);
-		mntmCerrarSesin.setFont(new Font(FlatRobotoFont.FAMILY,Font.PLAIN,13));
-		mnNewMenu.add(mntmCerrarSesin);
-		
-		mnReportes = new JMenu("Reportes");
-		mnReportes.setVisible(false);
-		menuBar.add(mnReportes);
-		
-		mntmVerReportes = new JMenuItem("Ver Reportes");
-		mnReportes.add(mntmVerReportes);
 		
 		lblCasosPendientes = new JLabel("Listado de Casos Pendientes");
-		lblCasosPendientes.setFont(new Font(FlatRobotoFont.FAMILY,Font.PLAIN,17));
+		lblCasosPendientes.setFont(new Font("Segoe UI", Font.PLAIN, 22));
 		lblCasosPendientes.setBorder(new MatteBorder(0,0,1,0, new Color(0,255,0)));
-		lblCasosPendientes.setBounds(28, 77, 537, 30);
+		lblCasosPendientes.setBounds(28, 77, 840, 30);
 		panelContenedor.add(lblCasosPendientes);
 		
 		scrollPane = new JScrollPane();
-		scrollPane.setBounds(28, 111, 537, 228);
+		scrollPane.setBounds(28, 111, 840, 424);
 		panelContenedor.add(scrollPane);
 		
 		table = new JTable();
@@ -160,13 +114,13 @@ public class DepartamentosModelo extends JPanel {
 		scrollPane.setViewportView(table);
 		
 		btnConfirmarEntrega = new JButton("Confirmar entrega");
-		btnConfirmarEntrega.setBounds(388, 350, 177, 23);
-		btnConfirmarEntrega.setFont(new Font(FlatRobotoFont.FAMILY,Font.PLAIN,14));
+		btnConfirmarEntrega.setBounds(687, 609, 196, 43);
+		btnConfirmarEntrega.setFont(new Font("Segoe UI", Font.PLAIN, 18));
 		btnConfirmarEntrega.setBackground(new Color(72, 189, 133));
-		btnConfirmarEntrega.setForeground(Color.BLACK);
+		btnConfirmarEntrega.setForeground(Color.WHITE);
 		panelContenedor.add(btnConfirmarEntrega);
 		
-		setBounds(0, 0, 600, 400);
+		setBounds(178, 0, 944, 700);
 		this.setLayout(null);
 	}
 	

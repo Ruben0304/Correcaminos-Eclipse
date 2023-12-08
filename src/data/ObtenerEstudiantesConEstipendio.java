@@ -14,13 +14,13 @@ import util.TiposResponsabilidad;
 
 public class ObtenerEstudiantesConEstipendio {
 
-	public static HashMap<Estudiante, TiposResponsabilidad> cargarDesdeArchivo() {
+	public static HashMap<String, TiposResponsabilidad> cargarDesdeArchivo() {
 		
 		Gson gson = new Gson();
-		HashMap<Estudiante, TiposResponsabilidad> estudiantes = new HashMap<Estudiante, TiposResponsabilidad>();
+		HashMap<String, TiposResponsabilidad> estudiantes = new HashMap<>();
 
         try (BufferedReader reader = new BufferedReader(new FileReader("./jsons/estudiantesEstipendio.json"))) {
-            Type listType = new TypeToken<HashMap<Estudiante, TiposResponsabilidad>>() {
+            Type listType = new TypeToken<HashMap<String, TiposResponsabilidad>>() {
             }.getType();
             estudiantes = gson.fromJson(reader, listType);   
         } catch (IOException e) {

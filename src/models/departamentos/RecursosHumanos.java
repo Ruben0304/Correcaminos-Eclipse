@@ -15,7 +15,7 @@ import util.TiposResponsabilidad;
 
 public class RecursosHumanos implements VerificadorEmpleado {
 	
-	private HashMap<Empleado, TiposResponsabilidad> empleadosConSalarioIndebido;
+	private HashMap<String, TiposResponsabilidad> empleadosConSalarioIndebido;
 	
 	public RecursosHumanos() {
 		empleadosConSalarioIndebido = new HashMap<Empleado, TiposResponsabilidad>();

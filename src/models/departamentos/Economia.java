@@ -11,7 +11,7 @@ import util.TiposResponsabilidad;
 
 public class Economia implements VerificadorEstudiante {
 	
-	private HashMap<Estudiante, TiposResponsabilidad> estudiantesConEstipendio;
+	private HashMap<String, TiposResponsabilidad> estudiantesConEstipendio;
 	
 	public Economia() {
 		estudiantesConEstipendio = new HashMap<Estudiante, TiposResponsabilidad>();

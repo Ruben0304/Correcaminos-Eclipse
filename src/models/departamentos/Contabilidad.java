@@ -11,7 +11,7 @@ import models.usuarios.Empleado;
 
 public class Contabilidad implements VerificadorEmpleado {
 	
-	private HashMap<Empleado, Double> empleadosDeudas;
+	private HashMap<String, Double> empleadosDeudas;
 	
 	public Contabilidad() {
 		empleadosDeudas = new HashMap<Empleado, Double>();

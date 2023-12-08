@@ -14,32 +14,21 @@ import models.usuarios.NoDocente;
 
 public class ObtenerEmpleadosConDeudas {
 
-	public static HashMap<Empleado, Double> cargarDesdeArchivo() {
+	public static HashMap<String, Double> cargarDesdeArchivo() {
 		
 		 Gson gson = new Gson();
-		 	HashMap<Empleado, Double> deudasEmpleados = new HashMap<>();
-		 	HashMap<Empleado, Double> deudasDocentes = new HashMap<>();
-		 	HashMap<Empleado, Double> deudasNoDocentes = new HashMap<>();
+		 	HashMap<String, Double> deudasEmpleados = new HashMap<>();
+		 	
 
-	        try (BufferedReader reader = new BufferedReader(new FileReader("./jsons/deudas/deudasDocentes.json"))) {
-	            Type listType = new TypeToken<HashMap<Docente, Double>>() {
+	        try (BufferedReader reader = new BufferedReader(new FileReader("./jsons/deudas/deudasEmpleados.json"))) {
+	            Type listType = new TypeToken<HashMap<String, Double>>() {
 	            }.getType();
-	            deudasDocentes = gson.fromJson(reader, listType);
+	            deudasEmpleados = gson.fromJson(reader, listType);
 	        } catch (IOException e) {
 	            e.printStackTrace();
 	        }
 
-	        try (BufferedReader reader = new BufferedReader(new FileReader("./jsons/deudas/deudasNoDocentes.json"))) {
-	            Type listType = new TypeToken<HashMap<NoDocente, Double>>() {
-	            }.getType();
-	            deudasNoDocentes = gson.fromJson(reader, listType);
-	        } catch (IOException e) {
-	            e.printStackTrace();
-	        }
-	        
 
-	        deudasEmpleados.putAll(deudasDocentes);
-	        deudasEmpleados.putAll(deudasNoDocentes);
 	        return deudasEmpleados;
 	}
 

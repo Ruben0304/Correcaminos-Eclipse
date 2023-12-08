@@ -14,13 +14,13 @@ import models.usuarios.Estudiante;
 
 public class ObtenerEstudiantesConLibrosDocentesPendientes {
 
-	public static HashMap<Estudiante, Set<String>> cargarDesdeArchivo() {
+	public static HashMap<String, Set<String>> cargarDesdeArchivo() {
 		
 		Gson gson = new Gson();
-		HashMap<Estudiante,  Set<String>> estudiantes = new HashMap<Estudiante,  Set<String>>();
+		HashMap<String,  Set<String>> estudiantes = new HashMap<>();
 
         try (BufferedReader reader = new BufferedReader(new FileReader("./jsons/libros/estudiantesLibrosDocentesPendientes.json"))) {
-            Type listType = new TypeToken<HashMap<Estudiante, Set<String>>>() {
+            Type listType = new TypeToken<HashMap<String, Set<String>>>() {
             }.getType();
             estudiantes = gson.fromJson(reader, listType);   
         } catch (IOException e) {

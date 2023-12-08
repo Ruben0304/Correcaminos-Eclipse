@@ -16,10 +16,10 @@ import models.usuarios.Persona;
 
 public class Biblioteca implements VerificadorEstudiante, VerificadorEmpleado {
 	
-	private HashMap<Persona, Set<String>> personasConLibrosBiblioteca;
+	private HashMap<String, Set<String>> personasConLibrosBiblioteca;
 	
 	public Biblioteca() {
-		personasConLibrosBiblioteca = new HashMap<Persona, Set<String>>();
+		personasConLibrosBiblioteca = new HashMap<String, Set<String>>();
 		cargarInformacionPersonasConLibrosBiblioteca();
 		
 	}

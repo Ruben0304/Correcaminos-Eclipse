@@ -13,10 +13,10 @@ public class AlmacenDeLibros implements VerificadorEstudiante {
 
 	
 	private AlmacenDeLibros almacen;
-	private HashMap<Estudiante, Set<String>> estudiantesConLibrosDocentes;
+	private HashMap<String, Set<String>> estudiantesConLibrosDocentes;
 	
 	public AlmacenDeLibros() {
-		estudiantesConLibrosDocentes = new HashMap<Estudiante, Set<String>>();
+		estudiantesConLibrosDocentes = new HashMap<String, Set<String>>();
 		cargarInformacionEstudiantesConLibrosDocentes();
 	}
 	

@@ -1,0 +1,48 @@
+[
+    [
+        {
+            "curso": 1,
+            "tipoCurso": "DIURNO",
+            "carrera": "Ingenieria Informatica",
+            "grupo": 13,
+            "ci": "01012367891",
+            "nombre": "Luis",
+            "primer_apellido": "Capote",
+            "segundo_apellido": "Perez",
+            "facultad": "Ing_Informatica",
+            "idBecado": "12345",
+            "noCuarto": 301
+        },
+        [
+            {
+                "id": 2,
+                "estado": "PENDIENTE",
+                "fecha": {
+                    "year": 2023,
+                    "month": 10,
+                    "dayOfMonth": 18,
+                    "hourOfDay": 0,
+                    "minute": 23,
+                    "second": 11
+                },
+                "motivo": "Accidente",
+                "fechaSalida": {
+                    "year": 2024,
+                    "month": 1,
+                    "dayOfMonth": 15,
+                    "hourOfDay": 0,
+                    "minute": 0,
+                    "second": 0
+                },
+                "fechaRegreso": {
+                    "year": 2024,
+                    "month": 1,
+                    "dayOfMonth": 30,
+                    "hourOfDay": 8,
+                    "minute": 0,
+                    "second": 0
+                }
+            }
+        ]
+    ]
+]

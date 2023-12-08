@@ -1,11 +1,9 @@
 package auth;
 
-import java.util.HashMap;
+
 
 import interfaces.Autenticable;
-import models.usuarios.Admin;
 
-import models.usuarios.Persona;
 
 public class Auth {
     
@@ -17,8 +15,9 @@ public class Auth {
         return usuario;
     }
 
-    public static void iniciarSesion(Autenticable usuari) {
-        usuario = usuari;
+    public static void iniciarSesion(Autenticable user, String nombreUser) {
+        usuario = user;
+        nombreUsuario = nombreUser;
     }
 
     public static boolean hayUsuarioAutenticado() {

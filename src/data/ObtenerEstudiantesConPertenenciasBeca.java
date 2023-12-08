@@ -15,13 +15,13 @@ import models.usuarios.Becado;
 
 public class ObtenerEstudiantesConPertenenciasBeca {
 
-	public static HashMap<Becado, Set<String>> cargarDesdeArchivo() {
+	public static HashMap<String, Set<String>> cargarDesdeArchivo() {
 		
 		Gson gson = new Gson();
-		HashMap<Becado, Set<String>> becados = new HashMap<Becado, Set<String>>();
+		HashMap<String, Set<String>> becados = new HashMap<>();
 
         try (BufferedReader reader = new BufferedReader(new FileReader("./jsons/pertenenciasBecados.json"))) {
-            Type listType = new TypeToken<HashMap<Becado, Set<String>>>() {
+            Type listType = new TypeToken<HashMap<String, Set<String>>>() {
             }.getType();
             becados = gson.fromJson(reader, listType);   
         } catch (IOException e) {

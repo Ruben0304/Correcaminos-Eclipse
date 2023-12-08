@@ -2,13 +2,15 @@ package views.client;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.util.HashMap;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import util.BooleanosEstudianteBaja;
-import util.BooleanosEstudianteBecadoBaja;
+import auth.Auth;
+import models.usuarios.Becado;
+import util.TiposResponsabilidad;
 import views.layouts.Pricipal;
 
 public class RequisitosEstudiante {
@@ -18,7 +20,6 @@ public class RequisitosEstudiante {
 	private JLabel lblBiblioteca;
 	private JLabel lblEntregadoTodosLos;
 	private JLabel lblNewLabel;
-	private JLabel lblDeudasPendientesSaldadas;
 	private JLabel label_4;
 	private JLabel lblEconomia;
 	private JLabel lblDadoDeBaja;
@@ -37,73 +38,20 @@ public class RequisitosEstudiante {
 	private JLabel lblEntregadoCarnetDe;
 	private JLabel lblEntregadasPertenencias;
 	private JLabel label_15;
-	
+	private HashMap<TiposResponsabilidad, Boolean> requisitos;
 
+	private RequisitosEstudiante(HashMap<TiposResponsabilidad, Boolean> requisitos) {
 
-	private BooleanosEstudianteBaja booleanos;
-
-	private RequisitosEstudiante(BooleanosEstudianteBecadoBaja booleanos) {
-
-		this.booleanos=booleanos;
-		this.panel_RequisitosEstud = getPanel_RequisitosEstudBecado();
-	}
-
-	private RequisitosEstudiante(BooleanosEstudianteBaja booleanos) {
-
-		this.booleanos=booleanos;
+		this.requisitos = requisitos;
 		this.panel_RequisitosEstud = getPanel_RequisitosEstud();
-	}
-
-	// becado
-	public static RequisitosEstudiante getVista(BooleanosEstudianteBecadoBaja booleanos) {
-
-		return new RequisitosEstudiante(booleanos);
 	}
 
 	// no becado
 
-	public static RequisitosEstudiante getVista(BooleanosEstudianteBaja booleanos) {
+	public static RequisitosEstudiante getVista(HashMap<TiposResponsabilidad, Boolean> requisitos) {
 
-		return new RequisitosEstudiante(booleanos);
+		return new RequisitosEstudiante(requisitos);
 	}
-
-	// Becado
-
-	public JPanel getPanel_RequisitosEstudBecado() {
-		if (panel_RequisitosEstud == null) {
-			panel_RequisitosEstud = new JPanel();
-			panel_RequisitosEstud.setBounds(178, 0, 944, 700);
-			panel_RequisitosEstud.setLayout(null);
-			panel_RequisitosEstud.setBackground(new Color(31, 33, 36));
-			panel_RequisitosEstud.add(getLblTitulo());
-			panel_RequisitosEstud.add(getLblBiblioteca());
-			panel_RequisitosEstud.add(getLblEntregadoTodosLos());
-			panel_RequisitosEstud.add(getLblNewLabel());
-			panel_RequisitosEstud.add(getLabel_3_1());
-			panel_RequisitosEstud.add(getLabel_4());
-			panel_RequisitosEstud.add(getLblEconomia());
-			panel_RequisitosEstud.add(getLabel_3_2());
-			panel_RequisitosEstud.add(getLabel_5());
-			panel_RequisitosEstud.add(getLabel_3_3());
-			panel_RequisitosEstud.add(getLabel_6());
-			panel_RequisitosEstud.add(getLblSecretaria());
-			panel_RequisitosEstud.add(getLblSeguridadInformatica());
-			panel_RequisitosEstud.add(getLabel_7_1());
-			panel_RequisitosEstud.add(getLabel_8());
-			panel_RequisitosEstud.add(getLblAlmacenDeLibros());
-			panel_RequisitosEstud.add(getLabel_7());
-			panel_RequisitosEstud.add(getLblEntregadoTodosLos_1());
-			panel_RequisitosEstud.add(getLblGestionDeBeca());
-			panel_RequisitosEstud.add(getLabel_11());
-			panel_RequisitosEstud.add(getLblEntregadoCarnetDe());
-			panel_RequisitosEstud.add(getLblEntregadasPertenencias());
-			panel_RequisitosEstud.add(getLabel_15());
-
-		}
-		return panel_RequisitosEstud;
-	}
-
-	// No becado
 
 	public JPanel getPanel_RequisitosEstud() {
 		if (panel_RequisitosEstud == null) {
@@ -115,8 +63,6 @@ public class RequisitosEstudiante {
 			panel_RequisitosEstud.add(getLblBiblioteca());
 			panel_RequisitosEstud.add(getLblEntregadoTodosLos());
 			panel_RequisitosEstud.add(getLblNewLabel());
-			panel_RequisitosEstud.add(getLabel_3_1());
-			panel_RequisitosEstud.add(getLabel_4());
 			panel_RequisitosEstud.add(getLblEconomia());
 			panel_RequisitosEstud.add(getLabel_3_2());
 			panel_RequisitosEstud.add(getLabel_5());
@@ -130,6 +76,11 @@ public class RequisitosEstudiante {
 			panel_RequisitosEstud.add(getLabel_7());
 			panel_RequisitosEstud.add(getLblEntregadoTodosLos_1());
 
+			if (Auth.usuarioAutenticado() instanceof Becado) {
+				panel_RequisitosEstud.add(getLabel_11());
+				panel_RequisitosEstud.add(getLblEntregadasPertenencias());
+			}
+
 		}
 		return panel_RequisitosEstud;
 	}
@@ -140,7 +91,7 @@ public class RequisitosEstudiante {
 			lblTitulo.setForeground(Color.WHITE);
 			lblTitulo.setFont(new Font("Segoe UI Semibold", Font.BOLD, 40));
 			lblTitulo.setBounds(295, 65, 225, 54);
-			
+
 		}
 		return lblTitulo;
 	}
@@ -169,31 +120,25 @@ public class RequisitosEstudiante {
 		if (lblNewLabel == null) {
 			lblNewLabel = new JLabel("");
 			lblNewLabel.setIcon(new ImageIcon(
-					Pricipal.class.getResource("/img/" + (booleanos.isTieneLibrosPrestados() ? "Canceel.png" : "Checkmarkkk.png"))));
+					Pricipal.class.getResource(
+							"/img/" + (requisitos.get(TiposResponsabilidad.LIBROS_BIBLIOTECA) ? "Canceel.png"
+									: "Checkmarkkk.png"))));
 			lblNewLabel.setBounds(52, 221, 42, 35);
 		}
 		return lblNewLabel;
 	}
 
-	private JLabel getLabel_3_1() {
-		if (lblDeudasPendientesSaldadas == null) {
-			lblDeudasPendientesSaldadas = new JLabel("Deudas saldadas");
-			lblDeudasPendientesSaldadas.setForeground(Color.WHITE);
-			lblDeudasPendientesSaldadas.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 18));
-			lblDeudasPendientesSaldadas.setBounds(89, 360, 144, 35);
-		}
-		return lblDeudasPendientesSaldadas;
-	}
-
-	private JLabel getLabel_4() {
-		if (label_4 == null) {
-			label_4 = new JLabel("");
-			label_4.setIcon(new ImageIcon(
-					Pricipal.class.getResource("/img/" + (booleanos.isTieneDeuda() ? "Canceel.png" : "Checkmarkkk.png"))));
-			label_4.setBounds(50, 368, 23, 21);
-		}
-		return label_4;
-	}
+	// private JLabel getLabel_4() {
+	// if (label_4 == null) {
+	// label_4 = new JLabel("");
+	// label_4.setIcon(new ImageIcon(
+	// Pricipal.class
+	// .getResource("/img/" + (requisitos.get(TiposResponsabilidad.ESTIPENDIO) ?
+	// "Canceel.png" : "Checkmarkkk.png"))));
+	// label_4.setBounds(50, 368, 23, 21);
+	// }
+	// return label_4;
+	// }
 
 	private JLabel getLblEconomia() {
 		if (lblEconomia == null) {
@@ -219,7 +164,9 @@ public class RequisitosEstudiante {
 		if (label_5 == null) {
 			label_5 = new JLabel("");
 			label_5.setIcon(new ImageIcon(
-					Pricipal.class.getResource("/img/" + (booleanos.isTieneEstipendio() ? "Canceel.png" : "Checkmarkkk.png"))));
+					Pricipal.class.getResource(
+							"/img/" + (requisitos.get(TiposResponsabilidad.ESTIPENDIO) ? "Canceel.png"
+									: "Checkmarkkk.png"))));
 			label_5.setBounds(52, 404, 20, 20);
 		}
 		return label_5;
@@ -239,7 +186,8 @@ public class RequisitosEstudiante {
 		if (label_6 == null) {
 			label_6 = new JLabel("");
 			label_6.setIcon(new ImageIcon(Pricipal.class
-					.getResource("/img/" + (booleanos.isTieneCarnetDeEstudiante() ? "Canceel.png" : "Checkmarkkk.png"))));
+					.getResource(
+							"/img/Canceel.png")));
 			label_6.setBounds(52, 548, 31, 35);
 		}
 		return label_6;
@@ -279,7 +227,9 @@ public class RequisitosEstudiante {
 		if (label_8 == null) {
 			label_8 = new JLabel("");
 			label_8.setIcon(new ImageIcon(Pricipal.class
-					.getResource("/img/" + (booleanos.isTieneCuentaUsuarioAbierta() ? "Canceel.png" : "Checkmarkkk.png"))));
+					.getResource(
+							"/img/" + (requisitos.get(TiposResponsabilidad.CUENTA_USUARIO) ? "Canceel.png"
+									: "Checkmarkkk.png"))));
 			label_8.setBounds(478, 221, 31, 35);
 		}
 		return label_8;
@@ -299,7 +249,9 @@ public class RequisitosEstudiante {
 		if (label_7 == null) {
 			label_7 = new JLabel("");
 			label_7.setIcon(new ImageIcon(
-					Pricipal.class.getResource("/img/" + (booleanos.isTieneLibrosDocentes() ? "Canceel.png" : "Checkmarkkk.png"))));
+					Pricipal.class.getResource(
+							"/img/" + (requisitos.get(TiposResponsabilidad.LIBROS_DOCENTES) ? "Canceel.png"
+									: "Checkmarkkk.png"))));
 			label_7.setBounds(478, 361, 42, 35);
 		}
 		return label_7;
@@ -329,20 +281,12 @@ public class RequisitosEstudiante {
 		if (label_11 == null) {
 			label_11 = new JLabel("");
 			label_11.setIcon(new ImageIcon(
-					Pricipal.class.getResource("/img/" + (((BooleanosEstudianteBecadoBaja)booleanos).isTieneCarnetDeBecado() ? "Canceel.png" : "Checkmarkkk.png"))));
+					Pricipal.class.getResource("/img/"
+							+ (requisitos.get(TiposResponsabilidad.PERTENENCIAS_BECA) ? "Canceel.png"
+									: "Checkmarkkk.png"))));
 			label_11.setBounds(478, 546, 20, 20);
 		}
 		return label_11;
-	}
-
-	private JLabel getLblEntregadoCarnetDe() {
-		if (lblEntregadoCarnetDe == null) {
-			lblEntregadoCarnetDe = new JLabel("Entregado carnet de becado");
-			lblEntregadoCarnetDe.setForeground(Color.WHITE);
-			lblEntregadoCarnetDe.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 18));
-			lblEntregadoCarnetDe.setBounds(515, 538, 285, 35);
-		}
-		return lblEntregadoCarnetDe;
 	}
 
 	private JLabel getLblEntregadasPertenencias() {
@@ -355,13 +299,4 @@ public class RequisitosEstudiante {
 		return lblEntregadasPertenencias;
 	}
 
-	private JLabel getLabel_15() {
-		if (label_15 == null) {
-			label_15 = new JLabel("");
-			label_15.setIcon(new ImageIcon(Pricipal.class
-					.getResource("/img/" + (((BooleanosEstudianteBecadoBaja)booleanos).isTienePertenenciasDeLaCUJAE() ? "Canceel.png" : "Checkmarkkk.png"))));
-			label_15.setBounds(478, 578, 42, 35);
-		}
-		return label_15;
-	}
 }

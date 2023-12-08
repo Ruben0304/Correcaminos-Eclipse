@@ -10,58 +10,40 @@ import java.util.ArrayList;
 
 import com.google.gson.Gson;
 
-import interfaces.Autenticable;
-import models.gestion.Correcaminos;
+import models.usuarios.Credenciales;
+
+
 
 public class Session {
-    private String nombreUsuario;
-    private String password;
+    
 
-    public Session(String nombreUsuario, String password) {
-        this.nombreUsuario = nombreUsuario;
-        this.password = password;
+    public Session(Credenciales c) {
+       
 
         Gson gson = new Gson();
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter("./session.json"))) {
-            String json = gson.toJson(this);
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("./jsons/session.json"))) {
+            String json = gson.toJson(c);
             writer.write(json);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    private static Session obtenerSession() {
+    public static Credenciales obtenerSession() {
         Gson gson = new Gson();
-        File file = new File("./session.json");
-        Session session = null;
+        File file = new File("./jsons/session.json");
+        Credenciales session = null;
         if (file.exists()) {
             try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
-                session = gson.fromJson(reader, Session.class);
+                session = gson.fromJson(reader, Credenciales.class);
             } catch (IOException e) {
                 e.printStackTrace();
             }
         } else {
-            session = new Session("null", "null");
+            new Session(session);
         }
         return session;
     }
 
-    public static Autenticable ValidarSession() {
-
-        Session session = obtenerSession();
-        
-        Autenticable u = session.getNombreUsuario() == null ? null
-                : VerificacionCredenciales.autenticar(session.getNombreUsuario(), session.getPassword());
-
-        return u;
-    }
-
-    private String getNombreUsuario() {
-        return nombreUsuario;
-    }
-
-    private String getPassword() {
-        return password;
-    }
 
 }

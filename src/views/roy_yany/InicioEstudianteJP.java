@@ -23,7 +23,7 @@ public class InicioEstudianteJP extends JPanel{
 		JLabel label = new JLabel("");
 		label.setBounds(57, 22, 33, 28);
 		add(label);
-		label.setIcon(new ImageIcon(Pricipal.class.getResource("/img/Back Arrow.png")));
+		label.setIcon(new ImageIcon(InicioEstudianteJP.class.getResource("/img/Back Arrow.png")));
 		
 		JLabel label_1 = new JLabel("Inicio");
 		label_1.setForeground(Color.WHITE);
@@ -55,7 +55,7 @@ public class InicioEstudianteJP extends JPanel{
 		JLabel label_4 = new JLabel("");
 		label_4.setBounds(813, 13, 40, 37);
 		add(label_4);
-		label_4.setIcon(new ImageIcon(Pricipal.class.getResource("/img/account.png")));
+		label_4.setIcon(new ImageIcon(InicioEstudianteJP.class.getResource("/img/account.png")));
 		
 		JLabel label_5 = new JLabel("Entrar");
 		label_5.setForeground(Color.WHITE);

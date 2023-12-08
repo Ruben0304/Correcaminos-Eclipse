@@ -16,31 +16,23 @@ import util.TiposResponsabilidad;
 
 public class ObtenerEmpleadosConSalarioIndebido {
 
-	public static HashMap<Empleado, TiposResponsabilidad> cargarDesdeArchivo() {
+	public static HashMap<String, TiposResponsabilidad> cargarDesdeArchivo() {
 		
 		Gson gson = new Gson();
-		HashMap<Empleado, TiposResponsabilidad> empleados = new HashMap<Empleado, TiposResponsabilidad>();
-		HashMap<Empleado, TiposResponsabilidad> empleadosDocentes = new HashMap<Empleado, TiposResponsabilidad>();
-		HashMap<Empleado, TiposResponsabilidad> empleadosNoDocentes = new HashMap<Empleado, TiposResponsabilidad>();
+		HashMap<String, TiposResponsabilidad> empleados = new HashMap<>();
+		
 
-        try (BufferedReader reader = new BufferedReader(new FileReader("./jsons/docentesSalarioIndebido.json"))) {
-            Type listType = new TypeToken<HashMap<Docente, TiposResponsabilidad>>() {
+        try (BufferedReader reader = new BufferedReader(new FileReader("./jsons/empleadosSalarioIndebido.json"))) {
+            Type listType = new TypeToken<HashMap<String, TiposResponsabilidad>>() {
             }.getType();
-            empleadosDocentes = gson.fromJson(reader, listType);   
+            empleados = gson.fromJson(reader, listType);   
         } catch (IOException e) {
             e.printStackTrace();
         }
         
-        try (BufferedReader reader = new BufferedReader(new FileReader("./jsons/noDocentesSalarioIndebido.json"))) {
-            Type listType = new TypeToken<HashMap<NoDocente, TiposResponsabilidad>>() {
-            }.getType();
-            empleadosNoDocentes = gson.fromJson(reader, listType);   
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
         
-        empleados.putAll(empleadosNoDocentes);
-        empleados.putAll(empleadosDocentes);
+        
         return empleados;
 	}
 

@@ -9,8 +9,9 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.table.TableModel;
 
 import interfaz_grafica.modelos_tablas.DepartamentoEconomiaTableModel;
+import views.admin.DepartamentosModelo;
 
-public class Economia extends DepartamentosModel {
+public class Economia extends DepartamentosModelo {
 
 	/**
 	 * Launch the application.
@@ -32,7 +33,7 @@ public class Economia extends DepartamentosModel {
 	 * Create the frame.
 	 */
 	public Economia() {
-		super("Economía");
+		super("Economï¿½a");
 		this.tableModel = new DepartamentoEconomiaTableModel();
 		this.table.setModel(tableModel);
 		

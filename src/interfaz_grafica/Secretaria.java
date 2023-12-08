@@ -7,9 +7,10 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import interfaz_grafica.modelos_tablas.SecretariaTableModel;;
+import interfaz_grafica.modelos_tablas.SecretariaTableModel;
+import views.admin.DepartamentosModelo;;
 
-public class Secretaria extends DepartamentosModel {
+public class Secretaria extends DepartamentosModelo {
 
 	private JPanel contentPane;
 
@@ -33,7 +34,7 @@ public class Secretaria extends DepartamentosModel {
 	 * Create the frame.
 	 */
 	public Secretaria() {
-		super("Secretaría");
+		super("Secretarï¿½a");
 		this.tableModel = new SecretariaTableModel();
 		this.table.setModel(tableModel);
 		this.mnReportes.setVisible(true);

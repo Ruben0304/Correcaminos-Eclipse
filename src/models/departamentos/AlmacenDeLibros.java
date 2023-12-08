@@ -12,23 +12,21 @@ import models.usuarios.Estudiante;
 public class AlmacenDeLibros implements VerificadorEstudiante {
 
 	
-	private AlmacenDeLibros almacen;
-	private HashMap<Estudiante, Set<String>> estudiantesConLibrosDocentes;
+	
+	private HashMap<String, Set<String>> estudiantesConLibrosDocentes;
 	
 	public AlmacenDeLibros() {
-		estudiantesConLibrosDocentes = new HashMap<Estudiante, Set<String>>();
+		estudiantesConLibrosDocentes = new HashMap<String, Set<String>>();
 		cargarInformacionEstudiantesConLibrosDocentes();
 	}
 	
 	public void cargarInformacionEstudiantesConLibrosDocentes() {
 		estudiantesConLibrosDocentes = ObtenerEstudiantesConLibrosDocentesPendientes.cargarDesdeArchivo();
 	}
-	public boolean tieneLibrosDocentes(Estudiante e) {
-		return estudiantesConLibrosDocentes.containsKey(e);
-	}
+	
 	@Override
 	public boolean verificarRequisitos(Estudiante e) {
-		return tieneLibrosDocentes(e);
+		return estudiantesConLibrosDocentes.containsKey(e.getCi());
 	}
 	
 	public void recogerLibrosDocentes(Estudiante e, Set<String> librosDocentes) {

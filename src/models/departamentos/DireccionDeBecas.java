@@ -12,10 +12,10 @@ import models.usuarios.Estudiante;
 
 public class DireccionDeBecas implements VerificadorEstudiante {
 	
-	private HashMap<Becado, Set<String>> pertenenciasBecados;
+	private HashMap<String, Set<String>> pertenenciasBecados;
 	
 	public DireccionDeBecas() {
-		pertenenciasBecados = new HashMap<Becado, Set<String>>();
+		pertenenciasBecados = new HashMap<String, Set<String>>();
 		cargarInformacionEstudiantesConPertenenciasBeca();
 	}
 	public void cargarInformacionEstudiantesConPertenenciasBeca() {
@@ -24,7 +24,7 @@ public class DireccionDeBecas implements VerificadorEstudiante {
 	
 	@Override
 	public boolean verificarRequisitos(Estudiante e) {
-		return pertenenciasBecados.containsKey(((Becado)e));
+		return pertenenciasBecados.containsKey((e.getCi()));
 	}
 	
 	public void recogerPertenenciasDeEstudiante(Estudiante e, Set<String> pertenencias) {

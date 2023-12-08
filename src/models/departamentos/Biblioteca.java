@@ -16,10 +16,10 @@ import models.usuarios.Persona;
 
 public class Biblioteca implements VerificadorEstudiante, VerificadorEmpleado {
 	
-	private HashMap<Persona, Set<String>> personasConLibrosBiblioteca;
+	private HashMap<String, Set<String>> personasConLibrosBiblioteca;
 	
 	public Biblioteca() {
-		personasConLibrosBiblioteca = new HashMap<Persona, Set<String>>();
+		personasConLibrosBiblioteca = new HashMap<String, Set<String>>();
 		cargarInformacionPersonasConLibrosBiblioteca();
 		
 	}
@@ -27,18 +27,15 @@ public class Biblioteca implements VerificadorEstudiante, VerificadorEmpleado {
 		personasConLibrosBiblioteca = ObtenerPersonasConLibrosBibliotecaPendientes.cargarDesdeArchivo();
 	}
 	
-	public boolean tieneLibrosPrestados(Persona p){
-        return personasConLibrosBiblioteca.containsKey(p);        
-    }
 	
     @Override
     public boolean verificarRequisitos(Estudiante e) {
-        return tieneLibrosPrestados(e);
+        return personasConLibrosBiblioteca.containsKey(e.getCi());
     }
 
     @Override
 	public boolean verificarRequisitos(Empleado e) {
-		return tieneLibrosPrestados(e);
+		return personasConLibrosBiblioteca.containsKey(e.getCi());
 	}
 
     public void recogerLibrosPrestados(Persona p) {

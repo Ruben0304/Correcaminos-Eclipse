@@ -2,8 +2,9 @@ package interfaz_grafica;
 
 import java.awt.EventQueue;
 import interfaz_grafica.modelos_tablas.DepartamentoRHTableModel;
+import views.admin.DepartamentosModelo;
 
-public class RecursosHumanos extends DepartamentosModel {
+public class RecursosHumanos extends DepartamentosModelo {
 
 	/**
 	 * 

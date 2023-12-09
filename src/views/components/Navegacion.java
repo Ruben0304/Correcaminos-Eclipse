@@ -448,14 +448,14 @@ public class Navegacion extends JPanel {
 			label_4 = new JLabel(Auth.usuarioAutenticado() instanceof Admin
 					? Integer.toString(ControladorAdmin.obtenerCasosPendientesDepartamento().size())
 					: (Auth.usuarioAutenticado() instanceof Estudiante
-							? Integer.toString(ControladorPrincipal.obtenerRequisitosEstudiante().size() + 10)
+							? Integer.toString(ControladorPrincipal.obtenerRequisitosEstudiante().size() + 1)
 							: (Auth.usuarioAutenticado() instanceof Empleado
 									? Integer.toString(ControladorPrincipal.obtenerRequisitosEmpleado().size() )
 									: "0")));
 
 			label_4.setForeground(Color.WHITE);
-			label_4.setFont(new Font("Segoe UI", Font.BOLD, 12));
-			label_4.setBounds(46, 171, 21, 30);
+			label_4.setFont(new Font("Segoe UI", Font.BOLD,Integer.parseInt(label_4.getText()) > 9 ? 9 : 12 ));
+			label_4.setBounds(Integer.parseInt(label_4.getText()) > 9 ? 44 : 46, 171, 21, 30);
 			label_4.setVisible(false);
 		}
 		return label_4;

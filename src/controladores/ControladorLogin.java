@@ -9,8 +9,7 @@ import autenticacion.VerificacionCredenciales;
 import interfaces.Autenticable;
 import modelos.gestion.Correcaminos;
 import modelos.usuarios.Credenciales;
-import vistas.Inicio;
-import vistas.autenticacion.Entrar;
+
 import vistas.autenticacion.LoginTemplate;
 import vistas.componentes.Navegacion;
 import vistas.template.Pricipal;
@@ -97,13 +96,7 @@ public class ControladorLogin {
     // Auth.usuarioAutenticado().setContrasena(hashContrasena(contrasena));
     // }
 
-    public static void comprobarSession() {
-        Autenticable u = Session.ValidarSession();
-        if (u != null) {
-            Auth.iniciarSesion(u);
-        }
-    }
-
+   
     private static String hashContrasena(String contrasena) {
 
         try {

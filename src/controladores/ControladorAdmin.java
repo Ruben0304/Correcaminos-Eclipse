@@ -10,7 +10,7 @@ import modelos.gestion.empleados.GestorEmpleados;
 import modelos.gestion.empleados.GestorSolicitudesEmpleados;
 import modelos.gestion.estudiantes.GestorSolicitudesEstudiante;
 import modelos.gestion.estudiantes.Secretaria;
-import modelos.responsabilidades.ResponsabilidadesEstudiantes;
+
 import modelos.usuarios.Admin;
 import modelos.usuarios.Empleado;
 import modelos.usuarios.Estudiante;
@@ -128,8 +128,7 @@ public class ControladorAdmin {
     public static void confirmarEntrega(String carnet) {
         Admin usuarioAutenticado = (Admin) Auth.usuarioAutenticado();
         GestorDepartamentos gestorDepartamentos = GestorDepartamentos.gestorDepartamentos();
-        GestorResponsabilidadesEstudiantes gestorResponsabilidadesEstudiantes = Secretaria.gestorEstudiantes()
-                .getGestorResponsabilidadesEstudiantes();
+        
         Secretaria gestorEstudiantes = Secretaria.gestorEstudiantes();
 
         // switch (((Admin) usuarioAutenticado).getTipoDepartamento()) {

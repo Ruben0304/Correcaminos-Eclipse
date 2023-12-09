@@ -23,7 +23,7 @@ import modelos.usuarios.Empleado;
 import modelos.usuarios.Estudiante;
 import modelos.usuarios.Persona;
 import util.TipoDepartamento;
-import vistas.chat.ChatPanel;
+
 import vistas.template.Pricipal;
 
 public class Navegacion extends JPanel {

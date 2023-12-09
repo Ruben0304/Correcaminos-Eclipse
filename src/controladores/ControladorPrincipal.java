@@ -14,7 +14,7 @@ import modelos.gestion.GestorDepartamentos;
 import modelos.gestion.empleados.GestorEmpleados;
 import modelos.gestion.estudiantes.GestorSolicitudesEstudiante;
 import modelos.gestion.estudiantes.Secretaria;
-import modelos.responsabilidades.ResponsabilidadesEstudiantes;
+
 import modelos.usuarios.Admin;
 import modelos.usuarios.Becado;
 import modelos.usuarios.Empleado;
@@ -25,12 +25,10 @@ import util.BooleanosEstudianteBecadoBaja;
 import util.Colores;
 import util.ResponsabilidadesTrabajador;
 import util.TiposResponsabilidad;
-import vistas.Inicio;
-import vistas.Reportes;
-import vistas.TramitesEmpleados;
+
 import vistas.admin.DepartamentosModelo;
 import vistas.autenticacion.CuentaJP;
-import vistas.chat.ChatPanel;
+
 import vistas.componentes.Navegacion;
 import vistas.template.Pricipal;
 import vistas.usuarios.InicioEmpleadoJP;
@@ -62,7 +60,7 @@ public class ControladorPrincipal {
         } else if (Auth.usuarioAutenticado() instanceof Empleado) {
             instancia.setVista(new InicioEmpleadoJP());
         } else {
-            instancia.setVista(Inicio.getVista().getPanel_lateral());
+            // instancia.setVista(Inicio.getVista().getPanel_lateral());
         }
 
         Pricipal.getInstancia().revalidate();
@@ -153,7 +151,7 @@ public class ControladorPrincipal {
         if (Auth.hayUsuarioAutenticado()) {
 
             if (Auth.usuarioAutenticado() instanceof Persona) {
-                Pricipal.getInstancia().setVista(new ChatPanel());
+                // Pricipal.getInstancia().setVista(new ChatPanel());
                 Pricipal.getInstancia().revalidate();
                 Pricipal.getInstancia().repaint();
             }

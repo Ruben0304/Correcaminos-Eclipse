@@ -20,7 +20,7 @@ import com.google.gson.reflect.TypeToken;
 import controladores.ControladorFiltrado;
 import controladores.ControladorLogin;
 import controladores.ControladorPrincipal;
-import datos.ObtenerChats;
+
 import datos.ObtenerEmpleados;
 import datos.ObtenerEmpleadosConDeudas;
 import datos.ObtenerEmpleadosConSalarioIndebido;
@@ -30,8 +30,7 @@ import datos.ObtenerEstudiantesConPertenenciasBeca;
 import datos.ObtenerPersonasConLibrosBibliotecaPendientes;
 import datos.ObtenerSolicitudesEstudiantes;
 import datos.ObtenerUsuariosCujae;
-import modelos.chats.AdministradorChats;
-import modelos.chats.Mensaje;
+
 import modelos.gestion.Correcaminos;
 import modelos.gestion.estudiantes.Secretaria;
 import modelos.solicitudes.Solicitud;
@@ -67,7 +66,7 @@ import util.MotivoLicencia;
 import util.Motivos;
 import util.TipoCurso;
 import util.TipoDepartamento;
-import vistas.chat.ChatPanel;
+
 import vistas.template.Pricipal;
 
 public class Pruebas {
@@ -238,7 +237,7 @@ public class Pruebas {
 			}
 		}
 		
-		HashMap<Empleado, Double> d = ObtenerEmpleadosConDeudas.cargarDesdeArchivo();
+		HashMap<Empleado, Double> d = null;
 		
 		Set<Empleado> em = d.keySet();
 		

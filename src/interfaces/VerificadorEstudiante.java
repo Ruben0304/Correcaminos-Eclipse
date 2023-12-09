@@ -2,7 +2,6 @@ package interfaces;
 
 import java.util.ArrayList;
 
-import modelos.responsabilidades.ResponsabilidadesEstudiantes;
 import modelos.usuarios.Empleado;
 import modelos.usuarios.Estudiante;
 

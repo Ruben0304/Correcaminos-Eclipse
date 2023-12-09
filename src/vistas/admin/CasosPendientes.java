@@ -54,8 +54,7 @@ public class CasosPendientes {
 			table = new JTable();
 			// table.setFillsViewportHeight(true);
 			table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-			// scrollPane.setViewportView(table);
-			table.setModel(new PendientesEstudiantes(usuariosPendientes));
+			
 			table.setBounds(112, 33, 587, 476);
 
 		}

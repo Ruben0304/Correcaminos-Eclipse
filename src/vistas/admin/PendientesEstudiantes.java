@@ -2,8 +2,7 @@ package vistas.admin;
 
 import javax.swing.table.DefaultTableModel;
 import util.Facultad;
-import models.solicitudes.Solicitud;
-import models.usuarios.Estudiante;
+
 
 import java.util.ArrayList;
 import java.util.Vector;
@@ -18,32 +17,9 @@ public class PendientesEstudiantes extends DefaultTableModel {
 		this.setColumnIdentifiers(columnNames);
 	}
 
-	public PendientesEstudiantes(ArrayList<Estudiante> estudiantes) {
-		String[] columnNames = {
-				"DNI", "Nombre", "Apellido", "Carrera" };
-		this.setColumnIdentifiers(columnNames);
-		for (Estudiante e : estudiantes) {
-			Object[] newRow = new Object[] { e.getCi(), e.getNombre(), e.getApellidos(),
-					e.getCarrera() };
-			addRow(newRow);
-		}
+	
 
-	}
-
-	public PendientesEstudiantes(ArrayList<Solicitud> soli, int a) {
-		String[] columnNames = {
-				"DNI", "Nombre", "Apellido", "Carrera" };
-		this.setColumnIdentifiers(columnNames);
-		for (Solicitud e : soli) {
-			if () {
-				
-			}
-			Object[] newRow = new Object[] { e.getEstudiante().getCi(), e.getEstudiante().getNombre(), e.getEstudiante().getApellidos(),
-					e.getEstudiante().getCarrera() };
-			addRow(newRow);
-		}
-
-	}
+	
 
 	public void adicionar(String Nombre, String PrimerApellido, String SegundoApellido, Facultad Facultad) {
 		Object[] newRow = new Object[] { Nombre, PrimerApellido, SegundoApellido, Facultad };

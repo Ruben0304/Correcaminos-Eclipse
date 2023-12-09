@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.lang.reflect.Type;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Set;
 
@@ -68,7 +67,7 @@ public class ObtenerSolicitudesEmpleados {
         solicitudes.putAll(bajasDocentes);
         solicitudes.putAll(bajasNoDocentes);
 
-        
+
         return solicitudes;
     }
 }

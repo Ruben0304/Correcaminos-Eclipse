@@ -16,7 +16,7 @@ public class LabelUsuario {
 
     public static JPanel usuario() {
         JPanel panel = new JPanel();
-        panel.setBounds(630, 13, 331, 37);
+        panel.setBounds(670, 13, 331, 37);
         panel.setLayout(null);
 
         JLabel label_4 = new JLabel("Hola, " + (Auth.usuarioAutenticado() instanceof Persona ? ((Persona)Auth.usuarioAutenticado()).getNombre() : ((Admin)Auth.usuarioAutenticado()).getTipoDepartamento().toString()));

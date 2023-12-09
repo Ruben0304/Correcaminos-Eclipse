@@ -29,7 +29,9 @@ import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+
 import views.admin.PanelAdministracion;
+import views.auth.CuentaJP;
 import views.client.RequisitosEstudiante;
 import views.components.LabelUsuario;
 import views.components.Navegacion;
@@ -76,7 +78,7 @@ public class Pricipal extends JFrame implements ActionListener {
 
 		contentPane.removeAll();
 		contentPane.add(Navegacion.getInstancia());
-		if (!(panel instanceof PanelAdministracion)) {
+		if (!(panel instanceof PanelAdministracion || panel instanceof CuentaJP)) {
 			 panel.add(LabelUsuario.usuario());
 		}
        

@@ -56,6 +56,7 @@ import java.awt.event.ItemListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.ItemEvent;
+import javax.swing.border.MatteBorder;
 
 public class PanelAdministracion extends JPanel {
 	private JPanel panelFiltrados;
@@ -83,6 +84,9 @@ public class PanelAdministracion extends JPanel {
 	private HashMap<String, String> map;
 	private ArrayList<Solicitud> solicitudBajaEstudiantes;
 	private static PanelAdministracion panelAdministracion = null;
+	private JLabel lblRegistroSolicitudes;
+	private JCheckBox chckbxLicencia;
+	private JCheckBox chckbxBaja;
 
 	// public void filtrarTabla(){
 
@@ -95,7 +99,7 @@ public class PanelAdministracion extends JPanel {
 
 	private PanelAdministracion() {
 		setBounds(new Rectangle(178, 0, 944, 700));
-		
+
 		setLayout(null);
 		add(getPanelFiltrados());
 		add(getPanelCategorias());
@@ -106,15 +110,16 @@ public class PanelAdministracion extends JPanel {
 		// this.solicitudBajaEstudiantes = solicitudBajaEstudiantes;
 		this.map = new HashMap<>();
 		add(getPanelReportes());
+		add(getLblRegistroSolicitudes());
 
 	}
 
 	private JPanel getPanelFiltrados() {
 		if (panelFiltrados == null) {
-			panelFiltrados =          new JPanel();
+			panelFiltrados = new JPanel();
 			panelFiltrados.setBorder(new LineBorder(new Color(128, 128, 128), 1, true));
 			panelFiltrados.setBounds(634, 31, 258, 278);
-			
+
 			panelFiltrados.setLayout(null);
 			panelFiltrados.add(getLblTituloFilt());
 			panelFiltrados.add(getLblAnio());
@@ -136,7 +141,7 @@ public class PanelAdministracion extends JPanel {
 			panelReportes = new JPanel();
 			panelReportes.setBounds(634, 525, 258, 149);
 			panelReportes.setBorder(new LineBorder(new Color(128, 128, 128), 1, true));
-			
+
 			panelReportes.setLayout(null);
 			panelReportes.add(getLblTituloReportes());
 			panelReportes.add(getComboBoxReportes());
@@ -149,19 +154,63 @@ public class PanelAdministracion extends JPanel {
 			panelCategorias = new JPanel();
 			panelCategorias.setBorder(new LineBorder(new Color(105, 105, 105), 1, true));
 			panelCategorias.setBounds(634, 350, 258, 128);
-			
+
 			panelCategorias.setLayout(null);
 			panelCategorias.add(getLblTituloCategorias());
 			panelCategorias.add(getRdbtnEstudiante());
 			panelCategorias.add(getRdbtnEmpleado());
-			
-			JCheckBox chckbxBaja = new JCheckBox("Baja");
+
+			 chckbxBaja = new JCheckBox("Baja");
+			chckbxBaja.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+				}
+			});
 			chckbxBaja.setFont(new Font("Segoe UI", Font.PLAIN, 15));
 			chckbxBaja.setForeground(Color.WHITE);
 			chckbxBaja.setBounds(31, 77, 102, 25);
+			chckbxBaja.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					if (chckbxBaja.isSelected() && chckbxLicencia.isSelected()) {
+						getMap().remove("tipoSolicitud");
+					}
+					else{
+						if (chckbxBaja.isSelected()) {
+							getMap().put("tipoSolicitud", "baja");
+						}
+						else {
+							getMap().remove("tipoSolicitud");
+						}
+						
+					}
+					
+					getTable().setModel(
+							new ModeloFiltrado(ControladorFiltrado.filtradoDinamicoSolicitudEstudiantes(getMap())));
+
+				}
+			});
 			panelCategorias.add(chckbxBaja);
-			
-			JCheckBox chckbxLicencia = new JCheckBox("Licencia");
+
+			chckbxLicencia = new JCheckBox("Licencia");
+			chckbxLicencia.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					if (chckbxBaja.isSelected() && chckbxLicencia.isSelected()) {
+						getMap().remove("tipoSolicitud");
+					}
+					else{
+						if (chckbxLicencia.isSelected()) {
+							getMap().put("tipoSolicitud", "licencia");
+						}
+						else {
+							getMap().remove("tipoSolicitud");
+						}
+						
+					}
+					
+					getTable().setModel(
+							new ModeloFiltrado(ControladorFiltrado.filtradoDinamicoSolicitudEstudiantes(getMap())));
+
+				}
+			});
 			chckbxLicencia.setFont(new Font("Segoe UI", Font.PLAIN, 15));
 			chckbxLicencia.setForeground(Color.WHITE);
 			chckbxLicencia.setBounds(137, 77, 113, 25);
@@ -275,10 +324,10 @@ public class PanelAdministracion extends JPanel {
 			scrollPaneFiltrado = new JScrollPane();
 			scrollPaneFiltrado.setBorder(new LineBorder(new Color(128, 128, 128), 1, true));
 			scrollPaneFiltrado.setOpaque(false);
-			scrollPaneFiltrado.setBackground(new Color(40, 42, 46));
-			scrollPaneFiltrado.setBounds(0, 100, 590, 574);
+
+			scrollPaneFiltrado.setBounds(0, 82, 590, 592);
 			scrollPaneFiltrado.setAutoscrolls(true);
-			scrollPaneFiltrado.getViewport().setBackground(new Color(40, 42, 46));
+
 			scrollPaneFiltrado.setViewportView(getTable());
 		}
 		return scrollPaneFiltrado;
@@ -287,7 +336,7 @@ public class PanelAdministracion extends JPanel {
 	private JLabel getLblNewLabel() {
 		if (lblNewLabel == null) {
 			lblNewLabel = new JLabel();
-			lblNewLabel.setBounds(171, -44, 419, 175);
+			lblNewLabel.setBounds(237, -35, 342, 158);
 			ImageIcon ico = new ImageIcon("C:\\Users\\herna\\OneDrive\\Escritorio\\Nueva carpeta\\b.png");
 			ImageIcon img = new ImageIcon(
 					ico.getImage().getScaledInstance(lblNewLabel.getWidth(), lblNewLabel.getHeight(),
@@ -327,7 +376,7 @@ public class PanelAdministracion extends JPanel {
 			textField.setBackground(new Color(249, 249, 249));
 
 			textField.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 15));
-			textField.setBounds(233, 30, 263, 26);
+			textField.setBounds(293, 29, 222, 32);
 			textField.setColumns(10);
 		}
 		return textField;
@@ -355,7 +404,7 @@ public class PanelAdministracion extends JPanel {
 									ControladorFiltrado.filtradoDinamicoSolicitudEstudiantes(getMap())));
 				}
 			});
-			
+
 			comboBox_2.setToolTipText("");
 			comboBox_2.setMaximumRowCount(9);
 			comboBox_2.setForeground(Color.BLACK);
@@ -438,7 +487,7 @@ public class PanelAdministracion extends JPanel {
 					ControladorFiltrado.filtradoDinamicoSolicitudEstudiantes(getMap())));
 
 			table.setBounds(112, 33, 587, 476);
-			table.setBackground(new Color(31, 33, 36));
+
 			table.setRowHeight(50);
 			table.setGridColor(new Color(31, 33, 36));
 			table.setForeground(Color.WHITE);
@@ -460,5 +509,15 @@ public class PanelAdministracion extends JPanel {
 
 		}
 		return this.map;
+	}
+
+	private JLabel getLblRegistroSolicitudes() {
+		if (lblRegistroSolicitudes == null) {
+			lblRegistroSolicitudes = new JLabel("Registro Solicitudes");
+			lblRegistroSolicitudes.setFont(new Font("Segoe UI", Font.PLAIN, 22));
+			lblRegistroSolicitudes.setBorder(new MatteBorder(0, 0, 1, 0, new Color(0, 255, 0)));
+			lblRegistroSolicitudes.setBounds(0, 13, 588, 65);
+		}
+		return lblRegistroSolicitudes;
 	}
 }

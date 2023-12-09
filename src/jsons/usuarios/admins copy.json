@@ -1,0 +1,42 @@
+[
+  {
+    "tipoDepartamento": "Biblioteca",
+    "nombreUsuario": "Biblioteca",
+    "contrasena": "655e786674d9d3e77bc05ed1de37b4b6bc89f788829f9f3c679e7687b410c89b"
+  },
+  {
+    "tipoDepartamento": "Economia",
+    "nombreUsuario": "Economia",
+    "contrasena": "655e786674d9d3e77bc05ed1de37b4b6bc89f788829f9f3c679e7687b410c89b"
+  },
+  {
+    "tipoDepartamento": "SeguridadInformatica",
+    "nombreUsuario": "SeguridadInformatica",
+    "contrasena": "655e786674d9d3e77bc05ed1de37b4b6bc89f788829f9f3c679e7687b410c89b"
+  },
+  {
+    "tipoDepartamento": "AlmacenLibrosDocentes",
+    "nombreUsuario": "AlmacenLibrosDocentes",
+    "contrasena": "655e786674d9d3e77bc05ed1de37b4b6bc89f788829f9f3c679e7687b410c89b"
+  },
+  {
+    "tipoDepartamento": "DireccionBecas",
+    "nombreUsuario": "DireccionBecas",
+    "contrasena": "655e786674d9d3e77bc05ed1de37b4b6bc89f788829f9f3c679e7687b410c89b"
+  },
+  {
+    "tipoDepartamento": "Contabilidad",
+    "nombreUsuario": "Contabilidad",
+    "contrasena": "655e786674d9d3e77bc05ed1de37b4b6bc89f788829f9f3c679e7687b410c89b"
+  },
+  {
+    "tipoDepartamento": "Secretaria",
+    "nombreUsuario": "Secretaria",
+    "contrasena": "655e786674d9d3e77bc05ed1de37b4b6bc89f788829f9f3c679e7687b410c89b"
+  },
+  {
+    "tipoDepartamento": "RecursosHumanos",
+    "nombreUsuario": "RecursosHumanos",
+    "contrasena": "655e786674d9d3e77bc05ed1de37b4b6bc89f788829f9f3c679e7687b410c89b"
+  }
+]

@@ -1,0 +1,156 @@
+[
+	[
+		{
+			"usuario": "empleado12",
+			"contrasena": "655e786674d9d3e77bc05ed1de37b4b6bc89f788829f9f3c679e7687b410c89b"
+		},
+		{
+			"ci": "90070561846",
+			"nombre": "Jason",
+			"primer_apellido": "Beghe",
+			"segundo_apellido": "Soffer",
+			"numerotrabajador": "200001",
+			"seccion": "Seguridad"
+		}
+	],
+	[
+		{
+			"usuario": "empleado13",
+			"contrasena": "655e786674d9d3e77bc05ed1de37b4b6bc89f788829f9f3c679e7687b410c89b"
+		},
+		{
+			"ci": "91010561846",
+			"nombre": "Sophia",
+			"primer_apellido": "Bush",
+			"segundo_apellido": "Geraghty",
+			"numerotrabajador": "200002",
+			"seccion": "Mantenimiento"
+		}
+	],
+	[
+		{
+			"usuario": "empleado14",
+			"contrasena": "655e786674d9d3e77bc05ed1de37b4b6bc89f788829f9f3c679e7687b410c89b"
+		},
+		{
+			"ci": "92020561846",
+			"nombre": "Brian",
+			"primer_apellido": "Geraghty",
+			"segundo_apellido": "Aguilar",
+			"numerotrabajador": "200003",
+			"seccion": "Cafeteria"
+		}
+	],
+	[
+		{
+			"usuario": "empleado15",
+			"contrasena": "655e786674d9d3e77bc05ed1de37b4b6bc89f788829f9f3c679e7687b410c89b"
+		},
+		{
+			"ci": "93030561846",
+			"nombre": "Stella",
+			"primer_apellido": "Maeve",
+			"segundo_apellido": "O'Connor",
+			"numerotrabajador": "200004",
+			"seccion": "Comedor"
+		}
+	],
+	[
+		{
+			"usuario": "empleado16",
+			"contrasena": "655e786674d9d3e77bc05ed1de37b4b6bc89f788829f9f3c679e7687b410c89b"
+		},
+		{
+			"ci": "94040561846",
+			"nombre": "Kara",
+			"primer_apellido": "Killmer",
+			"segundo_apellido": "Eigenberg",
+			"numerotrabajador": "200005",
+			"seccion": "Limpieza"
+		}
+	],
+	[
+		{
+			"usuario": "empleado17",
+			"contrasena": "655e786674d9d3e77bc05ed1de37b4b6bc89f788829f9f3c679e7687b410c89b"
+		},
+		{
+			"ci": "94070561846",
+			"nombre": "Cillian",
+			"primer_apellido": "Murphy",
+			"segundo_apellido": "O'Neil",
+			"numerotrabajador": "200007",
+			"seccion": "Seguridad"
+		}
+	],
+	[
+		{
+			"usuario": "empleado18",
+			"contrasena": "655e786674d9d3e77bc05ed1de37b4b6bc89f788829f9f3c679e7687b410c89b"
+		},
+		{
+			"ci": "95010561846",
+			"nombre": "Paul",
+			"primer_apellido": "Anderson",
+			"segundo_apellido": "Smith",
+			"numerotrabajador": "200008",
+			"seccion": "Mantenimiento"
+		}
+	],
+	[
+		{
+			"usuario": "empleado19",
+			"contrasena": "655e786674d9d3e77bc05ed1de37b4b6bc89f788829f9f3c679e7687b410c89b"
+		},
+		{
+			"ci": "96020561846",
+			"nombre": "Sophie",
+			"primer_apellido": "Rundle",
+			"segundo_apellido": "Harrison",
+			"numerotrabajador": "200009",
+			"seccion": "Cafeteria"
+		}
+	],
+	[
+		{
+			"usuario": "empleado20",
+			"contrasena": "655e786674d9d3e77bc05ed1de37b4b6bc89f788829f9f3c679e7687b410c89b"
+		},
+		{
+			"ci": "97030561846",
+			"nombre": "Helen",
+			"primer_apellido": "McCrory",
+			"segundo_apellido": "Jones",
+			"numerotrabajador": "200010",
+			"seccion": "Comedor"
+		}
+	],
+	[
+		{
+			"usuario": "empleado21",
+			"contrasena": "655e786674d9d3e77bc05ed1de37b4b6bc89f788829f9f3c679e7687b410c89b"
+		},
+		{
+			"ci": "98040561846",
+			"nombre": "Finn",
+			"primer_apellido": "Cole",
+			"segundo_apellido": "O'Neil",
+			"numerotrabajador": "200011",
+			"seccion": "Limpieza"
+		}
+	],
+	[
+		{
+			"usuario": "empleado22",
+			"contrasena": "655e786674d9d3e77bc05ed1de37b4b6bc89f788829f9f3c679e7687b410c89b"
+		},
+		{
+			"ci": "99050561846",
+			"nombre": "Natasha",
+			"primer_apellido": "O'Keeffe",
+			"segundo_apellido": "Garcia",
+			"numerotrabajador": "200012",
+			"seccion": "Seguridad"
+		}
+	]
+]

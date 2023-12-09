@@ -19,25 +19,37 @@ public class GestorEmpleados {
         return empleados;
     }
 
-     public static GestorEmpleados gestorEmpleados() {
+    public static GestorEmpleados gestorEmpleados() {
         if (gestorEmpleados == null) {
             gestorEmpleados = new GestorEmpleados();
         }
         return gestorEmpleados;
     }
-     
+
     private GestorEmpleados() {
-    	empleados = new ArrayList<Empleado>();
-    	registrarEmpleados();
-    	gestorSolicitudesEmpleados = new GestorSolicitudesEmpleados();
-    }
-    
-    private void registrarEmpleados() {
-    	empleados = ObtenerEmpleados.cargarDesdeArchivo();
+        empleados = new ArrayList<Empleado>();
+        registrarEmpleados();
+        gestorSolicitudesEmpleados = new GestorSolicitudesEmpleados();
     }
 
-	public GestorSolicitudesEmpleados getGestorSolicitudesEmpleados() {
-		return gestorSolicitudesEmpleados;
-	}
-	
+    public Empleado buscarEmpleadoPorCi(String id) {
+        boolean encontrado = false;
+        Empleado estudianteEncontrado = null;
+        for (int i = 0; i < this.empleados.size() && !encontrado; i++) {
+            encontrado = id.equals(this.empleados.get(i).getCi());
+            if (encontrado) {
+                estudianteEncontrado = this.empleados.get(i);
+            }
+        }
+        return estudianteEncontrado;
+    }
+
+    private void registrarEmpleados() {
+        empleados = ObtenerEmpleados.cargarDesdeArchivo();
+    }
+
+    public GestorSolicitudesEmpleados getGestorSolicitudesEmpleados() {
+        return gestorSolicitudesEmpleados;
+    }
+
 }

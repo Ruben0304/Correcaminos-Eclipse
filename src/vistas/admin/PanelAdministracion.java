@@ -60,14 +60,11 @@ import javax.swing.border.MatteBorder;
 
 public class PanelAdministracion extends JPanel {
 	private JPanel panelFiltrados;
-	private JPanel panelReportes;
 	private JPanel panelCategorias;
 	private JLabel lblTituloFilt;
 	private JLabel lblAnio;
 	private JLabel labelEstado;
 	private JComboBox comboBox;
-	private JLabel lblTituloReportes;
-	private JComboBox comboBoxReportes;
 	private JLabel lblTituloCategorias;
 	private JRadioButton rdbtnEstudiante;
 	private JRadioButton rdbtnEmpleado;
@@ -87,6 +84,7 @@ public class PanelAdministracion extends JPanel {
 	private JLabel lblRegistroSolicitudes;
 	private JCheckBox chckbxLicencia;
 	private JCheckBox chckbxBaja;
+	private JComboBox comboBox_1;
 
 	// public void filtrarTabla(){
 
@@ -109,7 +107,6 @@ public class PanelAdministracion extends JPanel {
 
 		// this.solicitudBajaEstudiantes = solicitudBajaEstudiantes;
 		this.map = new HashMap<>();
-		add(getPanelReportes());
 		add(getLblRegistroSolicitudes());
 
 	}
@@ -118,7 +115,7 @@ public class PanelAdministracion extends JPanel {
 		if (panelFiltrados == null) {
 			panelFiltrados = new JPanel();
 			panelFiltrados.setBorder(new LineBorder(new Color(128, 128, 128), 1, true));
-			panelFiltrados.setBounds(634, 31, 258, 278);
+			panelFiltrados.setBounds(634, 27, 258, 404);
 
 			panelFiltrados.setLayout(null);
 			panelFiltrados.add(getLblTituloFilt());
@@ -131,29 +128,39 @@ public class PanelAdministracion extends JPanel {
 			panelFiltrados.add(getLabel());
 			panelFiltrados.add(getLabel_1());
 			panelFiltrados.add(getLabel_2());
+			
+			 comboBox_1 = new JComboBox();
+			comboBox_1.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					getMap().put("facultad", comboBox_1.getSelectedItem().toString());
+					getTable().setModel(
+							new ModeloFiltrado(ControladorFiltrado.filtradoDinamicoSolicitudEstudiantes(getMap())));
+				}
+			});
+			comboBox_1.setModel(new DefaultComboBoxModel(Facultad.values()));
+			comboBox_1.setToolTipText("");
+			comboBox_1.setMaximumRowCount(9);
+			comboBox_1.setForeground(Color.BLACK);
+			comboBox_1.setFont(new Font("Segoe UI Semibold", Font.BOLD, 14));
+			comboBox_1.setBackground(Color.WHITE);
+			comboBox_1.setBounds(92, 199, 154, 25);
+			panelFiltrados.add(comboBox_1);
+			
+			JLabel lblFacultad = new JLabel("Facultad");
+			lblFacultad.setForeground(Color.WHITE);
+			lblFacultad.setFont(new Font("Segoe UI Semibold", Font.BOLD, 15));
+			lblFacultad.setBounds(12, 196, 68, 28);
+			panelFiltrados.add(lblFacultad);
 
 		}
 		return panelFiltrados;
-	}
-
-	private JPanel getPanelReportes() {
-		if (panelReportes == null) {
-			panelReportes = new JPanel();
-			panelReportes.setBounds(634, 525, 258, 149);
-			panelReportes.setBorder(new LineBorder(new Color(128, 128, 128), 1, true));
-
-			panelReportes.setLayout(null);
-			panelReportes.add(getLblTituloReportes());
-			panelReportes.add(getComboBoxReportes());
-		}
-		return panelReportes;
 	}
 
 	private JPanel getPanelCategorias() {
 		if (panelCategorias == null) {
 			panelCategorias = new JPanel();
 			panelCategorias.setBorder(new LineBorder(new Color(105, 105, 105), 1, true));
-			panelCategorias.setBounds(634, 350, 258, 128);
+			panelCategorias.setBounds(634, 490, 258, 184);
 
 			panelCategorias.setLayout(null);
 			panelCategorias.add(getLblTituloCategorias());
@@ -163,7 +170,7 @@ public class PanelAdministracion extends JPanel {
 			chckbxBaja = new JCheckBox("Baja");
 			chckbxBaja.setFont(new Font("Segoe UI", Font.PLAIN, 15));
 			chckbxBaja.setForeground(Color.WHITE);
-			chckbxBaja.setBounds(31, 77, 102, 25);
+			chckbxBaja.setBounds(31, 118, 102, 25);
 			chckbxBaja.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
 					if (chckbxBaja.isSelected() && chckbxLicencia.isSelected()) {
@@ -211,7 +218,7 @@ public class PanelAdministracion extends JPanel {
 			});
 			chckbxLicencia.setFont(new Font("Segoe UI", Font.PLAIN, 15));
 			chckbxLicencia.setForeground(Color.WHITE);
-			chckbxLicencia.setBounds(137, 77, 113, 25);
+			chckbxLicencia.setBounds(137, 118, 113, 25);
 			panelCategorias.add(chckbxLicencia);
 		}
 		return panelCategorias;
@@ -232,7 +239,7 @@ public class PanelAdministracion extends JPanel {
 			lblAnio = new JLabel("A\u00F1o");
 			lblAnio.setForeground(Color.WHITE);
 			lblAnio.setFont(new Font("Segoe UI Semibold", Font.BOLD, 15));
-			lblAnio.setBounds(113, 159, 66, 53);
+			lblAnio.setBounds(101, 259, 66, 53);
 		}
 		return lblAnio;
 	}
@@ -265,32 +272,12 @@ public class PanelAdministracion extends JPanel {
 		return comboBox;
 	}
 
-	private JLabel getLblTituloReportes() {
-		if (lblTituloReportes == null) {
-			lblTituloReportes = new JLabel("Reportes");
-			lblTituloReportes.setForeground(Color.WHITE);
-			lblTituloReportes.setFont(new Font("Segoe UI Semibold", Font.BOLD, 19));
-			lblTituloReportes.setBounds(89, 13, 76, 41);
-		}
-		return lblTituloReportes;
-	}
-
-	private JComboBox getComboBoxReportes() {
-		if (comboBoxReportes == null) {
-			comboBoxReportes = new JComboBox();
-			comboBoxReportes.setBackground(Color.WHITE);
-			comboBoxReportes.setFont(new Font("Segoe UI Semibold", Font.BOLD, 15));
-			comboBoxReportes.setBounds(12, 67, 234, 27);
-		}
-		return comboBoxReportes;
-	}
-
 	private JLabel getLblTituloCategorias() {
 		if (lblTituloCategorias == null) {
 			lblTituloCategorias = new JLabel("Categoria");
 			lblTituloCategorias.setForeground(Color.WHITE);
 			lblTituloCategorias.setFont(new Font("Segoe UI Semibold", Font.BOLD, 19));
-			lblTituloCategorias.setBounds(85, 11, 102, 41);
+			lblTituloCategorias.setBounds(74, 11, 113, 52);
 		}
 		return lblTituloCategorias;
 	}
@@ -438,7 +425,7 @@ public class PanelAdministracion extends JPanel {
 			slider.setMinorTickSpacing(1);
 
 			slider.setBackground(new Color(40, 42, 46));
-			slider.setBounds(24, 201, 224, 28);
+			slider.setBounds(12, 301, 224, 28);
 		}
 		return slider;
 	}
@@ -448,7 +435,7 @@ public class PanelAdministracion extends JPanel {
 			label = new JLabel("2023");
 			label.setForeground(Color.WHITE);
 			label.setFont(new Font("Segoe UI Semibold", Font.BOLD, 12));
-			label.setBounds(202, 216, 56, 46);
+			label.setBounds(190, 316, 56, 46);
 		}
 		return label;
 	}
@@ -458,7 +445,7 @@ public class PanelAdministracion extends JPanel {
 			label_1 = new JLabel("2015");
 			label_1.setForeground(Color.WHITE);
 			label_1.setFont(new Font("Segoe UI Semibold", Font.BOLD, 12));
-			label_1.setBounds(24, 216, 56, 46);
+			label_1.setBounds(12, 316, 56, 46);
 		}
 		return label_1;
 	}
@@ -468,7 +455,7 @@ public class PanelAdministracion extends JPanel {
 			label_2 = new JLabel("= 2015");
 			label_2.setForeground(Color.WHITE);
 			label_2.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 13));
-			label_2.setBounds(110, 206, 56, 66);
+			label_2.setBounds(98, 306, 56, 66);
 		}
 		return label_2;
 	}

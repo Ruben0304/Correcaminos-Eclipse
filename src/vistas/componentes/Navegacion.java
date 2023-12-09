@@ -75,7 +75,7 @@ public class Navegacion extends JPanel {
 		setAlignmentX(Component.LEFT_ALIGNMENT);
 		setBackground(new Color(20, 20, 20));
 		setLayout(null);
-		if (Auth.usuarioAutenticado() instanceof Persona && ControladorPrincipal.verificarPersonaSolicitaAlgo() 
+		if (Auth.usuarioAutenticado() instanceof Persona && ControladorPrincipal.verificarPersonaSolicitaAlgo()
 				|| Auth.usuarioAutenticado() instanceof Admin) {
 			getLabel_4().setVisible(true);
 			getLabel_3().setVisible(true);
@@ -107,9 +107,7 @@ public class Navegacion extends JPanel {
 
 		add(getHome());
 		if (Auth.hayUsuarioAutenticado() && Auth.usuarioAutenticado() instanceof Admin
-				&& (((Admin) Auth.usuarioAutenticado()).getTipoDepartamento().equals(TipoDepartamento.Secretaria)
-						|| ((Admin) Auth.usuarioAutenticado()).getTipoDepartamento()
-								.equals(TipoDepartamento.RecursosHumanos))) {
+				&& (((Admin) Auth.usuarioAutenticado()).getTipoDepartamento().equals(TipoDepartamento.Secretaria))) {
 			add(label_5);
 
 			JLabel lblRegistros = new JLabel("Registros");
@@ -454,7 +452,7 @@ public class Navegacion extends JPanel {
 									: "0")));
 
 			label_4.setForeground(Color.WHITE);
-			label_4.setFont(new Font("Segoe UI", Font.BOLD,Integer.parseInt(label_4.getText()) > 9 ? 9 : 12 ));
+			label_4.setFont(new Font("Segoe UI", Font.BOLD, Integer.parseInt(label_4.getText()) > 9 ? 9 : 12));
 			label_4.setBounds(Integer.parseInt(label_4.getText()) > 9 ? 44 : 46, 171, 21, 30);
 			label_4.setVisible(false);
 		}

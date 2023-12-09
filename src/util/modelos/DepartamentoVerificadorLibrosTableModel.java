@@ -47,35 +47,36 @@ public class DepartamentoVerificadorLibrosTableModel extends DefaultTableModel {
 	}
 
 	public DepartamentoVerificadorLibrosTableModel(ArrayList<Persona> personas, boolean Secretaria) {
-				HashMap<TiposResponsabilidad, Boolean> requisitos = new HashMap<>();
-			String[] columnNames = { "Carnet de Identidad", "Nombre", "Apellidos", "B", "AL", "E", "DB", "SI" };
-			this.setColumnIdentifiers(columnNames);
-			for (Persona e : personas) {
-				requisitos= ControladorPrincipal.obtenerRequisitosEstudiante((Estudiante)e);
-				Object[] newRow = new Object[] { e.getCi(), e.getNombre(), e.getApellidos(),
-						requisitos.get(TiposResponsabilidad.LIBROS_BIBLIOTECA) ? "P" : "A",
-						requisitos.get(TiposResponsabilidad.LIBROS_DOCENTES) ? "P" : "A",
-						requisitos.get(TiposResponsabilidad.ESTIPENDIO) ? "P" : "A",
-						e instanceof Becado ? (requisitos.get(TiposResponsabilidad.PERTENENCIAS_BECA) ? "P" : "A")
-								: "A",
-						requisitos.get(TiposResponsabilidad.CUENTA_USUARIO) ? "P" : "A" };
-				addRow(newRow);
-			}
-		
+		HashMap<TiposResponsabilidad, Boolean> requisitos = new HashMap<>();
+		String[] columnNames = { "Carnet de Identidad", "Nombre", "Apellidos", "B", "AL", "E", "DB", "SI" };
+		this.setColumnIdentifiers(columnNames);
+		for (Persona e : personas) {
+			requisitos = ControladorPrincipal.obtenerRequisitosEstudiante((Estudiante) e);
+			Object[] newRow = new Object[] { e.getCi(), e.getNombre(), e.getApellidos(),
+					requisitos.get(TiposResponsabilidad.LIBROS_BIBLIOTECA) ? "P" : "A",
+					requisitos.get(TiposResponsabilidad.LIBROS_DOCENTES) ? "P" : "A",
+					requisitos.get(TiposResponsabilidad.ESTIPENDIO) ? "P" : "A",
+					e instanceof Becado ? (requisitos.get(TiposResponsabilidad.PERTENENCIAS_BECA) ? "P" : "A")
+							: "A",
+					requisitos.get(TiposResponsabilidad.CUENTA_USUARIO) ? "P" : "A" };
+			addRow(newRow);
+		}
+
 	}
 
-	public DepartamentoVerificadorLibrosTableModel(ArrayList<Persona> personas, int rh){
-			HashMap<ResponsabilidadesTrabajador, Boolean> requisitos;
+	public DepartamentoVerificadorLibrosTableModel(ArrayList<Persona> personas, int rh) {
+		HashMap<ResponsabilidadesTrabajador, Boolean> requisitos;
 		String[] columnNames = { "Carnet de Identidad", "Nombre", "Apellidos", "B", "C", "SI" };
-			this.setColumnIdentifiers(columnNames);
-			for (Persona e : personas) {
-				requisitos = ControladorPrincipal.obtenerRequisitosEmpleado((Empleado)e)
-				Object[] newRow = new Object[] { e.getCi(), e.getNombre(), e.getApellidos(),
-						requisitos.get(ResponsabilidadesTrabajador.LIBROS_BIBLIOTECA) ? "P" : "A",
-						requisitos.get(ResponsabilidadesTrabajador.DEUDA) ? "P" : "A",
-						requisitos.get(ResponsabilidadesTrabajador.CUENTA_USUARIO) ? "P" : "A" };
-				addRow(newRow);
-			}
+		this.setColumnIdentifiers(columnNames);
+		for (Persona e : personas) {
+
+        requisitos=ControladorPrincipal.obtenerRequisitosEmpleado((Empleado)e);
+			Object[] newRow = new Object[] { e.getCi(), e.getNombre(), e.getApellidos(),
+					requisitos.get(ResponsabilidadesTrabajador.LIBROS_BIBLIOTECA) ? "P" : "A",
+					requisitos.get(ResponsabilidadesTrabajador.DEUDA) ? "P" : "A",
+					requisitos.get(ResponsabilidadesTrabajador.CUENTA_USUARIO) ? "P" : "A" };
+			addRow(newRow);
+		}
 	}
 
 	// public DepartamentoVerificadorLibrosTableModel(ArrayList<Persona> personas,

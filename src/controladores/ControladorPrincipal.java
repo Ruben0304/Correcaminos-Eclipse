@@ -99,20 +99,19 @@ public class ControladorPrincipal {
         GestorDepartamentos gestDep = GestorDepartamentos.gestorDepartamentos();
 
         HashMap<TiposResponsabilidad, Boolean> requisitos = new HashMap<>();
-        Estudiante autenticado = e;
 
         requisitos.put(TiposResponsabilidad.LIBROS_BIBLIOTECA,
-                gestDep.getBiblioteca().verificarRequisitos(autenticado));
-        requisitos.put(TiposResponsabilidad.ESTIPENDIO, gestDep.getEconomia().verificarRequisitos(autenticado));
+                gestDep.getBiblioteca().verificarRequisitos(e));
+        requisitos.put(TiposResponsabilidad.ESTIPENDIO, gestDep.getEconomia().verificarRequisitos(e));
         requisitos.put(TiposResponsabilidad.LIBROS_DOCENTES,
-                gestDep.getAlmacenDeLibros().verificarRequisitos(autenticado));
+                gestDep.getAlmacenDeLibros().verificarRequisitos(e));
         requisitos.put(TiposResponsabilidad.CUENTA_USUARIO,
-                gestDep.getSeguridadInformatica().verificarRequisitos(autenticado));
+                gestDep.getSeguridadInformatica().verificarRequisitos(e));
 
-        if (autenticado instanceof Becado) {
+        if (e instanceof Becado) {
 
             requisitos.put(TiposResponsabilidad.PERTENENCIAS_BECA,
-                    gestDep.getDireccionDeBecas().verificarRequisitos(autenticado));
+                    gestDep.getDireccionDeBecas().verificarRequisitos(e));
 
         }
         return requisitos;
@@ -138,7 +137,37 @@ public class ControladorPrincipal {
         return contador;
     }
 
+    public static int cantidadDeRequisitosEstudiante(String s) {
+        int contador = 0;
 
+        for (Estudiante e : Secretaria.gestorEstudiantes().getGestorSolicitudes().obtenerEstudiantesPendientes()) {
+            if (e.getCi().equals(s)) {
+                for (Map.Entry<TiposResponsabilidad, Boolean> entrada : obtenerRequisitosEstudiante(e).entrySet()) {
+                    if (entrada.getValue()) {
+                        contador++;
+                    }
+                }
+            }
+        }
+
+        return contador;
+    }
+
+    public static int cantidadDeRequisitosEmpleado(String s) {
+        int contador = 0;
+        for (Empleado e : GestorEmpleados.gestorEmpleados().getGestorSolicitudesEmpleados()
+                .obtenerEstudiantesPendientes()) {
+            if (e.getCi().equals(s)) {
+                for (Map.Entry<ResponsabilidadesTrabajador, Boolean> entrada : obtenerRequisitosEmpleado(e)
+                        .entrySet()) {
+                    if (entrada.getValue()) {
+                        contador++;
+                    }
+                }
+            }
+        }
+        return contador;
+    }
 
     public static HashMap<ResponsabilidadesTrabajador, Boolean> obtenerRequisitosEmpleado() {
 
@@ -163,19 +192,17 @@ public class ControladorPrincipal {
         GestorDepartamentos gestDep = GestorDepartamentos.gestorDepartamentos();
 
         HashMap<ResponsabilidadesTrabajador, Boolean> requisitos = new HashMap<>();
-        Empleado autenticado = e;
 
         requisitos.put(ResponsabilidadesTrabajador.LIBROS_BIBLIOTECA,
-                gestDep.getBiblioteca().verificarRequisitos(autenticado));
-        requisitos.put(ResponsabilidadesTrabajador.DEUDA, gestDep.getContabilidad().verificarRequisitos(autenticado));
+                gestDep.getBiblioteca().verificarRequisitos(e));
+        requisitos.put(ResponsabilidadesTrabajador.DEUDA, gestDep.getContabilidad().verificarRequisitos(e));
         requisitos.put(ResponsabilidadesTrabajador.SALARIO_INDEBIDO,
-                gestDep.getRecursosHumanos().verificarRequisitos(autenticado));
+                gestDep.getRecursosHumanos().verificarRequisitos(e));
         requisitos.put(ResponsabilidadesTrabajador.CUENTA_USUARIO,
-                gestDep.getSeguridadInformatica().verificarRequisitos(autenticado));
+                gestDep.getSeguridadInformatica().verificarRequisitos(e));
 
         return requisitos;
     }
-
 
     public static void mostrarRequisitosBajaEstudiantes() {
 
@@ -246,22 +273,33 @@ public class ControladorPrincipal {
         mostrarInicio();
     }
 
-   
-
     public static void mostrarTramites() {
         Pricipal instancia = Pricipal.getInstancia();
+
         if (Auth.usuarioAutenticado() instanceof Estudiante) {
             if (Secretaria.gestorEstudiantes().getGestorSolicitudes()
                     .verificarEstudianteSolicitaAlgo((Estudiante) Auth.usuarioAutenticado())) {
-                mostrarRequisitosBajaEstudiantes();
-                ;
+                if (cantidadDeRequisitosEstudiante() == 0 && Secretaria.gestorEstudiantes()
+                        .buscarEstudiantePorCi(((Estudiante) Auth.usuarioAutenticado()).getCi()) == null) {
+                    JOptionPane.showMessageDialog(null, "Su solicitud está siendo procesada", "Estado de Trámite",
+                            JOptionPane.INFORMATION_MESSAGE);
+                } else {
+                    mostrarRequisitosBajaEstudiantes();
+                }
+
             } else {
                 instancia.setVista(new SolicitudesEstudiantes());
             }
         } else if (Auth.usuarioAutenticado() instanceof Empleado) {
             if (GestorEmpleados.gestorEmpleados().getGestorSolicitudesEmpleados()
                     .verificarEmpleadoSolicitaAlgo((Empleado) Auth.usuarioAutenticado())) {
-                mostrarRequisitosEmpleados();
+                if (cantidadDeRequisitosEstudiante() == 0 && GestorEmpleados.gestorEmpleados()
+                        .buscarEmpleadoPorCi(((Empleado) Auth.usuarioAutenticado()).getCi()) == null) {
+                    JOptionPane.showMessageDialog(null, "Su solicitud está siendo procesada", "Estado de Trámite",
+                            JOptionPane.INFORMATION_MESSAGE);
+                } else {
+                    mostrarRequisitosEmpleados();
+                }
 
             } else {
                 instancia.setVista(new SolicitudesEmpleados());

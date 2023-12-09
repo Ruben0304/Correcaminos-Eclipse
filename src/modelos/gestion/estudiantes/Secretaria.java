@@ -40,6 +40,7 @@ public class Secretaria {
         Estudiante estudianteEncontrado = null;
         for (int i = 0; i < this.estudiantes.size() && !encontrado; i++) {
             encontrado = id.equals(this.estudiantes.get(i).getCi());
+            System.out.println(encontrado);
             if (encontrado) {
                 estudianteEncontrado = this.estudiantes.get(i);
             }

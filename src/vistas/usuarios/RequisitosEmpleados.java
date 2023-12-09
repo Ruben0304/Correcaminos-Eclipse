@@ -6,13 +6,19 @@ import java.util.HashMap;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import autenticacion.Auth;
+import modelos.gestion.GestorDepartamentos;
 import modelos.usuarios.Becado;
+import modelos.usuarios.Empleado;
+import modelos.usuarios.Estudiante;
 import util.ResponsabilidadesTrabajador;
 import util.TiposResponsabilidad;
 import vistas.template.Pricipal;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class RequisitosEmpleados extends JPanel {
 
@@ -41,6 +47,8 @@ public class RequisitosEmpleados extends JPanel {
 	private JLabel lblEntregadasPertenencias;
 	private JLabel label_15;
 	private HashMap<ResponsabilidadesTrabajador, Boolean> requisitos;
+	private JLabel lblVerRestante;
+	private JLabel lblVerRestantes;
 
 	private RequisitosEmpleados(HashMap<ResponsabilidadesTrabajador, Boolean> requisitos) {
 
@@ -73,7 +81,14 @@ public class RequisitosEmpleados extends JPanel {
 			panel_RequisitosEmpl.add(getLblAlmacenDeLibros());
 			panel_RequisitosEmpl.add(getLabel_7());
 			panel_RequisitosEmpl.add(getLblEntregadoTodosLos_1());
-
+			if (requisitos.get(ResponsabilidadesTrabajador.DEUDA)) {
+				panel_RequisitosEmpl.add(getLblVerRestante());
+			}
+			
+			if (requisitos.get(ResponsabilidadesTrabajador.LIBROS_BIBLIOTECA)) {
+				panel_RequisitosEmpl.add(getLabel_1());
+			}
+			
 
 		}
 		return panel_RequisitosEmpl;
@@ -122,17 +137,17 @@ public class RequisitosEmpleados extends JPanel {
 		return lblNewLabel;
 	}
 
-//	 private JLabel getLabel_4() {
-//		 if (label_4 == null) {
-//		 label_4 = new JLabel("");
-//		 label_4.setIcon(new ImageIcon(
-//		 Pricipal.class
-//		 .getResource("/img/" + (requisitos.get(ResponsabilidadesTrabajador.DEUDA) ?
-//		 "Canceel.png" : "Checkmarkkk.png"))));
-//		 label_4.setBounds(50, 368, 23, 21);
-//		 }
-//		 return label_4;
-//	 }
+	// private JLabel getLabel_4() {
+	// if (label_4 == null) {
+	// label_4 = new JLabel("");
+	// label_4.setIcon(new ImageIcon(
+	// Pricipal.class
+	// .getResource("/img/" + (requisitos.get(ResponsabilidadesTrabajador.DEUDA) ?
+	// "Canceel.png" : "Checkmarkkk.png"))));
+	// label_4.setBounds(50, 368, 23, 21);
+	// }
+	// return label_4;
+	// }
 
 	private JLabel getLblEconomia() {
 		if (lblEconomia == null) {
@@ -283,4 +298,45 @@ public class RequisitosEmpleados extends JPanel {
 		return lblEntregadasPertenencias;
 	}
 
+	private JLabel getLblVerRestante() {
+		if (lblVerRestante == null) {
+			lblVerRestante = new JLabel("Ver Restante");
+			lblVerRestante.addMouseListener(new MouseAdapter() {
+				@Override
+				public void mouseClicked(MouseEvent arg0) {
+
+					JOptionPane.showMessageDialog(null,
+							GestorDepartamentos.gestorDepartamentos().getContabilidad().obtenerDeudaEmpleado(
+									((Estudiante) Auth.usuarioAutenticado()).getCi()),
+							"Deudas Pendientes",
+							JOptionPane.INFORMATION_MESSAGE);
+
+				}
+			});
+			lblVerRestante.setForeground(new Color(152, 251, 152));
+			lblVerRestante.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 15));
+			lblVerRestante.setBounds(99, 411, 225, 35);
+		}
+		return lblVerRestante;
+	}
+   
+	private JLabel getLabel_1() {
+		if (lblVerRestantes == null) {
+			lblVerRestantes = new JLabel("Ver Restantes");
+			lblVerRestantes.addMouseListener(new MouseAdapter() {
+				@Override
+				public void mouseClicked(MouseEvent arg0) {
+					for (String s : GestorDepartamentos.gestorDepartamentos().getBiblioteca()
+							.obtenerDeudas(((Empleado) Auth.usuarioAutenticado()).getCi())) {
+						JOptionPane.showMessageDialog(null, s, "Deudas Pendientes",
+								JOptionPane.INFORMATION_MESSAGE);
+					}
+				}
+			});
+			lblVerRestantes.setForeground(new Color(152, 251, 152));
+			lblVerRestantes.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 15));
+			lblVerRestantes.setBounds(99, 259, 225, 35);
+		}
+		return lblVerRestantes;
+	}
 }

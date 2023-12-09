@@ -1,0 +1,65 @@
+[
+	[
+		"01234567891",
+		[
+			"Cálculo I",
+			"Cálculo II",
+			"Matemáticas Discretas"
+		]
+	],
+	[
+		"01010161846",
+		[
+			"Cálculo I",
+			"Matemáticas Discretas",
+			"Introducción a la Programacion en C/C++"
+		]
+	],
+	[
+		"02010161846",
+		[
+			"Cálculo I",
+			"Cálculo II",
+			"Matemáticas Discretas",
+			"Introducción a la Programacion en C/C++"
+		]
+	],
+	[
+		"03010161846",
+		[
+			"Cálculo I"
+		]
+	],
+	[
+		"05012367891",
+		[
+			"Cálculo I",
+			"Cálculo II",
+			"Matemáticas Discretas",
+			"Introducción a la Programacion en C/C++"
+		]
+	],
+	[
+		"01012367897",
+		[
+			"Cálculo I",
+			"Introducción a la Programacion en C/C++"
+		]
+	],
+	[
+		"03030561846",
+		[
+			"Cálculo I",
+			"Cálculo II",
+			"Matemáticas Discretas",
+			"Introducción a la Programacion en C/C++"
+		]
+	],
+	[
+		"01010561846",
+		[
+			"Cálculo I",
+			"Introducción a la Programacion en C/C++"
+		]
+	]
+]

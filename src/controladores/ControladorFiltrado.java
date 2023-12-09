@@ -48,6 +48,11 @@ public class ControladorFiltrado {
                                 cumpleFiltros = false;
                             }
                             break;
+                            case "facultad":
+                            if (!estudiante.getFacultad().toString().equals(valor)) {
+                                cumpleFiltros = false;
+                            }
+                            break;
                         case "motivo":
                             if (s instanceof SolicitudLicencia) {
                                 if (!((SolicitudLicencia) s).getMotivo().toString().equals(valor)) {

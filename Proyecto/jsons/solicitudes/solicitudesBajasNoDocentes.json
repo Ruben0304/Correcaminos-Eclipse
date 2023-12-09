@@ -1,0 +1,134 @@
+[
+    [
+        { "ci": "94070561846",
+        "nombre": "Cillian",
+        "primer_apellido": "Murphy",
+        "segundo_apellido": "O'Neil",
+        "numerotrabajador": "200007",
+        "seccion": "Seguridad"
+        },
+        [
+                {
+                    "id": 37,
+                    "estado": "PENDIENTE",
+                    "fecha": {
+                        "year": 2023,
+                        "month": 11,
+                        "dayOfMonth": 10,
+                        "hourOfDay": 8,
+                        "minute": 0,
+                        "second": 0
+                    },
+                    "motivo": "Enfermedad"
+                }
+                
+        ]
+    ],
+    [
+        {
+        "ci": "95010561846",
+        "nombre": "Paul",
+        "primer_apellido": "Anderson",
+        "segundo_apellido": "Smith",
+        "numerotrabajador": "200008",
+        "seccion": "Mantenimiento"
+        },
+        [
+            {
+                "id": 38,
+                "estado": "PENDIENTE",
+                "fecha": {
+                    "year": 2023,
+                    "month": 9,
+                    "dayOfMonth": 20,
+                    "hourOfDay": 12,
+                    "minute": 0,
+                    "second": 0
+                },
+                "motivo": "Accidente"
+            }
+            
+            
+        ]
+    ],
+    [
+        {
+            "ci": "96020561846",
+            "nombre": "Sophie",
+            "primer_apellido": "Rundle",
+            "segundo_apellido": "Harrison",
+            "numerotrabajador": "200009",
+            "seccion": "Cafeteria"
+        },
+        [
+            {
+                "id": 39,
+                "estado": "PENDIENTE",
+                "fecha": {
+                    "year": 2023,
+                    "month": 10,
+                    "dayOfMonth": 28,
+                    "hourOfDay": 16,
+                    "minute": 0,
+                    "second": 0
+                },
+                "motivo": "Enfermedad"
+            }
+            
+            
+        ]
+    ],
+    [
+        {
+            "ci": "97030561846",
+        "nombre": "Helen",
+        "primer_apellido": "McCrory",
+        "segundo_apellido": "Jones",
+        "numerotrabajador": "200010",
+        "seccion": "Comedor"
+        },
+        [
+            {
+                "id": 40,
+                "estado": "PENDIENTE",
+                "fecha": {
+                    "year": 2023,
+                    "month": 8,
+                    "dayOfMonth": 15,
+                    "hourOfDay": 12,
+                    "minute": 0,
+                    "second": 0
+                },
+                "motivo": "Accidente"
+            }
+            
+            
+        ]
+    ],
+    [
+        { "ci": "98040561846",
+        "nombre": "Finn",
+        "primer_apellido": "Cole",
+        "segundo_apellido": "O'Neil",
+        "numerotrabajador": "200011",
+        "seccion": "Limpieza"
+        },
+        [
+            {
+                "id": 41,
+                "estado": "PENDIENTE",
+                "fecha": {
+                    "year": 2023,
+                    "month": 11,
+                    "dayOfMonth": 30,
+                    "hourOfDay": 8,
+                    "minute": 0,
+                    "second": 0
+                },
+                "motivo": "Enfermedad"
+            }
+            
+            
+        ]
+    ]
+]

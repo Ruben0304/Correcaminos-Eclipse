@@ -78,9 +78,10 @@ public class ControladorAdmin {
         ArrayList<Persona> usuariosPendientes = obtenerCasosPendientesDepartamento();
         if (((Admin) Auth.usuarioAutenticado()).getTipoDepartamento().equals(TipoDepartamento.Secretaria)) {
             instancia.setVista(
-                    new DepartamentosModelo(new DepartamentoVerificadorLibrosTableModel(usuariosPendientes)));
+                    new DepartamentosModelo(new DepartamentoVerificadorLibrosTableModel(usuariosPendientes, true)));
         } else if (((Admin) Auth.usuarioAutenticado()).getTipoDepartamento().equals(TipoDepartamento.RecursosHumanos)) {
-
+            instancia.setVista(
+                    new DepartamentosModelo(new DepartamentoVerificadorLibrosTableModel(usuariosPendientes, 3)));
         } else {
             instancia.setVista(
                     new DepartamentosModelo(new DepartamentoVerificadorLibrosTableModel(usuariosPendientes)));
@@ -200,7 +201,13 @@ public class ControladorAdmin {
                 gestDep.getBiblioteca().confirmarEntrega(carnet);
                 break;
             case Secretaria:
-                Secretaria.gestorEstudiantes().getGestorSolicitudes().aceptarSolicitud(carnet);
+                if (ControladorPrincipal.cantidadDeRequisitosEstudiante(carnet) == 0) {
+                    Secretaria.gestorEstudiantes().getGestorSolicitudes().aceptarSolicitud(carnet);
+                } else {
+                    JOptionPane.showMessageDialog(null, "No ha cumplido todos los requisitos", "Error de Trámite",
+                            JOptionPane.ERROR_MESSAGE);
+                }
+
                 break;
 
             case AlmacenLibrosDocentes:
@@ -222,8 +229,14 @@ public class ControladorAdmin {
                 gestDep.getSeguridadInformatica().cerrarCuenta(carnet);
                 break;
             case RecursosHumanos:
-                gestDep.getRecursosHumanos().confirmarEntrega(carnet);
-                GestorEmpleados.gestorEmpleados().getGestorSolicitudesEmpleados().aceptarSolicitud(carnet);
+                if (ControladorPrincipal.cantidadDeRequisitosEstudiante(carnet) == 1) {
+                    gestDep.getRecursosHumanos().confirmarEntrega(carnet);
+                    GestorEmpleados.gestorEmpleados().getGestorSolicitudesEmpleados().aceptarSolicitud(carnet);
+                } else {
+                    JOptionPane.showMessageDialog(null, "No ha cumplido todos los requisitos", "Error de Trámite",
+                            JOptionPane.ERROR_MESSAGE);
+                }
+
                 break;
             default:
 

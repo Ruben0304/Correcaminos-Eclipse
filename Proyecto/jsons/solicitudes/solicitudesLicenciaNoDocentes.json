@@ -1,0 +1,213 @@
+[
+    [
+        {
+            "ci": "90070561846",
+        "nombre": "Jason",
+        "primer_apellido": "Beghe",
+        "segundo_apellido": "Soffer",
+        "numerotrabajador": "200001",
+        "seccion": "Seguridad"
+        },
+        [
+            {
+                "id": 27,
+                "estado": "PENDIENTE",
+                "fecha": {
+                    "year": 2023,
+                    "month": 11,
+                    "dayOfMonth": 22,
+                    "hourOfDay": 8,
+                    "minute": 0,
+                    "second": 0
+                },
+                "motivo": "Vacaciones",
+                "fechaSalida": {
+                    "year": 2023,
+                    "month": 12,
+                    "dayOfMonth": 27,
+                    "hourOfDay": 8,
+                    "minute": 0,
+                    "second": 0
+                },
+                "fechaRegreso": {
+                    "year": 2024,
+                    "month": 2,
+                    "dayOfMonth": 1,
+                    "hourOfDay": 8,
+                    "minute": 0,
+                    "second": 0
+                }
+            }
+            
+        ]
+    ],
+    [
+        {
+            "ci": "91010561846",
+        "nombre": "Sophia",
+        "primer_apellido": "Bush",
+        "segundo_apellido": "Geraghty",
+        "numerotrabajador": "200002",
+        "seccion": "Mantenimiento"
+        },
+        [
+            {
+                "id": 28,
+                "estado": "PENDIENTE",
+                "fecha": {
+                    "year": 2023,
+                    "month": 10,
+                    "dayOfMonth": 6,
+                    "hourOfDay": 16,
+                    "minute": 0,
+                    "second": 0
+                },
+                "motivo": "Accidente",
+                "fechaSalida": {
+                    "year": 2023,
+                    "month": 11,
+                    "dayOfMonth": 6,
+                    "hourOfDay": 8,
+                    "minute": 0,
+                    "second": 0
+                },
+                "fechaRegreso": {
+                    "year": 2024,
+                    "month": 1,
+                    "dayOfMonth": 1,
+                    "hourOfDay": 8,
+                    "minute": 0,
+                    "second": 0
+                }
+            }
+        ]
+    ],
+    [
+        {
+            "ci": "92020561846",
+            "nombre": "Brian",
+            "primer_apellido": "Geraghty",
+            "segundo_apellido": "Aguilar",
+            "numerotrabajador": "200003",
+            "seccion": "Cafeteria"
+        },
+        [
+           
+            {
+                "id": 29,
+                "estado": "PENDIENTE",
+                "fecha": {
+                    "year": 2023,
+                    "month": 11,
+                    "dayOfMonth": 30,
+                    "hourOfDay": 16,
+                    "minute": 0,
+                    "second": 0
+                },
+                "motivo": "Enfermedad",
+                "fechaSalida": {
+                    "year": 2023,
+                    "month": 12,
+                    "dayOfMonth": 30,
+                    "hourOfDay": 8,
+                    "minute": 0,
+                    "second": 0
+                },
+                "fechaRegreso": {
+                    "year": 2024,
+                    "month": 2,
+                    "dayOfMonth": 1,
+                    "hourOfDay": 8,
+                    "minute": 0,
+                    "second": 0
+                }
+            }
+        ]
+    ],
+    [
+        {
+            "ci": "93030561846",
+        "nombre": "Stella",
+        "primer_apellido": "Maeve",
+        "segundo_apellido": "O'Connor",
+        "numerotrabajador": "200004",
+        "seccion": "Comedor"
+        },
+        [
+            
+            {
+                "id": 30,
+                "estado": "PENDIENTE",
+                "fecha": {
+                    "year": 2023,
+                    "month": 9,
+                    "dayOfMonth": 28,
+                    "hourOfDay": 16,
+                    "minute": 0,
+                    "second": 0
+                },
+                "motivo": "Enfermedad",
+                "fechaSalida": {
+                    "year": 2023,
+                    "month": 10,
+                    "dayOfMonth": 28,
+                    "hourOfDay": 8,
+                    "minute": 0,
+                    "second": 0
+                },
+                "fechaRegreso": {
+                    "year": 2024,
+                    "month": 1,
+                    "dayOfMonth": 1,
+                    "hourOfDay": 8,
+                    "minute": 0,
+                    "second": 0
+                }
+            }
+            
+        ]
+    ],
+    [
+        {
+            "ci": "94040561846",
+        "nombre": "Kara",
+        "primer_apellido": "Killmer",
+        "segundo_apellido": "Eigenberg",
+        "numerotrabajador": "200005",
+        "seccion": "Limpieza"
+        },
+        [
+            {
+                "id": 31,
+                "estado": "PENDIENTE",
+                "fecha": {
+                    "year": 2023,
+                    "month": 9,
+                    "dayOfMonth": 7,
+                    "hourOfDay": 12,
+                    "minute": 0,
+                    "second": 0
+                },
+                "motivo": "Accidente",
+                "fechaSalida": {
+                    "year": 2023,
+                    "month": 10,
+                    "dayOfMonth": 7,
+                    "hourOfDay": 8,
+                    "minute": 0,
+                    "second": 0
+                },
+                "fechaRegreso": {
+                    "year": 2024,
+                    "month": 1,
+                    "dayOfMonth": 1,
+                    "hourOfDay": 8,
+                    "minute": 0,
+                    "second": 0
+                }
+            }
+            
+        ]
+    ]
+    
+]

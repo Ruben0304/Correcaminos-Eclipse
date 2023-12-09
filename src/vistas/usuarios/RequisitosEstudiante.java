@@ -6,12 +6,18 @@ import java.util.HashMap;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import autenticacion.Auth;
+import modelos.gestion.GestorDepartamentos;
 import modelos.usuarios.Becado;
+import modelos.usuarios.Estudiante;
+import util.ResponsabilidadesTrabajador;
 import util.TiposResponsabilidad;
 import vistas.template.Pricipal;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class RequisitosEstudiante extends JPanel {
 
@@ -39,6 +45,8 @@ public class RequisitosEstudiante extends JPanel {
 	private JLabel lblEntregadasPertenencias;
 	private JLabel label_15;
 	private HashMap<TiposResponsabilidad, Boolean> requisitos;
+	private JLabel lblVerRestantes;
+	private JLabel label;
 
 	private RequisitosEstudiante(HashMap<TiposResponsabilidad, Boolean> requisitos) {
 
@@ -58,7 +66,7 @@ public class RequisitosEstudiante extends JPanel {
 			panel_RequisitosEstud = new JPanel();
 			panel_RequisitosEstud.setBounds(178, 0, 944, 700);
 			panel_RequisitosEstud.setLayout(null);
-			
+
 			panel_RequisitosEstud.add(getLblTitulo());
 			panel_RequisitosEstud.add(getLblBiblioteca());
 			panel_RequisitosEstud.add(getLblEntregadoTodosLos());
@@ -74,6 +82,14 @@ public class RequisitosEstudiante extends JPanel {
 			panel_RequisitosEstud.add(getLabel_8());
 			panel_RequisitosEstud.add(getLblAlmacenDeLibros());
 			panel_RequisitosEstud.add(getLabel_7());
+
+			if (requisitos.get(TiposResponsabilidad.LIBROS_BIBLIOTECA)) {
+				panel_RequisitosEstud.add(getLblVerRestantes());
+			}
+			if (requisitos.get(TiposResponsabilidad.LIBROS_DOCENTES)) {
+				panel_RequisitosEstud.add(getLabel());
+			}
+
 			panel_RequisitosEstud.add(getLblEntregadoTodosLos_1());
 
 			if (Auth.usuarioAutenticado() instanceof Becado) {
@@ -299,4 +315,44 @@ public class RequisitosEstudiante extends JPanel {
 		return lblEntregadasPertenencias;
 	}
 
+	private JLabel getLblVerRestantes() {
+		if (lblVerRestantes == null) {
+			lblVerRestantes = new JLabel("Ver Restantes");
+			lblVerRestantes.addMouseListener(new MouseAdapter() {
+				@Override
+				public void mouseClicked(MouseEvent arg0) {
+					for (String s : GestorDepartamentos.gestorDepartamentos().getBiblioteca()
+							.obtenerDeudas(((Estudiante) Auth.usuarioAutenticado()).getCi())) {
+						JOptionPane.showMessageDialog(null, s, "Deudas Pendientes",
+								JOptionPane.INFORMATION_MESSAGE);
+					}
+				}
+			});
+			lblVerRestantes.setForeground(new Color(152, 251, 152));
+			lblVerRestantes.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 15));
+			lblVerRestantes.setBounds(170, 240, 225, 54);
+		}
+		return lblVerRestantes;
+	}
+
+	private JLabel getLabel() {
+		if (label == null) {
+			label = new JLabel("Ver Restantes");
+			label.addMouseListener(new MouseAdapter() {
+				@Override
+				public void mouseClicked(MouseEvent arg0) {
+					for (String s : GestorDepartamentos.gestorDepartamentos().getAlmacenDeLibros()
+							.obtenerDeudas(((Estudiante) Auth.usuarioAutenticado()).getCi())) {
+						JOptionPane.showMessageDialog(null, s, "Deudas Pendientes",
+								JOptionPane.INFORMATION_MESSAGE);
+					}
+
+				}
+			});
+			label.setForeground(new Color(152, 251, 152));
+			label.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 15));
+			label.setBounds(546, 391, 225, 54);
+		}
+		return label;
+	}
 }

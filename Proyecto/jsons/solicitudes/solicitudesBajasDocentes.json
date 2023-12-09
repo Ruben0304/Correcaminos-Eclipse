@@ -1,0 +1,141 @@
+[
+    [
+        {
+            "ci": "82090561848",
+            "nombre": "Osvaldo",
+            "primer_apellido": "Laport",
+            "segundo_apellido": "Gomez",
+            "numerotrabajador": "820000",
+            "facultad": "Ing_Informatica",
+            "departamento": "Historia",
+            "categoriaDocente": "DOCTOR"
+        },
+        [
+            {
+                "id": 32,
+                "estado": "PENDIENTE",
+                "fecha": {
+                    "year": 2023,
+                    "month": 8,
+                    "dayOfMonth": 15,
+                    "hourOfDay": 8,
+                    "minute": 0,
+                    "second": 0
+                },
+                "motivo": "Enfermedad"
+            }
+        ]
+    ],
+    [
+        {
+            "ci": "60070561846",
+        "nombre": "Maribel",
+        "primer_apellido": "Guardia",
+        "segundo_apellido": "Fernandez",
+        "numerotrabajador": "805001",
+        "facultad": "Ing_Informatica",
+        "departamento": "Matematicas",
+        "categoriaDocente": "INGENIERO"
+        },
+        [
+            {
+                "id": 33,
+                "estado": "PENDIENTE",
+                "fecha": {
+                    "year": 2023,
+                    "month": 11,
+                    "dayOfMonth": 28,
+                    "hourOfDay": 16,
+                    "minute": 0,
+                    "second": 0
+                },
+                "motivo": "Accidente"
+            }
+            
+        ]
+    ],
+    [
+        {
+            "ci": "61030561847",
+        "nombre": "Harry",
+        "primer_apellido": "Geithner",
+        "segundo_apellido": "Gomez",
+        "numerotrabajador": "810800",
+        "facultad": "Ing_Informatica",
+        "departamento": "Programacion",
+        "categoriaDocente": "MASTER"
+        },
+        [
+            {
+                "id": 34,
+                "estado": "PENDIENTE",
+                "fecha": {
+                    "year": 2023,
+                    "month": 10,
+                    "dayOfMonth": 12,
+                    "hourOfDay": 12,
+                    "minute": 0,
+                    "second": 0
+                },
+                "motivo": "Enfermedad"
+            }
+            
+        ]
+    ],
+    [
+        {
+            "ci": "62090561848",
+        "nombre": "Mario",
+        "primer_apellido": "Chacon",
+        "segundo_apellido": "Gonzalez",
+        "numerotrabajador": "820090",
+        "facultad": "Ing_Informatica",
+        "departamento": "Historia",
+        "categoriaDocente": "DOCTOR"
+        },
+        [
+            {
+                "id": 35,
+                "estado": "PENDIENTE",
+                "fecha": {
+                    "year": 2023,
+                    "month": 9,
+                    "dayOfMonth": 25,
+                    "hourOfDay": 16,
+                    "minute": 0,
+                    "second": 0
+                },
+                "motivo": "Accidente"
+            }
+            
+        ]
+    ],
+    [
+        {
+            "ci": "63050561849",
+        "nombre": "Nancy",
+        "primer_apellido": "Dobles",
+        "segundo_apellido": "Gutierrez",
+        "numerotrabajador": "839000",
+        "facultad": "Ing_Informatica",
+        "departamento": "Inteligencia Artificial",
+        "categoriaDocente": "INGENIERO"
+        },
+        [
+            {
+                "id": 36,
+                "estado": "PENDIENTE",
+                "fecha": {
+                    "year": 2023,
+                    "month": 8,
+                    "dayOfMonth": 2,
+                    "hourOfDay": 12,
+                    "minute": 0,
+                    "second": 0
+                },
+                "motivo": "Enfermedad"
+            }
+            
+        ]
+    ]
+]

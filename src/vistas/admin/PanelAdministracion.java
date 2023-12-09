@@ -160,11 +160,7 @@ public class PanelAdministracion extends JPanel {
 			panelCategorias.add(getRdbtnEstudiante());
 			panelCategorias.add(getRdbtnEmpleado());
 
-			 chckbxBaja = new JCheckBox("Baja");
-			chckbxBaja.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent arg0) {
-				}
-			});
+			chckbxBaja = new JCheckBox("Baja");
 			chckbxBaja.setFont(new Font("Segoe UI", Font.PLAIN, 15));
 			chckbxBaja.setForeground(Color.WHITE);
 			chckbxBaja.setBounds(31, 77, 102, 25);
@@ -172,22 +168,24 @@ public class PanelAdministracion extends JPanel {
 				public void actionPerformed(ActionEvent arg0) {
 					if (chckbxBaja.isSelected() && chckbxLicencia.isSelected()) {
 						getMap().remove("tipoSolicitud");
-					}
-					else{
+					} else if (!chckbxBaja.isSelected() && chckbxLicencia.isSelected()) {
+						getMap().put("tipoSolicitud", "licencia");
+					} else {
 						if (chckbxBaja.isSelected()) {
 							getMap().put("tipoSolicitud", "baja");
-						}
-						else {
+						} else {
 							getMap().remove("tipoSolicitud");
 						}
-						
+
 					}
-					
+
 					getTable().setModel(
 							new ModeloFiltrado(ControladorFiltrado.filtradoDinamicoSolicitudEstudiantes(getMap())));
 
 				}
+
 			});
+
 			panelCategorias.add(chckbxBaja);
 
 			chckbxLicencia = new JCheckBox("Licencia");
@@ -195,17 +193,17 @@ public class PanelAdministracion extends JPanel {
 				public void actionPerformed(ActionEvent arg0) {
 					if (chckbxBaja.isSelected() && chckbxLicencia.isSelected()) {
 						getMap().remove("tipoSolicitud");
-					}
-					else{
+					} else if (chckbxBaja.isSelected() && !chckbxLicencia.isSelected()) {
+						getMap().put("tipoSolicitud", "baja");
+					} else {
 						if (chckbxLicencia.isSelected()) {
 							getMap().put("tipoSolicitud", "licencia");
-						}
-						else {
+						} else {
 							getMap().remove("tipoSolicitud");
 						}
-						
+
 					}
-					
+
 					getTable().setModel(
 							new ModeloFiltrado(ControladorFiltrado.filtradoDinamicoSolicitudEstudiantes(getMap())));
 

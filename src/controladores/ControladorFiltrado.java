@@ -65,12 +65,12 @@ public class ControladorFiltrado {
                             }
                             break;
                         case "tipoSolicitud":
-                            if (!("licencia".equals(valor))) {
+                            if ("licencia".equals(valor)) {
                                 if (s instanceof SolicitudBaja) {
                                     cumpleFiltros = false;
                                 }
                             }
-                           else if (!("baja".equals(valor))) {
+                           else if ("baja".equals(valor)) {
                                  if (s instanceof SolicitudLicencia) {
                                     cumpleFiltros = false;
                                 }

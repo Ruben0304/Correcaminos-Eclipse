@@ -60,7 +60,7 @@ public class ControladorPrincipal {
         } else if (Auth.usuarioAutenticado() instanceof Empleado) {
             instancia.setVista(new InicioEmpleadoJP());
         } else {
-            // instancia.setVista(Inicio.getVista().getPanel_lateral());
+            instancia.setVista(new InicioEstudianteJP());
         }
 
         Pricipal.getInstancia().revalidate();

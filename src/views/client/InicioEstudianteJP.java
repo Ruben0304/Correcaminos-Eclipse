@@ -60,7 +60,7 @@ public class InicioEstudianteJP extends JPanel{
 		txtrEntregaDeTodos.setBackground(new Color(30, 30, 30));
 		txtrEntregaDeTodos.setBounds(96, 514, 734, 110);
 		add(txtrEntregaDeTodos);
-		add(LabelUsuario.usuario());
+		
 		
 	}
 }

@@ -57,14 +57,7 @@ public class Inicio{
     }
 
 
-    private JLabel getLabel_6() {
-		if (label_6 == null) {
-			label_6 = new JLabel("");
-			label_6.setIcon(new ImageIcon(Pricipal.class.getResource("/img/Accountc.png")));
-			label_6.setBounds(879, 37, 40, 37);
-		}
-		return label_6;
-	}
+   
 
     private JLabel getLblCorrecaminosCujae() {
 		if (lblCorrecaminosCujae == null) {
@@ -115,8 +108,8 @@ public class Inicio{
 			panel_lateral.add(getLblCorrecaminosCujae());
 			panel_lateral.add(getTxtrnecesitasSolicitarUna());
 			panel_lateral.add(getLblQueSomos());
-			panel_lateral.add(getLblEntrar());
-			panel_lateral.add(getLabel_6());
+			
+			
 		}
 		return panel_lateral;
 	}

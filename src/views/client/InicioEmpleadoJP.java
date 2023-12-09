@@ -40,16 +40,7 @@ public class InicioEmpleadoJP extends JPanel {
 		txtrSuMotivoY.setBounds(96, 325, 734, 118);
 		add(txtrSuMotivoY);
 		
-		JLabel label_4 = new JLabel("");
-		label_4.setBounds(728, 13, 51, 37);
-		add(label_4);
-		label_4.setIcon(new ImageIcon(InicioEmpleadoJP.class.getResource("/img/Accountc.png")));
 		
-		JLabel lblHolaRuben = new JLabel("Hola, Ruben");
-		lblHolaRuben.setForeground(Color.WHITE);
-		lblHolaRuben.setFont(new Font("Segoe UI Semibold", Font.BOLD, 20));
-		lblHolaRuben.setBounds(778, 13, 176, 30);
-		add(lblHolaRuben);
 		
 		JLabel lblSolicitarLicencia = new JLabel("\u00BF Como Solicitar Licencia ?");
 		lblSolicitarLicencia.setForeground(Color.WHITE);

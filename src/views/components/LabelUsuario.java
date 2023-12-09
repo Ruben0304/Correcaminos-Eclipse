@@ -10,13 +10,13 @@ import javax.swing.JPanel;
 import auth.Auth;
 import models.usuarios.Admin;
 import models.usuarios.Persona;
-import views.InicioEstudianteJP;
+
 
 public class LabelUsuario {
 
     public static JPanel usuario() {
         JPanel panel = new JPanel();
-        panel.setBounds(601, 13, 331, 37);
+        panel.setBounds(670, 13, 331, 37);
         panel.setLayout(null);
 
         JLabel label_4 = new JLabel("Hola, " + (Auth.usuarioAutenticado() instanceof Persona ? ((Persona)Auth.usuarioAutenticado()).getNombre() : ((Admin)Auth.usuarioAutenticado()).getTipoDepartamento().toString()));

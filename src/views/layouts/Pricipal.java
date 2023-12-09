@@ -19,8 +19,6 @@ import com.formdev.flatlaf.FlatLaf;
 import com.formdev.flatlaf.fonts.roboto.FlatRobotoFont;
 import com.formdev.flatlaf.themes.FlatMacDarkLaf;
 
-
-
 import auth.Auth;
 import util.TipoDepartamento;
 
@@ -33,6 +31,7 @@ import java.awt.event.ActionListener;
 
 import views.admin.PanelAdministracion;
 import views.client.RequisitosEstudiante;
+import views.components.LabelUsuario;
 import views.components.Navegacion;
 
 import java.net.URL;
@@ -77,18 +76,18 @@ public class Pricipal extends JFrame implements ActionListener {
 
 		contentPane.removeAll();
 		contentPane.add(Navegacion.getInstancia());
+         panel.add(LabelUsuario.usuario());
 		contentPane.add(panel);
+		
 		repaint();
 		revalidate();
 		
 	}
 
 	public Pricipal() {
-		
-		
+
 		setResizable(false);
-		
-		
+
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Pricipal.class.getResource("/img/correcamino.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1140, 744);
@@ -97,7 +96,6 @@ public class Pricipal extends JFrame implements ActionListener {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
 
 	}
 

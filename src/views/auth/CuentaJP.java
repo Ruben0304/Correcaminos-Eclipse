@@ -96,15 +96,7 @@ public class CuentaJP extends JPanel {
 		label_5.setBounds(173, 320, 432, 43);
 		add(label_5);
 		
-		JLabel label_6 = new JLabel("");
-		label_6.setIcon(new ImageIcon(CuentaJP.class.getResource("/img/Accountc.png")));
-		label_6.setBounds(695, 26, 51, 37);
-		add(label_6);
 		
-		JLabel label_7 = new JLabel("Hola, Ruben");
-		label_7.setForeground(Color.WHITE);
-		label_7.setFont(new Font("Segoe UI Semibold", Font.BOLD, 20));
-		label_7.setBounds(745, 26, 176, 30);
-		add(label_7);
+		
 	}
 }

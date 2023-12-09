@@ -144,16 +144,7 @@ public class SolicitudesEstudiantes extends JPanel {
 		lblTrmites.setBounds(330, 87, 352, 67);
 		panelPrincipal.add(lblTrmites);
 		
-		JLabel label_2 = new JLabel("");
-		label_2.setIcon(new ImageIcon(SolicitudesEstudiantes.class.getResource("/img/Accountc.png")));
-		label_2.setBounds(706, 24, 51, 37);
-		panelPrincipal.add(label_2);
-		
-		JLabel label_3 = new JLabel("Hola, Ruben");
-		label_3.setForeground(Color.WHITE);
-		label_3.setFont(new Font("Segoe UI Semibold", Font.BOLD, 20));
-		label_3.setBounds(756, 24, 176, 30);
-		panelPrincipal.add(label_3);
+	
 		
 		setBounds(178, 0, 944, 700);
 		

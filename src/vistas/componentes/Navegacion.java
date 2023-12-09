@@ -75,7 +75,7 @@ public class Navegacion extends JPanel {
 		setAlignmentX(Component.LEFT_ALIGNMENT);
 		setBackground(new Color(20, 20, 20));
 		setLayout(null);
-		if (Auth.usuarioAutenticado() instanceof Persona && ControladorPrincipal.verificarPersonaSolicitaAlgo()
+		if (Auth.usuarioAutenticado() instanceof Persona && ControladorPrincipal.verificarPersonaSolicitaAlgo() 
 				|| Auth.usuarioAutenticado() instanceof Admin) {
 			getLabel_4().setVisible(true);
 			getLabel_3().setVisible(true);
@@ -448,9 +448,9 @@ public class Navegacion extends JPanel {
 			label_4 = new JLabel(Auth.usuarioAutenticado() instanceof Admin
 					? Integer.toString(ControladorAdmin.obtenerCasosPendientesDepartamento().size())
 					: (Auth.usuarioAutenticado() instanceof Estudiante
-							? Integer.toString(ControladorPrincipal.obtenerRequisitosEstudiante().size() + 1)
+							? Integer.toString(ControladorPrincipal.cantidadDeRequisitosEstudiante() + 1)
 							: (Auth.usuarioAutenticado() instanceof Empleado
-									? Integer.toString(ControladorPrincipal.obtenerRequisitosEmpleado().size() )
+									? Integer.toString(ControladorPrincipal.cantidadDeRequisitosEmpleado() + 1)
 									: "0")));
 
 			label_4.setForeground(Color.WHITE);

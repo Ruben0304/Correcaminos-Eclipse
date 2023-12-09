@@ -50,6 +50,21 @@ public class GestorSolicitudesEmpleados {
         return solicita;
 
     }
+
+      public boolean verificarEmpleadoSolicitaLicencia(Empleado e) {
+        boolean solicita = false;
+        if (solicitudesEmpleados.containsKey(e)) {
+            for (Solicitud s : solicitudesEmpleados.get(e)) {
+                if (s.getEstado().equals(Estado.PENDIENTE) && s instanceof SolicitudLicencia) {
+                    solicita = true;
+                }
+            }
+
+        }
+
+        return solicita;
+
+    }
 	
 	public void crearSolicitudBaja(MotivoBaja motivo, Empleado e) {
 

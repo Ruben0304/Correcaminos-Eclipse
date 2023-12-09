@@ -3,6 +3,7 @@ package controladores;
 import java.security.Principal;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 import javax.swing.JOptionPane;
 
@@ -93,6 +94,28 @@ public class ControladorPrincipal {
         return requisitos;
     }
 
+    public static int cantidadDeRequisitosEstudiante() {
+        int contador = 0;
+        for (Map.Entry<TiposResponsabilidad, Boolean> entrada : obtenerRequisitosEstudiante().entrySet()) {
+            if (entrada.getValue()) {
+                contador++;
+            }
+        }
+        return contador;
+    }
+
+    public static int cantidadDeRequisitosEmpleado() {
+        int contador = 0;
+        for (Map.Entry<ResponsabilidadesTrabajador, Boolean> entrada : obtenerRequisitosEmpleado().entrySet()) {
+            if (entrada.getValue()) {
+                contador++;
+            }
+        }
+        return contador;
+    }
+
+
+
     public static HashMap<ResponsabilidadesTrabajador, Boolean> obtenerRequisitosEmpleado() {
 
         GestorDepartamentos gestDep = GestorDepartamentos.gestorDepartamentos();
@@ -128,14 +151,23 @@ public class ControladorPrincipal {
     public static void mostrarRequisitosEmpleados() {
 
         Pricipal instancia = Pricipal.getInstancia();
-        Navegacion.getInstancia().getLabel_3().setVisible(true);
-        Navegacion.getInstancia().getLabel_4().setVisible(true);
-        Navegacion.getInstancia().revalidate();
-        Navegacion.getInstancia().repaint();
-        instancia.setVista(RequisitosEmpleados.getVista(obtenerRequisitosEmpleado())
-                .getPanel_RequisitosEmpleados());
-        Pricipal.getInstancia().revalidate();
-        Pricipal.getInstancia().repaint();
+        if (GestorEmpleados.gestorEmpleados().getGestorSolicitudesEmpleados()
+                .verificarEmpleadoSolicitaLicencia((Empleado) Auth.usuarioAutenticado())) {
+            JOptionPane.showMessageDialog(null, "Su solicitud está siendo procesada", "Estado de Trámite",
+                    JOptionPane.INFORMATION_MESSAGE);
+            ControladorPrincipal.mostrarInicio();
+        } else {
+
+            Navegacion.getInstancia().getLabel_3().setVisible(true);
+            Navegacion.getInstancia().getLabel_4().setVisible(true);
+            Navegacion.getInstancia().revalidate();
+            Navegacion.getInstancia().repaint();
+            instancia.setVista(RequisitosEmpleados.getVista(obtenerRequisitosEmpleado())
+                    .getPanel_RequisitosEmpleados());
+            Pricipal.getInstancia().revalidate();
+            Pricipal.getInstancia().repaint();
+
+        }
 
     }
 
@@ -191,9 +223,8 @@ public class ControladorPrincipal {
         } else if (Auth.usuarioAutenticado() instanceof Empleado) {
             if (GestorEmpleados.gestorEmpleados().getGestorSolicitudesEmpleados()
                     .verificarEmpleadoSolicitaAlgo((Empleado) Auth.usuarioAutenticado())) {
-                JOptionPane.showMessageDialog(null, "Su solicitud está siendo procesada", "Estado de Trámite",
-                        JOptionPane.INFORMATION_MESSAGE);
-                ControladorPrincipal.mostrarInicio();
+                mostrarRequisitosEmpleados();
+
             } else {
                 instancia.setVista(new SolicitudesEmpleados());
             }

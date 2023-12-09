@@ -30,12 +30,12 @@ public class DepartamentoVerificadorLibrosTableModel extends DefaultTableModel {
 
 	}
 
-	public DepartamentoVerificadorLibrosTableModel(Set<String> deudas) {
+	public DepartamentoVerificadorLibrosTableModel(Set<String> deudas,String carnet) {
 		String[] columnNames = {
-				"Deudas" };
+				"Deudas","Carnet Correspondiente" };
 		this.setColumnIdentifiers(columnNames);
 		for (String e : deudas) {
-			Object[] newRow = new Object[] {e};
+			Object[] newRow = new Object[] {e,carnet};
 			addRow(newRow);
 		}
 

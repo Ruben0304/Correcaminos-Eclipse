@@ -39,6 +39,9 @@ public class Biblioteca implements VerificadorEstudiante, VerificadorEmpleado, A
         return personasConLibrosBiblioteca.containsKey(e.getCi());
     }
 
+    public void confirmarEntrega(String e) {
+		personasConLibrosBiblioteca.remove(e);
+	}
     public void recogerDeudas(String p,Set<String> s) {
     	personasConLibrosBiblioteca.get(p).removeAll(s);
     }

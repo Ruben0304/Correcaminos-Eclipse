@@ -27,8 +27,8 @@ public class Economia implements VerificadorEstudiante {
         return estudiantesConEstipendio.containsKey(e.getCi());
     }
 
-    public void cancelarPagoEstipendio(Estudiante e) {
-    	estudiantesConEstipendio.remove(e.getCi());
+    public void cancelarPagoEstipendio(String e) {
+    	estudiantesConEstipendio.remove(e);
     }
 
    

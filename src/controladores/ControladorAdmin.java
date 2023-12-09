@@ -1,6 +1,7 @@
 package controladores;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -8,6 +9,7 @@ import javax.swing.JOptionPane;
 
 import autenticacion.Auth;
 import interfaces.Autenticable;
+import modelos.admin.SeguridadInformatica;
 import modelos.gestion.Correcaminos;
 import modelos.gestion.GestorDepartamentos;
 import modelos.gestion.empleados.GestorEmpleados;
@@ -37,7 +39,6 @@ public class ControladorAdmin {
         Pricipal instancia = Pricipal.getInstancia();
         Set<String> deudas = new TreeSet<>();
         GestorDepartamentos gestDep = GestorDepartamentos.gestorDepartamentos();
-        
 
         switch (((Admin) Auth.usuarioAutenticado()).getTipoDepartamento()) {
 
@@ -64,7 +65,8 @@ public class ControladorAdmin {
         if (!((Admin) Auth.usuarioAutenticado()).getTipoDepartamento().equals(TipoDepartamento.Contabilidad)) {
             instancia.setVista(
                     new DepartamentosModelo(
-                            new DepartamentoVerificadorLibrosTableModel(deudas)));
+                            new DepartamentoVerificadorLibrosTableModel(deudas, carnet)));
+
             Pricipal.getInstancia().revalidate();
             Pricipal.getInstancia().repaint();
         }
@@ -102,6 +104,33 @@ public class ControladorAdmin {
                 new DepartamentosModelo(new DepartamentoVerificadorLibrosTableModel(usuariosPendientes)));
         Pricipal.getInstancia().revalidate();
         Pricipal.getInstancia().repaint();
+    }
+
+    public static void entregarDeuda(Set<String> deudas, String carnet) {
+        GestorDepartamentos gestDep = GestorDepartamentos.gestorDepartamentos();
+        switch (((Admin) Auth.usuarioAutenticado()).getTipoDepartamento()) {
+
+            case Biblioteca:
+                gestDep.getBiblioteca().recogerDeudas(carnet, deudas);
+                break;
+
+            case AlmacenLibrosDocentes:
+                gestDep.getAlmacenDeLibros().recogerDeudas(carnet, deudas);
+                break;
+
+            case DireccionBecas:
+                gestDep.getAlmacenDeLibros().recogerDeudas(carnet, deudas);
+                break;
+            case Contabilidad:
+                gestDep.getContabilidad().saldarDeuda(carnet);
+                break;
+            default:
+
+                break;
+        }
+
+        verDeudas(carnet);
+
     }
 
     public static ArrayList<Persona> obtenerCasosPendientesDepartamento() {
@@ -164,49 +193,46 @@ public class ControladorAdmin {
     }
 
     public static void confirmarEntrega(String carnet) {
-        Admin usuarioAutenticado = (Admin) Auth.usuarioAutenticado();
-        GestorDepartamentos gestorDepartamentos = GestorDepartamentos.gestorDepartamentos();
 
-        Secretaria gestorEstudiantes = Secretaria.gestorEstudiantes();
+        GestorDepartamentos gestDep = GestorDepartamentos.gestorDepartamentos();
+        switch (((Admin) Auth.usuarioAutenticado()).getTipoDepartamento()) {
 
-        // switch (((Admin) usuarioAutenticado).getTipoDepartamento()) {
-        // case Biblioteca:
-        // gestorDepartamentos.getBiblioteca().recogerLibrosPrestados(
-        // gestorEstudiantes.buscarEstudiantePorCi(carnet),
-        // gestorResponsabilidadesEstudiantes.getResponsabilidadesEstudiantesPendientes());
+            case Biblioteca:
+                gestDep.getBiblioteca().confirmarEntrega(carnet);
+                ;
+                break;
+            case Secretaria:
+                Secretaria.gestorEstudiantes().getGestorSolicitudes().;
+                break;
 
-        // break;
-        // case Secretaria:
-        // gestorDepartamentos.getSecretaria().devolverCarnetCujae(gestorEstudiantes.buscarEstudiantePorCi(carnet),
-        // gestorResponsabilidadesEstudiantes.getResponsabilidadesEstudiantesPendientes());
-        // break;
-        // case AlmacenLibrosDocentes:
-        // gestorDepartamentos.getAlmacenDeLibros().recogerLibrosDocentes(
-        // gestorEstudiantes.buscarEstudiantePorCi(carnet),
-        // gestorResponsabilidadesEstudiantes.getResponsabilidadesEstudiantesPendientes());
-        // break;
+            case AlmacenLibrosDocentes:
+                gestDep.getAlmacenDeLibros().confirmarEntrega(carnet);
+                ;
+                break;
 
-        // case Economia:
-        // gestorDepartamentos.getEconomia().confirmarEntregas(gestorEstudiantes.buscarEstudiantePorCi(carnet),
-        // gestorResponsabilidadesEstudiantes.getResponsabilidadesEstudiantesPendientes());
+            case DireccionBecas:
+                gestDep.getDireccionDeBecas().confirmarEntrega(carnet);
+                ;
+                break;
+            case Contabilidad:
+                gestDep.getContabilidad().saldarDeuda(carnet);
+                break;
+            case Economia:
+                gestDep.getEconomia().cancelarPagoEstipendio(carnet);
+                break;
+            case SeguridadInformatica:
+                gestDep.getSeguridadInformatica().cerrarCuenta(carnet);
+                break;
+            case RecursosHumanos:
+                gestDep.getRecursosHumanos().confirmarEntrega(carnet);
+                break;
+            default:
 
-        // break;
+                break;
+        }
 
-        // case SeguridadInformatica:
-        // gestorDepartamentos.getSeguridadInformatica().cerrarCuenta(
-        // gestorEstudiantes.buscarEstudiantePorCi(carnet),
-        // gestorResponsabilidadesEstudiantes.getResponsabilidadesEstudiantesPendientes());
-        // break;
+        verDeudas(carnet);
 
-        // case DireccionBecas:
-        // gestorDepartamentos.getDireccionDeBecas().recogerPertenenciasDeEstudiante(
-        // gestorEstudiantes.buscarEstudiantePorCi(carnet),
-        // gestorResponsabilidadesEstudiantes.getResponsabilidadesEstudiantesPendientes());
-        // break;
-        // default:
-
-        // break;
-        // }
         mostrarGestionLicencias();
     }
 

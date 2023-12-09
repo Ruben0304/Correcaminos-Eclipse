@@ -21,23 +21,23 @@ import util.MotivoBaja;
 import util.MotivoLicencia;
 
 public class GestorSolicitudesEmpleados {
-    
-	private HashMap<Empleado, Set<Solicitud>> solicitudesEmpleados;
-	
-	public GestorSolicitudesEmpleados() {
-		solicitudesEmpleados = new  HashMap<Empleado, Set<Solicitud>>();
-		registrarLicenciasEmpleados();
-	}
-    
-    private void registrarLicenciasEmpleados() {
-    	solicitudesEmpleados = ObtenerSolicitudesEmpleados.cargarDesdeArchivo();
+
+    private HashMap<Empleado, Set<Solicitud>> solicitudesEmpleados;
+
+    public GestorSolicitudesEmpleados() {
+        solicitudesEmpleados = new HashMap<Empleado, Set<Solicitud>>();
+        registrarLicenciasEmpleados();
     }
 
-	public HashMap<Empleado, Set<Solicitud>> getSolicitudesPendientes() {
-		return solicitudesEmpleados;
-	}
+    private void registrarLicenciasEmpleados() {
+        solicitudesEmpleados = ObtenerSolicitudesEmpleados.cargarDesdeArchivo();
+    }
 
-	  public boolean verificarEmpleadoSolicitaAlgo(Empleado e) {
+    public HashMap<Empleado, Set<Solicitud>> getSolicitudesPendientes() {
+        return solicitudesEmpleados;
+    }
+
+    public boolean verificarEmpleadoSolicitaAlgo(Empleado e) {
         boolean solicita = false;
         if (solicitudesEmpleados.containsKey(e)) {
             for (Solicitud s : solicitudesEmpleados.get(e)) {
@@ -52,7 +52,7 @@ public class GestorSolicitudesEmpleados {
 
     }
 
-      public boolean verificarEmpleadoSolicitaLicencia(Empleado e) {
+    public boolean verificarEmpleadoSolicitaLicencia(Empleado e) {
         boolean solicita = false;
         if (solicitudesEmpleados.containsKey(e)) {
             for (Solicitud s : solicitudesEmpleados.get(e)) {
@@ -66,16 +66,14 @@ public class GestorSolicitudesEmpleados {
         return solicita;
 
     }
-	
-	public void crearSolicitudBaja(MotivoBaja motivo, Empleado e) {
 
-        
+    public void crearSolicitudBaja(MotivoBaja motivo, Empleado e) {
+
         if (solicitudesEmpleados.containsKey(e)) {
-           solicitudesEmpleados.get(e).add(new SolicitudBaja(12,motivo));
-        }
-        else{
+            solicitudesEmpleados.get(e).add(new SolicitudBaja(12, motivo));
+        } else {
             Set<Solicitud> solicituds = new HashSet<>();
-            solicituds.add(new SolicitudBaja(12,motivo));
+            solicituds.add(new SolicitudBaja(12, motivo));
             solicitudesEmpleados.put(e, solicituds);
         }
 
@@ -84,36 +82,44 @@ public class GestorSolicitudesEmpleados {
     public void crearSolicitudLicencia(MotivoLicencia motivo, Empleado e, Calendar salida, Calendar regreso) {
 
         if (solicitudesEmpleados.containsKey(e)) {
-            solicitudesEmpleados.get(e).add(new SolicitudLicencia(12,motivo,salida,regreso));
-        }
-         else{
+            solicitudesEmpleados.get(e).add(new SolicitudLicencia(12, motivo, salida, regreso));
+        } else {
             Set<Solicitud> solicituds = new HashSet<>();
-            solicituds.add(new SolicitudLicencia(12,motivo,salida,regreso));
+            solicituds.add(new SolicitudLicencia(12, motivo, salida, regreso));
             solicitudesEmpleados.put(e, solicituds);
         }
 
     }
-    
+
     public Set<Solicitud> getSolicitudesEmpleado(Empleado e) {
-    	return solicitudesEmpleados.get(e);
+        return solicitudesEmpleados.get(e);
     }
-    
+
     public ArrayList<Empleado> obtenerEstudiantesPendientes() {
-    	
-    	ArrayList<Empleado> empleados = new ArrayList<>();
-    	for (Map.Entry<Empleado, Set<Solicitud>> solicitud : solicitudesEmpleados.entrySet()) {
-            
-    		Empleado estudiante = solicitud.getKey();
+
+        ArrayList<Empleado> empleados = new ArrayList<>();
+        for (Map.Entry<Empleado, Set<Solicitud>> solicitud : solicitudesEmpleados.entrySet()) {
+
+            Empleado estudiante = solicitud.getKey();
             Set<Solicitud> listaSolicitudes = solicitud.getValue();
-            
-            for (Solicitud s: listaSolicitudes) {
-            	if (s.getEstado().equals(Estado.PENDIENTE)) {
-            		empleados.add(estudiante);
-            	}
+
+            for (Solicitud s : listaSolicitudes) {
+                if (s.getEstado().equals(Estado.PENDIENTE)) {
+                    empleados.add(estudiante);
+                }
             }
         }
 
         return empleados;
     }
-    
+
+    public void aceptarSolicitud(String e) {
+
+        for (Solicitud s : solicitudesEmpleados.get(e)) {
+            if (s.getEstado().equals(Estado.PENDIENTE)) {
+                s.setEstado(Estado.ACEPTADO);
+            }
+        }
+    }
+
 }

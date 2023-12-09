@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Font;
 import java.awt.Image;
+import java.awt.List;
 
 import javax.swing.JPanel;
 import javax.swing.border.MatteBorder;
@@ -32,6 +33,8 @@ import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 import java.awt.event.ActionEvent;
 import javax.swing.JMenu;
 
@@ -122,21 +125,32 @@ public class DepartamentosModelo extends JPanel {
 		btnConfirmarEntrega.setBackground(new Color(72, 189, 133));
 		btnConfirmarEntrega.setForeground(Color.WHITE);
 		btnConfirmarEntrega.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent e) {
 
-					int selectedRow = table.getSelectedRow();
-					if (selectedRow != -1) {
-						String carnet = table.getValueAt(selectedRow, 0).toString();
-						ControladorAdmin.confirmarEntrega(carnet);
+				
+				if (table.getSelectedRow() != -1) {
+					if (table.getColumnName(0).equals("Deudas")) {
+					Set<String> seleccion = new HashSet<>();
+					for (int i : table.getSelectedRows()) {
+						seleccion.add((String) table.getValueAt(i, 0));
+					}
+			  
+					
+						ControladorAdmin.entregarDeuda(seleccion,table.getValueAt(1, 1).toString());
+					} else {
 						
-						// DefaultTableModel modelo = (DefaultTableModel) table_2.getModel();
-
-						// modelo.fireTableDataChanged();
+						ControladorAdmin.confirmarEntrega(table.getValueAt(table.getSelectedRow(), 0).toString());
 
 					}
 
+					// DefaultTableModel modelo = (DefaultTableModel) table_2.getModel();
+
+					// modelo.fireTableDataChanged();
+
 				}
-			});
+
+			}
+		});
 		panelContenedor.add(btnConfirmarEntrega);
 
 		if (((Admin) Auth.usuarioAutenticado()).getTipoDepartamento().equals(TipoDepartamento.AlmacenLibrosDocentes)
@@ -144,25 +158,28 @@ public class DepartamentosModelo extends JPanel {
 				|| ((Admin) Auth.usuarioAutenticado()).getTipoDepartamento().equals(TipoDepartamento.Contabilidad)
 				|| ((Admin) Auth.usuarioAutenticado()).getTipoDepartamento().equals(TipoDepartamento.DireccionBecas)) {
 
-			JButton btnVerDeudas = new JButton("Ver Deudas");
+			JButton btnVerDeudas = new JButton(
+					table.getColumnName(0).equals("Deudas") ? "Ver Casos Pendientes" : "Ver Deudas");
 			btnVerDeudas.setForeground(Color.WHITE);
 			btnVerDeudas.setFont(new Font("Segoe UI", Font.PLAIN, 18));
 			btnVerDeudas.setBackground(new Color(143, 188, 143));
 			btnVerDeudas.setBounds(450, 609, 196, 43);
 			btnVerDeudas.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
+					if (table.getColumnName(0).equals("Deudas")) {
+						ControladorAdmin.mostrarGestionLicencias();
+					} else {
+						int selectedRow = table.getSelectedRow();
+						if (selectedRow != -1) {
+							String carnet = table.getValueAt(selectedRow, 0).toString();
+							ControladorAdmin.verDeudas(carnet);
 
-					int selectedRow = table.getSelectedRow();
-					if (selectedRow != -1) {
-						String carnet = table.getValueAt(selectedRow, 0).toString();
-						ControladorAdmin.verDeudas(carnet);
-						
-						// DefaultTableModel modelo = (DefaultTableModel) table_2.getModel();
+							// DefaultTableModel modelo = (DefaultTableModel) table_2.getModel();
 
-						// modelo.fireTableDataChanged();
+							// modelo.fireTableDataChanged();
 
+						}
 					}
-
 				}
 			});
 

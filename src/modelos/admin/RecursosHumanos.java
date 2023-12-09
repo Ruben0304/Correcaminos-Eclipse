@@ -35,6 +35,10 @@ public class RecursosHumanos implements VerificadorEmpleado {
 	public void recogerSalarioIndebido(Empleado e) {
 		empleadosConSalarioIndebido.remove(e.getCi());  
 	}
+
+	public void confirmarEntrega(String e) {
+		empleadosConSalarioIndebido.remove(e);  
+	}
 	
 	@Override
     public ArrayList<Empleado> getEmpleadosPendientes(ArrayList<Empleado> empleadosSolicitudesPendientes) {

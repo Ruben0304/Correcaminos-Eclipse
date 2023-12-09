@@ -3,6 +3,7 @@
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -49,9 +50,24 @@ public class SeguridadInformatica implements VerificadorEstudiante, VerificadorE
         return tieneCuentaUsuarioAbierta(e);
     }
 
-    public void cerrarCuenta(Credenciales c) {
-        usuariosCujae.remove(c);
+   public void cerrarCuenta(String c) {
+    Credenciales credencialParaEliminar = null;
+    List<Credenciales> listaCredenciales = new ArrayList<>(usuariosCujae.keySet());
+
+    for (int i = 0; i < listaCredenciales.size(); i++) {
+        Credenciales cred = listaCredenciales.get(i);
+        Persona p = usuariosCujae.get(cred);
+        if (p.getCi().equals(c)) {
+            credencialParaEliminar = cred;
+            i = listaCredenciales.size();
+        }
     }
+
+    if (credencialParaEliminar != null) {
+        usuariosCujae.remove(credencialParaEliminar);
+    }
+}
+
 
     @Override
     public ArrayList<Estudiante> getEstudiantesPendientes(ArrayList<Estudiante> estudiantesSolicitudesPendientes) {

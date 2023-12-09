@@ -50,37 +50,33 @@ public class GestorSolicitudesEstudiante {
 
         return solicita;
     }
-    
+
     public ArrayList<Estudiante> obtenerEstudiantesPendientes() {
-    	
-    	ArrayList<Estudiante> estudiantes = new ArrayList<Estudiante>();
-        
-    	for (Map.Entry<Estudiante, Set<Solicitud>> solicitud : solicitudes.entrySet()) {
-            
-    		Estudiante estudiante = solicitud.getKey();
+
+        ArrayList<Estudiante> estudiantes = new ArrayList<Estudiante>();
+
+        for (Map.Entry<Estudiante, Set<Solicitud>> solicitud : solicitudes.entrySet()) {
+
+            Estudiante estudiante = solicitud.getKey();
             Set<Solicitud> listaSolicitudes = solicitud.getValue();
-            
-            for (Solicitud s: listaSolicitudes) {
-            	if (s.getEstado().equals(Estado.PENDIENTE)) {
-            		estudiantes.add(estudiante);
-            	}
+
+            for (Solicitud s : listaSolicitudes) {
+                if (s.getEstado().equals(Estado.PENDIENTE)) {
+                    estudiantes.add(estudiante);
+                }
             }
         }
 
         return estudiantes;
     }
-    
-    
 
     public void crearSolicitudBaja(MotivoBaja motivo, Estudiante e) {
 
-        
         if (solicitudes.containsKey(e)) {
-           solicitudes.get(e).add(new SolicitudBaja(12,motivo));
-        }
-        else{
+            solicitudes.get(e).add(new SolicitudBaja(12, motivo));
+        } else {
             Set<Solicitud> solicituds = new HashSet<>();
-            solicituds.add(new SolicitudBaja(12,motivo));
+            solicituds.add(new SolicitudBaja(12, motivo));
             solicitudes.put(e, solicituds);
         }
 
@@ -88,20 +84,27 @@ public class GestorSolicitudesEstudiante {
 
     public void crearSolicitudLiciencia(MotivoLicencia motivo, Estudiante e) {
 
-       
         Calendar c = Calendar.getInstance();
         Calendar a = Calendar.getInstance();
         a.add(Calendar.YEAR, 1);
 
         if (solicitudes.containsKey(e)) {
-           solicitudes.get(e).add(new SolicitudLicencia(12,motivo,c,a));
-        }
-         else{
+            solicitudes.get(e).add(new SolicitudLicencia(12, motivo, c, a));
+        } else {
             Set<Solicitud> solicituds = new HashSet<>();
-            solicituds.add(new SolicitudLicencia(12,motivo,c,a));
+            solicituds.add(new SolicitudLicencia(12, motivo, c, a));
             solicitudes.put(e, solicituds);
         }
 
+    }
+
+    public void aceptarSolicitud(String e) {
+
+        for (Solicitud s : solicitudes.get(e)) {
+            if (s.getEstado().equals(Estado.PENDIENTE)) {
+                s.setEstado(Estado.ACEPTADO);
+            }
+        }
     }
 
 }

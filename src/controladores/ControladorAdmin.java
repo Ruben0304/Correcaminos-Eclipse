@@ -76,9 +76,16 @@ public class ControladorAdmin {
     public static void mostrarGestionLicencias() {
         Pricipal instancia = Pricipal.getInstancia();
         ArrayList<Persona> usuariosPendientes = obtenerCasosPendientesDepartamento();
+        if (((Admin) Auth.usuarioAutenticado()).getTipoDepartamento().equals(TipoDepartamento.Secretaria)) {
+            instancia.setVista(
+                    new DepartamentosModelo(new DepartamentoVerificadorLibrosTableModel(usuariosPendientes)));
+        } else if (((Admin) Auth.usuarioAutenticado()).getTipoDepartamento().equals(TipoDepartamento.RecursosHumanos)) {
 
-        instancia.setVista(
-                new DepartamentosModelo(new DepartamentoVerificadorLibrosTableModel(usuariosPendientes)));
+        } else {
+            instancia.setVista(
+                    new DepartamentosModelo(new DepartamentoVerificadorLibrosTableModel(usuariosPendientes)));
+        }
+
         Pricipal.getInstancia().revalidate();
         Pricipal.getInstancia().repaint();
     }
@@ -91,8 +98,7 @@ public class ControladorAdmin {
                 gestDep.getBiblioteca().recogerDeudas(carnet, deudas);
                 if (gestDep.getBiblioteca().obtenerDeudas(carnet).size() == 0) {
                     confirmarEntrega(carnet);
-                }
-                else {
+                } else {
                     verDeudas(carnet);
                 }
                 break;
@@ -118,6 +124,7 @@ public class ControladorAdmin {
             case Contabilidad:
                 confirmarEntrega(carnet);
                 break;
+
             default:
 
                 break;

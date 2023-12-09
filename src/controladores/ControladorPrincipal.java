@@ -94,6 +94,30 @@ public class ControladorPrincipal {
         return requisitos;
     }
 
+    public static HashMap<TiposResponsabilidad, Boolean> obtenerRequisitosEstudiante(Estudiante e) {
+
+        GestorDepartamentos gestDep = GestorDepartamentos.gestorDepartamentos();
+
+        HashMap<TiposResponsabilidad, Boolean> requisitos = new HashMap<>();
+        Estudiante autenticado = e;
+
+        requisitos.put(TiposResponsabilidad.LIBROS_BIBLIOTECA,
+                gestDep.getBiblioteca().verificarRequisitos(autenticado));
+        requisitos.put(TiposResponsabilidad.ESTIPENDIO, gestDep.getEconomia().verificarRequisitos(autenticado));
+        requisitos.put(TiposResponsabilidad.LIBROS_DOCENTES,
+                gestDep.getAlmacenDeLibros().verificarRequisitos(autenticado));
+        requisitos.put(TiposResponsabilidad.CUENTA_USUARIO,
+                gestDep.getSeguridadInformatica().verificarRequisitos(autenticado));
+
+        if (autenticado instanceof Becado) {
+
+            requisitos.put(TiposResponsabilidad.PERTENENCIAS_BECA,
+                    gestDep.getDireccionDeBecas().verificarRequisitos(autenticado));
+
+        }
+        return requisitos;
+    }
+
     public static int cantidadDeRequisitosEstudiante() {
         int contador = 0;
         for (Map.Entry<TiposResponsabilidad, Boolean> entrada : obtenerRequisitosEstudiante().entrySet()) {
@@ -133,6 +157,25 @@ public class ControladorPrincipal {
 
         return requisitos;
     }
+
+    public static HashMap<ResponsabilidadesTrabajador, Boolean> obtenerRequisitosEmpleado(Empleado e) {
+
+        GestorDepartamentos gestDep = GestorDepartamentos.gestorDepartamentos();
+
+        HashMap<ResponsabilidadesTrabajador, Boolean> requisitos = new HashMap<>();
+        Empleado autenticado = e;
+
+        requisitos.put(ResponsabilidadesTrabajador.LIBROS_BIBLIOTECA,
+                gestDep.getBiblioteca().verificarRequisitos(autenticado));
+        requisitos.put(ResponsabilidadesTrabajador.DEUDA, gestDep.getContabilidad().verificarRequisitos(autenticado));
+        requisitos.put(ResponsabilidadesTrabajador.SALARIO_INDEBIDO,
+                gestDep.getRecursosHumanos().verificarRequisitos(autenticado));
+        requisitos.put(ResponsabilidadesTrabajador.CUENTA_USUARIO,
+                gestDep.getSeguridadInformatica().verificarRequisitos(autenticado));
+
+        return requisitos;
+    }
+
 
     public static void mostrarRequisitosBajaEstudiantes() {
 

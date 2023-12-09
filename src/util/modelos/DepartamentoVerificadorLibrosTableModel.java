@@ -8,8 +8,10 @@ import java.util.TreeSet;
 import javax.swing.table.DefaultTableModel;
 
 import autenticacion.Auth;
+import controladores.ControladorPrincipal;
 import modelos.usuarios.Admin;
 import modelos.usuarios.Becado;
+import modelos.usuarios.Empleado;
 import modelos.usuarios.Estudiante;
 import modelos.usuarios.Persona;
 import util.ResponsabilidadesTrabajador;
@@ -44,25 +46,36 @@ public class DepartamentoVerificadorLibrosTableModel extends DefaultTableModel {
 
 	}
 
-	public DepartamentoVerificadorLibrosTableModel(ArrayList<Persona> personas, boolean secretaria, HashMap<TiposResponsabilidad, Boolean> requisitos) {
-		if (secretaria) {
+	public DepartamentoVerificadorLibrosTableModel(ArrayList<Persona> personas, boolean Secretaria) {
+				HashMap<TiposResponsabilidad, Boolean> requisitos = new HashMap<>();
 			String[] columnNames = { "Carnet de Identidad", "Nombre", "Apellidos", "B", "AL", "E", "DB", "SI" };
 			this.setColumnIdentifiers(columnNames);
 			for (Persona e : personas) {
-			Object[] newRow = new Object[] { e.getCi(), e.getNombre(), e.getApellidos(),requisitos.get(TiposResponsabilidad.LIBROS_BIBLIOTECA) ? "P" : "A",requisitos.get(TiposResponsabilidad.LIBROS_DOCENTES) ? "P" : "A",requisitos.get(TiposResponsabilidad.ESTIPENDIO) ? "P" : "A",e instanceof Becado ? (requisitos.get(TiposResponsabilidad.PERTENENCIAS_BECA) ? "P" : "A") : "A",requisitos.get(TiposResponsabilidad.CUENTA_USUARIO)? "P" : "A" };
-			addRow(newRow);
-		}
+				requisitos= ControladorPrincipal.obtenerRequisitosEstudiante((Estudiante)e);
+				Object[] newRow = new Object[] { e.getCi(), e.getNombre(), e.getApellidos(),
+						requisitos.get(TiposResponsabilidad.LIBROS_BIBLIOTECA) ? "P" : "A",
+						requisitos.get(TiposResponsabilidad.LIBROS_DOCENTES) ? "P" : "A",
+						requisitos.get(TiposResponsabilidad.ESTIPENDIO) ? "P" : "A",
+						e instanceof Becado ? (requisitos.get(TiposResponsabilidad.PERTENENCIAS_BECA) ? "P" : "A")
+								: "A",
+						requisitos.get(TiposResponsabilidad.CUENTA_USUARIO) ? "P" : "A" };
+				addRow(newRow);
+			}
+		
+	}
 
-		}else{
-            String[] columnNames = { "Carnet de Identidad", "Nombre", "Apellidos", "B", "C", "SI" };
+	public DepartamentoVerificadorLibrosTableModel(ArrayList<Persona> personas, int rh){
+			HashMap<ResponsabilidadesTrabajador, Boolean> requisitos;
+		String[] columnNames = { "Carnet de Identidad", "Nombre", "Apellidos", "B", "C", "SI" };
 			this.setColumnIdentifiers(columnNames);
 			for (Persona e : personas) {
-			Object[] newRow = new Object[] { e.getCi(), e.getNombre(), e.getApellidos(),requisitos.get(ResponsabilidadesTrabajador.LIBROS_BIBLIOTECA) ? "P" : "A" , requisitos.get(ResponsabilidadesTrabajador.DEUDA) ? "P" : "A", requisitos.get(ResponsabilidadesTrabajador.CUENTA_USUARIO) ? "P" : "A"};
-			addRow(newRow);
-		}
-
-		
-
+				requisitos = ControladorPrincipal.obtenerRequisitosEmpleado((Empleado)e)
+				Object[] newRow = new Object[] { e.getCi(), e.getNombre(), e.getApellidos(),
+						requisitos.get(ResponsabilidadesTrabajador.LIBROS_BIBLIOTECA) ? "P" : "A",
+						requisitos.get(ResponsabilidadesTrabajador.DEUDA) ? "P" : "A",
+						requisitos.get(ResponsabilidadesTrabajador.CUENTA_USUARIO) ? "P" : "A" };
+				addRow(newRow);
+			}
 	}
 
 	// public DepartamentoVerificadorLibrosTableModel(ArrayList<Persona> personas,

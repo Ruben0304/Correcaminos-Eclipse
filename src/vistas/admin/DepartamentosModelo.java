@@ -136,7 +136,7 @@ public class DepartamentosModelo extends JPanel {
 					}
 			  
 					
-						ControladorAdmin.entregarDeuda(seleccion,table.getValueAt(1, 1).toString());
+						ControladorAdmin.entregarDeuda(seleccion,table.getValueAt(0, 1).toString());
 					} else {
 						
 						ControladorAdmin.confirmarEntrega(table.getValueAt(table.getSelectedRow(), 0).toString());

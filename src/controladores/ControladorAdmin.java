@@ -76,30 +76,7 @@ public class ControladorAdmin {
     public static void mostrarGestionLicencias() {
         Pricipal instancia = Pricipal.getInstancia();
         ArrayList<Persona> usuariosPendientes = obtenerCasosPendientesDepartamento();
-        // switch (((Admin) Auth.usuarioAutenticado()).getTipoDepartamento()) {
 
-        // case Biblioteca:
-        // instancia
-        // break;
-
-        // case AlmacenLibrosDocentes:
-        // instancia.setVista(
-        // new DepartamentosModelo(
-        // new DepartamentoVerificadorLibrosTableModel(usuariosPendientes, "Libros
-        // Pendientes")));
-        // break;
-
-        // case DireccionBecas:
-        // instancia.setVista(
-        // new DepartamentosModelo(
-        // new DepartamentoVerificadorLibrosTableModel(usuariosPendientes,
-        // "Pertenencias")));
-        // break;
-
-        // default:
-
-        // break;
-        // }
         instancia.setVista(
                 new DepartamentosModelo(new DepartamentoVerificadorLibrosTableModel(usuariosPendientes)));
         Pricipal.getInstancia().revalidate();
@@ -112,24 +89,39 @@ public class ControladorAdmin {
 
             case Biblioteca:
                 gestDep.getBiblioteca().recogerDeudas(carnet, deudas);
+                if (gestDep.getBiblioteca().obtenerDeudas(carnet).size() == 0) {
+                    confirmarEntrega(carnet);
+                }
+                else {
+                    verDeudas(carnet);
+                }
                 break;
 
             case AlmacenLibrosDocentes:
                 gestDep.getAlmacenDeLibros().recogerDeudas(carnet, deudas);
+                if (gestDep.getAlmacenDeLibros().obtenerDeudas(carnet).size() == 0) {
+                    confirmarEntrega(carnet);
+                } else {
+                    verDeudas(carnet);
+                }
+
                 break;
 
             case DireccionBecas:
-                gestDep.getAlmacenDeLibros().recogerDeudas(carnet, deudas);
+                gestDep.getDireccionDeBecas().recogerDeudas(carnet, deudas);
+                if (gestDep.getDireccionDeBecas().obtenerDeudas(carnet).size() == 0) {
+                    confirmarEntrega(carnet);
+                } else {
+                    verDeudas(carnet);
+                }
                 break;
             case Contabilidad:
-                gestDep.getContabilidad().saldarDeuda(carnet);
+                confirmarEntrega(carnet);
                 break;
             default:
 
                 break;
         }
-
-        verDeudas(carnet);
 
     }
 
@@ -199,10 +191,9 @@ public class ControladorAdmin {
 
             case Biblioteca:
                 gestDep.getBiblioteca().confirmarEntrega(carnet);
-                ;
                 break;
             case Secretaria:
-                Secretaria.gestorEstudiantes().getGestorSolicitudes().;
+                Secretaria.gestorEstudiantes().getGestorSolicitudes().aceptarSolicitud(carnet);
                 break;
 
             case AlmacenLibrosDocentes:
@@ -225,13 +216,12 @@ public class ControladorAdmin {
                 break;
             case RecursosHumanos:
                 gestDep.getRecursosHumanos().confirmarEntrega(carnet);
+                GestorEmpleados.gestorEmpleados().getGestorSolicitudesEmpleados().aceptarSolicitud(carnet);
                 break;
             default:
 
                 break;
         }
-
-        verDeudas(carnet);
 
         mostrarGestionLicencias();
     }

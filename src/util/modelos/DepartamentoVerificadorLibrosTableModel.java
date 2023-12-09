@@ -9,9 +9,12 @@ import javax.swing.table.DefaultTableModel;
 
 import autenticacion.Auth;
 import modelos.usuarios.Admin;
+import modelos.usuarios.Becado;
 import modelos.usuarios.Estudiante;
 import modelos.usuarios.Persona;
+import util.ResponsabilidadesTrabajador;
 import util.TipoDepartamento;
+import util.TiposResponsabilidad;
 
 public class DepartamentoVerificadorLibrosTableModel extends DefaultTableModel {
 
@@ -30,28 +33,50 @@ public class DepartamentoVerificadorLibrosTableModel extends DefaultTableModel {
 
 	}
 
-	public DepartamentoVerificadorLibrosTableModel(Set<String> deudas,String carnet) {
+	public DepartamentoVerificadorLibrosTableModel(Set<String> deudas, String carnet) {
 		String[] columnNames = {
-				"Deudas","Carnet Correspondiente" };
+				"Deudas", "Carnet Correspondiente" };
 		this.setColumnIdentifiers(columnNames);
 		for (String e : deudas) {
-			Object[] newRow = new Object[] {e,carnet};
+			Object[] newRow = new Object[] { e, carnet };
 			addRow(newRow);
 		}
 
 	}
 
-	// public DepartamentoVerificadorLibrosTableModel(ArrayList<Persona> personas, String encabezado) {
-	// 	String[] columnNames = {
-	// 			"Carnet de Identidad", "Nombre", "Apellidos", encabezado };
-	// 	this.setColumnIdentifiers(columnNames);
+	public DepartamentoVerificadorLibrosTableModel(ArrayList<Persona> personas, boolean secretaria, HashMap<TiposResponsabilidad, Boolean> requisitos) {
+		if (secretaria) {
+			String[] columnNames = { "Carnet de Identidad", "Nombre", "Apellidos", "B", "AL", "E", "DB", "SI" };
+			this.setColumnIdentifiers(columnNames);
+			for (Persona e : personas) {
+			Object[] newRow = new Object[] { e.getCi(), e.getNombre(), e.getApellidos(),requisitos.get(TiposResponsabilidad.LIBROS_BIBLIOTECA) ? "P" : "A",requisitos.get(TiposResponsabilidad.LIBROS_DOCENTES) ? "P" : "A",requisitos.get(TiposResponsabilidad.ESTIPENDIO) ? "P" : "A",e instanceof Becado ? (requisitos.get(TiposResponsabilidad.PERTENENCIAS_BECA) ? "P" : "A") : "A",requisitos.get(TiposResponsabilidad.CUENTA_USUARIO)? "P" : "A" };
+			addRow(newRow);
+		}
 
-	// 	for (Persona e : personas) {
-	// 		Object[] newRow = new Object[] { e.getCi(), e.getNombre(), e.getApellidos(), "Ver Detalles" };
-	// 		addRow(newRow);
-	// 	}
+		}else{
+            String[] columnNames = { "Carnet de Identidad", "Nombre", "Apellidos", "B", "C", "SI" };
+			this.setColumnIdentifiers(columnNames);
+			for (Persona e : personas) {
+			Object[] newRow = new Object[] { e.getCi(), e.getNombre(), e.getApellidos(),requisitos.get(ResponsabilidadesTrabajador.LIBROS_BIBLIOTECA) ? "P" : "A" , requisitos.get(ResponsabilidadesTrabajador.DEUDA) ? "P" : "A", requisitos.get(ResponsabilidadesTrabajador.CUENTA_USUARIO) ? "P" : "A"};
+			addRow(newRow);
+		}
+
+		
+
+	}
+
+	// public DepartamentoVerificadorLibrosTableModel(ArrayList<Persona> personas,
+	// String encabezado) {
+	// String[] columnNames = {
+	// "Carnet de Identidad", "Nombre", "Apellidos", encabezado };
+	// this.setColumnIdentifiers(columnNames);
+
+	// for (Persona e : personas) {
+	// Object[] newRow = new Object[] { e.getCi(), e.getNombre(), e.getApellidos(),
+	// "Ver Detalles" };
+	// addRow(newRow);
+	// }
 
 	// }
 
-	
 }

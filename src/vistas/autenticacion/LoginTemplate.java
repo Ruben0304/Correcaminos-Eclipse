@@ -113,7 +113,7 @@ public class LoginTemplate extends JFrame {
 	    iFondo = new ImageIcon(LoginTemplate.class.getResource("/img/login.jpg"));
 	    iUsuario = new ImageIcon(LoginTemplate.class.getResource("/img/user.png"));
 	    iClave = new ImageIcon(LoginTemplate.class.getResource("/img/password1.png"));
-	    iLogo = new ImageIcon(LoginTemplate.class.getResource("/img/correcamino.png"));
+	    iLogo = new ImageIcon(LoginTemplate.class.getResource("/img/spotillo2.png"));
 	}
 	
 	public void crearJPanels() {

@@ -31,6 +31,7 @@ import vistas.autenticacion.CuentaJP;
 
 import vistas.componentes.Navegacion;
 import vistas.template.Pricipal;
+import vistas.admin.InicioAdmin;
 import vistas.usuarios.InicioEmpleadoJP;
 import vistas.usuarios.InicioEstudianteJP;
 import vistas.usuarios.RequisitosEmpleados;
@@ -60,7 +61,7 @@ public class ControladorPrincipal {
         } else if (Auth.usuarioAutenticado() instanceof Empleado) {
             instancia.setVista(new InicioEmpleadoJP());
         } else {
-            instancia.setVista(new InicioEstudianteJP());
+            instancia.setVista(new InicioAdmin());
         }
 
         Pricipal.getInstancia().revalidate();

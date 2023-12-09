@@ -9,6 +9,7 @@ import java.awt.event.MouseEvent;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import models.usuarios.Admin;
@@ -104,12 +105,16 @@ public class Navegacion extends JPanel {
 								.equals(TipoDepartamento.RecursosHumanos))) {
 			add(label_5);
 
-		} else if (Auth.hayUsuarioAutenticado() && Auth.usuarioAutenticado() instanceof Estudiante) {
-			add(getReportes());
-
-			add(getLblReportes());
+			JLabel lblRegistros = new JLabel("Registros");
+			lblRegistros.setForeground(Color.WHITE);
+			lblRegistros.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 17));
+			lblRegistros.setBounds(71, 333, 89, 30);
+			add(lblRegistros);
 
 		}
+		add(getReportes());
+
+		add(getLblReportes());
 
 		add(getAccount());
 		add(getGestion());
@@ -127,11 +132,6 @@ public class Navegacion extends JPanel {
 		add(getLabel_1());
 		add(getLabel_2());
 
-		JLabel lblRegistros = new JLabel("Registros");
-		lblRegistros.setForeground(Color.WHITE);
-		lblRegistros.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 17));
-		lblRegistros.setBounds(71, 333, 89, 30);
-		add(lblRegistros);
 	}
 
 	public static JPanel getBarraNavegacion() {
@@ -265,14 +265,15 @@ public class Navegacion extends JPanel {
 			reportes.addMouseListener(new MouseAdapter() {
 				@Override
 				public void mouseClicked(MouseEvent e) {
-					getHome_bg().setVisible(false);
-					getReportes_bg().setVisible(true);
-					getAccount_bg().setVisible(false);
-					getGestion_bg().setVisible(false);
-					getGuardar_bg().setVisible(false);
+					// getHome_bg().setVisible(false);
+					// getReportes_bg().setVisible(true);
+					// getAccount_bg().setVisible(false);
+					// getGestion_bg().setVisible(false);
+					// getGuardar_bg().setVisible(false);
 
-					ControladorPrincipal.mostrarChats();
-
+					// ControladorPrincipal.mostrarChats();
+					JOptionPane.showMessageDialog(null, "Cooming Soon", "Chats", JOptionPane.INFORMATION_MESSAGE);
+					
 				}
 
 				@Override

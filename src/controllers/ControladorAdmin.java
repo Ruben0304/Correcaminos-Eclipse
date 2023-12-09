@@ -20,6 +20,7 @@ import views.admin.CasosPendientes;
 import views.admin.DepartamentosModelo;
 import views.admin.PanelAdministracion;
 import views.layouts.Pricipal;
+import views.modelos.DepartamentoVerificadorLibrosTableModel;
 
 public class ControladorAdmin {
 
@@ -43,75 +44,63 @@ public class ControladorAdmin {
             case Biblioteca:
                 usuariosPendientes.addAll(gestDep.getBiblioteca().getEstudiantesPendientes(estudiantes));
                 usuariosPendientes.addAll(gestDep.getBiblioteca().getEmpleadosPendientes(empleados));
+                instancia.setVista(
+                        new DepartamentosModelo(
+                                new DepartamentoVerificadorLibrosTableModel(usuariosPendientes, "Libros Pendientes")));
+                break;
 
+            case Secretaria:
 
-                instancia.setVista(new DepartamentosModelo(usuariosPendientes));
-                Pricipal.getInstancia().revalidate();
-                Pricipal.getInstancia().repaint();
+                usuariosPendientes.addAll(estudiantes);
+                instancia.setVista(
+                        new DepartamentosModelo(new DepartamentoVerificadorLibrosTableModel(usuariosPendientes)));
+                break;
+            case AlmacenLibrosDocentes:
+                usuariosPendientes
+                        .addAll(gestDep.getAlmacenDeLibros().getEstudiantesPendientes(estudiantes));
+                instancia.setVista(
+                        new DepartamentosModelo(
+                                new DepartamentoVerificadorLibrosTableModel(usuariosPendientes, "Libros Pendientes")));
 
                 break;
-            /*
-             * case Secretaria:
-             * //
-             * usuariosPendientes.addAll(gestDep.getSecretaria().getEstudiantesPendientes(
-             * listadoResponsabilidades));
-             * ArrayList<SolicitudBajaEstudiante> solicitudBajaEstudiantes =
-             * Secretaria.gestorEstudiantes()
-             * .getGestorSolicitudes().getSolicitudesBajaAceptadas();
-             * 
-             * instancia.setVista(PanelAdministracion.getPanelAdministracion(
-             * solicitudBajaEstudiantes));
-             * instancia.revalidate();
-             * instancia.repaint();
-             * break;
-             * case AlmacenLibrosDocentes:
-             * usuariosPendientes
-             * .addAll(gestDep.getAlmacenDeLibros().getEstudiantesPendientes(
-             * listadoResponsabilidades));
-             * 
-             * instancia.setVista(new
-             * CasosPendientes(usuariosPendientes).getPanelCasosPendientes());
-             * Pricipal.getInstancia().revalidate();
-             * Pricipal.getInstancia().repaint();
-             * break;
-             * 
-             * case Economia:
-             * usuariosPendientes.addAll(gestDep.getEconomia().getEstudiantesPendientes(
-             * listadoResponsabilidades));
-             * 
-             * instancia.setVista(new
-             * CasosPendientes(usuariosPendientes).getPanelCasosPendientes());
-             * Pricipal.getInstancia().revalidate();
-             * Pricipal.getInstancia().repaint();
-             * break;
-             * 
-             * case SeguridadInformatica:
-             * usuariosPendientes
-             * .addAll(gestDep.getSeguridadInformatica().getEstudiantesPendientes(
-             * listadoResponsabilidades));
-             * 
-             * instancia.setVista(new
-             * CasosPendientes(usuariosPendientes).getPanelCasosPendientes());
-             * Pricipal.getInstancia().revalidate();
-             * Pricipal.getInstancia().repaint();
-             * break;
-             * 
-             * case DireccionBecas:
-             * usuariosPendientes
-             * .addAll(gestDep.getDireccionDeBecas().getEstudiantesPendientes(
-             * listadoResponsabilidades));
-             * 
-             * instancia.setVista(new
-             * CasosPendientes(usuariosPendientes).getPanelCasosPendientes());
-             * Pricipal.getInstancia().revalidate();
-             * Pricipal.getInstancia().repaint();
-             * break;
-             */
+
+            case Economia:
+                usuariosPendientes.addAll(gestDep.getEconomia().getEstudiantesPendientes(
+                        estudiantes));
+                instancia.setVista(
+                        new DepartamentosModelo(new DepartamentoVerificadorLibrosTableModel(usuariosPendientes)));
+                break;
+
+            case SeguridadInformatica:
+                usuariosPendientes
+                        .addAll(gestDep.getSeguridadInformatica().getEstudiantesPendientes(
+                                estudiantes));
+
+                usuariosPendientes
+                        .addAll(gestDep.getSeguridadInformatica().getEmpleadosPendientes(
+                                empleados));
+                instancia.setVista(
+                        new DepartamentosModelo(new DepartamentoVerificadorLibrosTableModel(usuariosPendientes)));
+
+                break;
+
+            case DireccionBecas:
+                usuariosPendientes
+                        .addAll(gestDep.getDireccionDeBecas().getEstudiantesPendientes(
+                                estudiantes));
+
+                instancia.setVista(
+                new DepartamentosModelo(
+                        new DepartamentoVerificadorLibrosTableModel(usuariosPendientes, "Pertenencias")));
+                
+                break;
 
             default:
                 break;
         }
 
+        Pricipal.getInstancia().revalidate();
+        Pricipal.getInstancia().repaint();
     }
 
     public static void confirmarEntrega(String carnet) {

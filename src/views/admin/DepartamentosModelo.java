@@ -68,7 +68,7 @@ public class DepartamentosModelo extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public DepartamentosModelo(ArrayList<Persona> personas) {
+	public DepartamentosModelo(TableModel modelo) {
 		
 		FlatLaf.registerCustomDefaultsSource("app.themes");
 		FlatMacDarkLaf.setup();
@@ -110,8 +110,7 @@ public class DepartamentosModelo extends JPanel {
 		panelContenedor.add(scrollPane);
 		
 		table = new JTable();
-		this.tableModel = new DepartamentoVerificadorLibrosTableModel(personas);
-		this.table.setModel(tableModel);
+		this.table.setModel(modelo);
 		table.setFont(new Font(FlatRobotoFont.FAMILY,Font.PLAIN,13));
 		table.setFocusable(false);
 		scrollPane.setViewportView(table);

@@ -83,6 +83,7 @@ public class Inicio{
 			txtrnecesitasSolicitarUna.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 15));
 			txtrnecesitasSolicitarUna.setLineWrap(true);
 			txtrnecesitasSolicitarUna.setForeground(new Color(255, 255, 255));
+			txtrnecesitasSolicitarUna.setBackground(new Color(30,30,30));
 			
 			// new Color()
 			txtrnecesitasSolicitarUna.setText(
@@ -108,7 +109,7 @@ public class Inicio{
 		if (panel_lateral == null) {
 			panel_lateral = new JPanel();
 			panel_lateral.setAlignmentX(Component.LEFT_ALIGNMENT);
-			panel_lateral.setBackground(new Color(31, 33, 36));
+			
 			panel_lateral.setBounds(70, 0, 1052, 700);
 			panel_lateral.setLayout(null);
 			panel_lateral.add(getLblCorrecaminosCujae());

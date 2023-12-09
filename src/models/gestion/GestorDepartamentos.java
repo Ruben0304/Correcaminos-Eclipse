@@ -21,7 +21,7 @@ public class GestorDepartamentos {
     private DireccionDeBecas direccionDeBecas;
 
     private GestorDepartamentos() {
-        secretaria = new Secretaria();
+        
         recursosHumanos = new RecursosHumanos();
         biblioteca = new Biblioteca();
         contabilidad = new Contabilidad();
@@ -38,9 +38,7 @@ public class GestorDepartamentos {
         return gestorDepartamentos;
     }
 
-    public Secretaria getSecretaria() {
-        return secretaria;
-    }
+   
 
     public RecursosHumanos getRecursosHumanos() {
         return recursosHumanos;

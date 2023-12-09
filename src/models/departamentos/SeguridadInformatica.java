@@ -3,13 +3,16 @@
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Set;
 
+import controllers.ControladorFiltrado;
 import data.ObtenerEstudiantesConLibrosDocentesPendientes;
 import data.ObtenerUsuariosCujae;
 import interfaces.Autenticable;
 import interfaces.VerificadorEmpleado;
 import interfaces.VerificadorEstudiante;
+import models.solicitudes.Solicitud;
 import models.usuarios.Credenciales;
 import models.usuarios.Empleado;
 import models.usuarios.Estudiante;
@@ -56,9 +59,14 @@ public class SeguridadInformatica implements VerificadorEstudiante, VerificadorE
     	ArrayList<Estudiante> estudiantes = new ArrayList<>();
         
         for (Estudiante e: estudiantesSolicitudesPendientes) {
-        	if (usuariosCujae.containsKey(e.getCi())) {
+           
+		for (Map.Entry<Credenciales, Persona> usuario : usuariosCujae.entrySet()) {
+            Persona estudiante = usuario.getValue();
+			if (estudiante.getCi().equals(e.getCi())) {
         		estudiantes.add(e);
         	}
+		}
+        	
         }
    	
         return estudiantes;
@@ -69,15 +77,20 @@ public class SeguridadInformatica implements VerificadorEstudiante, VerificadorE
     @Override
     public ArrayList<Empleado> getEmpleadosPendientes(ArrayList<Empleado> empleadosSolicitudesPendientes) {
     	
-    	ArrayList<Empleado> nombresEmpleados = new ArrayList<>();
+    	ArrayList<Empleado> estudiantes = new ArrayList<>();
         
         for (Empleado e: empleadosSolicitudesPendientes) {
-        	if (usuariosCujae.containsKey(e.getCi())) {
-        		nombresEmpleados.add(e);
+           
+		for (Map.Entry<Credenciales, Persona> usuario : usuariosCujae.entrySet()) {
+            Persona estudiante = usuario.getValue();
+			if (estudiante.getCi().equals(e.getCi())) {
+        		estudiantes.add(e);
         	}
+		}
+        	
         }
    	
-        return nombresEmpleados;
+        return estudiantes;
     }
 }
 

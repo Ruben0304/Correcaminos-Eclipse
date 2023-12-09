@@ -10,6 +10,8 @@ import java.awt.Font;
 
 import javax.swing.JTextArea;
 
+import views.components.LabelUsuario;
+
 public class InicioEstudianteJP extends JPanel{
 
 	/**
@@ -58,16 +60,7 @@ public class InicioEstudianteJP extends JPanel{
 		txtrEntregaDeTodos.setBackground(new Color(30, 30, 30));
 		txtrEntregaDeTodos.setBounds(96, 514, 734, 110);
 		add(txtrEntregaDeTodos);
+		add(LabelUsuario.usuario());
 		
-		JLabel label_3 = new JLabel("");
-		label_3.setIcon(new ImageIcon(InicioEstudianteJP.class.getResource("/img/Accountc.png")));
-		label_3.setBounds(706, 13, 51, 37);
-		add(label_3);
-		
-		JLabel label_4 = new JLabel("Hola, Ruben");
-		label_4.setForeground(Color.WHITE);
-		label_4.setFont(new Font("Segoe UI Semibold", Font.BOLD, 20));
-		label_4.setBounds(756, 13, 176, 30);
-		add(label_4);
 	}
 }

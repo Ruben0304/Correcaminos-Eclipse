@@ -6,11 +6,12 @@ import java.util.Set;
 
 import datos.ObtenerEstudiantesConEstipendio;
 import datos.ObtenerEstudiantesConPertenenciasBeca;
+import interfaces.AdministradorDeudas;
 import interfaces.VerificadorEstudiante;
 import modelos.usuarios.Becado;
 import modelos.usuarios.Estudiante;
 
-public class DireccionDeBecas implements VerificadorEstudiante {
+public class DireccionDeBecas implements VerificadorEstudiante,AdministradorDeudas {
 	
 	private HashMap<String, Set<String>> pertenenciasBecados;
 	
@@ -24,10 +25,10 @@ public class DireccionDeBecas implements VerificadorEstudiante {
 	
 	@Override
 	public boolean verificarRequisitos(Estudiante e) {
-		return pertenenciasBecados.containsKey(e);
+		return pertenenciasBecados.containsKey(e.getCi());
 	}
 	
-	public void recogerPertenenciasDeEstudiante(String e, Set<String> pertenencias) {
+	public void recogerDeudas(String e, Set<String> pertenencias) {
 		pertenenciasBecados.get(e).removeAll(pertenencias);
 	}
 	
@@ -46,7 +47,7 @@ public class DireccionDeBecas implements VerificadorEstudiante {
     
     }
 	
-	public Set<String> obtenerPertenenciasBecado(String e) {
+	public Set<String> obtenerDeudas(String e) {
 		return pertenenciasBecados.get(e);
 	}
 }

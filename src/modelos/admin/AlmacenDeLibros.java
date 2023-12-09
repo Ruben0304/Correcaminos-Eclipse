@@ -6,10 +6,11 @@ import java.util.Set;
 
 import datos.ObtenerEstudiantesConLibrosDocentesPendientes;
 import datos.ObtenerPersonasConLibrosBibliotecaPendientes;
+import interfaces.AdministradorDeudas;
 import interfaces.VerificadorEstudiante;
 import modelos.usuarios.Estudiante;
 
-public class AlmacenDeLibros implements VerificadorEstudiante {
+public class AlmacenDeLibros implements VerificadorEstudiante,AdministradorDeudas {
 
 	
 	
@@ -25,11 +26,11 @@ public class AlmacenDeLibros implements VerificadorEstudiante {
 	}
 	
 	@Override
-	public boolean verificarRequisitos(String e) {
-		return estudiantesConLibrosDocentes.containsKey(e);
+	public boolean verificarRequisitos(Estudiante e) {
+		return estudiantesConLibrosDocentes.containsKey(e.getCi());
 	}
 	
-	public void recogerLibrosDocentes(String e, Set<String> librosDocentes) {
+	public void recogerDeudas(String e, Set<String> librosDocentes) {
 		estudiantesConLibrosDocentes.get(e).removeAll(librosDocentes);
 	}
 	
@@ -48,7 +49,7 @@ public class AlmacenDeLibros implements VerificadorEstudiante {
     
     }
 	
-	public Set<String> obtenerEstudianteLibrosDocentesPendientes(String e) {
+	public Set<String> obtenerDeudas(String e) {
 		return estudiantesConLibrosDocentes.get(e);
 	}
 }

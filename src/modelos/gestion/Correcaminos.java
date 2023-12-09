@@ -3,13 +3,13 @@ package modelos.gestion;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import interfaces.actualizador;
+
 import modelos.gestion.empleados.GestorEmpleados;
 import modelos.gestion.estudiantes.Secretaria;
 import modelos.usuarios.Persona;
 
 
-public class Correcaminos implements actualizador{
+public class Correcaminos{
     private static Correcaminos gestorPrincipal;
     private GestorAdmins gestorAdmins;
     private Secretaria gestorEstudiantes;
@@ -52,29 +52,7 @@ public class Correcaminos implements actualizador{
 
  
 
-    @Override
-    public void actualizarDatos() {
-        // Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        // String jsonAdmins = gson.toJson(gestorAdmins.getAdmins());
-        // String jsonEstudiantes = gson.toJson(gestorEstudiantes.getEstudiantes());
-        // String jsonSolicitudes = gson.toJson(gest.getSolicitudesLicenciaPendientes());
-        // try {
-
-        //     FileWriter writerA = new FileWriter("./admins.json");
-        //     FileWriter writerE = new FileWriter("./estudiantes.json");
-        //     FileWriter writerS = new FileWriter("./solicitudes.json");
-        //     writerA.write(jsonAdmins);
-        //     writerE.write(jsonEstudiantes);
-        //     writerS.write(jsonSolicitudes);
-        //     writerA.close();
-        //     writerE.close();
-        //     writerS.close();
-
-        //     System.out.println("Guardado todo ok.");
-        // } catch (IOException e) {
-        //     e.printStackTrace();
-        // }
-    }
+   
 
     public GestorAdmins getGestorAdmins() {
         return gestorAdmins;

@@ -6,8 +6,10 @@ import java.util.Set;
 
 import datos.ObtenerEmpleadosConDeudas;
 import datos.ObtenerEstudiantesConEstipendio;
+import interfaces.AdministradorDeudas;
 import interfaces.VerificadorEmpleado;
 import modelos.usuarios.Empleado;
+import modelos.usuarios.Estudiante;
 
 public class Contabilidad implements VerificadorEmpleado {
 	
@@ -22,8 +24,8 @@ public class Contabilidad implements VerificadorEmpleado {
 	}
 	
 	@Override
-	public boolean verificarRequisitos(String e) {
-		return empleadosDeudas.containsKey(e);
+	public boolean verificarRequisitos(Empleado e) {
+		return empleadosDeudas.containsKey(e.getCi());
 	}
 	
 	public void saldarDeuda(String e) {

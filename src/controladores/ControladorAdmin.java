@@ -42,15 +42,15 @@ public class ControladorAdmin {
         switch (((Admin) Auth.usuarioAutenticado()).getTipoDepartamento()) {
 
             case Biblioteca:
-                deudas = gestDep.getBiblioteca().obtenerLibrosPendientes(carnet);
+                deudas = gestDep.getBiblioteca().obtenerDeudas(carnet);
                 break;
 
             case AlmacenLibrosDocentes:
-                deudas = gestDep.getAlmacenDeLibros().obtenerEstudianteLibrosDocentesPendientes(carnet);
+                deudas = gestDep.getAlmacenDeLibros().obtenerDeudas(carnet);
                 break;
 
             case DireccionBecas:
-                deudas = gestDep.getAlmacenDeLibros().obtenerEstudianteLibrosDocentesPendientes(carnet);
+                deudas = gestDep.getAlmacenDeLibros().obtenerDeudas(carnet);
                 break;
             case Contabilidad:
                 JOptionPane.showMessageDialog(null, gestDep.getContabilidad().obtenerDeudaEmpleado(carnet),
@@ -64,7 +64,7 @@ public class ControladorAdmin {
         if (!((Admin) Auth.usuarioAutenticado()).getTipoDepartamento().equals(TipoDepartamento.Contabilidad)) {
             instancia.setVista(
                     new DepartamentosModelo(
-                            new DepartamentoVerificadorLibrosTableModel(carnet)));
+                            new DepartamentoVerificadorLibrosTableModel(deudas)));
             Pricipal.getInstancia().revalidate();
             Pricipal.getInstancia().repaint();
         }

@@ -203,12 +203,7 @@ public class ControladorPrincipal {
         mostrarInicio();
     }
 
-    public static void actualizarDatos() {
-
-        Correcaminos.getGestorPrincipal().actualizarDatos();
-        mostrarInicio();
-
-    }
+   
 
     public static void mostrarTramites() {
         Pricipal instancia = Pricipal.getInstancia();

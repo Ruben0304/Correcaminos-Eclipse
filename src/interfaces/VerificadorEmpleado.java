@@ -7,7 +7,7 @@ import modelos.usuarios.Empleado;
 
 public interface VerificadorEmpleado {
 	
-	boolean verificarRequisitos(String e);
-
+	boolean verificarRequisitos(Empleado e);
+    
 	ArrayList<Empleado> getEmpleadosPendientes(ArrayList<Empleado> empleadosSolicitudesPendientes);
 }

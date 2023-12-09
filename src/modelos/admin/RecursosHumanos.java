@@ -33,7 +33,7 @@ public class RecursosHumanos implements VerificadorEmpleado {
 	}
 	
 	public void recogerSalarioIndebido(Empleado e) {
-		empleadosConSalarioIndebido.remove(e);  
+		empleadosConSalarioIndebido.remove(e.getCi());  
 	}
 	
 	@Override

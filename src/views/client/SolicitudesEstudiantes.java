@@ -98,7 +98,7 @@ public class SolicitudesEstudiantes extends JPanel {
 			}
 		});
 		btnSolicitarBaja.setFont(new Font(FlatRobotoFont.FAMILY, Font.PLAIN, 13));
-		btnSolicitarBaja.setForeground(Color.BLACK);
+		btnSolicitarBaja.setForeground(Color.WHITE);
 		btnSolicitarBaja.setBounds(10, 96, 150, 23);
 		btnSolicitarBaja.setBackground(new Color(72, 189, 133));
 		btnSolicitarBaja.setBounds(107, 225, 223, 54);

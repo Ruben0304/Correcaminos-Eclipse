@@ -203,6 +203,7 @@ public class PanelAdministracion extends JPanel {
 	private JComboBox getComboBox() {
 		if (comboBox == null) {
 			comboBox = new JComboBox();
+			comboBox.setForeground(Color.BLACK);
 			comboBox.setBackground(Color.WHITE);
 			comboBox.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
@@ -286,7 +287,7 @@ public class PanelAdministracion extends JPanel {
 	private JLabel getLblNewLabel() {
 		if (lblNewLabel == null) {
 			lblNewLabel = new JLabel();
-			lblNewLabel.setBounds(58, -43, 446, 175);
+			lblNewLabel.setBounds(171, -44, 419, 175);
 			ImageIcon ico = new ImageIcon("C:\\Users\\herna\\OneDrive\\Escritorio\\Nueva carpeta\\b.png");
 			ImageIcon img = new ImageIcon(
 					ico.getImage().getScaledInstance(lblNewLabel.getWidth(), lblNewLabel.getHeight(),
@@ -326,7 +327,7 @@ public class PanelAdministracion extends JPanel {
 			textField.setBackground(new Color(249, 249, 249));
 
 			textField.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 15));
-			textField.setBounds(120, 31, 289, 26);
+			textField.setBounds(233, 30, 263, 26);
 			textField.setColumns(10);
 		}
 		return textField;

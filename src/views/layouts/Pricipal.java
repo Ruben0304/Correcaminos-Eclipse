@@ -76,7 +76,10 @@ public class Pricipal extends JFrame implements ActionListener {
 
 		contentPane.removeAll();
 		contentPane.add(Navegacion.getInstancia());
-         panel.add(LabelUsuario.usuario());
+		if (!(panel instanceof PanelAdministracion)) {
+			 panel.add(LabelUsuario.usuario());
+		}
+       
 		contentPane.add(panel);
 		
 		repaint();

@@ -71,7 +71,7 @@ public class CuentaJP extends JPanel {
 		btnCerrarSesin.setBackground(new Color(72, 189, 133));
 		btnCerrarSesin.setBounds(343, 517, 286, 60);
 		add(btnCerrarSesin);
-		
+		if (Auth.usuarioAutenticado() instanceof Persona) {
 		JLabel lblNombre = new JLabel("Nombre:");
 		lblNombre.setForeground(Color.WHITE);
 		lblNombre.setFont(new Font("Segoe UI Semibold", Font.BOLD, 26));
@@ -84,18 +84,21 @@ public class CuentaJP extends JPanel {
 		lblApellidos.setBounds(45, 320, 421, 41);
 		add(lblApellidos);
 		
-		JLabel label_4 = new JLabel((String) null);
+		
+			
+		
+		JLabel label_4 = new JLabel(((Persona)Auth.usuarioAutenticado()).getNombre());
 		label_4.setForeground(Color.WHITE);
 		label_4.setFont(new Font("Segoe UI Semibold", Font.BOLD, 25));
 		label_4.setBounds(173, 260, 432, 43);
 		add(label_4);
 		
-		JLabel label_5 = new JLabel((String) null);
+		JLabel label_5 = new JLabel(((Persona)Auth.usuarioAutenticado()).getApellidos());
 		label_5.setForeground(Color.WHITE);
 		label_5.setFont(new Font("Segoe UI Semibold", Font.BOLD, 25));
 		label_5.setBounds(173, 320, 432, 43);
 		add(label_5);
-		
+		}
 		
 		
 	}

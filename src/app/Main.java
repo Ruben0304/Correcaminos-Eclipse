@@ -6,15 +6,15 @@ import java.util.Calendar;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 
-import controllers.ControladorLogin;
-import controllers.ControladorPrincipal;
-import models.gestion.Correcaminos;
-import models.gestion.GestorDepartamentos;
-import models.gestion.estudiantes.Secretaria;
-import models.usuarios.Credenciales;
-import models.usuarios.Estudiante;
-import models.usuarios.Persona;
-import views.layouts.Pricipal;
+import controladores.ControladorLogin;
+import controladores.ControladorPrincipal;
+import modelos.gestion.Correcaminos;
+import modelos.gestion.GestorDepartamentos;
+import modelos.gestion.estudiantes.Secretaria;
+import modelos.usuarios.Credenciales;
+import modelos.usuarios.Estudiante;
+import modelos.usuarios.Persona;
+import vistas.template.Pricipal;
 
 public class Main {
 	public static void main(String[] args) {

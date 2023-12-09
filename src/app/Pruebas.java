@@ -17,6 +17,34 @@ import java.util.Set;
 
 import com.google.gson.reflect.TypeToken;
 
+import controladores.ControladorFiltrado;
+import controladores.ControladorLogin;
+import controladores.ControladorPrincipal;
+import datos.ObtenerChats;
+import datos.ObtenerEmpleados;
+import datos.ObtenerEmpleadosConDeudas;
+import datos.ObtenerEmpleadosConSalarioIndebido;
+import datos.ObtenerEstudiantesConEstipendio;
+import datos.ObtenerEstudiantesConLibrosDocentesPendientes;
+import datos.ObtenerEstudiantesConPertenenciasBeca;
+import datos.ObtenerPersonasConLibrosBibliotecaPendientes;
+import datos.ObtenerSolicitudesEstudiantes;
+import datos.ObtenerUsuariosCujae;
+import modelos.chats.AdministradorChats;
+import modelos.chats.Mensaje;
+import modelos.gestion.Correcaminos;
+import modelos.gestion.estudiantes.Secretaria;
+import modelos.solicitudes.Solicitud;
+import modelos.solicitudes.SolicitudBaja;
+import modelos.solicitudes.SolicitudLicencia;
+import modelos.usuarios.Admin;
+import modelos.usuarios.Becado;
+import modelos.usuarios.Docente;
+import modelos.usuarios.Empleado;
+import modelos.usuarios.Estudiante;
+import modelos.usuarios.NoDocente;
+import modelos.usuarios.Persona;
+
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
@@ -33,41 +61,14 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.reflect.TypeToken;
 
-import controllers.ControladorFiltrado;
-import controllers.ControladorLogin;
-import controllers.ControladorPrincipal;
-import data.ObtenerChats;
-import data.ObtenerEmpleados;
-import data.ObtenerEmpleadosConDeudas;
-import data.ObtenerEmpleadosConSalarioIndebido;
-import data.ObtenerEstudiantesConEstipendio;
-import data.ObtenerEstudiantesConLibrosDocentesPendientes;
-import data.ObtenerEstudiantesConPertenenciasBeca;
-import data.ObtenerPersonasConLibrosBibliotecaPendientes;
-import data.ObtenerSolicitudesEstudiantes;
-import data.ObtenerUsuariosCujae;
-import models.chats.AdministradorChats;
-import models.chats.Mensaje;
-import models.gestion.Correcaminos;
-import models.gestion.estudiantes.Secretaria;
-import models.solicitudes.Solicitud;
-import models.solicitudes.SolicitudBaja;
-import models.solicitudes.SolicitudLicencia;
-import models.usuarios.Admin;
-import models.usuarios.Becado;
-import models.usuarios.Docente;
-import models.usuarios.Empleado;
-import models.usuarios.Estudiante;
-import models.usuarios.NoDocente;
-import models.usuarios.Persona;
 import util.Facultad;
 import util.MotivoBaja;
 import util.MotivoLicencia;
 import util.Motivos;
 import util.TipoCurso;
 import util.TipoDepartamento;
-import views.chat.ChatPanel;
-import views.layouts.Pricipal;
+import vistas.chat.ChatPanel;
+import vistas.template.Pricipal;
 
 public class Pruebas {
 	public static void main(String[] args) {

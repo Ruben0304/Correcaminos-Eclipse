@@ -2,8 +2,8 @@ package interfaces;
 
 import java.util.ArrayList;
 
-import models.responsabilidades.ResponsabilidadesEmpleados;
-import models.usuarios.Empleado;
+import modelos.responsabilidades.ResponsabilidadesEmpleados;
+import modelos.usuarios.Empleado;
 
 public interface VerificadorEmpleado {
 	

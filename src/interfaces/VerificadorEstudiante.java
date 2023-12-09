@@ -2,9 +2,9 @@ package interfaces;
 
 import java.util.ArrayList;
 
-import models.responsabilidades.ResponsabilidadesEstudiantes;
-import models.usuarios.Empleado;
-import models.usuarios.Estudiante;
+import modelos.responsabilidades.ResponsabilidadesEstudiantes;
+import modelos.usuarios.Empleado;
+import modelos.usuarios.Estudiante;
 
 public interface VerificadorEstudiante {
 

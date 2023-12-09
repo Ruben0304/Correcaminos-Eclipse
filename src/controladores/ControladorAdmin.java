@@ -31,38 +31,37 @@ public class ControladorAdmin {
     public static void mostrarGestionLicencias() {
         Pricipal instancia = Pricipal.getInstancia();
         ArrayList<Persona> usuariosPendientes = obtenerCasosPendientesDepartamento();
-        switch (((Admin) Auth.usuarioAutenticado()).getTipoDepartamento()) {
+        // switch (((Admin) Auth.usuarioAutenticado()).getTipoDepartamento()) {
 
-            case Biblioteca:
-                instancia.setVista(
-                        new DepartamentosModelo(
-                                new DepartamentoVerificadorLibrosTableModel(usuariosPendientes, "Libros Pendientes")));
-                break;
+        // case Biblioteca:
+        // instancia
+        // break;
 
-            case AlmacenLibrosDocentes:
-                instancia.setVista(
-                        new DepartamentosModelo(
-                                new DepartamentoVerificadorLibrosTableModel(usuariosPendientes, "Libros Pendientes")));
-                break;
+        // case AlmacenLibrosDocentes:
+        // instancia.setVista(
+        // new DepartamentosModelo(
+        // new DepartamentoVerificadorLibrosTableModel(usuariosPendientes, "Libros
+        // Pendientes")));
+        // break;
 
-            case DireccionBecas:
-                instancia.setVista(
-                        new DepartamentosModelo(
-                                new DepartamentoVerificadorLibrosTableModel(usuariosPendientes, "Pertenencias")));
-                break;
+        // case DireccionBecas:
+        // instancia.setVista(
+        // new DepartamentosModelo(
+        // new DepartamentoVerificadorLibrosTableModel(usuariosPendientes,
+        // "Pertenencias")));
+        // break;
 
-            default:
-                instancia.setVista(
-                        new DepartamentosModelo(new DepartamentoVerificadorLibrosTableModel(usuariosPendientes)));
-                break;
-        }
+        // default:
 
+        // break;
+        // }
+        instancia.setVista(
+                new DepartamentosModelo(new DepartamentoVerificadorLibrosTableModel(usuariosPendientes)));
         Pricipal.getInstancia().revalidate();
         Pricipal.getInstancia().repaint();
     }
 
     public static ArrayList<Persona> obtenerCasosPendientesDepartamento() {
-
 
         ArrayList<Persona> usuariosPendientes = new ArrayList<>();
         Autenticable usuarioAutenticado = Auth.usuarioAutenticado();
@@ -71,9 +70,6 @@ public class ControladorAdmin {
                 .obtenerEstudiantesPendientes();
         ArrayList<Empleado> empleados = GestorEmpleados.gestorEmpleados().getGestorSolicitudesEmpleados()
                 .obtenerEstudiantesPendientes();
-
-
-
 
         switch (((Admin) usuarioAutenticado).getTipoDepartamento()) {
             case Biblioteca:
@@ -121,14 +117,13 @@ public class ControladorAdmin {
                 break;
         }
 
-
         return usuariosPendientes;
     }
 
     public static void confirmarEntrega(String carnet) {
         Admin usuarioAutenticado = (Admin) Auth.usuarioAutenticado();
         GestorDepartamentos gestorDepartamentos = GestorDepartamentos.gestorDepartamentos();
-        
+
         Secretaria gestorEstudiantes = Secretaria.gestorEstudiantes();
 
         // switch (((Admin) usuarioAutenticado).getTipoDepartamento()) {

@@ -28,15 +28,17 @@ public class DepartamentoVerificadorLibrosTableModel extends DefaultTableModel {
 
 	}
 
-	public DepartamentoVerificadorLibrosTableModel(ArrayList<Persona> personas, String encabezado) {
-		String[] columnNames = {
-				"Carnet de Identidad", "Nombre", "Apellidos", encabezado };
-		this.setColumnIdentifiers(columnNames);
+	// public DepartamentoVerificadorLibrosTableModel(ArrayList<Persona> personas, String encabezado) {
+	// 	String[] columnNames = {
+	// 			"Carnet de Identidad", "Nombre", "Apellidos", encabezado };
+	// 	this.setColumnIdentifiers(columnNames);
 
-		for (Persona e : personas) {
-			Object[] newRow = new Object[] { e.getCi(), e.getNombre(), e.getApellidos(), "Ver Detalles" };
-			addRow(newRow);
-		}
+	// 	for (Persona e : personas) {
+	// 		Object[] newRow = new Object[] { e.getCi(), e.getNombre(), e.getApellidos(), "Ver Detalles" };
+	// 		addRow(newRow);
+	// 	}
 
-	}
+	// }
+
+	
 }

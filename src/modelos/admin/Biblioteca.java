@@ -29,16 +29,13 @@ public class Biblioteca implements VerificadorEstudiante, VerificadorEmpleado {
 	
 	
     @Override
-    public boolean verificarRequisitos(Estudiante e) {
-        return personasConLibrosBiblioteca.containsKey(e.getCi());
+    public boolean verificarRequisitos(String e) {
+        return personasConLibrosBiblioteca.containsKey(e);
     }
 
-    @Override
-	public boolean verificarRequisitos(Empleado e) {
-		return personasConLibrosBiblioteca.containsKey(e.getCi());
-	}
+    
 
-    public void recogerLibrosPrestados(Persona p) {
+    public void recogerLibrosPrestados(String p) {
     	personasConLibrosBiblioteca.remove(p);
     }
 
@@ -71,7 +68,7 @@ public class Biblioteca implements VerificadorEstudiante, VerificadorEmpleado {
         return nombresEmpleados;
     }
     
-    public Set<String> obtenerLibrosPendientes(Persona p) {
+    public Set<String> obtenerLibrosPendientes(String p) {
     	return personasConLibrosBiblioteca.get(p);
     }
 }

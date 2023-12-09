@@ -2,6 +2,8 @@ package util.modelos;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Set;
+import java.util.TreeSet;
 
 import javax.swing.table.DefaultTableModel;
 
@@ -23,6 +25,17 @@ public class DepartamentoVerificadorLibrosTableModel extends DefaultTableModel {
 		this.setColumnIdentifiers(columnNames);
 		for (Persona e : personas) {
 			Object[] newRow = new Object[] { e.getCi(), e.getNombre(), e.getApellidos() };
+			addRow(newRow);
+		}
+
+	}
+
+	public DepartamentoVerificadorLibrosTableModel(Set<String> deudas) {
+		String[] columnNames = {
+				"Deudas" };
+		this.setColumnIdentifiers(columnNames);
+		for (String e : deudas) {
+			Object[] newRow = new Object[] {e};
 			addRow(newRow);
 		}
 

@@ -24,10 +24,10 @@ public class DireccionDeBecas implements VerificadorEstudiante {
 	
 	@Override
 	public boolean verificarRequisitos(Estudiante e) {
-		return pertenenciasBecados.containsKey((e.getCi()));
+		return pertenenciasBecados.containsKey(e);
 	}
 	
-	public void recogerPertenenciasDeEstudiante(Estudiante e, Set<String> pertenencias) {
+	public void recogerPertenenciasDeEstudiante(String e, Set<String> pertenencias) {
 		pertenenciasBecados.get(e).removeAll(pertenencias);
 	}
 	
@@ -46,7 +46,7 @@ public class DireccionDeBecas implements VerificadorEstudiante {
     
     }
 	
-	public Set<String> obtenerPertenenciasBecado(Estudiante e) {
-		return pertenenciasBecados.get(((Becado)e));
+	public Set<String> obtenerPertenenciasBecado(String e) {
+		return pertenenciasBecados.get(e);
 	}
 }

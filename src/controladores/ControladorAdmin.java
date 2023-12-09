@@ -1,6 +1,10 @@
 package controladores;
 
 import java.util.ArrayList;
+import java.util.Set;
+import java.util.TreeSet;
+
+import javax.swing.JOptionPane;
 
 import autenticacion.Auth;
 import interfaces.Autenticable;
@@ -15,6 +19,7 @@ import modelos.usuarios.Admin;
 import modelos.usuarios.Empleado;
 import modelos.usuarios.Estudiante;
 import modelos.usuarios.Persona;
+import util.TipoDepartamento;
 import util.modelos.DepartamentoVerificadorLibrosTableModel;
 import vistas.admin.CasosPendientes;
 import vistas.admin.DepartamentosModelo;
@@ -26,6 +31,44 @@ public class ControladorAdmin {
     public static void mostrarPanelAdmin() {
         Pricipal instancia = Pricipal.getInstancia();
         instancia.setVista(PanelAdministracion.getPanelAdministracion());
+    }
+
+    public static void verDeudas(String carnet) {
+        Pricipal instancia = Pricipal.getInstancia();
+        Set<String> deudas = new TreeSet<>();
+        GestorDepartamentos gestDep = GestorDepartamentos.gestorDepartamentos();
+        
+
+        switch (((Admin) Auth.usuarioAutenticado()).getTipoDepartamento()) {
+
+            case Biblioteca:
+                deudas = gestDep.getBiblioteca().obtenerLibrosPendientes(carnet);
+                break;
+
+            case AlmacenLibrosDocentes:
+                deudas = gestDep.getAlmacenDeLibros().obtenerEstudianteLibrosDocentesPendientes(carnet);
+                break;
+
+            case DireccionBecas:
+                deudas = gestDep.getAlmacenDeLibros().obtenerEstudianteLibrosDocentesPendientes(carnet);
+                break;
+            case Contabilidad:
+                JOptionPane.showMessageDialog(null, gestDep.getContabilidad().obtenerDeudaEmpleado(carnet),
+                        "Total",
+                        JOptionPane.INFORMATION_MESSAGE);
+                break;
+            default:
+
+                break;
+        }
+        if (!((Admin) Auth.usuarioAutenticado()).getTipoDepartamento().equals(TipoDepartamento.Contabilidad)) {
+            instancia.setVista(
+                    new DepartamentosModelo(
+                            new DepartamentoVerificadorLibrosTableModel(carnet)));
+            Pricipal.getInstancia().revalidate();
+            Pricipal.getInstancia().repaint();
+        }
+
     }
 
     public static void mostrarGestionLicencias() {

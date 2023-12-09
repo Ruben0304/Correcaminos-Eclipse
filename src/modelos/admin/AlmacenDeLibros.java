@@ -25,11 +25,11 @@ public class AlmacenDeLibros implements VerificadorEstudiante {
 	}
 	
 	@Override
-	public boolean verificarRequisitos(Estudiante e) {
-		return estudiantesConLibrosDocentes.containsKey(e.getCi());
+	public boolean verificarRequisitos(String e) {
+		return estudiantesConLibrosDocentes.containsKey(e);
 	}
 	
-	public void recogerLibrosDocentes(Estudiante e, Set<String> librosDocentes) {
+	public void recogerLibrosDocentes(String e, Set<String> librosDocentes) {
 		estudiantesConLibrosDocentes.get(e).removeAll(librosDocentes);
 	}
 	
@@ -48,7 +48,7 @@ public class AlmacenDeLibros implements VerificadorEstudiante {
     
     }
 	
-	public Set<String> obtenerEstudianteLibrosDocentesPendientes(Estudiante e) {
+	public Set<String> obtenerEstudianteLibrosDocentesPendientes(String e) {
 		return estudiantesConLibrosDocentes.get(e);
 	}
 }

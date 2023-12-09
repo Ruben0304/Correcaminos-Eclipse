@@ -7,7 +7,7 @@ import modelos.usuarios.Estudiante;
 
 public interface VerificadorEstudiante {
 
-	boolean verificarRequisitos(Estudiante e);
+	boolean verificarRequisitos(String e);
 
 	ArrayList<Estudiante> getEstudiantesPendientes(ArrayList<Estudiante> estudiantesSolicitudesPendientes);
 }

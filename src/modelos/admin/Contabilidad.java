@@ -22,12 +22,12 @@ public class Contabilidad implements VerificadorEmpleado {
 	}
 	
 	@Override
-	public boolean verificarRequisitos(Empleado e) {
-		return empleadosDeudas.containsKey(e.getCi());
+	public boolean verificarRequisitos(String e) {
+		return empleadosDeudas.containsKey(e);
 	}
 	
-	public void saldarDeuda(Empleado e) {
-		empleadosDeudas.remove(e.getCi());
+	public void saldarDeuda(String e) {
+		empleadosDeudas.remove(e);
 	}
 	
 	@Override
@@ -44,7 +44,7 @@ public class Contabilidad implements VerificadorEmpleado {
         return nombresEmpleados;
     }
 	
-	public double obtenerDeudaEmpleado(Empleado e) {
+	public double obtenerDeudaEmpleado(String e) {
 		return empleadosDeudas.get(e).doubleValue();
 	}
 }

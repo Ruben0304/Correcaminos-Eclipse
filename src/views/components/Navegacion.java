@@ -12,7 +12,10 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+import models.gestion.empleados.GestorEmpleados;
+import models.gestion.estudiantes.Secretaria;
 import models.usuarios.Admin;
+import models.usuarios.Empleado;
 import models.usuarios.Estudiante;
 import models.usuarios.Persona;
 import util.TipoDepartamento;
@@ -72,9 +75,13 @@ public class Navegacion extends JPanel {
 		setAlignmentX(Component.LEFT_ALIGNMENT);
 		setBackground(new Color(20, 20, 20));
 		setLayout(null);
+		if (Auth.usuarioAutenticado() instanceof Persona && ControladorPrincipal.verificarPersonaSolicitaAlgo()
+				|| Auth.usuarioAutenticado() instanceof Admin) {
+			getLabel_4().setVisible(true);
+			getLabel_3().setVisible(true);
+		}
 		add(getLabel_4());
 		add(getLabel_3());
-
 		JLabel label_5 = new JLabel();
 		label_5.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		label_5.addMouseListener(new MouseAdapter() {
@@ -273,7 +280,7 @@ public class Navegacion extends JPanel {
 
 					// ControladorPrincipal.mostrarChats();
 					JOptionPane.showMessageDialog(null, "Cooming Soon", "Chats", JOptionPane.INFORMATION_MESSAGE);
-					
+
 				}
 
 				@Override
@@ -425,21 +432,31 @@ public class Navegacion extends JPanel {
 		Navegacion.instance = null;
 	}
 
-	private JLabel getLabel_3() {
+	public JLabel getLabel_3() {
 		if (label_3 == null) {
 			label_3 = new JLabel();
 			label_3.setIcon(new ImageIcon(Navegacion.class.getResource("/img/burbuja20.png")));
 			label_3.setBounds(39, 172, 33, 28);
+			label_3.setVisible(false);
 		}
 		return label_3;
 	}
 
-	private JLabel getLabel_4() {
+	public JLabel getLabel_4() {
 		if (label_4 == null) {
-			label_4 = new JLabel("3");
+
+			label_4 = new JLabel(Auth.usuarioAutenticado() instanceof Admin
+					? Integer.toString(ControladorAdmin.obtenerCasosPendientesDepartamento().size())
+					: (Auth.usuarioAutenticado() instanceof Estudiante
+							? Integer.toString(ControladorPrincipal.obtenerRequisitosEstudiante().size() + 10)
+							: (Auth.usuarioAutenticado() instanceof Empleado
+									? Integer.toString(ControladorPrincipal.obtenerRequisitosEmpleado().size() )
+									: "0")));
+
 			label_4.setForeground(Color.WHITE);
 			label_4.setFont(new Font("Segoe UI", Font.BOLD, 12));
 			label_4.setBounds(46, 171, 21, 30);
+			label_4.setVisible(false);
 		}
 		return label_4;
 	}

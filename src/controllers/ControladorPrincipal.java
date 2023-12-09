@@ -40,7 +40,7 @@ import views.client.RequisitosEmpleados;
 import views.client.RequisitosEstudiante;
 import views.client.SolicitudesEmpleados;
 import views.client.SolicitudesEstudiantes;
-
+import views.components.Navegacion;
 import views.layouts.Pricipal;
 
 public class ControladorPrincipal {
@@ -73,10 +73,10 @@ public class ControladorPrincipal {
 
     }
 
-    public static void mostrarRequisitosBajaEstudiantes() {
+    public static HashMap<TiposResponsabilidad, Boolean> obtenerRequisitosEstudiante() {
 
         GestorDepartamentos gestDep = GestorDepartamentos.gestorDepartamentos();
-      
+
         HashMap<TiposResponsabilidad, Boolean> requisitos = new HashMap<>();
         Estudiante autenticado = (Estudiante) Auth.usuarioAutenticado();
 
@@ -94,20 +94,13 @@ public class ControladorPrincipal {
                     gestDep.getDireccionDeBecas().verificarRequisitos(autenticado));
 
         }
-        
-        Pricipal instancia = Pricipal.getInstancia();
-
-        instancia.setVista(RequisitosEstudiante.getVista(requisitos)
-                .getPanel_RequisitosEstud());
-        Pricipal.getInstancia().revalidate();
-        Pricipal.getInstancia().repaint();
-
+        return requisitos;
     }
-    
-    public static void mostrarRequisitosEmpleados() {
+
+    public static HashMap<ResponsabilidadesTrabajador, Boolean> obtenerRequisitosEmpleado() {
 
         GestorDepartamentos gestDep = GestorDepartamentos.gestorDepartamentos();
-     
+
         HashMap<ResponsabilidadesTrabajador, Boolean> requisitos = new HashMap<>();
         Empleado autenticado = (Empleado) Auth.usuarioAutenticado();
 
@@ -118,17 +111,37 @@ public class ControladorPrincipal {
                 gestDep.getRecursosHumanos().verificarRequisitos(autenticado));
         requisitos.put(ResponsabilidadesTrabajador.CUENTA_USUARIO,
                 gestDep.getSeguridadInformatica().verificarRequisitos(autenticado));
-        
-        Pricipal instancia = Pricipal.getInstancia();
 
-        instancia.setVista(RequisitosEmpleados.getVista(requisitos)
+        return requisitos;
+    }
+
+    public static void mostrarRequisitosBajaEstudiantes() {
+
+        Pricipal instancia = Pricipal.getInstancia();
+        Navegacion.getInstancia().getLabel_3().setVisible(true);
+        Navegacion.getInstancia().getLabel_4().setVisible(true);
+        Navegacion.getInstancia().revalidate();
+        Navegacion.getInstancia().repaint();
+        instancia.setVista(RequisitosEstudiante.getVista(obtenerRequisitosEstudiante())
+                .getPanel_RequisitosEstud());
+        Pricipal.getInstancia().revalidate();
+        Pricipal.getInstancia().repaint();
+
+    }
+
+    public static void mostrarRequisitosEmpleados() {
+
+        Pricipal instancia = Pricipal.getInstancia();
+        Navegacion.getInstancia().getLabel_3().setVisible(true);
+        Navegacion.getInstancia().getLabel_4().setVisible(true);
+        Navegacion.getInstancia().revalidate();
+        Navegacion.getInstancia().repaint();
+        instancia.setVista(RequisitosEmpleados.getVista(obtenerRequisitosEmpleado())
                 .getPanel_RequisitosEmpleados());
         Pricipal.getInstancia().revalidate();
         Pricipal.getInstancia().repaint();
 
     }
-    
-    
 
     public static void mostrarAccount() {
 
@@ -182,9 +195,10 @@ public class ControladorPrincipal {
         } else if (Auth.usuarioAutenticado() instanceof Empleado) {
             if (GestorEmpleados.gestorEmpleados().getGestorSolicitudesEmpleados()
                     .verificarEmpleadoSolicitaAlgo((Empleado) Auth.usuarioAutenticado())) {
-                        JOptionPane.showMessageDialog(null, "Su solicitud está siendo procesada", "Estado de Trámite", JOptionPane.INFORMATION_MESSAGE);
-                        ControladorPrincipal.mostrarInicio();
-            }else {
+                JOptionPane.showMessageDialog(null, "Su solicitud está siendo procesada", "Estado de Trámite",
+                        JOptionPane.INFORMATION_MESSAGE);
+                ControladorPrincipal.mostrarInicio();
+            } else {
                 instancia.setVista(new SolicitudesEmpleados());
             }
         } else if (Auth.usuarioAutenticado() instanceof Admin) {
@@ -195,11 +209,13 @@ public class ControladorPrincipal {
         Pricipal.getInstancia().repaint();
     }
 
-    public static void mostrarReportes() {
-        Pricipal instancia = Pricipal.getInstancia();
-        instancia.setVista(Reportes.getVista().getPanel());
-        Pricipal.getInstancia().revalidate();
-        Pricipal.getInstancia().repaint();
+    public static boolean verificarPersonaSolicitaAlgo() {
+
+        return (Auth.usuarioAutenticado() instanceof Estudiante && Secretaria.gestorEstudiantes().getGestorSolicitudes()
+                .verificarEstudianteSolicitaAlgo((Estudiante) Auth.usuarioAutenticado()))
+                || (Auth.usuarioAutenticado() instanceof Empleado
+                        && GestorEmpleados.gestorEmpleados().getGestorSolicitudesEmpleados()
+                                .verificarEmpleadoSolicitaAlgo((Empleado) Auth.usuarioAutenticado()));
     }
 
 }

@@ -30,6 +30,41 @@ public class ControladorAdmin {
     }
 
     public static void mostrarGestionLicencias() {
+        Pricipal instancia = Pricipal.getInstancia();
+        ArrayList<Persona> usuariosPendientes = obtenerCasosPendientesDepartamento();
+        switch (((Admin) Auth.usuarioAutenticado()).getTipoDepartamento()) {
+
+            case Biblioteca:
+                instancia.setVista(
+                        new DepartamentosModelo(
+                                new DepartamentoVerificadorLibrosTableModel(usuariosPendientes, "Libros Pendientes")));
+                break;
+
+            case AlmacenLibrosDocentes:
+                instancia.setVista(
+                        new DepartamentosModelo(
+                                new DepartamentoVerificadorLibrosTableModel(usuariosPendientes, "Libros Pendientes")));
+                break;
+
+            case DireccionBecas:
+                instancia.setVista(
+                        new DepartamentosModelo(
+                                new DepartamentoVerificadorLibrosTableModel(usuariosPendientes, "Pertenencias")));
+                break;
+
+            default:
+                instancia.setVista(
+                        new DepartamentosModelo(new DepartamentoVerificadorLibrosTableModel(usuariosPendientes)));
+                break;
+        }
+
+        Pricipal.getInstancia().revalidate();
+        Pricipal.getInstancia().repaint();
+    }
+
+    public static ArrayList<Persona> obtenerCasosPendientesDepartamento() {
+
+
         ArrayList<Persona> usuariosPendientes = new ArrayList<>();
         Autenticable usuarioAutenticado = Auth.usuarioAutenticado();
         GestorDepartamentos gestDep = GestorDepartamentos.gestorDepartamentos();
@@ -38,37 +73,31 @@ public class ControladorAdmin {
         ArrayList<Empleado> empleados = GestorEmpleados.gestorEmpleados().getGestorSolicitudesEmpleados()
                 .obtenerEstudiantesPendientes();
 
-        Pricipal instancia = Pricipal.getInstancia();
 
+
+                
         switch (((Admin) usuarioAutenticado).getTipoDepartamento()) {
             case Biblioteca:
                 usuariosPendientes.addAll(gestDep.getBiblioteca().getEstudiantesPendientes(estudiantes));
                 usuariosPendientes.addAll(gestDep.getBiblioteca().getEmpleadosPendientes(empleados));
-                instancia.setVista(
-                        new DepartamentosModelo(
-                                new DepartamentoVerificadorLibrosTableModel(usuariosPendientes, "Libros Pendientes")));
+
                 break;
 
             case Secretaria:
 
                 usuariosPendientes.addAll(estudiantes);
-                instancia.setVista(
-                        new DepartamentosModelo(new DepartamentoVerificadorLibrosTableModel(usuariosPendientes)));
+
                 break;
             case AlmacenLibrosDocentes:
                 usuariosPendientes
                         .addAll(gestDep.getAlmacenDeLibros().getEstudiantesPendientes(estudiantes));
-                instancia.setVista(
-                        new DepartamentosModelo(
-                                new DepartamentoVerificadorLibrosTableModel(usuariosPendientes, "Libros Pendientes")));
 
                 break;
 
             case Economia:
                 usuariosPendientes.addAll(gestDep.getEconomia().getEstudiantesPendientes(
                         estudiantes));
-                instancia.setVista(
-                        new DepartamentosModelo(new DepartamentoVerificadorLibrosTableModel(usuariosPendientes)));
+
                 break;
 
             case SeguridadInformatica:
@@ -79,8 +108,6 @@ public class ControladorAdmin {
                 usuariosPendientes
                         .addAll(gestDep.getSeguridadInformatica().getEmpleadosPendientes(
                                 empleados));
-                instancia.setVista(
-                        new DepartamentosModelo(new DepartamentoVerificadorLibrosTableModel(usuariosPendientes)));
 
                 break;
 
@@ -89,18 +116,14 @@ public class ControladorAdmin {
                         .addAll(gestDep.getDireccionDeBecas().getEstudiantesPendientes(
                                 estudiantes));
 
-                instancia.setVista(
-                new DepartamentosModelo(
-                        new DepartamentoVerificadorLibrosTableModel(usuariosPendientes, "Pertenencias")));
-                
                 break;
 
             default:
                 break;
         }
 
-        Pricipal.getInstancia().revalidate();
-        Pricipal.getInstancia().repaint();
+
+        return usuariosPendientes;
     }
 
     public static void confirmarEntrega(String carnet) {

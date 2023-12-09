@@ -79,11 +79,6 @@ public class SolicitudesEstudiantes extends JPanel {
 		panelBaja.setBorder(new TitledBorder(null, "Solicitud de Baja", TitledBorder.LEFT, TitledBorder.TOP, null, null));
 		panelBaja.setLayout(null);
 		
-		JComboBox<String> comboBox = new JComboBox<String>();
-		comboBox.setModel(new DefaultComboBoxModel(MotivoBaja.values()));
-		comboBox.setBounds(159, 83, 201, 36);
-		panelBaja.add(comboBox);
-		
 		JLabel label = new JLabel("Motivo :");
 		label.setFont(new Font("Segoe UI", Font.PLAIN, 25));
 		label.setBounds(43, 85, 90, 23);
@@ -91,7 +86,7 @@ public class SolicitudesEstudiantes extends JPanel {
 		
 		cbMotivosBaja = new JComboBox<String>();
 		cbMotivosBaja.setModel(new DefaultComboBoxModel(MotivoBaja.values()));
-		cbMotivosBaja.setBounds(66, 44, 226, 23);
+		cbMotivosBaja.setBounds(151, 82, 214, 39);
 		
 		panelBaja.add(cbMotivosBaja);
 		

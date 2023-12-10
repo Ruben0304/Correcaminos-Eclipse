@@ -68,8 +68,8 @@ public class CuentaJP extends JPanel {
 		btnCerrarSesin.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnCerrarSesin.setForeground(Color.WHITE);
 		btnCerrarSesin.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 25));
-		btnCerrarSesin.setBackground(new Color(72, 189, 133));
-		btnCerrarSesin.setBounds(343, 517, 286, 60);
+		btnCerrarSesin.setBackground(new Color(255, 69, 0));
+		btnCerrarSesin.setBounds(338, 517, 272, 55);
 		add(btnCerrarSesin);
 		if (Auth.usuarioAutenticado() instanceof Persona) {
 		JLabel lblNombre = new JLabel("Nombre:");

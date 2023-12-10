@@ -43,10 +43,12 @@ import vistas.template.Pricipal;
 import javax.swing.event.ChangeListener;
 import javax.swing.table.DefaultTableCellRenderer;
 
+import autenticacion.Auth;
 import controladores.ControladorFiltrado;
 import modelos.gestion.GestorDepartamentos;
 import modelos.gestion.estudiantes.Secretaria;
 import modelos.solicitudes.Solicitud;
+import modelos.usuarios.Admin;
 import modelos.usuarios.Estudiante;
 
 import javax.swing.event.ChangeEvent;
@@ -155,6 +157,9 @@ public class PanelAdministracion extends JPanel {
 			comboBox_1.setFont(new Font("Segoe UI Semibold", Font.BOLD, 14));
 			comboBox_1.setBackground(Color.WHITE);
 			comboBox_1.setBounds(92, 199, 154, 25);
+			if (((Admin)Auth.usuarioAutenticado()).getTipoDepartamento().equals(TipoDepartamento.RecursosHumanos)) {
+				comboBox_1.setEnabled(false);
+			}
 			panelFiltrados.add(comboBox_1);
 
 			JLabel lblFacultad = new JLabel("Facultad");
@@ -447,7 +452,7 @@ public class PanelAdministracion extends JPanel {
 			slider.setMinorTickSpacing(1);
 
 			slider.setBackground(new Color(40, 42, 46));
-			slider.setBounds(12, 301, 224, 28);
+			slider.setBounds(12, 301, 234, 28);
 		}
 		return slider;
 	}
@@ -457,7 +462,7 @@ public class PanelAdministracion extends JPanel {
 			label = new JLabel("2023");
 			label.setForeground(Color.WHITE);
 			label.setFont(new Font("Segoe UI Semibold", Font.BOLD, 12));
-			label.setBounds(190, 316, 56, 46);
+			label.setBounds(212, 316, 56, 46);
 		}
 		return label;
 	}

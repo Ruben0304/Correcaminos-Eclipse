@@ -101,8 +101,8 @@ public class Navegacion extends JPanel {
 		label_5.setBounds(19, 333, 33, 28);
 
 		add(getHome());
-		if (Auth.hayUsuarioAutenticado() && Auth.usuarioAutenticado() instanceof Admin
-				&& (((Admin) Auth.usuarioAutenticado()).getTipoDepartamento().equals(TipoDepartamento.Secretaria))) {
+		if (Auth.hayUsuarioAutenticado() && Auth.usuarioAutenticado() instanceof Admin){
+				if(((Admin) Auth.usuarioAutenticado()).getTipoDepartamento().equals(TipoDepartamento.Secretaria) || ((Admin) Auth.usuarioAutenticado()).getTipoDepartamento().equals(TipoDepartamento.RecursosHumanos)) {
 			add(label_5);
 
 			JLabel lblRegistros = new JLabel("Registros");
@@ -110,7 +110,7 @@ public class Navegacion extends JPanel {
 			lblRegistros.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 17));
 			lblRegistros.setBounds(71, 333, 89, 30);
 			add(lblRegistros);
-
+				}
 		}
 		add(getReportes());
 

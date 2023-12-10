@@ -1,5 +1,5 @@
 package util;
 
 public enum MotivoBaja {
-    Todos,Accidente,Enfermedad,
+    Accidente,Enfermedad,Personal,Otro
 }

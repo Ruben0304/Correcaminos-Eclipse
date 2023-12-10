@@ -4,7 +4,7 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 import util.Estado;
-import util.Motivos;
+
 
 public abstract class Solicitud {
     protected long id;

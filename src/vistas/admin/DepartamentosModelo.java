@@ -8,6 +8,8 @@ import java.awt.List;
 
 import javax.swing.JPanel;
 import javax.swing.border.MatteBorder;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableModel;
 
 import com.formdev.flatlaf.FlatLaf;
@@ -116,6 +118,12 @@ public class DepartamentosModelo extends JPanel {
 		table = new JTable();
 		this.table.setModel(modelo);
 		table.setFont(new Font(FlatRobotoFont.FAMILY, Font.PLAIN, 13));
+		DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
+		centerRenderer.setHorizontalAlignment(JLabel.CENTER);
+		for (int i = 0; i < table.getColumnCount(); i++) {
+			table.getColumnModel().getColumn(i).setCellRenderer(centerRenderer);
+		}
+
 		table.setFocusable(false);
 		scrollPane.setViewportView(table);
 
@@ -127,18 +135,16 @@ public class DepartamentosModelo extends JPanel {
 		btnConfirmarEntrega.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				
 				if (table.getSelectedRow() != -1) {
 					if (table.getColumnName(0).equals("Deudas")) {
-					Set<String> seleccion = new HashSet<>();
-					for (int i : table.getSelectedRows()) {
-						seleccion.add((String) table.getValueAt(i, 0));
-					}
-			  
-					
-						ControladorAdmin.entregarDeuda(seleccion,table.getValueAt(0, 1).toString());
+						Set<String> seleccion = new HashSet<>();
+						for (int i : table.getSelectedRows()) {
+							seleccion.add((String) table.getValueAt(i, 0));
+						}
+
+						ControladorAdmin.entregarDeuda(seleccion, table.getValueAt(0, 1).toString());
 					} else {
-						
+
 						ControladorAdmin.confirmarEntrega(table.getValueAt(table.getSelectedRow(), 0).toString());
 
 					}

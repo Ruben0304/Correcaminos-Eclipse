@@ -26,6 +26,7 @@ import util.modelos.DepartamentoVerificadorLibrosTableModel;
 import vistas.admin.CasosPendientes;
 import vistas.admin.DepartamentosModelo;
 import vistas.admin.PanelAdministracion;
+import vistas.componentes.Navegacion;
 import vistas.template.Pricipal;
 
 public class ControladorAdmin {
@@ -242,7 +243,9 @@ public class ControladorAdmin {
 
                 break;
         }
-
+        Navegacion.reiniciar();
+        Navegacion.getInstancia().cuadritoVerdeActualizar("gestion");
+        
         mostrarGestionLicencias();
     }
 

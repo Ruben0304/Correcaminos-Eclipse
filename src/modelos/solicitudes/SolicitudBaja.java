@@ -5,7 +5,7 @@ import java.util.Date;
 
 import util.Estado;
 import util.MotivoBaja;
-import util.Motivos;
+
 
 public class SolicitudBaja extends Solicitud {
     private MotivoBaja motivo;

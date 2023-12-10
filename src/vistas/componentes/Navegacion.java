@@ -87,12 +87,7 @@ public class Navegacion extends JPanel {
 		label_5.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-
-				getHome_bg().setVisible(false);
-				getReportes_bg().setVisible(false);
-				getAccount_bg().setVisible(false);
-				getGestion_bg().setVisible(false);
-				getGuardar_bg().setVisible(true);
+				cuadritoVerdeActualizar("panelAdmin");
 				ControladorAdmin.mostrarPanelAdmin();
 			}
 
@@ -153,12 +148,7 @@ public class Navegacion extends JPanel {
 			home.addMouseListener(new MouseAdapter() {
 				@Override
 				public void mouseClicked(MouseEvent e) {
-					getHome_bg().setVisible(true);
-					getReportes_bg().setVisible(false);
-					getAccount_bg().setVisible(false);
-					getGestion_bg().setVisible(false);
-					getGuardar_bg().setVisible(false);
-
+					cuadritoVerdeActualizar("home");
 					ControladorPrincipal.mostrarInicio();
 				}
 
@@ -208,16 +198,9 @@ public class Navegacion extends JPanel {
 			account.addMouseListener(new MouseAdapter() {
 				@Override
 				public void mouseClicked(MouseEvent e) {
-					getHome_bg().setVisible(false);
-					getReportes_bg().setVisible(false);
-					getAccount_bg().setVisible(true);
-					getGestion_bg().setVisible(false);
-					getGuardar_bg().setVisible(false);
-					if (Auth.hayUsuarioAutenticado()) {
-						ControladorPrincipal.mostrarAccount();
-					} else {
-						ControladorLogin.mostrarLogin();
-					}
+					cuadritoVerdeActualizar("account");
+
+					ControladorPrincipal.mostrarAccount();
 
 				}
 
@@ -231,18 +214,58 @@ public class Navegacion extends JPanel {
 		return account;
 	}
 
+	public void cuadritoVerdeActualizar(String s) {
+
+		switch (s) {
+			case "home":
+				getHome_bg().setVisible(true);
+				getReportes_bg().setVisible(false);
+				getAccount_bg().setVisible(false);
+				getGestion_bg().setVisible(false);
+				getGuardar_bg().setVisible(false);
+
+				break;
+			case "account":
+				getHome_bg().setVisible(false);
+				getReportes_bg().setVisible(false);
+				getAccount_bg().setVisible(true);
+				getGestion_bg().setVisible(false);
+				getGuardar_bg().setVisible(false);
+				break;
+			case "gestion":
+				getHome_bg().setVisible(false);
+				getReportes_bg().setVisible(false);
+				getAccount_bg().setVisible(false);
+				getGestion_bg().setVisible(true);
+				getGuardar_bg().setVisible(false);
+				break;
+			case "reportes":
+				// getHome_bg().setVisible(false);
+				// getReportes_bg().setVisible(true);
+				// getAccount_bg().setVisible(false);
+				// getGestion_bg().setVisible(false);
+				// getGuardar_bg().setVisible(false);
+				break;
+			case "panelAdmin":
+				getHome_bg().setVisible(false);
+				getReportes_bg().setVisible(false);
+				getAccount_bg().setVisible(false);
+				getGestion_bg().setVisible(false);
+				getGuardar_bg().setVisible(true);
+				break;
+
+			default:
+				break;
+		}
+	}
+
 	private JLabel getGestion() {
 		if (gestion == null) {
 			gestion = new JLabel();
 			gestion.addMouseListener(new MouseAdapter() {
 				@Override
 				public void mouseClicked(MouseEvent e) {
-					getHome_bg().setVisible(false);
-					getReportes_bg().setVisible(false);
-					getAccount_bg().setVisible(false);
-					getGestion_bg().setVisible(true);
-					getGuardar_bg().setVisible(false);
-
+					cuadritoVerdeActualizar("gestion");
 					ControladorPrincipal.mostrarTramites();
 
 				}
@@ -270,12 +293,7 @@ public class Navegacion extends JPanel {
 			reportes.addMouseListener(new MouseAdapter() {
 				@Override
 				public void mouseClicked(MouseEvent e) {
-					// getHome_bg().setVisible(false);
-					// getReportes_bg().setVisible(true);
-					// getAccount_bg().setVisible(false);
-					// getGestion_bg().setVisible(false);
-					// getGuardar_bg().setVisible(false);
-
+					cuadritoVerdeActualizar("reportes");
 					// ControladorPrincipal.mostrarChats();
 					JOptionPane.showMessageDialog(null, "Cooming Soon", "Chats", JOptionPane.INFORMATION_MESSAGE);
 

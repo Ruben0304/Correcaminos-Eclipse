@@ -8,7 +8,7 @@ import modelos.usuarios.Estudiante;
 import java.util.Calendar;
 
 import util.MotivoLicencia;
-import util.Motivos;
+
 
 public class SolicitudLicencia extends Solicitud {
 

@@ -63,7 +63,7 @@ import com.google.gson.reflect.TypeToken;
 import util.Facultad;
 import util.MotivoBaja;
 import util.MotivoLicencia;
-import util.Motivos;
+
 import util.TipoCurso;
 import util.TipoDepartamento;
 

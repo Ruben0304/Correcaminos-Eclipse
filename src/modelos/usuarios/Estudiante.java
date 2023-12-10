@@ -2,7 +2,7 @@ package modelos.usuarios;
 
 import modelos.gestion.estudiantes.Secretaria;
 import util.Facultad;
-import util.Motivos;
+
 import util.TipoCurso;
 
 public class Estudiante extends Persona {

@@ -21,8 +21,8 @@ import modelos.usuarios.Becado;
 import modelos.usuarios.Empleado;
 import modelos.usuarios.Estudiante;
 import modelos.usuarios.Persona;
-import util.BooleanosEstudianteBaja;
-import util.BooleanosEstudianteBecadoBaja;
+
+
 import util.Colores;
 import util.ResponsabilidadesTrabajador;
 import util.TiposResponsabilidad;

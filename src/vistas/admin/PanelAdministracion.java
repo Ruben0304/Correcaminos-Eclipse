@@ -38,7 +38,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.SoftBevelBorder;
 import javax.swing.ImageIcon;
 import util.TipoDepartamento;
-import util.Motivos;
+
 import javax.swing.event.ChangeListener;
 import javax.swing.table.DefaultTableCellRenderer;
 
@@ -57,6 +57,9 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.ItemEvent;
 import javax.swing.border.MatteBorder;
+import util.MotivoLicencia;
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeEvent;
 
 public class PanelAdministracion extends JPanel {
 	private JPanel panelFiltrados;
@@ -128,16 +131,23 @@ public class PanelAdministracion extends JPanel {
 			panelFiltrados.add(getLabel());
 			panelFiltrados.add(getLabel_1());
 			panelFiltrados.add(getLabel_2());
-			
-			 comboBox_1 = new JComboBox();
+
+			comboBox_1 = new JComboBox<String>();
 			comboBox_1.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
-					getMap().put("facultad", comboBox_1.getSelectedItem().toString());
+					if (comboBox_1.getSelectedItem().equals("Todas")) {
+						getMap().remove("facultad");
+					} else {
+						getMap().put("facultad", comboBox_1.getSelectedItem().toString());
+					}
+					
 					getTable().setModel(
 							new ModeloFiltrado(ControladorFiltrado.filtradoDinamicoSolicitudEstudiantes(getMap())));
 				}
 			});
-			comboBox_1.setModel(new DefaultComboBoxModel(Facultad.values()));
+			comboBox_1.setModel(new DefaultComboBoxModel(new String[] { "Todas", "Arquitectura", "Ing_Civil",
+					"Ing_Electrica", "Ing_Industrial", "Ing_Informatica", "Ing_Quimica", "Ing_Mecanica",
+					"Ing_Automatica_y_Biomedica", "Ing_en_Telecomunicaciones_y_Electronica" }));
 			comboBox_1.setToolTipText("");
 			comboBox_1.setMaximumRowCount(9);
 			comboBox_1.setForeground(Color.BLACK);
@@ -145,7 +155,7 @@ public class PanelAdministracion extends JPanel {
 			comboBox_1.setBackground(Color.WHITE);
 			comboBox_1.setBounds(92, 199, 154, 25);
 			panelFiltrados.add(comboBox_1);
-			
+
 			JLabel lblFacultad = new JLabel("Facultad");
 			lblFacultad.setForeground(Color.WHITE);
 			lblFacultad.setFont(new Font("Segoe UI Semibold", Font.BOLD, 15));
@@ -261,12 +271,17 @@ public class PanelAdministracion extends JPanel {
 			comboBox.setBackground(Color.WHITE);
 			comboBox.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					getMap().put("estado", comboBox.getSelectedItem().toString());
+					if (comboBox.getSelectedItem().equals("Todos")) {
+						getMap().remove("estado");
+					} else {
+						getMap().put("estado", comboBox.getSelectedItem().toString());
+					}
+
 					getTable().setModel(
 							new ModeloFiltrado(ControladorFiltrado.filtradoDinamicoSolicitudEstudiantes(getMap())));
 				}
 			});
-			comboBox.setModel(new DefaultComboBoxModel(Estado.values()));
+			comboBox.setModel(new DefaultComboBoxModel(new String[] { "Todos", "ACEPTADO", "RECHAZADO", "PENDIENTE" }));
 			comboBox.setBounds(92, 74, 154, 25);
 		}
 		return comboBox;
@@ -380,10 +395,16 @@ public class PanelAdministracion extends JPanel {
 	private JComboBox getComboBox_2() {
 		if (comboBox_2 == null) {
 			comboBox_2 = new JComboBox();
-			comboBox_2.setModel(new DefaultComboBoxModel(Motivos.values()));
+			comboBox_2.setModel(new DefaultComboBoxModel(new String[] { "Todos", "Vacaciones", "Maternidad",
+					"Accidente", "Enfermedad", "Personal", "Otro" }));
 			comboBox_2.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					map.put("motivo", comboBox_2.getSelectedItem().toString());
+					if (comboBox_2.getSelectedItem().equals("Todos")) {
+						getMap().remove("motivo");
+					} else {
+						getMap().put("motivo", comboBox_2.getSelectedItem().toString());
+					}
+
 					getTable().setModel(
 							new ModeloFiltrado(
 									ControladorFiltrado.filtradoDinamicoSolicitudEstudiantes(getMap())));
@@ -452,7 +473,7 @@ public class PanelAdministracion extends JPanel {
 
 	private JLabel getLabel_2() {
 		if (label_2 == null) {
-			label_2 = new JLabel("= 2015");
+			label_2 = new JLabel("");
 			label_2.setForeground(Color.WHITE);
 			label_2.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 13));
 			label_2.setBounds(98, 306, 56, 66);
@@ -463,6 +484,15 @@ public class PanelAdministracion extends JPanel {
 	public JTable getTable() {
 		if (table == null) {
 			table = new JTable();
+			table.addPropertyChangeListener(new PropertyChangeListener() {
+				public void propertyChange(PropertyChangeEvent arg0) {
+					DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
+					centerRenderer.setHorizontalAlignment(JLabel.CENTER);
+					for (int i = 0; i < table.getColumnCount(); i++) {
+						table.getColumnModel().getColumn(i).setCellRenderer(centerRenderer);
+					}
+				}
+			});
 			table.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
 			table.setBorder(null);
 			table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -479,10 +509,8 @@ public class PanelAdministracion extends JPanel {
 			DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
 			centerRenderer.setHorizontalAlignment(JLabel.CENTER);
 
-			// table.getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
-			// table.getColumnModel().getColumn(1).setCellRenderer(centerRenderer);
-			// table.getColumnModel().getColumn(2).setCellRenderer(centerRenderer);
-			// table.getColumnModel().getColumn(3).setCellRenderer(centerRenderer);
+			
+			
 
 		}
 		return table;

@@ -1,14 +1,11 @@
- package modelos.admin;
+package modelos.admin;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
-import controladores.ControladorFiltrado;
-import datos.ObtenerEstudiantesConLibrosDocentesPendientes;
 import datos.ObtenerUsuariosCujae;
 import interfaces.Autenticable;
 import interfaces.VerificadorEmpleado;
@@ -19,25 +16,31 @@ import modelos.usuarios.Empleado;
 import modelos.usuarios.Estudiante;
 import modelos.usuarios.Persona;
 
-
 public class SeguridadInformatica implements VerificadorEstudiante, VerificadorEmpleado {
 
-    private HashMap<Credenciales,Persona> usuariosCujae;
-    
+    private HashMap<Credenciales, Persona> usuariosCujae;
+    private HashMap<Credenciales, Persona> temporales;
+
     public SeguridadInformatica() {
     	usuariosCujae = new HashMap<Credenciales,Persona>();
+        temporales= new HashMap<Credenciales,Persona>();
     	cargarInformacionUsuariosCujae();
     }
+
     private void cargarInformacionUsuariosCujae() {
-    	usuariosCujae = ObtenerUsuariosCujae.cargarDesdeArchivo();
-	} 
-    
+        usuariosCujae = ObtenerUsuariosCujae.cargarDesdeArchivo();
+    }
+
     public boolean tieneCuentaUsuarioAbierta(Persona c) {
         return usuariosCujae.containsValue(c);
     }
 
     public HashMap<Credenciales, Persona> getUsuariosCujae() {
         return usuariosCujae;
+    }
+
+    public HashMap<Credenciales, Persona> getTemporales() {
+        return temporales;
     }
 
     @Override
@@ -50,65 +53,61 @@ public class SeguridadInformatica implements VerificadorEstudiante, VerificadorE
         return tieneCuentaUsuarioAbierta(e);
     }
 
-   public void cerrarCuenta(String c) {
-    Credenciales credencialParaEliminar = null;
-    List<Credenciales> listaCredenciales = new ArrayList<>(usuariosCujae.keySet());
+    public void cerrarCuenta(String c) {
+        Credenciales credencialParaEliminar = null;
+        List<Credenciales> listaCredenciales = new ArrayList<>(usuariosCujae.keySet());
 
-    for (int i = 0; i < listaCredenciales.size(); i++) {
-        Credenciales cred = listaCredenciales.get(i);
-        Persona p = usuariosCujae.get(cred);
-        if (p.getCi().equals(c)) {
-            credencialParaEliminar = cred;
-            i = listaCredenciales.size();
+        for (int i = 0; i < listaCredenciales.size(); i++) {
+            Credenciales cred = listaCredenciales.get(i);
+            Persona p = usuariosCujae.get(cred);
+            if (p.getCi().equals(c)) {
+                credencialParaEliminar = cred;
+                i = listaCredenciales.size();
+            }
+        }
+
+        if (credencialParaEliminar != null) {
+            temporales.put(credencialParaEliminar, usuariosCujae.get(credencialParaEliminar));
+            usuariosCujae.remove(credencialParaEliminar);
         }
     }
-
-    if (credencialParaEliminar != null) {
-        usuariosCujae.remove(credencialParaEliminar);
-    }
-}
-
 
     @Override
     public ArrayList<Estudiante> getEstudiantesPendientes(ArrayList<Estudiante> estudiantesSolicitudesPendientes) {
-    	
-    	ArrayList<Estudiante> estudiantes = new ArrayList<>();
-        
-        for (Estudiante e: estudiantesSolicitudesPendientes) {
-           
-		for (Map.Entry<Credenciales, Persona> usuario : usuariosCujae.entrySet()) {
-            Persona estudiante = usuario.getValue();
-			if (estudiante.getCi().equals(e.getCi())) {
-        		estudiantes.add(e);
-        	}
-		}
-        	
-        }
-   	
-        return estudiantes;
-    
-    }
 
+        ArrayList<Estudiante> estudiantes = new ArrayList<>();
+
+        for (Estudiante e : estudiantesSolicitudesPendientes) {
+
+            for (Map.Entry<Credenciales, Persona> usuario : usuariosCujae.entrySet()) {
+                Persona estudiante = usuario.getValue();
+                if (estudiante.getCi().equals(e.getCi())) {
+                    estudiantes.add(e);
+                }
+            }
+
+        }
+
+        return estudiantes;
+
+    }
 
     @Override
     public ArrayList<Empleado> getEmpleadosPendientes(ArrayList<Empleado> empleadosSolicitudesPendientes) {
-    	
-    	ArrayList<Empleado> estudiantes = new ArrayList<>();
-        
-        for (Empleado e: empleadosSolicitudesPendientes) {
-           
-		for (Map.Entry<Credenciales, Persona> usuario : usuariosCujae.entrySet()) {
-            Persona estudiante = usuario.getValue();
-			if (estudiante.getCi().equals(e.getCi())) {
-        		estudiantes.add(e);
-        	}
-		}
-        	
+
+        ArrayList<Empleado> estudiantes = new ArrayList<>();
+
+        for (Empleado e : empleadosSolicitudesPendientes) {
+
+            for (Map.Entry<Credenciales, Persona> usuario : usuariosCujae.entrySet()) {
+                Persona estudiante = usuario.getValue();
+                if (estudiante.getCi().equals(e.getCi())) {
+                    estudiantes.add(e);
+                }
+            }
+
         }
-   	
+
         return estudiantes;
     }
 }
-
-
-

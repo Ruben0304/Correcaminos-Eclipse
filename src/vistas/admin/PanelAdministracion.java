@@ -38,6 +38,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.SoftBevelBorder;
 import javax.swing.ImageIcon;
 import util.TipoDepartamento;
+import vistas.template.Pricipal;
 
 import javax.swing.event.ChangeListener;
 import javax.swing.table.DefaultTableCellRenderer;
@@ -337,7 +338,7 @@ public class PanelAdministracion extends JPanel {
 		if (lblNewLabel == null) {
 			lblNewLabel = new JLabel();
 			lblNewLabel.setBounds(237, -35, 342, 158);
-			ImageIcon ico = new ImageIcon("C:\\Users\\herna\\OneDrive\\Escritorio\\Nueva carpeta\\b.png");
+			ImageIcon ico = new ImageIcon(PanelAdministracion.class.getResource("/img/b.png"));
 			ImageIcon img = new ImageIcon(
 					ico.getImage().getScaledInstance(lblNewLabel.getWidth(), lblNewLabel.getHeight(),
 							Image.SCALE_SMOOTH));

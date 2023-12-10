@@ -10,6 +10,15 @@
   ],
   [
     {
+      "usuario": "AlmacenLibros",
+      "contrasena": "8d6341258d8d4cb6a91899ca1f704721e59a634b1723f775e382b6e48069d753"
+    },
+    {
+      "tipoDepartamento": "AlmacenLibrosDocentes"
+    }
+  ],
+  [
+    {
       "usuario": "Economia",
       "contrasena": "ba9e01dd549bb3198c02d2527ae78fa9d68f2fa09914e22db021116288ff0056"
     },

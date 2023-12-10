@@ -43,6 +43,8 @@ import vistas.template.Pricipal;
 import javax.swing.event.ChangeListener;
 import javax.swing.table.DefaultTableCellRenderer;
 
+import com.formdev.flatlaf.FlatClientProperties;
+
 import autenticacion.Auth;
 import controladores.ControladorFiltrado;
 import modelos.gestion.GestorDepartamentos;
@@ -143,7 +145,7 @@ public class PanelAdministracion extends JPanel {
 					} else {
 						getMap().put("facultad", comboBox_1.getSelectedItem().toString());
 					}
-					
+
 					getTable().setModel(
 							new ModeloFiltrado(ControladorFiltrado.filtradoDinamicoSolicitudEstudiantes(getMap())));
 				}
@@ -157,7 +159,7 @@ public class PanelAdministracion extends JPanel {
 			comboBox_1.setFont(new Font("Segoe UI Semibold", Font.BOLD, 14));
 			comboBox_1.setBackground(Color.WHITE);
 			comboBox_1.setBounds(92, 199, 154, 25);
-			if (((Admin)Auth.usuarioAutenticado()).getTipoDepartamento().equals(TipoDepartamento.RecursosHumanos)) {
+			if (((Admin) Auth.usuarioAutenticado()).getTipoDepartamento().equals(TipoDepartamento.RecursosHumanos)) {
 				comboBox_1.setEnabled(false);
 			}
 			panelFiltrados.add(comboBox_1);
@@ -355,6 +357,9 @@ public class PanelAdministracion extends JPanel {
 	private JTextField getTextField() {
 		if (textField == null) {
 			textField = new JTextField();
+			textField.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "Nombre, Apellidos, DNI");
+			textField.putClientProperty(FlatClientProperties.STYLE, "" +
+					"showClearButton:true");
 			textField.setForeground(Color.BLACK);
 			textField.addKeyListener(new KeyListener() {
 				// private String buscar = textField.getText();
@@ -514,9 +519,6 @@ public class PanelAdministracion extends JPanel {
 			table.setForeground(Color.WHITE);
 			DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
 			centerRenderer.setHorizontalAlignment(JLabel.CENTER);
-
-			
-			
 
 		}
 		return table;

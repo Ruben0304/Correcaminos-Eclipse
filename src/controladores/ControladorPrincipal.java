@@ -293,8 +293,7 @@ public class ControladorPrincipal {
         } else if (Auth.usuarioAutenticado() instanceof Empleado) {
             if (GestorEmpleados.gestorEmpleados().getGestorSolicitudesEmpleados()
                     .verificarEmpleadoSolicitaAlgo((Empleado) Auth.usuarioAutenticado())) {
-                if (cantidadDeRequisitosEstudiante() == 0 && GestorEmpleados.gestorEmpleados()
-                        .buscarEmpleadoPorCi(((Empleado) Auth.usuarioAutenticado()).getCi()) == null) {
+                if (cantidadDeRequisitosEmpleado() == 0) {
                     JOptionPane.showMessageDialog(null, "Su solicitud está siendo procesada", "Estado de Trámite",
                             JOptionPane.INFORMATION_MESSAGE);
                 } else {

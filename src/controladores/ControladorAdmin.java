@@ -185,6 +185,16 @@ public class ControladorAdmin {
                                 estudiantes));
 
                 break;
+            case Contabilidad:
+                usuariosPendientes
+                        .addAll(gestDep.getContabilidad().getEmpleadosPendientes(empleados));
+
+                break;
+            case RecursosHumanos:
+                usuariosPendientes
+                        .addAll(empleados);
+
+                break;
 
             default:
                 break;
@@ -213,7 +223,6 @@ public class ControladorAdmin {
 
             case AlmacenLibrosDocentes:
                 gestDep.getAlmacenDeLibros().confirmarEntrega(carnet);
-                ;
                 break;
 
             case DireccionBecas:
@@ -230,8 +239,12 @@ public class ControladorAdmin {
                 gestDep.getSeguridadInformatica().cerrarCuenta(carnet);
                 break;
             case RecursosHumanos:
-                if (ControladorPrincipal.cantidadDeRequisitosEstudiante(carnet) == 1) {
+                if (ControladorPrincipal.cantidadDeRequisitosEmpleado(carnet) == 1) {
                     gestDep.getRecursosHumanos().confirmarEntrega(carnet);
+                    if (ControladorPrincipal.cantidadDeRequisitosEmpleado(carnet) == 0) {
+                        GestorEmpleados.gestorEmpleados().getGestorSolicitudesEmpleados().aceptarSolicitud(carnet);
+                    }
+                } else if (ControladorPrincipal.cantidadDeRequisitosEmpleado(carnet) == 0) {
                     GestorEmpleados.gestorEmpleados().getGestorSolicitudesEmpleados().aceptarSolicitud(carnet);
                 } else {
                     JOptionPane.showMessageDialog(null, "No ha cumplido todos los requisitos", "Error de Trámite",
@@ -245,7 +258,7 @@ public class ControladorAdmin {
         }
         Navegacion.reiniciar();
         Navegacion.getInstancia().cuadritoVerdeActualizar("gestion");
-        
+
         mostrarGestionLicencias();
     }
 

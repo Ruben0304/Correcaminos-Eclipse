@@ -19,8 +19,11 @@ import com.formdev.flatlaf.themes.FlatMacDarkLaf;
 
 import javax.swing.JButton;
 import javax.swing.DefaultComboBoxModel;
+
+import raven.toast.Notifications;
 import util.MotivoLicencia;
 import util.MotivoBaja;
+
 import java.awt.event.ActionListener;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
@@ -28,7 +31,9 @@ import java.util.Calendar;
 import java.util.Date;
 import java.awt.event.ActionEvent;
 import java.awt.Rectangle;
+
 import javax.swing.ImageIcon;
+
 import com.toedter.calendar.JDateChooser;
 
 import autenticacion.Auth;
@@ -132,11 +137,11 @@ public class SolicitudesEmpleados extends JPanel {
 				
 				if (fs != null && fr != null) {
 					GestorEmpleados.gestorEmpleados().getGestorSolicitudesEmpleados().crearSolicitudLicencia((MotivoLicencia)cbMotivosLicencia.getSelectedItem(), (Empleado) Auth.usuarioAutenticado(),fs,fr);
-					JOptionPane.showMessageDialog(null, "Su solicitud está siendo procesada", "Estado de Trámite", JOptionPane.INFORMATION_MESSAGE);
+					Notifications.getInstance().show(Notifications.Type.SUCCESS, "Trámite solicitado correctamente");
 					ControladorPrincipal.mostrarInicio();
 				}
 				else {
-					JOptionPane.showMessageDialog(null, "Debe seleccionar una fecha de salida y una de regreso", "Fechas Vacías", JOptionPane.ERROR_MESSAGE);
+					Notifications.getInstance().show(Notifications.Type.ERROR, "Debe seleccionar dos fechas válidas");
 				}
 			}
 		});
@@ -229,6 +234,7 @@ public class SolicitudesEmpleados extends JPanel {
 		btnSolicitarBaja.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				GestorEmpleados.gestorEmpleados().getGestorSolicitudesEmpleados().crearSolicitudBaja((MotivoBaja)cbMotivosBaja.getSelectedItem(), (Empleado) Auth.usuarioAutenticado());
+				Notifications.getInstance().show(Notifications.Type.SUCCESS, "Trámite solicitado correctamente");
 				ControladorPrincipal.mostrarRequisitosEmpleados();
 			}
 		});

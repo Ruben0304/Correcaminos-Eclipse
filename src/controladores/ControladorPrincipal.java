@@ -7,15 +7,15 @@ import java.util.Map;
 
 import javax.swing.JOptionPane;
 
+import raven.toast.Notifications;
 import autenticacion.Auth;
-import modelos.admin.Biblioteca;
-import modelos.admin.Economia;
+import modelos.departamentos.Biblioteca;
+import modelos.departamentos.Economia;
 import modelos.gestion.Correcaminos;
 import modelos.gestion.GestorDepartamentos;
 import modelos.gestion.empleados.GestorEmpleados;
 import modelos.gestion.estudiantes.GestorSolicitudesEstudiante;
 import modelos.gestion.estudiantes.Secretaria;
-
 import modelos.usuarios.Admin;
 import modelos.usuarios.Becado;
 import modelos.usuarios.Empleado;
@@ -26,10 +26,8 @@ import modelos.usuarios.Persona;
 import util.Colores;
 import util.ResponsabilidadesTrabajador;
 import util.TiposResponsabilidad;
-
 import vistas.admin.DepartamentosModelo;
 import vistas.autenticacion.CuentaJP;
-
 import vistas.componentes.Navegacion;
 import vistas.template.Pricipal;
 import vistas.admin.InicioAdmin;
@@ -223,8 +221,7 @@ public class ControladorPrincipal {
         Pricipal instancia = Pricipal.getInstancia();
         if (GestorEmpleados.gestorEmpleados().getGestorSolicitudesEmpleados()
                 .verificarEmpleadoSolicitaLicencia((Empleado) Auth.usuarioAutenticado())) {
-            JOptionPane.showMessageDialog(null, "Su solicitud está siendo procesada", "Estado de Trámite",
-                    JOptionPane.INFORMATION_MESSAGE);
+        	Notifications.getInstance().show(Notifications.Type.SUCCESS, "Su solicitud está siendo procesada");
             ControladorPrincipal.mostrarInicio();
         } else {
 
@@ -281,10 +278,10 @@ public class ControladorPrincipal {
                     .verificarEstudianteSolicitaAlgo((Estudiante) Auth.usuarioAutenticado())) {
                 if (cantidadDeRequisitosEstudiante() == 0 && Secretaria.gestorEstudiantes()
                         .buscarEstudiantePorCi(((Estudiante) Auth.usuarioAutenticado()).getCi()) == null) {
-                    JOptionPane.showMessageDialog(null, "Su solicitud está siendo procesada", "Estado de Trámite",
-                            JOptionPane.INFORMATION_MESSAGE);
+                            Notifications.getInstance().show(Notifications.Type.SUCCESS, "Su solicitud está siendo procesada");
                 } else {
                     mostrarRequisitosBajaEstudiantes();
+                    
                 }
 
             } else {
@@ -294,8 +291,7 @@ public class ControladorPrincipal {
             if (GestorEmpleados.gestorEmpleados().getGestorSolicitudesEmpleados()
                     .verificarEmpleadoSolicitaAlgo((Empleado) Auth.usuarioAutenticado())) {
                 if (cantidadDeRequisitosEmpleado() == 0) {
-                    JOptionPane.showMessageDialog(null, "Su solicitud está siendo procesada", "Estado de Trámite",
-                            JOptionPane.INFORMATION_MESSAGE);
+                    Notifications.getInstance().show(Notifications.Type.SUCCESS, "Su solicitud está siendo procesada");
                 } else {
                     mostrarRequisitosEmpleados();
                 }

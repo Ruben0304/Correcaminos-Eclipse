@@ -5,6 +5,9 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 
+import raven.toast.Notifications;
+import raven.toast.ToastClientProperties;
+
 import javax.management.Notification;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -14,10 +17,13 @@ import javax.swing.JRootPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
-import raven.toast.Notifications;
+
+
 
 import com.formdev.flatlaf.FlatLaf;
+import com.formdev.flatlaf.extras.FlatSVGIcon;
 import com.formdev.flatlaf.fonts.roboto.FlatRobotoFont;
 import com.formdev.flatlaf.themes.FlatMacDarkLaf;
 
@@ -90,7 +96,8 @@ public class Pricipal extends JFrame implements ActionListener {
 
 	public Pricipal() {
 		setTitle("Correcaminos");
-
+		UIManager.put(ToastClientProperties.TOAST_INFO_ICON, new FlatSVGIcon("raven/toast/error.svg"));
+Notifications.getInstance().setJFrame(this);
 		setResizable(false);
 
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Pricipal.class.getResource("/img/spotillo2.png")));
@@ -101,7 +108,7 @@ public class Pricipal extends JFrame implements ActionListener {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		Notifications
+		Notifications.getInstance().show(Notifications.Type.SUCCESS, "Logueado correctamente");
 
 	}
 

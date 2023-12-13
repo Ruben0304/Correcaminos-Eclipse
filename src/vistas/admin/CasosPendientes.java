@@ -16,7 +16,7 @@ import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
 
 import controladores.ControladorAdmin;
-import modelos.admin.Biblioteca;
+import modelos.departamentos.Biblioteca;
 import modelos.gestion.Correcaminos;
 import modelos.usuarios.Estudiante;
 import modelos.usuarios.Persona;

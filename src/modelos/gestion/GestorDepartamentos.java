@@ -1,12 +1,12 @@
 package modelos.gestion;
 
-import modelos.admin.AlmacenDeLibros;
-import modelos.admin.Biblioteca;
-import modelos.admin.Contabilidad;
-import modelos.admin.DireccionDeBecas;
-import modelos.admin.Economia;
-import modelos.admin.RecursosHumanos;
-import modelos.admin.SeguridadInformatica;
+import modelos.departamentos.AlmacenDeLibros;
+import modelos.departamentos.Biblioteca;
+import modelos.departamentos.Contabilidad;
+import modelos.departamentos.DireccionDeBecas;
+import modelos.departamentos.Economia;
+import modelos.departamentos.RecursosHumanos;
+import modelos.departamentos.SeguridadInformatica;
 import modelos.gestion.estudiantes.Secretaria;
 
 public class GestorDepartamentos {

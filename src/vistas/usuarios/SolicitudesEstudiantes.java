@@ -21,11 +21,15 @@ import modelos.usuarios.Estudiante;
 
 import javax.swing.JButton;
 import javax.swing.DefaultComboBoxModel;
+
+import raven.toast.Notifications;
 import util.MotivoLicencia;
 import util.MotivoBaja;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Rectangle;
+
 import javax.swing.ImageIcon;
 
 public class SolicitudesEstudiantes extends JPanel {
@@ -94,6 +98,7 @@ public class SolicitudesEstudiantes extends JPanel {
 		btnSolicitarBaja.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Secretaria.gestorEstudiantes().getGestorSolicitudes().crearSolicitudBaja((MotivoBaja)cbMotivosBaja.getSelectedItem(), (Estudiante) Auth.usuarioAutenticado());
+				Notifications.getInstance().show(Notifications.Type.SUCCESS, "Trámite solicitado correctamente");
 				ControladorPrincipal.mostrarRequisitosBajaEstudiantes();
 			}
 		});
@@ -124,6 +129,7 @@ public class SolicitudesEstudiantes extends JPanel {
 		btnSolicitarLicencia.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Secretaria.gestorEstudiantes().getGestorSolicitudes().crearSolicitudLiciencia((MotivoLicencia)cbMotivosLicencia.getSelectedItem(), (Estudiante) Auth.usuarioAutenticado());
+				Notifications.getInstance().show(Notifications.Type.SUCCESS, "Trámite solicitado correctamente");
 				ControladorPrincipal.mostrarRequisitosBajaEstudiantes();
 			}
 		});

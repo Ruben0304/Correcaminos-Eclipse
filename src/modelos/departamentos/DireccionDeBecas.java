@@ -1,4 +1,4 @@
-package modelos.admin;
+package modelos.departamentos;
 
 import java.util.ArrayList;
 import java.util.HashMap;

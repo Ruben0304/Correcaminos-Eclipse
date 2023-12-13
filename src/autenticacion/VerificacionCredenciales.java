@@ -1,7 +1,7 @@
 package autenticacion;
 
 import interfaces.Autenticable;
-import modelos.admin.SeguridadInformatica;
+import modelos.departamentos.SeguridadInformatica;
 import modelos.gestion.GestorAdmins;
 import modelos.gestion.GestorDepartamentos;
 import modelos.usuarios.Admin;

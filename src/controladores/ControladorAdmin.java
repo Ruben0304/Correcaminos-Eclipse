@@ -7,16 +7,16 @@ import java.util.TreeSet;
 
 import javax.swing.JOptionPane;
 
+import raven.toast.Notifications;
 import autenticacion.Auth;
 import interfaces.Autenticable;
-import modelos.admin.SeguridadInformatica;
+import modelos.departamentos.SeguridadInformatica;
 import modelos.gestion.Correcaminos;
 import modelos.gestion.GestorDepartamentos;
 import modelos.gestion.empleados.GestorEmpleados;
 import modelos.gestion.empleados.GestorSolicitudesEmpleados;
 import modelos.gestion.estudiantes.GestorSolicitudesEstudiante;
 import modelos.gestion.estudiantes.Secretaria;
-
 import modelos.usuarios.Admin;
 import modelos.usuarios.Empleado;
 import modelos.usuarios.Estudiante;
@@ -214,9 +214,9 @@ public class ControladorAdmin {
             case Secretaria:
                 if (ControladorPrincipal.cantidadDeRequisitosEstudiante(carnet) == 0) {
                     Secretaria.gestorEstudiantes().getGestorSolicitudes().aceptarSolicitud(carnet);
+                    Notifications.getInstance().show(Notifications.Type.SUCCESS, "Solicitud aceptada");
                 } else {
-                    JOptionPane.showMessageDialog(null, "No ha cumplido todos los requisitos", "Error de Trámite",
-                            JOptionPane.ERROR_MESSAGE);
+                    Notifications.getInstance().show(Notifications.Type.ERROR, "No ha cumplido todos los requisitos");
                 }
 
                 break;
@@ -243,12 +243,13 @@ public class ControladorAdmin {
                     gestDep.getRecursosHumanos().confirmarEntrega(carnet);
                     if (ControladorPrincipal.cantidadDeRequisitosEmpleado(carnet) == 0) {
                         GestorEmpleados.gestorEmpleados().getGestorSolicitudesEmpleados().aceptarSolicitud(carnet);
+                        Notifications.getInstance().show(Notifications.Type.SUCCESS, "Solicitud aceptada");
                     }
                 } else if (ControladorPrincipal.cantidadDeRequisitosEmpleado(carnet) == 0) {
                     GestorEmpleados.gestorEmpleados().getGestorSolicitudesEmpleados().aceptarSolicitud(carnet);
+                    Notifications.getInstance().show(Notifications.Type.SUCCESS, "Solicitud aceptada");
                 } else {
-                    JOptionPane.showMessageDialog(null, "No ha cumplido todos los requisitos", "Error de Trámite",
-                            JOptionPane.ERROR_MESSAGE);
+                    Notifications.getInstance().show(Notifications.Type.ERROR, "No ha cumplido todos los requisitos");
                 }
 
                 break;

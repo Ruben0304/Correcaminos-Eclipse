@@ -108,7 +108,7 @@ Notifications.getInstance().setJFrame(this);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		Notifications.getInstance().show(Notifications.Type.SUCCESS, "Logueado correctamente");
+
 
 	}
 

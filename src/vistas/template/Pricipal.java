@@ -20,8 +20,6 @@ import javax.swing.JTextField;
 import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
 
-
-
 import com.formdev.flatlaf.FlatLaf;
 import com.formdev.flatlaf.extras.FlatSVGIcon;
 import com.formdev.flatlaf.fonts.roboto.FlatRobotoFont;
@@ -84,20 +82,20 @@ public class Pricipal extends JFrame implements ActionListener {
 		contentPane.removeAll();
 		contentPane.add(Navegacion.getInstancia());
 		if (!(panel instanceof PanelAdministracion || panel instanceof CuentaJP)) {
-			 panel.add(LabelUsuario.usuario());
+			panel.add(LabelUsuario.usuario());
 		}
-       
-		contentPane.add(panel);
 		
+		contentPane.add(new ChatFrame());
+
 		repaint();
 		revalidate();
-		
+
 	}
 
 	public Pricipal() {
 		setTitle("Correcaminos");
 		UIManager.put(ToastClientProperties.TOAST_INFO_ICON, new FlatSVGIcon("raven/toast/error.svg"));
-Notifications.getInstance().setJFrame(this);
+		Notifications.getInstance().setJFrame(this);
 		setResizable(false);
 
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Pricipal.class.getResource("/img/spotillo2.png")));
@@ -108,7 +106,6 @@ Notifications.getInstance().setJFrame(this);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-
 
 	}
 

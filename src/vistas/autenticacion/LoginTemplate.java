@@ -77,7 +77,7 @@ public class LoginTemplate extends JFrame {
 	 * Create the frame.
 	 */
 	public LoginTemplate() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(LoginTemplate.class.getResource("/img/correcamino.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(LoginTemplate.class.getResource("/img/spotillo2.png")));
 
 		// FlatRobotoFont.install();
 		// UIManager.put("defaultFont", new Font(FlatLaf.S,Font.PLAIN,13));

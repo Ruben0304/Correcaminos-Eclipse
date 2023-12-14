@@ -40,9 +40,9 @@ public class GestorSolicitudesEstudianteTestCase {
 	@Test
 	public void testVerificarEstudianteSolicitaAlgoCP2() {
 		
-		Becado estudiante = new Becado("01010561846","Itzan","Escamilla","Gonzalez",Facultad.Ing_Informatica,1,TipoCurso.DIURNO,"Ingenieria Informatica",11, "12949", 305);
+		Becado estudiante2 = new Becado("01010561111","Itzan","Escamilla","Gonzalez",Facultad.Ing_Informatica,1,TipoCurso.DIURNO,"Ingenieria Informatica",11, "12949", 305);
 		
-		assertFalse(s.getGestorSolicitudes().verificarEstudianteSolicitaAlgo(estudiante));
+		assertFalse(s.getGestorSolicitudes().verificarEstudianteSolicitaAlgo(estudiante2));
 		
 	}
 		

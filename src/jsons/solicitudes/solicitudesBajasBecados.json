@@ -148,34 +148,6 @@
             "motivo": "Accidente"
         }
         ]
-    ],
-    [
-        {
-            "curso": 1,
-            "tipoCurso": "DIURNO",
-            "carrera": "Ingenieria Informatica",
-            "grupo": 11,
-            "ci": "01010561846",
-            "nombre": "Itzan",
-            "primer_apellido": "Escamilla",
-            "segundo_apellido": "Gonzalez",
-            "facultad": "Ing_Informatica",
-            "idBecado": "12949",
-            "noCuarto": 305
-        },
-        [{
-            "id": 6,
-            "estado": "PENDIENTE",
-            "fecha": {
-                "year": 2023,
-                "month": 9,
-                "dayOfMonth": 5,
-                "hourOfDay": 12,
-                "minute": 0,
-                "second": 0
-            },
-            "motivo": "Enfermedad"
-        }
-        ]
     ]
+    
 ]

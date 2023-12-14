@@ -53,6 +53,7 @@ public class DepartamentosModelo extends JPanel {
 	protected JScrollPane scrollPane;
 	protected JButton btnConfirmarEntrega;
 	protected ImageIcon iDimAux, iMinimizar, iCerrar;
+	private JButton button;
 
 	/**
 	 * Launch the application.
@@ -158,6 +159,13 @@ public class DepartamentosModelo extends JPanel {
 			}
 		});
 		panelContenedor.add(btnConfirmarEntrega);
+		
+		button = new JButton("Confirmar entrega");
+		button.setForeground(Color.WHITE);
+		button.setFont(new Font("Segoe UI", Font.PLAIN, 18));
+		button.setBackground(new Color(176, 196, 222));
+		button.setBounds(443, 609, 196, 43);
+		panelContenedor.add(button);
 
 		if (((Admin) Auth.usuarioAutenticado()).getTipoDepartamento().equals(TipoDepartamento.AlmacenLibrosDocentes)
 				|| ((Admin) Auth.usuarioAutenticado()).getTipoDepartamento().equals(TipoDepartamento.Biblioteca)

@@ -17,7 +17,7 @@ public class Secretaria {
 
     public Secretaria() {
         estudiantes = new ArrayList<>();
-        // registrarEstudiantes();
+        registrarEstudiantes();
         gestorSolicitudes = new GestorSolicitudesEstudiante(estudiantes);
     }
 

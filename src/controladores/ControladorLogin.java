@@ -17,6 +17,7 @@ import vistas.template.Pricipal;
 public class ControladorLogin {
 
     public static void mostrarLogin() {
+       
         LoginTemplate frame = new LoginTemplate();
         if (Session.obtenerSession() != null) {
             Credenciales c = Session.obtenerSession();

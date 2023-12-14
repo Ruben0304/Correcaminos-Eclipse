@@ -38,13 +38,40 @@ public class GestorSolicitudesEmpleados {
         return solicitudesEmpleados;
     }
 
+    public boolean verificarEstudianteSolicitaCancelacion(Estudiante e) {
+        boolean solicita = false;
+        for (Map.Entry<Estudiante, Set<Solicitud>> solicitud : solicitudes.entrySet()) {
+
+            Estudiante estudiante = solicitud.getKey();
+            Set<Solicitud> listaSolicitudes = solicitud.getValue();
+            if (estudiante.getCi().equals(e.getCi())) {
+                for (Solicitud s : listaSolicitudes) {
+                    if (s.getEstado().equals(Estado.SOLICITACANCELACION)) {
+                        solicita = true;
+                    }
+                }
+
+            }
+
+        }
+        System.out.println(solicita);
+        return solicita;
+    }
+
     public boolean verificarEmpleadoSolicitaAlgo(Empleado e) {
         boolean solicita = false;
-        if (solicitudesEmpleados.containsKey(e)) {
-            for (Solicitud s : solicitudesEmpleados.get(e)) {
-                if (s.getEstado().equals(Estado.PENDIENTE)) {
-                    solicita = true;
+
+        for (Map.Entry<Empleado, Set<Solicitud>> solicitud : solicitudesEmpleados.entrySet()) {
+
+            Empleado estudiante = solicitud.getKey();
+            Set<Solicitud> listaSolicitudes = solicitud.getValue();
+            if (estudiante.getCi().equals(e.getCi())) {
+                for (Solicitud s : listaSolicitudes) {
+                    if (s.getEstado().equals(Estado.PENDIENTE)) {
+                        solicita = true;
+                    }
                 }
+
             }
 
         }
@@ -53,13 +80,20 @@ public class GestorSolicitudesEmpleados {
 
     }
 
-     public boolean verificarEmpleadoSolicitaCancelacion(Empleado e) {
+    public boolean verificarEmpleadoSolicitaCancelacion(Empleado e) {
         boolean solicita = false;
-        if (solicitudesEmpleados.containsKey(e)) {
-            for (Solicitud s : solicitudesEmpleados.get(e)) {
-                if (s.getEstado().equals(Estado.SOLICITACANCELACION)) {
-                    solicita = true;
+
+        for (Map.Entry<Empleado, Set<Solicitud>> solicitud : solicitudesEmpleados.entrySet()) {
+
+            Empleado estudiante = solicitud.getKey();
+            Set<Solicitud> listaSolicitudes = solicitud.getValue();
+            if (estudiante.getCi().equals(e.getCi())) {
+                for (Solicitud s : listaSolicitudes) {
+                    if (s.getEstado().equals(Estado.SOLICITACANCELACION)) {
+                        solicita = true;
+                    }
                 }
+
             }
 
         }
@@ -131,7 +165,7 @@ public class GestorSolicitudesEmpleados {
 
     public void aceptarSolicitud(String e) {
 
-       List<Empleado> empleados = new ArrayList<>(solicitudesEmpleados.keySet());
+        List<Empleado> empleados = new ArrayList<>(solicitudesEmpleados.keySet());
 
         for (int i = 0; i < empleados.size(); i++) {
             Empleado est = empleados.get(i);
@@ -148,7 +182,7 @@ public class GestorSolicitudesEmpleados {
 
     public void cambiarEstadoSolicitud(String e, Estado estado) {
 
-       List<Empleado> empleados = new ArrayList<>(solicitudesEmpleados.keySet());
+        List<Empleado> empleados = new ArrayList<>(solicitudesEmpleados.keySet());
 
         for (int i = 0; i < empleados.size(); i++) {
             Empleado est = empleados.get(i);

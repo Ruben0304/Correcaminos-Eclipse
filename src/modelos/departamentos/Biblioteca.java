@@ -61,7 +61,11 @@ public class Biblioteca implements VerificadorEstudiante, VerificadorEmpleado, A
 
     }
 
-    @Override
+    public HashMap<String, Set<String>> getPersonasConLibrosBiblioteca() {
+		return personasConLibrosBiblioteca;
+	}
+
+	@Override
     public ArrayList<Empleado> getEmpleadosPendientes(ArrayList<Empleado> empleadosSolicitudesPendientes) {
 
         ArrayList<Empleado> nombresEmpleados = new ArrayList<>();

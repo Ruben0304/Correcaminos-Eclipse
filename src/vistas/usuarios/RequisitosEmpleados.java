@@ -10,6 +10,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import autenticacion.Auth;
+import controladores.ControladorPrincipal;
 import modelos.gestion.GestorDepartamentos;
 import modelos.usuarios.Becado;
 import modelos.usuarios.Empleado;
@@ -20,6 +21,8 @@ import vistas.template.Pricipal;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class RequisitosEmpleados extends JPanel {
 
@@ -345,6 +348,11 @@ public class RequisitosEmpleados extends JPanel {
 	public JButton getButton() {
 		if (button == null) {
 			button = new JButton("Solicitar cancelación de trámite");
+			button.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					ControladorPrincipal.solicitarCancelacion();
+				}
+			});
 			button.setForeground(Color.WHITE);
 			button.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 18));
 			button.setBackground(new Color(221, 78, 94));

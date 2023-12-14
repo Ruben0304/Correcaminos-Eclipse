@@ -24,6 +24,7 @@ import modelos.usuarios.Persona;
 
 
 import util.Colores;
+import util.Estado;
 import util.ResponsabilidadesTrabajador;
 import util.TiposResponsabilidad;
 import vistas.admin.DepartamentosModelo;
@@ -313,7 +314,31 @@ public class ControladorPrincipal {
                 .verificarEstudianteSolicitaAlgo((Estudiante) Auth.usuarioAutenticado()))
                 || (Auth.usuarioAutenticado() instanceof Empleado
                         && GestorEmpleados.gestorEmpleados().getGestorSolicitudesEmpleados()
-                                .verificarEmpleadoSolicitaAlgo((Empleado) Auth.usuarioAutenticado()));
+                                .verificarEmpleadoSolicitaCancelacion((Empleado) Auth.usuarioAutenticado()));
+    }
+
+    public static boolean verificarPersonaSolicitaCancelacion() {
+
+        return (Auth.usuarioAutenticado() instanceof Estudiante && Secretaria.gestorEstudiantes().getGestorSolicitudes()
+                .verificarEstudianteSolicitaCancelacion((Estudiante) Auth.usuarioAutenticado()))
+                || (Auth.usuarioAutenticado() instanceof Empleado
+                        && GestorEmpleados.gestorEmpleados().getGestorSolicitudesEmpleados()
+                                .verificarEmpleadoSolicitaCancelacion((Empleado) Auth.usuarioAutenticado()));
+    }
+
+
+    public static void solicitarCancelacion(){
+        if (Auth.usuarioAutenticado() instanceof Estudiante) {
+            Secretaria.gestorEstudiantes().getGestorSolicitudes().cambiarEstadoSolicitud(((Estudiante)Auth.usuarioAutenticado()).getCi(), Estado.SOLICITACANCELACION);
+        }
+         if (Auth.usuarioAutenticado() instanceof Empleado) {
+        
+          GestorEmpleados.gestorEmpleados().getGestorSolicitudesEmpleados().cambiarEstadoSolicitud(((Empleado)Auth.usuarioAutenticado()).getCi(), Estado.SOLICITACANCELACION);
+        }
+        Navegacion.reiniciar();
+
+        mostrarInicio();
+
     }
 
 }

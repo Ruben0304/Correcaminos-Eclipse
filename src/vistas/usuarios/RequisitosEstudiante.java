@@ -10,6 +10,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import autenticacion.Auth;
+import controladores.ControladorPrincipal;
 import modelos.gestion.GestorDepartamentos;
 import modelos.usuarios.Becado;
 import modelos.usuarios.Estudiante;
@@ -18,6 +19,9 @@ import util.TiposResponsabilidad;
 import vistas.template.Pricipal;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class RequisitosEstudiante extends JPanel {
 
@@ -47,6 +51,7 @@ public class RequisitosEstudiante extends JPanel {
 	private HashMap<TiposResponsabilidad, Boolean> requisitos;
 	private JLabel lblVerRestantes;
 	private JLabel label;
+	private JButton btnSolicitarCancelacinDe;
 
 	private RequisitosEstudiante(HashMap<TiposResponsabilidad, Boolean> requisitos) {
 
@@ -91,6 +96,7 @@ public class RequisitosEstudiante extends JPanel {
 			}
 
 			panel_RequisitosEstud.add(getLblEntregadoTodosLos_1());
+			panel_RequisitosEstud.add(getBtnSolicitarCancelacinDe());
 
 			if (Auth.usuarioAutenticado() instanceof Becado) {
 				panel_RequisitosEstud.add(getLabel_11());
@@ -354,5 +360,20 @@ public class RequisitosEstudiante extends JPanel {
 			label.setBounds(546, 391, 225, 54);
 		}
 		return label;
+	}
+	public JButton getBtnSolicitarCancelacinDe() {
+		if (btnSolicitarCancelacinDe == null) {
+			btnSolicitarCancelacinDe = new JButton("Solicitar cancelación de trámite");
+			btnSolicitarCancelacinDe.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					ControladorPrincipal.solicitarCancelacion();
+				}
+			});
+			btnSolicitarCancelacinDe.setForeground(Color.WHITE);
+			btnSolicitarCancelacinDe.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 18));
+			btnSolicitarCancelacinDe.setBackground(new Color(221, 78, 94));
+			btnSolicitarCancelacinDe.setBounds(565, 600, 332, 54);
+		}
+		return btnSolicitarCancelacinDe;
 	}
 }

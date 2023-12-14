@@ -1,5 +1,6 @@
 package modelos.usuarios;
 
+import java.util.Objects;
 
 public abstract class Empleado extends Persona{
     protected String numerotrabajador;
@@ -19,7 +20,14 @@ public abstract class Empleado extends Persona{
 	
 	
 	
-	
+	@Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Empleado that = (Empleado) o;
+        return Objects.equals(ci, that.ci);
+               
+    }
 	
     
     

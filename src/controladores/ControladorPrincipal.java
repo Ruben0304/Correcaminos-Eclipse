@@ -284,6 +284,7 @@ public class ControladorPrincipal {
                 Notifications.getInstance().show(Notifications.Type.SUCCESS,
                         "Espere respuesta de su petición de cancelación");
                 ControladorPrincipal.mostrarInicio();
+                Navegacion.reiniciar();
             } else {
                 if (Secretaria.gestorEstudiantes().getGestorSolicitudes()
                         .verificarEstudianteSolicitaAlgo((Estudiante) Auth.usuarioAutenticado())) {

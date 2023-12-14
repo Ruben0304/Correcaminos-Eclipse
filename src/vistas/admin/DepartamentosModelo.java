@@ -21,6 +21,7 @@ import controladores.ControladorAdmin;
 import modelos.gestion.estudiantes.Secretaria;
 import modelos.usuarios.Admin;
 import modelos.usuarios.Persona;
+import raven.toast.Notifications;
 import util.Estado;
 import util.TipoDepartamento;
 import util.modelos.DepartamentoVerificadorLibrosTableModel;
@@ -177,7 +178,7 @@ public class DepartamentosModelo extends JPanel {
 						String carnet = table.getValueAt(selectedRow, 0).toString();
 						Secretaria.gestorEstudiantes().getGestorSolicitudes().cambiarEstadoSolicitud(carnet,
 								Estado.CANCELADO);
-						System.out.println(carnet);
+						Notifications.getInstance().show(Notifications.Type.SUCCESS,"Trámite cancelado correctamente");
 								ControladorAdmin.mostrarGestionLicencias();
 					}
 				}

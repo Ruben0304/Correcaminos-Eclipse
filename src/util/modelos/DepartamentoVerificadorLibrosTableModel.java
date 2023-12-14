@@ -9,6 +9,7 @@ import javax.swing.table.DefaultTableModel;
 
 import autenticacion.Auth;
 import controladores.ControladorPrincipal;
+import modelos.gestion.estudiantes.Secretaria;
 import modelos.usuarios.Admin;
 import modelos.usuarios.Becado;
 import modelos.usuarios.Empleado;
@@ -46,9 +47,9 @@ public class DepartamentoVerificadorLibrosTableModel extends DefaultTableModel {
 
 	}
 
-	public DepartamentoVerificadorLibrosTableModel(ArrayList<Persona> personas, boolean Secretaria) {
+	public DepartamentoVerificadorLibrosTableModel(ArrayList<Persona> personas, boolean Secretario) {
 		HashMap<TiposResponsabilidad, Boolean> requisitos = new HashMap<>();
-		String[] columnNames = { "Carnet de Identidad", "Nombre", "Apellidos", "B", "AL", "E", "DB", "SI" };
+		String[] columnNames = { "Carnet de Identidad", "Nombre", "Apellidos", "B", "AL", "E", "DB", "SI" ,"SC"};
 		this.setColumnIdentifiers(columnNames);
 		for (Persona e : personas) {
 			requisitos = ControladorPrincipal.obtenerRequisitosEstudiante((Estudiante) e);
@@ -58,7 +59,7 @@ public class DepartamentoVerificadorLibrosTableModel extends DefaultTableModel {
 					requisitos.get(TiposResponsabilidad.ESTIPENDIO) ? "P" : "A",
 					e instanceof Becado ? (requisitos.get(TiposResponsabilidad.PERTENENCIAS_BECA) ? "P" : "A")
 							: "A",
-					requisitos.get(TiposResponsabilidad.CUENTA_USUARIO) ? "P" : "A" };
+					requisitos.get(TiposResponsabilidad.CUENTA_USUARIO) ? "P" : "A",Secretaria.gestorEstudiantes().getGestorSolicitudes().verificarEstudianteSolicitaCancelacion((Estudiante)e) ? "Si" : "No" };
 			addRow(newRow);
 		}
 

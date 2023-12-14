@@ -53,6 +53,21 @@ public class GestorSolicitudesEmpleados {
 
     }
 
+     public boolean verificarEmpleadoSolicitaCancelacion(Empleado e) {
+        boolean solicita = false;
+        if (solicitudesEmpleados.containsKey(e)) {
+            for (Solicitud s : solicitudesEmpleados.get(e)) {
+                if (s.getEstado().equals(Estado.SOLICITACANCELACION)) {
+                    solicita = true;
+                }
+            }
+
+        }
+
+        return solicita;
+
+    }
+
     public boolean verificarEmpleadoSolicitaLicencia(Empleado e) {
         boolean solicita = false;
         if (solicitudesEmpleados.containsKey(e)) {

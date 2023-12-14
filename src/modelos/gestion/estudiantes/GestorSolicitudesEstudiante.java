@@ -124,4 +124,21 @@ public class GestorSolicitudesEstudiante {
         }
     }
 
+    public void cambiarEstadoSolicitud(String e, Estado estado) {
+
+        List<Estudiante> estudiantes = new ArrayList<>(solicitudes.keySet());
+
+        for (int i = 0; i < estudiantes.size(); i++) {
+            Estudiante est = estudiantes.get(i);
+
+            if (est.getCi().equals(e)) {
+                for (Solicitud s : solicitudes.get(est)) {
+                    if (s.getEstado().equals(Estado.PENDIENTE)) {
+                        s.setEstado(estado);
+                    }
+                }
+            }
+        }
+    }
+
 }

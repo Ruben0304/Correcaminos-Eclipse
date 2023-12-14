@@ -19,6 +19,7 @@ import util.TiposResponsabilidad;
 import vistas.template.Pricipal;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.JButton;
 
 public class RequisitosEmpleados extends JPanel {
 
@@ -49,6 +50,7 @@ public class RequisitosEmpleados extends JPanel {
 	private HashMap<ResponsabilidadesTrabajador, Boolean> requisitos;
 	private JLabel lblVerRestante;
 	private JLabel lblVerRestantes;
+	private JButton button;
 
 	private RequisitosEmpleados(HashMap<ResponsabilidadesTrabajador, Boolean> requisitos) {
 
@@ -81,6 +83,7 @@ public class RequisitosEmpleados extends JPanel {
 			panel_RequisitosEmpl.add(getLblAlmacenDeLibros());
 			panel_RequisitosEmpl.add(getLabel_7());
 			panel_RequisitosEmpl.add(getLblEntregadoTodosLos_1());
+			panel_RequisitosEmpl.add(getButton());
 			if (requisitos.get(ResponsabilidadesTrabajador.DEUDA)) {
 				panel_RequisitosEmpl.add(getLblVerRestante());
 			}
@@ -338,5 +341,15 @@ public class RequisitosEmpleados extends JPanel {
 			lblVerRestantes.setBounds(99, 259, 225, 35);
 		}
 		return lblVerRestantes;
+	}
+	public JButton getButton() {
+		if (button == null) {
+			button = new JButton("Solicitar cancelación de trámite");
+			button.setForeground(Color.WHITE);
+			button.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 18));
+			button.setBackground(new Color(221, 78, 94));
+			button.setBounds(295, 589, 332, 54);
+		}
+		return button;
 	}
 }

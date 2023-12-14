@@ -131,4 +131,21 @@ public class GestorSolicitudesEmpleados {
         }
     }
 
+    public void cambiarEstadoSolicitud(String e, Estado estado) {
+
+       List<Empleado> empleados = new ArrayList<>(solicitudesEmpleados.keySet());
+
+        for (int i = 0; i < empleados.size(); i++) {
+            Empleado est = empleados.get(i);
+
+            if (est.getCi().equals(e)) {
+                for (Solicitud s : solicitudesEmpleados.get(est)) {
+                    if (s.getEstado().equals(Estado.PENDIENTE)) {
+                        s.setEstado(estado);
+                    }
+                }
+            }
+        }
+    }
+
 }

@@ -10,6 +10,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import autenticacion.Auth;
+import controladores.ControladorPrincipal;
 import modelos.gestion.GestorDepartamentos;
 import modelos.usuarios.Becado;
 import modelos.usuarios.Estudiante;
@@ -365,12 +366,13 @@ public class RequisitosEstudiante extends JPanel {
 			btnSolicitarCancelacinDe = new JButton("Solicitar cancelación de trámite");
 			btnSolicitarCancelacinDe.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
+					ControladorPrincipal.solicitarCancelacion();
 				}
 			});
 			btnSolicitarCancelacinDe.setForeground(Color.WHITE);
 			btnSolicitarCancelacinDe.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 18));
 			btnSolicitarCancelacinDe.setBackground(new Color(221, 78, 94));
-			btnSolicitarCancelacinDe.setBounds(581, 600, 332, 54);
+			btnSolicitarCancelacinDe.setBounds(565, 600, 332, 54);
 		}
 		return btnSolicitarCancelacinDe;
 	}

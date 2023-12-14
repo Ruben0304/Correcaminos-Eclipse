@@ -42,15 +42,21 @@ public class GestorSolicitudesEstudiante {
 
     public boolean verificarEstudianteSolicitaAlgo(Estudiante e) {
         boolean solicita = false;
-        if (solicitudes.containsKey(e)) {
-            for (Solicitud s : solicitudes.get(e)) {
-                if (s.getEstado().equals(Estado.PENDIENTE)) {
-                    solicita = true;
+        for (Map.Entry<Estudiante, Set<Solicitud>> solicitud : solicitudes.entrySet()) {
+
+            Estudiante estudiante = solicitud.getKey();
+            Set<Solicitud> listaSolicitudes = solicitud.getValue();
+            if (estudiante.getCi().equals(e.getCi())) {
+                for (Solicitud s : listaSolicitudes) {
+                    if (s.getEstado().equals(Estado.PENDIENTE)) {
+                        solicita = true;
+                    }
                 }
+
             }
 
         }
-
+        System.out.println(solicita);
         return solicita;
     }
 
@@ -102,7 +108,7 @@ public class GestorSolicitudesEstudiante {
     }
 
     public void aceptarSolicitud(String e) {
-        
+
         List<Estudiante> estudiantes = new ArrayList<>(solicitudes.keySet());
 
         for (int i = 0; i < estudiantes.size(); i++) {

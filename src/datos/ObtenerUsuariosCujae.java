@@ -9,6 +9,7 @@ import java.util.HashMap;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+import modelos.usuarios.Becado;
 import modelos.usuarios.Credenciales;
 import modelos.usuarios.Docente;
 import modelos.usuarios.Estudiante;
@@ -22,6 +23,7 @@ public class ObtenerUsuariosCujae {
 		Gson gson = new Gson();
 	 	HashMap<Credenciales, Persona> usuarios = new HashMap<>();
 	 	HashMap<Credenciales, Persona> cuentaEstudiantes = new HashMap<>();
+        HashMap<Credenciales, Persona> cuentaEstudiantesBecados = new HashMap<>();
 	 	HashMap<Credenciales, Persona> cuentaDocentes = new HashMap<>();
 	 	HashMap<Credenciales, Persona> cuentaNoDocentes = new HashMap<>();
 
@@ -48,11 +50,20 @@ public class ObtenerUsuariosCujae {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        try (BufferedReader reader = new BufferedReader(new FileReader("./jsons/usuarios/usuariosBecados.json"))) {
+            Type listType = new TypeToken<HashMap<Credenciales, Becado>>() {
+            }.getType();
+            cuentaEstudiantesBecados = gson.fromJson(reader, listType);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         
 
         usuarios.putAll(cuentaDocentes);
         usuarios.putAll(cuentaNoDocentes);
         usuarios.putAll(cuentaEstudiantes);
+        usuarios.putAll(cuentaEstudiantesBecados);
         return usuarios;
         
 	}

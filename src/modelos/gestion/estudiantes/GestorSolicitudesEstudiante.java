@@ -153,7 +153,7 @@ public class GestorSolicitudesEstudiante {
 
             if (est.getCi().equals(e)) {
                 for (Solicitud s : solicitudes.get(est)) {
-                    if (s.getEstado().equals(Estado.PENDIENTE)) {
+                    if (s.getEstado().equals(Estado.PENDIENTE) || s.getEstado().equals(Estado.SOLICITACANCELACION)) {
                         s.setEstado(estado);
                     }
                 }

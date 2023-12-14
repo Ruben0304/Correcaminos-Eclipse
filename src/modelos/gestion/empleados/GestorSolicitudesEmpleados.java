@@ -170,7 +170,7 @@ public class GestorSolicitudesEmpleados {
 
             if (est.getCi().equals(e)) {
                 for (Solicitud s : solicitudesEmpleados.get(est)) {
-                    if (s.getEstado().equals(Estado.PENDIENTE)) {
+                    if (s.getEstado().equals(Estado.PENDIENTE) || s.getEstado().equals(Estado.PENDIENTE)) {
                         s.setEstado(estado);
                     }
                 }

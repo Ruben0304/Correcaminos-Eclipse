@@ -164,19 +164,20 @@ public class DepartamentosModelo extends JPanel {
 		});
 		panelContenedor.add(btnConfirmarEntrega);
 
-		button = new JButton("Confirmar entrega");
+		button = new JButton("Confirmar cancelación");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				int respuesta = JOptionPane.showConfirmDialog(null,
 						"¿Estás seguro que desea ejecutar esta acción?",
 						"Confirmación",
 						JOptionPane.YES_NO_OPTION);
-				if (respuesta == 1) {
+				if (respuesta == 0) {
 					int selectedRow = table.getSelectedRow();
 					if (selectedRow != -1) {
 						String carnet = table.getValueAt(selectedRow, 0).toString();
 						Secretaria.gestorEstudiantes().getGestorSolicitudes().cambiarEstadoSolicitud(carnet,
 								Estado.CANCELADO);
+						System.out.println(carnet);
 								ControladorAdmin.mostrarGestionLicencias();
 					}
 				}
@@ -186,7 +187,7 @@ public class DepartamentosModelo extends JPanel {
 		button.setForeground(Color.WHITE);
 		button.setFont(new Font("Segoe UI", Font.PLAIN, 18));
 		button.setBackground(new Color(176, 196, 222));
-		button.setBounds(443, 609, 196, 43);
+		button.setBounds(420, 609, 219, 43);
 		panelContenedor.add(button);
 
 		if (((Admin) Auth.usuarioAutenticado()).getTipoDepartamento().equals(TipoDepartamento.AlmacenLibrosDocentes)

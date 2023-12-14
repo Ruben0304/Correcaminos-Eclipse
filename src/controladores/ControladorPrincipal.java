@@ -329,7 +329,7 @@ public class ControladorPrincipal {
                 .verificarEstudianteSolicitaAlgo((Estudiante) Auth.usuarioAutenticado()))
                 || (Auth.usuarioAutenticado() instanceof Empleado
                         && GestorEmpleados.gestorEmpleados().getGestorSolicitudesEmpleados()
-                                .verificarEmpleadoSolicitaCancelacion((Empleado) Auth.usuarioAutenticado()));
+                                .verificarEmpleadoSolicitaAlgo((Empleado) Auth.usuarioAutenticado()));
     }
 
     public static boolean verificarPersonaSolicitaCancelacion() {

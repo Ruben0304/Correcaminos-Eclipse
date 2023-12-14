@@ -59,7 +59,7 @@ public class DepartamentoVerificadorLibrosTableModel extends DefaultTableModel {
 					requisitos.get(TiposResponsabilidad.ESTIPENDIO) ? "P" : "A",
 					e instanceof Becado ? (requisitos.get(TiposResponsabilidad.PERTENENCIAS_BECA) ? "P" : "A")
 							: "A",
-					requisitos.get(TiposResponsabilidad.CUENTA_USUARIO) ? "P" : "A",Secretaria.gestorEstudiantes().getGestorSolicitudes().verificarEstudianteSolicitaCancelacion((Estudiante)e) ? "Si" : "No" };
+					requisitos.get(TiposResponsabilidad.CUENTA_USUARIO) ? "P" : "A",Secretaria.gestorEstudiantes().getGestorSolicitudes().verificarEstudianteSolicitaCancelacion((Estudiante)e) ? "Sí" : "No" };
 			addRow(newRow);
 		}
 

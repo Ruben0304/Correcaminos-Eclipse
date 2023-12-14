@@ -314,7 +314,16 @@ public class ControladorPrincipal {
                 .verificarEstudianteSolicitaAlgo((Estudiante) Auth.usuarioAutenticado()))
                 || (Auth.usuarioAutenticado() instanceof Empleado
                         && GestorEmpleados.gestorEmpleados().getGestorSolicitudesEmpleados()
-                                .verificarEmpleadoSolicitaAlgo((Empleado) Auth.usuarioAutenticado()));
+                                .verificarEmpleadoSolicitaCancelacion((Empleado) Auth.usuarioAutenticado()));
+    }
+
+    public static boolean verificarPersonaSolicitaCancelacion() {
+
+        return (Auth.usuarioAutenticado() instanceof Estudiante && Secretaria.gestorEstudiantes().getGestorSolicitudes()
+                .verificarEstudianteSolicitaAlgo((Estudiante) Auth.usuarioAutenticado()))
+                || (Auth.usuarioAutenticado() instanceof Empleado
+                        && GestorEmpleados.gestorEmpleados().getGestorSolicitudesEmpleados()
+                                .verificarEmpleadoSolicitaCancelacion((Empleado) Auth.usuarioAutenticado()));
     }
 
     public static void solicitarCancelacion(){
@@ -326,7 +335,7 @@ public class ControladorPrincipal {
           GestorEmpleados.gestorEmpleados().getGestorSolicitudesEmpleados().cambiarEstadoSolicitud(((Empleado)Auth.usuarioAutenticado()).getCi(), Estado.SOLICITACANCELACION);
         }
         Navegacion.reiniciar();
-        
+
         mostrarInicio();
 
     }

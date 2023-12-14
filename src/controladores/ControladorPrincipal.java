@@ -283,9 +283,9 @@ public class ControladorPrincipal {
                     .verificarEstudianteSolicitaCancelacion((Estudiante) Auth.usuarioAutenticado())) {
                 Notifications.getInstance().show(Notifications.Type.SUCCESS,
                         "Espere respuesta de su petición de cancelación");
-                          Navegacion.reiniciar();
+                Navegacion.reiniciar();
                 ControladorPrincipal.mostrarInicio();
-              
+
             } else {
                 if (Secretaria.gestorEstudiantes().getGestorSolicitudes()
                         .verificarEstudianteSolicitaAlgo((Estudiante) Auth.usuarioAutenticado())) {
@@ -305,16 +305,27 @@ public class ControladorPrincipal {
 
         } else if (Auth.usuarioAutenticado() instanceof Empleado) {
             if (GestorEmpleados.gestorEmpleados().getGestorSolicitudesEmpleados()
-                    .verificarEmpleadoSolicitaAlgo((Empleado) Auth.usuarioAutenticado())) {
-                if (cantidadDeRequisitosEmpleado() == 0) {
-                    Notifications.getInstance().show(Notifications.Type.SUCCESS, "Su solicitud está siendo procesada");
-                } else {
-                    mostrarRequisitosEmpleados();
-                }
+                    .verificarEmpleadoSolicitaCancelacion((Empleado) Auth.usuarioAutenticado())) {
+                Notifications.getInstance().show(Notifications.Type.SUCCESS,
+                        "Espere respuesta de su petición de cancelación");
+                Navegacion.reiniciar();
+                ControladorPrincipal.mostrarInicio();
 
             } else {
-                instancia.setVista(new SolicitudesEmpleados());
+                if (GestorEmpleados.gestorEmpleados().getGestorSolicitudesEmpleados()
+                        .verificarEmpleadoSolicitaAlgo((Empleado) Auth.usuarioAutenticado())) {
+                    if (cantidadDeRequisitosEmpleado() == 0) {
+                        Notifications.getInstance().show(Notifications.Type.SUCCESS,
+                                "Su solicitud está siendo procesada");
+                    } else {
+                        mostrarRequisitosEmpleados();
+                    }
+
+                } else {
+                    instancia.setVista(new SolicitudesEmpleados());
+                }
             }
+
         } else if (Auth.usuarioAutenticado() instanceof Admin) {
             ControladorAdmin.mostrarGestionLicencias();
         }

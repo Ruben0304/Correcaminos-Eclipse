@@ -135,7 +135,7 @@ public class GestorSolicitudesEmpleados {
             Set<Solicitud> listaSolicitudes = solicitud.getValue();
 
             for (Solicitud s : listaSolicitudes) {
-                if (s.getEstado().equals(Estado.PENDIENTE)) {
+                if (s.getEstado().equals(Estado.PENDIENTE) || s.getEstado().equals(Estado.SOLICITACANCELACION)) {
                     empleados.add(estudiante);
                 }
             }

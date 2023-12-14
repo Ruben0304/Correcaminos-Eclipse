@@ -18,6 +18,7 @@ import util.TiposResponsabilidad;
 import vistas.template.Pricipal;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.JButton;
 
 public class RequisitosEstudiante extends JPanel {
 
@@ -47,6 +48,7 @@ public class RequisitosEstudiante extends JPanel {
 	private HashMap<TiposResponsabilidad, Boolean> requisitos;
 	private JLabel lblVerRestantes;
 	private JLabel label;
+	private JButton button;
 
 	private RequisitosEstudiante(HashMap<TiposResponsabilidad, Boolean> requisitos) {
 
@@ -91,6 +93,7 @@ public class RequisitosEstudiante extends JPanel {
 			}
 
 			panel_RequisitosEstud.add(getLblEntregadoTodosLos_1());
+			panel_RequisitosEstud.add(getButton());
 
 			if (Auth.usuarioAutenticado() instanceof Becado) {
 				panel_RequisitosEstud.add(getLabel_11());
@@ -354,5 +357,15 @@ public class RequisitosEstudiante extends JPanel {
 			label.setBounds(546, 391, 225, 54);
 		}
 		return label;
+	}
+	public JButton getButton() {
+		if (button == null) {
+			button = new JButton("Cerrar Sesión");
+			button.setForeground(Color.WHITE);
+			button.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 25));
+			button.setBackground(new Color(255, 69, 0));
+			button.setBounds(401, 587, 272, 55);
+		}
+		return button;
 	}
 }

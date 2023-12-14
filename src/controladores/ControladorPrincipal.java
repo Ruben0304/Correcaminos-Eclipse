@@ -320,7 +320,7 @@ public class ControladorPrincipal {
     public static boolean verificarPersonaSolicitaCancelacion() {
 
         return (Auth.usuarioAutenticado() instanceof Estudiante && Secretaria.gestorEstudiantes().getGestorSolicitudes()
-                .verificarEstudianteSolicitaAlgo((Estudiante) Auth.usuarioAutenticado()))
+                .verificarEstudianteSolicitaCancelacion((Estudiante) Auth.usuarioAutenticado()))
                 || (Auth.usuarioAutenticado() instanceof Empleado
                         && GestorEmpleados.gestorEmpleados().getGestorSolicitudesEmpleados()
                                 .verificarEmpleadoSolicitaCancelacion((Empleado) Auth.usuarioAutenticado()));

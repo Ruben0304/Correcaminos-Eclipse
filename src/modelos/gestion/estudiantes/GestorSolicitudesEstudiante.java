@@ -60,6 +60,26 @@ public class GestorSolicitudesEstudiante {
         return solicita;
     }
 
+       public boolean verificarEstudianteSolicitaCancelacion(Estudiante e) {
+        boolean solicita = false;
+        for (Map.Entry<Estudiante, Set<Solicitud>> solicitud : solicitudes.entrySet()) {
+
+            Estudiante estudiante = solicitud.getKey();
+            Set<Solicitud> listaSolicitudes = solicitud.getValue();
+            if (estudiante.getCi().equals(e.getCi())) {
+                for (Solicitud s : listaSolicitudes) {
+                    if (s.getEstado().equals(Estado.SOLICITACANCELACION)) {
+                        solicita = true;
+                    }
+                }
+
+            }
+
+        }
+        System.out.println(solicita);
+        return solicita;
+    }
+
     public ArrayList<Estudiante> obtenerEstudiantesPendientes() {
 
         ArrayList<Estudiante> estudiantes = new ArrayList<Estudiante>();

@@ -22,7 +22,6 @@ import modelos.usuarios.Empleado;
 import modelos.usuarios.Estudiante;
 import modelos.usuarios.Persona;
 
-
 import util.Colores;
 import util.Estado;
 import util.ResponsabilidadesTrabajador;
@@ -222,7 +221,12 @@ public class ControladorPrincipal {
         Pricipal instancia = Pricipal.getInstancia();
         if (GestorEmpleados.gestorEmpleados().getGestorSolicitudesEmpleados()
                 .verificarEmpleadoSolicitaLicencia((Empleado) Auth.usuarioAutenticado())) {
-        	Notifications.getInstance().show(Notifications.Type.SUCCESS, "Su solicitud está siendo procesada");
+            Notifications.getInstance().show(Notifications.Type.SUCCESS, "Su solicitud está siendo procesada");
+            ControladorPrincipal.mostrarInicio();
+        } else if (GestorEmpleados.gestorEmpleados().getGestorSolicitudesEmpleados()
+                .verificarEmpleadoSolicitaCancelacion((Empleado) Auth.usuarioAutenticado())) {
+            Notifications.getInstance().show(Notifications.Type.SUCCESS,
+                    "Espere respuesta de su petición de cancelación");
             ControladorPrincipal.mostrarInicio();
         } else {
 
@@ -276,18 +280,27 @@ public class ControladorPrincipal {
 
         if (Auth.usuarioAutenticado() instanceof Estudiante) {
             if (Secretaria.gestorEstudiantes().getGestorSolicitudes()
-                    .verificarEstudianteSolicitaAlgo((Estudiante) Auth.usuarioAutenticado())) {
-                if (cantidadDeRequisitosEstudiante() == 0 && Secretaria.gestorEstudiantes()
-                        .buscarEstudiantePorCi(((Estudiante) Auth.usuarioAutenticado()).getCi()) == null) {
-                            Notifications.getInstance().show(Notifications.Type.SUCCESS, "Su solicitud está siendo procesada");
-                } else {
-                    mostrarRequisitosBajaEstudiantes();
-                    
-                }
-
+                    .verificarEstudianteSolicitaCancelacion((Estudiante) Auth.usuarioAutenticado())) {
+                Notifications.getInstance().show(Notifications.Type.SUCCESS,
+                        "Espere respuesta de su petición de cancelación");
+                ControladorPrincipal.mostrarInicio();
             } else {
-                instancia.setVista(new SolicitudesEstudiantes());
+                if (Secretaria.gestorEstudiantes().getGestorSolicitudes()
+                        .verificarEstudianteSolicitaAlgo((Estudiante) Auth.usuarioAutenticado())) {
+                    if (cantidadDeRequisitosEstudiante() == 0 && Secretaria.gestorEstudiantes()
+                            .buscarEstudiantePorCi(((Estudiante) Auth.usuarioAutenticado()).getCi()) == null) {
+                        Notifications.getInstance().show(Notifications.Type.SUCCESS,
+                                "Su solicitud está siendo procesada");
+                    } else {
+                        mostrarRequisitosBajaEstudiantes();
+
+                    }
+
+                } else {
+                    instancia.setVista(new SolicitudesEstudiantes());
+                }
             }
+
         } else if (Auth.usuarioAutenticado() instanceof Empleado) {
             if (GestorEmpleados.gestorEmpleados().getGestorSolicitudesEmpleados()
                     .verificarEmpleadoSolicitaAlgo((Empleado) Auth.usuarioAutenticado())) {
@@ -326,14 +339,15 @@ public class ControladorPrincipal {
                                 .verificarEmpleadoSolicitaCancelacion((Empleado) Auth.usuarioAutenticado()));
     }
 
-
-    public static void solicitarCancelacion(){
+    public static void solicitarCancelacion() {
         if (Auth.usuarioAutenticado() instanceof Estudiante) {
-            Secretaria.gestorEstudiantes().getGestorSolicitudes().cambiarEstadoSolicitud(((Estudiante)Auth.usuarioAutenticado()).getCi(), Estado.SOLICITACANCELACION);
+            Secretaria.gestorEstudiantes().getGestorSolicitudes().cambiarEstadoSolicitud(
+                    ((Estudiante) Auth.usuarioAutenticado()).getCi(), Estado.SOLICITACANCELACION);
         }
-         if (Auth.usuarioAutenticado() instanceof Empleado) {
-        
-          GestorEmpleados.gestorEmpleados().getGestorSolicitudesEmpleados().cambiarEstadoSolicitud(((Empleado)Auth.usuarioAutenticado()).getCi(), Estado.SOLICITACANCELACION);
+        if (Auth.usuarioAutenticado() instanceof Empleado) {
+
+            GestorEmpleados.gestorEmpleados().getGestorSolicitudesEmpleados()
+                    .cambiarEstadoSolicitud(((Empleado) Auth.usuarioAutenticado()).getCi(), Estado.SOLICITACANCELACION);
         }
         Navegacion.reiniciar();
 

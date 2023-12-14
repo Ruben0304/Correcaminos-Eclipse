@@ -326,7 +326,7 @@ public class ControladorPrincipal {
                                 .verificarEmpleadoSolicitaCancelacion((Empleado) Auth.usuarioAutenticado()));
     }
 
-    
+
     public static void solicitarCancelacion(){
         if (Auth.usuarioAutenticado() instanceof Estudiante) {
             Secretaria.gestorEstudiantes().getGestorSolicitudes().cambiarEstadoSolicitud(((Estudiante)Auth.usuarioAutenticado()).getCi(), Estado.SOLICITACANCELACION);

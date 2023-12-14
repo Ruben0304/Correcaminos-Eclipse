@@ -18,8 +18,10 @@ import com.formdev.flatlaf.themes.FlatMacDarkLaf;
 
 import autenticacion.Auth;
 import controladores.ControladorAdmin;
+import modelos.gestion.estudiantes.Secretaria;
 import modelos.usuarios.Admin;
 import modelos.usuarios.Persona;
+import util.Estado;
 import util.TipoDepartamento;
 import util.modelos.DepartamentoVerificadorLibrosTableModel;
 
@@ -28,6 +30,7 @@ import javax.swing.JLabel;
 import javax.swing.JButton;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.SwingConstants;
@@ -38,6 +41,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 import java.awt.event.ActionEvent;
+
 import javax.swing.JMenu;
 
 public class DepartamentosModelo extends JPanel {
@@ -159,8 +163,26 @@ public class DepartamentosModelo extends JPanel {
 			}
 		});
 		panelContenedor.add(btnConfirmarEntrega);
-		
+
 		button = new JButton("Confirmar entrega");
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				int respuesta = JOptionPane.showConfirmDialog(null,
+						"¿Estás seguro que desea ejecutar esta acción?",
+						"Confirmación",
+						JOptionPane.YES_NO_OPTION);
+				if (respuesta == 1) {
+					int selectedRow = table.getSelectedRow();
+					if (selectedRow != -1) {
+						String carnet = table.getValueAt(selectedRow, 0).toString();
+						Secretaria.gestorEstudiantes().getGestorSolicitudes().cambiarEstadoSolicitud(carnet,
+								Estado.CANCELADO);
+								ControladorAdmin.mostrarGestionLicencias();
+					}
+				}
+
+			}
+		});
 		button.setForeground(Color.WHITE);
 		button.setFont(new Font("Segoe UI", Font.PLAIN, 18));
 		button.setBackground(new Color(176, 196, 222));

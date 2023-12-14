@@ -14,7 +14,7 @@
 		[
 			{
 				"id": 12,
-				"estado": "PENDIENTE",
+				"estado": "SOLICITACANCELACION",
 				"fecha": {
 					"year": 2023,
 					"month": 10,

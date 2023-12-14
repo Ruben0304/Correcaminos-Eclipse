@@ -326,6 +326,7 @@ public class ControladorPrincipal {
           GestorEmpleados.gestorEmpleados().getGestorSolicitudesEmpleados().cambiarEstadoSolicitud(((Empleado)Auth.usuarioAutenticado()).getCi(), Estado.SOLICITACANCELACION);
         }
         Navegacion.reiniciar();
+        
         mostrarInicio();
 
     }

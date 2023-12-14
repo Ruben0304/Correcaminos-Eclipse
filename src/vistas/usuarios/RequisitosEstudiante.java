@@ -19,6 +19,8 @@ import vistas.template.Pricipal;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class RequisitosEstudiante extends JPanel {
 
@@ -48,7 +50,7 @@ public class RequisitosEstudiante extends JPanel {
 	private HashMap<TiposResponsabilidad, Boolean> requisitos;
 	private JLabel lblVerRestantes;
 	private JLabel label;
-	private JButton button;
+	private JButton btnSolicitarCancelacinDe;
 
 	private RequisitosEstudiante(HashMap<TiposResponsabilidad, Boolean> requisitos) {
 
@@ -93,7 +95,7 @@ public class RequisitosEstudiante extends JPanel {
 			}
 
 			panel_RequisitosEstud.add(getLblEntregadoTodosLos_1());
-			panel_RequisitosEstud.add(getButton());
+			panel_RequisitosEstud.add(getBtnSolicitarCancelacinDe());
 
 			if (Auth.usuarioAutenticado() instanceof Becado) {
 				panel_RequisitosEstud.add(getLabel_11());
@@ -358,14 +360,18 @@ public class RequisitosEstudiante extends JPanel {
 		}
 		return label;
 	}
-	public JButton getButton() {
-		if (button == null) {
-			button = new JButton("Cerrar Sesión");
-			button.setForeground(Color.WHITE);
-			button.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 25));
-			button.setBackground(new Color(255, 69, 0));
-			button.setBounds(401, 587, 272, 55);
+	public JButton getBtnSolicitarCancelacinDe() {
+		if (btnSolicitarCancelacinDe == null) {
+			btnSolicitarCancelacinDe = new JButton("Solicitar cancelación de trámite");
+			btnSolicitarCancelacinDe.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+				}
+			});
+			btnSolicitarCancelacinDe.setForeground(Color.WHITE);
+			btnSolicitarCancelacinDe.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 18));
+			btnSolicitarCancelacinDe.setBackground(new Color(221, 78, 94));
+			btnSolicitarCancelacinDe.setBounds(581, 600, 332, 54);
 		}
-		return button;
+		return btnSolicitarCancelacinDe;
 	}
 }

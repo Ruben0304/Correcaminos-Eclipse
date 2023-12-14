@@ -23,7 +23,7 @@ public class ObtenerEstudiantes {
         ArrayList<Estudiante> estudiantesB = new ArrayList<>();
         ArrayList<Estudiante> estudiantesNoB = new ArrayList<>();
 
-        try (BufferedReader reader = new BufferedReader(new FileReader("./estudiantes.json"))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("./jsons/estudiantes.json"))) {
             Type listType = new TypeToken<ArrayList<Estudiante>>() {
             }.getType();
 
@@ -33,7 +33,7 @@ public class ObtenerEstudiantes {
             e.printStackTrace();
         }
 
-        try (BufferedReader reader = new BufferedReader(new FileReader("./estudiantesBecados.json"))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("./jsons/estudiantesBecados.json"))) {
             Type listType = new TypeToken<ArrayList<Becado>>() {
             }.getType();
 

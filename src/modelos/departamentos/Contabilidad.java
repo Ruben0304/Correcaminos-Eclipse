@@ -28,8 +28,8 @@ public class Contabilidad implements VerificadorEmpleado {
 		return empleadosDeudas.containsKey(e.getCi());
 	}
 	
-	public void saldarDeuda(String e) {
-		empleadosDeudas.remove(e);
+	public Double saldarDeuda(String e) {
+		return empleadosDeudas.remove(e);
 	}
 	
 	@Override
@@ -48,5 +48,9 @@ public class Contabilidad implements VerificadorEmpleado {
 	
 	public double obtenerDeudaEmpleado(String e) {
 		return empleadosDeudas.get(e).doubleValue();
+	}
+	
+	public HashMap<String, Double> getEmpleadosDeudas() {
+		return empleadosDeudas;
 	}
 }

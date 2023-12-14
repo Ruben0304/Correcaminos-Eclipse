@@ -26,9 +26,12 @@ public class GestorSolicitudesEstudiante {
 
     private HashMap<Estudiante, Set<Solicitud>> solicitudes;
 
-    public GestorSolicitudesEstudiante(ArrayList<Estudiante> estudiantes) {
+    public GestorSolicitudesEstudiante() {
 
         registrarSolicitudes();
+        for (Estudiante est : solicitudes.keySet()) {
+			System.out.println(est.getNombre() + " " +est.getCi());
+		}
     }
 
     private void registrarSolicitudes() {
@@ -56,7 +59,8 @@ public class GestorSolicitudesEstudiante {
             }
 
         }
-        System.out.println(solicita);
+        
+        
         return solicita;
     }
 

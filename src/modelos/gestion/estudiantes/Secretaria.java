@@ -18,7 +18,7 @@ public class Secretaria {
     public Secretaria() {
         estudiantes = new ArrayList<>();
         registrarEstudiantes();
-        gestorSolicitudes = new GestorSolicitudesEstudiante(estudiantes);
+        gestorSolicitudes = new GestorSolicitudesEstudiante();
     }
 
     public static Secretaria gestorEstudiantes() {
@@ -32,6 +32,7 @@ public class Secretaria {
         this.estudiantes = ObtenerEstudiantes.cargarDesdeArchivo();
         for (Estudiante estudiante : estudiantes) {
             System.out.println(estudiante);
+            
         }
     }
 

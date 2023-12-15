@@ -27,7 +27,7 @@ public class Main {
 				
 
 				
-				// ControladorLogin.comprobarSession();
+				
 				// Pricipal frame = Pricipal.getInstancia();
 				// frame.setVisible(true);
 				// JOptionPane.showMessageDialog(null, "Muy importante leer documento

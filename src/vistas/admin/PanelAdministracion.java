@@ -289,7 +289,7 @@ public class PanelAdministracion extends JPanel {
 							new ModeloFiltrado(ControladorFiltrado.filtradoDinamicoSolicitudEstudiantes(getMap())));
 				}
 			});
-			comboBox.setModel(new DefaultComboBoxModel(new String[] { "Todos", "ACEPTADO", "RECHAZADO", "PENDIENTE" }));
+			comboBox.setModel(new DefaultComboBoxModel(new String[] {"Todos", "ACEPTADO", "RECHAZADO", "PENDIENTE", "CANCELADO", "SOLICITACANCELACION"}));
 			comboBox.setBounds(92, 74, 154, 25);
 		}
 		return comboBox;
@@ -406,8 +406,7 @@ public class PanelAdministracion extends JPanel {
 	private JComboBox getComboBox_2() {
 		if (comboBox_2 == null) {
 			comboBox_2 = new JComboBox();
-			comboBox_2.setModel(new DefaultComboBoxModel(new String[] { "Todos", "Vacaciones", "Maternidad",
-					"Accidente", "Enfermedad", "Personal", "Otro" }));
+			comboBox_2.setModel(new DefaultComboBoxModel(new String[] {"Todos", "Vacaciones", "Maternidad", "Accidente", "Enfermedad", "Personal", "Otro"}));
 			comboBox_2.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					if (comboBox_2.getSelectedItem().equals("Todos")) {

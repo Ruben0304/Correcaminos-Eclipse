@@ -35,7 +35,7 @@ public class InicioAdmin extends JPanel{
 		add(lblQuEs);
 		
 		JTextArea txtrSuMotivoY = new JTextArea();
-		txtrSuMotivoY.setText("¡Bienvenido a la aplicación de gestión de casos y pertenencias!\r\n\r\nEsta aplicación te permite llevar un control de los casos que tienes pendientes de resolver y las pertenencias que debes recoger o entregar.");
+		txtrSuMotivoY.setText("¡Bienvenido a la aplicación de gestión de casos y pertenencias!\r\n\r\nEsta aplicación te permite llevar un control de los casos que tienes pendientes de resolver y las\r\n pertenencias que debes recoger o entregar.");
 		txtrSuMotivoY.setEditable(false);
 		txtrSuMotivoY.setLineWrap(true);
 		txtrSuMotivoY.setBackground(new Color(30, 30, 30));
@@ -45,14 +45,14 @@ public class InicioAdmin extends JPanel{
 		txtrSuMotivoY.setBounds(95, 276, 734, 126);
 		add(txtrSuMotivoY);
 		
-		JLabel lblSolicitarLicencia = new JLabel("¿ Como Administrar ?");
+		JLabel lblSolicitarLicencia = new JLabel("¿ Cómo Administrar ?");
 		lblSolicitarLicencia.setForeground(Color.WHITE);
 		lblSolicitarLicencia.setFont(new Font("Segoe UI Semibold", Font.BOLD, 35));
 		lblSolicitarLicencia.setBounds(95, 405, 481, 67);
 		add(lblSolicitarLicencia);
 		
 		JTextArea txtrEntregaDeTodos = new JTextArea();
-		txtrEntregaDeTodos.setText("- Accede al menú de casos pendientes y revisa el estado de cada uno.\r\n- Si tienes que recoger o entregar alguna pertenencia, haz clic en el botón de notificar y selecciona la opción correspondiente.\r\n- La aplicación se encargará de gestionar el servicio de correcaminos para que puedas recoger o entregar la pertenencia de forma rápida y segura.\r\n- Una vez que hayas completado el caso, marca la casilla de finalizado y la aplicación lo eliminará de la lista de pendientes.");
+		txtrEntregaDeTodos.setText("- Accede al menú de casos pendientes y revisa el estado de cada uno.\r\n- Si tienes que recoger o entregar alguna pertenencia, haz clic en el botón de notificar y selecciona la \r\nopción correspondiente.\r\n- La aplicación se encargará de gestionar el servicio de correcaminos para que puedas recoger o entregar\r\n la pertenencia de forma rápida y segura.\r\n- Una vez que hayas completado el caso, marca la casilla de finalizado y la aplicación lo eliminará de la lista de pendientes.");
 		txtrEntregaDeTodos.setEditable(false);
 		txtrEntregaDeTodos.setLineWrap(true);
 		txtrEntregaDeTodos.setForeground(Color.WHITE);

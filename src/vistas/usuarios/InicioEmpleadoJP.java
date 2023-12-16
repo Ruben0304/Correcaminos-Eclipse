@@ -24,7 +24,7 @@ public class InicioEmpleadoJP extends JPanel {
 		label_2.setBounds(299, 101, 352, 67);
 		add(label_2);
 		
-		JLabel lblQuEs = new JLabel("\u00BF Como Solicitar Baja ?");
+		JLabel lblQuEs = new JLabel("¿ Cómo Solicitar Baja ?");
 		lblQuEs.setForeground(Color.WHITE);
 		lblQuEs.setFont(new Font("Segoe UI Semibold", Font.BOLD, 35));
 		lblQuEs.setBounds(96, 250, 481, 67);
@@ -32,7 +32,7 @@ public class InicioEmpleadoJP extends JPanel {
 		
 		JTextArea txtrSuMotivoY = new JTextArea();
 		txtrSuMotivoY.setEditable(false);
-		txtrSuMotivoY.setText(" Su motivo y datos personales.\r\n\r\nEntrega de todos los materiales en las respectivas entidades: biblioteca, seguridad inform\u00E1tica, recursos humanos y contabilidad");
+		txtrSuMotivoY.setText(" Su motivo y datos personales.\r\n\r\nEntrega de todos los materiales en las respectivas entidades: biblioteca, seguridad informática, recursos\r\n humanos y contabilidad");
 		txtrSuMotivoY.setLineWrap(true);
 		txtrSuMotivoY.setForeground(Color.WHITE);
 		txtrSuMotivoY.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 15));
@@ -42,7 +42,7 @@ public class InicioEmpleadoJP extends JPanel {
 		
 		
 		
-		JLabel lblSolicitarLicencia = new JLabel("\u00BF Como Solicitar Licencia ?");
+		JLabel lblSolicitarLicencia = new JLabel("¿ Cómo Solicitar Licencia ?");
 		lblSolicitarLicencia.setForeground(Color.WHITE);
 		lblSolicitarLicencia.setFont(new Font("Segoe UI Semibold", Font.BOLD, 35));
 		lblSolicitarLicencia.setBounds(96, 446, 481, 67);
@@ -50,7 +50,7 @@ public class InicioEmpleadoJP extends JPanel {
 		
 		JTextArea txtrEntregaDeTodos = new JTextArea();
 		txtrEntregaDeTodos.setEditable(false);
-		txtrEntregaDeTodos.setText("Entrega de todos los materiales en las respectivas entidades: biblioteca, seguridad inform\u00E1tica, recursos humanos y contabilidad");
+		txtrEntregaDeTodos.setText("Diríjase a la pantalla de trámites y espere la respuesta de su solicitud");
 		txtrEntregaDeTodos.setLineWrap(true);
 		txtrEntregaDeTodos.setForeground(Color.WHITE);
 		txtrEntregaDeTodos.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 15));

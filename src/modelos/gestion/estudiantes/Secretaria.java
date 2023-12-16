@@ -58,18 +58,5 @@ public class Secretaria {
         return gestorSolicitudes;
     }
 
-    public ArrayList<Estudiante> filtrar(String valor) {
-        ArrayList<Estudiante> estudiantesFiltrados = new ArrayList<>();
-
-        for (Estudiante estudiante : estudiantes) {
-
-            if (estudiante.getNombre().contains(valor) || estudiante.getFacultad().equals(valor)) {
-                estudiantesFiltrados.add(estudiante);
-            }
-
-        }
-
-        return estudiantesFiltrados;
-    }
-
+   
 }

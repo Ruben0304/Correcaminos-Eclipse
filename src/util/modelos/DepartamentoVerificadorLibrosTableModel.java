@@ -9,6 +9,7 @@ import javax.swing.table.DefaultTableModel;
 
 import autenticacion.Auth;
 import controladores.ControladorPrincipal;
+import modelos.gestion.empleados.GestorEmpleados;
 import modelos.gestion.estudiantes.Secretaria;
 import modelos.usuarios.Admin;
 import modelos.usuarios.Becado;
@@ -67,7 +68,7 @@ public class DepartamentoVerificadorLibrosTableModel extends DefaultTableModel {
 
 	public DepartamentoVerificadorLibrosTableModel(ArrayList<Persona> personas, int rh) {
 		HashMap<ResponsabilidadesTrabajador, Boolean> requisitos;
-		String[] columnNames = { "Carnet de Identidad", "Nombre", "Apellidos", "B", "C", "SI" };
+		String[] columnNames = { "Carnet de Identidad", "Nombre", "Apellidos", "B", "C", "SI","SC" };
 		this.setColumnIdentifiers(columnNames);
 		for (Persona e : personas) {
 
@@ -75,8 +76,9 @@ public class DepartamentoVerificadorLibrosTableModel extends DefaultTableModel {
 			Object[] newRow = new Object[] { e.getCi(), e.getNombre(), e.getApellidos(),
 					requisitos.get(ResponsabilidadesTrabajador.LIBROS_BIBLIOTECA) ? "P" : "A",
 					requisitos.get(ResponsabilidadesTrabajador.DEUDA) ? "P" : "A",
-					requisitos.get(ResponsabilidadesTrabajador.CUENTA_USUARIO) ? "P" : "A" };
-			addRow(newRow);
+					requisitos.get(ResponsabilidadesTrabajador.CUENTA_USUARIO) ? "P" : "A" , 
+				    GestorEmpleados.gestorEmpleados().getGestorSolicitudesEmpleados().verificarEmpleadoSolicitaCancelacion((Empleado)e) ? "Sí" : "No" };
+					addRow(newRow);
 		}
 	}
 

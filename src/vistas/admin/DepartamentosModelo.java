@@ -2,6 +2,7 @@ package vistas.admin;
 
 import java.awt.Color;
 import java.awt.Cursor;
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Image;
 import java.awt.List;
@@ -27,6 +28,8 @@ import util.TipoDepartamento;
 import util.modelos.DepartamentoVerificadorLibrosTableModel;
 
 import javax.swing.ImageIcon;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JButton;
 import javax.swing.JMenuBar;
@@ -34,6 +37,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
 
 import java.awt.event.ActionListener;
@@ -59,6 +63,7 @@ public class DepartamentosModelo extends JPanel {
 	protected JButton btnConfirmarEntrega;
 	protected ImageIcon iDimAux, iMinimizar, iCerrar;
 	private JButton button;
+	private JButton btnLeyenda;
 
 	/**
 	 * Launch the application.
@@ -105,11 +110,11 @@ public class DepartamentosModelo extends JPanel {
 
 		iDimAux = new ImageIcon(
 				iCerrar.getImage()
-						.getScaledInstance(25, 25, Image.SCALE_AREA_AVERAGING));
+				.getScaledInstance(25, 25, Image.SCALE_AREA_AVERAGING));
 
 		iDimAux = new ImageIcon(
 				iMinimizar.getImage()
-						.getScaledInstance(21, 21, Image.SCALE_AREA_AVERAGING));
+				.getScaledInstance(21, 21, Image.SCALE_AREA_AVERAGING));
 
 		lblCasosPendientes = new JLabel("Listado de Casos Pendientes");
 		lblCasosPendientes.setFont(new Font("Segoe UI", Font.PLAIN, 22));
@@ -168,28 +173,50 @@ public class DepartamentosModelo extends JPanel {
 		button = new JButton("Confirmar cancelación");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				int respuesta = JOptionPane.showConfirmDialog(null,
-						"¿Estás seguro que desea ejecutar esta acción?",
-						"Confirmación",
-						JOptionPane.YES_NO_OPTION);
-				if (respuesta == 0) {
-					int selectedRow = table.getSelectedRow();
-					if (selectedRow != -1) {
-						String carnet = table.getValueAt(selectedRow, 0).toString();
-						Secretaria.gestorEstudiantes().getGestorSolicitudes().cambiarEstadoSolicitud(carnet,
-								Estado.CANCELADO);
-						Notifications.getInstance().show(Notifications.Type.SUCCESS,"Trámite cancelado correctamente");
-								ControladorAdmin.mostrarGestionLicencias();
-					}
-				}
 
+				int selectedRow1 = table.getSelectedRow();
+				if (selectedRow1 != -1) {
+					String cancelado = table.getValueAt(selectedRow1,8 ).toString();
+					if(cancelado.equals("Sí")){
+						button.setEnabled(true);
+						int respuesta = JOptionPane.showConfirmDialog(null,
+								"¿Estás seguro que desea ejecutar esta acción?",
+								"Confirmación",
+								JOptionPane.YES_NO_OPTION);
+						if (respuesta == 0) {
+							int selectedRow = table.getSelectedRow();
+							if (selectedRow != -1) {
+								String carnet = table.getValueAt(selectedRow, 0).toString();
+								Secretaria.gestorEstudiantes().getGestorSolicitudes().cambiarEstadoSolicitud(carnet,
+										Estado.CANCELADO);
+								Notifications.getInstance().show(Notifications.Type.SUCCESS,"Trámite cancelado correctamente");
+								ControladorAdmin.mostrarGestionLicencias();
+							}
+						}
+
+					}else {
+						button.setEnabled(false);
+						Notifications.getInstance().show(Notifications.Type.SUCCESS,"No ha solicitado cancelación");
+						ControladorAdmin.mostrarGestionLicencias();
+
+					}
+
+				}
 			}
 		});
 		button.setForeground(Color.WHITE);
+		if(((Admin) Auth.usuarioAutenticado()).getTipoDepartamento().equals(TipoDepartamento.Secretaria) || ((Admin) Auth.usuarioAutenticado()).getTipoDepartamento().equals(TipoDepartamento.RecursosHumanos))
+			button.setVisible(true);
+		else
+			button.setVisible(false);
+		
 		button.setFont(new Font("Segoe UI", Font.PLAIN, 18));
 		button.setBackground(new Color(176, 196, 222));
-		button.setBounds(420, 609, 219, 43);
+		button.setBounds(428, 609, 219, 43);
 		panelContenedor.add(button);
+		panelContenedor.add(getBtnLeyenda());
+
+
 
 		if (((Admin) Auth.usuarioAutenticado()).getTipoDepartamento().equals(TipoDepartamento.AlmacenLibrosDocentes)
 				|| ((Admin) Auth.usuarioAutenticado()).getTipoDepartamento().equals(TipoDepartamento.Biblioteca)
@@ -230,5 +257,45 @@ public class DepartamentosModelo extends JPanel {
 	private void crearImagenes() {
 		iCerrar = new ImageIcon("./src/img/cerrar_sin_relleno.png");
 		iMinimizar = new ImageIcon("./src/img/min_blanco.png");
+	}
+	private JButton getBtnLeyenda() {
+		
+			if (btnLeyenda == null) {
+				btnLeyenda = new JButton("Leyenda");
+				btnLeyenda.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+
+						if(((Admin) Auth.usuarioAutenticado()).getTipoDepartamento().equals(TipoDepartamento.Secretaria)){
+							JTextArea textArea = new JTextArea("B-Biblioteca\nAL-Almacén de libros\nE-Economía\nDB-dirección de becas\nSI-Seguridad Informática\nSC-Solicita Cancelación\nA-Aprobado\nP-Pendiente");
+							textArea.setEditable(false);
+							JScrollPane s = new JScrollPane (textArea);
+							s.setPreferredSize(new Dimension(200,100));
+							JOptionPane.showMessageDialog(null, s,"Leyenda",JOptionPane.PLAIN_MESSAGE);}
+						else if(((Admin) Auth.usuarioAutenticado()).getTipoDepartamento().equals(TipoDepartamento.RecursosHumanos))
+						{
+							JTextArea textArea = new JTextArea("B-Biblioteca\nC-Contabilidad\nSI-Seguridad Informática\nSC-Solicita Cancelación\nA-Aprobado\nP-Pendiente");
+							textArea.setEditable(false);
+							JScrollPane s = new JScrollPane (textArea);
+							s.setPreferredSize(new Dimension(200,100));
+							JOptionPane.showMessageDialog(null, s,"Leyenda",JOptionPane.PLAIN_MESSAGE);}
+
+
+
+					}
+				});
+				if(((Admin) Auth.usuarioAutenticado()).getTipoDepartamento().equals(TipoDepartamento.Secretaria) || ((Admin) Auth.usuarioAutenticado()).getTipoDepartamento().equals(TipoDepartamento.RecursosHumanos))
+					btnLeyenda.setVisible(true);
+				else
+					btnLeyenda.setVisible(false);
+						
+			    btnLeyenda.setForeground(Color.WHITE);
+				btnLeyenda.setFont(new Font("Segoe UI", Font.PLAIN, 18));
+				btnLeyenda.setEnabled(true);
+				btnLeyenda.setBackground(new Color(72, 189, 133));
+				btnLeyenda.setBounds(28, 558, 196, 43);
+				
+			}
+
+		return btnLeyenda;
 	}
 }

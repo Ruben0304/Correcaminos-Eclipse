@@ -210,7 +210,7 @@ public class RequisitosEmpleados extends JPanel {
 
 	private JLabel getLblSeguridadInformatica() {
 		if (lblSeguridadInformatica == null) {
-			lblSeguridadInformatica = new JLabel("Seguridad Informatica");
+			lblSeguridadInformatica = new JLabel("Seguridad Informática");
 			lblSeguridadInformatica.setForeground(Color.WHITE);
 			lblSeguridadInformatica.setFont(new Font("Segoe UI Semibold", Font.BOLD, 26));
 			lblSeguridadInformatica.setBounds(478, 167, 310, 54);

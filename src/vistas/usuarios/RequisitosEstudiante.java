@@ -164,7 +164,7 @@ public class RequisitosEstudiante extends JPanel {
 
 	private JLabel getLblEconomia() {
 		if (lblEconomia == null) {
-			lblEconomia = new JLabel("Economia");
+			lblEconomia = new JLabel("Economía");
 			lblEconomia.setForeground(Color.WHITE);
 			lblEconomia.setFont(new Font("Segoe UI Semibold", Font.BOLD, 26));
 			lblEconomia.setBounds(52, 307, 127, 54);
@@ -227,7 +227,7 @@ public class RequisitosEstudiante extends JPanel {
 
 	private JLabel getLblSeguridadInformatica() {
 		if (lblSeguridadInformatica == null) {
-			lblSeguridadInformatica = new JLabel("Seguridad Informatica");
+			lblSeguridadInformatica = new JLabel("Seguridad Informática");
 			lblSeguridadInformatica.setForeground(Color.WHITE);
 			lblSeguridadInformatica.setFont(new Font("Segoe UI Semibold", Font.BOLD, 26));
 			lblSeguridadInformatica.setBounds(478, 167, 310, 54);
@@ -259,7 +259,7 @@ public class RequisitosEstudiante extends JPanel {
 
 	private JLabel getLblAlmacenDeLibros() {
 		if (lblAlmacenDeLibros == null) {
-			lblAlmacenDeLibros = new JLabel("Almacen de libros");
+			lblAlmacenDeLibros = new JLabel("Almacén de libros");
 			lblAlmacenDeLibros.setForeground(Color.WHITE);
 			lblAlmacenDeLibros.setFont(new Font("Segoe UI Semibold", Font.BOLD, 26));
 			lblAlmacenDeLibros.setBounds(478, 307, 225, 54);

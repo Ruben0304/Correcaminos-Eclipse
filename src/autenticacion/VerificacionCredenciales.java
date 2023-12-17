@@ -20,9 +20,7 @@ public class VerificacionCredenciales {
             SeguridadInformatica s = GestorDepartamentos.gestorDepartamentos().getSeguridadInformatica();
             GestorAdmins a = GestorAdmins.gestorAdmins();
 
-            if (!s.getUsuariosCujae().isEmpty()) {
 
-            }
             Persona usuarioCujae = !s.getUsuariosCujae().isEmpty() ? s.getUsuariosCujae().get(credenciales) : null;
             Persona temporal = !s.getTemporales().isEmpty() ? s.getTemporales().get(credenciales) : null;
             Admin admin = !a.getAdmins().isEmpty() ? a.getAdmins().get(credenciales) : null;

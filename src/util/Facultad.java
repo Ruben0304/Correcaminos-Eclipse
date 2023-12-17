@@ -7,7 +7,7 @@ public enum Facultad {
 	Ing_Industrial,
 	Ing_Informatica,
 	Ing_Quimica,
-	Ing_Mecanica,
+	Ing_Mecánica,
 	Ing_Automatica_y_Biomedica,
 	Ing_en_Telecomunicaciones_y_Electronica,
 }

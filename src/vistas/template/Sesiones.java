@@ -134,7 +134,7 @@ public class Sesiones extends JDialog {
 			rdbtnRecusosHumanos.setBounds(35, 45, 197, 25);
 			rdbtnRecusosHumanos.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					ControladorLogin.intentarAutenticar("RecusosHumanos", "recusoshumanos", true);
+					ControladorLogin.intentarAutenticar("RecursosHumanos", "recursoshumanos", true);
 					Navegacion.reiniciar();
 					ControladorPrincipal.mostrarInicio();
 					

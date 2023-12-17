@@ -150,9 +150,7 @@ public class PanelAdministracion extends JPanel {
 							new ModeloFiltrado(ControladorFiltrado.filtradoDinamicoSolicitudEstudiantes(getMap())));
 				}
 			});
-			comboBox_1.setModel(new DefaultComboBoxModel(new String[] { "Todas", "Arquitectura", "Ing_Civil",
-					"Ing_Electrica", "Ing_Industrial", "Ing_Informatica", "Ing_Quimica", "Ing_Mecanica",
-					"Ing_Automatica_y_Biomedica", "Ing_en_Telecomunicaciones_y_Electronica" }));
+			comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"Todas", "Arquitectura", "Ing_Civil", "Ing_Eléctrica", "Ing_Industrial", "Ing_Informática", "Ing_Química", "Ing_Mecánica", "Ing_Automática_y_Biomédica", "Ing_en_Telecomunicaciones_y_Electrónica"}));
 			comboBox_1.setToolTipText("");
 			comboBox_1.setMaximumRowCount(9);
 			comboBox_1.setForeground(Color.BLACK);

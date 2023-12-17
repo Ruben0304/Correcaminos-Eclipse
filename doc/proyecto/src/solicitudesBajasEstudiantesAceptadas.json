@@ -3,7 +3,7 @@
     "estudiante": {
       "curso": 2,
       "tipoCurso": "ENCUENTRO",
-      "carrera": "Ingenieria Informatica",
+      "carrera": "Ingenieria Informática",
       "grupo": 2,
       "ci": "78901234560",
       "nombre": "Manuelito",
@@ -21,7 +21,7 @@
     "estudiante": {
       "curso": 3,
       "tipoCurso": "DIURNO",
-      "carrera": "Ingenieria Informatica",
+      "carrera": "Ingenieria Informática",
       "grupo": 3,
       "ci": "65432101234",
       "nombre": "Maria",
@@ -39,7 +39,7 @@
     "estudiante": {
       "curso": 3,
       "tipoCurso": "DIURNO",
-      "carrera": "Ingenieria Informatica",
+      "carrera": "Ingenieria Informática",
       "grupo": 3,
       "ci": "23456789011",
       "nombre": "Pedro",

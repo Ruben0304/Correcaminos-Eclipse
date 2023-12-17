@@ -3,7 +3,7 @@
 		{
 			"curso": 1,
 			"tipoCurso": "DIURNO",
-			"carrera": "Ingenieria Informatica",
+			"carrera": "Ingenieria Informática",
 			"grupo": 11,
 			"ci": "02010561846",
 			"nombre": "Sebastian",
@@ -48,7 +48,7 @@
 		{
 			"curso": 2,
     "tipoCurso": "DIURNO",
-    "carrera": "Ingenieria Informatica",
+    "carrera": "Ingenieria Informática",
     "grupo": 23,
     "ci": "02060561846",
     "nombre": "Carolina",
@@ -93,7 +93,7 @@
 		{
 			"curso": 3,
     "tipoCurso": "DIURNO",
-    "carrera": "Ingenieria Informatica",
+    "carrera": "Ingenieria Informática",
     "grupo": 32,
     "ci": "02090561846",
     "nombre": "Sofia",
@@ -138,7 +138,7 @@
 		{
 			"curso": 4,
     "tipoCurso": "DIURNO",
-    "carrera": "Ingenieria Informatica",
+    "carrera": "Ingenieria Informática",
     "grupo": 44,
     "ci": "02040561846",
     "nombre": "Juan",
@@ -183,7 +183,7 @@
 		{
 			"curso": 1,
     "tipoCurso": "DIURNO",
-    "carrera": "Ingenieria Informatica",
+    "carrera": "Ingenieria Informática",
     "grupo": 13,
     "ci": "02020561846",
     "nombre": "Carmen",

@@ -3,7 +3,7 @@
     "estudiante": {
       "curso": 1,
       "tipoCurso": "DIURNO",
-      "carrera": "Ingenieria Informatica",
+      "carrera": "Ingenieria Informática",
       "grupo": 1,
       "ci": "01234567891",
       "nombre": "Juan",
@@ -22,7 +22,7 @@
     "estudiante": {
       "curso": 2,
       "tipoCurso": "ENCUENTRO",
-      "carrera": "Ingenieria Informatica",
+      "carrera": "Ingenieria Informática",
       "grupo": 2,
       "ci": "12345678902",
       "nombre": "Maria",
@@ -43,7 +43,7 @@
     "estudiante": {
       "curso": 3,
       "tipoCurso": "DIURNO",
-      "carrera": "Ingenieria Informatica",
+      "carrera": "Ingenieria Informática",
       "grupo": 3,
       "ci": "23456789013",
       "nombre": "Pedro",
@@ -65,7 +65,7 @@
     "estudiante": {
       "curso": 4,
       "tipoCurso": "ENCUENTRO",
-      "carrera": "Ingenieria Informatica",
+      "carrera": "Ingenieria Informática",
       "grupo": 4,
       "ci": "34567890124",
       "nombre": "Sofia",
@@ -87,7 +87,7 @@
     "estudiante": {
       "curso": 5,
       "tipoCurso": "DIURNO",
-      "carrera": "Ingenieria Informatica",
+      "carrera": "Ingenieria Informática",
       "grupo": 5,
       "ci": "45678901235",
       "nombre": "Laura",
@@ -109,7 +109,7 @@
     "estudiante": {
       "curso": 6,
       "tipoCurso": "ENCUENTRO",
-      "carrera": "Ingenieria Informatica",
+      "carrera": "Ingenieria Informática",
       "grupo": 6,
       "ci": "56789012346",
       "nombre": "Carlos",
@@ -131,7 +131,7 @@
     "estudiante": {
       "curso": 1,
       "tipoCurso": "DIURNO",
-      "carrera": "Ingenieria Informatica",
+      "carrera": "Ingenieria Informática",
       "grupo": 1,
       "ci": "67890123457",
       "nombre": "Isabel",
@@ -153,7 +153,7 @@
     "estudiante": {
       "curso": 2,
       "tipoCurso": "ENCUENTRO",
-      "carrera": "Ingenieria Informatica",
+      "carrera": "Ingenieria Informática",
       "grupo": 2,
       "ci": "78901234568",
       "nombre": "Manuel",
@@ -175,7 +175,7 @@
     "estudiante": {
       "curso": 3,
       "tipoCurso": "DIURNO",
-      "carrera": "Ingenieria Informatica",
+      "carrera": "Ingenieria Informática",
       "grupo": 3,
       "ci": "89012345679",
       "nombre": "Ana",
@@ -197,7 +197,7 @@
     "estudiante": {
       "curso": 4,
       "tipoCurso": "ENCUENTRO",
-      "carrera": "Ingenieria Informatica",
+      "carrera": "Ingenieria Informática",
       "grupo": 4,
       "ci": "90123456780",
       "nombre": "Luis",
@@ -219,7 +219,7 @@
     "estudiante": {
       "curso": 5,
       "tipoCurso": "DIURNO",
-      "carrera": "Ingenieria Informatica",
+      "carrera": "Ingenieria Informática",
       "grupo": 5,
       "ci": "09876543211",
       "nombre": "Marta",
@@ -241,7 +241,7 @@
     "estudiante": {
       "curso": 6,
       "tipoCurso": "ENCUENTRO",
-      "carrera": "Ingenieria Informatica",
+      "carrera": "Ingenieria Informática",
       "grupo": 6,
       "ci": "98765432102",
       "nombre": "David",
@@ -263,7 +263,7 @@
     "estudiante": {
       "curso": 1,
       "tipoCurso": "DIURNO",
-      "carrera": "Ingenieria Informatica",
+      "carrera": "Ingenieria Informática",
       "grupo": 1,
       "ci": "87654321013",
       "nombre": "Clara",
@@ -285,7 +285,7 @@
     "estudiante": {
       "curso": 2,
       "tipoCurso": "ENCUENTRO",
-      "carrera": "Ingenieria Informatica",
+      "carrera": "Ingenieria Informática",
       "grupo": 2,
       "ci": "76543210124",
       "nombre": "Eduardo",
@@ -307,7 +307,7 @@
     "estudiante": {
       "curso": 3,
       "tipoCurso": "DIURNO",
-      "carrera": "Ingenieria Informatica",
+      "carrera": "Ingenieria Informática",
       "grupo": 3,
       "ci": "65432101235",
       "nombre": "Maria",

@@ -44,6 +44,9 @@ import javax.swing.border.MatteBorder;
 
 import com.formdev.flatlaf.FlatClientProperties;
 
+import autenticacion.Auth;
+import modelos.usuarios.Becado;
+
 public class ChatPanel extends JPanel implements ActionListener {
     private JTextArea chatArea = new JTextArea();
     private final JPanel panel = new JPanel();
@@ -100,9 +103,9 @@ public class ChatPanel extends JPanel implements ActionListener {
         rbtnGroup.add(getRadioButton_1());
         rbtnGroup.add(getRadioButton());
         radioButtonBiblioteca.setEnabled(requisitos.get(TiposResponsabilidad.LIBROS_BIBLIOTECA));
-        radioButtonSInformatica.setEnabled();
+        radioButtonSInformatica.setEnabled(requisitos.get(TiposResponsabilidad.CUENTA_USUARIO));
         radioButtonEconomia.setEnabled(requisitos.get(TiposResponsabilidad.ESTIPENDIO));
-        getRadioButton_1().setEnabled();
+        getRadioButton_1().setEnabled(Auth.usuarioAutenticado() instanceof Becado && requisitos.get(TiposResponsabilidad.PERTENENCIAS_BECA));
         getRadioButton().setEnabled(requisitos.get(TiposResponsabilidad.LIBROS_DOCENTES));
         // if (!mensajes.isEmpty()) {
         // for (Mensaje mensaje : mensajes) {

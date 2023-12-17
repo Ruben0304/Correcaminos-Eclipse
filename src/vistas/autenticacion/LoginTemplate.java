@@ -141,6 +141,53 @@ public class LoginTemplate extends JFrame {
 		iDimAux = new ImageIcon(
 				iCerrar.getImage()
 						.getScaledInstance(30, 30, Image.SCALE_AREA_AVERAGING));
+
+		bEntrar = new JButton("Entrar");
+		bEntrar.setBounds(118, 347, 234, 37);
+		panel.add(bEntrar);
+		bEntrar.setBackground(new Color(72, 189, 133));
+		bEntrar.setForeground(SystemColor.textHighlightText);
+		bEntrar.setCursor(new Cursor(Cursor.HAND_CURSOR));
+		bEntrar.setContentAreaFilled(true);
+
+		bEntrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				char[] passwordChars = tClaveUsuario.getPassword();
+				String contrasena = new String(passwordChars);
+				String user = tNombreUsuario.getText();
+
+				if (ControladorLogin.intentarAutenticar(user, contrasena, checkMantenerSesion.isSelected())) {
+					ControladorPrincipal.mostrarInicio();
+					dispose();
+
+				} else {
+					JOptionPane.showMessageDialog(null, "Credenciales incorrectas", "Error de autenticación",
+							JOptionPane.ERROR_MESSAGE);
+				}
+			}
+		});
+	}
+
+	public void crearJLabels() {
+
+		iDimAux = new ImageIcon(
+				iUsuario.getImage()
+						.getScaledInstance(30, 30, Image.SCALE_AREA_AVERAGING));
+		lUsuario = new JLabel();
+		lUsuario.setBounds(37, 104, 46, 56);
+		lUsuario.setIcon(iDimAux);
+		panel.add(lUsuario);
+
+		iDimAux = new ImageIcon(
+				iClave.getImage()
+						.getScaledInstance(30, 30, Image.SCALE_AREA_AVERAGING));
+		lClave = new JLabel();
+		lClave.setBounds(37, 229, 46, 50);
+		lClave.setIcon(iDimAux);
+		panel.add(lClave);
+		iDimAux = new ImageIcon(
+				iLogo.getImage()
+						.getScaledInstance(30, 30, Image.SCALE_AREA_AVERAGING));
 		bCerrar = new JButton();
 		bCerrar.addMouseListener(new MouseAdapter() {
 			@Override
@@ -173,63 +220,16 @@ public class LoginTemplate extends JFrame {
 		bCerrar.setIcon(new ImageIcon(LoginTemplate.class.getResource("/img/cerrar_login_blanco.png")));
 		bCerrar.setContentAreaFilled(false);
 		pPrincipal.add(bCerrar);
-
-		bEntrar = new JButton("Entrar");
-		bEntrar.setBounds(118, 347, 234, 37);
-		panel.add(bEntrar);
-		bEntrar.setBackground(new Color(72, 189, 133));
-		bEntrar.setForeground(SystemColor.textHighlightText);
-		bEntrar.setCursor(new Cursor(Cursor.HAND_CURSOR));
-		bEntrar.setContentAreaFilled(true);
-
-		bEntrar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				char[] passwordChars = tClaveUsuario.getPassword();
-				String contrasena = new String(passwordChars);
-				String user = tNombreUsuario.getText();
-
-				if (ControladorLogin.intentarAutenticar(user, contrasena, checkMantenerSesion.isSelected())) {
-					ControladorPrincipal.mostrarInicio();
-					dispose();
-
-				} else {
-					JOptionPane.showMessageDialog(null, "Credenciales incorrectas", "Error de autenticación",
-							JOptionPane.ERROR_MESSAGE);
-				}
-			}
-		});
-	}
-
-	public void crearJLabels() {
 		// Label TituloLogin
 		lTituloLogin = new JLabel("Correcaminos");
 		lTituloLogin.setBounds(100, 16, 185, 43);
 		lTituloLogin.setFont(new Font("Segoe UI", Font.PLAIN, 22));
 		pPrincipal.add(lTituloLogin);
-
-		iDimAux = new ImageIcon(
-				iUsuario.getImage()
-						.getScaledInstance(30, 30, Image.SCALE_AREA_AVERAGING));
-		lUsuario = new JLabel();
-		lUsuario.setBounds(37, 104, 46, 56);
-		lUsuario.setIcon(iDimAux);
-		panel.add(lUsuario);
-
-		iDimAux = new ImageIcon(
-				iClave.getImage()
-						.getScaledInstance(30, 30, Image.SCALE_AREA_AVERAGING));
-		lClave = new JLabel();
-		lClave.setBounds(37, 229, 46, 50);
-		lClave.setIcon(iDimAux);
-		panel.add(lClave);
-
-		JLabel logo = new JLabel();
-		iDimAux = new ImageIcon(
-				iLogo.getImage()
-						.getScaledInstance(30, 30, Image.SCALE_AREA_AVERAGING));
-		logo.setIcon(iDimAux);
-		logo.setBounds(49, 16, 39, 43);
-		pPrincipal.add(logo);
+		
+				JLabel logo = new JLabel();
+				logo.setIcon(iDimAux);
+				logo.setBounds(49, 16, 39, 43);
+				pPrincipal.add(logo);
 
 	}
 

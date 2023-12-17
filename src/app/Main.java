@@ -15,6 +15,7 @@ import modelos.usuarios.Credenciales;
 import modelos.usuarios.Estudiante;
 import modelos.usuarios.Persona;
 import vistas.template.Pricipal;
+import vistas.template.Sesiones;
 
 public class Main {
 	public static void main(String[] args) {
@@ -33,6 +34,8 @@ public class Main {
 				// JOptionPane.showMessageDialog(null, "Muy importante leer documento
 				// Importante.txt en la raiz del proyecto");
 				ControladorLogin.mostrarLogin();
+				Sesiones frame = new Sesiones();
+				frame.setVisible(true);
 				tests();
 				
 

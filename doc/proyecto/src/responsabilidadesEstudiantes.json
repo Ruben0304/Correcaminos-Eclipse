@@ -9,7 +9,7 @@
       "nombre": "Juan",
       "primer_apellido": "Perez",
       "segundo_apellido": "Perez",
-      "facultad": "Ing_Informatica",
+      "facultad": "Ing_Informática",
       "nombreUsuario": "estudiante1",
       "contrasena": "0b14d501a594442a01c6859541bcb3e8164d183d32937b851835442f69d5c94e"
     },
@@ -28,7 +28,7 @@
       "nombre": "Maria",
       "primer_apellido": "Gonzalez",
       "segundo_apellido": "Perez",
-      "facultad": "Ing_Informatica",
+      "facultad": "Ing_Informática",
       "nombreUsuario": "estudiante2",
       "contrasena": "6cf615d5bcaac778352a8f1f3360d23f02f34ec182e259897fd6ce485d7870d4"
     },
@@ -49,7 +49,7 @@
       "nombre": "Pedro",
       "primer_apellido": "Lopez",
       "segundo_apellido": "Perez",
-      "facultad": "Ing_Informatica",
+      "facultad": "Ing_Informática",
       "nombreUsuario": "estudiante3",
       "contrasena": "5906ac361a137e2d286465cd6588ebb5ac3f5ae955001100bc41577c3d751764"
     },
@@ -71,7 +71,7 @@
       "nombre": "Sofia",
       "primer_apellido": "Fernandez",
       "segundo_apellido": "Fernandez",
-      "facultad": "Ing_Informatica",
+      "facultad": "Ing_Informática",
       "nombreUsuario": "estudiante4",
       "contrasena": "b97873a40f73abedd8d685a7cd5e5f85e4a9cfb83eac26886640a0813850122b"
     },
@@ -93,7 +93,7 @@
       "nombre": "Laura",
       "primer_apellido": "Martinez",
       "segundo_apellido": "Fernandez",
-      "facultad": "Ing_Informatica",
+      "facultad": "Ing_Informática",
       "nombreUsuario": "estudiante5",
       "contrasena": "8b2c86ea9cf2ea4eb517fd1e06b74f399e7fec0fef92e3b482a6cf2e2b092023"
     },
@@ -115,7 +115,7 @@
       "nombre": "Carlos",
       "primer_apellido": "Sanchez",
       "segundo_apellido": "Fernandez",
-      "facultad": "Ing_Informatica",
+      "facultad": "Ing_Informática",
       "nombreUsuario": "estudiante6",
       "contrasena": "598a1a400c1dfdf36974e69d7e1bc98593f2e15015eed8e9b7e47a83b31693d5"
     },
@@ -137,7 +137,7 @@
       "nombre": "Isabel",
       "primer_apellido": "Gomez",
       "segundo_apellido": "Fernandez",
-      "facultad": "Ing_Informatica",
+      "facultad": "Ing_Informática",
       "nombreUsuario": "estudiante7",
       "contrasena": "5860836e8f13fc9837539a597d4086bfc0299e54ad92148d54538b5c3feefb7c"
     },
@@ -159,7 +159,7 @@
       "nombre": "Manuel",
       "primer_apellido": "Torres",
       "segundo_apellido": "Fernandez",
-      "facultad": "Ing_Informatica",
+      "facultad": "Ing_Informática",
       "nombreUsuario": "estudiante8",
       "contrasena": "57f3ebab63f156fd8f776ba645a55d96360a15eeffc8b0e4afe4c05fa88219aa"
     },
@@ -181,7 +181,7 @@
       "nombre": "Ana",
       "primer_apellido": "Lopez",
       "segundo_apellido": "Fernandez",
-      "facultad": "Ing_Informatica",
+      "facultad": "Ing_Informática",
       "nombreUsuario": "estudiante9",
       "contrasena": "9323dd6786ebcbf3ac87357cc78ba1abfda6cf5e55cd01097b90d4a286cac90e"
     },
@@ -203,7 +203,7 @@
       "nombre": "Luis",
       "primer_apellido": "Fernandez",
       "segundo_apellido": "Fernandez",
-      "facultad": "Ing_Informatica",
+      "facultad": "Ing_Informática",
       "nombreUsuario": "estudiante10",
       "contrasena": "aa4a9ea03fcac15b5fc63c949ac34e7b0fd17906716ac3b8e58c599cdc5a52f0"
     },
@@ -225,7 +225,7 @@
       "nombre": "Marta",
       "primer_apellido": "Martinez",
       "segundo_apellido": "Fernandez",
-      "facultad": "Ing_Informatica",
+      "facultad": "Ing_Informática",
       "nombreUsuario": "estudiante11",
       "contrasena": "53d453b0c08b6b38ae91515dc88d25fbecdd1d6001f022419629df844f8ba433"
     },
@@ -247,7 +247,7 @@
       "nombre": "David",
       "primer_apellido": "Sanchez",
       "segundo_apellido": "Fernandez",
-      "facultad": "Ing_Informatica",
+      "facultad": "Ing_Informática",
       "nombreUsuario": "estudiante12",
       "contrasena": "b3d17ebbe4f2b75d27b6309cfaae1487b667301a73951e7d523a039cd2dfe110"
     },
@@ -269,7 +269,7 @@
       "nombre": "Clara",
       "primer_apellido": "Gomez",
       "segundo_apellido": "Fernandez",
-      "facultad": "Ing_Informatica",
+      "facultad": "Ing_Informática",
       "nombreUsuario": "estudiante13",
       "contrasena": "48caafb68583936afd0d78a7bfd7046d2492fad94f3c485915f74bb60128620d"
     },
@@ -291,7 +291,7 @@
       "nombre": "Eduardo",
       "primer_apellido": "Torres",
       "segundo_apellido": "Fernandez",
-      "facultad": "Ing_Informatica",
+      "facultad": "Ing_Informática",
       "nombreUsuario": "estudiante14",
       "contrasena": "c6863e1db9b396ed31a36988639513a1c73a065fab83681f4b77adb648fac3d6"
     },
@@ -313,7 +313,7 @@
       "nombre": "Maria",
       "primer_apellido": "Lopez",
       "segundo_apellido": "Fernandez",
-      "facultad": "Ing_Informatica",
+      "facultad": "Ing_Informática",
       "nombreUsuario": "estudiante15",
       "contrasena": "c63c2d34ebe84032ad47b87af194fedd17dacf8222b2ea7f4ebfee3dd6db2dfb"
     },

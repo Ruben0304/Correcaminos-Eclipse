@@ -9,7 +9,7 @@
             "nombre": "Sebastián",
             "primer_apellido": "Rulli",
             "segundo_apellido": "Díaz",
-            "facultad": "Ing_Informatica",
+            "facultad": "Ing_Informática",
             "idBecado": "12349",
             "noCuarto": 305
         },
@@ -39,7 +39,7 @@
             "nombre": "Mario",
             "primer_apellido": "Casas",
             "segundo_apellido": "Sierra",
-            "facultad": "Ing_Informatica",
+            "facultad": "Ing_Informática",
             "idBecado": "12945",
             "noCuarto": 301
         },
@@ -69,7 +69,7 @@
             "nombre": "Miguel",
             "primer_apellido": "Herran",
             "segundo_apellido": "Ruiz",
-            "facultad": "Ing_Informatica",
+            "facultad": "Ing_Informática",
             "idBecado": "12946",
             "noCuarto": 302
         },
@@ -99,7 +99,7 @@
             "nombre": "Jaime",
             "primer_apellido": "Lorente",
             "segundo_apellido": "Lopez",
-            "facultad": "Ing_Informatica",
+            "facultad": "Ing_Informática",
             "idBecado": "12947",
             "noCuarto": 303
         },
@@ -130,7 +130,7 @@
             "nombre": "Alvaro",
             "primer_apellido": "Morte",
             "segundo_apellido": "Gonzalez",
-            "facultad": "Ing_Informatica",
+            "facultad": "Ing_Informática",
             "idBecado": "12948",
             "noCuarto": 304
         },

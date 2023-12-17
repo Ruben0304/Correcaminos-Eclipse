@@ -13,7 +13,7 @@
 			"nombre": "Juan",
 			"primer_apellido": "Perez",
 			"segundo_apellido": "Perez",
-			"facultad": "Ing_Informatica"
+			"facultad": "Ing_Informática"
 		}
 	],
 	[
@@ -30,7 +30,7 @@
 			"nombre": "Luciano",
 			"primer_apellido": "Castro",
 			"segundo_apellido": "Gonzalez",
-			"facultad": "Ing_Informatica"
+			"facultad": "Ing_Informática"
 		}
 	],
 	[
@@ -47,7 +47,7 @@
 			"nombre": "Adrian",
 			"primer_apellido": "Suar",
 			"segundo_apellido": "Martinez",
-			"facultad": "Ing_Informatica"
+			"facultad": "Ing_Informática"
 		}
 	],
 	[
@@ -64,7 +64,7 @@
 			"nombre": "Facundo",
 			"primer_apellido": "Arana",
 			"segundo_apellido": "Gonzalez",
-			"facultad": "Ing_Informatica"
+			"facultad": "Ing_Informática"
 		}
 	],
 	[
@@ -81,7 +81,7 @@
 			"nombre": "Benjamin",
 			"primer_apellido": "Vicuña",
 			"segundo_apellido": "Gonzalez",
-			"facultad": "Ing_Informatica"
+			"facultad": "Ing_Informática"
 		}
 	],
 	[
@@ -98,7 +98,7 @@
 			"nombre": "Pablo",
 			"primer_apellido": "Echarri",
 			"segundo_apellido": "Martinez",
-			"facultad": "Ing_Informatica"
+			"facultad": "Ing_Informática"
 		}
 	],
 	[
@@ -115,7 +115,7 @@
 			"nombre": "Sebastian",
 			"primer_apellido": "Martinez",
 			"segundo_apellido": "Diaz",
-			"facultad": "Ing_Informatica"
+			"facultad": "Ing_Informática"
 		}
 	],
 	[
@@ -132,7 +132,7 @@
 			"nombre": "Carolina",
 			"primer_apellido": "Gomez",
 			"segundo_apellido": "Lopez",
-			"facultad": "Ing_Informatica"
+			"facultad": "Ing_Informática"
 		}
 	],
 	[
@@ -149,7 +149,7 @@
 			"nombre": "Sofia",
 			"primer_apellido": "Vergara",
 			"segundo_apellido": "Ramirez",
-			"facultad": "Ing_Informatica"
+			"facultad": "Ing_Informática"
 		}
 	],
 	[
@@ -166,7 +166,7 @@
 			"nombre": "Juan",
 			"primer_apellido": "Pablo",
 			"segundo_apellido": "Raba",
-			"facultad": "Ing_Informatica"
+			"facultad": "Ing_Informática"
 		}
 	],
 	[
@@ -183,7 +183,7 @@
 			"nombre": "Carmen",
 			"primer_apellido": "Villalobos",
 			"segundo_apellido": "Garcia",
-			"facultad": "Ing_Informatica"
+			"facultad": "Ing_Informática"
 		}
 	]
 ]

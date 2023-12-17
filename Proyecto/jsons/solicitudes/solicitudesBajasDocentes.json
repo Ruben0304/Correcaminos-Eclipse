@@ -6,7 +6,7 @@
             "primer_apellido": "Laport",
             "segundo_apellido": "Gomez",
             "numerotrabajador": "820000",
-            "facultad": "Ing_Informatica",
+            "facultad": "Ing_Informática",
             "departamento": "Historia",
             "categoriaDocente": "DOCTOR"
         },
@@ -33,7 +33,7 @@
         "primer_apellido": "Guardia",
         "segundo_apellido": "Fernandez",
         "numerotrabajador": "805001",
-        "facultad": "Ing_Informatica",
+        "facultad": "Ing_Informática",
         "departamento": "Matematicas",
         "categoriaDocente": "INGENIERO"
         },
@@ -61,7 +61,7 @@
         "primer_apellido": "Geithner",
         "segundo_apellido": "Gomez",
         "numerotrabajador": "810800",
-        "facultad": "Ing_Informatica",
+        "facultad": "Ing_Informática",
         "departamento": "Programacion",
         "categoriaDocente": "MASTER"
         },
@@ -89,7 +89,7 @@
         "primer_apellido": "Chacon",
         "segundo_apellido": "Gonzalez",
         "numerotrabajador": "820090",
-        "facultad": "Ing_Informatica",
+        "facultad": "Ing_Informática",
         "departamento": "Historia",
         "categoriaDocente": "DOCTOR"
         },
@@ -117,7 +117,7 @@
         "primer_apellido": "Dobles",
         "segundo_apellido": "Gutierrez",
         "numerotrabajador": "839000",
-        "facultad": "Ing_Informatica",
+        "facultad": "Ing_Informática",
         "departamento": "Inteligencia Artificial",
         "categoriaDocente": "INGENIERO"
         },

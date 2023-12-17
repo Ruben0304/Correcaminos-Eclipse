@@ -77,7 +77,7 @@ public class Pruebas {
 	// 	HashMap<Estudiante, Set<Solicitud>> solicitudesEstudiantes = new HashMap<>();
 
 	// 	for (int i = 0; i < 5; i++) {
-    //     //    Estudiante estudiante = new Estudiante("CI" + i, "Nombre" + i, "Apellido1_" + i, "Apellido2_" + i, Facultad.Ing_Informatica, i, TipoCurso.DIURNO, "Carrera" + i, i);
+    //     //    Estudiante estudiante = new Estudiante("CI" + i, "Nombre" + i, "Apellido1_" + i, "Apellido2_" + i, Facultad.Ing_Informática, i, TipoCurso.DIURNO, "Carrera" + i, i);
     //     //    Set<Solicitud> solicitudes = new HashSet<>();
 
     //     //    for (int j = 0; j < 3; j++) {

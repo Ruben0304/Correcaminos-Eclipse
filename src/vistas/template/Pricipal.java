@@ -85,7 +85,7 @@ public class Pricipal extends JFrame implements ActionListener {
 			panel.add(LabelUsuario.usuario());
 		}
 		
-		contentPane.add(new vistas.chat.ChatPanel());
+		contentPane.add(panel);
 
 		repaint();
 		revalidate();

@@ -129,7 +129,7 @@ public class DepartamentosModelo extends JPanel {
 
 		table = new JTable();
 		this.table.setModel(modelo);
-		table.isCellEditable(40, 8);
+		table.isCellEditable(0, 0);
 		table.setFont(new Font(FlatRobotoFont.FAMILY, Font.PLAIN, 13));
 		DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
 		centerRenderer.setHorizontalAlignment(JLabel.CENTER);

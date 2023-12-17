@@ -16,6 +16,7 @@ import com.formdev.flatlaf.FlatLaf;
 import com.formdev.flatlaf.themes.FlatMacDarkLaf;
 
 import controladores.ControladorLogin;
+import controladores.ControladorPrincipal;
 import vistas.componentes.Navegacion;
 
 import java.awt.event.ActionListener;
@@ -86,9 +87,9 @@ public class Sesiones extends JDialog {
 			rdbtnEconomia.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					ControladorLogin.intentarAutenticar("Economia", "economia", true);
-					Pricipal.getInstancia().revalidate();
-					Pricipal.getInstancia().repaint();
 					Navegacion.reiniciar();
+					ControladorPrincipal.mostrarInicio();
+					
 				}
 			});
 		}
@@ -99,6 +100,14 @@ public class Sesiones extends JDialog {
 			rdbtnContabilidad = new JRadioButton("Contabilidad");
 			rdbtnContabilidad.setFont(new Font("Segoe UI Semibold", Font.BOLD, 13));
 			rdbtnContabilidad.setBounds(35, 122, 197, 25);
+			rdbtnContabilidad.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					ControladorLogin.intentarAutenticar("Contabilidad", "contabilidad", true);
+					Navegacion.reiniciar();
+					ControladorPrincipal.mostrarInicio();
+					
+				}
+			});
 		}
 		return rdbtnContabilidad;
 	}
@@ -108,9 +117,9 @@ public class Sesiones extends JDialog {
 			rdbtnSecretaria.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					ControladorLogin.intentarAutenticar("Secretaria", "secretaria", true);
-					// Pricipal.getInstancia().revalidate();
-					// Pricipal.getInstancia().repaint();
 					Navegacion.reiniciar();
+					ControladorPrincipal.mostrarInicio();
+					
 				}
 			});
 			rdbtnSecretaria.setFont(new Font("Segoe UI Semibold", Font.BOLD, 13));
@@ -123,6 +132,14 @@ public class Sesiones extends JDialog {
 			rdbtnRecusosHumanos = new JRadioButton("Recusos Humanos");
 			rdbtnRecusosHumanos.setFont(new Font("Segoe UI Semibold", Font.BOLD, 13));
 			rdbtnRecusosHumanos.setBounds(35, 45, 197, 25);
+			rdbtnRecusosHumanos.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					ControladorLogin.intentarAutenticar("RecusosHumanos", "recusoshumanos", true);
+					Navegacion.reiniciar();
+					ControladorPrincipal.mostrarInicio();
+					
+				}
+			});
 		}
 		return rdbtnRecusosHumanos;
 	}
@@ -131,6 +148,14 @@ public class Sesiones extends JDialog {
 			rdbtnBiblioteca = new JRadioButton("Biblioteca");
 			rdbtnBiblioteca.setFont(new Font("Segoe UI Semibold", Font.BOLD, 13));
 			rdbtnBiblioteca.setBounds(35, 161, 197, 25);
+			rdbtnBiblioteca.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					ControladorLogin.intentarAutenticar("Biblioteca", "biblioteca", true);
+					Navegacion.reiniciar();
+					ControladorPrincipal.mostrarInicio();
+					
+				}
+			});
 		}
 		return rdbtnBiblioteca;
 	}
@@ -139,6 +164,14 @@ public class Sesiones extends JDialog {
 			rdbtnAlmacenDeLibros = new JRadioButton("Almacén de libros");
 			rdbtnAlmacenDeLibros.setFont(new Font("Segoe UI Semibold", Font.BOLD, 13));
 			rdbtnAlmacenDeLibros.setBounds(35, 201, 197, 25);
+			rdbtnAlmacenDeLibros.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					ControladorLogin.intentarAutenticar("AlmacenLibros", "almacenlibros", true);
+					Navegacion.reiniciar();
+					ControladorPrincipal.mostrarInicio();
+					
+				}
+			});
 		}
 		return rdbtnAlmacenDeLibros;
 	}
@@ -147,6 +180,14 @@ public class Sesiones extends JDialog {
 			rdbtnDirBecas = new JRadioButton("Dirección Becas");
 			rdbtnDirBecas.setFont(new Font("Segoe UI Semibold", Font.BOLD, 13));
 			rdbtnDirBecas.setBounds(35, 238, 197, 25);
+			rdbtnDirBecas.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					ControladorLogin.intentarAutenticar("DireccionBecas", "direccionbecas", true);
+					Navegacion.reiniciar();
+					ControladorPrincipal.mostrarInicio();
+					
+				}
+			});
 		}
 		return rdbtnDirBecas;
 	}
@@ -155,6 +196,14 @@ public class Sesiones extends JDialog {
 			rdbtnSeguridadInformtica = new JRadioButton("Seguridad Informática");
 			rdbtnSeguridadInformtica.setFont(new Font("Segoe UI Semibold", Font.BOLD, 13));
 			rdbtnSeguridadInformtica.setBounds(35, 278, 197, 25);
+			rdbtnSeguridadInformtica.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					ControladorLogin.intentarAutenticar("SeguridadInformtica", "seguridadinformtica", true);
+					Navegacion.reiniciar();
+					ControladorPrincipal.mostrarInicio();
+					
+				}
+			});
 		}
 		return rdbtnSeguridadInformtica;
 	}
@@ -163,6 +212,14 @@ public class Sesiones extends JDialog {
 			rdbtnEstudiante = new JRadioButton("Estudiante1");
 			rdbtnEstudiante.setFont(new Font("Segoe UI Semibold", Font.BOLD, 13));
 			rdbtnEstudiante.setBounds(35, 354, 197, 25);
+			rdbtnEstudiante.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					ControladorLogin.intentarAutenticar("estudiante1", "prueba", true);
+					Navegacion.reiniciar();
+					ControladorPrincipal.mostrarInicio();
+					
+				}
+			});
 		}
 		return rdbtnEstudiante;
 	}
@@ -171,6 +228,14 @@ public class Sesiones extends JDialog {
 			rdbtnEmpleado = new JRadioButton("Empleado1");
 			rdbtnEmpleado.setFont(new Font("Segoe UI Semibold", Font.BOLD, 13));
 			rdbtnEmpleado.setBounds(35, 317, 197, 25);
+			rdbtnEmpleado.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					ControladorLogin.intentarAutenticar("empleado1", "prueba", true);
+					Navegacion.reiniciar();
+					ControladorPrincipal.mostrarInicio();
+					
+				}
+			});
 		}
 		return rdbtnEmpleado;
 	}

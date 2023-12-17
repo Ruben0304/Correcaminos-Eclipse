@@ -82,6 +82,7 @@ public class ControladorLogin {
             }
         }
 
+        System.out.println(hashContrasena("almacenlibros"));
         return autenticado;
     }
 

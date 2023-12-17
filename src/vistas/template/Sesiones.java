@@ -198,7 +198,7 @@ public class Sesiones extends JDialog {
 			rdbtnSeguridadInformtica.setBounds(35, 278, 197, 25);
 			rdbtnSeguridadInformtica.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					ControladorLogin.intentarAutenticar("SeguridadInformtica", "seguridadinformtica", true);
+					ControladorLogin.intentarAutenticar("SeguridadInformatica", "seguridadinformatica", true);
 					Navegacion.reiniciar();
 					ControladorPrincipal.mostrarInicio();
 					

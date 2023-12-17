@@ -3,11 +3,11 @@ package util;
 public enum Facultad {
 	Arquitectura,
 	Ing_Civil,
-	Ing_Electrica,
+	Ing_Eléctrica,
 	Ing_Industrial,
-	Ing_Informatica,
-	Ing_Quimica,
+	Ing_Informática,
+	Ing_Química,
 	Ing_Mecánica,
-	Ing_Automatica_y_Biomedica,
-	Ing_en_Telecomunicaciones_y_Electronica,
+	Ing_Automática_y_Biomédica,
+	Ing_en_Telecomunicaciones_y_Electrónica,
 }

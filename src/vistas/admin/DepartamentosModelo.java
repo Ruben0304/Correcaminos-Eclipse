@@ -19,6 +19,7 @@ import com.formdev.flatlaf.themes.FlatMacDarkLaf;
 
 import autenticacion.Auth;
 import controladores.ControladorAdmin;
+import modelos.gestion.empleados.GestorEmpleados;
 import modelos.gestion.estudiantes.Secretaria;
 import modelos.usuarios.Admin;
 import modelos.usuarios.Persona;
@@ -128,6 +129,7 @@ public class DepartamentosModelo extends JPanel {
 
 		table = new JTable();
 		this.table.setModel(modelo);
+		table.isCellEditable(0, 0);
 		table.setFont(new Font(FlatRobotoFont.FAMILY, Font.PLAIN, 13));
 		DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
 		centerRenderer.setHorizontalAlignment(JLabel.CENTER);
@@ -175,10 +177,15 @@ public class DepartamentosModelo extends JPanel {
 			public void actionPerformed(ActionEvent arg0) {
 
 				int selectedRow1 = table.getSelectedRow();
+				String cancelado = null;
 				if (selectedRow1 != -1) {
-					String cancelado = table.getValueAt(selectedRow1,8 ).toString();
+					if(((Admin) Auth.usuarioAutenticado()).getTipoDepartamento().equals(TipoDepartamento.Secretaria))
+						 cancelado = table.getValueAt(selectedRow1,8 ).toString();
+					else if(((Admin) Auth.usuarioAutenticado()).getTipoDepartamento().equals(TipoDepartamento.RecursosHumanos))
+						 cancelado = table.getValueAt(selectedRow1,6 ).toString();
+				
 					if(cancelado.equals("Sí")){
-						button.setEnabled(true);
+				 		button.setEnabled(true);
 						int respuesta = JOptionPane.showConfirmDialog(null,
 								"¿Estás seguro que desea ejecutar esta acción?",
 								"Confirmación",
@@ -186,17 +193,26 @@ public class DepartamentosModelo extends JPanel {
 						if (respuesta == 0) {
 							int selectedRow = table.getSelectedRow();
 							if (selectedRow != -1) {
-								String carnet = table.getValueAt(selectedRow, 0).toString();
-								Secretaria.gestorEstudiantes().getGestorSolicitudes().cambiarEstadoSolicitud(carnet,
-										Estado.CANCELADO);
-								Notifications.getInstance().show(Notifications.Type.SUCCESS,"Trámite cancelado correctamente");
-								ControladorAdmin.mostrarGestionLicencias();
+								if(((Admin) Auth.usuarioAutenticado()).getTipoDepartamento().equals(TipoDepartamento.Secretaria)){
+									String carnet = table.getValueAt(selectedRow, 0).toString();
+									Secretaria.gestorEstudiantes().getGestorSolicitudes().cambiarEstadoSolicitud(carnet,
+											Estado.CANCELADO);
+									Notifications.getInstance().show(Notifications.Type.SUCCESS,"Trámite cancelado correctamente");
+									ControladorAdmin.mostrarGestionLicencias();
+								}
+								else if(((Admin) Auth.usuarioAutenticado()).getTipoDepartamento().equals(TipoDepartamento.RecursosHumanos)){
+									String carnetE = table.getValueAt(selectedRow, 0).toString();
+									GestorEmpleados.gestorEmpleados().getGestorSolicitudesEmpleados().cambiarEstadoSolicitud(carnetE,
+											Estado.CANCELADO);
+									Notifications.getInstance().show(Notifications.Type.SUCCESS,"Trámite cancelado correctamente");
+									ControladorAdmin.mostrarGestionLicencias();
+								}
 							}
 						}
 
 					}else {
 						button.setEnabled(false);
-						Notifications.getInstance().show(Notifications.Type.SUCCESS,"No ha solicitado cancelación");
+						Notifications.getInstance().show(Notifications.Type.ERROR,"No ha solicitado cancelación");
 						ControladorAdmin.mostrarGestionLicencias();
 
 					}
@@ -209,7 +225,7 @@ public class DepartamentosModelo extends JPanel {
 			button.setVisible(true);
 		else
 			button.setVisible(false);
-		
+
 		button.setFont(new Font("Segoe UI", Font.PLAIN, 18));
 		button.setBackground(new Color(102, 153, 255));
 		button.setBounds(416, 609, 219, 43);
@@ -259,43 +275,48 @@ public class DepartamentosModelo extends JPanel {
 		iMinimizar = new ImageIcon("./src/img/min_blanco.png");
 	}
 	private JButton getBtnLeyenda() {
-		
-			if (btnLeyenda == null) {
-				btnLeyenda = new JButton("Leyenda");
-				btnLeyenda.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
 
-						if(((Admin) Auth.usuarioAutenticado()).getTipoDepartamento().equals(TipoDepartamento.Secretaria)){
-							JTextArea textArea = new JTextArea("B-Biblioteca\nAL-Almacén de libros\nE-Economía\nDB-dirección de becas\nSI-Seguridad Informática\nSC-Solicita Cancelación\nA-Aprobado\nP-Pendiente");
-							textArea.setEditable(false);
-							JScrollPane s = new JScrollPane (textArea);
-							s.setPreferredSize(new Dimension(200,100));
-							JOptionPane.showMessageDialog(null, s,"Leyenda",JOptionPane.PLAIN_MESSAGE);}
-						else if(((Admin) Auth.usuarioAutenticado()).getTipoDepartamento().equals(TipoDepartamento.RecursosHumanos))
-						{
-							JTextArea textArea = new JTextArea("B-Biblioteca\nC-Contabilidad\nSI-Seguridad Informática\nSC-Solicita Cancelación\nA-Aprobado\nP-Pendiente");
-							textArea.setEditable(false);
-							JScrollPane s = new JScrollPane (textArea);
-							s.setPreferredSize(new Dimension(200,100));
-							JOptionPane.showMessageDialog(null, s,"Leyenda",JOptionPane.PLAIN_MESSAGE);}
+		if (btnLeyenda == null) {
+			btnLeyenda = new JButton("Leyenda");
+			btnLeyenda.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+
+					if(((Admin) Auth.usuarioAutenticado()).getTipoDepartamento().equals(TipoDepartamento.Secretaria)){
+						JTextArea textArea = new JTextArea("B-Biblioteca\nAL-Almacén de libros\nE-Economía\nDB-dirección de becas\nSI-Seguridad Informática\nSC-Solicita Cancelación\nA-Aprobado\nP-Pendiente");
+						textArea.setEditable(false);
+						JScrollPane s = new JScrollPane (textArea);
+						s.setPreferredSize(new Dimension(200,100));
+						JOptionPane.showMessageDialog(null, s,"Leyenda",JOptionPane.PLAIN_MESSAGE);}
+					else if(((Admin) Auth.usuarioAutenticado()).getTipoDepartamento().equals(TipoDepartamento.RecursosHumanos))
+					{
+						JTextArea textArea = new JTextArea("B-Biblioteca\nC-Contabilidad\nSI-Seguridad Informática\nSC-Solicita Cancelación\nA-Aprobado\nP-Pendiente");
+						textArea.setEditable(false);
+						JScrollPane s = new JScrollPane (textArea);
+						s.setPreferredSize(new Dimension(200,100));
+						JOptionPane.showMessageDialog(null, s,"Leyenda",JOptionPane.PLAIN_MESSAGE);}
 
 
 
-					}
-				});
-				if(((Admin) Auth.usuarioAutenticado()).getTipoDepartamento().equals(TipoDepartamento.Secretaria) || ((Admin) Auth.usuarioAutenticado()).getTipoDepartamento().equals(TipoDepartamento.RecursosHumanos))
-					btnLeyenda.setVisible(true);
-				else
-					btnLeyenda.setVisible(false);
-						
-			    btnLeyenda.setForeground(Color.WHITE);
-				btnLeyenda.setFont(new Font("Segoe UI", Font.PLAIN, 18));
-				btnLeyenda.setEnabled(true);
-				btnLeyenda.setBackground(new Color(72, 189, 133));
-				btnLeyenda.setBounds(28, 558, 196, 43);
-				
-			}
+				}
+			});
+			if(((Admin) Auth.usuarioAutenticado()).getTipoDepartamento().equals(TipoDepartamento.Secretaria) || ((Admin) Auth.usuarioAutenticado()).getTipoDepartamento().equals(TipoDepartamento.RecursosHumanos))
+				btnLeyenda.setVisible(true);
+			else
+				btnLeyenda.setVisible(false);
+
+			btnLeyenda.setForeground(Color.WHITE);
+			btnLeyenda.setFont(new Font("Segoe UI", Font.PLAIN, 18));
+			btnLeyenda.setEnabled(true);
+			btnLeyenda.setBackground(new Color(72, 189, 133));
+			btnLeyenda.setBounds(28, 558, 196, 43);
+
+		}
 
 		return btnLeyenda;
 	}
+	
+	
+		
+	
 }
+

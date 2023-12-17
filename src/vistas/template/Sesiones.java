@@ -104,6 +104,8 @@ public class Sesiones extends JDialog {
 			rdbtnSecretaria.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					ControladorLogin.intentarAutenticar("Secretaria", "secretaria", true);
+					Pricipal.getInstancia().revalidate();
+					Pricipal.getInstancia().repaint();
 				}
 			});
 			rdbtnSecretaria.setFont(new Font("Segoe UI Semibold", Font.BOLD, 13));

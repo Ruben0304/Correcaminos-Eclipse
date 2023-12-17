@@ -185,7 +185,7 @@ public class DepartamentosModelo extends JPanel {
 						 cancelado = table.getValueAt(selectedRow1,6 ).toString();
 				
 					if(cancelado.equals("Sí")){
-						button.setEnabled(true);
+				 		button.setEnabled(true);
 						int respuesta = JOptionPane.showConfirmDialog(null,
 								"¿Estás seguro que desea ejecutar esta acción?",
 								"Confirmación",
@@ -212,7 +212,7 @@ public class DepartamentosModelo extends JPanel {
 
 					}else {
 						button.setEnabled(false);
-						Notifications.getInstance().show(Notifications.Type.SUCCESS,"No ha solicitado cancelación");
+						Notifications.getInstance().show(Notifications.Type.ERROR,"No ha solicitado cancelación");
 						ControladorAdmin.mostrarGestionLicencias();
 
 					}

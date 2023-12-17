@@ -84,6 +84,7 @@ public class LoginTemplate extends JFrame {
 
 		FlatLaf.registerCustomDefaultsSource("app.themes");
 		FlatMacDarkLaf.setup();
+		FlatMacLightLaf.setup();
 		UIManager.put("defaultFont", new Font("Segoe UI", Font.PLAIN, 14));
 
 		UIManager.put("Component.innerFocusWidth", 1);

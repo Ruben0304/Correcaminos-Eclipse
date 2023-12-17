@@ -16,6 +16,7 @@ import com.formdev.flatlaf.FlatLaf;
 import com.formdev.flatlaf.themes.FlatMacDarkLaf;
 
 import controladores.ControladorLogin;
+import vistas.componentes.Navegacion;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -85,6 +86,9 @@ public class Sesiones extends JDialog {
 			rdbtnEconomia.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					ControladorLogin.intentarAutenticar("Economia", "economia", true);
+					Pricipal.getInstancia().revalidate();
+					Pricipal.getInstancia().repaint();
+					Navegacion.reiniciar();
 				}
 			});
 		}
@@ -104,8 +108,9 @@ public class Sesiones extends JDialog {
 			rdbtnSecretaria.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					ControladorLogin.intentarAutenticar("Secretaria", "secretaria", true);
-					Pricipal.getInstancia().revalidate();
-					Pricipal.getInstancia().repaint();
+					// Pricipal.getInstancia().revalidate();
+					// Pricipal.getInstancia().repaint();
+					Navegacion.reiniciar();
 				}
 			});
 			rdbtnSecretaria.setFont(new Font("Segoe UI Semibold", Font.BOLD, 13));

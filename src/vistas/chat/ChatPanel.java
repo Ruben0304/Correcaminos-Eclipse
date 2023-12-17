@@ -124,7 +124,7 @@ public class ChatPanel extends JPanel implements ActionListener {
         add(messagePanel);
         messagePanel.add(getTextField_1());
         messagePanel.add(getLabel_1());
-        panel_1.setBounds(12, 33, 210, 547);
+        panel_1.setBounds(12, 58, 210, 522);
         add(panel_1);
         panel_1.setLayout(null);
         panel_1.setBorder(new LineBorder(new Color(105, 105, 105)));
@@ -191,13 +191,13 @@ public class ChatPanel extends JPanel implements ActionListener {
         chatArea.setEditable(false);
         JScrollPane scrollPane = new JScrollPane(chatArea);
         scrollPane.setBorder(null);
-        scrollPane.setBounds(317, 137, 525, 420);
+        scrollPane.setBounds(317, 149, 525, 408);
 
         scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         add(scrollPane);
         panel.setBorder(new LineBorder(new Color(128, 128, 128)));
         panel.setBackground(new Color(40, 42, 46));
-        panel.setBounds(252, 33, 616, 547);
+        panel.setBounds(252, 58, 616, 522);
 
         add(panel);
         panel.setLayout(null);
@@ -234,7 +234,7 @@ public class ChatPanel extends JPanel implements ActionListener {
             txtrContanctaConLos.setEditable(false);
             txtrContanctaConLos.setBorder(null);
             txtrContanctaConLos.setBackground(new Color(40, 42, 46));
-            txtrContanctaConLos.setBounds(24, 460, 174, 74);
+            txtrContanctaConLos.setBounds(24, 435, 174, 74);
         }
         return txtrContanctaConLos;
     }

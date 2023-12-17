@@ -240,11 +240,11 @@ public class Navegacion extends JPanel {
 				getGuardar_bg().setVisible(false);
 				break;
 			case "reportes":
-				// getHome_bg().setVisible(false);
-				// getReportes_bg().setVisible(true);
-				// getAccount_bg().setVisible(false);
-				// getGestion_bg().setVisible(false);
-				// getGuardar_bg().setVisible(false);
+				getHome_bg().setVisible(false);
+				getReportes_bg().setVisible(true);
+				getAccount_bg().setVisible(false);
+				getGestion_bg().setVisible(false);
+				getGuardar_bg().setVisible(false);
 				break;
 			case "panelAdmin":
 				getHome_bg().setVisible(false);
@@ -294,8 +294,8 @@ public class Navegacion extends JPanel {
 				@Override
 				public void mouseClicked(MouseEvent e) {
 					cuadritoVerdeActualizar("reportes");
-					// ControladorPrincipal.mostrarChats();
-					JOptionPane.showMessageDialog(null, "Cooming Soon", "Chats", JOptionPane.INFORMATION_MESSAGE);
+					ControladorPrincipal.mostrarChats();
+					
 
 				}
 

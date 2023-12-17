@@ -25,6 +25,11 @@ public class ModeloFiltrado extends DefaultTableModel {
 				"DNI", "Nombre", "Apellido", "Carrera" };
 		this.setColumnIdentifiers(columnNames);
 	}
+	
+	public boolean isCellEditable(int row, int columna){
+        return false;
+	}
+
 
 	public ModeloFiltrado(HashMap<Estudiante,Set<Solicitud>> solicitudes) {
 		String[] columnNames = {

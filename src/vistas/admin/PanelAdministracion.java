@@ -505,6 +505,7 @@ public class PanelAdministracion extends JPanel {
 			});
 			table.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
 			table.setBorder(null);
+			
 			table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 			// scrollPane.setViewportView(table);
 
@@ -518,7 +519,7 @@ public class PanelAdministracion extends JPanel {
 			table.setForeground(Color.WHITE);
 			DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
 			centerRenderer.setHorizontalAlignment(JLabel.CENTER);
-
+ 
 		}
 		return table;
 	}

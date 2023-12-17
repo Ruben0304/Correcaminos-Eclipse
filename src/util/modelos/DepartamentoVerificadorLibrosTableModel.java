@@ -81,6 +81,11 @@ public class DepartamentoVerificadorLibrosTableModel extends DefaultTableModel {
 					addRow(newRow);
 		}
 	}
+	@Override
+	public boolean isCellEditable(int row, int columna){
+        return false;
+	}
+
 
 	// public DepartamentoVerificadorLibrosTableModel(ArrayList<Persona> personas,
 	// String encabezado) {

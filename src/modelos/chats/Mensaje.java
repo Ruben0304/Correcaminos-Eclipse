@@ -4,19 +4,19 @@ import interfaces.Autenticable;
 
 public class Mensaje {
     private String mensaje;
-    private Autenticable persona;
+    private String autor;
 
-    public Mensaje(String mensaje, Autenticable persona) {
+    public Mensaje(String mensaje, String autor) {
         this.mensaje = mensaje;
-        this.persona = persona;
+        this.autor = autor;
     }
 
     public String getMensaje() {
         return mensaje;
     }
     
-    public Autenticable getPersona() {
-        return persona;
+    public String getAutor() {
+        return autor;
     }
     
 }

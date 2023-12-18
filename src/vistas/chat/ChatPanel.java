@@ -45,7 +45,10 @@ import javax.swing.border.MatteBorder;
 import com.formdev.flatlaf.FlatClientProperties;
 
 import autenticacion.Auth;
+import modelos.chats.AdministradorChats;
+import modelos.chats.Mensaje;
 import modelos.usuarios.Becado;
+import modelos.usuarios.Persona;
 
 public class ChatPanel extends JPanel implements ActionListener {
     private JTextArea chatArea = new JTextArea();
@@ -64,23 +67,25 @@ public class ChatPanel extends JPanel implements ActionListener {
     private JTextArea txtrContanctaConLos;
     private ButtonGroup rbtnGroup = new ButtonGroup();
     private JRadioButton radioButtonBiblioteca = new JRadioButton("");
-
-    private String departamento;
-    private final String persona = "persona1";
+    private final AdministradorChats chats = AdministradorChats.getInstancia();
+    private final Persona persona = (Persona) Auth.usuarioAutenticado();
+    private TipoDepartamento departamento;
     private JTextField textField;
     private JLabel label_1;
     private JRadioButton radioButton;
     private JLabel lblAlibros;
     private JRadioButton radioButton_1;
     private JLabel lblDbecas;
+
     // private final Persona persona = (Persona) Auth.usuarioAutenticado();
 
     public ChatPanel(HashMap<TiposResponsabilidad, Boolean> requisitos) {
 
         // this.mensajes = ControladorChats.obtenerMensajes(admin, persona);
         // this.departamento = admin;
+
         setBounds(178, 0, 944, 700);
-        chatArea.setText("Ningún mensaje hasta el momento \n");
+
         chatArea.setBackground(new Color(105, 105, 105));
 
         chatArea.setWrapStyleWord(true);
@@ -105,7 +110,8 @@ public class ChatPanel extends JPanel implements ActionListener {
         radioButtonBiblioteca.setEnabled(requisitos.get(TiposResponsabilidad.LIBROS_BIBLIOTECA));
         radioButtonSInformatica.setEnabled(requisitos.get(TiposResponsabilidad.CUENTA_USUARIO));
         radioButtonEconomia.setEnabled(requisitos.get(TiposResponsabilidad.ESTIPENDIO));
-        getRadioButton_1().setEnabled(Auth.usuarioAutenticado() instanceof Becado && requisitos.get(TiposResponsabilidad.PERTENENCIAS_BECA));
+        getRadioButton_1().setEnabled(
+                Auth.usuarioAutenticado() instanceof Becado && requisitos.get(TiposResponsabilidad.PERTENENCIAS_BECA));
         getRadioButton().setEnabled(requisitos.get(TiposResponsabilidad.LIBROS_DOCENTES));
         // if (!mensajes.isEmpty()) {
         // for (Mensaje mensaje : mensajes) {
@@ -150,12 +156,16 @@ public class ChatPanel extends JPanel implements ActionListener {
         radioButtonBiblioteca.setBackground(new Color(40, 42, 46));
         radioButtonBiblioteca.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                departamento = TipoDepartamento.Biblioteca;
+                cargarMensajes();
             }
         });
         panel_1.add(radioButtonBiblioteca);
 
         radioButtonSecretaria.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                departamento = TipoDepartamento.Secretaria;
+                cargarMensajes();
             }
         });
 
@@ -164,6 +174,8 @@ public class ChatPanel extends JPanel implements ActionListener {
         radioButtonSecretaria.setBackground(new Color(40, 42, 46));
         radioButtonEconomia.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                departamento = TipoDepartamento.Economia;
+                cargarMensajes();
             }
         });
         radioButtonEconomia.setBounds(24, 219, 25, 25);
@@ -171,6 +183,8 @@ public class ChatPanel extends JPanel implements ActionListener {
         radioButtonEconomia.setBackground(new Color(40, 42, 46));
         radioButtonSInformatica.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                departamento = TipoDepartamento.SeguridadInformatica;
+                cargarMensajes();
             }
         });
         radioButtonSInformatica.setBounds(24, 258, 28, 27);
@@ -262,6 +276,7 @@ public class ChatPanel extends JPanel implements ActionListener {
                     if (!getTextField_1().getText().isEmpty()) {
                         chatArea.append(getTextField_1().getText() + " \n");
                         getTextField_1().setText("");
+
                     }
 
                 }
@@ -309,5 +324,19 @@ public class ChatPanel extends JPanel implements ActionListener {
             lblDbecas.setBounds(54, 338, 120, 27);
         }
         return lblDbecas;
+    }
+
+    public void cargarMensajes() {
+        chatArea.setText("");
+        if (chats.obtenerChat(TipoDepartamento.Biblioteca,
+                persona) != null) {
+
+            for (Mensaje mensaje : chats.obtenerChat(departamento,
+                    persona).getChat()) {
+                chatArea.append(mensaje.getAutor() + ": \n");
+                chatArea.append("  " + mensaje.getMensaje() + "\n\n");
+
+            }
+        }
     }
 }

@@ -4,16 +4,28 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-import interfaces.Autenticable;
-import modelos.usuarios.Admin;
+
 import modelos.usuarios.Persona;
+import util.TipoDepartamento;
 
 public class AdministradorChats {
-    private Map<Admin, Map<Persona,Chat>> chats;
+  private Map<TipoDepartamento, Map<Persona, Chat>> chats;
+  private static AdministradorChats instancia = null;
 
-    public Chat obtenerChat (Admin entidad, Persona persona){
+  private AdministradorChats() {
+    chats = new HashMap<>();
+  }
 
-      return chats.get(entidad).get(persona);
+  public static AdministradorChats getInstancia() {
+    if (instancia == null) {
+      instancia = new AdministradorChats();
     }
-    
+    return instancia;
+  }
+
+  public Chat obtenerChat(TipoDepartamento entidad, Persona persona) {
+
+    return chats.get(entidad).get(persona);
+  }
+
 }

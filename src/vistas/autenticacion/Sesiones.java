@@ -43,6 +43,7 @@ public class Sesiones extends JDialog {
 	 * Create the dialog.
 	 */
 	public Sesiones() {
+		setResizable(false);
 		setFont(new Font("Segoe UI Semibold", Font.BOLD, 12));
 		setTitle("Cambiar sesión");
 		setBounds(100, 100, 292, 448);

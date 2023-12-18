@@ -31,6 +31,7 @@ public class InicioEmpleadoJP extends JPanel {
 		add(lblQuEs);
 		
 		JTextArea txtrSuMotivoY = new JTextArea();
+		txtrSuMotivoY.setWrapStyleWord(true);
 		txtrSuMotivoY.setEditable(false);
 		txtrSuMotivoY.setText(" Su motivo y datos personales.\r\n\r\nEntrega de todos los materiales en las respectivas entidades: biblioteca, seguridad informática, recursos\r\n humanos y contabilidad");
 		txtrSuMotivoY.setLineWrap(true);
@@ -49,6 +50,7 @@ public class InicioEmpleadoJP extends JPanel {
 		add(lblSolicitarLicencia);
 		
 		JTextArea txtrEntregaDeTodos = new JTextArea();
+		txtrEntregaDeTodos.setWrapStyleWord(true);
 		txtrEntregaDeTodos.setEditable(false);
 		txtrEntregaDeTodos.setText("Diríjase a la pantalla de trámites y espere la respuesta de su solicitud");
 		txtrEntregaDeTodos.setLineWrap(true);

@@ -224,7 +224,7 @@ public class RequisitosEstudiante extends JPanel {
 
 	private JLabel getLblSecretaria() {
 		if (lblSecretaria == null) {
-			lblSecretaria = new JLabel("Secretaria");
+			lblSecretaria = new JLabel("Secretaría");
 			lblSecretaria.setForeground(Color.WHITE);
 			lblSecretaria.setFont(new Font("Segoe UI Semibold", Font.BOLD, 26));
 			lblSecretaria.setBounds(52, 458, 181, 54);

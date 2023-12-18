@@ -35,6 +35,7 @@ public class InicioEstudianteJP extends JPanel{
 		add(lblQuEs);
 		
 		JTextArea txtrSuMotivoY = new JTextArea();
+		txtrSuMotivoY.setWrapStyleWord(true);
 		txtrSuMotivoY.setEditable(false);
 		txtrSuMotivoY.setText(" Su motivo y datos personales.\r\n\r\nEntrega de todos los materiales en las respectivas entidades: almacén de libros, economía, seguridad\r\n informática, secretaría y dirección de becas en caso de estar becado.");
 		txtrSuMotivoY.setLineWrap(true);
@@ -52,6 +53,7 @@ public class InicioEstudianteJP extends JPanel{
 		add(lblSolicitarLicencia);
 		
 		JTextArea txtrEntregaDeTodos = new JTextArea();
+		txtrEntregaDeTodos.setWrapStyleWord(true);
 		txtrEntregaDeTodos.setEditable(false);
 		txtrEntregaDeTodos.setText("Entrega de todos los materiales en las respectivas entidades: almacén de libros, economía, seguridad \r\ninformática, secretaría y dirección de becas en caso de estar becado.");
 		txtrEntregaDeTodos.setLineWrap(true);

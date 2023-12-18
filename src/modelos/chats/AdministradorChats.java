@@ -9,7 +9,7 @@ import modelos.usuarios.Persona;
 import util.TipoDepartamento;
 
 public class AdministradorChats {
-  private Map<TipoDepartamento, Map<Persona, Chat>> chats;
+  private HashMap<TipoDepartamento, HashMap<Persona, Chat>> chats;
   private static AdministradorChats instancia = null;
 
   private AdministradorChats() {
@@ -21,6 +21,9 @@ public class AdministradorChats {
       instancia = new AdministradorChats();
     }
     return instancia;
+  }
+  public HashMap<TipoDepartamento, HashMap<Persona, Chat>> getChats() {
+      return chats;
   }
 
   public Chat obtenerChat(TipoDepartamento entidad, Persona persona) {

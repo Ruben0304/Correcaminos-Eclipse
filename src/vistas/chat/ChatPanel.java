@@ -33,6 +33,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 import javax.swing.border.LineBorder;
 import javax.swing.JRadioButton;
@@ -46,6 +47,7 @@ import com.formdev.flatlaf.FlatClientProperties;
 
 import autenticacion.Auth;
 import modelos.chats.AdministradorChats;
+import modelos.chats.Chat;
 import modelos.chats.Mensaje;
 import modelos.usuarios.Becado;
 import modelos.usuarios.Persona;
@@ -69,6 +71,7 @@ public class ChatPanel extends JPanel implements ActionListener {
     private JRadioButton radioButtonBiblioteca = new JRadioButton("");
     private final AdministradorChats chats = AdministradorChats.getInstancia();
     private final Persona persona = (Persona) Auth.usuarioAutenticado();
+    private Chat chat;
     private TipoDepartamento departamento;
     private JTextField textField;
     private JLabel label_1;
@@ -274,8 +277,15 @@ public class ChatPanel extends JPanel implements ActionListener {
                 @Override
                 public void mouseClicked(MouseEvent arg0) {
                     if (!getTextField_1().getText().isEmpty()) {
-                        chatArea.append(getTextField_1().getText() + " \n");
-                        getTextField_1().setText("");
+                        chatArea.append(persona.getNombre() + ": \n");
+                        chatArea.append("  " + getTextField_1().getText() + "\n\n");
+                        Mensaje m = new Mensaje(persona.getNombre(), getTextField_1().getText());
+
+                        chat.getChat().add(m);
+
+                        HashMap<Persona, Chat> map = new HashMap<Persona, Chat>();
+                        map.put(persona, chat);
+                        chats.getChats().put(departamento, map);
 
                     }
 
@@ -291,6 +301,12 @@ public class ChatPanel extends JPanel implements ActionListener {
     public JRadioButton getRadioButton() {
         if (radioButton == null) {
             radioButton = new JRadioButton("");
+            radioButton.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent arg0) {
+                    departamento = TipoDepartamento.AlmacenLibrosDocentes;
+                    cargarMensajes();
+                }
+            });
             radioButton.setBackground(new Color(40, 42, 46));
             radioButton.setBounds(24, 298, 28, 27);
         }
@@ -310,6 +326,12 @@ public class ChatPanel extends JPanel implements ActionListener {
     public JRadioButton getRadioButton_1() {
         if (radioButton_1 == null) {
             radioButton_1 = new JRadioButton("");
+            radioButton_1.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent arg0) {
+                    departamento = TipoDepartamento.DireccionBecas;
+                    cargarMensajes();
+                }
+            });
             radioButton_1.setBackground(new Color(40, 42, 46));
             radioButton_1.setBounds(24, 339, 28, 27);
         }
@@ -328,14 +350,16 @@ public class ChatPanel extends JPanel implements ActionListener {
 
     public void cargarMensajes() {
         chatArea.setText("");
-        if (chats.obtenerChat(TipoDepartamento.Biblioteca,
-                persona) != null) {
+        if (chats.getChats().get(departamento) != null) {
 
-            for (Mensaje mensaje : chats.obtenerChat(departamento,
-                    persona).getChat()) {
-                chatArea.append(mensaje.getAutor() + ": \n");
-                chatArea.append("  " + mensaje.getMensaje() + "\n\n");
+            if (chats.obtenerChat(departamento, persona) != null) {
+                chat = chats.obtenerChat(departamento, persona);
+                for (Mensaje mensaje : chats.obtenerChat(departamento,
+                        persona).getChat()) {
+                    chatArea.append(mensaje.getAutor() + ": \n");
+                    chatArea.append("  " + mensaje.getMensaje() + "\n\n");
 
+                }
             }
         }
     }

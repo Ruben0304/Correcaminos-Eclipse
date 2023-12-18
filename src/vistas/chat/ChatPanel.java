@@ -361,6 +361,7 @@ public class ChatPanel extends JPanel implements ActionListener {
 
     public void cargarMensajes() {
         chatArea.setText("");
+        chat = new Chat();
         if (chats.getChats().get(departamento) != null) {
 
             if (chats.obtenerChat(departamento, persona) != null) {

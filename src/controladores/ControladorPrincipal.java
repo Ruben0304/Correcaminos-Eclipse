@@ -30,6 +30,7 @@ import vistas.admin.DepartamentosModelo;
 import vistas.autenticacion.CuentaJP;
 import vistas.chat.ChatPanel;
 import vistas.chat.ChatPanelDepartamentos;
+import vistas.chat.ChatPanelEmpleados;
 import vistas.componentes.Navegacion;
 import vistas.template.Pricipal;
 import vistas.admin.InicioAdmin;
@@ -255,18 +256,25 @@ public class ControladorPrincipal {
     }
 
     public static void mostrarChats() {
-
-        if (Auth.usuarioAutenticado() instanceof Estudiante) {
-            Pricipal.getInstancia().setVista(new ChatPanel(obtenerRequisitosEstudiante()));
-
-        } else if (Auth.usuarioAutenticado() instanceof Empleado) {
-
-        } else {
+        if (Auth.usuarioAutenticado() instanceof Admin) {
             Pricipal.getInstancia().setVista(new ChatPanelDepartamentos());
+        } else if (verificarPersonaSolicitaAlgo()) {
+            if (Auth.usuarioAutenticado() instanceof Estudiante) {
+
+                Pricipal.getInstancia().setVista(new ChatPanel(obtenerRequisitosEstudiante()));
+
+            } else if (Auth.usuarioAutenticado() instanceof Empleado) {
+                Pricipal.getInstancia().setVista(new ChatPanelEmpleados(obtenerRequisitosEmpleado()));
+
+            }
+
+            Pricipal.getInstancia().revalidate();
+            Pricipal.getInstancia().repaint();
+        } else {
+            Notifications.getInstance().show(Notifications.Type.ERROR,
+                    "No puede comunicarse sin tener un trámite pendiente");
         }
 
-        Pricipal.getInstancia().revalidate();
-        Pricipal.getInstancia().repaint();
     }
 
     public static void modoOscuro(boolean modoOscuro) {

@@ -72,6 +72,25 @@ public class SeguridadInformatica implements VerificadorEstudiante, VerificadorE
         }
     }
 
+    public void cerrarCuentaTemporal(String c) {
+        Credenciales credencialParaEliminar = null;
+        List<Credenciales> listaCredenciales = new ArrayList<>(temporales.keySet());
+
+        for (int i = 0; i < listaCredenciales.size(); i++) {
+            Credenciales cred = listaCredenciales.get(i);
+            Persona p = usuariosCujae.get(cred);
+            if (p.getCi().equals(c)) {
+                credencialParaEliminar = cred;
+                i = listaCredenciales.size();
+            }
+        }
+
+        if (credencialParaEliminar != null) {
+            temporales.put(credencialParaEliminar, usuariosCujae.get(credencialParaEliminar));
+            usuariosCujae.remove(credencialParaEliminar);
+        }
+    }
+
     @Override
     public ArrayList<Estudiante> getEstudiantesPendientes(ArrayList<Estudiante> estudiantesSolicitudesPendientes) {
 

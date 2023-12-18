@@ -214,6 +214,7 @@ public class ControladorAdmin {
             case Secretaria:
                 if (ControladorPrincipal.cantidadDeRequisitosEstudiante(carnet) == 0) {
                     Secretaria.gestorEstudiantes().getGestorSolicitudes().aceptarSolicitud(carnet);
+                    gestDep.getSeguridadInformatica().cerrarCuentaTemporal(carnet);
                     Notifications.getInstance().show(Notifications.Type.SUCCESS, "Solicitud aceptada");
                 } else {
                     Notifications.getInstance().show(Notifications.Type.ERROR, "No ha cumplido todos los requisitos");
@@ -243,6 +244,7 @@ public class ControladorAdmin {
                     gestDep.getRecursosHumanos().confirmarEntrega(carnet);
                     if (ControladorPrincipal.cantidadDeRequisitosEmpleado(carnet) == 0) {
                         GestorEmpleados.gestorEmpleados().getGestorSolicitudesEmpleados().aceptarSolicitud(carnet);
+                        gestDep.getSeguridadInformatica().cerrarCuentaTemporal(carnet);
                         Notifications.getInstance().show(Notifications.Type.SUCCESS, "Solicitud aceptada");
                     }
                 } else if (ControladorPrincipal.cantidadDeRequisitosEmpleado(carnet) == 0) {

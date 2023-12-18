@@ -51,38 +51,29 @@ import modelos.chats.Chat;
 import modelos.chats.Mensaje;
 import modelos.usuarios.Becado;
 import modelos.usuarios.Persona;
+import javax.swing.JTable;
 
-public class ChatPanel extends JPanel implements ActionListener {
+public class ChatPanelDepartamentos extends JPanel implements ActionListener {
     private JTextArea chatArea = new JTextArea();
     private final JPanel panel = new JPanel();
     private final JLabel label = new JLabel("");
     private final JLabel lblNewLabel_2 = new JLabel("Seleccione Entidad");
-    private final JLabel label_2 = new JLabel("Biblioteca");
-    private final JLabel lblSecretaria = new JLabel("Secretaría");
-    private final JLabel lblEconomia = new JLabel("Economía");
-    private final JLabel lblSinformatica = new JLabel("S.Informática");
-    private final JRadioButton radioButtonSecretaria = new JRadioButton("");
-    private final JRadioButton radioButtonEconomia = new JRadioButton("");
-    private final JRadioButton radioButtonSInformatica = new JRadioButton("");
     private final JPanel panel_1 = new JPanel();
-    private final JLabel lblDepartamentos = new JLabel("Departamentos");
+    private final JLabel lblDepartamentos = new JLabel("Personas");
     private JTextArea txtrContanctaConLos;
     private ButtonGroup rbtnGroup = new ButtonGroup();
-    private JRadioButton radioButtonBiblioteca = new JRadioButton("");
     private final AdministradorChats chats = AdministradorChats.getInstancia();
     private final Persona persona = (Persona) Auth.usuarioAutenticado();
     private Chat chat = new Chat();
     private TipoDepartamento departamento;
     private JTextField textField;
     private JLabel label_1;
-    private JRadioButton radioButton;
-    private JLabel lblAlibros;
-    private JRadioButton radioButton_1;
-    private JLabel lblDbecas;
+    private JScrollPane scrollPane_1;
+    private JTable table;
 
     // private final Persona persona = (Persona) Auth.usuarioAutenticado();
 
-    public ChatPanel(HashMap<TiposResponsabilidad, Boolean> requisitos) {
+    public ChatPanelDepartamentos(HashMap<TiposResponsabilidad, Boolean> requisitos) {
 
         // this.mensajes = ControladorChats.obtenerMensajes(admin, persona);
         // this.departamento = admin;
@@ -104,18 +95,6 @@ public class ChatPanel extends JPanel implements ActionListener {
         chatArea.setForeground(Color.WHITE);
         chatArea.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 15));
         rbtnGroup = new ButtonGroup();
-        rbtnGroup.add(radioButtonEconomia);
-        rbtnGroup.add(radioButtonSInformatica);
-        rbtnGroup.add(radioButtonSecretaria);
-        rbtnGroup.add(radioButtonBiblioteca);
-        rbtnGroup.add(getRadioButton_1());
-        rbtnGroup.add(getRadioButton());
-        radioButtonBiblioteca.setEnabled(requisitos.get(TiposResponsabilidad.LIBROS_BIBLIOTECA));
-        radioButtonSInformatica.setEnabled(requisitos.get(TiposResponsabilidad.CUENTA_USUARIO));
-        radioButtonEconomia.setEnabled(requisitos.get(TiposResponsabilidad.ESTIPENDIO));
-        getRadioButton_1().setEnabled(
-                Auth.usuarioAutenticado() instanceof Becado && requisitos.get(TiposResponsabilidad.PERTENENCIAS_BECA));
-        getRadioButton().setEnabled(requisitos.get(TiposResponsabilidad.LIBROS_DOCENTES));
         // if (!mensajes.isEmpty()) {
         // for (Mensaje mensaje : mensajes) {
         // chatArea.append(mensaje.getNombreUsuario() + ": \n");
@@ -138,75 +117,13 @@ public class ChatPanel extends JPanel implements ActionListener {
         panel_1.setLayout(null);
         panel_1.setBorder(new LineBorder(new Color(105, 105, 105)));
         panel_1.setBackground(new Color(40, 42, 46));
-        label_2.setBounds(54, 137, 120, 27);
-        panel_1.add(label_2);
-        label_2.setForeground(new Color(248, 248, 255));
-        label_2.setFont(new Font("Segoe UI Semibold", Font.BOLD, 20));
-        lblSecretaria.setBounds(54, 177, 120, 27);
-        panel_1.add(lblSecretaria);
-        lblSecretaria.setForeground(new Color(248, 248, 255));
-        lblSecretaria.setFont(new Font("Segoe UI Semibold", Font.BOLD, 20));
-        lblEconomia.setBounds(54, 217, 120, 27);
-        panel_1.add(lblEconomia);
-        lblEconomia.setForeground(new Color(248, 248, 255));
-        lblEconomia.setFont(new Font("Segoe UI Semibold", Font.BOLD, 20));
-        lblSinformatica.setBounds(54, 257, 120, 27);
-        panel_1.add(lblSinformatica);
-        lblSinformatica.setForeground(new Color(248, 248, 255));
-        lblSinformatica.setFont(new Font("Segoe UI Semibold", Font.BOLD, 20));
-        radioButtonBiblioteca.setBounds(24, 139, 25, 25);
-        radioButtonBiblioteca.setBackground(new Color(40, 42, 46));
-        radioButtonBiblioteca.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                departamento = TipoDepartamento.Biblioteca;
-                lblNewLabel_2.setText("Biblioteca");
-                cargarMensajes();
-            }
-        });
-        panel_1.add(radioButtonBiblioteca);
-
-        radioButtonSecretaria.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                departamento = TipoDepartamento.Secretaria;
-                lblNewLabel_2.setText("Secretaría");
-                cargarMensajes();
-            }
-        });
-
-        radioButtonSecretaria.setBounds(24, 179, 25, 25);
-        panel_1.add(radioButtonSecretaria);
-        radioButtonSecretaria.setBackground(new Color(40, 42, 46));
-        radioButtonEconomia.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                departamento = TipoDepartamento.Economia;
-                lblNewLabel_2.setText("Economía");
-                cargarMensajes();
-            }
-        });
-        radioButtonEconomia.setBounds(24, 219, 25, 25);
-        panel_1.add(radioButtonEconomia);
-        radioButtonEconomia.setBackground(new Color(40, 42, 46));
-        radioButtonSInformatica.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                departamento = TipoDepartamento.SeguridadInformatica;
-                lblNewLabel_2.setText("Seguridad Informática");
-                cargarMensajes();
-            }
-        });
-        radioButtonSInformatica.setBounds(24, 258, 28, 27);
-        panel_1.add(radioButtonSInformatica);
-        radioButtonSInformatica.setBackground(new Color(40, 42, 46));
         lblDepartamentos.setForeground(new Color(248, 248, 255));
         lblDepartamentos.setFont(new Font("Segoe UI Semibold", Font.BOLD, 20));
-        lblDepartamentos.setBounds(24, 27, 150, 27);
+        lblDepartamentos.setBounds(51, 27, 123, 27);
 
         panel_1.add(lblDepartamentos);
         panel_1.add(getTxtrContanctaConLos());
-        panel_1.add(radioButtonBiblioteca);
-        panel_1.add(getRadioButton());
-        panel_1.add(getLblAlibros());
-        panel_1.add(getRadioButton_1());
-        panel_1.add(getLblDbecas());
+        panel_1.add(getScrollPane_1());
         // Configurar el �rea de chat
         chatArea.setEditable(false);
         JScrollPane scrollPane = new JScrollPane(chatArea);
@@ -244,7 +161,7 @@ public class ChatPanel extends JPanel implements ActionListener {
             txtrContanctaConLos.setWrapStyleWord(true);
             txtrContanctaConLos.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
             txtrContanctaConLos.setText(
-                    "Contacta con los distintos departamentos para definir horarios de visita o aclarar cualquier duda.");
+                    "Para dar soporte a personas con solicitudes y deudas pendientes.");
             txtrContanctaConLos.setVerifyInputWhenFocusTarget(false);
             txtrContanctaConLos.setRequestFocusEnabled(false);
             txtrContanctaConLos.setMargin(new Insets(5, 10, 2, 2));
@@ -307,58 +224,6 @@ public class ChatPanel extends JPanel implements ActionListener {
         return label_1;
     }
 
-    public JRadioButton getRadioButton() {
-        if (radioButton == null) {
-            radioButton = new JRadioButton("");
-            radioButton.addActionListener(new ActionListener() {
-                public void actionPerformed(ActionEvent arg0) {
-                    departamento = TipoDepartamento.AlmacenLibrosDocentes;
-                    lblNewLabel_2.setText("Almacén  deLibros");
-                    cargarMensajes();
-                }
-            });
-            radioButton.setBackground(new Color(40, 42, 46));
-            radioButton.setBounds(24, 298, 28, 27);
-        }
-        return radioButton;
-    }
-
-    public JLabel getLblAlibros() {
-        if (lblAlibros == null) {
-            lblAlibros = new JLabel("A.Libros");
-            lblAlibros.setForeground(new Color(248, 248, 255));
-            lblAlibros.setFont(new Font("Segoe UI Semibold", Font.BOLD, 20));
-            lblAlibros.setBounds(54, 297, 120, 27);
-        }
-        return lblAlibros;
-    }
-
-    public JRadioButton getRadioButton_1() {
-        if (radioButton_1 == null) {
-            radioButton_1 = new JRadioButton("");
-            radioButton_1.addActionListener(new ActionListener() {
-                public void actionPerformed(ActionEvent arg0) {
-                    departamento = TipoDepartamento.DireccionBecas;
-                    lblNewLabel_2.setText("Dirección Becas");
-                    cargarMensajes();
-                }
-            });
-            radioButton_1.setBackground(new Color(40, 42, 46));
-            radioButton_1.setBounds(24, 339, 28, 27);
-        }
-        return radioButton_1;
-    }
-
-    public JLabel getLblDbecas() {
-        if (lblDbecas == null) {
-            lblDbecas = new JLabel("D.Becas");
-            lblDbecas.setForeground(new Color(248, 248, 255));
-            lblDbecas.setFont(new Font("Segoe UI Semibold", Font.BOLD, 20));
-            lblDbecas.setBounds(54, 338, 120, 27);
-        }
-        return lblDbecas;
-    }
-
     public void cargarMensajes() {
         chatArea.setText("");
         if (chats.getChats().get(departamento) != null) {
@@ -374,4 +239,18 @@ public class ChatPanel extends JPanel implements ActionListener {
             }
         }
     }
+	public JScrollPane getScrollPane_1() {
+		if (scrollPane_1 == null) {
+			scrollPane_1 = new JScrollPane();
+			scrollPane_1.setBounds(24, 95, 150, 290);
+			scrollPane_1.setViewportView(getTable());
+		}
+		return scrollPane_1;
+	}
+	public JTable getTable() {
+		if (table == null) {
+			table = new JTable();
+		}
+		return table;
+	}
 }

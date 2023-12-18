@@ -21,6 +21,8 @@ import vistas.componentes.Navegacion;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JSpinner;
+import javax.swing.SpinnerNumberModel;
 
 public class Sesiones extends JDialog {
 	private ButtonGroup buttonGroup;
@@ -34,6 +36,8 @@ public class Sesiones extends JDialog {
 	private JRadioButton rdbtnSeguridadInformtica;
 	private JRadioButton rdbtnEstudiante;
 	private JRadioButton rdbtnEmpleado;
+	private JSpinner spinner;
+	private JSpinner spinner_1;
 
 	/**
 	 * Create the dialog.
@@ -43,6 +47,8 @@ public class Sesiones extends JDialog {
 		setTitle("Cambiar sesión");
 		setBounds(100, 100, 292, 448);
 		getContentPane().setLayout(null);
+		getContentPane().add(getSpinner());
+		getContentPane().add(getSpinner_1());
 		getContentPane().add(getRdbtnEconomia());
 		getContentPane().add(getRdbtnContabilidad());
 		getContentPane().add(getRdbtnSecretaria());
@@ -209,12 +215,12 @@ public class Sesiones extends JDialog {
 	}
 	public JRadioButton getRdbtnEstudiante() {
 		if (rdbtnEstudiante == null) {
-			rdbtnEstudiante = new JRadioButton("Estudiante1");
+			rdbtnEstudiante = new JRadioButton("Estudiante");
 			rdbtnEstudiante.setFont(new Font("Segoe UI Semibold", Font.BOLD, 13));
 			rdbtnEstudiante.setBounds(35, 354, 197, 25);
 			rdbtnEstudiante.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					ControladorLogin.intentarAutenticar("estudiante1", "prueba", true);
+					ControladorLogin.intentarAutenticar("estudiante"+getSpinner_1().getValue().toString(), "prueba", true);
 					Navegacion.reiniciar();
 					ControladorPrincipal.mostrarInicio();
 					
@@ -225,12 +231,12 @@ public class Sesiones extends JDialog {
 	}
 	public JRadioButton getRdbtnEmpleado() {
 		if (rdbtnEmpleado == null) {
-			rdbtnEmpleado = new JRadioButton("Empleado1");
+			rdbtnEmpleado = new JRadioButton("Empleado");
 			rdbtnEmpleado.setFont(new Font("Segoe UI Semibold", Font.BOLD, 13));
 			rdbtnEmpleado.setBounds(35, 317, 197, 25);
 			rdbtnEmpleado.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					ControladorLogin.intentarAutenticar("empleado1", "prueba", true);
+					ControladorLogin.intentarAutenticar("empleado"+getSpinner().getValue().toString(), "prueba", true);
 					Navegacion.reiniciar();
 					ControladorPrincipal.mostrarInicio();
 					
@@ -238,5 +244,23 @@ public class Sesiones extends JDialog {
 			});
 		}
 		return rdbtnEmpleado;
+	}
+	public JSpinner getSpinner() {
+		if (spinner == null) {
+			spinner = new JSpinner();
+			spinner.setModel(new SpinnerNumberModel(1, 1, 11, 1));
+			spinner.setRequestFocusEnabled(false);
+			spinner.setBounds(136, 318, 65, 22);
+		}
+		return spinner;
+	}
+	public JSpinner getSpinner_1() {
+		if (spinner_1 == null) {
+			spinner_1 = new JSpinner();
+			spinner_1.setModel(new SpinnerNumberModel(1, 1, 11, 1));
+			spinner_1.setRequestFocusEnabled(false);
+			spinner_1.setBounds(136, 355, 65, 22);
+		}
+		return spinner_1;
 	}
 }

@@ -47,7 +47,7 @@ public class BibliotecaTestCase {
 
 
 	@Test
-	public void testGetEstudiantesPendientes() {
+	public void testGetEstudiantesPendientesCP1() {
 		
 		Estudiante estudiante = new Estudiante("01234567891","Juan","Perez","Perez",Facultad.Ing_Informática,1,TipoCurso.DIURNO,"Ingenieria Informática",11);
 		
@@ -56,7 +56,17 @@ public class BibliotecaTestCase {
 		
 		ArrayList<Estudiante> estudiantePendiente = departamentos.getBiblioteca().getEstudiantesPendientes(estSolicitudPendientes);
 		
-		assertNotNull(estudiantePendiente);
+		assertFalse(estudiantePendiente.isEmpty());
+	}
+	
+	@Test
+	public void testGetEstudiantesPendientesCP2() {
+		
+		ArrayList<Estudiante> estSolicitudPendientes = new ArrayList<Estudiante>();
+		
+		ArrayList<Estudiante> estudiantePendiente = departamentos.getBiblioteca().getEstudiantesPendientes(estSolicitudPendientes);
+		
+		assertTrue(estudiantePendiente.isEmpty());
 	}
 
 

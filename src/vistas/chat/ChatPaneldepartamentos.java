@@ -17,12 +17,12 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-import auth.Auth;
-import controllers.ControladorAdmin;
-import models.chats.AdministradorChats;
-import models.chats.Chat;
-import models.chats.Mensaje;
-import models.usuarios.Admin;
+import autenticacion.Auth;
+import controladores.ControladorAdmin;
+import modelos.chats.AdministradorChats;
+import modelos.chats.Chat;
+import modelos.chats.Mensaje;
+import modelos.usuarios.Admin;
 
 import javax.swing.ImageIcon;
 import java.awt.Cursor;

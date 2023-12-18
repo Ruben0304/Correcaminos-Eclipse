@@ -52,7 +52,7 @@ public class ControladorAdmin {
                 break;
 
             case DireccionBecas:
-                deudas = gestDep.getAlmacenDeLibros().obtenerDeudas(carnet);
+                deudas = gestDep.getDireccionDeBecas().obtenerDeudas(carnet);
                 break;
             case Contabilidad:
                 JOptionPane.showMessageDialog(null, gestDep.getContabilidad().obtenerDeudaEmpleado(carnet),

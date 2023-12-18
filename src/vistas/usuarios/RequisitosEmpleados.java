@@ -17,6 +17,7 @@ import modelos.usuarios.Empleado;
 import modelos.usuarios.Estudiante;
 import util.ResponsabilidadesTrabajador;
 import util.TiposResponsabilidad;
+import vistas.componentes.VerDetallesLibrosBiblioteca;
 import vistas.template.Pricipal;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -313,7 +314,7 @@ public class RequisitosEmpleados extends JPanel {
 
 					JOptionPane.showMessageDialog(null,
 							GestorDepartamentos.gestorDepartamentos().getContabilidad().obtenerDeudaEmpleado(
-									((Estudiante) Auth.usuarioAutenticado()).getCi()),
+									((Empleado) Auth.usuarioAutenticado()).getCi()),
 							"Deudas Pendientes",
 							JOptionPane.INFORMATION_MESSAGE);
 
@@ -332,11 +333,13 @@ public class RequisitosEmpleados extends JPanel {
 			lblVerRestantes.addMouseListener(new MouseAdapter() {
 				@Override
 				public void mouseClicked(MouseEvent arg0) {
-					for (String s : GestorDepartamentos.gestorDepartamentos().getBiblioteca()
-							.obtenerDeudas(((Empleado) Auth.usuarioAutenticado()).getCi())) {
-						JOptionPane.showMessageDialog(null, s, "Deudas Pendientes",
-								JOptionPane.INFORMATION_MESSAGE);
-					}
+//					for (String s : GestorDepartamentos.gestorDepartamentos().getBiblioteca()
+//							.obtenerDeudas(((Empleado) Auth.usuarioAutenticado()).getCi())) {
+//						JOptionPane.showMessageDialog(null, s, "Deudas Pendientes",
+//								JOptionPane.INFORMATION_MESSAGE);
+//					}
+					VerDetallesLibrosBiblioteca librosPendientes = new VerDetallesLibrosBiblioteca();
+					librosPendientes.setVisible(true);
 				}
 			});
 			lblVerRestantes.setForeground(new Color(152, 251, 152));

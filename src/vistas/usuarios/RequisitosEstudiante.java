@@ -16,6 +16,9 @@ import modelos.usuarios.Becado;
 import modelos.usuarios.Estudiante;
 import util.ResponsabilidadesTrabajador;
 import util.TiposResponsabilidad;
+import vistas.componentes.VerDetallesLibrosBiblioteca;
+import vistas.componentes.VerDetallesLibrosDocentes;
+import vistas.componentes.VerDetallesPertenencias;
 import vistas.template.Pricipal;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -52,6 +55,8 @@ public class RequisitosEstudiante extends JPanel {
 	private JLabel lblVerRestantes;
 	private JLabel label;
 	private JButton btnSolicitarCancelacinDe;
+	private JLabel lblPertenencias;
+	private JLabel lblNewLabel_1;
 
 	private RequisitosEstudiante(HashMap<TiposResponsabilidad, Boolean> requisitos) {
 
@@ -97,10 +102,12 @@ public class RequisitosEstudiante extends JPanel {
 
 			panel_RequisitosEstud.add(getLblEntregadoTodosLos_1());
 			panel_RequisitosEstud.add(getBtnSolicitarCancelacinDe());
-
+			
 			if (Auth.usuarioAutenticado() instanceof Becado) {
 				panel_RequisitosEstud.add(getLabel_11());
 				panel_RequisitosEstud.add(getLblEntregadasPertenencias());
+				panel_RequisitosEstud.add(getLabelPertenencias());
+				panel_RequisitosEstud.add(getLblNewLabel_1());
 			}
 
 		}
@@ -306,9 +313,28 @@ public class RequisitosEstudiante extends JPanel {
 					Pricipal.class.getResource("/img/"
 							+ (requisitos.get(TiposResponsabilidad.PERTENENCIAS_BECA) ? "Canceel.png"
 									: "Checkmarkkk.png"))));
-			label_11.setBounds(478, 546, 20, 20);
+			label_11.setBounds(478, 521, 31, 35);
 		}
 		return label_11;
+	}
+	
+	private JLabel getLabelPertenencias() {
+		if (lblPertenencias == null) {
+			lblPertenencias = new JLabel("Ver Restantes");
+			lblPertenencias.addMouseListener(new MouseAdapter() {
+				@Override
+				public void mouseClicked(MouseEvent arg0) {
+
+					VerDetallesPertenencias pertenencias =  new VerDetallesPertenencias();
+					pertenencias.setVisible(true);
+
+				}
+			});
+			lblPertenencias.setForeground(new Color(152, 251, 152));
+			lblPertenencias.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 15));
+			lblPertenencias.setBounds(485, 544, 200, 50);
+		}
+		return lblPertenencias;
 	}
 
 	private JLabel getLblEntregadasPertenencias() {
@@ -316,7 +342,7 @@ public class RequisitosEstudiante extends JPanel {
 			lblEntregadasPertenencias = new JLabel("Entregadas pertenencias");
 			lblEntregadasPertenencias.setForeground(Color.WHITE);
 			lblEntregadasPertenencias.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 18));
-			lblEntregadasPertenencias.setBounds(515, 566, 322, 54);
+			lblEntregadasPertenencias.setBounds(515, 509, 322, 54);
 		}
 		return lblEntregadasPertenencias;
 	}
@@ -327,11 +353,13 @@ public class RequisitosEstudiante extends JPanel {
 			lblVerRestantes.addMouseListener(new MouseAdapter() {
 				@Override
 				public void mouseClicked(MouseEvent arg0) {
-					for (String s : GestorDepartamentos.gestorDepartamentos().getBiblioteca()
-							.obtenerDeudas(((Estudiante) Auth.usuarioAutenticado()).getCi())) {
-						JOptionPane.showMessageDialog(null, s, "Deudas Pendientes",
-								JOptionPane.INFORMATION_MESSAGE);
-					}
+//					for (String s : GestorDepartamentos.gestorDepartamentos().getBiblioteca()
+//							.obtenerDeudas(((Estudiante) Auth.usuarioAutenticado()).getCi())) {
+//						JOptionPane.showMessageDialog(null, s, "Deudas Pendientes",
+//								JOptionPane.INFORMATION_MESSAGE);
+//					}
+					VerDetallesLibrosBiblioteca librosPendientes = new VerDetallesLibrosBiblioteca();
+					librosPendientes.setVisible(true);
 				}
 			});
 			lblVerRestantes.setForeground(new Color(152, 251, 152));
@@ -347,11 +375,13 @@ public class RequisitosEstudiante extends JPanel {
 			label.addMouseListener(new MouseAdapter() {
 				@Override
 				public void mouseClicked(MouseEvent arg0) {
-					for (String s : GestorDepartamentos.gestorDepartamentos().getAlmacenDeLibros()
-							.obtenerDeudas(((Estudiante) Auth.usuarioAutenticado()).getCi())) {
-						JOptionPane.showMessageDialog(null, s, "Deudas Pendientes",
-								JOptionPane.INFORMATION_MESSAGE);
-					}
+//					for (String s : GestorDepartamentos.gestorDepartamentos().getAlmacenDeLibros()
+//							.obtenerDeudas(((Estudiante) Auth.usuarioAutenticado()).getCi())) {
+//						JOptionPane.showMessageDialog(null, s, "Deudas Pendientes",
+//								JOptionPane.INFORMATION_MESSAGE);
+//					}
+					VerDetallesLibrosDocentes libros =  new VerDetallesLibrosDocentes();
+					libros.setVisible(true);
 
 				}
 			});
@@ -375,5 +405,14 @@ public class RequisitosEstudiante extends JPanel {
 			btnSolicitarCancelacinDe.setBounds(565, 600, 332, 54);
 		}
 		return btnSolicitarCancelacinDe;
+	}
+	
+	private JLabel getLblNewLabel_1() {
+		if (lblNewLabel_1 == null) {
+			lblNewLabel_1 = new JLabel("Dirección de becas");
+			lblNewLabel_1.setFont(new Font("Segoe UI Semibold", Font.BOLD, 26));
+			lblNewLabel_1.setBounds(478, 458, 250, 54);
+		}
+		return lblNewLabel_1;
 	}
 }

@@ -71,7 +71,7 @@ public class ChatPanel extends JPanel implements ActionListener {
     private JRadioButton radioButtonBiblioteca = new JRadioButton("");
     private final AdministradorChats chats = AdministradorChats.getInstancia();
     private final Persona persona = (Persona) Auth.usuarioAutenticado();
-    private Chat chat;
+    private Chat chat = new Chat();
     private TipoDepartamento departamento;
     private JTextField textField;
     private JLabel label_1;

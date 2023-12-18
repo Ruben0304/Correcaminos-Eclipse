@@ -59,6 +59,13 @@ public class ObtenerUsuariosCujae {
             e.printStackTrace();
         }
         
+        try (BufferedReader reader = new BufferedReader(new FileReader("./jsons/usuarios/usuariosBecados.json"))) {
+            Type listType = new TypeToken<HashMap<Credenciales, Becado>>() {
+            }.getType();
+            cuentaEstudiantesBecados = gson.fromJson(reader, listType);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         usuarios.putAll(cuentaDocentes);
         usuarios.putAll(cuentaNoDocentes);

@@ -263,8 +263,8 @@ public class Pruebas {
 		// System.out.println(ObtenerSolicitudesEstudiantes.cargarDesdeArchivo().isEmpty());
 
 		///////////////////// chats
-		Estudiante estudiante1 = new Estudiante("02010161846", "Adrian", "Suar", "Martinez", Facultad.Ing_Informática,
-				2, TipoCurso.DIURNO, "Ingenieria Informática", 23);
+		Estudiante estudiante1 = new Estudiante("02010161846", "Adrián", "Suar", "Martínez", Facultad.Ing_Informática,
+				2, TipoCurso.DIURNO, "Ingeniería Informática", 23);
 
 		Admin biblioteca = new Admin(TipoDepartamento.Biblioteca);
 

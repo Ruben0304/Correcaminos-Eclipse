@@ -19,7 +19,7 @@ public class LabelUsuario {
         panel.setBounds(630, 13, 331, 37);
         panel.setLayout(null);
 
-        JLabel label_4 = new JLabel("Hola, " + (Auth.usuarioAutenticado() instanceof Persona ? ((Persona)Auth.usuarioAutenticado()).getNombre() : ((Admin)Auth.usuarioAutenticado()).getTipoDepartamento().toString()));
+        JLabel label_4 = new JLabel("Hola, " + (Auth.usuarioAutenticado() instanceof Persona ? ((Persona)Auth.usuarioAutenticado()).getNombre() : Auth.getNombreUsuario()));
         label_4.setBounds(60, 0, 259, 30);
         panel.add(label_4);
         label_4.setForeground(Color.WHITE);

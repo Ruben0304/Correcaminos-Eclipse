@@ -313,7 +313,7 @@ public class ChatPanel extends JPanel implements ActionListener {
             radioButton.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent arg0) {
                     departamento = TipoDepartamento.AlmacenLibrosDocentes;
-                    lblNewLabel_2.setText("Almacén  deLibros");
+                    lblNewLabel_2.setText("Almacén de Libros");
                     cargarMensajes();
                 }
             });

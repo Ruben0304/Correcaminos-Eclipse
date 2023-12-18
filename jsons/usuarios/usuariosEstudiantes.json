@@ -7,12 +7,12 @@
 		{
 			"curso": 1,
 			"tipoCurso": "DIURNO",
-			"carrera": "Ingenieria Informática",
+			"carrera": "Ingeniería Informática",
 			"grupo": 1,
 			"ci": "01234567891",
 			"nombre": "Juan",
-			"primer_apellido": "Perez",
-			"segundo_apellido": "Perez",
+			"primer_apellido": "Pérez",
+			"segundo_apellido": "Pérez",
 			"facultad": "Ing_Informática"
 		}
 	],
@@ -24,12 +24,12 @@
 		{
 			"curso": 1,
 			"tipoCurso": "DIURNO",
-			"carrera": "Ingenieria Informática",
+			"carrera": "Ingeniería Informática",
 			"grupo": 11,
 			"ci": "01010161846",
 			"nombre": "Luciano",
 			"primer_apellido": "Castro",
-			"segundo_apellido": "Gonzalez",
+			"segundo_apellido": "González",
 			"facultad": "Ing_Informática"
 		}
 	],
@@ -41,12 +41,12 @@
 		{
 			"curso": 2,
 			"tipoCurso": "DIURNO",
-			"carrera": "Ingenieria Informática",
+			"carrera": "Ingeniería Informática",
 			"grupo": 23,
 			"ci": "02010161846",
-			"nombre": "Adrian",
+			"nombre": "Adrián",
 			"primer_apellido": "Suar",
-			"segundo_apellido": "Martinez",
+			"segundo_apellido": "Martínez",
 			"facultad": "Ing_Informática"
 		}
 	],
@@ -58,12 +58,12 @@
 		{
 			"curso": 3,
 			"tipoCurso": "DIURNO",
-			"carrera": "Ingenieria Informática",
+			"carrera": "Ingeniería Informática",
 			"grupo": 32,
 			"ci": "03010161846",
 			"nombre": "Facundo",
 			"primer_apellido": "Arana",
-			"segundo_apellido": "Gonzalez",
+			"segundo_apellido": "González",
 			"facultad": "Ing_Informática"
 		}
 	],
@@ -75,12 +75,12 @@
 		{
 			"curso": 4,
 			"tipoCurso": "DIURNO",
-			"carrera": "Ingenieria Informática",
+			"carrera": "Ingeniería Informática",
 			"grupo": 44,
 			"ci": "04010161846",
-			"nombre": "Benjamin",
+			"nombre": "Benjamín",
 			"primer_apellido": "Vicuña",
-			"segundo_apellido": "Gonzalez",
+			"segundo_apellido": "González",
 			"facultad": "Ing_Informática"
 		}
 	],
@@ -92,12 +92,12 @@
 		{
 			"curso": 1,
 			"tipoCurso": "DIURNO",
-			"carrera": "Ingenieria Informática",
+			"carrera": "Ingeniería Informática",
 			"grupo": 13,
 			"ci": "01020161846",
 			"nombre": "Pablo",
 			"primer_apellido": "Echarri",
-			"segundo_apellido": "Martinez",
+			"segundo_apellido": "Martínez",
 			"facultad": "Ing_Informática"
 		}
 	],
@@ -109,12 +109,12 @@
 		{
 			"curso": 1,
 			"tipoCurso": "DIURNO",
-			"carrera": "Ingenieria Informática",
+			"carrera": "Ingeniería Informática",
 			"grupo": 11,
 			"ci": "02010561846",
-			"nombre": "Sebastian",
-			"primer_apellido": "Martinez",
-			"segundo_apellido": "Diaz",
+			"nombre": "Sebastián",
+			"primer_apellido": "Martínez",
+			"segundo_apellido": "Díaz",
 			"facultad": "Ing_Informática"
 		}
 	],
@@ -126,11 +126,11 @@
 		{
 			"curso": 2,
 			"tipoCurso": "DIURNO",
-			"carrera": "Ingenieria Informática",
+			"carrera": "Ingeniería Informática",
 			"grupo": 23,
 			"ci": "02060561846",
 			"nombre": "Carolina",
-			"primer_apellido": "Gomez",
+			"primer_apellido": "Gómez",
 			"segundo_apellido": "Lopez",
 			"facultad": "Ing_Informática"
 		}
@@ -143,12 +143,12 @@
 		{
 			"curso": 3,
 			"tipoCurso": "DIURNO",
-			"carrera": "Ingenieria Informática",
+			"carrera": "Ingeniería Informática",
 			"grupo": 32,
 			"ci": "02090561846",
 			"nombre": "Sofia",
 			"primer_apellido": "Vergara",
-			"segundo_apellido": "Ramirez",
+			"segundo_apellido": "Ramírez",
 			"facultad": "Ing_Informática"
 		}
 	],
@@ -160,7 +160,7 @@
 		{
 			"curso": 4,
 			"tipoCurso": "DIURNO",
-			"carrera": "Ingenieria Informática",
+			"carrera": "Ingeniería Informática",
 			"grupo": 44,
 			"ci": "02040561846",
 			"nombre": "Juan",
@@ -177,12 +177,12 @@
 		{
 			"curso": 1,
 			"tipoCurso": "DIURNO",
-			"carrera": "Ingenieria Informática",
+			"carrera": "Ingeniería Informática",
 			"grupo": 13,
 			"ci": "02020561846",
 			"nombre": "Carmen",
 			"primer_apellido": "Villalobos",
-			"segundo_apellido": "Garcia",
+			"segundo_apellido": "Gracía",
 			"facultad": "Ing_Informática"
 		}
 	]

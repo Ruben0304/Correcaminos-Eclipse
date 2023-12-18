@@ -21,7 +21,7 @@
         "primer_apellido": "Geraghty",
         "segundo_apellido": "Aguilar",
         "numerotrabajador": "200003",
-        "seccion": "Cafeteria"
+        "seccion": "Cafetería"
     },
     {
         "ci": "93030561846",
@@ -61,7 +61,7 @@
         "primer_apellido": "Rundle",
         "segundo_apellido": "Harrison",
         "numerotrabajador": "200009",
-        "seccion": "Cafeteria"
+        "seccion": "Cafetería"
     },
     {
         "ci": "97030561846",
@@ -83,7 +83,7 @@
         "ci": "99050561846",
         "nombre": "Natasha",
         "primer_apellido": "O'Keeffe",
-        "segundo_apellido": "Garcia",
+        "segundo_apellido": "Gracía",
         "numerotrabajador": "200012",
         "seccion": "Seguridad"
     }

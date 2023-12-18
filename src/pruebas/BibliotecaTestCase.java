@@ -49,7 +49,7 @@ public class BibliotecaTestCase {
 	@Test
 	public void testGetEstudiantesPendientesCP1() {
 		
-		Estudiante estudiante = new Estudiante("01234567891","Juan","Perez","Perez",Facultad.Ing_Informática,1,TipoCurso.DIURNO,"Ingenieria Informática",11);
+		Estudiante estudiante = new Estudiante("01234567891","Juan","Pérez","Pérez",Facultad.Ing_Informática,1,TipoCurso.DIURNO,"Ingeniería Informática",11);
 		
 		ArrayList<Estudiante> estSolicitudPendientes = new ArrayList<Estudiante>();
 		estSolicitudPendientes.add(estudiante);

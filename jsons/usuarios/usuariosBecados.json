@@ -7,12 +7,12 @@
         {
             "curso": 1,
             "tipoCurso": "DIURNO",
-            "carrera": "Ingenieria Informática",
+            "carrera": "Ingeniería Informática",
             "grupo": 13,
             "ci": "01012367891",
             "nombre": "Luis",
             "primer_apellido": "Capote",
-            "segundo_apellido": "Perez",
+            "segundo_apellido": "Pérez",
             "facultad": "Ing_Informática",
             "idBecado": "12345",
             "noCuarto": 301
@@ -26,7 +26,7 @@
         {
             "curso": 1,
             "tipoCurso": "DIURNO",
-            "carrera": "Ingenieria Informática",
+            "carrera": "Ingeniería Informática",
             "grupo": 13,
             "ci": "01012367897",
             "nombre": "Arath",
@@ -45,7 +45,7 @@
         {
             "curso": 2,
             "tipoCurso": "DIURNO",
-            "carrera": "Ingenieria Informática",
+            "carrera": "Ingeniería Informática",
             "grupo": 22,
             "ci": "02012367891",
             "nombre": "Pedro",
@@ -64,7 +64,7 @@
         {
             "curso": 3,
             "tipoCurso": "DIURNO",
-            "carrera": "Ingenieria Informática",
+            "carrera": "Ingeniería Informática",
             "grupo": 33,
             "ci": "03012367891",
             "nombre": "Lucero",
@@ -83,7 +83,7 @@
         {
             "curso": 4,
             "tipoCurso": "DIURNO",
-            "carrera": "Ingenieria Informática",
+            "carrera": "Ingeniería Informática",
             "grupo": 44,
             "ci": "04012367891",
             "nombre": "Victoria",
@@ -102,7 +102,7 @@
         {
             "curso": 1,
             "tipoCurso": "DIURNO",
-            "carrera": "Ingenieria Informática",
+            "carrera": "Ingeniería Informática",
             "grupo": 11,
             "ci": "05012367891",
             "nombre": "Sebastián",
@@ -121,7 +121,7 @@
         {
             "curso": 1,
             "tipoCurso": "DIURNO",
-            "carrera": "Ingenieria Informática",
+            "carrera": "Ingeniería Informática",
             "grupo": 13,
             "ci": "01012367897",
             "nombre": "Mario",
@@ -140,7 +140,7 @@
         {
             "curso": 2,
             "tipoCurso": "DIURNO",
-            "carrera": "Ingenieria Informática",
+            "carrera": "Ingeniería Informática",
             "grupo": 22,
             "ci": "02020561846",
             "nombre": "Miguel",
@@ -159,7 +159,7 @@
         {
             "curso": 3,
             "tipoCurso": "DIURNO",
-            "carrera": "Ingenieria Informática",
+            "carrera": "Ingeniería Informática",
             "grupo": 33,
             "ci": "03030561846",
             "nombre": "Jaime",
@@ -178,12 +178,12 @@
         {
             "curso": 4,
             "tipoCurso": "DIURNO",
-            "carrera": "Ingenieria Informática",
+            "carrera": "Ingeniería Informática",
             "grupo": 44,
             "ci": "04040561846",
             "nombre": "Alvaro",
             "primer_apellido": "Morte",
-            "segundo_apellido": "Gonzalez",
+            "segundo_apellido": "González",
             "facultad": "Ing_Informática",
             "idBecado": "12948",
             "noCuarto": 304
@@ -197,12 +197,12 @@
         {
             "curso": 1,
             "tipoCurso": "DIURNO",
-            "carrera": "Ingenieria Informática",
+            "carrera": "Ingeniería Informática",
             "grupo": 11,
             "ci": "01010561846",
             "nombre": "Itzan",
             "primer_apellido": "Escamilla",
-            "segundo_apellido": "Gonzalez",
+            "segundo_apellido": "González",
             "facultad": "Ing_Informática",
             "idBecado": "12949",
             "noCuarto": 305

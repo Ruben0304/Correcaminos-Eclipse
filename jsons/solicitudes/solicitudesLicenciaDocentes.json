@@ -89,9 +89,9 @@
     [
         {
             "ci": "83050561849",
-            "nombre": "Martin",
+            "nombre": "Martín",
             "primer_apellido": "Rodriguez",
-            "segundo_apellido": "Perez",
+            "segundo_apellido": "Pérez",
             "numerotrabajador": "830000",
             "facultad": "Ing_Informática",
             "departamento": "Inteligencia Artificial",
@@ -135,7 +135,7 @@
             "ci": "84010561850",
         "nombre": "Gabriela",
         "primer_apellido": "Rocha",
-        "segundo_apellido": "Gonzalez",
+        "segundo_apellido": "González",
         "numerotrabajador": "840000",
         "facultad": "Ing_Informática",
         "departamento": "Bases De Datos",

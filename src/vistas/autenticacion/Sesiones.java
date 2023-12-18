@@ -93,7 +93,7 @@ public class Sesiones extends JDialog {
 			rdbtnEconomia.setBounds(35, 83, 123, 25);
 			rdbtnEconomia.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					ControladorLogin.intentarAutenticar("Economia", "economia", true);
+					ControladorLogin.intentarAutenticar("Economía", "economia", true);
 					Navegacion.reiniciar();
 					ControladorPrincipal.mostrarInicio();
 					
@@ -123,7 +123,7 @@ public class Sesiones extends JDialog {
 			rdbtnSecretaria = new JRadioButton("Secretaría");
 			rdbtnSecretaria.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					ControladorLogin.intentarAutenticar("Secretaria", "secretaria", true);
+					ControladorLogin.intentarAutenticar("Secretaría", "secretaria", true);
 					Navegacion.reiniciar();
 					ControladorPrincipal.mostrarInicio();
 					
@@ -173,7 +173,7 @@ public class Sesiones extends JDialog {
 			rdbtnAlmacenDeLibros.setBounds(35, 201, 197, 25);
 			rdbtnAlmacenDeLibros.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					ControladorLogin.intentarAutenticar("AlmacenLibros", "almacenlibros", true);
+					ControladorLogin.intentarAutenticar("AlmacénLibros", "almacenlibros", true);
 					Navegacion.reiniciar();
 					ControladorPrincipal.mostrarInicio();
 					
@@ -189,7 +189,7 @@ public class Sesiones extends JDialog {
 			rdbtnDirBecas.setBounds(35, 238, 197, 25);
 			rdbtnDirBecas.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					ControladorLogin.intentarAutenticar("DireccionBecas", "direccionbecas", true);
+					ControladorLogin.intentarAutenticar("DirecciónBecas", "direccionbecas", true);
 					Navegacion.reiniciar();
 					ControladorPrincipal.mostrarInicio();
 					
@@ -205,7 +205,7 @@ public class Sesiones extends JDialog {
 			rdbtnSeguridadInformtica.setBounds(35, 278, 197, 25);
 			rdbtnSeguridadInformtica.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					ControladorLogin.intentarAutenticar("SeguridadInformatica", "seguridadinformatica", true);
+					ControladorLogin.intentarAutenticar("SeguridadInformática", "seguridadinformatica", true);
 					Navegacion.reiniciar();
 					ControladorPrincipal.mostrarInicio();
 					

@@ -205,9 +205,9 @@ public class ChatPanelDepartamentos extends JPanel implements ActionListener {
                 @Override
                 public void mouseClicked(MouseEvent arg0) {
                     if (!getTextField_1().getText().isEmpty()) {
-                        chatArea.append(persona.getNombre() + ": \n");
+                        chatArea.append(departamento.toString() + ": \n");
                         chatArea.append("  " + getTextField_1().getText() + "\n\n");
-                        Mensaje m = new Mensaje(getTextField_1().getText(), persona.getNombre());
+                        Mensaje m = new Mensaje(getTextField_1().getText(), departamento.toString());
 
                         chat.getChat().add(m);
 
@@ -256,7 +256,7 @@ public class ChatPanelDepartamentos extends JPanel implements ActionListener {
                 public void mouseClicked(MouseEvent arg0) {
                 }
             });
-            scrollPane_1.setBounds(24, 95, 150, 290);
+            scrollPane_1.setBounds(12, 67, 186, 355);
             scrollPane_1.setViewportView(getTable());
         }
         return scrollPane_1;
@@ -275,6 +275,7 @@ public class ChatPanelDepartamentos extends JPanel implements ActionListener {
                         Persona p = personas.getKey();
                         if (p.getCi().equals(table.getValueAt(table.getSelectedRow(), 0).toString())) {
                             persona = p;
+                            cargarMensajes();
                         }
                         
                        }

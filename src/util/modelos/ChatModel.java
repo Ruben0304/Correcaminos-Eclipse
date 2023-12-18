@@ -33,13 +33,15 @@ public class ChatModel extends DefaultTableModel {
 		String[] columnNames = { "CI", "Nombre" };
 		this.setColumnIdentifiers(columnNames);
 
-		for (Map.Entry<Persona, Chat> chat : personas.entrySet()) {
-			Persona estudiante = chat.getKey();
+		if (personas != null) {
 
-			Object[] newRow = new Object[] { estudiante.getCi(), estudiante.getNombre() };
-			addRow(newRow);
+			for (Map.Entry<Persona, Chat> chat : personas.entrySet()) {
+				Persona estudiante = chat.getKey();
+
+				Object[] newRow = new Object[] { estudiante.getCi(), estudiante.getNombre() };
+				addRow(newRow);
+			}
 		}
-
 	}
 
 	@Override

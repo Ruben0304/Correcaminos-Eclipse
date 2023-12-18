@@ -22,8 +22,10 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
+import util.Estado;
 import util.TipoDepartamento;
 import util.TiposResponsabilidad;
+import util.modelos.ChatModel;
 
 import javax.swing.JSlider;
 import javax.swing.ImageIcon;
@@ -46,26 +48,32 @@ import javax.swing.border.MatteBorder;
 import com.formdev.flatlaf.FlatClientProperties;
 
 import autenticacion.Auth;
+import controladores.ControladorAdmin;
 import modelos.chats.AdministradorChats;
 import modelos.chats.Chat;
 import modelos.chats.Mensaje;
+import modelos.gestion.empleados.GestorEmpleados;
+import modelos.gestion.estudiantes.Secretaria;
 import modelos.usuarios.Becado;
+import modelos.usuarios.Admin;
 import modelos.usuarios.Persona;
+import raven.toast.Notifications;
+
 import javax.swing.JTable;
 
 public class ChatPanelDepartamentos extends JPanel implements ActionListener {
     private JTextArea chatArea = new JTextArea();
     private final JPanel panel = new JPanel();
     private final JLabel label = new JLabel("");
-    private final JLabel lblNewLabel_2 = new JLabel("Seleccione Entidad");
+    private final JLabel lblNewLabel_2 = new JLabel("Seleccione Persona");
     private final JPanel panel_1 = new JPanel();
     private final JLabel lblDepartamentos = new JLabel("Personas");
     private JTextArea txtrContanctaConLos;
-    private ButtonGroup rbtnGroup = new ButtonGroup();
+
     private final AdministradorChats chats = AdministradorChats.getInstancia();
-    private final Persona persona = (Persona) Auth.usuarioAutenticado();
+    private Persona persona;
     private Chat chat = new Chat();
-    private TipoDepartamento departamento;
+    private final TipoDepartamento departamento = ((Admin) Auth.usuarioAutenticado()).getTipoDepartamento();
     private JTextField textField;
     private JLabel label_1;
     private JScrollPane scrollPane_1;
@@ -73,7 +81,7 @@ public class ChatPanelDepartamentos extends JPanel implements ActionListener {
 
     // private final Persona persona = (Persona) Auth.usuarioAutenticado();
 
-    public ChatPanelDepartamentos(HashMap<TiposResponsabilidad, Boolean> requisitos) {
+    public ChatPanelDepartamentos() {
 
         // this.mensajes = ControladorChats.obtenerMensajes(admin, persona);
         // this.departamento = admin;
@@ -94,7 +102,7 @@ public class ChatPanelDepartamentos extends JPanel implements ActionListener {
         chatArea.setRequestFocusEnabled(false);
         chatArea.setForeground(Color.WHITE);
         chatArea.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 15));
-        rbtnGroup = new ButtonGroup();
+
         // if (!mensajes.isEmpty()) {
         // for (Mensaje mensaje : mensajes) {
         // chatArea.append(mensaje.getNombreUsuario() + ": \n");
@@ -239,18 +247,41 @@ public class ChatPanelDepartamentos extends JPanel implements ActionListener {
             }
         }
     }
-	public JScrollPane getScrollPane_1() {
-		if (scrollPane_1 == null) {
-			scrollPane_1 = new JScrollPane();
-			scrollPane_1.setBounds(24, 95, 150, 290);
-			scrollPane_1.setViewportView(getTable());
-		}
-		return scrollPane_1;
-	}
-	public JTable getTable() {
-		if (table == null) {
-			table = new JTable();
-		}
-		return table;
-	}
+
+    public JScrollPane getScrollPane_1() {
+        if (scrollPane_1 == null) {
+            scrollPane_1 = new JScrollPane();
+            scrollPane_1.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent arg0) {
+                }
+            });
+            scrollPane_1.setBounds(24, 95, 150, 290);
+            scrollPane_1.setViewportView(getTable());
+        }
+        return scrollPane_1;
+    }
+
+    public JTable getTable() {
+        if (table == null) {
+            table = new JTable();
+            table.setModel(new ChatModel(chats.getChats().get(departamento)));
+            table.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent arg0) {
+
+                    if (table.getSelectedRow() != -1) {
+                       for (Map.Entry<Persona,Chat> personas : chats.getChats().get(departamento).entrySet()) {
+                        Persona p = personas.getKey();
+                        if (p.getCi().equals(table.getValueAt(table.getSelectedRow(), 0).toString())) {
+                            persona = p;
+                        }
+                        
+                       }
+                    }
+                }
+            });
+        }
+        return table;
+    }
 }

@@ -29,6 +29,7 @@ import util.TiposResponsabilidad;
 import vistas.admin.DepartamentosModelo;
 import vistas.autenticacion.CuentaJP;
 import vistas.chat.ChatPanel;
+import vistas.chat.ChatPanelDepartamentos;
 import vistas.componentes.Navegacion;
 import vistas.template.Pricipal;
 import vistas.admin.InicioAdmin;
@@ -254,15 +255,18 @@ public class ControladorPrincipal {
     }
 
     public static void mostrarChats() {
-       
 
-            if (Auth.usuarioAutenticado() instanceof Estudiante) {
-                Pricipal.getInstancia().setVista(new ChatPanel(obtenerRequisitosEstudiante()));
-                Pricipal.getInstancia().revalidate();
-                Pricipal.getInstancia().repaint();
-            }
-       
+        if (Auth.usuarioAutenticado() instanceof Estudiante) {
+            Pricipal.getInstancia().setVista(new ChatPanel(obtenerRequisitosEstudiante()));
 
+        } else if (Auth.usuarioAutenticado() instanceof Empleado) {
+
+        } else {
+            Pricipal.getInstancia().setVista(new ChatPanelDepartamentos());
+        }
+
+        Pricipal.getInstancia().revalidate();
+        Pricipal.getInstancia().repaint();
     }
 
     public static void modoOscuro(boolean modoOscuro) {

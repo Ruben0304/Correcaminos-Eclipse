@@ -27,14 +27,14 @@ public class AlmacenDeLibrosTestCase {
 
 	@Test
 	public void testVerificarRequisitosCP1() {
-		Estudiante estudiante1 = new Estudiante("02010161846","Adrian","Suar","Martinez",Facultad.Ing_Informatica,2,TipoCurso.DIURNO,"Ingenieria Informatica",23);
+		Estudiante estudiante1 = new Estudiante("02010161846","Adrian","Suar","Martinez",Facultad.Ing_Informática,2,TipoCurso.DIURNO,"Ingenieria Informatica",23);
 		
 		assertTrue(departamentos.getAlmacenDeLibros().verificarRequisitos(estudiante1));
 	}
 	
 	@Test
 	public void testVerificarRequisitosCP2() {
-		Estudiante estudiante2 = new Estudiante("02020561846","Carmen","Villalobos","Garcia",Facultad.Ing_Informatica,1,TipoCurso.DIURNO,"Ingenieria Informatica",13);
+		Estudiante estudiante2 = new Estudiante("02020561846","Carmen","Villalobos","Garcia",Facultad.Ing_Informática,1,TipoCurso.DIURNO,"Ingenieria Informatica",13);
 		
 		assertFalse(departamentos.getAlmacenDeLibros().verificarRequisitos(estudiante2));
 	}

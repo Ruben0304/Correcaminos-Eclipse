@@ -30,7 +30,7 @@ public class GestorSolicitudesEstudianteTestCase {
 	@Test
 	public void testVerificarEstudianteSolicitaAlgoCP1() {
 		
-		Estudiante estudiante = new Estudiante("02010161846","Adrian","Suar","Martinez",Facultad.Ing_Informatica,2,TipoCurso.DIURNO,"Ingenieria Informatica",23);
+		Estudiante estudiante = new Estudiante("02010161846","Adrian","Suar","Martinez",Facultad.Ing_Informática,2,TipoCurso.DIURNO,"Ingenieria Informatica",23);
 		
 		assertTrue(s.getGestorSolicitudes().verificarEstudianteSolicitaAlgo(estudiante));
 				
@@ -40,7 +40,7 @@ public class GestorSolicitudesEstudianteTestCase {
 	@Test
 	public void testVerificarEstudianteSolicitaAlgoCP2() {
 		
-		Becado estudiante2 = new Becado("01010561111","Itzan","Escamilla","Gonzalez",Facultad.Ing_Informatica,1,TipoCurso.DIURNO,"Ingenieria Informatica",11, "12949", 305);
+		Becado estudiante2 = new Becado("01010561111","Itzan","Escamilla","Gonzalez",Facultad.Ing_Informática,1,TipoCurso.DIURNO,"Ingenieria Informatica",11, "12949", 305);
 		
 		assertFalse(s.getGestorSolicitudes().verificarEstudianteSolicitaAlgo(estudiante2));
 		
@@ -49,7 +49,7 @@ public class GestorSolicitudesEstudianteTestCase {
 	@Test
 	public void testCrearSolicitudBaja() {
 		
-		Estudiante estudiante = new Estudiante("01010561846","Itzan","Escamilla","Gonzalez",Facultad.Ing_Informatica,1,TipoCurso.DIURNO,"Ingenieria Informatica",11);
+		Estudiante estudiante = new Estudiante("01010561846","Itzan","Escamilla","Gonzalez",Facultad.Ing_Informática,1,TipoCurso.DIURNO,"Ingenieria Informatica",11);
 	
 		s.getGestorSolicitudes().crearSolicitudBaja(MotivoBaja.Enfermedad, estudiante);
 		

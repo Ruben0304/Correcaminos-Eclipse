@@ -14,7 +14,7 @@ public class VerificacionCredenciales {
 
         Credenciales credenciales = new Credenciales(nombreUsuario, contrasena);
 
-        System.out.println(credenciales.getUsuario());
+       System.out.println(credenciales.getUsuario());
         if (!(credenciales.getUsuario() == null)) {
 
             SeguridadInformatica s = GestorDepartamentos.gestorDepartamentos().getSeguridadInformatica();

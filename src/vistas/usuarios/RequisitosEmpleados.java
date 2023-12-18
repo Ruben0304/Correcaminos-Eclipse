@@ -313,7 +313,7 @@ public class RequisitosEmpleados extends JPanel {
 
 					JOptionPane.showMessageDialog(null,
 							GestorDepartamentos.gestorDepartamentos().getContabilidad().obtenerDeudaEmpleado(
-									((Estudiante) Auth.usuarioAutenticado()).getCi()),
+									((Empleado) Auth.usuarioAutenticado()).getCi()),
 							"Deudas Pendientes",
 							JOptionPane.INFORMATION_MESSAGE);
 

@@ -1,4 +1,4 @@
-package vistas.template;
+package vistas.autenticacion;
 
 import java.awt.EventQueue;
 

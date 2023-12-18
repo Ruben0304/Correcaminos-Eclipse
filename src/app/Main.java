@@ -14,8 +14,8 @@ import modelos.gestion.estudiantes.Secretaria;
 import modelos.usuarios.Credenciales;
 import modelos.usuarios.Estudiante;
 import modelos.usuarios.Persona;
+import vistas.autenticacion.Sesiones;
 import vistas.template.Pricipal;
-import vistas.template.Sesiones;
 
 public class Main {
 	public static void main(String[] args) {

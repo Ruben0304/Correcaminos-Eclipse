@@ -1,43 +1,16 @@
 [
+	
 	[
 		{
 			"curso": 1,
 			"tipoCurso": "DIURNO",
-			"carrera": "Ingeniería Informática",
-			"grupo": 1,
-			"ci": "01234567891",
-			"nombre": "Juan",
-			"primer_apellido": "Pérez",
-			"segundo_apellido": "Pérez",
-			"facultad": "Ing_Informática"
-		},
-		[
-			{
-				"id": 12,
-				"estado": "SOLICITACANCELACION",
-				"fecha": {
-					"year": 2023,
-					"month": 10,
-					"dayOfMonth": 18,
-					"hourOfDay": 0,
-					"minute": 23,
-					"second": 11
-				},
-				"motivo": "Enfermedad"
-			}
-		]
-	],
-	[
-		{
-			"curso": 1,
-			"tipoCurso": "DIURNO",
-			"carrera": "Ingeniería Informática",
+			"carrera": "Ingeniería Civil",
 			"grupo": 11,
 			"ci": "01010161846",
 			"nombre": "Luciano",
 			"primer_apellido": "Castro",
 			"segundo_apellido": "González",
-			"facultad": "Ing_Informática"
+			"facultad": "Ing_Civil"
 		},
 		[
 			{

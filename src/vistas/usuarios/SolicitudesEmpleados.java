@@ -92,7 +92,7 @@ public class SolicitudesEmpleados extends JPanel {
 		panelBaja = new JPanel();
 		panelBaja.setBounds(509, 236, 407, 387);
 		panelPrincipal.add(panelBaja);
-		panelBaja.setBorder(new TitledBorder(null, "Solicitud de Baja", TitledBorder.LEFT, TitledBorder.TOP, null, null));
+		panelBaja.setBorder(new TitledBorder(null, "Solicitud de Baja", TitledBorder.LEFT, TitledBorder.TOP, new Font("Segoe UI",Font.PLAIN,24), null));
 		panelBaja.setLayout(null);
 		
 		cbMotivosBaja = new JComboBox<String>();
@@ -113,7 +113,7 @@ public class SolicitudesEmpleados extends JPanel {
 		panelBaja.add(btnSolicitarBaja);
 		
 		panelLicencia = new JPanel();
-		panelLicencia.setBorder(new TitledBorder(null, "Solicitud de Licencia", TitledBorder.LEFT, TitledBorder.TOP, null, null));
+		panelLicencia.setBorder(new TitledBorder(null, "Solicitud de Licencia", TitledBorder.LEFT, TitledBorder.TOP, new Font("Segoe UI",Font.PLAIN,24), null));
 		panelLicencia.setBounds(23, 236, 423, 387);
 		panelLicencia.setLayout(null);
 		panelPrincipal.add(panelLicencia);

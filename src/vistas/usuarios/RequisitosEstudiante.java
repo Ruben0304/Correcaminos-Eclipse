@@ -92,6 +92,15 @@ public class RequisitosEstudiante extends JPanel {
 			panel_RequisitosEstud.add(getLabel_8());
 			panel_RequisitosEstud.add(getLblAlmacenDeLibros());
 			panel_RequisitosEstud.add(getLabel_7());
+			if (Auth.usuarioAutenticado() instanceof Becado) {
+				panel_RequisitosEstud.add(getLabel_11());
+				panel_RequisitosEstud.add(getLblEntregadasPertenencias());
+				
+				panel_RequisitosEstud.add(getLblNewLabel_1());
+				if (requisitos.get(TiposResponsabilidad.PERTENENCIAS_BECA)) {
+					panel_RequisitosEstud.add(getLabelPertenencias());
+				}
+			}
 
 			if (requisitos.get(TiposResponsabilidad.LIBROS_BIBLIOTECA)) {
 				panel_RequisitosEstud.add(getLblVerRestantes());
@@ -99,16 +108,12 @@ public class RequisitosEstudiante extends JPanel {
 			if (requisitos.get(TiposResponsabilidad.LIBROS_DOCENTES)) {
 				panel_RequisitosEstud.add(getLabel());
 			}
+			
 
 			panel_RequisitosEstud.add(getLblEntregadoTodosLos_1());
 			panel_RequisitosEstud.add(getBtnSolicitarCancelacinDe());
 			
-			if (Auth.usuarioAutenticado() instanceof Becado) {
-				panel_RequisitosEstud.add(getLabel_11());
-				panel_RequisitosEstud.add(getLblEntregadasPertenencias());
-				panel_RequisitosEstud.add(getLabelPertenencias());
-				panel_RequisitosEstud.add(getLblNewLabel_1());
-			}
+		
 
 		}
 		return panel_RequisitosEstud;
@@ -196,7 +201,7 @@ public class RequisitosEstudiante extends JPanel {
 					Pricipal.class.getResource(
 							"/img/" + (requisitos.get(TiposResponsabilidad.ESTIPENDIO) ? "Canceel.png"
 									: "Checkmarkkk.png"))));
-			label_5.setBounds(52, 388, 20, 20);
+			label_5.setBounds(52, 374, 42, 49);
 		}
 		return label_5;
 	}

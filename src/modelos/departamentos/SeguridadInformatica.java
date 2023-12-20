@@ -78,7 +78,7 @@ public class SeguridadInformatica implements VerificadorEstudiante, VerificadorE
 
         for (int i = 0; i < listaCredenciales.size(); i++) {
             Credenciales cred = listaCredenciales.get(i);
-            Persona p = usuariosCujae.get(cred);
+            Persona p = temporales.get(cred);
             if (p.getCi().equals(c)) {
                 credencialParaEliminar = cred;
                 i = listaCredenciales.size();
@@ -86,8 +86,8 @@ public class SeguridadInformatica implements VerificadorEstudiante, VerificadorE
         }
 
         if (credencialParaEliminar != null) {
-            temporales.put(credencialParaEliminar, usuariosCujae.get(credencialParaEliminar));
-            usuariosCujae.remove(credencialParaEliminar);
+           
+            temporales.remove(credencialParaEliminar);
         }
     }
 

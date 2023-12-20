@@ -136,7 +136,7 @@ public class Sesiones extends JDialog {
 	}
 	public JRadioButton getRdbtnRecusosHumanos() {
 		if (rdbtnRecusosHumanos == null) {
-			rdbtnRecusosHumanos = new JRadioButton("Recusos Humanos");
+			rdbtnRecusosHumanos = new JRadioButton("Recursos Humanos");
 			rdbtnRecusosHumanos.setFont(new Font("Segoe UI Semibold", Font.BOLD, 13));
 			rdbtnRecusosHumanos.setBounds(35, 45, 197, 25);
 			rdbtnRecusosHumanos.addActionListener(new ActionListener() {
@@ -258,7 +258,7 @@ public class Sesiones extends JDialog {
 	public JSpinner getSpinner_1() {
 		if (spinner_1 == null) {
 			spinner_1 = new JSpinner();
-			spinner_1.setModel(new SpinnerNumberModel(1, 1, 11, 1));
+			spinner_1.setModel(new SpinnerNumberModel(1, 1, 16, 1));
 			spinner_1.setRequestFocusEnabled(false);
 			spinner_1.setBounds(136, 355, 65, 22);
 		}

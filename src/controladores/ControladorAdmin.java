@@ -210,6 +210,7 @@ public class ControladorAdmin {
 
             case Biblioteca:
                 gestDep.getBiblioteca().confirmarEntrega(carnet);
+                Notifications.getInstance().show(Notifications.Type.SUCCESS, "Entrega confirmada");
                 break;
             case Secretaria:
                 if (ControladorPrincipal.cantidadDeRequisitosEstudiante(carnet) == 0) {
@@ -224,29 +225,34 @@ public class ControladorAdmin {
 
             case AlmacenLibrosDocentes:
                 gestDep.getAlmacenDeLibros().confirmarEntrega(carnet);
+                Notifications.getInstance().show(Notifications.Type.SUCCESS, "Entrega confirmada");
                 break;
 
             case DireccionBecas:
                 gestDep.getDireccionDeBecas().confirmarEntrega(carnet);
+                Notifications.getInstance().show(Notifications.Type.SUCCESS, "Entrega confirmada");
                 ;
                 break;
             case Contabilidad:
                 gestDep.getContabilidad().saldarDeuda(carnet);
+                Notifications.getInstance().show(Notifications.Type.SUCCESS, "Entrega confirmada");
                 break;
             case Economia:
                 gestDep.getEconomia().cancelarPagoEstipendio(carnet);
+                Notifications.getInstance().show(Notifications.Type.SUCCESS, "Entrega confirmada");
                 break;
             case SeguridadInformatica:
                 gestDep.getSeguridadInformatica().cerrarCuenta(carnet);
+                Notifications.getInstance().show(Notifications.Type.SUCCESS, "Entrega confirmada");
                 break;
             case RecursosHumanos:
-                if (ControladorPrincipal.cantidadDeRequisitosEmpleado(carnet) == 1) {
-                    gestDep.getRecursosHumanos().confirmarEntrega(carnet);
-                    if (ControladorPrincipal.cantidadDeRequisitosEmpleado(carnet) == 0) {
-                        GestorEmpleados.gestorEmpleados().getGestorSolicitudesEmpleados().aceptarSolicitud(carnet);
-                        gestDep.getSeguridadInformatica().cerrarCuentaTemporal(carnet);
-                        Notifications.getInstance().show(Notifications.Type.SUCCESS, "Solicitud aceptada");
-                    }
+                if (ControladorPrincipal.cantidadDeRequisitosEmpleado(carnet) == 0
+                        ) {
+
+                    GestorEmpleados.gestorEmpleados().getGestorSolicitudesEmpleados().aceptarSolicitud(carnet);
+                    gestDep.getSeguridadInformatica().cerrarCuentaTemporal(carnet);
+                    Notifications.getInstance().show(Notifications.Type.SUCCESS, "Solicitud aceptada");
+
                 } else if (ControladorPrincipal.cantidadDeRequisitosEmpleado(carnet) == 0) {
                     GestorEmpleados.gestorEmpleados().getGestorSolicitudesEmpleados().aceptarSolicitud(carnet);
                     Notifications.getInstance().show(Notifications.Type.SUCCESS, "Solicitud aceptada");

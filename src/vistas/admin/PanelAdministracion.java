@@ -295,7 +295,7 @@ public class PanelAdministracion extends JPanel {
 
 	private JLabel getLblTituloCategorias() {
 		if (lblTituloCategorias == null) {
-			lblTituloCategorias = new JLabel("Categoria");
+			lblTituloCategorias = new JLabel("Categoría");
 			lblTituloCategorias.setForeground(Color.WHITE);
 			lblTituloCategorias.setFont(new Font("Segoe UI Semibold", Font.BOLD, 19));
 			lblTituloCategorias.setBounds(74, 11, 113, 52);

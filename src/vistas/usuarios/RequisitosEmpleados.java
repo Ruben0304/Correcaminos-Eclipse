@@ -183,7 +183,7 @@ public class RequisitosEmpleados extends JPanel {
 					Pricipal.class.getResource(
 							"/img/" + (requisitos.get(ResponsabilidadesTrabajador.DEUDA) ? "Canceel.png"
 									: "Checkmarkkk.png"))));
-			label_5.setBounds(52, 376, 20, 20);
+			label_5.setBounds(52, 361, 42, 54);
 		}
 		return label_5;
 	}

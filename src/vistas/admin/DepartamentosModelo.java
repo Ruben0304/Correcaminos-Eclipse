@@ -143,7 +143,7 @@ public class DepartamentosModelo extends JPanel {
 		btnConfirmarEntrega = new JButton("Confirmar entrega");
 		btnConfirmarEntrega.setBounds(673, 609, 210, 43);
 		btnConfirmarEntrega.setFont(new Font("Segoe UI", Font.PLAIN, 18));
-		btnConfirmarEntrega.setBackground(new Color(102, 153, 255));
+		btnConfirmarEntrega.setBackground(new Color(72, 189, 133));
 		btnConfirmarEntrega.setForeground(Color.WHITE);
 		btnConfirmarEntrega.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -159,6 +159,7 @@ public class DepartamentosModelo extends JPanel {
 					} else {
 
 						ControladorAdmin.confirmarEntrega(table.getValueAt(table.getSelectedRow(), 0).toString());
+						
 
 					}
 
@@ -227,7 +228,7 @@ public class DepartamentosModelo extends JPanel {
 			button.setVisible(false);
 
 		button.setFont(new Font("Segoe UI", Font.PLAIN, 18));
-		button.setBackground(new Color(102, 153, 255));
+		button.setBackground(new Color(221, 78, 94));
 		button.setBounds(416, 609, 219, 43);
 		panelContenedor.add(button);
 		panelContenedor.add(getBtnLeyenda());

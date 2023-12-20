@@ -80,7 +80,7 @@ public class SolicitudesEstudiantes extends JPanel {
 		panelBaja = new JPanel();
 		panelBaja.setBounds(509, 257, 407, 366);
 		panelPrincipal.add(panelBaja);
-		panelBaja.setBorder(new TitledBorder(null, "Solicitud de Baja", TitledBorder.LEFT, TitledBorder.TOP, null, null));
+		panelBaja.setBorder(new TitledBorder(null, "Solicitud de Baja", TitledBorder.LEFT, TitledBorder.TOP, new Font("Segoe UI",Font.PLAIN,24), null));
 		panelBaja.setLayout(null);
 		
 		JLabel label = new JLabel("Motivo :");
@@ -102,17 +102,18 @@ public class SolicitudesEstudiantes extends JPanel {
 				ControladorPrincipal.mostrarRequisitosBajaEstudiantes();
 			}
 		});
-		btnSolicitarBaja.setFont(new Font(FlatRobotoFont.FAMILY, Font.PLAIN, 13));
+		btnSolicitarBaja.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 18));
 		btnSolicitarBaja.setForeground(Color.WHITE);
-		btnSolicitarBaja.setBounds(10, 96, 150, 23);
+		btnSolicitarBaja.setBounds(102, 225, 228, 59);
 		btnSolicitarBaja.setBackground(new Color(72, 189, 133));
 		btnSolicitarBaja.setBounds(107, 225, 223, 54);
 		panelBaja.add(btnSolicitarBaja);
 		
 		panelLicencia = new JPanel();
-		panelLicencia.setBorder(new TitledBorder(null, "Solicitud de Licencia", TitledBorder.LEFT, TitledBorder.TOP, null, null));
+		panelLicencia.setBorder(new TitledBorder(null, "Solicitud de Licencia", TitledBorder.LEFT, TitledBorder.TOP, new Font("Segoe UI",Font.PLAIN,24), null));
 		panelLicencia.setBounds(23, 257, 423, 366);
 		panelLicencia.setLayout(null);
+		
 		panelPrincipal.add(panelLicencia);
 		
 		lblMotivosLicencia = new JLabel("Motivo :");
